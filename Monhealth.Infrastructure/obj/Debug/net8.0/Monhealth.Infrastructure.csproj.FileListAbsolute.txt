@@ -1,0 +1,17 @@
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\bin\Debug\net8.0\Monhealth.Infrastructure.deps.json
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\bin\Debug\net8.0\Monhealth.Infrastructure.dll
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\bin\Debug\net8.0\Monhealth.Infrastructure.pdb
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\bin\Debug\net8.0\Monhealth.Application.dll
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\bin\Debug\net8.0\Monhealth.Domain.dll
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\bin\Debug\net8.0\Monhealth.Application.pdb
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\bin\Debug\net8.0\Monhealth.Domain.pdb
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\Monhealth.Infrastructure.csproj.AssemblyReference.cache
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\Monhealth.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\Monhealth.Infrastructure.AssemblyInfoInputs.cache
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\Monhealth.Infrastructure.AssemblyInfo.cs
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\Monhealth.Infrastructure.csproj.CoreCompileInputs.cache
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\Monhealt.E56DA1D6.Up2Date
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\Monhealth.Infrastructure.dll
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\refint\Monhealth.Infrastructure.dll
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\Monhealth.Infrastructure.pdb
+F:\GitSource\Monhealth-Healthcare-App\Monhealth.Infrastructure\obj\Debug\net8.0\ref\Monhealth.Infrastructure.dll
