@@ -1,0 +1,11 @@
+﻿.vs
+Monhealth.Api/bin
+Monhealth.Api/obj
+Monhealth.Application/bin
+Monhealth.Application/obj
+Monhealth.Core/bin
+Monhealth.Core/obj
+Monhealth.Identity/bin
+Monhealth.Identity/obj
+Monhealth.Infrastructure/bin
+Monhealth.Infrastructure/obj
