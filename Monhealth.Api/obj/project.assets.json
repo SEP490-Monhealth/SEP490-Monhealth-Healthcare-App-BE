@@ -5625,19 +5625,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\quocd\\.nuget\\packages\\": {}
+    "C:\\Users\\saoph\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GitSource\\Monhealth-Healthcare-App\\Monhealth.Api\\Monhealth.Api.csproj",
+      "projectUniqueName": "D:\\ky_9\\Monhealth-Healthcare-App-BE\\Monhealth.Api\\Monhealth.Api.csproj",
       "projectName": "Monhealth.Api",
-      "projectPath": "F:\\GitSource\\Monhealth-Healthcare-App\\Monhealth.Api\\Monhealth.Api.csproj",
-      "packagesPath": "C:\\Users\\quocd\\.nuget\\packages\\",
-      "outputPath": "F:\\GitSource\\Monhealth-Healthcare-App\\Monhealth.Api\\obj\\",
+      "projectPath": "D:\\ky_9\\Monhealth-Healthcare-App-BE\\Monhealth.Api\\Monhealth.Api.csproj",
+      "packagesPath": "C:\\Users\\saoph\\.nuget\\packages\\",
+      "outputPath": "D:\\ky_9\\Monhealth-Healthcare-App-BE\\Monhealth.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\quocd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\saoph\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5652,14 +5652,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\GitSource\\Monhealth-Healthcare-App\\Monhealth.Application\\Monhealth.Application.csproj": {
-              "projectPath": "F:\\GitSource\\Monhealth-Healthcare-App\\Monhealth.Application\\Monhealth.Application.csproj"
+            "D:\\ky_9\\Monhealth-Healthcare-App-BE\\Monhealth.Application\\Monhealth.Application.csproj": {
+              "projectPath": "D:\\ky_9\\Monhealth-Healthcare-App-BE\\Monhealth.Application\\Monhealth.Application.csproj"
             },
-            "F:\\GitSource\\Monhealth-Healthcare-App\\Monhealth.Identity\\Monhealth.Identity.csproj": {
-              "projectPath": "F:\\GitSource\\Monhealth-Healthcare-App\\Monhealth.Identity\\Monhealth.Identity.csproj"
+            "D:\\ky_9\\Monhealth-Healthcare-App-BE\\Monhealth.Identity\\Monhealth.Identity.csproj": {
+              "projectPath": "D:\\ky_9\\Monhealth-Healthcare-App-BE\\Monhealth.Identity\\Monhealth.Identity.csproj"
             },
-            "F:\\GitSource\\Monhealth-Healthcare-App\\Monhealth.Infrastructure\\Monhealth.Infrastructure.csproj": {
-              "projectPath": "F:\\GitSource\\Monhealth-Healthcare-App\\Monhealth.Infrastructure\\Monhealth.Infrastructure.csproj"
+            "D:\\ky_9\\Monhealth-Healthcare-App-BE\\Monhealth.Infrastructure\\Monhealth.Infrastructure.csproj": {
+              "projectPath": "D:\\ky_9\\Monhealth-Healthcare-App-BE\\Monhealth.Infrastructure\\Monhealth.Infrastructure.csproj"
             }
           }
         }
@@ -5709,7 +5709,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

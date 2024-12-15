@@ -21,7 +21,7 @@ namespace Monhealth.Identity
 
             services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
             services.AddScoped<IMetricRepository, MetricRepository>();
-
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             return services;
         }
 
