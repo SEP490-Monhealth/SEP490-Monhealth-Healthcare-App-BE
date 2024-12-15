@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Identity;
+using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Application.Models.Identity;
+using Monhealth.Application.Models.SeedWorks;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
 using System.IdentityModel.Tokens.Jwt;
@@ -18,32 +20,33 @@ namespace Monhealth.Identity.Services
         private readonly RoleManager<AppRole> _roleManager;
         private readonly ITokenService _tokenService;
         private readonly MonhealthDbcontext _context;
-        public AuthService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, ITokenService tokenService, MonhealthDbcontext context)
+        private readonly IUserRepository _userRepository;
+        public AuthService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, ITokenService tokenService, MonhealthDbcontext context, IUserRepository userRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _tokenService = tokenService;
             _context = context;
+            _userRepository = userRepository;
         }
         public async Task<AuthResponse> Login(AuthenRequest request)
         {
             AppUser user = null;
 
 
-            if (IsEmail(request.Email))
-            {
-                user = await _userManager.FindByEmailAsync(request.Email);
+            //if (IsEmail(request.Email))
+            //{
+            //    user = await _userManager.FindByEmailAsync(request.Email);
 
-            }
-            else
+            //}
+
+            user = await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == request.PhoneNumber);
+            if (user == null)
             {
-                user = await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == request.Email);
-                if (user == null)
-                {
-                    throw new BadRequestException("Incorrect phone number.");
-                }
+                throw new BadRequestException("Incorrect phone number.");
             }
+
 
             if (user == null || !user.Status || user.LockoutEnabled)
             {
@@ -82,6 +85,41 @@ namespace Monhealth.Identity.Services
                 ExpiredAt = user.RefreshTokenExpiryTime
             }; ;
         }
+
+        public async Task Register(RegistrationRequest request)
+        {
+            var checkUser = await _userRepository.GetByPhoneNumberAsync(request.PhoneNumber);
+            if (checkUser != null)
+            {
+                throw new BadRequestException("Phone number already in use.");
+            }
+            var user = new AppUser
+            {
+                FullName = request.FullName,
+                UserName = request.Email.ToLower(),
+                Email = request.Email,
+                Status = true,
+                PhoneNumber = request.PhoneNumber,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                LockoutEnabled = false,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
+
+            // Step 4: Register the user
+            var result = await _userManager.CreateAsync(user, request.Password);
+            if (result.Succeeded)
+            {
+                // Step 6: Assign a role to the user
+                await _userManager.AddToRoleAsync(user, Roles.Customer);
+
+                return;
+            }
+            // If the registration fails, return the errors
+            var errors = result.Errors.Select(e => e.Description).ToList();
+            throw new Exception(string.Join(", ", errors));
+        }
+
         private bool IsEmail(string input)
         {
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";

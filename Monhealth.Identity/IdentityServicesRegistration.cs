@@ -52,6 +52,7 @@ namespace Monhealth.Identity
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IUserRepository, UserRepository>();
             return services;
         }
 

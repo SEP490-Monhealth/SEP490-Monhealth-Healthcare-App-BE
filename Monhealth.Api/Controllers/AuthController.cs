@@ -7,7 +7,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -28,6 +28,20 @@ namespace Monhealth.Api.Controllers
             {
                 Data = result,
                 Message = "Login successfully",
+                Status = (int)HttpStatusCode.OK,
+                Success = true
+            };
+        }
+
+        [HttpPost]
+        [Route("register")]
+        [AllowAnonymous]
+        public async Task<ActionResult<ResultModel>> Register([FromBody] RegistrationRequest request)
+        {
+            await _authService.Register(request);
+            return new ResultModel
+            {
+                Message = "Register successfully",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
             };
