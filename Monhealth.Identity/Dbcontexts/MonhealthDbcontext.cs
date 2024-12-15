@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Domain;
+using Monhealth.Identity.Configurations;
 using Monhealth.Identity.Models;
 
 namespace Monhealth.Identity.Dbcontexts
@@ -33,26 +35,15 @@ namespace Monhealth.Identity.Dbcontexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfigurationsFromAssembly(typeof(MonhealthDbcontext).Assembly);
-            CheckEntitiesForPrimaryKeys(builder);
-        }
-        private void CheckEntitiesForPrimaryKeys(ModelBuilder builder)
-        {
-            // Loop through all entity types and check if they have a primary key
-            var entitiesWithoutKeys = builder.Model.GetEntityTypes()
-                .Where(entityType => !entityType.FindPrimaryKey()?.Properties.Any() ?? true)
-                .ToList();
+            // builder.ApplyConfigurationsFromAssembly(typeof(MonhealthDbcontext).Assembly);
+            builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
+         .HasKey(x => new { x.RoleId, x.UserId });
 
-            // If there are entities without primary keys, log or throw an exception
-            if (entitiesWithoutKeys.Any())
-            {
-                foreach (var entityType in entitiesWithoutKeys)
-                {
-                    Console.WriteLine($"Entity '{entityType.Name}' does not have a primary key.");
-                    // You can throw an exception or log this as necessary
-                    // throw new InvalidOperationException($"Entity '{entityType.Name}' does not have a primary key.");
-                }
-            }
+
+            builder.ApplyConfiguration(new RoleConfiguration());
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new UserRoleConfiguration());
         }
+
     }
 }

@@ -12,8 +12,8 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20241213073522_InitialDb")]
-    partial class InitialDb
+    [Migration("20241215150757_InitialAndSeedData")]
+    partial class InitialAndSeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,17 +96,49 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("UserId", "RoleId");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasIndex("RoleId");
+                    b.HasKey("RoleId", "UserId");
 
-                    b.ToTable("AspNetUserRoles", (string)null);
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AppUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            UserId = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87")
+                        },
+                        new
+                        {
+                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
+                        },
+                        new
+                        {
+                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            UserId = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2")
+                        },
+                        new
+                        {
+                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            UserId = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e")
+                        },
+                        new
+                        {
+                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            UserId = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d")
+                        },
+                        new
+                        {
+                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            UserId = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b")
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -856,6 +888,22 @@ namespace Monhealth.Identity.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            DisplayName = "Khách Hàng",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = new Guid("c0278115-8549-4fad-890a-44f8e8fcc022"),
+                            DisplayName = "Quản Lí",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
+                        });
                 });
 
             modelBuilder.Entity("Monhealth.Identity.Models.AppUser", b =>
@@ -968,6 +1016,134 @@ namespace Monhealth.Identity.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e044196a-4c33-4443-91b7-234e418b10f7",
+                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "quocdai@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Nguyen Quoc Dai",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "QUOCDAI@GMAIL.COM",
+                            NormalizedUserName = "DAINQ115",
+                            PasswordHash = "AQAAAAIAAYagAAAAEK+dGaiDkmVmkqWUkzyARUQhvGi1wxm3808PtRirXP2JP9C+tRveTM+cMcISSwMnPw==",
+                            PhoneNumber = "0932748924",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "7623b08d-5f4b-4b13-acd0-2fda471ca5de",
+                            Status = true,
+                            TwoFactorEnabled = false,
+                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "dainq115"
+                        },
+                        new
+                        {
+                            Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "51128d4c-6af3-49fb-822a-17a7ae95fd1c",
+                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "toanvan@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Van Huu Toan",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TOANVAN@GMAIL.COM",
+                            NormalizedUserName = "VIPRO123",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPLuJ/aMHh05i/lDEpXHCk71PbwdtSJsRmrjt47Hnyc9jfcIc0ICJeY79uagTHqcwg==",
+                            PhoneNumber = "0999998888",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "a7f5a547-799f-4fad-9c60-5998eee8e5bb",
+                            Status = true,
+                            TwoFactorEnabled = false,
+                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "vipro123"
+                        },
+                        new
+                        {
+                            Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "27898436-0fd8-4a24-ac9a-680082796f18",
+                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "khanhpham@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Nguyen Pham Khanh",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "KHANHPHAM@GMAIL.COM",
+                            NormalizedUserName = "KUEM113",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC1yzqTtWPLF/KSZmp6PBAcacyRFOn4UBW/6yqkhJN0cjaE1k2NyUL3FeHvYnG8NsQ==",
+                            PhoneNumber = "0969998878",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "ddd0eaed-ae5b-4f73-9e50-8aa3cc0cf8fd",
+                            Status = true,
+                            TwoFactorEnabled = false,
+                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "kuem113"
+                        },
+                        new
+                        {
+                            Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "18c4a56d-e35a-488d-b5c4-fb9191e975ab",
+                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "khaitoi@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Phan Van Khai",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "KHAITOI@GMAIL.COM",
+                            NormalizedUserName = "XAUTRAI123",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBrLTqcTo+qDR2uVXsC7RqL+boljw98bl4/7GBDvz7vpOKkQHK2mxC3vu/tTKDngyQ==",
+                            PhoneNumber = "0777444499",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "14fb0199-54d3-4685-89de-8eaf33f14c1f",
+                            Status = true,
+                            TwoFactorEnabled = false,
+                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "xautrai123"
+                        },
+                        new
+                        {
+                            Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "bbc98323-032a-4095-aab0-23e86119fba2",
+                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "quangdalat@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Quang La Tui",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "QUANGDALAT@GMAIL.COM",
+                            NormalizedUserName = "QUANGSPA009",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKhbXUGR3Gp59EdEjfEKUSP+CPs5a/qE2K7jiPZyBEm54B7LQcyA4EKqoCAGEsu+VA==",
+                            PhoneNumber = "0999777712",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "8c0ed4aa-d441-4f3f-85df-2f778e7d28c3",
+                            Status = true,
+                            TwoFactorEnabled = false,
+                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "quangspa09"
+                        },
+                        new
+                        {
+                            Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "df79814e-df66-4cc0-9d8d-b593ffbd73f4",
+                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "duythunglungtinhiu@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Pham Hoai Duy",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "DUYTHUNGLUNGTINHIU",
+                            NormalizedUserName = "DUYPRO113",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ3U44izU3r6O60tyUHPdeKuFFbIcTgSwn4jqeQT2BCzon4aI+u2hIrbx5AOvQx+6A==",
+                            PhoneNumber = "0555666612",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "13e9bbf8-47e1-4835-b52b-87331de199df",
+                            Status = true,
+                            TwoFactorEnabled = false,
+                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "duypro113"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
