@@ -2,11 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Identity;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
 using Monhealth.Identity.Repositories;
+using Monhealth.Identity.Services;
 
 namespace Monhealth.Identity
 {
@@ -45,6 +47,11 @@ namespace Monhealth.Identity
 
             services.Configure<JwtTokenSettings>(configuration.GetSection(nameof(JwtTokenSettings)));
 
+            services.AddScoped<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddScoped<IAuthService, AuthService>();
             return services;
         }
 

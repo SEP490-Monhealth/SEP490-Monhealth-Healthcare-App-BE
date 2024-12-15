@@ -1,3 +1,4 @@
+using Monhealth.Api.GlobalException;
 using Monhealth.Application;
 using Monhealth.Identity;
 using Monhealth.Infrastructure;
@@ -9,6 +10,7 @@ var configuration = builder.Configuration;
 builder.Services.AddApplicationServices();
 builder.Services.AddIdentityServices(configuration);
 builder.Services.AddInfrastructureServices(configuration);
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 
 
