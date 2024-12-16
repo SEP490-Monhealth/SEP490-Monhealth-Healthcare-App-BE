@@ -61,5 +61,16 @@ namespace Monhealth.Api.Controllers
                 Data = user,
             };
         }
+
+        [HttpPost("logout")]
+        public async Task<ActionResult<ResultModel>> Logout()
+        {
+            await _authService.LogoutAsync();
+            return new ResultModel
+            {
+                Success = true,
+                Message = "Logged out successfully."
+            };
+        }
     }
 }

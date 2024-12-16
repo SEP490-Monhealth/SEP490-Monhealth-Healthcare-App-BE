@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -29,6 +25,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
             }
             category.CategoryName = request.CategoryName;
             category.Description = request.Description;
+            category.UpdatedAt = DateTime.UtcNow;
             _categoryRepository.Update(category);
             await _categoryRepository.SaveChangeAsync();
             return true;

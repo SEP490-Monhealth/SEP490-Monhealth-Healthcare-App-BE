@@ -109,6 +109,11 @@ namespace Monhealth.Identity.Services
             }; ;
         }
 
+        public async Task LogoutAsync()
+        {
+            await _signInManager.SignOutAsync();
+        }
+
         public async Task Register(RegistrationRequest request)
         {
             var checkUser = await _userRepository.GetByPhoneNumberAsync(request.PhoneNumber);
