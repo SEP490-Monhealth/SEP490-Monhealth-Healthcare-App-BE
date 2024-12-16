@@ -2,9 +2,10 @@
 {
     public class BaseEntity
     {
-        public DateTime? DateCreated { get; set; }
-        public string? CreatedBy { get; set; }
-        public DateTime? DateModified { get; set; }
-        public string? ModifiedBy { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public Guid? CreatedBy { get; set; }
+        public Guid? UpdatedBy { get; set; }
+
     }
 }

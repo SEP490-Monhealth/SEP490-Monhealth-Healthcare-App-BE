@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Category.AddCategory
 {
@@ -33,8 +28,8 @@ namespace Monhealth.Application.Features.Category.AddCategory
             {
                 CategoryName = request.CategoryName,
                 Description = request.Description,
-                DateCreated = DateTime.Now,
-                DateModified = DateTime.Now
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
 
             _categoryRepository.Add(model);
