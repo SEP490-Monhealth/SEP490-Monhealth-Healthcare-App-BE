@@ -30,6 +30,27 @@ namespace Monhealth.Identity.Services
             _context = context;
             _userRepository = userRepository;
         }
+
+        public async Task<MeResponse> GetInfomationCurrentUser(string phoneNumber)
+        {
+            if (string.IsNullOrEmpty(phoneNumber)) throw new BadRequestException("Invalid PhoneNumer");
+            var user = await _userRepository.GetByPhoneNumberAsync(phoneNumber);
+            if (user == null) throw new NotFoundException("User not found.");
+
+            var roles = await _userManager.GetRolesAsync(user);
+            return new MeResponse
+            {
+                UserId = user.Id,
+                Email = user.Email,
+                Username = user.UserName,
+                Avatar = user.Avatar ?? string.Empty,  // Kiểm tra null cho Avatar
+                FullName = user.FullName ?? string.Empty,  // Kiểm tra null cho FullName
+                Role = roles.FirstOrDefault() ?? "No Role",  // Đảm bảo role không bị null
+                PhoneNumber = user.PhoneNumber ?? string.Empty  // Kiểm tra null cho PhoneNumber
+            };
+
+        }
+
         public async Task<AuthResponse> Login(AuthenRequest request)
         {
             AppUser user = null;
@@ -66,6 +87,8 @@ namespace Monhealth.Identity.Services
             {
                  new Claim(JwtRegisteredClaimNames.Email, user.Email),
                  new Claim(ClaimTypes.NameIdentifier, user.UserName),
+                 new Claim(ClaimTypes.MobilePhone, user.PhoneNumber),
+
                  new Claim(ClaimTypes.Name, user.UserName),
                  new Claim(UserClaims.UserId, user.Id.ToString()),
                  new Claim(UserClaims.FullName, user.FullName),

@@ -32,6 +32,7 @@ namespace Monhealth.Identity.Dbcontexts
                     UserName = "asd",
                     NormalizedUserName = "ASD",
                     Address = "Cu Chi",
+                    PhoneNumber = "0123456789",
                     Status = true,
                     SecurityStamp = Guid.NewGuid().ToString(),
                     LockoutEnabled = false,

@@ -4,6 +4,7 @@ using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Models;
 using Monhealth.Application.Models.Identity;
 using System.Net;
+using System.Security.Claims;
 
 namespace Monhealth.Api.Controllers
 {
@@ -44,6 +45,20 @@ namespace Monhealth.Api.Controllers
                 Message = "Register successfully",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
+            };
+        }
+
+        [HttpGet]
+        [Route("me")]
+        [Authorize]
+        public async Task<ActionResult<ResultModel>> GetInformationOfUser()
+        {
+            var phoneNumber = User.FindFirst(ClaimTypes.MobilePhone)?.Value;
+            var user = await _authService.GetInfomationCurrentUser(phoneNumber);
+            return new ResultModel
+            {
+                Success = true,
+                Data = user,
             };
         }
     }
