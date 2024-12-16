@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monhealth.Identity.Dbcontexts;
 
@@ -11,9 +12,11 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    partial class MonhealthDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20241216135343_SeedDataCategory")]
+    partial class SeedDataCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,97 +195,73 @@ namespace Monhealth.Identity.Migrations
                         {
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CategoryDescription = "Các bữa ăn nhanh, tiện lợi, thường được phục vụ trong môi trường nhịp độ nhanh.",
-                            CategoryName = "Fast food",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Fast food"
                         },
                         new
                         {
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CategoryDescription = "Thức ăn nhiều carbohydrate (carb) thường là những thực phẩm chứa hàm lượng tinh bột hoặc đường cao.",
-                            CategoryName = "Nhiều carbs",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Nhiều carbs"
                         },
                         new
                         {
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CategoryDescription = "Các món ăn đậm đà, cay nóng, thường được tăng cường với ớt và gia vị.",
-                            CategoryName = "Nhiều gia vị",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Nhiều gia vị"
                         },
                         new
                         {
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CategoryDescription = "Các bữa ăn không có thịt hoặc cá, tập trung vào rau củ và ngũ cốc.",
-                            CategoryName = "Đồ ăn chay",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Đồ ăn chay"
                         },
                         new
                         {
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CategoryDescription = "Cá tươi, động vật có vỏ, và các sinh vật biển khác, mang lại hương vị đậm đà của đại dương.",
-                            CategoryName = "Hải sản",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Hải sản"
                         },
                         new
                         {
                             CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
                             CategoryDescription = "Thực phẩm giàu protein, bao gồm thịt, đậu, trứng, và các loại hạt, cần thiết cho việc xây dựng và sửa chữa cơ bắp.",
-                            CategoryName = "Giàu protein",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Giàu protein"
                         },
                         new
                         {
                             CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CategoryDescription = "Thực phẩm có hàm lượng năng lượng (calo) thấp, thường được thiết kế để hỗ trợ kiểm soát cân nặng hoặc duy trì sức khỏe.",
-                            CategoryName = "Ít calo",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Ít calo"
                         },
                         new
                         {
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CategoryDescription = "Thực phẩm giàu chất xơ, giúp thúc đẩy sức khỏe tiêu hóa, chẳng hạn như trái cây, rau và ngũ cốc nguyên hạt.",
-                            CategoryName = "Giàu chất xơ",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Giàu chất xơ"
                         },
                         new
                         {
                             CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CategoryDescription = "Món tráng miệng hoặc đồ ăn giàu đường, mang lại hương vị ngọt ngào, thỏa mãn.",
-                            CategoryName = "Đồ ngọt",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Đồ ngọt"
                         },
                         new
                         {
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CategoryDescription = "Thực phẩm đã qua quá trình lên men, mang lại hương vị độc đáo và chứa probiotics, như kim chi hoặc sữa chua.",
-                            CategoryName = "Lên men",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Lên men"
                         },
                         new
                         {
                             CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
                             CategoryDescription = "Thực phẩm được trồng mà không sử dụng thuốc trừ sâu tổng hợp hoặc phân bón, tập trung vào tính bền vững và sức khỏe.",
-                            CategoryName = "Hữu cơ",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Hữu cơ"
                         },
                         new
                         {
                             CategoryId = new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
                             CategoryDescription = "Thực phẩm đã qua xử lý để thay đổi trạng thái tự nhiên của chúng thông qua các phương pháp như đóng hộp, đông lạnh hoặc thêm chất bảo quản.",
-                            CategoryName = "Chế biến sẵn",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CategoryName = "Chế biến sẵn"
                         });
                 });
 
@@ -1117,7 +1096,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e8f85f6c-fb00-4b75-b9ac-a13e92df7626",
+                            ConcurrencyStamp = "b9c3e9ad-2e2d-4c84-bf71-67c3a4c084a4",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -1125,10 +1104,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKNs5QKGue7KZ0bRN57FnJR8JNwYs/LUXXrf7oyegAscFyGxlw2yD6ykc+wNbUsJcQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEClHXYvB/5om8XCkbLlSXYg257fHbQZP5AADyMp19Dpnd4W6MVrp0W8gf8n8VFHw9Q==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "23c65f41-2713-485a-9574-4d29cde4758a",
+                            SecurityStamp = "6022713b-e3b9-4e8f-8e55-63e0a6cf07dd",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1138,7 +1117,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "63454daa-a14d-43dd-a922-7744cf01c5ac",
+                            ConcurrencyStamp = "71bf4106-2c74-48c8-a1d9-8785ff94fb7e",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -1146,10 +1125,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB8hVHin+o+kY0IbbiIZQjilOIE2nqgorjqnMN6b3r8m2o4xdzQpFTG2szhi4oSdiQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEk0FezarKz4Bm8eSf/1xe0XyX4M/vi50fVFVitJ9er6NMIp/+b3zcIkJ7lr+nL1DA==",
                             PhoneNumber = "0999998888",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d7df109c-8834-478f-ba5c-cd51cc207d2b",
+                            SecurityStamp = "146ce906-d713-47f7-bdae-ef669f5b907a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1159,7 +1138,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b58bae6c-4ec6-44f5-bff7-0d1573bce748",
+                            ConcurrencyStamp = "1db7e1cd-9993-475e-acc0-2357ee4edc38",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -1167,10 +1146,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJqAKXjl8uHxRH5Y6RKuuxe9BQ3xNMu/7HgYlvKahTEUfWS5OuEsST8a42xic/HYSQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF9ZL662+eWQOpAf/zPJULl7Si0Wcp3W/RuhF3YGgFKA94I2KrzlAAbsJi3sRXe74w==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7a1a5b70-fb91-4584-8f00-dfe921a17e43",
+                            SecurityStamp = "eb7e68bf-0b0f-4fb1-be12-00ba5f555c28",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1180,7 +1159,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "896f4580-e95c-4a8a-a4e1-721217af02db",
+                            ConcurrencyStamp = "f9ecaa7c-6f36-4d93-8a92-b9d15a851787",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -1188,10 +1167,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAENmAbs7r0f2PYSIwxBvQmImH4lhpsNqcl1JgI9pf2fRlZn0S2HVAtDcNwNfJuQKmwQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDPp8YXge3/9Feo3KkQfQTxT6G96yskk3DzQGS6ntzM1YcXTrSTp2CroXmVhdmLOdQ==",
                             PhoneNumber = "0777444499",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3c3cceab-626f-4ffc-986b-78f00746ee6f",
+                            SecurityStamp = "9d898896-7806-4a06-8768-1887329ff79a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1201,7 +1180,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "31774cfc-fba2-4104-a879-f28eb295ac69",
+                            ConcurrencyStamp = "bbb5d38b-a4c0-4693-b53d-0329fd8a947f",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -1209,10 +1188,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDSE3+Dg1jTjBywSnDa8AmsQZclkAQGk26IpSvtpen7DiuQchKFh5Yk0vCKIF8ECRA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMOmw3oYB/PrlDtfvdXHmtusiIleSCd9qM84yn2RcOLnQmvLApq6zmXpzEp9y44IzQ==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9dcc338b-6554-4763-ade8-fee62af6aceb",
+                            SecurityStamp = "d595c69e-2127-47e4-82a6-4fa538e64b1f",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1222,7 +1201,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "13219a38-4bdc-4382-9d67-c0e19864f5cb",
+                            ConcurrencyStamp = "bd516d16-e2fe-48af-bbd0-71fb738e82e3",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -1230,10 +1209,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAX6UqATkBwnjZ7jQrmzVUcmbME/wfSYvNtwIVYJ4koqM27q+VgAKc7aKfpb8CFE4g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKNCTZguTPi6Cx12h4rYg1w/6kgiJvMYP+atkIsg/tw9I2k73pvv33Rpj37+M+V9aQ==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "20b6ed39-c27d-4d84-bde9-0dd9ea38f0a9",
+                            SecurityStamp = "96f36996-8b92-4dca-9b9b-5fd221c282ea",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
