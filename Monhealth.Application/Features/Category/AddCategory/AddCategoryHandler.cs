@@ -21,7 +21,14 @@ namespace Monhealth.Application.Features.Category.AddCategory
 
         public async Task<CategoryRequest> Handle(AddCategoryQuery request, CancellationToken cancellationToken)
         {
-            
+            var isCategoryExist = await _categoryRepository
+          .AnyAsync(c => c.CategoryName == request.CategoryName);
+
+            if (isCategoryExist)
+            {
+                // Trả về lỗi không hợp lệ
+                throw new InvalidOperationException("CategoryName already exists.");
+            }
             var model = new Monhealth.Domain.Category
             {
                 CategoryName = request.CategoryName,

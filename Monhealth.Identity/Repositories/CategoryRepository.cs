@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
@@ -13,6 +14,11 @@ namespace Monhealth.Identity.Repositories
     {
         public CategoryRepository(MonhealthDbcontext context) : base(context)
         {
+        }
+
+        public async Task<bool> AnyAsync(Expression<Func<Category, bool>> predicate)
+        {
+            return await _context.Set<Category>().AnyAsync(predicate);
         }
 
         public async Task<List<Category>> GetAllCategoryAsync()
