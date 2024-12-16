@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Identity;
@@ -9,6 +11,7 @@ using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
 using Monhealth.Identity.Repositories;
 using Monhealth.Identity.Services;
+using System.Text;
 
 namespace Monhealth.Identity
 {
@@ -53,6 +56,29 @@ namespace Monhealth.Identity
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            // Add Authentication
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+           .AddJwtBearer(cfg =>
+           {
+               cfg.RequireHttpsMetadata = true;
+               cfg.SaveToken = true;
+               cfg.TokenValidationParameters = new TokenValidationParameters
+               {
+                   ValidateLifetime = true,
+                   ClockSkew = TimeSpan.FromSeconds(0),
+                   ValidIssuer = configuration["JwtTokenSettings:Issuer"],
+                   ValidAudience = configuration["JwtTokenSettings:Issuer"],
+                   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtTokenSettings:Key"]))
+               };
+           });
+
+
+
+            // Other service configurations...
             return services;
         }
 
