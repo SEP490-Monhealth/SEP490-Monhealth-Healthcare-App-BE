@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Metric\Commands\" />
+    <Folder Include="Features\User\Commands\" />
   </ItemGroup>
 
 </Project>
