@@ -79,6 +79,7 @@ namespace Monhealth.Identity
 
 
             // Other service configurations...
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             return services;
         }
 
