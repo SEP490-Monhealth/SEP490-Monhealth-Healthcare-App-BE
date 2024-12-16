@@ -34,11 +34,12 @@ namespace Monhealth.Identity.Dbcontexts
                     Address = "Cu Chi",
                     PhoneNumber = "0123456789",
                     Status = true,
-                    SecurityStamp = Guid.NewGuid().ToString(),
                     LockoutEnabled = false,
-                    CreatedAt = DateTime.Parse("2024-7-27"),
-                    UpdatedAt = DateTime.Parse("2024-7-27"),
                     EmailConfirmed = true,
+                    SecurityStamp = Guid.NewGuid().ToString(),
+
+                    CreatedAt = DateTime.Parse("2024-1-6"),
+                    UpdatedAt = DateTime.Parse("2024-1-6"),
                 };
                 user.PasswordHash = passwordHasher.HashPassword(user, "123As@");
                 await context.Users.AddAsync(user);

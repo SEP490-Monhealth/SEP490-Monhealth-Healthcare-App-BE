@@ -26,8 +26,9 @@ namespace Monhealth.Identity.Configurations
                     EmailConfirmed = true,
                     PasswordHash = hasher.HashPassword(null, "User@123"),
                     SecurityStamp = Guid.NewGuid().ToString(),
-                    UpdatedAt = DateTime.Parse("2024-8-27"),
-                    CreatedAt = DateTime.Parse("2024-8-27"),
+
+                    UpdatedAt = DateTime.Parse("2024-1-6"),
+                    CreatedAt = DateTime.Parse("2024-1-6"),
                 },
                  new AppUser
                  {
@@ -44,8 +45,8 @@ namespace Monhealth.Identity.Configurations
                      PasswordHash = hasher.HashPassword(null, "User@123"),
                      SecurityStamp = Guid.NewGuid().ToString(),
 
-                     UpdatedAt = DateTime.Parse("2024-8-27"),
-                     CreatedAt = DateTime.Parse("2024-8-27"),
+                     UpdatedAt = DateTime.Parse("2024-1-6"),
+                     CreatedAt = DateTime.Parse("2024-1-6"),
                  },
                   new AppUser
                   {
@@ -62,8 +63,8 @@ namespace Monhealth.Identity.Configurations
                       PasswordHash = hasher.HashPassword(null, "User@123"),
                       SecurityStamp = Guid.NewGuid().ToString(),
 
-                      UpdatedAt = DateTime.Parse("2024-8-27"),
-                      CreatedAt = DateTime.Parse("2024-8-27"),
+                      UpdatedAt = DateTime.Parse("2024-1-6"),
+                      CreatedAt = DateTime.Parse("2024-1-6"),
                   },
                    new AppUser
                    {
@@ -76,12 +77,12 @@ namespace Monhealth.Identity.Configurations
                        NormalizedUserName = "XAUTRAI123",
                        PhoneNumber = "0777444499",
                        LockoutEnabled = false,
+                       EmailConfirmed = true,
                        PasswordHash = hasher.HashPassword(null, "User@123"),
                        SecurityStamp = Guid.NewGuid().ToString(),
 
-                       EmailConfirmed = true,
-                       UpdatedAt = DateTime.Parse("2024-8-27"),
-                       CreatedAt = DateTime.Parse("2024-8-27"),
+                       UpdatedAt = DateTime.Parse("2024-1-6"),
+                       CreatedAt = DateTime.Parse("2024-1-6"),
                    },
                     new AppUser
                     {
@@ -94,12 +95,12 @@ namespace Monhealth.Identity.Configurations
                         NormalizedUserName = "QUANGSPA009",
                         PhoneNumber = "0999777712",
                         LockoutEnabled = false,
+                        EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "User@123"),
                         SecurityStamp = Guid.NewGuid().ToString(),
 
-                        EmailConfirmed = true,
-                        UpdatedAt = DateTime.Parse("2024-8-27"),
-                        CreatedAt = DateTime.Parse("2024-8-27"),
+                        UpdatedAt = DateTime.Parse("2024-1-6"),
+                        CreatedAt = DateTime.Parse("2024-1-6"),
                     },
                     new AppUser
                     {
@@ -116,8 +117,8 @@ namespace Monhealth.Identity.Configurations
                         PasswordHash = hasher.HashPassword(null, "User@123"),
                         SecurityStamp = Guid.NewGuid().ToString(),
 
-                        UpdatedAt = DateTime.Parse("2024-8-27"),
-                        CreatedAt = DateTime.Parse("2024-8-27"),
+                        UpdatedAt = DateTime.Parse("2024-1-6"),
+                        CreatedAt = DateTime.Parse("2024-1-6"),
                     }
                 ); ;
         }
