@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.AddCategory;
 using Monhealth.Application.Features.Category.DeleteCategory;
 using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
+using Monhealth.Application.Features.Category.UpdateCategory;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Models;
 
@@ -105,6 +106,26 @@ namespace Monhealth.Api.Controllers
                 Message = "Category deleted successfully.",
                 Status = 204,
                 Data = null
+            });
+        }
+        [HttpPut]
+        [Route("{categoryId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateCategory(Guid categoryId, [FromBody] UpdateCategoryRequest request)
+        {
+            var command = new UpdateCategoryCommand(categoryId, request);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Updated category fail.",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(new ResultModel
+            {
+                Message = "Updated category success.",
+                Success = true,
+                Status = 204,
             });
         }
     }

@@ -1,0 +1,10 @@
+﻿Monhealth.Api/bin
+Monhealth.Api/obj
+Monhealth.Application/bin
+Monhealth.Core/bin
+Monhealth.Identity/bin
+Monhealth.Infrastructure/bin
+Monhealth.Application/obj
+Monhealth.Core/obj
+Monhealth.Identity/obj
+Monhealth.Infrastructure/obj

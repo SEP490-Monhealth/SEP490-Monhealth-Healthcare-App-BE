@@ -32,7 +32,9 @@ namespace Monhealth.Application.Features.Category.AddCategory
             var model = new Monhealth.Domain.Category
             {
                 CategoryName = request.CategoryName,
-                Description = request.Description
+                Description = request.Description,
+                DateCreated = DateTime.Now,
+                DateModified = DateTime.Now
             };
 
             _categoryRepository.Add(model);
