@@ -15,11 +15,16 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+       
+
         public async Task<List<Category>> GetAllCategoryAsync()
         {
             return await _context.Categories.ToListAsync();
         }
 
-
+        public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }
