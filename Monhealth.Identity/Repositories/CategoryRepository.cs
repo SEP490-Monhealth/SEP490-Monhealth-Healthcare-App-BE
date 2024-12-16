@@ -15,8 +15,6 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-       
-
         public async Task<List<Category>> GetAllCategoryAsync()
         {
             return await _context.Categories.ToListAsync();

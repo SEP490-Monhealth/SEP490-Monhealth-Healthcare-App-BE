@@ -9,6 +9,7 @@ namespace Monhealth.Application.Contracts.Persistence
     public interface ICategoryRepository : IGenericRepository<Category, Guid>
     {
          Task<List<Category>> GetAllCategoryAsync();
+        
          Task<int>SaveChangeAsync();
     }
 }
