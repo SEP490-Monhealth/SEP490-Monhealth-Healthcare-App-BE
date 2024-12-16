@@ -9,7 +9,7 @@ using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Category.AddCategory
 {
-    public class AddCategoryHandler : IRequestHandler<AddCategoryQuery, CategoryRequest>
+    public class AddCategoryHandler : IRequestHandler<AddCategoryRequest, CategoryRequest>
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Category.AddCategory
             _mapper = mapper;
         }
 
-        public async Task<CategoryRequest> Handle(AddCategoryQuery request, CancellationToken cancellationToken)
+        public async Task<CategoryRequest> Handle(AddCategoryRequest request, CancellationToken cancellationToken)
         {
             var isCategoryExist = await _categoryRepository
           .AnyAsync(c => c.CategoryName == request.CategoryName);
@@ -27,7 +27,7 @@ namespace Monhealth.Application.Features.Category.AddCategory
             if (isCategoryExist)
             {
                 // Trả về lỗi không hợp lệ
-                throw new InvalidOperationException("CategoryName already exists.");
+                throw new Exception("CategoryName already exists.");
             }
             var model = new Monhealth.Domain.Category
             {

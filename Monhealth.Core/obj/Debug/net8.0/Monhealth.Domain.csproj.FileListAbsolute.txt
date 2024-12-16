@@ -10,16 +10,3 @@ F:\GitSource\Monhealth-Healthcare-App\Monhealth.Core\obj\Debug\net8.0\Monhealth.
 F:\GitSource\Monhealth-Healthcare-App\Monhealth.Core\obj\Debug\net8.0\refint\Monhealth.Domain.dll
 F:\GitSource\Monhealth-Healthcare-App\Monhealth.Core\obj\Debug\net8.0\Monhealth.Domain.pdb
 F:\GitSource\Monhealth-Healthcare-App\Monhealth.Core\obj\Debug\net8.0\ref\Monhealth.Domain.dll
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\bin\Debug\net8.0\Monhealth.Domain.deps.json
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\bin\Debug\net8.0\Monhealth.Domain.dll
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\bin\Debug\net8.0\Monhealth.Domain.pdb
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\Monhealth.Domain.csproj.AssemblyReference.cache
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\Monhealth.Domain.GeneratedMSBuildEditorConfig.editorconfig
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\Monhealth.Domain.AssemblyInfoInputs.cache
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\Monhealth.Domain.AssemblyInfo.cs
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\Monhealth.Domain.csproj.CoreCompileInputs.cache
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\Monhealth.Domain.sourcelink.json
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\Monhealth.Domain.dll
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\refint\Monhealth.Domain.dll
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\Monhealth.Domain.pdb
-D:\ky_9\Monhealth-Healthcare-App-BE\Monhealth.Core\obj\Debug\net8.0\ref\Monhealth.Domain.dll
