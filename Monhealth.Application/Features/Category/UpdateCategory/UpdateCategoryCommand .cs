@@ -10,13 +10,13 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
     {
         public Guid CategoryId { get; set; } 
         public string CategoryName { get; set; }
-        public string Description { get; set; }
+        public string CategoryDescription { get; set; }
 
         public UpdateCategoryCommand(Guid categoryId, UpdateCategoryRequest request)
         {
             CategoryId = categoryId;
             CategoryName = request.CategoryName;
-            Description = request.Description;
+            CategoryDescription = request.CategoryDescription;
         }
     }
 }

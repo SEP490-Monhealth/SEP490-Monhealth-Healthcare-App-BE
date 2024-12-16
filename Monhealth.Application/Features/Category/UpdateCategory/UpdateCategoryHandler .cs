@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
                 throw new Exception("CategoryName already exists.");
             }
             category.CategoryName = request.CategoryName;
-            category.Description = request.Description;
+            category.CategoryDescription = request.CategoryDescription;
             _categoryRepository.Update(category);
             await _categoryRepository.SaveChangeAsync();
             return true;

@@ -8,7 +8,7 @@ namespace Monhealth.Domain
         [Key]
         public Guid CategoryId { get; set; }
         public string CategoryName { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public string CategoryDescription { get; set; } = string.Empty;
 
         public ICollection<Food> Foods { get; set; }
 
