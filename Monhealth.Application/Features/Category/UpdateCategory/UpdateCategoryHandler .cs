@@ -29,6 +29,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
             }
             category.CategoryName = request.CategoryName;
             category.CategoryDescription = request.CategoryDescription;
+            category.DateModified = DateTime.Now;
             _categoryRepository.Update(category);
             await _categoryRepository.SaveChangeAsync();
             return true;
