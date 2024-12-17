@@ -15,7 +15,7 @@ namespace Monhealth.Domain
 
         public ICollection<FoodCategory> FoodCategories { get; set; }
 
-        public ICollection<FoodPortion> FoodPortions { get; set; }
+        public ICollection<FoodPortion> FoodPortions { get; set; } 
 
         public ICollection<MealFood> MealFoods { get; set; }
 

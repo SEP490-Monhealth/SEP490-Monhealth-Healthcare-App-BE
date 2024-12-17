@@ -25,7 +25,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<DailyStat> DailyStats { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Food> Foods { get; set; }
-        public DbSet<FoodPortion> FoodPortions { get; set; }
+        public DbSet<Portion> Portions { get; set; }
         public DbSet<InterestFood> InterestFoods { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<MealFood> MealFoods { get; set; }
@@ -33,6 +33,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Nutrition> Nutritions { get; set; }
         public DbSet<UserFood> UserFoods { get; set; }
         public DbSet<FoodCategory> FoodCategories { get; set; }
+        public DbSet<FoodPortion> FoodPortions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
