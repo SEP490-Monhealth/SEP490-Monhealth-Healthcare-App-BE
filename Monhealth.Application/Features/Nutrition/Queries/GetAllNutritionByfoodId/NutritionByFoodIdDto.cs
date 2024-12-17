@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition
 {
-    public class NutritionByFoodIdDto
+    public class NutritionByFoodIdDto : BaseEntity
     {
         public Guid NutritionId { get; set; }
         public Guid? UserFoodId { get; set; }

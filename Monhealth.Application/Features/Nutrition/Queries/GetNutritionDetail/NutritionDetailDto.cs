@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Monhealth.Application.Features.Nutrition.Queries.GetNutritionDetail
 {
-    public class NutritionDetailDto
+    public class NutritionDetailDto 
     {
         public Guid NutritionId { get; set; }
         public Guid? FoodId { get; set; }
