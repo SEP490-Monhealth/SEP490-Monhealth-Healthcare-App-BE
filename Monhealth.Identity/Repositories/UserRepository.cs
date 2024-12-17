@@ -59,9 +59,11 @@ namespace Monhealth.Identity.Repositories
             return await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber);
         }
 
-        public Task<AppUser> GetUserByUserId(Guid userId)
+        public async Task<AppUser> GetUserByUserId(Guid userId)
         {
-            throw new NotImplementedException();
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
         }
+
     }
 }

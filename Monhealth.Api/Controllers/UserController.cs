@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.User.Queries.GetAllUser;
+using Monhealth.Application.Features.User.Queries.GetUserDetail;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -29,6 +30,19 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
 
+        }
+        [HttpGet]
+        [Route("{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetUserById(Guid userId)
+        {
+            var result = await _mediator.Send(new GetUserDetailQuery { Id = userId });
+            return new ResultModel
+            {
+                Data = result,
+                Message = "User retrieve successfully",
+                Status = 200,
+                Success = true
+            };
         }
     }
 }
