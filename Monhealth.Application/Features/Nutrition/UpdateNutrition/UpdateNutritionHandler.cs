@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Nutrition.UpdateNutrition
 {
@@ -22,7 +17,7 @@ namespace Monhealth.Application.Features.Nutrition.UpdateNutrition
             if (nutrition == null) return false;
             nutrition.Calories = request.Calories;
             nutrition.Carbs = request.Carbs;
-            nutrition.DateModified = DateTime.Now;
+            nutrition.CreatedAt = DateTime.Now;
             nutrition.Fat = request.Fat;
             nutrition.Fiber = request.Fiber;
             nutrition.Sugar = request.Sugar;

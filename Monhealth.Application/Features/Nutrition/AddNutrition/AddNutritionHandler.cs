@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.Category.AddCategory;
 
 namespace Monhealth.Application.Features.Nutrition.AddNutrition
 {
@@ -23,8 +18,8 @@ namespace Monhealth.Application.Features.Nutrition.AddNutrition
                 FoodId = request.FoodId,
                 Calories = request.Calories,
                 Carbs = request.Carbs,
-                DateCreated = DateTime.Now,
-                DateModified = DateTime.Now,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
                 Fat = request.Fat,
                 Fiber = request.Fiber,
                 Sugar = request.Sugar
