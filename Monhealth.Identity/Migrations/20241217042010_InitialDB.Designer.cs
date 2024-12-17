@@ -12,8 +12,8 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20241216091431_InitialAndSeedData")]
-    partial class InitialAndSeedData
+    [Migration("20241217042010_InitialDB")]
+    partial class InitialDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -389,36 +389,17 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("MeasurementUnit")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PortionSize")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PortionWeight")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
+                    b.Property<Guid>("PortionId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("FoodPortionId");
 
                     b.HasIndex("FoodId");
+
+                    b.HasIndex("PortionId");
 
                     b.ToTable("FoodPortions");
                 });
@@ -731,6 +712,41 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("Nutritions");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Portion", b =>
+                {
+                    b.Property<Guid>("PortionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("MeasurementUnit")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PortionSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PortionWeight")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("PortionId");
+
+                    b.ToTable("Portions");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.Target", b =>
                 {
                     b.Property<Guid>("TargetId")
@@ -1022,126 +1038,126 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ce58978e-9b02-4ac8-8c4a-8142a7c80508",
-                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "38a6bff6-1ddb-4fda-b98c-02763c8567fa",
+                            CreatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Nguyen Quoc Dai",
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDBPynBjIaYSjRROj7v3U6GvRtd+rnubXgurdKjBaaRCVVJaW3A8ZFsKF3MUbaVBaA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKkqZjEfTGDP2Pp3E/7LARXECIA0WunR9oisXxCC9hqQVgxcQCx4b/U+mOJmhed6sQ==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ba5e2941-8b6d-479e-a234-e64af80f9c60",
+                            SecurityStamp = "32231920-bf9d-4730-87e3-05af112bc08d",
                             Status = true,
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "dainq115"
                         },
                         new
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "56f26d73-dadc-4757-9419-077832e4fb37",
-                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "d57c4104-0acb-4c73-b32b-b24faf483cef",
+                            CreatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Van Huu Toan",
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO1V5bV1AMHVvz6ixq79vdCIsIiZzW4ggph3HsfEeB4Vsz33FSrmP8jfUN8T2xLZdg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEANmuUy4B8ncu2UBXhVnAwhLb1YmzjKIzqgHLOoJAra7Ny6s8RGf3je5tAhDwolFRA==",
                             PhoneNumber = "0999998888",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "60eab314-0c84-4e2d-9beb-40e90a01ef99",
+                            SecurityStamp = "ae5a6f85-934b-492a-a361-957651340401",
                             Status = true,
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "vipro123"
                         },
                         new
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f38ffcc3-28a2-494f-823d-433d3ca4be57",
-                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "0b308168-037c-4a97-8e2e-1d3014df85ee",
+                            CreatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Nguyen Pham Khanh",
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEnYsD3Xbva3YYoSvN+ER4Kqdw+K1d0TZMobbh9akuV6HYxHW/thx7MPtRd9y8PnMw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENjPpl8kNks9YfSLbPXlihAmmcRmyq/46bp3ZkjbgrApElEe6JM5SUxSH9/DHljJlA==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a8459b32-f4d8-4021-87ac-a84004289974",
+                            SecurityStamp = "d4fce73f-174b-4fd3-bce3-e37c0953de47",
                             Status = true,
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "kuem113"
                         },
                         new
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e988ef1e-d4b8-4e67-abb9-50325d6d88f7",
-                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "e54007ca-729f-4b94-b5a8-37e447ec0528",
+                            CreatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Phan Van Khai",
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA5Hd+zAtv8bhmGUjAcQxH4d+pihc/TXG1qJITT0MCUrZP/A1RHcxdINjmSZXETPhQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDzMdUs2c53Gx1WDbAeTd9RwPwNf47k+DmMpQPN9YfiNlf+lklldo1v1hUeHTuUNXA==",
                             PhoneNumber = "0777444499",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bceac7a8-c4fd-4584-b661-174ab4f91d2b",
+                            SecurityStamp = "85826275-0a95-4977-bc31-74a85e76539c",
                             Status = true,
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "xautrai123"
                         },
                         new
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a582bf38-1541-43b3-9553-42f0d786afe8",
-                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "be6f8419-e830-4afc-8a0e-b09bba676700",
+                            CreatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Quang La Tui",
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGqj0TWQ1I8YJidKCvGlKyIijOEaJVgxFQYRYes0az+pIdj9OXYXxKQdK/MNGiNBUw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEusl152msgFwHBmgHSmQx4dei0zTJoJNu756F4WTNsQgdFK0XFFOQI+onk1nFI9dQ==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "80af4c9e-92aa-436a-8985-565243cffe41",
+                            SecurityStamp = "4252dcbf-8a8b-4d3f-a9f6-e68f78a64f82",
                             Status = true,
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "quangspa09"
                         },
                         new
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2c5dec27-bf6e-4be0-94b7-29c216969fe5",
-                            CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "4aceba6d-9ef7-4fcd-8413-c2d37b380ec5",
+                            CreatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Pham Hoai Duy",
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKkmTXZMVFUXrvZlFAY4nNp4oDS2RJURC1AR/GmWPT/JWGx/hCptLfvAVVWJe2NhHA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEfnCFdTF7lnJoVgN8iQJk5/kKVOEPpIMPgr623aQKgBj8JXvj5lu8eHUSRZlMLJnw==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "621cb13b-3a81-413f-9677-73c99afc390e",
+                            SecurityStamp = "f0611718-bec8-45fa-acdc-1874b8cf1279",
                             Status = true,
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "duypro113"
                         });
                 });
@@ -1246,7 +1262,15 @@ namespace Monhealth.Identity.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Monhealth.Domain.Portion", "Portion")
+                        .WithMany("FoodPortions")
+                        .HasForeignKey("PortionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Food");
+
+                    b.Navigation("Portion");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Goal", b =>
@@ -1403,6 +1427,11 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("MealFoods");
 
                     b.Navigation("MealUserFoods");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Portion", b =>
+                {
+                    b.Navigation("FoodPortions");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.UserFood", b =>

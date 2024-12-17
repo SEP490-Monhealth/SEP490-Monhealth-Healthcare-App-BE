@@ -16,7 +16,7 @@ namespace Monhealth.Domain
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
 
-        public ICollection<FoodPortion> FoodPortions { get; set; }
+        public ICollection<FoodPortion> FoodPortions { get; set; } 
 
         public ICollection<MealFood> MealFoods { get; set; }
 
