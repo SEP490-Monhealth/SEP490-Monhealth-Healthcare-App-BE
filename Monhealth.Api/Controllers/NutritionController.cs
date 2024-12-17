@@ -10,6 +10,7 @@ using Monhealth.Application.Features.Nutrition.AddNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId;
 using Monhealth.Application.Features.Nutrition.Queries.GetNutritionDetail;
+using Monhealth.Application.Features.Nutrition.UpdateNutrition;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -102,6 +103,26 @@ namespace Monhealth.Api.Controllers
             {
                 Success = false,
                 Message = "Failed to add nutrition."
+            });
+        }
+        [HttpPut]
+        [Route("{nutritionId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateNutrition(Guid nutritionId, [FromBody] UpdateNutritionRequest request)
+        {
+            var command = new UpdateNutritionCommand(nutritionId, request);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Updated nutrition fail.",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(new ResultModel
+            {
+                Message = "Updated nutrition success.",
+                Success = true,
+                Status = 204,
             });
         }
     }
