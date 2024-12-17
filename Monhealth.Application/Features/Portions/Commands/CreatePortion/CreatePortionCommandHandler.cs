@@ -15,11 +15,13 @@ namespace Monhealth.Application.Features.Portions.Commands.CreateFoodPortion
         private readonly IMapper _mapper;
         private readonly IPortionRepository _portionRepository;
         private readonly IFoodRepository _foodRepository;
+        private readonly IFoodPortionRepository _foodPortionRepository;
 
-        public CreatePortionCommandHandler(IMapper mapper, IPortionRepository portionRepository, IFoodRepository foodRepository)
+        public CreatePortionCommandHandler(IMapper mapper, IPortionRepository portionRepository, IFoodRepository foodRepository, IFoodPortionRepository foodPortionRepository)
         {
             _portionRepository = portionRepository;
             _foodRepository = foodRepository;
+            _foodPortionRepository = foodPortionRepository;
             _mapper = mapper;
         }
         public async Task<Unit> Handle(CreatePortionCommand request, CancellationToken cancellationToken)
@@ -37,29 +39,20 @@ namespace Monhealth.Application.Features.Portions.Commands.CreateFoodPortion
             _portionRepository.Add(portion);
 
             // lay cac mon an theo FoodIds
-            var foods = await _foodRepository.GetByIdsAsync(request.FoodIds);
-            if(foods.Count != request.FoodIds.Count)
+            var food = await _foodRepository.GetByIdAsync(request.FoodId);
+            if (food == null)
             {
-                // Neu mon an khong ton tai => tra ve loi
-                var missingFoodIds = request.FoodIds.Except(foods.Select(f => f.FoodId)).ToList();
-                throw new Exception($"Món ăn với ID không tồn tại: {string.Join(", ", missingFoodIds)}");
+                throw new Exception("Món ăn không tồn tại.");
             }
-
             // lien ket mon an voi khau phan an
-            var foodPortions = new List<FoodPortion>();
-            foreach(var food in foods)
+            var foodPortion = new FoodPortion
             {
-                var foodPortion = new FoodPortion
-                {
-                    FoodPortionId = Guid.NewGuid(),
-                    FoodId = food.FoodId,
-                    PortionId = portion.PortionId
-                };
-                foodPortions.Add(foodPortion);
-                food.FoodPortions.Add(foodPortion);
-            }
-
-            await _foodRepository.SaveChangesAsync();
+                FoodPortionId = Guid.NewGuid(),
+                FoodId = food.FoodId,
+                PortionId = portion.PortionId
+            };
+            _foodPortionRepository.Add(foodPortion);
+            await _portionRepository.SaveChangesAsync();
 
             return Unit.Value;
         }

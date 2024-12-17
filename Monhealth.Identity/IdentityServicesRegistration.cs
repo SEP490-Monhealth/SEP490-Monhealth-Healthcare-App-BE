@@ -58,6 +58,7 @@ namespace Monhealth.Identity
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPortionRepository, PortionRepository>();
             services.AddScoped<IFoodRepository, FoodRepository>();
+            services.AddScoped<IFoodPortionRepository, FoodPortionRepository>();
             // Add Authentication
             services.AddAuthentication(options =>
             {
