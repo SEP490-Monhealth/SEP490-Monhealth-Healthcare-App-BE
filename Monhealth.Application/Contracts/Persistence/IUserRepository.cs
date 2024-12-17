@@ -7,6 +7,6 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<AppUser> GetByPhoneNumberAsync(string phoneNumber);
         Task<AppUser> GetUserByUserId(Guid userId);
-        Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string search, string role, bool status);
+        Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status);
     }
 }

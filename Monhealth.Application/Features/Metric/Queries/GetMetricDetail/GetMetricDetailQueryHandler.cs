@@ -19,5 +19,6 @@ namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
             if (metric == null) { throw new Exception("Not found metric"); }
             return _mapper.Map<MetricDetailDto>(metric);
         }
+
     }
 }

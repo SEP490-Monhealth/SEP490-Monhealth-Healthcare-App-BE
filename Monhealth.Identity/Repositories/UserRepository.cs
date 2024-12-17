@@ -27,7 +27,14 @@ namespace Monhealth.Identity.Repositories
                                           s.FullName.ToLower().Contains(search))
                                           );
             }
-
+            if (!string.IsNullOrEmpty(role))
+            {
+                query = from user in _context.Users
+                        join userRole in _context.UserRoles on user.Id equals userRole.UserId
+                        join r in _context.Roles on userRole.RoleId equals r.Id
+                        where r.Name == role
+                        select user;
+            }
             if (status.HasValue)
             {
                 query = query.Where(s => s.Status == status.Value);
@@ -46,10 +53,6 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string search, string role, bool status)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<AppUser> GetByPhoneNumberAsync(string phoneNumber)
         {
