@@ -27,11 +27,11 @@ namespace Monhealth.Identity.Repositories
         public async Task<PageResult<Portion>> GetAllPortionAsync(int page, int limit)
         {
             IQueryable<Portion> query = _context.Portions.Include(fp => fp.FoodPortions).AsQueryable();
-            if(page > 0 && limit > 0)
+            var totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
-            }
-            var totalItems = await query.CountAsync();
+            }            
             var portions = await query.ToListAsync();
             return new PageResult<Portion>
             {
