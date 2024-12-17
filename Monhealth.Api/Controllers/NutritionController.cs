@@ -7,6 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 using Monhealth.Application.Features.Nutrition.AddNutrition;
+using Monhealth.Application.Features.Nutrition.DeleteNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId;
 using Monhealth.Application.Features.Nutrition.Queries.GetNutritionDetail;
@@ -125,5 +126,33 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
             });
         }
+        [HttpDelete]
+        [Route("{nutritionId:Guid}")]
+        public async Task<ActionResult<ResultModel>> RemoveNutrition(Guid nutritionId)
+        {
+            var result = await _mediator.Send(new DeleteNutritionRequest(nutritionId));
+
+            if (!result)
+            {
+                // Trả về lỗi nếu xóa không thành công
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Nutrition not found.",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Nutrition deleted successfully.",
+                Status = 204,
+                Data = null
+            });
+        }
+
     }
 }

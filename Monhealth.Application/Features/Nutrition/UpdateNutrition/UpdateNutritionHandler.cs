@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Nutrition.UpdateNutrition
         public async Task<bool> Handle(UpdateNutritionCommand request, CancellationToken cancellationToken)
         {
             var nutrition = await _nutritionRepository.GetByIdAsync(request.NutritionId);
-            if (nutrition == null) throw new Exception("Nutrition not found.");
+            if (nutrition == null) return false;
             nutrition.Calories = request.Calories;
             nutrition.Carbs = request.Carbs;
             nutrition.DateModified = DateTime.Now;
