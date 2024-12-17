@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Common;
+﻿using Monhealth.Core;
+using Monhealth.Domain.Common;
 using System.ComponentModel.DataAnnotations;
 
 namespace Monhealth.Domain
@@ -10,7 +11,7 @@ namespace Monhealth.Domain
         public string CategoryName { get; set; } = string.Empty;
         public string CategoryDescription { get; set; } = string.Empty;
 
-        public ICollection<Food> Foods { get; set; }
+        public ICollection<FoodCategory> FoodCategories { get; set; } 
 
     }
 }
