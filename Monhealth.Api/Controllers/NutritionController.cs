@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
+using Monhealth.Application.Features.Nutrition.AddNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId;
 using Monhealth.Application.Features.Nutrition.Queries.GetNutritionDetail;
@@ -80,6 +81,27 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = 200,
                 Data = queries
+            });
+        }
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> AddNutrition([FromBody] AddNutritionRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "nutrition added successfully.",
+                    Status = 201,
+
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Failed to add nutrition."
             });
         }
     }
