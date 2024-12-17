@@ -24,11 +24,11 @@ namespace Monhealth.Identity.Configurations
                     PhoneNumber = "0932748924",
                     LockoutEnabled = false,
                     EmailConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "User@123"),
+                    PasswordHash = hasher.HashPassword(null, "123As@"),
                     SecurityStamp = Guid.NewGuid().ToString(),
 
-                    UpdatedAt = DateTime.Parse("2024-1-6"),
-                    CreatedAt = DateTime.Parse("2024-1-6"),
+                    UpdatedAt = DateTime.Parse("2025-01-06"),
+                    CreatedAt = DateTime.Parse("2025-01-06"),
                 },
                  new AppUser
                  {
@@ -42,11 +42,11 @@ namespace Monhealth.Identity.Configurations
                      PhoneNumber = "0999998888",
                      LockoutEnabled = false,
                      EmailConfirmed = true,
-                     PasswordHash = hasher.HashPassword(null, "User@123"),
+                     PasswordHash = hasher.HashPassword(null, "123As@"),
                      SecurityStamp = Guid.NewGuid().ToString(),
 
-                     UpdatedAt = DateTime.Parse("2024-1-6"),
-                     CreatedAt = DateTime.Parse("2024-1-6"),
+                     UpdatedAt = DateTime.Parse("2025-01-06"),
+                     CreatedAt = DateTime.Parse("2025-01-06"),
                  },
                   new AppUser
                   {
@@ -60,11 +60,11 @@ namespace Monhealth.Identity.Configurations
                       PhoneNumber = "0969998878",
                       LockoutEnabled = false,
                       EmailConfirmed = true,
-                      PasswordHash = hasher.HashPassword(null, "User@123"),
+                      PasswordHash = hasher.HashPassword(null, "123As@"),
                       SecurityStamp = Guid.NewGuid().ToString(),
 
-                      UpdatedAt = DateTime.Parse("2024-1-6"),
-                      CreatedAt = DateTime.Parse("2024-1-6"),
+                      UpdatedAt = DateTime.Parse("2025-01-06"),
+                      CreatedAt = DateTime.Parse("2025-01-06"),
                   },
                    new AppUser
                    {
@@ -78,11 +78,11 @@ namespace Monhealth.Identity.Configurations
                        PhoneNumber = "0777444499",
                        LockoutEnabled = false,
                        EmailConfirmed = true,
-                       PasswordHash = hasher.HashPassword(null, "User@123"),
+                       PasswordHash = hasher.HashPassword(null, "123As@"),
                        SecurityStamp = Guid.NewGuid().ToString(),
 
-                       UpdatedAt = DateTime.Parse("2024-1-6"),
-                       CreatedAt = DateTime.Parse("2024-1-6"),
+                       UpdatedAt = DateTime.Parse("2025-01-06"),
+                       CreatedAt = DateTime.Parse("2025-01-06"),
                    },
                     new AppUser
                     {
@@ -96,11 +96,11 @@ namespace Monhealth.Identity.Configurations
                         PhoneNumber = "0999777712",
                         LockoutEnabled = false,
                         EmailConfirmed = true,
-                        PasswordHash = hasher.HashPassword(null, "User@123"),
+                        PasswordHash = hasher.HashPassword(null, "123As@"),
                         SecurityStamp = Guid.NewGuid().ToString(),
 
-                        UpdatedAt = DateTime.Parse("2024-1-6"),
-                        CreatedAt = DateTime.Parse("2024-1-6"),
+                        UpdatedAt = DateTime.Parse("2025-01-06"),
+                        CreatedAt = DateTime.Parse("2025-01-06"),
                     },
                     new AppUser
                     {
@@ -114,13 +114,13 @@ namespace Monhealth.Identity.Configurations
                         PhoneNumber = "0555666612",
                         LockoutEnabled = false,
                         EmailConfirmed = true,
-                        PasswordHash = hasher.HashPassword(null, "User@123"),
+                        PasswordHash = hasher.HashPassword(null, "123As@"),
                         SecurityStamp = Guid.NewGuid().ToString(),
 
-                        UpdatedAt = DateTime.Parse("2024-1-6"),
-                        CreatedAt = DateTime.Parse("2024-1-6"),
+                        UpdatedAt = DateTime.Parse("2025-01-06"),
+                        CreatedAt = DateTime.Parse("2025-01-06"),
                     }
-                ); 
+                );
         }
     }
 }

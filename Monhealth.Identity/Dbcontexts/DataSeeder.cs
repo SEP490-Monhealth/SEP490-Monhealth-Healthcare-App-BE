@@ -38,8 +38,8 @@ namespace Monhealth.Identity.Dbcontexts
                     EmailConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString(),
 
-                    CreatedAt = DateTime.Parse("2024-1-6"),
-                    UpdatedAt = DateTime.Parse("2024-1-6"),
+                    CreatedAt = DateTime.Parse("2025-01-06"),
+                    UpdatedAt = DateTime.Parse("2025-01-06"),
                 };
                 user.PasswordHash = passwordHasher.HashPassword(user, "123As@");
                 await context.Users.AddAsync(user);
