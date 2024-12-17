@@ -24,7 +24,6 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Data = metrics,
-                Message = "Mectric retrieve successfully",
                 Status = 200,
                 Success = true
             };
@@ -32,7 +31,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("{metricId:guid}")]
 
-        public async Task<ActionResult<ResultModel>> GetMetricbyId(Guid metricId)
+        public async Task<ActionResult<ResultModel>> GetMetricById(Guid metricId)
         {
             var metric = await _mediator.Send(new GetMetricDetailQuery() { MetricId = metricId });
             if (metric == null)
@@ -41,14 +40,13 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Metric not found."
+                    Message = "Số liệu không tồn tại."
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Metric retrieved successfully.",
                 Data = metric
             };
         }

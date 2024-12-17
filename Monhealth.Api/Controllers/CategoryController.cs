@@ -24,7 +24,7 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllMetrics()
+        public async Task<ActionResult<ResultModel>> GetAllCategories()
         {
             var categories = await _mediator.Send(new GetCategoryListQuery());
 
@@ -47,7 +47,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Category not found.",
+                    Message = "Loại đồ ăn không tồn tại.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -69,7 +69,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Category added successfully.",
+                    Message = "Tạo loại đồ ăn thành công.",
                     Status = 201,
 
                 });
@@ -78,7 +78,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Failed to add category."
+                Message = "Tạo loại đồ ăn thất bại."
             });
         }
         [HttpDelete]
@@ -93,7 +93,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Category not found.",
+                    Message = "Loại đồ ăn không tồn tại.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -103,7 +103,7 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Category deleted successfully.",
+                Message = "Xóa loại đồ ăn thành công.",
                 Status = 204,
                 Data = null
             });
@@ -117,13 +117,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Updated category fail.",
+                    Message = "Cập nhật loại đồ ăn thất bại.",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Updated category success.",
+                Message = "Cập nhật loại đồ ăn thành công.",
                 Success = true,
                 Status = 204,
             });

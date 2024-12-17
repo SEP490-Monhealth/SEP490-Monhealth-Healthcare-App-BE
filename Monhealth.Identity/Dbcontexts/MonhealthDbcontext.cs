@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Monhealth.Core;
 using Monhealth.Domain;
 using Monhealth.Identity.Configurations;
 using Monhealth.Identity.Models;
@@ -31,6 +32,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<MealUserFood> MealUserFoods { get; set; }
         public DbSet<Nutrition> Nutritions { get; set; }
         public DbSet<UserFood> UserFoods { get; set; }
+        public DbSet<FoodCategory> FoodCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -43,6 +45,8 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());
+            builder.ApplyConfiguration(new CategoryConfiguration());
+            builder.ApplyConfiguration(new FoodConfiguration());
         }
 
     }

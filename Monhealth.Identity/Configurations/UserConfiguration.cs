@@ -120,7 +120,7 @@ namespace Monhealth.Identity.Configurations
                         UpdatedAt = DateTime.Parse("2024-1-6"),
                         CreatedAt = DateTime.Parse("2024-1-6"),
                     }
-                ); ;
+                ); 
         }
     }
 }

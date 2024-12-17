@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Common;
+﻿using Monhealth.Core;
+using Monhealth.Domain.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,13 +9,12 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid FoodId { get; set; }
-        public Guid CategoryId { get; set; }
+        
         public string FoodName { get; set; } = string.Empty;
 
         public Nutrition Nutrition { get; set; } //one to one 
 
-        [ForeignKey(nameof(CategoryId))]
-        public Category Category { get; set; }
+        public ICollection<FoodCategory> FoodCategories { get; set; }
 
         public ICollection<FoodPortion> FoodPortions { get; set; }
 

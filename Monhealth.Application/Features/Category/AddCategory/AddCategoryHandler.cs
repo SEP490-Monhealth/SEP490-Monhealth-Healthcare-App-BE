@@ -37,7 +37,7 @@ namespace Monhealth.Application.Features.Category.AddCategory
             return new CategoryRequest
             {
                 CategoryName = model.CategoryName,
-                Description = model.Description
+                CategoryDescription = model.CategoryDescription
             };
 
         }

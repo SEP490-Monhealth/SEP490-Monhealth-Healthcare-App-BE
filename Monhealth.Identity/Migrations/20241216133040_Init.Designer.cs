@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monhealth.Identity.Dbcontexts;
 
@@ -11,9 +12,11 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    partial class MonhealthDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20241216133040_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,27 +160,6 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Monhealth.Core.FoodCategory", b =>
-                {
-                    b.Property<Guid>("FoodCategoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("FoodId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("FoodCategoryId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("FoodId");
-
-                    b.ToTable("FoodCategories");
-                });
-
             modelBuilder.Entity("Monhealth.Domain.Category", b =>
                 {
                     b.Property<Guid>("CategoryId")
@@ -192,123 +174,21 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
+                    b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdatedAt")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-                            CategoryDescription = "Các bữa ăn nhanh, tiện lợi, thường được phục vụ trong môi trường nhịp độ nhanh.",
-                            CategoryName = "Fast food",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
-                            CategoryDescription = "Thức ăn nhiều carbohydrate (carb) thường là những thực phẩm chứa hàm lượng tinh bột hoặc đường cao.",
-                            CategoryName = "Nhiều carbs",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
-                            CategoryDescription = "Các món ăn đậm đà, cay nóng, thường được tăng cường với ớt và gia vị.",
-                            CategoryName = "Nhiều gia vị",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
-                            CategoryDescription = "Các bữa ăn không có thịt hoặc cá, tập trung vào rau củ và ngũ cốc.",
-                            CategoryName = "Đồ ăn chay",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-                            CategoryDescription = "Cá tươi, động vật có vỏ, và các sinh vật biển khác, mang lại hương vị đậm đà của đại dương.",
-                            CategoryName = "Hải sản",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
-                            CategoryDescription = "Thực phẩm giàu protein, bao gồm thịt, đậu, trứng, và các loại hạt, cần thiết cho việc xây dựng và sửa chữa cơ bắp.",
-                            CategoryName = "Giàu protein",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
-                            CategoryDescription = "Thực phẩm có hàm lượng năng lượng (calo) thấp, thường được thiết kế để hỗ trợ kiểm soát cân nặng hoặc duy trì sức khỏe.",
-                            CategoryName = "Ít calo",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
-                            CategoryDescription = "Thực phẩm giàu chất xơ, giúp thúc đẩy sức khỏe tiêu hóa, chẳng hạn như trái cây, rau và ngũ cốc nguyên hạt.",
-                            CategoryName = "Giàu chất xơ",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
-                            CategoryDescription = "Món tráng miệng hoặc đồ ăn giàu đường, mang lại hương vị ngọt ngào, thỏa mãn.",
-                            CategoryName = "Đồ ngọt",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
-                            CategoryDescription = "Thực phẩm đã qua quá trình lên men, mang lại hương vị độc đáo và chứa probiotics, như kim chi hoặc sữa chua.",
-                            CategoryName = "Lên men",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
-                            CategoryDescription = "Thực phẩm được trồng mà không sử dụng thuốc trừ sâu tổng hợp hoặc phân bón, tập trung vào tính bền vững và sức khỏe.",
-                            CategoryName = "Hữu cơ",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            CategoryId = new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
-                            CategoryDescription = "Thực phẩm đã qua xử lý để thay đổi trạng thái tự nhiên của chúng thông qua các phương pháp như đóng hộp, đông lạnh hoặc thêm chất bảo quản.",
-                            CategoryName = "Chế biến sẵn",
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Consultant", b =>
@@ -317,20 +197,20 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -351,17 +231,23 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("DailyStatId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("MealDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ScheduleId")
                         .HasColumnType("uniqueidentifier");
@@ -377,12 +263,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<float>("TotalProteins")
                         .HasColumnType("real");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -400,11 +280,17 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("MonthlyStatId")
                         .HasColumnType("uniqueidentifier");
@@ -430,12 +316,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<float>("TotalWaterIntake")
                         .HasColumnType("real");
 
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -450,21 +330,21 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("DepartmentId");
 
@@ -480,167 +360,27 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FoodName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FoodId");
 
-                    b.ToTable("Foods");
+                    b.HasIndex("CategoryId");
 
-                    b.HasData(
-                        new
-                        {
-                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Cơm trắng"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Thịt heo nạc"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("f789601f-8026-499b-98cb-0f189926094a"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Rau muống"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("52c7f28c-1d5a-470e-87cd-2be1ab0ac3db"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Tôm biển"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("c82a256d-5573-4d27-b045-a411db42e694"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Xúc xích"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("c567f8a9-71e4-4167-839d-a839ece79427"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Bỏng ngô"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("00a16b6c-9396-4389-95fd-205f72fe5164"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Nem chua"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("80c5e605-307f-4fef-bdf8-9967a800eab9"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Mãng cầu"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("d65bff7e-4a2d-498b-97b2-676d4dd92a90"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Bắp luộc"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("ced123e2-0b86-444b-ac83-7dba6860e354"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Chả giò"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("d4f8f2c7-5318-4f07-803d-2b093be4d6c7"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Bưởi"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("e34e9f9b-2d65-4e94-bcf0-37f5903c38b9"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Giá đỗ"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("e1b0767d-4b3b-42ea-820f-2154f7883ab9"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Nấm kim châm"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("62cd0ff3-f69e-4a5f-bc8d-94f1f94e4552"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Khoai tây"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("dd918def-34c2-4f5c-b402-6d51d8a1c604"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Bầu"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("b2fe4b42-56e1-4630-99e1-bb74d6d5ab2f"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Đậu phộng"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("c4f9e44d-b7f6-4530-8b2e-b64c8f993f2a"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Thịt bò"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("97a2fdd1-ff1f-4f5b-85cf-9f68b0cf2b91"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Chuối tây"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("3b372064-e2a9-4729-b725-635e54e11c5d"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Bún tươi"
-                        },
-                        new
-                        {
-                            FoodId = new Guid("a3c8f7f1-dfe7-4e1e-9e9d-36a3c6b395b7"),
-                            DateCreated = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Sầu riêng"
-                        });
+                    b.ToTable("Foods");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.FoodPortion", b =>
@@ -649,17 +389,23 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MeasurementUnit")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PortionSize")
@@ -669,12 +415,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<string>("PortionWeight")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("FoodPortionId");
 
@@ -689,14 +429,20 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Note")
                         .IsRequired()
@@ -707,12 +453,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -738,25 +478,25 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Foods")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Nutrition")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -775,23 +515,23 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("DailyMealId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("MealType")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -809,11 +549,14 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
@@ -821,15 +564,12 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid>("MealId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PortionSize")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("MealFoodId");
 
@@ -846,24 +586,24 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("MealId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PortionSize")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserFoodId")
                         .HasColumnType("uniqueidentifier");
@@ -892,11 +632,14 @@ namespace Monhealth.Identity.Migrations
                     b.Property<float>("Bmr")
                         .HasColumnType("real");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -914,14 +657,11 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Tdee")
                         .HasColumnType("real");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -948,11 +688,14 @@ namespace Monhealth.Identity.Migrations
                     b.Property<float>("Carbs")
                         .HasColumnType("real");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<float>("Fat")
                         .HasColumnType("real");
@@ -963,17 +706,14 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("FoodId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Protein")
                         .HasColumnType("real");
 
                     b.Property<float>("Sugar")
                         .HasColumnType("real");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("UserFoodId")
                         .HasColumnType("uniqueidentifier");
@@ -997,11 +737,8 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("DailyCalories")
                         .HasColumnType("real");
@@ -1012,17 +749,20 @@ namespace Monhealth.Identity.Migrations
                     b.Property<float>("DailyWater")
                         .HasColumnType("real");
 
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("ExerciseMinutes")
                         .HasColumnType("int");
 
                     b.Property<Guid>("GoalId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Weight")
                         .HasColumnType("real");
@@ -1040,11 +780,14 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FoodName")
                         .IsRequired()
@@ -1054,18 +797,15 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PortionSize")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("PortionWeight")
                         .HasColumnType("real");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1092,20 +832,20 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("HeartRate")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1282,7 +1022,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ce58978e-9b02-4ac8-8c4a-8142a7c80508",
+                            ConcurrencyStamp = "f5595cb6-9c1f-4a92-b7e8-a33fdf9f83e6",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -1290,10 +1030,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDBPynBjIaYSjRROj7v3U6GvRtd+rnubXgurdKjBaaRCVVJaW3A8ZFsKF3MUbaVBaA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELe7mtLMMce4SlNDNdzYqYbhWY4BA4Hl9ApymVOJsphrHX769wIFcRnC1rkUdHkUwQ==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ba5e2941-8b6d-479e-a234-e64af80f9c60",
+                            SecurityStamp = "8f31a96e-64c5-448c-8db0-54b582e6bd29",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1303,7 +1043,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "56f26d73-dadc-4757-9419-077832e4fb37",
+                            ConcurrencyStamp = "4a877b67-b53a-4aeb-bf14-00f47d70a753",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -1311,10 +1051,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO1V5bV1AMHVvz6ixq79vdCIsIiZzW4ggph3HsfEeB4Vsz33FSrmP8jfUN8T2xLZdg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENxf6+svq3wID8BEtRQzRwlEThl929nn8W3sbfHwPS48WK8RsCUMHDFZHYa91/VKDA==",
                             PhoneNumber = "0999998888",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "60eab314-0c84-4e2d-9beb-40e90a01ef99",
+                            SecurityStamp = "822223b6-4c45-40d5-8a4f-1aeeb6a145f7",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1324,7 +1064,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f38ffcc3-28a2-494f-823d-433d3ca4be57",
+                            ConcurrencyStamp = "abc0797d-be72-4d2b-b995-8b1cf65331fc",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -1332,10 +1072,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEnYsD3Xbva3YYoSvN+ER4Kqdw+K1d0TZMobbh9akuV6HYxHW/thx7MPtRd9y8PnMw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOY30ehjYVGCQzK8FJ5Ra9L5KDl3PBk3TXAr4WPF/XEaviSqpu9i9yrcMqLzm8mNuQ==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a8459b32-f4d8-4021-87ac-a84004289974",
+                            SecurityStamp = "8d917ada-ee3d-48e5-8011-0068d8550881",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1345,7 +1085,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e988ef1e-d4b8-4e67-abb9-50325d6d88f7",
+                            ConcurrencyStamp = "621d9d18-cd88-4a9c-9891-e89bad7bc8ba",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -1353,10 +1093,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA5Hd+zAtv8bhmGUjAcQxH4d+pihc/TXG1qJITT0MCUrZP/A1RHcxdINjmSZXETPhQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKDl9/M5SdVBbVkaT+rH8+cdsWqytuC+2pdOsbvJr2k+aHhYIwCd6pUwPLqmiS9dhA==",
                             PhoneNumber = "0777444499",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bceac7a8-c4fd-4584-b661-174ab4f91d2b",
+                            SecurityStamp = "d173f1e3-a2d2-4a54-a8cf-fc575c464c25",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1366,7 +1106,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a582bf38-1541-43b3-9553-42f0d786afe8",
+                            ConcurrencyStamp = "22224370-8b55-42ef-b67f-f2ecf689c54c",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -1374,10 +1114,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGqj0TWQ1I8YJidKCvGlKyIijOEaJVgxFQYRYes0az+pIdj9OXYXxKQdK/MNGiNBUw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO6hbqQbgiDTNPIaouxLkMWyZYgGKCU2ylaIwot5OeMm+zXFbrR7sygk/wXRfedtVw==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "80af4c9e-92aa-436a-8985-565243cffe41",
+                            SecurityStamp = "3316f297-16e1-40d5-98bb-a74958392595",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1387,7 +1127,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2c5dec27-bf6e-4be0-94b7-29c216969fe5",
+                            ConcurrencyStamp = "ce6c8850-b166-443b-ac8b-0fbd9e702fbb",
                             CreatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -1395,10 +1135,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKkmTXZMVFUXrvZlFAY4nNp4oDS2RJURC1AR/GmWPT/JWGx/hCptLfvAVVWJe2NhHA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEN3QaUQHdWCpA/0l44K0Iq2o3nu4aJelK810lIxf8X48oUl+mcp3MUJ/GkAv8Th9dg==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "621cb13b-3a81-413f-9677-73c99afc390e",
+                            SecurityStamp = "e61cdc9e-44c9-4ffe-95a0-263d410adba1",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2024, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1457,25 +1197,6 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Monhealth.Core.FoodCategory", b =>
-                {
-                    b.HasOne("Monhealth.Domain.Category", "Category")
-                        .WithMany("FoodCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Monhealth.Domain.Food", "Food")
-                        .WithMany("FoodCategories")
-                        .HasForeignKey("FoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Food");
-                });
-
             modelBuilder.Entity("Monhealth.Domain.Consultant", b =>
                 {
                     b.HasOne("Monhealth.Domain.Department", "Department")
@@ -1504,6 +1225,17 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
 
                     b.Navigation("DailyStat");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Food", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Category", "Category")
+                        .WithMany("Foods")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.FoodPortion", b =>
@@ -1638,7 +1370,7 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Category", b =>
                 {
-                    b.Navigation("FoodCategories");
+                    b.Navigation("Foods");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
@@ -1658,8 +1390,6 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
                 {
-                    b.Navigation("FoodCategories");
-
                     b.Navigation("FoodPortions");
 
                     b.Navigation("MealFoods");
