@@ -12,8 +12,11 @@ builder.Services.AddApplicationServices();
 builder.Services.AddIdentityServices(configuration);
 builder.Services.AddInfrastructureServices(configuration);
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
-
-
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis"); // Thay bằng connection string của Redis
+    options.InstanceName = "CategoryInstance";
+});
 
 
 builder.Services.AddControllers();

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Monhealth.Application.Contracts.Caching;
 using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Identity;
@@ -84,6 +85,7 @@ namespace Monhealth.Identity
             // Other service configurations...
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<INutritionRepository, NutritionRepository>();
+            services.AddScoped<ICacheService, RedisCacheService>();
             return services;
         }
 

@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+
 using Monhealth.Application.Features.Category.AddCategory;
 using Monhealth.Application.Features.Category.DeleteCategory;
 using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
@@ -19,9 +20,11 @@ namespace Monhealth.Api.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly IMediator _mediator;
+       
         public CategoryController(IMediator mediator)
         {
             _mediator = mediator;
+         
         }
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllCategories()
