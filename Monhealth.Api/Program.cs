@@ -16,6 +16,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis"); // Thay bằng connection string của Redis
     options.InstanceName = "CategoryInstance";
+
 });
 
 

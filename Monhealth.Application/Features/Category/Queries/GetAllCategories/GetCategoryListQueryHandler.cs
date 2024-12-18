@@ -16,7 +16,7 @@ namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
          ICategoryRepository categoryRepository,
          ICacheService cacheService)
         {
-            _mapper = mapper;   
+            _mapper = mapper;
             _categoryRepository = categoryRepository;
             _cacheService = cacheService;
         }
@@ -41,7 +41,7 @@ namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
             var serializedData = JsonSerializer.Serialize(categoryDtos);
 
             // 4. Lưu dữ liệu vào cache
-            await _cacheService.SetAsync(cacheKey, serializedData, TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(10));
+            await _cacheService.SetAsync(cacheKey, serializedData, TimeSpan.FromMinutes(5));
 
             return categoryDtos;
         }

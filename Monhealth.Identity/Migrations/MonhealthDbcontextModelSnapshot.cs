@@ -1199,6 +1199,11008 @@ namespace Monhealth.Identity.Migrations
                         .HasFilter("[UserFoodId] IS NOT NULL");
 
                     b.ToTable("Nutritions");
+
+                    b.HasData(
+                        new
+                        {
+                            NutritionId = new Guid("0ecb25af-b72f-4cc3-982d-0d2771dc8c55"),
+                            Calories = 416.33f,
+                            Carbs = 87.29f,
+                            Fat = 9.35f,
+                            Fiber = 2.15f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.19f,
+                            Sugar = 18.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b27e0729-264d-4d6f-a3d5-f2d14c4a4a89"),
+                            Calories = 328.59f,
+                            Carbs = 41.56f,
+                            Fat = 3.26f,
+                            Fiber = 18.99f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 46.14f,
+                            Sugar = 39.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1486a8d9-5e14-4c3c-aef2-7fc8027af0e8"),
+                            Calories = 223f,
+                            Carbs = 81.58f,
+                            Fat = 38.09f,
+                            Fiber = 10.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.26f,
+                            Sugar = 9.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("88bdb9c9-d496-402f-959c-f23ba2f805f2"),
+                            Calories = 401.35f,
+                            Carbs = 11.67f,
+                            Fat = 21.41f,
+                            Fiber = 9.79f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 36.11f,
+                            Sugar = 43.9f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("11dede15-7958-474f-92f4-8f6690f5b2f7"),
+                            Calories = 125.14f,
+                            Carbs = 89.64f,
+                            Fat = 25.77f,
+                            Fiber = 9.07f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.11f,
+                            Sugar = 21.22f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("939d23f9-4478-41ea-bbe0-ca74937a6e1b"),
+                            Calories = 493.66f,
+                            Carbs = 90.66f,
+                            Fat = 0.57f,
+                            Fiber = 2.61f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.23f,
+                            Sugar = 21.38f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e104897a-979b-4002-ad41-d2dd81f42bea"),
+                            Calories = 482.04f,
+                            Carbs = 57.46f,
+                            Fat = 48.67f,
+                            Fiber = 10.92f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 43.04f,
+                            Sugar = 27.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e660ceca-d1ff-4313-ba6b-9fe4e19912ef"),
+                            Calories = 3.47f,
+                            Carbs = 50.5f,
+                            Fat = 18.29f,
+                            Fiber = 1.63f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 37.46f,
+                            Sugar = 37.86f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7280a9ea-ccf9-47a4-a08a-214af8e859fb"),
+                            Calories = 192.24f,
+                            Carbs = 26.92f,
+                            Fat = 24.6f,
+                            Fiber = 15.27f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.53f,
+                            Sugar = 25.1f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("69f143e1-2032-48b8-ae20-3ec4a39f6ae6"),
+                            Calories = 317.29f,
+                            Carbs = 28.13f,
+                            Fat = 25.62f,
+                            Fiber = 0.27f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.07f,
+                            Sugar = 43.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3c27bda5-7f50-4375-8c00-18e2a370d31f"),
+                            Calories = 453.98f,
+                            Carbs = 96.61f,
+                            Fat = 33.69f,
+                            Fiber = 2.31f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 10.95f,
+                            Sugar = 45.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2f68a946-6093-4d77-97b8-dbadabdf9385"),
+                            Calories = 163.82f,
+                            Carbs = 1.79f,
+                            Fat = 9.21f,
+                            Fiber = 0.37f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.64f,
+                            Sugar = 21.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2aa3180d-4466-4b21-95ac-cb078b832698"),
+                            Calories = 16.29f,
+                            Carbs = 63.21f,
+                            Fat = 12.87f,
+                            Fiber = 8.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 30.88f,
+                            Sugar = 24.61f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("828a371f-764d-482a-ab4a-af6b5c1f6093"),
+                            Calories = 177.7f,
+                            Carbs = 88.95f,
+                            Fat = 29.52f,
+                            Fiber = 17.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.74f,
+                            Sugar = 32.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9ed099d2-cc8e-4ffe-b23a-458fb90e1a21"),
+                            Calories = 412.32f,
+                            Carbs = 42.81f,
+                            Fat = 22.07f,
+                            Fiber = 15.97f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.07f,
+                            Sugar = 48.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cd6de6f4-13fe-4121-b61d-8243f6576210"),
+                            Calories = 35.32f,
+                            Carbs = 57.28f,
+                            Fat = 25.26f,
+                            Fiber = 10.35f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 48.17f,
+                            Sugar = 46.28f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c549043f-5929-44c0-aad8-872c0b1ffa54"),
+                            Calories = 110.83f,
+                            Carbs = 6.82f,
+                            Fat = 33.59f,
+                            Fiber = 18.82f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 3.08f,
+                            Sugar = 45.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7fcde4a7-9c8d-4bea-9507-90db0f2e5e95"),
+                            Calories = 16.6f,
+                            Carbs = 83.89f,
+                            Fat = 45.77f,
+                            Fiber = 11.94f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.7f,
+                            Sugar = 35.9f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c23d3826-c897-4460-9000-5dc5faa6dbd0"),
+                            Calories = 119.97f,
+                            Carbs = 65.64f,
+                            Fat = 32.74f,
+                            Fiber = 14.43f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 4.68f,
+                            Sugar = 15.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("333abc18-06a2-4ba8-9606-417d95c2c396"),
+                            Calories = 192.51f,
+                            Carbs = 48.21f,
+                            Fat = 24.39f,
+                            Fiber = 4.94f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.17f,
+                            Sugar = 22.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("41986629-b941-41b8-8cb5-8257e9c8df5a"),
+                            Calories = 156.75f,
+                            Carbs = 83.62f,
+                            Fat = 3.7f,
+                            Fiber = 14.69f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.32f,
+                            Sugar = 33.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1b4fd89c-6e2b-4610-955d-99e443122835"),
+                            Calories = 186.89f,
+                            Carbs = 92.74f,
+                            Fat = 36.49f,
+                            Fiber = 19.08f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.61f,
+                            Sugar = 44.61f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("93ba37e4-9702-4888-9de8-463673a5ee8e"),
+                            Calories = 268.35f,
+                            Carbs = 64.79f,
+                            Fat = 36.64f,
+                            Fiber = 8.63f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.03f,
+                            Sugar = 28.93f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1649d66c-c123-4a77-b426-4b48ef28ae57"),
+                            Calories = 395.76f,
+                            Carbs = 8.7f,
+                            Fat = 18.28f,
+                            Fiber = 8.88f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 2.47f,
+                            Sugar = 10.24f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9d7ea1d3-ffc1-4ace-9c11-b28dabaea460"),
+                            Calories = 352.51f,
+                            Carbs = 53.22f,
+                            Fat = 22.01f,
+                            Fiber = 12.55f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.35f,
+                            Sugar = 7.61f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("eb6528f8-344e-429f-aaeb-c66f9619161b"),
+                            Calories = 220.21f,
+                            Carbs = 56.81f,
+                            Fat = 25.89f,
+                            Fiber = 5.36f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 12.37f,
+                            Sugar = 42.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("241634d5-6fe4-49fd-b646-8cf256c58641"),
+                            Calories = 355.23f,
+                            Carbs = 34.1f,
+                            Fat = 16.23f,
+                            Fiber = 6.67f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.73f,
+                            Sugar = 38.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d3c79986-f101-4fbb-bba1-db7e091c4a23"),
+                            Calories = 294.37f,
+                            Carbs = 46.33f,
+                            Fat = 29.5f,
+                            Fiber = 6.04f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 27.55f,
+                            Sugar = 36.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f6d77cad-9536-4ef9-bd03-342324793c8a"),
+                            Calories = 360.76f,
+                            Carbs = 21.09f,
+                            Fat = 36.74f,
+                            Fiber = 8.82f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 35.2f,
+                            Sugar = 35.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b4f3786f-361f-4f36-84a7-93fa17e2c82e"),
+                            Calories = 393.56f,
+                            Carbs = 29.78f,
+                            Fat = 9.31f,
+                            Fiber = 3.15f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.6f,
+                            Sugar = 9.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9a67e7fc-90a2-4cc0-aa8a-4495a49454f7"),
+                            Calories = 347.43f,
+                            Carbs = 47.86f,
+                            Fat = 49.15f,
+                            Fiber = 12.8f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 36.98f,
+                            Sugar = 8.63f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a348e5e9-99af-40e6-8b90-9b248612aab1"),
+                            Calories = 1.99f,
+                            Carbs = 10.43f,
+                            Fat = 1f,
+                            Fiber = 4.27f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 2.91f,
+                            Sugar = 43.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5a02cd77-60ba-4d46-aecf-85b6eb8e968b"),
+                            Calories = 425.52f,
+                            Carbs = 76.41f,
+                            Fat = 0.09f,
+                            Fiber = 8.56f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.98f,
+                            Sugar = 10.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("af19340a-1225-4b0a-be2b-f58bdef62316"),
+                            Calories = 417.45f,
+                            Carbs = 14.66f,
+                            Fat = 12.32f,
+                            Fiber = 3.31f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.5f,
+                            Sugar = 29.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c6625375-5b5f-476a-9936-72ac861d19e2"),
+                            Calories = 411.89f,
+                            Carbs = 29.06f,
+                            Fat = 7.62f,
+                            Fiber = 6.02f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 35.82f,
+                            Sugar = 12.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("01996506-4ecc-4ebf-9a50-e66f1741e179"),
+                            Calories = 63.82f,
+                            Carbs = 54.04f,
+                            Fat = 22.87f,
+                            Fiber = 6.64f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35f,
+                            Sugar = 4.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b9c042df-cb42-494c-a116-fe55ad013080"),
+                            Calories = 374.44f,
+                            Carbs = 60.98f,
+                            Fat = 20.68f,
+                            Fiber = 3.87f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.56f,
+                            Sugar = 37.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("67ca2816-ce56-47e4-9301-81cc24bf1e56"),
+                            Calories = 410.3f,
+                            Carbs = 65.62f,
+                            Fat = 21.44f,
+                            Fiber = 9.01f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 48.52f,
+                            Sugar = 3.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3c395685-b8f9-411e-a212-d1c0de367cde"),
+                            Calories = 15.3f,
+                            Carbs = 67.85f,
+                            Fat = 32.77f,
+                            Fiber = 1.67f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 18.31f,
+                            Sugar = 11.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1c8a975d-65d7-4d2f-af40-b711b90ef8b0"),
+                            Calories = 479.19f,
+                            Carbs = 36.84f,
+                            Fat = 49.32f,
+                            Fiber = 19.35f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.54f,
+                            Sugar = 43.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e8b1427e-3d2d-419e-b254-45984242f4e6"),
+                            Calories = 360.29f,
+                            Carbs = 57.11f,
+                            Fat = 24.69f,
+                            Fiber = 11.23f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 14.38f,
+                            Sugar = 18.83f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c0f587fd-8871-427b-97f3-f6e6fd251f04"),
+                            Calories = 330.29f,
+                            Carbs = 53.3f,
+                            Fat = 19.66f,
+                            Fiber = 12.52f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.67f,
+                            Sugar = 18.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("297ccd2d-68b6-4e4a-bc6f-7491b65af48d"),
+                            Calories = 328.51f,
+                            Carbs = 75.01f,
+                            Fat = 26.49f,
+                            Fiber = 12.12f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.56f,
+                            Sugar = 33.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("eeec180b-a87e-4a36-8be3-c0bb7a7e01cf"),
+                            Calories = 62.47f,
+                            Carbs = 13.73f,
+                            Fat = 47.87f,
+                            Fiber = 13.05f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 11.97f,
+                            Sugar = 23.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cf455ee9-63bf-4d78-8921-f7a94d9b6768"),
+                            Calories = 411.05f,
+                            Carbs = 43.84f,
+                            Fat = 5.64f,
+                            Fiber = 1.26f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.81f,
+                            Sugar = 44.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e2bb57da-ce3d-47ab-9ec4-599fcc4aa6c2"),
+                            Calories = 166.36f,
+                            Carbs = 95.61f,
+                            Fat = 24.92f,
+                            Fiber = 2.82f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 12.06f,
+                            Sugar = 7.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ecf55035-b538-4797-8a69-7c07de9b1d5d"),
+                            Calories = 278.73f,
+                            Carbs = 9.25f,
+                            Fat = 35.94f,
+                            Fiber = 5.59f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.81f,
+                            Sugar = 46.76f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c25c160a-b131-404c-98e6-33d0259b95f0"),
+                            Calories = 158.53f,
+                            Carbs = 48.93f,
+                            Fat = 43.79f,
+                            Fiber = 12.87f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 30.49f,
+                            Sugar = 34.61f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7d0e629b-e0be-451c-8607-0c47e16661af"),
+                            Calories = 109.01f,
+                            Carbs = 98.68f,
+                            Fat = 7.52f,
+                            Fiber = 0.71f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.08f,
+                            Sugar = 35.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("51c51ca2-c1a8-4bc6-a5a1-a274007e44b3"),
+                            Calories = 158.91f,
+                            Carbs = 13.77f,
+                            Fat = 23.95f,
+                            Fiber = 16.66f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 37.14f,
+                            Sugar = 48.93f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7b101b59-ccfe-4743-8d3b-dd45836e50a8"),
+                            Calories = 211.24f,
+                            Carbs = 35.17f,
+                            Fat = 26.23f,
+                            Fiber = 14.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 4.51f,
+                            Sugar = 27.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("77e9301f-7d51-4fa4-8ead-edf3363fa637"),
+                            Calories = 112f,
+                            Carbs = 32.66f,
+                            Fat = 17.99f,
+                            Fiber = 3.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.49f,
+                            Sugar = 2.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("934c6f4e-8b26-4b42-8a54-47ddd990d484"),
+                            Calories = 296.32f,
+                            Carbs = 37.57f,
+                            Fat = 34.73f,
+                            Fiber = 18.28f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 15.23f,
+                            Sugar = 24.16f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d82feaa1-7663-4bec-a218-412045f1f455"),
+                            Calories = 420.47f,
+                            Carbs = 28.27f,
+                            Fat = 39.03f,
+                            Fiber = 5.43f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 22.7f,
+                            Sugar = 28.86f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8fd3fc70-2756-454d-976e-d3cfbd1c4150"),
+                            Calories = 373.46f,
+                            Carbs = 40.46f,
+                            Fat = 32.96f,
+                            Fiber = 3.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.82f,
+                            Sugar = 12.64f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c5492b1d-130d-4d1e-a185-e04bb0e33e89"),
+                            Calories = 241.4f,
+                            Carbs = 97.96f,
+                            Fat = 31.73f,
+                            Fiber = 1.47f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.24f,
+                            Sugar = 36.83f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("850f4568-f3fc-4a02-9f0a-8866a03c7a52"),
+                            Calories = 427.55f,
+                            Carbs = 50.45f,
+                            Fat = 11.88f,
+                            Fiber = 16.21f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.36f,
+                            Sugar = 27.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4d22bdf9-3ce2-497c-ae01-7214dfedc80d"),
+                            Calories = 151.16f,
+                            Carbs = 51.71f,
+                            Fat = 2.74f,
+                            Fiber = 9.83f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 9.21f,
+                            Sugar = 2.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b82e94d2-089f-49cb-8142-8df90f3ba5dc"),
+                            Calories = 95.22f,
+                            Carbs = 99.17f,
+                            Fat = 31.9f,
+                            Fiber = 8.29f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.79f,
+                            Sugar = 15.31f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0d17ce72-a817-437b-8d7b-d2521285b7f0"),
+                            Calories = 463.64f,
+                            Carbs = 39.72f,
+                            Fat = 43.45f,
+                            Fiber = 11.94f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.91f,
+                            Sugar = 42.89f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("972d1d4d-35aa-4d79-9720-71ebc37405b7"),
+                            Calories = 465f,
+                            Carbs = 42.47f,
+                            Fat = 39.93f,
+                            Fiber = 18.48f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.09f,
+                            Sugar = 10.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a9528a6b-0da1-44d7-b410-88e1adb74723"),
+                            Calories = 48.69f,
+                            Carbs = 88.87f,
+                            Fat = 27.45f,
+                            Fiber = 14.98f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.43f,
+                            Sugar = 34.35f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("848d5307-00fc-43c2-b046-f297a1432f25"),
+                            Calories = 366.82f,
+                            Carbs = 32.37f,
+                            Fat = 1.48f,
+                            Fiber = 11.88f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 33.32f,
+                            Sugar = 22.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("22b88af7-ae08-46da-b787-1926d8d9ada8"),
+                            Calories = 7.24f,
+                            Carbs = 54.22f,
+                            Fat = 18.57f,
+                            Fiber = 8.44f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.86f,
+                            Sugar = 46.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e1a6872b-15b9-48e7-acf3-8b601453db2d"),
+                            Calories = 408.2f,
+                            Carbs = 32.24f,
+                            Fat = 12.56f,
+                            Fiber = 15.22f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 49.05f,
+                            Sugar = 4.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dc64ba93-9704-4d0a-8276-39f2fd180b61"),
+                            Calories = 195.07f,
+                            Carbs = 62.36f,
+                            Fat = 39.92f,
+                            Fiber = 18.5f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 11.9f,
+                            Sugar = 49.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3c2ca8a4-c746-4c89-87fb-b73db94bdf84"),
+                            Calories = 457.74f,
+                            Carbs = 68.28f,
+                            Fat = 20.66f,
+                            Fiber = 3.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 45.74f,
+                            Sugar = 2.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6daf5830-6712-4bcc-96df-9184a2c4d72b"),
+                            Calories = 263.46f,
+                            Carbs = 90.74f,
+                            Fat = 47.85f,
+                            Fiber = 15.44f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.27f,
+                            Sugar = 32.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("489a2f3d-8fb9-4062-b47f-44f67bd9e5b1"),
+                            Calories = 181.51f,
+                            Carbs = 12.04f,
+                            Fat = 2.83f,
+                            Fiber = 3.43f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 27.03f,
+                            Sugar = 22.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d181e568-52b6-4ea1-b195-6eae8db64f69"),
+                            Calories = 395.93f,
+                            Carbs = 73.3f,
+                            Fat = 35.31f,
+                            Fiber = 7.83f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 6.59f,
+                            Sugar = 14.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e05cf4a5-6755-4b08-95bd-cdabb6a951a8"),
+                            Calories = 295.85f,
+                            Carbs = 40.89f,
+                            Fat = 20.58f,
+                            Fiber = 18.2f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.73f,
+                            Sugar = 40.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2f90df4b-ab03-4a63-9315-7d481057f6d2"),
+                            Calories = 239.03f,
+                            Carbs = 57.85f,
+                            Fat = 20.15f,
+                            Fiber = 5.96f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.74f,
+                            Sugar = 11.87f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0390de01-5da1-469c-843a-9a6471105aa7"),
+                            Calories = 101.02f,
+                            Carbs = 59.8f,
+                            Fat = 24.14f,
+                            Fiber = 13.99f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 0.02f,
+                            Sugar = 19.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4f3f710e-4a34-4c3a-a2bb-20f3a65a84f2"),
+                            Calories = 224.17f,
+                            Carbs = 50.61f,
+                            Fat = 39.98f,
+                            Fiber = 4.74f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.44f,
+                            Sugar = 21.84f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ce04a0bd-13ce-412d-8692-276e20b16dfc"),
+                            Calories = 36.91f,
+                            Carbs = 59.41f,
+                            Fat = 15.44f,
+                            Fiber = 9.81f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 30.32f,
+                            Sugar = 16.63f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f6a9f502-85ab-4a9f-ac1e-af7e2cdb420e"),
+                            Calories = 201.79f,
+                            Carbs = 17.65f,
+                            Fat = 33.14f,
+                            Fiber = 7.28f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.97f,
+                            Sugar = 40.9f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8af969e7-0b4c-473a-8335-228634bf5132"),
+                            Calories = 198.62f,
+                            Carbs = 35.75f,
+                            Fat = 14.1f,
+                            Fiber = 0.14f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 29.54f,
+                            Sugar = 10.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c30e1590-284f-4fe2-8721-c5326e06bf73"),
+                            Calories = 309.75f,
+                            Carbs = 63.77f,
+                            Fat = 44.98f,
+                            Fiber = 18.69f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.63f,
+                            Sugar = 34.95f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("607db7ba-27d9-46ef-9739-427ae6a85ce5"),
+                            Calories = 185.22f,
+                            Carbs = 13.32f,
+                            Fat = 42.17f,
+                            Fiber = 6.29f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.62f,
+                            Sugar = 40.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4c15d052-460d-439f-8cd6-168f4f3933aa"),
+                            Calories = 78.76f,
+                            Carbs = 56.07f,
+                            Fat = 32.44f,
+                            Fiber = 1.89f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.68f,
+                            Sugar = 41.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("72a1f9b9-93c5-444c-b9d9-d469452e8166"),
+                            Calories = 452.41f,
+                            Carbs = 44.25f,
+                            Fat = 14.97f,
+                            Fiber = 14.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.77f,
+                            Sugar = 16.55f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d825da8c-d080-483b-b675-6f86390bfdaa"),
+                            Calories = 155.24f,
+                            Carbs = 40.78f,
+                            Fat = 21.13f,
+                            Fiber = 13.57f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.82f,
+                            Sugar = 26.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("88ff539d-462e-4965-86aa-a346dac55711"),
+                            Calories = 166.18f,
+                            Carbs = 98.37f,
+                            Fat = 14.65f,
+                            Fiber = 16.41f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 36.63f,
+                            Sugar = 14.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c3090256-bf4d-4bcd-b824-050cb8716795"),
+                            Calories = 110.1f,
+                            Carbs = 29.65f,
+                            Fat = 45.94f,
+                            Fiber = 18.15f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.38f,
+                            Sugar = 45.16f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("db1c9589-9f2f-4190-a951-4edd7ec9b425"),
+                            Calories = 85.17f,
+                            Carbs = 14.02f,
+                            Fat = 10.24f,
+                            Fiber = 15.84f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.89f,
+                            Sugar = 14.71f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("246b1c44-3b6e-4615-98a5-8ba496e3599d"),
+                            Calories = 4.92f,
+                            Carbs = 85.18f,
+                            Fat = 19.93f,
+                            Fiber = 6.26f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.95f,
+                            Sugar = 5.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4eeb1701-5a87-49e0-8ad0-11bbbd470020"),
+                            Calories = 32.84f,
+                            Carbs = 5.54f,
+                            Fat = 40.14f,
+                            Fiber = 0.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.6f,
+                            Sugar = 46.51f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8e086c99-2992-44cc-901a-cdc8ddeff33b"),
+                            Calories = 382.61f,
+                            Carbs = 58.75f,
+                            Fat = 11.17f,
+                            Fiber = 3.32f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 37.68f,
+                            Sugar = 14.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("127ab397-8499-4950-abca-057660611641"),
+                            Calories = 44.25f,
+                            Carbs = 10.97f,
+                            Fat = 4.59f,
+                            Fiber = 1.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.31f,
+                            Sugar = 39.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a040f0e5-a7cd-4b93-91e6-09a032294dce"),
+                            Calories = 89.75f,
+                            Carbs = 18.03f,
+                            Fat = 18f,
+                            Fiber = 16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.98f,
+                            Sugar = 16.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("06ee4983-5959-480d-80e5-d58c163012b8"),
+                            Calories = 193.57f,
+                            Carbs = 66.96f,
+                            Fat = 22.23f,
+                            Fiber = 3.61f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.88f,
+                            Sugar = 26.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9bebfa2e-bf26-4730-91ed-aa9b21793702"),
+                            Calories = 446.93f,
+                            Carbs = 8.25f,
+                            Fat = 24.94f,
+                            Fiber = 4.62f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.13f,
+                            Sugar = 34.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("633cd86d-9364-432a-9959-3a9c01eb5cfa"),
+                            Calories = 35.02f,
+                            Carbs = 1.62f,
+                            Fat = 6.58f,
+                            Fiber = 10.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 35.23f,
+                            Sugar = 14.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a512225f-851f-4cae-9790-f2c55dc51f4f"),
+                            Calories = 378.32f,
+                            Carbs = 98.72f,
+                            Fat = 48.6f,
+                            Fiber = 1.37f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 28.05f,
+                            Sugar = 37.1f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3baa9680-0059-473c-a05f-9a57058d1a16"),
+                            Calories = 72.89f,
+                            Carbs = 3.81f,
+                            Fat = 11.92f,
+                            Fiber = 6.04f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 10.61f,
+                            Sugar = 17.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3847f178-e0a8-4889-b44e-fb3cff8bed57"),
+                            Calories = 61.66f,
+                            Carbs = 34.96f,
+                            Fat = 18.53f,
+                            Fiber = 9.26f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.36f,
+                            Sugar = 9.89f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("79706937-a7ef-49ba-a7c8-5aed38ef4c23"),
+                            Calories = 4.17f,
+                            Carbs = 49.28f,
+                            Fat = 5.38f,
+                            Fiber = 2.11f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 35.02f,
+                            Sugar = 8.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b1d286c3-7dfe-410c-a93b-d07a118c381a"),
+                            Calories = 461.98f,
+                            Carbs = 51.95f,
+                            Fat = 41.11f,
+                            Fiber = 17.18f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25.91f,
+                            Sugar = 4.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d025b980-1e1e-4ffa-aa25-76f62c846a45"),
+                            Calories = 8.02f,
+                            Carbs = 44.82f,
+                            Fat = 47.7f,
+                            Fiber = 8.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 10.5f,
+                            Sugar = 23.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("491e90d8-0101-4abc-b495-e1c8a309c21f"),
+                            Calories = 78.25f,
+                            Carbs = 75.01f,
+                            Fat = 2.56f,
+                            Fiber = 6.75f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.16f,
+                            Sugar = 23.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("978cd8c5-1f8d-4991-82f6-b3c14e49b386"),
+                            Calories = 246.39f,
+                            Carbs = 83.37f,
+                            Fat = 3.75f,
+                            Fiber = 16.29f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.98f,
+                            Sugar = 0.16f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2550a07d-b1f1-4442-9ab5-66faa60c4821"),
+                            Calories = 143.97f,
+                            Carbs = 19.53f,
+                            Fat = 15.52f,
+                            Fiber = 6.59f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.36f,
+                            Sugar = 18.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3aabc8d9-f1fb-4822-9070-d8c8d39d8670"),
+                            Calories = 451.85f,
+                            Carbs = 70.13f,
+                            Fat = 4.34f,
+                            Fiber = 4.44f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.28f,
+                            Sugar = 19.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d1074152-55f4-4876-b61e-5532c68cf2a8"),
+                            Calories = 487.29f,
+                            Carbs = 45.64f,
+                            Fat = 4.03f,
+                            Fiber = 8.48f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.74f,
+                            Sugar = 24.56f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9a0e5c84-3580-4ec2-9715-37c94d8cc90a"),
+                            Calories = 287.47f,
+                            Carbs = 43.24f,
+                            Fat = 12.87f,
+                            Fiber = 15.44f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 29.43f,
+                            Sugar = 20.84f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6137a4ef-43c6-4e9e-b46f-3f5d109e3f45"),
+                            Calories = 144.74f,
+                            Carbs = 3.16f,
+                            Fat = 32.01f,
+                            Fiber = 8.87f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 15.4f,
+                            Sugar = 26.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0c925dcd-557a-4a72-8bbf-49639dd12f15"),
+                            Calories = 300.82f,
+                            Carbs = 86.33f,
+                            Fat = 6.08f,
+                            Fiber = 13.54f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.58f,
+                            Sugar = 2.15f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d67364ff-2789-4a59-8a22-b25666733fb6"),
+                            Calories = 83.82f,
+                            Carbs = 3.43f,
+                            Fat = 42.94f,
+                            Fiber = 7.74f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.05f,
+                            Sugar = 30.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a8c270f6-1c81-4510-b80f-545ff0a96fc8"),
+                            Calories = 444.31f,
+                            Carbs = 23.35f,
+                            Fat = 27.84f,
+                            Fiber = 4.98f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.17f,
+                            Sugar = 22.15f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f8f5404c-1ff1-4416-a2fa-a0e7f5cbe33b"),
+                            Calories = 134.6f,
+                            Carbs = 74.54f,
+                            Fat = 22.79f,
+                            Fiber = 10.95f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25.29f,
+                            Sugar = 37.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("78e22f88-71cf-4448-80a2-3f1a15286442"),
+                            Calories = 28.4f,
+                            Carbs = 26.93f,
+                            Fat = 45.42f,
+                            Fiber = 19f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.24f,
+                            Sugar = 20.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("87cb5bd2-1cce-4e8e-9241-25a33af56f62"),
+                            Calories = 22.53f,
+                            Carbs = 56.12f,
+                            Fat = 17.7f,
+                            Fiber = 6.93f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 40.19f,
+                            Sugar = 13.56f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("688b0060-3d76-4631-b1b6-040b16bad2cd"),
+                            Calories = 144.77f,
+                            Carbs = 74.31f,
+                            Fat = 28.57f,
+                            Fiber = 6.61f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 31.3f,
+                            Sugar = 29.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("270e4118-3180-43b9-8a75-82d0aead0b7a"),
+                            Calories = 392.64f,
+                            Carbs = 1.77f,
+                            Fat = 3.81f,
+                            Fiber = 1.39f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.87f,
+                            Sugar = 1.64f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("675c9e84-57db-4285-81fa-0c958c35b2dd"),
+                            Calories = 327.7f,
+                            Carbs = 17.88f,
+                            Fat = 28.38f,
+                            Fiber = 19.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.98f,
+                            Sugar = 39.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c256c8f3-349e-4dac-917b-89077ff48c8b"),
+                            Calories = 212.94f,
+                            Carbs = 36.26f,
+                            Fat = 30.22f,
+                            Fiber = 17.86f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 30.7f,
+                            Sugar = 12.93f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0b33200a-19e8-4877-b7fd-b57db3e678af"),
+                            Calories = 243.77f,
+                            Carbs = 73.81f,
+                            Fat = 25.39f,
+                            Fiber = 7.78f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.56f,
+                            Sugar = 29.67f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5e998852-c65b-43c6-a71c-6274a40f9630"),
+                            Calories = 356.12f,
+                            Carbs = 34.75f,
+                            Fat = 27.57f,
+                            Fiber = 16.17f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.9f,
+                            Sugar = 21.33f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f8e80032-f167-4755-9e6c-d394edeee79a"),
+                            Calories = 301.44f,
+                            Carbs = 12.06f,
+                            Fat = 27.87f,
+                            Fiber = 6.46f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.33f,
+                            Sugar = 35.58f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8f330d60-a7b8-49ba-97dd-81a830a1358d"),
+                            Calories = 17.61f,
+                            Carbs = 29.48f,
+                            Fat = 7.68f,
+                            Fiber = 13.84f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.68f,
+                            Sugar = 12.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5d75957b-2817-4876-9aee-a752ee2875f1"),
+                            Calories = 428.2f,
+                            Carbs = 29.32f,
+                            Fat = 37.75f,
+                            Fiber = 8.1f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.73f,
+                            Sugar = 2.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b69a0800-e82f-4409-9840-c74c6eabd4dd"),
+                            Calories = 446.42f,
+                            Carbs = 99.65f,
+                            Fat = 34.15f,
+                            Fiber = 15f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.19f,
+                            Sugar = 2.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("26a88eff-2796-49d9-8ee8-4bfd4997145b"),
+                            Calories = 275.04f,
+                            Carbs = 87.65f,
+                            Fat = 42.07f,
+                            Fiber = 12.82f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 30f,
+                            Sugar = 16.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("58b6bfb7-7cd7-4c04-bd85-4fe62b3c23f9"),
+                            Calories = 348.75f,
+                            Carbs = 70.21f,
+                            Fat = 37.72f,
+                            Fiber = 10.2f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.14f,
+                            Sugar = 8.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2525845f-b187-4b14-8cfe-48c0f0868482"),
+                            Calories = 171.28f,
+                            Carbs = 20.76f,
+                            Fat = 16.14f,
+                            Fiber = 12.81f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.67f,
+                            Sugar = 26.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f678b020-c5ba-4bf7-a5c7-cfdb60211d79"),
+                            Calories = 106.86f,
+                            Carbs = 42.49f,
+                            Fat = 1.22f,
+                            Fiber = 14.09f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25f,
+                            Sugar = 41.61f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c59722b1-3466-458e-bb20-803419cedccb"),
+                            Calories = 476.68f,
+                            Carbs = 10.94f,
+                            Fat = 18.85f,
+                            Fiber = 18.46f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 15.19f,
+                            Sugar = 10.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("73df5acf-576d-4656-bfe0-f063401926c6"),
+                            Calories = 124.88f,
+                            Carbs = 39.95f,
+                            Fat = 5.83f,
+                            Fiber = 6.28f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.12f,
+                            Sugar = 13.83f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("647fd55b-d5e4-4abb-b58d-1d8226250fdd"),
+                            Calories = 349.74f,
+                            Carbs = 73.47f,
+                            Fat = 4.99f,
+                            Fiber = 13.98f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 4.1f,
+                            Sugar = 31.51f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a280a8cd-179f-4253-bc67-11ffa003995c"),
+                            Calories = 259.22f,
+                            Carbs = 49.69f,
+                            Fat = 21.79f,
+                            Fiber = 4.35f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.26f,
+                            Sugar = 19.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("afbe1287-779b-4174-80aa-815164b96036"),
+                            Calories = 413.01f,
+                            Carbs = 40.68f,
+                            Fat = 15.73f,
+                            Fiber = 8.72f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 14.47f,
+                            Sugar = 7.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ef69bf2d-a72b-4125-8f21-934cd5c75057"),
+                            Calories = 139.2f,
+                            Carbs = 67.72f,
+                            Fat = 41.81f,
+                            Fiber = 3.2f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 46.15f,
+                            Sugar = 37.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c8ef9560-6f5e-48c0-8c13-2c69d45597d8"),
+                            Calories = 376.05f,
+                            Carbs = 42.5f,
+                            Fat = 18.45f,
+                            Fiber = 1.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 4.93f,
+                            Sugar = 8.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3f193ad9-4fcc-464c-8fc3-86529c02d611"),
+                            Calories = 456.19f,
+                            Carbs = 22.41f,
+                            Fat = 24.71f,
+                            Fiber = 18.12f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.28f,
+                            Sugar = 28.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("46dc0f56-8485-4675-a691-5d73fe34b1c9"),
+                            Calories = 393.22f,
+                            Carbs = 24.29f,
+                            Fat = 45.58f,
+                            Fiber = 6.35f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.37f,
+                            Sugar = 36.08f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b9f471f3-c911-4662-9b18-dcb02d816d72"),
+                            Calories = 212.23f,
+                            Carbs = 40.97f,
+                            Fat = 25.07f,
+                            Fiber = 8.27f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.98f,
+                            Sugar = 0.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2880630b-3054-4e1b-962c-f03f187ddae5"),
+                            Calories = 122.38f,
+                            Carbs = 16.1f,
+                            Fat = 43.43f,
+                            Fiber = 13.59f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 0.82f,
+                            Sugar = 48.45f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("02b0578c-028c-4427-9db5-c50e54ce6848"),
+                            Calories = 95.79f,
+                            Carbs = 38.65f,
+                            Fat = 28.59f,
+                            Fiber = 19.96f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.83f,
+                            Sugar = 2.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cd9c1676-8f18-4501-81bd-992d928ce712"),
+                            Calories = 359.08f,
+                            Carbs = 26.09f,
+                            Fat = 31.74f,
+                            Fiber = 15.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.13f,
+                            Sugar = 46.1f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("371a245b-5c92-484f-8505-b1494318ec32"),
+                            Calories = 2.52f,
+                            Carbs = 93.65f,
+                            Fat = 40.27f,
+                            Fiber = 14.29f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.77f,
+                            Sugar = 25.18f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6c728a04-110e-423a-b58b-eda617996587"),
+                            Calories = 181.23f,
+                            Carbs = 21.49f,
+                            Fat = 10.08f,
+                            Fiber = 15.52f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 0.33f,
+                            Sugar = 23.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0b714b00-151b-4710-8155-45e4a57e564e"),
+                            Calories = 212.17f,
+                            Carbs = 33.07f,
+                            Fat = 36.18f,
+                            Fiber = 6.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 22.17f,
+                            Sugar = 28.01f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a40376b7-35f1-4c1c-85f1-0d558e32e4a4"),
+                            Calories = 120.08f,
+                            Carbs = 91.87f,
+                            Fat = 40.53f,
+                            Fiber = 6.07f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 18.35f,
+                            Sugar = 11.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cf75fcc4-45fa-4bf2-ba39-ab9f175f815b"),
+                            Calories = 395.51f,
+                            Carbs = 60.66f,
+                            Fat = 6.87f,
+                            Fiber = 18.35f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.38f,
+                            Sugar = 12.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("495dfd45-ca11-4c5d-b2a3-89b095bb2bef"),
+                            Calories = 474.41f,
+                            Carbs = 16.96f,
+                            Fat = 17.97f,
+                            Fiber = 14.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.83f,
+                            Sugar = 13.61f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("058c06a8-e7d4-45b7-bb37-d464b4d09d4a"),
+                            Calories = 472.82f,
+                            Carbs = 75.61f,
+                            Fat = 39.5f,
+                            Fiber = 8.1f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.11f,
+                            Sugar = 30.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9c4650ed-9b67-4433-b590-c1abc5a76f81"),
+                            Calories = 360.66f,
+                            Carbs = 46.18f,
+                            Fat = 42.46f,
+                            Fiber = 3.34f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 35.36f,
+                            Sugar = 5.98f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bbff891c-cf0c-415c-bea3-16ec578e747b"),
+                            Calories = 113.56f,
+                            Carbs = 68.09f,
+                            Fat = 33.45f,
+                            Fiber = 18.52f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.04f,
+                            Sugar = 24.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6d422e94-25c7-4607-995d-6ad2159488ca"),
+                            Calories = 122.18f,
+                            Carbs = 84.43f,
+                            Fat = 42.36f,
+                            Fiber = 19.27f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.93f,
+                            Sugar = 40.17f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("56a9f60f-d34d-4468-b053-00a4b3f6b2af"),
+                            Calories = 275.6f,
+                            Carbs = 76.15f,
+                            Fat = 42.76f,
+                            Fiber = 18.51f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.21f,
+                            Sugar = 12.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3958eb49-667c-4965-8085-f6142d6887ff"),
+                            Calories = 7.84f,
+                            Carbs = 71.18f,
+                            Fat = 1.87f,
+                            Fiber = 10.42f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.82f,
+                            Sugar = 39.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("90473715-f068-406f-8371-1fe161af75b2"),
+                            Calories = 353.52f,
+                            Carbs = 27.82f,
+                            Fat = 16.66f,
+                            Fiber = 19.87f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.15f,
+                            Sugar = 31.15f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c7c24cd6-d886-46fe-bfeb-3008e6c5c52d"),
+                            Calories = 315.25f,
+                            Carbs = 96.43f,
+                            Fat = 11.38f,
+                            Fiber = 0.74f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 16.65f,
+                            Sugar = 29.58f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ae654e04-ccb3-47c8-ac8c-9a2b628302cd"),
+                            Calories = 236.24f,
+                            Carbs = 58.62f,
+                            Fat = 49.81f,
+                            Fiber = 14.32f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.1f,
+                            Sugar = 46.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c270f1dc-46fe-426f-b289-fc5a8c6797dd"),
+                            Calories = 445.66f,
+                            Carbs = 1.59f,
+                            Fat = 1.23f,
+                            Fiber = 12.96f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.17f,
+                            Sugar = 15.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("931b2416-9218-40a6-8843-56938e788db0"),
+                            Calories = 39.56f,
+                            Carbs = 42.47f,
+                            Fat = 11.9f,
+                            Fiber = 17.69f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25f,
+                            Sugar = 29.26f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("382571f0-7cd9-4c3d-b559-295873139f18"),
+                            Calories = 482.98f,
+                            Carbs = 32.91f,
+                            Fat = 13.11f,
+                            Fiber = 6.73f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.78f,
+                            Sugar = 25.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f4b71ed4-32a5-49f3-b502-3caa7614df20"),
+                            Calories = 249.17f,
+                            Carbs = 93.51f,
+                            Fat = 33.71f,
+                            Fiber = 0.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.31f,
+                            Sugar = 20.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9efe7dcb-5e3a-4603-9e2b-63e5d2359ec7"),
+                            Calories = 482.39f,
+                            Carbs = 28.66f,
+                            Fat = 46.6f,
+                            Fiber = 1.26f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.29f,
+                            Sugar = 39.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("153bed72-f975-49e2-893d-08a283b0a8ed"),
+                            Calories = 414.9f,
+                            Carbs = 56.41f,
+                            Fat = 11.79f,
+                            Fiber = 11.9f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 28.59f,
+                            Sugar = 3.31f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f87a64f1-a325-493a-8a55-6185aa980907"),
+                            Calories = 448.11f,
+                            Carbs = 65.62f,
+                            Fat = 33.89f,
+                            Fiber = 18.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.82f,
+                            Sugar = 17.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7ae12d8f-6d98-473c-ad18-5c9874ab9b27"),
+                            Calories = 22.48f,
+                            Carbs = 31.42f,
+                            Fat = 22.07f,
+                            Fiber = 1.35f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 22.14f,
+                            Sugar = 5.56f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4fd74149-1024-4713-ba2e-44e781098a3d"),
+                            Calories = 478.97f,
+                            Carbs = 44.89f,
+                            Fat = 45.58f,
+                            Fiber = 1.27f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.63f,
+                            Sugar = 44.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b14a7d7c-5e11-4920-b2c7-f59f7cfc20e3"),
+                            Calories = 184.58f,
+                            Carbs = 11.24f,
+                            Fat = 17.9f,
+                            Fiber = 0.82f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 47.78f,
+                            Sugar = 42.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("06c51e72-1d80-45c9-b925-dbad530216ae"),
+                            Calories = 64.65f,
+                            Carbs = 90.6f,
+                            Fat = 48.09f,
+                            Fiber = 5.37f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 14.35f,
+                            Sugar = 49.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("778a037f-0fa9-4b10-a96f-6ee98e8224c0"),
+                            Calories = 82.25f,
+                            Carbs = 15.6f,
+                            Fat = 33.77f,
+                            Fiber = 15.86f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.78f,
+                            Sugar = 21.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1aad9f2f-b02f-42e0-b2a6-5a7cf07e8423"),
+                            Calories = 402.93f,
+                            Carbs = 5.71f,
+                            Fat = 9.86f,
+                            Fiber = 4.07f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.32f,
+                            Sugar = 49.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d52f3e3e-dc16-4ad4-89fa-d81c4316bd74"),
+                            Calories = 139.87f,
+                            Carbs = 12.29f,
+                            Fat = 0.19f,
+                            Fiber = 12.49f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.24f,
+                            Sugar = 45.77f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("599fd049-d0ff-4e12-a597-ccf881bbf83d"),
+                            Calories = 15.91f,
+                            Carbs = 31.57f,
+                            Fat = 13.52f,
+                            Fiber = 12.09f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 27.96f,
+                            Sugar = 21.1f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bde747cc-6d1b-4334-9f8f-8b88e4d74323"),
+                            Calories = 407.05f,
+                            Carbs = 16.83f,
+                            Fat = 24.52f,
+                            Fiber = 16.37f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.39f,
+                            Sugar = 16.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2da14507-2fe4-4496-b1b5-19e1e9f5e8f0"),
+                            Calories = 356.77f,
+                            Carbs = 80.05f,
+                            Fat = 6.38f,
+                            Fiber = 9.7f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 42.27f,
+                            Sugar = 9.66f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5dded003-ac6e-459c-b217-a69431677f00"),
+                            Calories = 339.74f,
+                            Carbs = 89.35f,
+                            Fat = 14.17f,
+                            Fiber = 9.46f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 39.41f,
+                            Sugar = 0.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d69331d1-c209-4966-9dc2-e6e06e41404c"),
+                            Calories = 5.56f,
+                            Carbs = 10.27f,
+                            Fat = 8.78f,
+                            Fiber = 16.9f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 1.01f,
+                            Sugar = 33.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("03aa30b3-2550-4e77-b65a-5f000e35f0df"),
+                            Calories = 90.79f,
+                            Carbs = 47.54f,
+                            Fat = 33.61f,
+                            Fiber = 3.83f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.9f,
+                            Sugar = 4.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("938b0db2-e524-47e0-b772-fd845b67232f"),
+                            Calories = 213.74f,
+                            Carbs = 10.98f,
+                            Fat = 30.94f,
+                            Fiber = 16.75f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.42f,
+                            Sugar = 43.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("66843395-0b09-4ec0-9378-decdf92fa754"),
+                            Calories = 90.46f,
+                            Carbs = 46.29f,
+                            Fat = 19.57f,
+                            Fiber = 17.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.08f,
+                            Sugar = 22.55f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6217cfe4-ae6c-4469-840e-63391043d791"),
+                            Calories = 130.4f,
+                            Carbs = 40.83f,
+                            Fat = 26.17f,
+                            Fiber = 3.79f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.92f,
+                            Sugar = 11.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("acc748c1-5c03-47cc-a646-7811ac1ab100"),
+                            Calories = 123.9f,
+                            Carbs = 99.86f,
+                            Fat = 5.64f,
+                            Fiber = 7.22f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.31f,
+                            Sugar = 18.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("19f9c999-7ad8-4738-94e7-7fff68979f50"),
+                            Calories = 2.07f,
+                            Carbs = 98.77f,
+                            Fat = 7.91f,
+                            Fiber = 19.26f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 18.5f,
+                            Sugar = 7.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c8a811a7-3d30-4cb5-b16a-6bde49cc530f"),
+                            Calories = 272.9f,
+                            Carbs = 37.32f,
+                            Fat = 24.13f,
+                            Fiber = 14.62f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.37f,
+                            Sugar = 25.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ce8dc6d4-a70d-4d84-b68d-9eab67d324b7"),
+                            Calories = 300.56f,
+                            Carbs = 18.1f,
+                            Fat = 5.09f,
+                            Fiber = 17.87f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.9f,
+                            Sugar = 38.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7e1f264e-b91d-4901-ab0a-5c97fda0935d"),
+                            Calories = 115.69f,
+                            Carbs = 20.8f,
+                            Fat = 27.98f,
+                            Fiber = 13.24f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.75f,
+                            Sugar = 19.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("72ac6c61-4d42-4ebf-97f3-0e5038b440fa"),
+                            Calories = 92.4f,
+                            Carbs = 52.14f,
+                            Fat = 19.2f,
+                            Fiber = 7.31f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 3.14f,
+                            Sugar = 49.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("172710ce-899e-4f74-b971-cef62d2580ee"),
+                            Calories = 415.31f,
+                            Carbs = 75.88f,
+                            Fat = 14.62f,
+                            Fiber = 15.12f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.55f,
+                            Sugar = 33.47f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("97c83ca1-ad72-4064-bc15-ddd8e2bf68a3"),
+                            Calories = 483.7f,
+                            Carbs = 67.89f,
+                            Fat = 43.65f,
+                            Fiber = 2.42f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 1.59f,
+                            Sugar = 45.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bbe7e763-b1c0-4ca8-a623-8358e36e90d3"),
+                            Calories = 109.64f,
+                            Carbs = 49.43f,
+                            Fat = 35.83f,
+                            Fiber = 9.61f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.03f,
+                            Sugar = 31.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4dc2f62e-708c-4f2e-bec2-d23bc909a9b7"),
+                            Calories = 300.59f,
+                            Carbs = 4.3f,
+                            Fat = 2.2f,
+                            Fiber = 15.52f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.94f,
+                            Sugar = 36.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d99d0219-2b69-4788-ad59-623db733b3b3"),
+                            Calories = 324.17f,
+                            Carbs = 40.88f,
+                            Fat = 6.17f,
+                            Fiber = 1.09f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 39.32f,
+                            Sugar = 47.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b0d6d70f-0c51-4014-b04c-32f4c1337788"),
+                            Calories = 89.31f,
+                            Carbs = 55.25f,
+                            Fat = 39.57f,
+                            Fiber = 4.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.59f,
+                            Sugar = 25.93f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("373abb18-8b91-4aff-ba03-1607fddc7387"),
+                            Calories = 282.9f,
+                            Carbs = 19.73f,
+                            Fat = 34.87f,
+                            Fiber = 18.78f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.53f,
+                            Sugar = 42.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f2e322ed-00b6-466a-af3d-f5c346b506b1"),
+                            Calories = 113.53f,
+                            Carbs = 67.66f,
+                            Fat = 0.93f,
+                            Fiber = 16.97f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.41f,
+                            Sugar = 3.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("079a134b-3810-41b9-b9c5-c7ceedd5f23d"),
+                            Calories = 4.72f,
+                            Carbs = 25.71f,
+                            Fat = 12.97f,
+                            Fiber = 9.13f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.94f,
+                            Sugar = 15.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d750b6c7-bb64-4d51-b30f-01450522a9b6"),
+                            Calories = 476.16f,
+                            Carbs = 98.75f,
+                            Fat = 23.65f,
+                            Fiber = 7.69f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.37f,
+                            Sugar = 49.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7e679a46-25e0-4535-a324-65a959a853f7"),
+                            Calories = 362.95f,
+                            Carbs = 80.69f,
+                            Fat = 2.63f,
+                            Fiber = 11.3f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.2f,
+                            Sugar = 33.89f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d6154c9f-ae9a-494f-b5fd-080f41a9e510"),
+                            Calories = 104.2f,
+                            Carbs = 78f,
+                            Fat = 10.16f,
+                            Fiber = 9.13f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.83f,
+                            Sugar = 4.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fbfa0a93-e897-453c-90ea-3362359fe1d8"),
+                            Calories = 268.62f,
+                            Carbs = 29.85f,
+                            Fat = 10.46f,
+                            Fiber = 1.54f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.02f,
+                            Sugar = 37.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1b9d3712-5a43-4e9b-bf1d-e2d3fe2bb000"),
+                            Calories = 457.13f,
+                            Carbs = 29.66f,
+                            Fat = 42.01f,
+                            Fiber = 9.89f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.54f,
+                            Sugar = 19.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("991c62b5-56ae-451d-9fba-3b8b3c1e68ac"),
+                            Calories = 169.8f,
+                            Carbs = 93.03f,
+                            Fat = 49.63f,
+                            Fiber = 0.68f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 46.3f,
+                            Sugar = 45.64f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dd531de5-e9d9-46b7-841c-1a5f910cc123"),
+                            Calories = 131.87f,
+                            Carbs = 49.7f,
+                            Fat = 45.01f,
+                            Fiber = 15.58f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 15.16f,
+                            Sugar = 0.77f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8cbf536d-b88d-4b3f-b155-98ec4591942a"),
+                            Calories = 88.43f,
+                            Carbs = 84.19f,
+                            Fat = 36.35f,
+                            Fiber = 4.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 12.1f,
+                            Sugar = 5.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9165899a-c330-47ae-82c8-ad5e71b4033b"),
+                            Calories = 150.77f,
+                            Carbs = 7.29f,
+                            Fat = 17.97f,
+                            Fiber = 11.15f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.76f,
+                            Sugar = 29.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ef5307f6-091c-4216-9b12-ed5905fae692"),
+                            Calories = 204.2f,
+                            Carbs = 12.8f,
+                            Fat = 16.02f,
+                            Fiber = 19.41f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.43f,
+                            Sugar = 4.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6b3a951a-62df-4ea8-abce-744599f7b5fc"),
+                            Calories = 209.61f,
+                            Carbs = 69.74f,
+                            Fat = 39.98f,
+                            Fiber = 12.4f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.67f,
+                            Sugar = 40.93f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("54d8e135-d090-48cf-8c75-9cc1fd95456d"),
+                            Calories = 422.83f,
+                            Carbs = 99.18f,
+                            Fat = 31.92f,
+                            Fiber = 9.68f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.96f,
+                            Sugar = 28.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("119063ba-b8b0-4481-b2e3-ea8de01e5833"),
+                            Calories = 194.19f,
+                            Carbs = 79.61f,
+                            Fat = 15.26f,
+                            Fiber = 9.48f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.15f,
+                            Sugar = 48.15f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e95745c0-8ced-4a29-a966-f93f6e44eee0"),
+                            Calories = 492.55f,
+                            Carbs = 36.92f,
+                            Fat = 5.44f,
+                            Fiber = 13.49f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.96f,
+                            Sugar = 28.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9019975b-2e64-4f77-a706-f5aeec684b7e"),
+                            Calories = 151.74f,
+                            Carbs = 28.3f,
+                            Fat = 46.95f,
+                            Fiber = 7.61f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.42f,
+                            Sugar = 46.98f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1a02a481-0173-4ead-98ed-c2e787393503"),
+                            Calories = 402.47f,
+                            Carbs = 49.12f,
+                            Fat = 36.99f,
+                            Fiber = 3.07f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.82f,
+                            Sugar = 12.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a801a5c2-bc94-4f63-b73a-b88c5b7571eb"),
+                            Calories = 410.03f,
+                            Carbs = 28.6f,
+                            Fat = 31.16f,
+                            Fiber = 18.62f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.91f,
+                            Sugar = 19.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e46f78e7-5ff5-4588-bea7-297ca8ea7e6f"),
+                            Calories = 377.75f,
+                            Carbs = 7.3f,
+                            Fat = 22.2f,
+                            Fiber = 10.3f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 40.78f,
+                            Sugar = 2.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3b368ce0-28dc-4893-a223-7cc9ed95924b"),
+                            Calories = 431.37f,
+                            Carbs = 15.42f,
+                            Fat = 10.36f,
+                            Fiber = 14.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 4.72f,
+                            Sugar = 43.7f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("419038e4-15aa-47c4-b7bf-47a3bacf0774"),
+                            Calories = 404.69f,
+                            Carbs = 92.28f,
+                            Fat = 16.1f,
+                            Fiber = 2.69f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.55f,
+                            Sugar = 49.61f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b0652671-f81f-4111-913a-a5d28bc8558b"),
+                            Calories = 128.41f,
+                            Carbs = 9.73f,
+                            Fat = 22.63f,
+                            Fiber = 0.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.45f,
+                            Sugar = 7.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fe9da3e0-8397-4a1b-9f67-ce5ca1cd03ed"),
+                            Calories = 278.83f,
+                            Carbs = 74.05f,
+                            Fat = 29.75f,
+                            Fiber = 10.32f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.12f,
+                            Sugar = 11.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6374c8e5-d510-4b48-acb2-1118c8fe6007"),
+                            Calories = 305.22f,
+                            Carbs = 68f,
+                            Fat = 32.36f,
+                            Fiber = 11.32f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.48f,
+                            Sugar = 31.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5b6f4270-9b92-44bb-9b4e-ffd379f9f80f"),
+                            Calories = 219.43f,
+                            Carbs = 38.79f,
+                            Fat = 11.25f,
+                            Fiber = 3.53f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.34f,
+                            Sugar = 16.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("801d476a-fe57-4072-8300-7da8b5e3568b"),
+                            Calories = 235.87f,
+                            Carbs = 6.35f,
+                            Fat = 36.68f,
+                            Fiber = 2.03f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.31f,
+                            Sugar = 18.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("aa910021-22c3-435e-8662-51d7dd54ef0d"),
+                            Calories = 144.9f,
+                            Carbs = 38.01f,
+                            Fat = 20.75f,
+                            Fiber = 3.09f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.6f,
+                            Sugar = 30.33f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("52e75404-ce55-45c4-bbf6-95c2df6b0c37"),
+                            Calories = 351.8f,
+                            Carbs = 51.66f,
+                            Fat = 35.5f,
+                            Fiber = 8.38f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 18.34f,
+                            Sugar = 36.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("62b28082-1e60-4fba-9b36-2a30187b2e4b"),
+                            Calories = 270.21f,
+                            Carbs = 50.54f,
+                            Fat = 41.36f,
+                            Fiber = 1.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 11.82f,
+                            Sugar = 48.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("59738de9-11a6-4d7a-ba78-04928168e71b"),
+                            Calories = 66.24f,
+                            Carbs = 35.01f,
+                            Fat = 21.43f,
+                            Fiber = 13.44f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 36.45f,
+                            Sugar = 9.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("de63fe08-bac5-49bd-80c5-c1282333c984"),
+                            Calories = 445.18f,
+                            Carbs = 48.5f,
+                            Fat = 28.65f,
+                            Fiber = 16.03f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 30.91f,
+                            Sugar = 9.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("82aeb66a-a721-4d91-b6f6-1d689d36a009"),
+                            Calories = 149.71f,
+                            Carbs = 54.38f,
+                            Fat = 22.22f,
+                            Fiber = 2.3f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 30.49f,
+                            Sugar = 6.89f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("98b3ed0f-53f3-470f-a0fe-c9258234c847"),
+                            Calories = 429.38f,
+                            Carbs = 51.27f,
+                            Fat = 24.35f,
+                            Fiber = 17.35f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 48.28f,
+                            Sugar = 14.76f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("17398209-e384-48fb-8c5f-268bf78ab17b"),
+                            Calories = 484.99f,
+                            Carbs = 89.97f,
+                            Fat = 15.28f,
+                            Fiber = 6.84f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.62f,
+                            Sugar = 41.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3a784399-f44f-4024-a2cd-02fd5b8f443d"),
+                            Calories = 30.8f,
+                            Carbs = 22.81f,
+                            Fat = 11.87f,
+                            Fiber = 7.23f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 39.95f,
+                            Sugar = 1.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e399324b-f893-4a57-b5b6-00ac57219981"),
+                            Calories = 495.36f,
+                            Carbs = 22.84f,
+                            Fat = 39.05f,
+                            Fiber = 0.02f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.63f,
+                            Sugar = 40.87f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("024af6aa-d378-42e5-b522-d3653968fc88"),
+                            Calories = 169.26f,
+                            Carbs = 59.05f,
+                            Fat = 21.25f,
+                            Fiber = 13.91f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.68f,
+                            Sugar = 6.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a5142c93-7dca-4915-b71c-93e40ff63fca"),
+                            Calories = 379.64f,
+                            Carbs = 69.1f,
+                            Fat = 49.08f,
+                            Fiber = 0.86f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.96f,
+                            Sugar = 19.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cf4bc496-aba3-40fd-bf9c-55faa52406d0"),
+                            Calories = 140.28f,
+                            Carbs = 26.2f,
+                            Fat = 49.94f,
+                            Fiber = 12.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.03f,
+                            Sugar = 10.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5fa725d5-8389-456a-b3fe-82759a667dc7"),
+                            Calories = 34.36f,
+                            Carbs = 78.72f,
+                            Fat = 49.77f,
+                            Fiber = 2.98f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.74f,
+                            Sugar = 5.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("67ef8a81-2d23-4a4c-9594-03e0c82e6afc"),
+                            Calories = 462.12f,
+                            Carbs = 75.19f,
+                            Fat = 35.67f,
+                            Fiber = 3.79f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.37f,
+                            Sugar = 3.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5c78bac6-f8ae-4eb3-8d14-265af82824dd"),
+                            Calories = 158.69f,
+                            Carbs = 3.44f,
+                            Fat = 36.75f,
+                            Fiber = 3.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.97f,
+                            Sugar = 9.56f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("02e47163-778f-4ede-aecb-83c0ac41bb90"),
+                            Calories = 470.91f,
+                            Carbs = 77.37f,
+                            Fat = 10.82f,
+                            Fiber = 1.99f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 47.82f,
+                            Sugar = 39.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cabaaa83-7378-4aa1-b548-ff68b1636fae"),
+                            Calories = 38.49f,
+                            Carbs = 17.93f,
+                            Fat = 13.63f,
+                            Fiber = 4.29f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.89f,
+                            Sugar = 7.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("db0c9955-6ed3-4518-a87d-8cc859dc301a"),
+                            Calories = 329.8f,
+                            Carbs = 98.15f,
+                            Fat = 20.01f,
+                            Fiber = 10.05f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 48.13f,
+                            Sugar = 43.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f95118ec-4b9a-421f-a34c-35756bc14254"),
+                            Calories = 19.06f,
+                            Carbs = 9.27f,
+                            Fat = 2.33f,
+                            Fiber = 7.14f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.11f,
+                            Sugar = 35.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7a8a5cca-4205-4d96-b630-cc576cf0a8d7"),
+                            Calories = 120.94f,
+                            Carbs = 74.61f,
+                            Fat = 29.55f,
+                            Fiber = 8.55f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 28.39f,
+                            Sugar = 19.9f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("667eefaa-8de7-4fd0-9af4-6e240c70458f"),
+                            Calories = 434.37f,
+                            Carbs = 83.25f,
+                            Fat = 18.26f,
+                            Fiber = 4.62f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 43.29f,
+                            Sugar = 41.95f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d6a18fb7-15e6-4c3c-8426-2db3828bdbc3"),
+                            Calories = 55.8f,
+                            Carbs = 82.94f,
+                            Fat = 39.57f,
+                            Fiber = 19.37f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.65f,
+                            Sugar = 49.38f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("601ce65f-a543-4ff0-b43c-0d37b22d9128"),
+                            Calories = 331.45f,
+                            Carbs = 59.92f,
+                            Fat = 20.16f,
+                            Fiber = 9.18f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.36f,
+                            Sugar = 30.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fa32424b-34d6-4088-a454-e5d69d290dbc"),
+                            Calories = 54.19f,
+                            Carbs = 19.1f,
+                            Fat = 14.7f,
+                            Fiber = 6.33f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 30.63f,
+                            Sugar = 43.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("55f540a2-e6ae-409f-b6ce-42d97d975bf0"),
+                            Calories = 185.91f,
+                            Carbs = 75.2f,
+                            Fat = 9.11f,
+                            Fiber = 13.76f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.25f,
+                            Sugar = 8.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("63488f44-4f2f-4ff5-9f0b-8c6af3b45bbd"),
+                            Calories = 361.97f,
+                            Carbs = 13.07f,
+                            Fat = 9.44f,
+                            Fiber = 19.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.48f,
+                            Sugar = 30.95f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d2a8c646-7067-4c5b-b83e-744e2227ceca"),
+                            Calories = 371.5f,
+                            Carbs = 57.63f,
+                            Fat = 1.26f,
+                            Fiber = 16.71f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.28f,
+                            Sugar = 30.01f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ed246f58-180c-4eea-90eb-5e1c42e26053"),
+                            Calories = 375.14f,
+                            Carbs = 16.89f,
+                            Fat = 1.57f,
+                            Fiber = 7.41f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.77f,
+                            Sugar = 1.17f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("14df3359-0eeb-41a0-98e6-47ae748b5769"),
+                            Calories = 440.26f,
+                            Carbs = 10.33f,
+                            Fat = 17.58f,
+                            Fiber = 8.27f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 1.83f,
+                            Sugar = 14.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5d619fea-26d0-4f77-8ead-c4eeb80f7df4"),
+                            Calories = 80.04f,
+                            Carbs = 6.29f,
+                            Fat = 22.28f,
+                            Fiber = 19.69f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.16f,
+                            Sugar = 43.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9187de0f-1d13-4e7e-aa01-b787cb1f6b90"),
+                            Calories = 169.09f,
+                            Carbs = 39.94f,
+                            Fat = 0.76f,
+                            Fiber = 7.78f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.56f,
+                            Sugar = 28.26f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("61e438da-94db-4dac-b500-d91febeba91a"),
+                            Calories = 354.27f,
+                            Carbs = 66.28f,
+                            Fat = 18.63f,
+                            Fiber = 19.85f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.38f,
+                            Sugar = 10.9f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0a80687f-ea27-430e-ae7b-6c116ee3a8bc"),
+                            Calories = 141.4f,
+                            Carbs = 82.52f,
+                            Fat = 12.4f,
+                            Fiber = 0.54f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 14.55f,
+                            Sugar = 18.71f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("58e0950c-1248-4eb2-a78d-ec5dfe51def7"),
+                            Calories = 122.98f,
+                            Carbs = 25.2f,
+                            Fat = 16.89f,
+                            Fiber = 13.02f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.82f,
+                            Sugar = 10.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("94d9e0fa-62ab-4ca8-8af2-6ac1ec893057"),
+                            Calories = 302.18f,
+                            Carbs = 87.9f,
+                            Fat = 39.81f,
+                            Fiber = 15.36f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.53f,
+                            Sugar = 8.01f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9eafab27-4cb9-434e-bbc0-b723e70fb2ef"),
+                            Calories = 286.73f,
+                            Carbs = 17.3f,
+                            Fat = 11.28f,
+                            Fiber = 2.84f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.42f,
+                            Sugar = 29.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("22bfa914-7abf-49c5-bb3b-c9557c3452e6"),
+                            Calories = 122.35f,
+                            Carbs = 89.29f,
+                            Fat = 42.47f,
+                            Fiber = 10.61f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.79f,
+                            Sugar = 35.43f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("65d3b26b-3bb0-47a4-8909-fea51a9714d8"),
+                            Calories = 64.74f,
+                            Carbs = 42.75f,
+                            Fat = 43.25f,
+                            Fiber = 16.11f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 40.93f,
+                            Sugar = 11.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("32f6dbf4-4e0a-43a9-8cd7-62b9c045f3c3"),
+                            Calories = 234.98f,
+                            Carbs = 72.32f,
+                            Fat = 49.12f,
+                            Fiber = 9.62f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.37f,
+                            Sugar = 29.98f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("77a05bd6-9ea7-4f93-9269-11532edde1f2"),
+                            Calories = 114.46f,
+                            Carbs = 45.82f,
+                            Fat = 13.18f,
+                            Fiber = 19.91f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.45f,
+                            Sugar = 1.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c5f40178-63e9-4727-8d90-02a6703f7741"),
+                            Calories = 324.28f,
+                            Carbs = 45.42f,
+                            Fat = 19.66f,
+                            Fiber = 13.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.62f,
+                            Sugar = 44.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e7440cf2-8fc0-412c-825e-228bbb8aaa42"),
+                            Calories = 459.71f,
+                            Carbs = 8.6f,
+                            Fat = 36.3f,
+                            Fiber = 0.46f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.21f,
+                            Sugar = 23.31f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("73566972-e270-4572-927d-3194034fd89e"),
+                            Calories = 238.82f,
+                            Carbs = 66.36f,
+                            Fat = 34.47f,
+                            Fiber = 11.92f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.17f,
+                            Sugar = 40.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("feab437b-a8cf-434e-b220-e0e92f171eac"),
+                            Calories = 421.23f,
+                            Carbs = 14.87f,
+                            Fat = 30.03f,
+                            Fiber = 18.92f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 36.09f,
+                            Sugar = 49.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9975375d-b54a-4711-be8d-c6754b0323f8"),
+                            Calories = 357.36f,
+                            Carbs = 97.5f,
+                            Fat = 27.42f,
+                            Fiber = 7.09f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.67f,
+                            Sugar = 45.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a9b8cee0-f996-4d7a-88f1-705b8af34f4f"),
+                            Calories = 398.18f,
+                            Carbs = 45.91f,
+                            Fat = 13.83f,
+                            Fiber = 15.55f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.86f,
+                            Sugar = 27.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("62e17d77-b4db-4278-aef0-1e619189c470"),
+                            Calories = 215.22f,
+                            Carbs = 68.98f,
+                            Fat = 47.61f,
+                            Fiber = 3.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.24f,
+                            Sugar = 45.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9c937d7b-c24f-4c7e-a5bf-6dd4f1aaef9d"),
+                            Calories = 204.89f,
+                            Carbs = 4.63f,
+                            Fat = 31.89f,
+                            Fiber = 17.96f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.42f,
+                            Sugar = 45.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("68e9063e-3a20-4d9f-8684-ee49bf3c1b27"),
+                            Calories = 309.26f,
+                            Carbs = 59.24f,
+                            Fat = 42.52f,
+                            Fiber = 7.21f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.5f,
+                            Sugar = 45.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cd573047-a8c5-4d03-9464-b0c2d1a72663"),
+                            Calories = 85.72f,
+                            Carbs = 10.34f,
+                            Fat = 35.84f,
+                            Fiber = 1.63f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 15.39f,
+                            Sugar = 35.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4e4f9464-f50e-4b26-8dca-9bf87f04625a"),
+                            Calories = 426.71f,
+                            Carbs = 48.97f,
+                            Fat = 17.72f,
+                            Fiber = 7.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.99f,
+                            Sugar = 9.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("186213ad-c94e-4302-91a5-28c650b59f8f"),
+                            Calories = 311.05f,
+                            Carbs = 35.1f,
+                            Fat = 18.84f,
+                            Fiber = 10.87f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.68f,
+                            Sugar = 32.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("047fc6fb-b274-44eb-b554-d815464adef3"),
+                            Calories = 2.08f,
+                            Carbs = 27.94f,
+                            Fat = 39.49f,
+                            Fiber = 13.99f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 18.64f,
+                            Sugar = 46.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("34af4d26-8f30-4aa4-b31b-358f8af1b5af"),
+                            Calories = 15.07f,
+                            Carbs = 61.33f,
+                            Fat = 15.42f,
+                            Fiber = 4.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 36.62f,
+                            Sugar = 45.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4b3e7ebd-1ac6-41bf-9803-fae56acec74f"),
+                            Calories = 419.97f,
+                            Carbs = 81.09f,
+                            Fat = 4.28f,
+                            Fiber = 5.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.12f,
+                            Sugar = 9.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6028ff40-5305-46ae-9c76-501e98e486be"),
+                            Calories = 178.26f,
+                            Carbs = 40.58f,
+                            Fat = 38.55f,
+                            Fiber = 8.47f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.67f,
+                            Sugar = 0.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("910b9c31-baf9-4944-8ffc-e295321b2a73"),
+                            Calories = 433.84f,
+                            Carbs = 28.76f,
+                            Fat = 0.96f,
+                            Fiber = 0.05f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.76f,
+                            Sugar = 45.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6a5d0da9-585a-46aa-8642-f07aee53bff8"),
+                            Calories = 206.34f,
+                            Carbs = 23f,
+                            Fat = 38.06f,
+                            Fiber = 8.14f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.86f,
+                            Sugar = 25.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d7a00071-551a-4d9d-a27b-e7a701aa1adb"),
+                            Calories = 149.42f,
+                            Carbs = 57.53f,
+                            Fat = 4.09f,
+                            Fiber = 9.37f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 10.32f,
+                            Sugar = 42.56f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ba1f9d7e-f29d-4175-b3b2-720e635a091a"),
+                            Calories = 314.64f,
+                            Carbs = 27.49f,
+                            Fat = 45.72f,
+                            Fiber = 2.92f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 29.58f,
+                            Sugar = 11.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("69bcbf14-a6ef-41a9-bcc3-8be86bb41e48"),
+                            Calories = 177.58f,
+                            Carbs = 15.02f,
+                            Fat = 22.7f,
+                            Fiber = 5.82f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.75f,
+                            Sugar = 43.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4fae3940-ea06-4259-981a-2f33bfc76a21"),
+                            Calories = 478.79f,
+                            Carbs = 69.06f,
+                            Fat = 26.69f,
+                            Fiber = 19.51f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 1.56f,
+                            Sugar = 1.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1df30af4-a688-4558-838f-a05a7c3a65aa"),
+                            Calories = 224.07f,
+                            Carbs = 95.9f,
+                            Fat = 15.9f,
+                            Fiber = 9.04f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.45f,
+                            Sugar = 4.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c9ddc385-95e4-48bf-ab11-045f975d4e92"),
+                            Calories = 129.78f,
+                            Carbs = 37.09f,
+                            Fat = 6.89f,
+                            Fiber = 13.57f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 2.89f,
+                            Sugar = 36.16f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4cfd4468-5192-4b3a-b562-68755b066821"),
+                            Calories = 116.66f,
+                            Carbs = 77.75f,
+                            Fat = 19.09f,
+                            Fiber = 1.26f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.88f,
+                            Sugar = 4.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f6f2dbd2-1da9-440a-bbb5-dd7cc3392d76"),
+                            Calories = 79.52f,
+                            Carbs = 22.13f,
+                            Fat = 15.19f,
+                            Fiber = 5.4f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.36f,
+                            Sugar = 34.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("070e0b1b-04ff-46cf-b622-3b8a044382e6"),
+                            Calories = 497.32f,
+                            Carbs = 65.85f,
+                            Fat = 31.79f,
+                            Fiber = 12.22f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.77f,
+                            Sugar = 24.24f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("36b0dd74-4a81-4eb3-89fc-1e35ccb03c63"),
+                            Calories = 56.42f,
+                            Carbs = 6.01f,
+                            Fat = 23.06f,
+                            Fiber = 1.3f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 48.84f,
+                            Sugar = 18.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("57328876-352b-42a0-8d4b-4685ef587ee4"),
+                            Calories = 271.32f,
+                            Carbs = 19.59f,
+                            Fat = 22.45f,
+                            Fiber = 6.39f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 0.56f,
+                            Sugar = 11.38f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9baed8a4-b480-4ddb-8a9a-823c80009e12"),
+                            Calories = 435.09f,
+                            Carbs = 11.1f,
+                            Fat = 43.13f,
+                            Fiber = 0.5f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.77f,
+                            Sugar = 24.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f3386021-bc34-4d0e-ac91-ab8265d3cd54"),
+                            Calories = 154.97f,
+                            Carbs = 40.65f,
+                            Fat = 36.89f,
+                            Fiber = 0.19f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 42.23f,
+                            Sugar = 11.18f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fcf4f27f-d81e-497f-95e3-567a101f192c"),
+                            Calories = 385.83f,
+                            Carbs = 91.11f,
+                            Fat = 28.32f,
+                            Fiber = 3.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.93f,
+                            Sugar = 36.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("67378cb7-d0f2-4a6a-b527-34fc85a33425"),
+                            Calories = 56.35f,
+                            Carbs = 38.4f,
+                            Fat = 37.24f,
+                            Fiber = 10.3f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.57f,
+                            Sugar = 40.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7253849a-e8a1-4ca0-a88d-6e0b7c0bbc51"),
+                            Calories = 473.71f,
+                            Carbs = 7.59f,
+                            Fat = 7.49f,
+                            Fiber = 5.35f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 27.95f,
+                            Sugar = 10.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3eb9c494-74af-4bc5-95b1-3916f78e8e86"),
+                            Calories = 60.29f,
+                            Carbs = 38.49f,
+                            Fat = 41.52f,
+                            Fiber = 2.14f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.62f,
+                            Sugar = 48.72f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4480e088-7112-408a-b4ea-5d57bf466c3f"),
+                            Calories = 108.04f,
+                            Carbs = 96.58f,
+                            Fat = 40.06f,
+                            Fiber = 13.85f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 22.68f,
+                            Sugar = 19.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6e0d8fb8-bd8f-47d8-94db-dd4fae16743e"),
+                            Calories = 122.61f,
+                            Carbs = 37.97f,
+                            Fat = 22.27f,
+                            Fiber = 4.38f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 33.77f,
+                            Sugar = 45.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("be52f77c-9426-4c44-9c75-e63a2a62f979"),
+                            Calories = 17.78f,
+                            Carbs = 62.8f,
+                            Fat = 44.53f,
+                            Fiber = 10.75f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.57f,
+                            Sugar = 18.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("44815155-d5df-4e85-a88b-205d98d7d123"),
+                            Calories = 331.78f,
+                            Carbs = 75.08f,
+                            Fat = 19.94f,
+                            Fiber = 12.35f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 3.6f,
+                            Sugar = 10.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("02088ac7-92a2-4722-95d3-90f03c46686c"),
+                            Calories = 144.97f,
+                            Carbs = 17.62f,
+                            Fat = 47.48f,
+                            Fiber = 4.61f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 7.12f,
+                            Sugar = 12.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("27d549ae-a13c-4f69-81bf-9732fc898fda"),
+                            Calories = 26.21f,
+                            Carbs = 69.15f,
+                            Fat = 44.78f,
+                            Fiber = 18.05f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.73f,
+                            Sugar = 33.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fc2ba49d-4c17-4149-962f-7fd3b4dc1b01"),
+                            Calories = 72.63f,
+                            Carbs = 0.64f,
+                            Fat = 3.7f,
+                            Fiber = 14.61f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 48.5f,
+                            Sugar = 47.71f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b1a13b2e-ec03-4a20-8b6c-de8531adcd63"),
+                            Calories = 42.61f,
+                            Carbs = 10.65f,
+                            Fat = 17.63f,
+                            Fiber = 17.88f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.36f,
+                            Sugar = 41.22f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ea7eb487-273c-45d8-a800-0976301d5a81"),
+                            Calories = 94.34f,
+                            Carbs = 30.26f,
+                            Fat = 8.32f,
+                            Fiber = 11.1f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.87f,
+                            Sugar = 23.83f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ffcf749c-f2d6-4bc8-a776-d35bc1b750aa"),
+                            Calories = 235.42f,
+                            Carbs = 28.53f,
+                            Fat = 21.04f,
+                            Fiber = 16.2f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.1f,
+                            Sugar = 40.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("713aac0e-8e2a-48e0-8a0b-09392ffbd795"),
+                            Calories = 479.35f,
+                            Carbs = 16.52f,
+                            Fat = 38.5f,
+                            Fiber = 10.35f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 37.87f,
+                            Sugar = 6.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("31be258d-abb9-45db-9f5d-950cbd873c6d"),
+                            Calories = 28.88f,
+                            Carbs = 1.32f,
+                            Fat = 19.79f,
+                            Fiber = 2.75f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 43.21f,
+                            Sugar = 45.76f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("31725898-b2b1-456c-ade5-b10711ce4a6d"),
+                            Calories = 21.04f,
+                            Carbs = 13.04f,
+                            Fat = 1.08f,
+                            Fiber = 10.75f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.23f,
+                            Sugar = 49.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("31aeda62-4099-4c63-aa0c-294df2093f44"),
+                            Calories = 498.08f,
+                            Carbs = 24.23f,
+                            Fat = 23.99f,
+                            Fiber = 19.56f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 31.98f,
+                            Sugar = 31.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2902946a-31f1-4162-ac53-e09b953b3bd7"),
+                            Calories = 245.67f,
+                            Carbs = 24.85f,
+                            Fat = 1.68f,
+                            Fiber = 10.03f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 46.57f,
+                            Sugar = 1.63f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9e8d07ac-67d6-460d-8c86-28c3d8229bf2"),
+                            Calories = 109.92f,
+                            Carbs = 3.19f,
+                            Fat = 47.51f,
+                            Fiber = 16.81f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 14.62f,
+                            Sugar = 31.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ddf3277f-9fd4-4e5b-a9f4-9b11ec65f58a"),
+                            Calories = 481.03f,
+                            Carbs = 57.59f,
+                            Fat = 36.56f,
+                            Fiber = 0.49f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 38.41f,
+                            Sugar = 28.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8c121715-4d9e-4440-8b21-b5f28e019fc6"),
+                            Calories = 376.45f,
+                            Carbs = 60.88f,
+                            Fat = 39.33f,
+                            Fiber = 15.12f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.97f,
+                            Sugar = 8.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("98163e52-d2c2-4f68-a8d0-4e68dd1b06c4"),
+                            Calories = 405.53f,
+                            Carbs = 64.1f,
+                            Fat = 14.27f,
+                            Fiber = 10.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.37f,
+                            Sugar = 48.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0dbe92ba-ae92-4ba3-a891-525eb440751f"),
+                            Calories = 374.46f,
+                            Carbs = 3.56f,
+                            Fat = 45.55f,
+                            Fiber = 0.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.42f,
+                            Sugar = 49.21f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("34ed0b2f-85f6-4d14-95b5-41899357d54c"),
+                            Calories = 248.29f,
+                            Carbs = 12.34f,
+                            Fat = 16.55f,
+                            Fiber = 18.47f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.71f,
+                            Sugar = 23.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bbc09d6a-0029-46f0-a7bd-d46361b41924"),
+                            Calories = 3.09f,
+                            Carbs = 71.61f,
+                            Fat = 40.95f,
+                            Fiber = 15.49f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.05f,
+                            Sugar = 25.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ec4b8026-942a-4d1e-8586-aeffffb8d49e"),
+                            Calories = 271.85f,
+                            Carbs = 35.53f,
+                            Fat = 38.06f,
+                            Fiber = 15.62f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.91f,
+                            Sugar = 1.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8c54d5af-9c4f-49c5-83d1-8d2a53e1114f"),
+                            Calories = 355.06f,
+                            Carbs = 91.85f,
+                            Fat = 28.21f,
+                            Fiber = 7.43f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 1.33f,
+                            Sugar = 20.58f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0b94109a-5214-4bea-93bb-7480dfc8d891"),
+                            Calories = 65.7f,
+                            Carbs = 8.04f,
+                            Fat = 22.9f,
+                            Fiber = 10.48f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.52f,
+                            Sugar = 4.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("af50d63e-392a-4c9a-8625-563580806186"),
+                            Calories = 164.09f,
+                            Carbs = 96.25f,
+                            Fat = 14.69f,
+                            Fiber = 16.39f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 24.09f,
+                            Sugar = 11.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2b14aae1-ea7f-4134-8218-61cff53829f6"),
+                            Calories = 213.12f,
+                            Carbs = 20.78f,
+                            Fat = 29.86f,
+                            Fiber = 19.56f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.36f,
+                            Sugar = 47.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2163de27-c8e3-4d67-b006-a679c2e084fe"),
+                            Calories = 314.76f,
+                            Carbs = 18.58f,
+                            Fat = 2.53f,
+                            Fiber = 7.06f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.39f,
+                            Sugar = 18.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("06ceab73-a3ae-4a1a-8e2b-dee15a31f79a"),
+                            Calories = 176.86f,
+                            Carbs = 25.34f,
+                            Fat = 8.06f,
+                            Fiber = 19.37f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.47f,
+                            Sugar = 36.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2b7ce551-cc28-40f8-a6d7-284eacd3007e"),
+                            Calories = 58.58f,
+                            Carbs = 31.44f,
+                            Fat = 4.55f,
+                            Fiber = 7.87f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.45f,
+                            Sugar = 4.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c2a9b1f4-6dc9-4c0a-88b0-b2f07187dc63"),
+                            Calories = 316.73f,
+                            Carbs = 81.99f,
+                            Fat = 24.19f,
+                            Fiber = 5.24f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.88f,
+                            Sugar = 48.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8888ae91-8688-4769-9bd9-bf392a903efc"),
+                            Calories = 458.59f,
+                            Carbs = 91.07f,
+                            Fat = 5.37f,
+                            Fiber = 19.67f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.72f,
+                            Sugar = 29.88f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3265604d-fe25-49a8-93ad-8ff507c34705"),
+                            Calories = 25.61f,
+                            Carbs = 18.94f,
+                            Fat = 14.08f,
+                            Fiber = 9.99f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.75f,
+                            Sugar = 3.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a7582cf2-55ed-4573-9cc8-6518edfa0bac"),
+                            Calories = 315.05f,
+                            Carbs = 18.68f,
+                            Fat = 16.84f,
+                            Fiber = 19.82f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.93f,
+                            Sugar = 2.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("add57a20-df0b-452a-98dc-12919a566434"),
+                            Calories = 418.29f,
+                            Carbs = 78.68f,
+                            Fat = 40.34f,
+                            Fiber = 5.63f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.71f,
+                            Sugar = 31.35f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("df2a69a0-3642-4069-8d14-86685075a98b"),
+                            Calories = 458.41f,
+                            Carbs = 82.78f,
+                            Fat = 1.9f,
+                            Fiber = 4.67f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 14.46f,
+                            Sugar = 5.06f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e7f86b5e-c97b-4826-be5e-4771084b58c6"),
+                            Calories = 272.35f,
+                            Carbs = 59.84f,
+                            Fat = 12.65f,
+                            Fiber = 7.21f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 12.71f,
+                            Sugar = 32.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2ffd30b3-af22-46ec-8ade-80b1178d5f70"),
+                            Calories = 49.03f,
+                            Carbs = 8.94f,
+                            Fat = 46.13f,
+                            Fiber = 17.8f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 45.24f,
+                            Sugar = 16.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("45220e1a-34ef-49df-ae5b-bca36b47d7cd"),
+                            Calories = 71.76f,
+                            Carbs = 86.7f,
+                            Fat = 43.58f,
+                            Fiber = 15.74f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 30.39f,
+                            Sugar = 30.72f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d1b39b4c-84d4-48ae-882c-dedbdaef15f3"),
+                            Calories = 187.66f,
+                            Carbs = 88.04f,
+                            Fat = 16.23f,
+                            Fiber = 19.81f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 33.52f,
+                            Sugar = 49.71f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c98816f6-4185-4cae-b6b3-cb9fbba24907"),
+                            Calories = 148.78f,
+                            Carbs = 1.75f,
+                            Fat = 46.42f,
+                            Fiber = 4.43f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 22.41f,
+                            Sugar = 16.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("578a97b4-837f-49f0-b28c-0de4b6fecd4b"),
+                            Calories = 331.84f,
+                            Carbs = 86.13f,
+                            Fat = 0.32f,
+                            Fiber = 12.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.2f,
+                            Sugar = 9.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("db5cf292-9968-4eb8-a6e6-265ceeccd3fa"),
+                            Calories = 269.77f,
+                            Carbs = 14.56f,
+                            Fat = 32.64f,
+                            Fiber = 15.88f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 36.9f,
+                            Sugar = 41.87f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("89822717-5baa-4b62-9264-a3ca0846605d"),
+                            Calories = 319.85f,
+                            Carbs = 66.45f,
+                            Fat = 47.71f,
+                            Fiber = 10.22f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 16.26f,
+                            Sugar = 19.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b3a280df-b178-4b19-ae32-daca7aa6b218"),
+                            Calories = 71.96f,
+                            Carbs = 89.48f,
+                            Fat = 20.42f,
+                            Fiber = 13.43f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.26f,
+                            Sugar = 17.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("463043e9-8594-4dcd-ac91-b58e0677ca33"),
+                            Calories = 122.11f,
+                            Carbs = 54.57f,
+                            Fat = 47.86f,
+                            Fiber = 6.85f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.21f,
+                            Sugar = 10.21f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bd07f2fb-155c-4edc-ab97-0d3bdeef40e2"),
+                            Calories = 444.81f,
+                            Carbs = 12.67f,
+                            Fat = 1.6f,
+                            Fiber = 9.28f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.93f,
+                            Sugar = 9.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f8ad22c2-bfda-4bac-9c7a-be0df202fd86"),
+                            Calories = 478.86f,
+                            Carbs = 64.21f,
+                            Fat = 3.03f,
+                            Fiber = 11.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 7.66f,
+                            Sugar = 12.28f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ba78077c-c027-48b1-a114-b41079625197"),
+                            Calories = 413.26f,
+                            Carbs = 39.16f,
+                            Fat = 7.42f,
+                            Fiber = 7.78f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.95f,
+                            Sugar = 28.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5cf52dc8-7b02-4278-9f12-2a7e3d67d909"),
+                            Calories = 305.69f,
+                            Carbs = 83.97f,
+                            Fat = 6.23f,
+                            Fiber = 9.32f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 15.24f,
+                            Sugar = 40.95f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5620d8dd-0ef8-4b37-b654-c373fbbe7f5b"),
+                            Calories = 166f,
+                            Carbs = 12.81f,
+                            Fat = 48.74f,
+                            Fiber = 7.21f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 9.23f,
+                            Sugar = 15.7f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d2796856-2058-4b47-a31c-a0d8f4b8e6ba"),
+                            Calories = 156.66f,
+                            Carbs = 36.87f,
+                            Fat = 9.76f,
+                            Fiber = 9.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 12.54f,
+                            Sugar = 40.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e836aa9b-4035-4528-8431-82d7bc93c12a"),
+                            Calories = 217.67f,
+                            Carbs = 24.75f,
+                            Fat = 27.44f,
+                            Fiber = 14.64f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 11.74f,
+                            Sugar = 47.66f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("745a2129-220e-4faa-8f84-f75cb5ea7d3e"),
+                            Calories = 478.01f,
+                            Carbs = 67.34f,
+                            Fat = 6.62f,
+                            Fiber = 5.26f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.76f,
+                            Sugar = 43.18f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2105512f-a1d4-4ed0-8f0d-3a2725fd46a8"),
+                            Calories = 428.11f,
+                            Carbs = 73.38f,
+                            Fat = 25.68f,
+                            Fiber = 2.34f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.34f,
+                            Sugar = 33.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("57019201-dbec-410a-be75-296d4ba65347"),
+                            Calories = 406.43f,
+                            Carbs = 36.44f,
+                            Fat = 31.51f,
+                            Fiber = 11.45f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.07f,
+                            Sugar = 23.58f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bf383d2a-7c1c-45cb-9b43-cf60c67619e0"),
+                            Calories = 28.41f,
+                            Carbs = 54.93f,
+                            Fat = 47.98f,
+                            Fiber = 5.63f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.99f,
+                            Sugar = 1.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("44cf2a0d-3db1-49e5-b232-ce7800c05ffd"),
+                            Calories = 125.84f,
+                            Carbs = 38.15f,
+                            Fat = 17.37f,
+                            Fiber = 18.64f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 31.4f,
+                            Sugar = 31.16f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("aaba6601-b6c0-4750-952b-2c252ad1f5fe"),
+                            Calories = 68.37f,
+                            Carbs = 4.02f,
+                            Fat = 4.06f,
+                            Fiber = 8.72f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.57f,
+                            Sugar = 41.24f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e42543da-7104-4b00-9fa7-c35cd9491785"),
+                            Calories = 152.37f,
+                            Carbs = 44.81f,
+                            Fat = 47.86f,
+                            Fiber = 9.07f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.87f,
+                            Sugar = 15.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("68e5ec0c-3d3a-4d3e-96d8-24bd5caca0fe"),
+                            Calories = 408.18f,
+                            Carbs = 36.68f,
+                            Fat = 11.75f,
+                            Fiber = 6.93f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.03f,
+                            Sugar = 27.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("90c52b92-b4e4-4dc7-9ac0-77499e2ae900"),
+                            Calories = 4.07f,
+                            Carbs = 27.94f,
+                            Fat = 36.1f,
+                            Fiber = 19.99f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 16.74f,
+                            Sugar = 11.63f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e39f3b82-d029-4542-937b-66b4384bbeb9"),
+                            Calories = 265.4f,
+                            Carbs = 94.39f,
+                            Fat = 0.74f,
+                            Fiber = 13.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 34.61f,
+                            Sugar = 39.08f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3ebeeb12-df95-43c6-ba6b-ed9acc2f59b7"),
+                            Calories = 476.04f,
+                            Carbs = 79.9f,
+                            Fat = 35.25f,
+                            Fiber = 2.27f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 1.48f,
+                            Sugar = 19.81f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("612bae9f-5613-4227-91ae-5002360c209f"),
+                            Calories = 431.38f,
+                            Carbs = 34.68f,
+                            Fat = 28.97f,
+                            Fiber = 17.98f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.15f,
+                            Sugar = 24.01f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("11466c6a-2522-43ee-83bc-01da05cdeef5"),
+                            Calories = 105.7f,
+                            Carbs = 56.17f,
+                            Fat = 2.29f,
+                            Fiber = 15.48f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 43.87f,
+                            Sugar = 23.98f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bd100a2d-d97e-4398-90fa-7215abd8a34e"),
+                            Calories = 219.7f,
+                            Carbs = 58.37f,
+                            Fat = 38.64f,
+                            Fiber = 0.56f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.47f,
+                            Sugar = 30.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("47c6d02c-72b0-46e9-91e5-70fc9a7f64ac"),
+                            Calories = 304.15f,
+                            Carbs = 8.06f,
+                            Fat = 9.55f,
+                            Fiber = 14.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.39f,
+                            Sugar = 20.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3669c26b-3f43-4537-b7c8-77313e9b0a27"),
+                            Calories = 30.67f,
+                            Carbs = 59.4f,
+                            Fat = 21.16f,
+                            Fiber = 10.09f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.55f,
+                            Sugar = 1.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("da2a55e1-0a33-45d9-8b79-cea10b71d950"),
+                            Calories = 444.81f,
+                            Carbs = 45.02f,
+                            Fat = 35.9f,
+                            Fiber = 9.9f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 24.74f,
+                            Sugar = 10.15f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("45ab0abc-973b-4340-b95c-915383c30af5"),
+                            Calories = 219.17f,
+                            Carbs = 33.6f,
+                            Fat = 30.07f,
+                            Fiber = 16.18f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 29.76f,
+                            Sugar = 47.18f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b90988ea-92a4-4b9f-a825-1fee7a4ee93c"),
+                            Calories = 322.04f,
+                            Carbs = 56.15f,
+                            Fat = 27.54f,
+                            Fiber = 10.61f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.28f,
+                            Sugar = 32.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f4e46109-ec84-4602-a790-380c52e52165"),
+                            Calories = 458.26f,
+                            Carbs = 12.87f,
+                            Fat = 18.1f,
+                            Fiber = 11.73f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.93f,
+                            Sugar = 0.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("16e6b450-5b2d-48c1-831b-862dbd15eec7"),
+                            Calories = 80.46f,
+                            Carbs = 48.54f,
+                            Fat = 18.74f,
+                            Fiber = 1.78f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.84f,
+                            Sugar = 43.77f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5a923d56-f176-4061-b28b-d7931bc7fbc4"),
+                            Calories = 18.62f,
+                            Carbs = 71.06f,
+                            Fat = 31.8f,
+                            Fiber = 8.12f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.36f,
+                            Sugar = 14.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("12e84e91-b9cc-41db-a3e9-78b5aec9d024"),
+                            Calories = 333.32f,
+                            Carbs = 10.19f,
+                            Fat = 8.08f,
+                            Fiber = 3.07f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.5f,
+                            Sugar = 33.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("50e0ad03-9375-46b6-9de4-3afc317b4345"),
+                            Calories = 357.16f,
+                            Carbs = 54.17f,
+                            Fat = 3.16f,
+                            Fiber = 5.69f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.57f,
+                            Sugar = 3.1f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("47c3e434-59a8-4621-b24a-74b831766263"),
+                            Calories = 168.99f,
+                            Carbs = 33.26f,
+                            Fat = 36.22f,
+                            Fiber = 14.12f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.92f,
+                            Sugar = 35.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1a25c946-db61-4072-af46-24e5bf2ff123"),
+                            Calories = 378.16f,
+                            Carbs = 18.83f,
+                            Fat = 25.03f,
+                            Fiber = 3.55f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.3f,
+                            Sugar = 38.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5d0538ec-2d4f-4290-9b7d-8769983892e7"),
+                            Calories = 14.25f,
+                            Carbs = 34.34f,
+                            Fat = 3.99f,
+                            Fiber = 8.39f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.83f,
+                            Sugar = 18.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5cad29f1-5c4f-4790-a97a-7afe5f8cffb7"),
+                            Calories = 106.6f,
+                            Carbs = 42.02f,
+                            Fat = 6.43f,
+                            Fiber = 0.88f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.19f,
+                            Sugar = 18.77f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fd440f0c-1654-4068-8301-d6dce363ce21"),
+                            Calories = 454.89f,
+                            Carbs = 66.77f,
+                            Fat = 24.51f,
+                            Fiber = 13.72f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 18.24f,
+                            Sugar = 32.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cf956185-58ce-479d-9219-21fb5594c8bd"),
+                            Calories = 23.61f,
+                            Carbs = 22.9f,
+                            Fat = 48.52f,
+                            Fiber = 19.49f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.23f,
+                            Sugar = 4.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b9e646ee-f562-464a-b486-c24a1746d05c"),
+                            Calories = 277.96f,
+                            Carbs = 36.05f,
+                            Fat = 41.02f,
+                            Fiber = 2.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 24.64f,
+                            Sugar = 1.86f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d15eecf6-3a18-4151-901b-6c3f27eb8c9f"),
+                            Calories = 443.04f,
+                            Carbs = 32.09f,
+                            Fat = 20.64f,
+                            Fiber = 12.9f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.08f,
+                            Sugar = 45.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c73b6885-985e-4d5e-9e19-fb84118a567e"),
+                            Calories = 35.68f,
+                            Carbs = 99.61f,
+                            Fat = 1.77f,
+                            Fiber = 16.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 1.02f,
+                            Sugar = 40.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1ba18b43-cb65-4854-8982-e88c6c68af46"),
+                            Calories = 336.47f,
+                            Carbs = 19.15f,
+                            Fat = 41.67f,
+                            Fiber = 11.66f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.25f,
+                            Sugar = 40f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ffcce6ac-097a-458f-afde-f28ea316cfb6"),
+                            Calories = 158.31f,
+                            Carbs = 76.91f,
+                            Fat = 33.57f,
+                            Fiber = 11.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.92f,
+                            Sugar = 43.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("55289984-11f5-43b3-8e65-89c4eb79c6dc"),
+                            Calories = 294.49f,
+                            Carbs = 67.9f,
+                            Fat = 4.86f,
+                            Fiber = 4.26f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 11.98f,
+                            Sugar = 14.88f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("da67af4f-649c-4746-b710-770e81059371"),
+                            Calories = 467.39f,
+                            Carbs = 57.55f,
+                            Fat = 29.84f,
+                            Fiber = 9.44f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.6f,
+                            Sugar = 35.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ff2ca0bf-b967-4a5d-b8c3-8b5678e7a2de"),
+                            Calories = 448.72f,
+                            Carbs = 2.38f,
+                            Fat = 44.62f,
+                            Fiber = 13.88f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.36f,
+                            Sugar = 34.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("70cc0921-714d-467a-b35c-699183526573"),
+                            Calories = 41.95f,
+                            Carbs = 81.23f,
+                            Fat = 44.56f,
+                            Fiber = 16.8f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.52f,
+                            Sugar = 23.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("818e604a-0464-4ff8-8e6a-9136fc679a10"),
+                            Calories = 260.61f,
+                            Carbs = 91.94f,
+                            Fat = 38.39f,
+                            Fiber = 1.95f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.54f,
+                            Sugar = 33.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e7abc837-5953-43e3-894e-3bd438639c97"),
+                            Calories = 148.49f,
+                            Carbs = 7.03f,
+                            Fat = 40.71f,
+                            Fiber = 3.46f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 43.71f,
+                            Sugar = 31.24f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7c1ca4fc-7dd9-4375-98ea-8f5027e66b51"),
+                            Calories = 187.92f,
+                            Carbs = 68.13f,
+                            Fat = 21.89f,
+                            Fiber = 15.96f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.49f,
+                            Sugar = 45.33f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bb74fd5d-76b9-4ce1-928e-c89fb2034800"),
+                            Calories = 141.98f,
+                            Carbs = 28.04f,
+                            Fat = 6.51f,
+                            Fiber = 19.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.86f,
+                            Sugar = 6.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0fe515da-ca96-4874-90c7-ba9ed761a231"),
+                            Calories = 190.91f,
+                            Carbs = 88.61f,
+                            Fat = 7.09f,
+                            Fiber = 13.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 22.78f,
+                            Sugar = 32.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("95067c32-2c0d-4454-b562-bf6373dfe1e3"),
+                            Calories = 322.15f,
+                            Carbs = 6.58f,
+                            Fat = 18.06f,
+                            Fiber = 14.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 27.55f,
+                            Sugar = 22.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0253073d-3b1e-48c0-88b1-447a3556867b"),
+                            Calories = 99.24f,
+                            Carbs = 59.62f,
+                            Fat = 44.04f,
+                            Fiber = 11.23f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.89f,
+                            Sugar = 10.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("807ed6cd-516e-4507-a4d0-80979a54eb9f"),
+                            Calories = 443.96f,
+                            Carbs = 19.57f,
+                            Fat = 38.61f,
+                            Fiber = 2f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.95f,
+                            Sugar = 25.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c57a1cef-96aa-468b-896e-2e892b734bca"),
+                            Calories = 209.68f,
+                            Carbs = 50.35f,
+                            Fat = 10.38f,
+                            Fiber = 5.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.97f,
+                            Sugar = 16.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("755ad6ac-61e5-4e95-8e90-db178dfc5d30"),
+                            Calories = 73.67f,
+                            Carbs = 73.86f,
+                            Fat = 17.69f,
+                            Fiber = 9.67f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.04f,
+                            Sugar = 25.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0ab73ac6-3b88-4156-a774-b87718f3f88f"),
+                            Calories = 412.92f,
+                            Carbs = 14.76f,
+                            Fat = 19.79f,
+                            Fiber = 3.22f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.34f,
+                            Sugar = 49.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4875ed5e-98b0-4343-97ac-1703f3172768"),
+                            Calories = 141.61f,
+                            Carbs = 75.59f,
+                            Fat = 1.55f,
+                            Fiber = 1.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.83f,
+                            Sugar = 27.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6e2ed76e-e254-4957-8272-2c2e18ae1ef2"),
+                            Calories = 331.74f,
+                            Carbs = 98.21f,
+                            Fat = 20.21f,
+                            Fiber = 12.6f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 47.15f,
+                            Sugar = 7.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("30a470f5-ef8e-4cee-a351-441459f9002e"),
+                            Calories = 74.26f,
+                            Carbs = 98.8f,
+                            Fat = 45.08f,
+                            Fiber = 0.27f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.17f,
+                            Sugar = 37.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1352a554-df14-4ad2-bef3-df871b829ea9"),
+                            Calories = 342.88f,
+                            Carbs = 45.34f,
+                            Fat = 34.97f,
+                            Fiber = 0.39f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45f,
+                            Sugar = 1.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1dd95a3a-513f-4bb4-88de-5a05a9475e92"),
+                            Calories = 233.67f,
+                            Carbs = 9.5f,
+                            Fat = 33.53f,
+                            Fiber = 4.28f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 42.5f,
+                            Sugar = 38.24f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fc34227a-56b1-4f21-a2b0-5c3f13ae17bc"),
+                            Calories = 148.84f,
+                            Carbs = 77.28f,
+                            Fat = 33.48f,
+                            Fiber = 17.22f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.81f,
+                            Sugar = 36.15f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d6d512d9-d191-4981-ae47-4469450ed738"),
+                            Calories = 414.12f,
+                            Carbs = 51.97f,
+                            Fat = 49.1f,
+                            Fiber = 18.66f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.49f,
+                            Sugar = 23.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0bdabe4b-fe0b-44d8-8d2e-d7afd29480f8"),
+                            Calories = 424.15f,
+                            Carbs = 20.07f,
+                            Fat = 26.91f,
+                            Fiber = 2.52f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.03f,
+                            Sugar = 45.08f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3c635ede-7042-4184-9dd1-ab1b7b96b4eb"),
+                            Calories = 329.88f,
+                            Carbs = 91.55f,
+                            Fat = 22.93f,
+                            Fiber = 1.74f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.24f,
+                            Sugar = 40.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("75947bab-639a-4fdc-a5b3-9c43f41324ef"),
+                            Calories = 260.97f,
+                            Carbs = 19.26f,
+                            Fat = 3.41f,
+                            Fiber = 11.44f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 9.95f,
+                            Sugar = 30.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cc90eeb3-f839-47e4-b2d0-db8fe3f81f38"),
+                            Calories = 413.58f,
+                            Carbs = 90.31f,
+                            Fat = 31.43f,
+                            Fiber = 9.29f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.86f,
+                            Sugar = 46.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("afb1f1ae-eb20-4503-9c4b-ec8ddfbc3f3a"),
+                            Calories = 465.87f,
+                            Carbs = 31.06f,
+                            Fat = 0.2f,
+                            Fiber = 17.1f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 29.81f,
+                            Sugar = 22.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4a3654ff-fc45-47b2-9892-e3ab7a96005e"),
+                            Calories = 259.52f,
+                            Carbs = 58.19f,
+                            Fat = 30.7f,
+                            Fiber = 0.19f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.3f,
+                            Sugar = 31.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b2778528-fa70-40b5-a13f-ba7746a87921"),
+                            Calories = 331.69f,
+                            Carbs = 82.48f,
+                            Fat = 46.95f,
+                            Fiber = 17.25f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.34f,
+                            Sugar = 4.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0ec456e8-7268-4a08-bbf8-3f03b9020bcd"),
+                            Calories = 407.97f,
+                            Carbs = 0.39f,
+                            Fat = 7.31f,
+                            Fiber = 12.72f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.93f,
+                            Sugar = 37.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7da73282-db5a-4b81-9f0c-ade804f776af"),
+                            Calories = 315.38f,
+                            Carbs = 10.11f,
+                            Fat = 37.96f,
+                            Fiber = 14.82f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.09f,
+                            Sugar = 0.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d67e0cb8-fef0-403e-a31a-2c0b3ae62f23"),
+                            Calories = 435.34f,
+                            Carbs = 51.67f,
+                            Fat = 8.59f,
+                            Fiber = 0.95f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.12f,
+                            Sugar = 47.06f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0abedda4-7c47-4fba-96a3-2913976683a8"),
+                            Calories = 51.74f,
+                            Carbs = 51.2f,
+                            Fat = 1.22f,
+                            Fiber = 1.12f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.64f,
+                            Sugar = 48.86f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2498e75d-b1f1-4b0c-b79d-d6f3a3789b14"),
+                            Calories = 431.76f,
+                            Carbs = 86.8f,
+                            Fat = 18.57f,
+                            Fiber = 3.53f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.1f,
+                            Sugar = 9.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3fa1406b-f0ea-440e-ac32-5a5fcc97b96b"),
+                            Calories = 260.19f,
+                            Carbs = 98.36f,
+                            Fat = 8.41f,
+                            Fiber = 3.83f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.32f,
+                            Sugar = 8.67f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ebbe0758-fd64-4485-a862-f219d8187639"),
+                            Calories = 65.74f,
+                            Carbs = 76.99f,
+                            Fat = 21.15f,
+                            Fiber = 16.16f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 45.76f,
+                            Sugar = 10.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("477b2a88-c1ce-42fa-a504-1cb620fdf2cc"),
+                            Calories = 131.47f,
+                            Carbs = 42.7f,
+                            Fat = 45.52f,
+                            Fiber = 12.66f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.25f,
+                            Sugar = 27.89f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("47c73b3c-42e1-4251-9297-00dd58d8ab07"),
+                            Calories = 227.77f,
+                            Carbs = 52.7f,
+                            Fat = 8.3f,
+                            Fiber = 14.66f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.46f,
+                            Sugar = 14.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("28b48a8b-f964-416a-8c93-ef54e6dfe73d"),
+                            Calories = 320.37f,
+                            Carbs = 1.29f,
+                            Fat = 2.7f,
+                            Fiber = 10.11f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.44f,
+                            Sugar = 25.64f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("156cb265-bebe-4fea-9210-03dbbc4b95c2"),
+                            Calories = 105.34f,
+                            Carbs = 96.87f,
+                            Fat = 9.01f,
+                            Fiber = 6.89f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.21f,
+                            Sugar = 32.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cd5024da-8122-454c-9392-a136be6c77cb"),
+                            Calories = 210.16f,
+                            Carbs = 15.04f,
+                            Fat = 41.05f,
+                            Fiber = 13.47f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 9.02f,
+                            Sugar = 26.7f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e5d2ea57-99f4-42f4-8acc-1ab7abf9943d"),
+                            Calories = 452.98f,
+                            Carbs = 46.22f,
+                            Fat = 26.62f,
+                            Fiber = 16.84f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.15f,
+                            Sugar = 0.55f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("21ce3815-f4ac-4607-b24f-91eac714f5dd"),
+                            Calories = 185.63f,
+                            Carbs = 87.04f,
+                            Fat = 1.56f,
+                            Fiber = 10.7f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.69f,
+                            Sugar = 24.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dba90d26-3b7b-4b71-8eb1-b61327849852"),
+                            Calories = 135.05f,
+                            Carbs = 40.43f,
+                            Fat = 8.61f,
+                            Fiber = 8.21f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 33.67f,
+                            Sugar = 44.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("decbcf17-d547-4b7b-b93a-d155526343da"),
+                            Calories = 242.63f,
+                            Carbs = 85.4f,
+                            Fat = 5.84f,
+                            Fiber = 16.87f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.91f,
+                            Sugar = 43.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("baa4bd14-5b7b-4894-9c48-c12d8a029210"),
+                            Calories = 270.85f,
+                            Carbs = 51.94f,
+                            Fat = 4.64f,
+                            Fiber = 19.06f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 31.94f,
+                            Sugar = 27.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("411e085d-a7e0-474d-8149-f6ba1b7a91ab"),
+                            Calories = 198.61f,
+                            Carbs = 13.12f,
+                            Fat = 25.07f,
+                            Fiber = 0.03f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.16f,
+                            Sugar = 30.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ef94a2ce-18a6-4940-9d30-f8984854b9a9"),
+                            Calories = 13.47f,
+                            Carbs = 74.74f,
+                            Fat = 41.01f,
+                            Fiber = 4.51f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.57f,
+                            Sugar = 20.93f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b260ff27-e3f0-4fb6-9afc-30fb81d577e4"),
+                            Calories = 455.15f,
+                            Carbs = 88.92f,
+                            Fat = 7.73f,
+                            Fiber = 19.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.96f,
+                            Sugar = 27.33f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3c0bd15a-e764-4ab8-a62d-d63b0ff9c251"),
+                            Calories = 472.46f,
+                            Carbs = 90.99f,
+                            Fat = 33.67f,
+                            Fiber = 9.32f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.63f,
+                            Sugar = 2.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c634783e-dc84-4c13-b43d-c7f64f45c27e"),
+                            Calories = 386.8f,
+                            Carbs = 34.07f,
+                            Fat = 33.39f,
+                            Fiber = 18.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.26f,
+                            Sugar = 45.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1a539813-cb48-494c-9153-f957190ceab1"),
+                            Calories = 413.4f,
+                            Carbs = 61.03f,
+                            Fat = 27.01f,
+                            Fiber = 6.95f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.65f,
+                            Sugar = 40.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c51ce46d-8d9a-406e-a632-6c60f204e274"),
+                            Calories = 249.03f,
+                            Carbs = 17.95f,
+                            Fat = 39.81f,
+                            Fiber = 10.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4f,
+                            Sugar = 16.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("aabb6582-ca31-436a-8c0f-40bae3184c9d"),
+                            Calories = 239.8f,
+                            Carbs = 84.95f,
+                            Fat = 4.27f,
+                            Fiber = 17.18f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 4.86f,
+                            Sugar = 7.43f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("34472736-cfe7-45fc-bf08-f094aa35efd5"),
+                            Calories = 258.97f,
+                            Carbs = 25.16f,
+                            Fat = 18.43f,
+                            Fiber = 18.8f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 2.39f,
+                            Sugar = 48.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a51bb734-5e5e-48ed-b579-19fa2b3c06c3"),
+                            Calories = 183.42f,
+                            Carbs = 62.62f,
+                            Fat = 45.53f,
+                            Fiber = 1.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.32f,
+                            Sugar = 12.58f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e4337605-fbb7-4047-8205-21d41cfeb9f6"),
+                            Calories = 215.09f,
+                            Carbs = 96.76f,
+                            Fat = 46.73f,
+                            Fiber = 13.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 7.33f,
+                            Sugar = 39.71f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1bc26145-8d35-4bbf-9428-716df1427042"),
+                            Calories = 31.64f,
+                            Carbs = 23.23f,
+                            Fat = 0.92f,
+                            Fiber = 15.69f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.07f,
+                            Sugar = 6.98f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("71c655e5-defb-4387-9abc-77ee769b5973"),
+                            Calories = 346.79f,
+                            Carbs = 22.53f,
+                            Fat = 35.83f,
+                            Fiber = 19.48f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.71f,
+                            Sugar = 43.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d14ccfcd-1f43-4afa-adb0-fcf59e366cd8"),
+                            Calories = 348.92f,
+                            Carbs = 81.84f,
+                            Fat = 9.82f,
+                            Fiber = 1.86f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.91f,
+                            Sugar = 16.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b1da2e50-238a-4073-8ccd-8d2867da13eb"),
+                            Calories = 266.41f,
+                            Carbs = 10.36f,
+                            Fat = 32.06f,
+                            Fiber = 18.84f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 2.23f,
+                            Sugar = 2.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4d2e7f28-c1ad-4dbc-8641-a00de27ee313"),
+                            Calories = 21.56f,
+                            Carbs = 46.22f,
+                            Fat = 40.39f,
+                            Fiber = 16.04f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.34f,
+                            Sugar = 46.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("89932e21-223d-4f85-ad5a-9986e9f6de5b"),
+                            Calories = 131.26f,
+                            Carbs = 44.88f,
+                            Fat = 14.89f,
+                            Fiber = 0.17f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.15f,
+                            Sugar = 31.17f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5d82de8f-66d2-467f-921b-b522509ff75d"),
+                            Calories = 442.72f,
+                            Carbs = 1.3f,
+                            Fat = 47.9f,
+                            Fiber = 0.51f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.31f,
+                            Sugar = 33.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3e335ccf-ac0b-4684-a3d8-1d41be78b8bf"),
+                            Calories = 151.9f,
+                            Carbs = 52.84f,
+                            Fat = 36.77f,
+                            Fiber = 10.41f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.06f,
+                            Sugar = 7.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("56fb4bf3-543a-4037-be47-e5f0466a7c14"),
+                            Calories = 374.14f,
+                            Carbs = 50.11f,
+                            Fat = 7.24f,
+                            Fiber = 11.84f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.41f,
+                            Sugar = 19.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c6a12c2e-0c24-44bb-a545-27b7a1bdb367"),
+                            Calories = 274.48f,
+                            Carbs = 25.01f,
+                            Fat = 35.09f,
+                            Fiber = 0.94f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.61f,
+                            Sugar = 16.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fb3e187a-2df6-4e9e-9172-c19a255bd78f"),
+                            Calories = 286.28f,
+                            Carbs = 21.92f,
+                            Fat = 25.73f,
+                            Fiber = 16.9f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.09f,
+                            Sugar = 25.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c028f23d-a95d-4bcb-ac24-66c50bf45dd6"),
+                            Calories = 155.75f,
+                            Carbs = 55.61f,
+                            Fat = 6.19f,
+                            Fiber = 3.63f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 15.77f,
+                            Sugar = 19.26f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f0168ba0-f044-4f2b-b8b1-2062ebbd3ca9"),
+                            Calories = 60.64f,
+                            Carbs = 69.15f,
+                            Fat = 28.21f,
+                            Fiber = 10.63f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 10.5f,
+                            Sugar = 32.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f37e62c8-a36f-4f0c-a592-9fec3da24614"),
+                            Calories = 407.11f,
+                            Carbs = 15.83f,
+                            Fat = 41.2f,
+                            Fiber = 5.01f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.97f,
+                            Sugar = 34.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ce58a41b-a3fe-47b6-bd4e-adfadc52ca3f"),
+                            Calories = 416.92f,
+                            Carbs = 92.89f,
+                            Fat = 10.75f,
+                            Fiber = 2.21f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.5f,
+                            Sugar = 32.64f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("273dcc8c-df9d-4ce3-9483-d54cb860793c"),
+                            Calories = 198.99f,
+                            Carbs = 52.92f,
+                            Fat = 16.98f,
+                            Fiber = 19.02f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.47f,
+                            Sugar = 31.26f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b87b8125-4e12-4dfc-adb1-392d792b4995"),
+                            Calories = 212.16f,
+                            Carbs = 26.07f,
+                            Fat = 35.74f,
+                            Fiber = 1.33f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 3.74f,
+                            Sugar = 22.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("aad26363-ecd7-480a-b80b-27189264abe8"),
+                            Calories = 202.85f,
+                            Carbs = 64.06f,
+                            Fat = 20.18f,
+                            Fiber = 18.15f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.66f,
+                            Sugar = 24.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("174f8c52-6498-46eb-ae71-04ad66db8ab9"),
+                            Calories = 198f,
+                            Carbs = 89.04f,
+                            Fat = 20.75f,
+                            Fiber = 17.99f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.27f,
+                            Sugar = 22.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8c2d94f7-57dc-47a2-9487-acd7e4111aae"),
+                            Calories = 94.43f,
+                            Carbs = 42.22f,
+                            Fat = 13.76f,
+                            Fiber = 4.33f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.67f,
+                            Sugar = 28.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("590d8391-fe49-48a0-8fe5-29cb928819f1"),
+                            Calories = 255.13f,
+                            Carbs = 15.42f,
+                            Fat = 2.84f,
+                            Fiber = 6.47f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.87f,
+                            Sugar = 11.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0eb041d6-d676-437a-be70-a2128ee7cf8f"),
+                            Calories = 244.46f,
+                            Carbs = 91.01f,
+                            Fat = 28.24f,
+                            Fiber = 7.75f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.53f,
+                            Sugar = 18.28f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4624752a-02b4-4dad-9407-940b20b3f434"),
+                            Calories = 56.65f,
+                            Carbs = 52.73f,
+                            Fat = 0.76f,
+                            Fiber = 3.54f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.14f,
+                            Sugar = 8.56f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a8223e58-d00f-408f-924d-69e8b982cf93"),
+                            Calories = 54.29f,
+                            Carbs = 32.26f,
+                            Fat = 20.62f,
+                            Fiber = 6.09f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.9f,
+                            Sugar = 32.45f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("32ad1371-e536-4481-9f9a-93cec53eb825"),
+                            Calories = 72.39f,
+                            Carbs = 5.14f,
+                            Fat = 39.52f,
+                            Fiber = 4.71f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.01f,
+                            Sugar = 2.45f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("be99b102-9aa0-49bf-8766-a106f45f8bda"),
+                            Calories = 196.28f,
+                            Carbs = 4.77f,
+                            Fat = 22.85f,
+                            Fiber = 12.57f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 28.38f,
+                            Sugar = 9.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("86fe3a27-4904-413a-b46c-266b59b0a85d"),
+                            Calories = 441.29f,
+                            Carbs = 85.16f,
+                            Fat = 13.64f,
+                            Fiber = 11.98f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 45.45f,
+                            Sugar = 6.95f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("93dd1bda-f789-4115-8d30-ae3a76862eda"),
+                            Calories = 246.02f,
+                            Carbs = 22.57f,
+                            Fat = 26.52f,
+                            Fiber = 19.29f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 12.76f,
+                            Sugar = 13.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("efae1428-ded7-4e92-9649-73175b951860"),
+                            Calories = 486.96f,
+                            Carbs = 9.39f,
+                            Fat = 40.37f,
+                            Fiber = 1.29f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.1f,
+                            Sugar = 25.45f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("96c7de5d-c4dc-4301-8327-2737c239bc2c"),
+                            Calories = 43.83f,
+                            Carbs = 83.19f,
+                            Fat = 21.84f,
+                            Fiber = 17.02f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 27.36f,
+                            Sugar = 16.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d6c4389a-7626-47b2-a85f-23c3619b4488"),
+                            Calories = 207.49f,
+                            Carbs = 15.66f,
+                            Fat = 20.43f,
+                            Fiber = 15.62f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.09f,
+                            Sugar = 13.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1c08bb16-e77c-4865-8986-7f50aa8a6510"),
+                            Calories = 344.51f,
+                            Carbs = 22.16f,
+                            Fat = 32.92f,
+                            Fiber = 1.46f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 6.17f,
+                            Sugar = 12.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4a6be701-4fcf-4e42-9b91-1e30bcb295a8"),
+                            Calories = 352.42f,
+                            Carbs = 57.72f,
+                            Fat = 35.67f,
+                            Fiber = 0.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.43f,
+                            Sugar = 38.66f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b4ccbd39-9f2d-4fc6-8fe2-123dfd00431b"),
+                            Calories = 40.2f,
+                            Carbs = 20.44f,
+                            Fat = 24.32f,
+                            Fiber = 14.62f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 37.89f,
+                            Sugar = 30.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e1572e19-61f6-4cb5-99eb-04ec996cf6a3"),
+                            Calories = 86.8f,
+                            Carbs = 61.85f,
+                            Fat = 44.47f,
+                            Fiber = 12.53f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 3.74f,
+                            Sugar = 36.89f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a0b7aae8-e581-41d1-83ef-8aefe23a7132"),
+                            Calories = 23.59f,
+                            Carbs = 96.82f,
+                            Fat = 30.35f,
+                            Fiber = 11.27f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.02f,
+                            Sugar = 44.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e0f9a84a-80d0-42a3-8338-e238a0738172"),
+                            Calories = 184.17f,
+                            Carbs = 16.92f,
+                            Fat = 17.38f,
+                            Fiber = 12.1f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.12f,
+                            Sugar = 7.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b997fb21-dafb-4d3b-b476-5d0ae3c57047"),
+                            Calories = 102.58f,
+                            Carbs = 50.26f,
+                            Fat = 24.66f,
+                            Fiber = 3f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 11.71f,
+                            Sugar = 42.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0310986c-a9c0-4df0-aa18-1ff716dbf14a"),
+                            Calories = 498.46f,
+                            Carbs = 65.88f,
+                            Fat = 28.41f,
+                            Fiber = 19.28f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 30.83f,
+                            Sugar = 1.86f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("159396e5-108e-4c20-a4c3-daa69dffdbfa"),
+                            Calories = 286.08f,
+                            Carbs = 58.24f,
+                            Fat = 22.44f,
+                            Fiber = 12.38f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 31.6f,
+                            Sugar = 12.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3e7ed391-33c5-4601-b476-c93366eea503"),
+                            Calories = 7.96f,
+                            Carbs = 97.54f,
+                            Fat = 34.84f,
+                            Fiber = 18.27f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 4.7f,
+                            Sugar = 30.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e6e55a76-a952-472b-b379-ba5af5250e8d"),
+                            Calories = 443.4f,
+                            Carbs = 74.6f,
+                            Fat = 18.47f,
+                            Fiber = 15.36f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.43f,
+                            Sugar = 20.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("67c8a8ca-e48d-4b82-9e62-c7e6421ba33a"),
+                            Calories = 356.78f,
+                            Carbs = 41.41f,
+                            Fat = 5.2f,
+                            Fiber = 4.02f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.19f,
+                            Sugar = 10.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b83ee1ed-4230-40fd-acbb-089311fe9b5f"),
+                            Calories = 411.59f,
+                            Carbs = 26.77f,
+                            Fat = 24.93f,
+                            Fiber = 4.55f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.98f,
+                            Sugar = 14.76f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2687f13c-0279-4694-bbdb-14e2af5bddff"),
+                            Calories = 122.85f,
+                            Carbs = 3.62f,
+                            Fat = 46.59f,
+                            Fiber = 8.99f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.11f,
+                            Sugar = 43.63f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0550d5b4-cb44-4434-a94a-e23b3c496b49"),
+                            Calories = 5.61f,
+                            Carbs = 74.31f,
+                            Fat = 1.63f,
+                            Fiber = 1.17f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 38.62f,
+                            Sugar = 18.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("64236bb9-5ebe-4f5f-8a0d-30ab9ece0c73"),
+                            Calories = 250.66f,
+                            Carbs = 57.22f,
+                            Fat = 17.08f,
+                            Fiber = 1.26f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 33.01f,
+                            Sugar = 19.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a17c8404-c439-4ad7-97ee-cd13f261e278"),
+                            Calories = 200.93f,
+                            Carbs = 52.07f,
+                            Fat = 23.74f,
+                            Fiber = 4.14f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 9.46f,
+                            Sugar = 2.95f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e8f18a68-e582-4fc8-ab5d-35dae2f4c07e"),
+                            Calories = 43.67f,
+                            Carbs = 72.43f,
+                            Fat = 39.34f,
+                            Fiber = 10.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 12.84f,
+                            Sugar = 32.18f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d23afb35-d570-49ec-b4cc-1998462fe687"),
+                            Calories = 440.59f,
+                            Carbs = 91.3f,
+                            Fat = 16.87f,
+                            Fiber = 5.83f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 6.09f,
+                            Sugar = 21.33f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("88ea6325-2777-446f-9c4e-7e3fade2fa6c"),
+                            Calories = 153.24f,
+                            Carbs = 91.46f,
+                            Fat = 11.24f,
+                            Fiber = 7.03f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 24.69f,
+                            Sugar = 26.38f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f28d4128-8a32-4dbc-b1d3-46358340ea3e"),
+                            Calories = 316.8f,
+                            Carbs = 72.72f,
+                            Fat = 20.29f,
+                            Fiber = 13.04f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 22.27f,
+                            Sugar = 30.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("903633c8-8195-4703-972a-bc6d23753729"),
+                            Calories = 454.61f,
+                            Carbs = 26.21f,
+                            Fat = 4.81f,
+                            Fiber = 2.43f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.96f,
+                            Sugar = 39.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0e296037-438f-4e91-b826-f699bc25c6d5"),
+                            Calories = 191.35f,
+                            Carbs = 56.09f,
+                            Fat = 4.57f,
+                            Fiber = 7.68f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.4f,
+                            Sugar = 24.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ea661359-bc01-4a37-9132-4b19a52a5921"),
+                            Calories = 159.67f,
+                            Carbs = 31.22f,
+                            Fat = 7.85f,
+                            Fiber = 9.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.85f,
+                            Sugar = 44.06f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6d923b21-83ac-449e-943b-9a71cd35a08a"),
+                            Calories = 104.91f,
+                            Carbs = 94.14f,
+                            Fat = 14.1f,
+                            Fiber = 8.31f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.31f,
+                            Sugar = 45.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ef5a6d0e-132f-4697-90a9-13a2d96fb693"),
+                            Calories = 360.86f,
+                            Carbs = 44.9f,
+                            Fat = 3.91f,
+                            Fiber = 0.58f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.71f,
+                            Sugar = 0.35f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("757948e5-b3d7-48c0-8beb-74bdfe3ee886"),
+                            Calories = 87.31f,
+                            Carbs = 3.73f,
+                            Fat = 29.71f,
+                            Fiber = 3.14f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 42.43f,
+                            Sugar = 40.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("85dd95f9-5a58-4a28-b285-0f376476b731"),
+                            Calories = 424.16f,
+                            Carbs = 49.22f,
+                            Fat = 21.28f,
+                            Fiber = 10.21f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.86f,
+                            Sugar = 34.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7bd2063d-9174-498c-80e3-1a471014a104"),
+                            Calories = 292.42f,
+                            Carbs = 34.57f,
+                            Fat = 8.24f,
+                            Fiber = 12.71f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 48.9f,
+                            Sugar = 9.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6b4667dd-d7e7-45ba-a6d0-dfd53bc067b1"),
+                            Calories = 439.87f,
+                            Carbs = 99.12f,
+                            Fat = 39.69f,
+                            Fiber = 17.36f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.19f,
+                            Sugar = 41.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3b0724a3-dd5a-4b36-b4c4-4f08bc808626"),
+                            Calories = 355.2f,
+                            Carbs = 24.61f,
+                            Fat = 6.22f,
+                            Fiber = 18.49f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.26f,
+                            Sugar = 10.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8cc5bbe0-41cf-4215-a7b2-2d3e1b10bb9e"),
+                            Calories = 410.29f,
+                            Carbs = 6.19f,
+                            Fat = 46.72f,
+                            Fiber = 3.01f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.57f,
+                            Sugar = 18.72f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("df30a92d-4c23-405a-9f40-19501ab150c0"),
+                            Calories = 16.7f,
+                            Carbs = 84.52f,
+                            Fat = 5.08f,
+                            Fiber = 12.53f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 42.34f,
+                            Sugar = 14.76f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6aae376f-18e5-46df-8c8f-525176f6a34e"),
+                            Calories = 439.27f,
+                            Carbs = 91.59f,
+                            Fat = 20.15f,
+                            Fiber = 15.4f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.02f,
+                            Sugar = 31.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("447e043c-e0a5-4ad4-8271-6ab5d961eb65"),
+                            Calories = 460.24f,
+                            Carbs = 95.31f,
+                            Fat = 39.17f,
+                            Fiber = 11.47f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.69f,
+                            Sugar = 8.63f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e5729a10-e6f4-4de1-bc25-0ded43ccbab4"),
+                            Calories = 252.88f,
+                            Carbs = 76.66f,
+                            Fat = 44.8f,
+                            Fiber = 13.24f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.9f,
+                            Sugar = 15.1f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("453cee6a-8dd1-43e6-b29b-2fd05be1d3cd"),
+                            Calories = 71.14f,
+                            Carbs = 68.16f,
+                            Fat = 48.97f,
+                            Fiber = 6f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.05f,
+                            Sugar = 24.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("643a4ae1-d661-4b4e-b658-2d037e6c237e"),
+                            Calories = 12.87f,
+                            Carbs = 93.66f,
+                            Fat = 35.28f,
+                            Fiber = 14.22f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.41f,
+                            Sugar = 16.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5009f521-4fb6-4ebb-9369-dc74fb7e314b"),
+                            Calories = 376.65f,
+                            Carbs = 74.35f,
+                            Fat = 13.83f,
+                            Fiber = 13.32f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 29.25f,
+                            Sugar = 44.72f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5019f901-adb8-4ae4-ad35-300c24bd3048"),
+                            Calories = 121.11f,
+                            Carbs = 75.24f,
+                            Fat = 1.09f,
+                            Fiber = 17.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 35.89f,
+                            Sugar = 29.76f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("10da593c-36e6-49f4-afb2-6d709e42d1a0"),
+                            Calories = 61.8f,
+                            Carbs = 86.38f,
+                            Fat = 4.64f,
+                            Fiber = 10.42f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 46.28f,
+                            Sugar = 46.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("511b34f7-baa5-48bd-a7de-ea055016a9fe"),
+                            Calories = 473.8f,
+                            Carbs = 45.12f,
+                            Fat = 20.62f,
+                            Fiber = 18.46f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.23f,
+                            Sugar = 31.43f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("16d0f94c-a737-4535-a701-de3703a66a75"),
+                            Calories = 482.28f,
+                            Carbs = 87.84f,
+                            Fat = 10.39f,
+                            Fiber = 16.55f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 27.09f,
+                            Sugar = 48.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("015aadb4-af9c-4daf-ba36-dce78f96ffd6"),
+                            Calories = 455.42f,
+                            Carbs = 41.1f,
+                            Fat = 48.95f,
+                            Fiber = 7.56f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.87f,
+                            Sugar = 12.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("66f3f0d0-d6cc-4cdd-95b8-2b7900706875"),
+                            Calories = 363.4f,
+                            Carbs = 70.49f,
+                            Fat = 27.31f,
+                            Fiber = 2.57f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.69f,
+                            Sugar = 27.7f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7057852f-e8eb-4c68-a7e6-a2248ffad4b7"),
+                            Calories = 408.83f,
+                            Carbs = 0.19f,
+                            Fat = 31.28f,
+                            Fiber = 9.51f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 12.13f,
+                            Sugar = 0.31f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b0198e7d-65f8-4c77-aa54-366a1ba596bf"),
+                            Calories = 187.03f,
+                            Carbs = 33.06f,
+                            Fat = 44.17f,
+                            Fiber = 9.92f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 47.24f,
+                            Sugar = 48.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("27e0858f-0009-4b13-a423-71e966ec379b"),
+                            Calories = 446.4f,
+                            Carbs = 45.39f,
+                            Fat = 17.87f,
+                            Fiber = 14.51f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.79f,
+                            Sugar = 1.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("346477df-58eb-4d2a-86c6-c0a9e3c43d0c"),
+                            Calories = 311.2f,
+                            Carbs = 3.46f,
+                            Fat = 38.88f,
+                            Fiber = 19.8f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 39.97f,
+                            Sugar = 25.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c130f9a3-8993-43b6-b85d-75c3f9d0591e"),
+                            Calories = 40.55f,
+                            Carbs = 23.01f,
+                            Fat = 31.87f,
+                            Fiber = 11.59f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.94f,
+                            Sugar = 4.87f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("392b2b61-acd3-4058-9418-f762d9727b8d"),
+                            Calories = 346.26f,
+                            Carbs = 70.84f,
+                            Fat = 27.78f,
+                            Fiber = 8.05f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.41f,
+                            Sugar = 11.22f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9e747231-ecf7-4850-a8c0-9da80f2d049f"),
+                            Calories = 211.64f,
+                            Carbs = 2.56f,
+                            Fat = 42.1f,
+                            Fiber = 14.84f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 33.56f,
+                            Sugar = 3.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0b5e3341-dbf4-433b-ad38-5bfef8e4cb00"),
+                            Calories = 314.33f,
+                            Carbs = 15.94f,
+                            Fat = 7.84f,
+                            Fiber = 18.65f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.35f,
+                            Sugar = 38.88f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9a0ff0cc-34ac-490a-ad40-0679ae41b034"),
+                            Calories = 368.43f,
+                            Carbs = 44.95f,
+                            Fat = 46.34f,
+                            Fiber = 11.71f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.69f,
+                            Sugar = 11.15f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fa1ac6ed-d1c2-41c8-b74b-6938b9bc9199"),
+                            Calories = 114.14f,
+                            Carbs = 25.24f,
+                            Fat = 2.24f,
+                            Fiber = 4.01f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 40.52f,
+                            Sugar = 0.83f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b807d7bb-dd7d-4611-ab06-56d14663d537"),
+                            Calories = 409.61f,
+                            Carbs = 37.78f,
+                            Fat = 21.51f,
+                            Fiber = 12.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.92f,
+                            Sugar = 10.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c64189c0-c43f-4634-bd7d-8b4d96cc8709"),
+                            Calories = 159.6f,
+                            Carbs = 28.28f,
+                            Fat = 10.21f,
+                            Fiber = 4.7f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 15.36f,
+                            Sugar = 29.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2c2212c6-4c13-47cf-bf7a-50056ccea9d5"),
+                            Calories = 427.73f,
+                            Carbs = 17.89f,
+                            Fat = 24.46f,
+                            Fiber = 7.43f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 35.17f,
+                            Sugar = 14.64f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("61465efb-afcc-4a81-a74b-9d7d84d69c9a"),
+                            Calories = 403.2f,
+                            Carbs = 20.26f,
+                            Fat = 17.24f,
+                            Fiber = 19.53f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.38f,
+                            Sugar = 39.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5a0cc61b-d920-4fd4-852f-548b6d49ef51"),
+                            Calories = 143.37f,
+                            Carbs = 3.13f,
+                            Fat = 9.79f,
+                            Fiber = 17.74f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.24f,
+                            Sugar = 32.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d8d07d45-269a-482f-bc55-effd1db2faef"),
+                            Calories = 448.81f,
+                            Carbs = 35.01f,
+                            Fat = 10.52f,
+                            Fiber = 13.84f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 6.43f,
+                            Sugar = 21.15f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f0c7f4da-9521-4ea7-aaef-40ca9c330ddd"),
+                            Calories = 293.46f,
+                            Carbs = 68.67f,
+                            Fat = 1.88f,
+                            Fiber = 11.63f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 36.23f,
+                            Sugar = 22.81f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("56a2eade-cdd0-4dfe-93c3-f652bfe7360d"),
+                            Calories = 140.24f,
+                            Carbs = 29.57f,
+                            Fat = 2.82f,
+                            Fiber = 0.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.9f,
+                            Sugar = 2.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1b5abb1b-1ce3-4b1b-bf6f-1cc4702703b8"),
+                            Calories = 293.73f,
+                            Carbs = 80.84f,
+                            Fat = 1.48f,
+                            Fiber = 14.24f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 45.52f,
+                            Sugar = 4.98f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d8b418df-e4ce-45be-8237-e3afd11376d8"),
+                            Calories = 427.95f,
+                            Carbs = 46.5f,
+                            Fat = 28.12f,
+                            Fiber = 8.56f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 37.6f,
+                            Sugar = 39.93f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("523b5363-0fc3-4315-81c6-fbb7c1500586"),
+                            Calories = 105.32f,
+                            Carbs = 72.24f,
+                            Fat = 35.44f,
+                            Fiber = 2.8f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.12f,
+                            Sugar = 9.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("556186fb-2284-4d0a-aea1-d0692c41fe05"),
+                            Calories = 279.44f,
+                            Carbs = 92.91f,
+                            Fat = 41.03f,
+                            Fiber = 18.49f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.67f,
+                            Sugar = 24.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0a550e8c-5cf6-4d15-ac6b-fafa42ae7c98"),
+                            Calories = 220.62f,
+                            Carbs = 41.3f,
+                            Fat = 28.42f,
+                            Fiber = 11.86f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.31f,
+                            Sugar = 23.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f4888047-fda6-4f3f-b5b7-bc777e35b8ee"),
+                            Calories = 377.95f,
+                            Carbs = 40.54f,
+                            Fat = 41.89f,
+                            Fiber = 11.74f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.49f,
+                            Sugar = 49.55f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6a8e61a6-4b30-4eda-86b2-7516fe92866c"),
+                            Calories = 104.63f,
+                            Carbs = 26.15f,
+                            Fat = 42.93f,
+                            Fiber = 0.8f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.06f,
+                            Sugar = 32.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e846cd43-c1dc-4f3e-a7bc-da40848283a7"),
+                            Calories = 336.36f,
+                            Carbs = 84.84f,
+                            Fat = 43.72f,
+                            Fiber = 19.14f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 40.86f,
+                            Sugar = 33.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("522c427c-c793-4fad-b913-f692604cb734"),
+                            Calories = 124.95f,
+                            Carbs = 89.03f,
+                            Fat = 31.83f,
+                            Fiber = 7.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.74f,
+                            Sugar = 24.08f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1cb2d57b-66ad-4da2-8e4d-2d782e69bdef"),
+                            Calories = 117.13f,
+                            Carbs = 5.73f,
+                            Fat = 17.97f,
+                            Fiber = 1.48f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.58f,
+                            Sugar = 39.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9fb6a2bc-086e-4315-83bd-5261093ce522"),
+                            Calories = 386.3f,
+                            Carbs = 67.09f,
+                            Fat = 12.65f,
+                            Fiber = 10.05f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.99f,
+                            Sugar = 43.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d5e6d1a9-317e-4f69-bbd3-c9662a17f4cc"),
+                            Calories = 254.44f,
+                            Carbs = 10.6f,
+                            Fat = 41.96f,
+                            Fiber = 14.13f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.86f,
+                            Sugar = 0.7f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("405baedb-45fb-460e-b974-664781f75f0a"),
+                            Calories = 117.11f,
+                            Carbs = 0.72f,
+                            Fat = 2.78f,
+                            Fiber = 17.24f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.06f,
+                            Sugar = 1.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cb3643b2-bf38-4488-ac12-8bb1c200940f"),
+                            Calories = 175.58f,
+                            Carbs = 33.58f,
+                            Fat = 6.56f,
+                            Fiber = 16.92f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.89f,
+                            Sugar = 2.51f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0a462f86-4815-4a21-8b25-e3f0948b9293"),
+                            Calories = 110.17f,
+                            Carbs = 94.6f,
+                            Fat = 38.7f,
+                            Fiber = 9.92f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.49f,
+                            Sugar = 41.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4c93852c-8a51-4bee-ae39-2d89cce33a0a"),
+                            Calories = 210.64f,
+                            Carbs = 85.28f,
+                            Fat = 12.76f,
+                            Fiber = 13.31f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 36.07f,
+                            Sugar = 32.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f76aba71-5e38-4ca4-9487-5ce32562ec5a"),
+                            Calories = 282.4f,
+                            Carbs = 97.27f,
+                            Fat = 24f,
+                            Fiber = 13.15f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.77f,
+                            Sugar = 41.55f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("01dd9281-44be-4d14-9789-584db5bb1a09"),
+                            Calories = 89.49f,
+                            Carbs = 66.38f,
+                            Fat = 25.54f,
+                            Fiber = 1.56f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.81f,
+                            Sugar = 27.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3e7a5d7b-7dc9-4788-aa15-81ba9a97191f"),
+                            Calories = 311.69f,
+                            Carbs = 29f,
+                            Fat = 36.6f,
+                            Fiber = 12.8f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 29.05f,
+                            Sugar = 14.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("896874d5-7734-446b-97b9-c5365a325666"),
+                            Calories = 107.47f,
+                            Carbs = 87.39f,
+                            Fat = 48.36f,
+                            Fiber = 0.69f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 31.01f,
+                            Sugar = 46.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cf8a22f9-f855-4a8a-b9e9-55b10dd582a8"),
+                            Calories = 490.14f,
+                            Carbs = 49.05f,
+                            Fat = 41.68f,
+                            Fiber = 7.2f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.14f,
+                            Sugar = 1.67f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3163524b-b427-4552-931c-b7705c08265a"),
+                            Calories = 448.64f,
+                            Carbs = 67.91f,
+                            Fat = 15.16f,
+                            Fiber = 11.46f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 47.38f,
+                            Sugar = 5.38f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("230dde5f-c763-4e84-bb1d-b7713960ae14"),
+                            Calories = 8.35f,
+                            Carbs = 75.82f,
+                            Fat = 47.15f,
+                            Fiber = 16.61f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 36.13f,
+                            Sugar = 8.47f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("304cda65-6a32-47a6-91f3-773affc66906"),
+                            Calories = 292.2f,
+                            Carbs = 1.73f,
+                            Fat = 45.18f,
+                            Fiber = 3.97f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.35f,
+                            Sugar = 25.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e979d5d0-68e1-4b15-b3c2-9130aba05202"),
+                            Calories = 206.13f,
+                            Carbs = 87.84f,
+                            Fat = 24.14f,
+                            Fiber = 18.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.41f,
+                            Sugar = 32.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3391b28e-b503-4d58-8296-9fb1b254267d"),
+                            Calories = 200.65f,
+                            Carbs = 86.14f,
+                            Fat = 25.83f,
+                            Fiber = 13.17f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 2f,
+                            Sugar = 18.38f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e4498fc9-741a-46f3-a5ba-f2d87ae0ff3f"),
+                            Calories = 454.63f,
+                            Carbs = 0.82f,
+                            Fat = 40.56f,
+                            Fiber = 9.2f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.31f,
+                            Sugar = 6.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c99b5812-ebfe-4866-9549-9a3825ae57b3"),
+                            Calories = 290.2f,
+                            Carbs = 8.39f,
+                            Fat = 15.79f,
+                            Fiber = 7.31f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.59f,
+                            Sugar = 7.83f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("42cf3395-0169-48d5-af9c-8421d49cdcbf"),
+                            Calories = 63.49f,
+                            Carbs = 61.76f,
+                            Fat = 36.02f,
+                            Fiber = 17.38f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.71f,
+                            Sugar = 0.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a629b068-1737-4531-a030-716f38d635cb"),
+                            Calories = 223.4f,
+                            Carbs = 79.23f,
+                            Fat = 38.3f,
+                            Fiber = 5.01f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.05f,
+                            Sugar = 12.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bff90468-ebdd-415b-8cdb-c97802a9805c"),
+                            Calories = 300.74f,
+                            Carbs = 28.19f,
+                            Fat = 32.76f,
+                            Fiber = 11.4f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.71f,
+                            Sugar = 3.22f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("79b42e8e-762b-4c30-82f6-0d3703932f9a"),
+                            Calories = 230.66f,
+                            Carbs = 67.21f,
+                            Fat = 16.52f,
+                            Fiber = 8.39f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.52f,
+                            Sugar = 48.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a44221df-19df-4a98-84fc-234f12265311"),
+                            Calories = 332.21f,
+                            Carbs = 65.32f,
+                            Fat = 46.56f,
+                            Fiber = 11.18f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 30.53f,
+                            Sugar = 12.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a0b4f95e-4eaf-410a-bcf6-2bc4af1aebbb"),
+                            Calories = 373.09f,
+                            Carbs = 36.84f,
+                            Fat = 49.71f,
+                            Fiber = 7.65f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.39f,
+                            Sugar = 35.21f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4d0974b8-9c5e-4490-8127-f08d6db57e4b"),
+                            Calories = 282.69f,
+                            Carbs = 41.48f,
+                            Fat = 34.29f,
+                            Fiber = 12.77f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.26f,
+                            Sugar = 33.43f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8b706224-b1f6-40fa-a247-7735967839ce"),
+                            Calories = 272.43f,
+                            Carbs = 78.92f,
+                            Fat = 39.58f,
+                            Fiber = 18.84f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.34f,
+                            Sugar = 14.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7500ae86-5267-451f-b87f-0098557e29c0"),
+                            Calories = 7.9f,
+                            Carbs = 63.78f,
+                            Fat = 3.28f,
+                            Fiber = 17.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.2f,
+                            Sugar = 40.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e8567e16-4e72-4f1c-a41b-6217110716f0"),
+                            Calories = 288.09f,
+                            Carbs = 22.88f,
+                            Fat = 49.4f,
+                            Fiber = 14.4f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25.3f,
+                            Sugar = 0.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8cec012d-d4fa-43ba-8703-b37a09832b74"),
+                            Calories = 497.2f,
+                            Carbs = 75.44f,
+                            Fat = 28f,
+                            Fiber = 12.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.15f,
+                            Sugar = 32.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("236e502a-5c8a-4f62-9dc9-80548c043d28"),
+                            Calories = 241.6f,
+                            Carbs = 40.4f,
+                            Fat = 10.57f,
+                            Fiber = 3.3f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 34.72f,
+                            Sugar = 5.35f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d4d5c27a-ca28-4989-9580-3579cacf35c6"),
+                            Calories = 428.85f,
+                            Carbs = 67.65f,
+                            Fat = 19.09f,
+                            Fiber = 13.31f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.61f,
+                            Sugar = 30.24f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dbfd0d34-14c1-4f21-9f3e-6472c2cd65a3"),
+                            Calories = 348.56f,
+                            Carbs = 9.52f,
+                            Fat = 39.43f,
+                            Fiber = 13.44f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.58f,
+                            Sugar = 41.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b2ad8009-2b24-4c4a-94f4-3404f0710577"),
+                            Calories = 271.33f,
+                            Carbs = 33.74f,
+                            Fat = 32.2f,
+                            Fiber = 16.66f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 16.05f,
+                            Sugar = 30.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7ee102c7-cc96-4e8a-9bf3-120e9c84411c"),
+                            Calories = 328.83f,
+                            Carbs = 95.58f,
+                            Fat = 10.49f,
+                            Fiber = 17.13f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.02f,
+                            Sugar = 48.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("955d750a-bf4e-4ae1-b8a6-6b0961481ac5"),
+                            Calories = 21.43f,
+                            Carbs = 83.27f,
+                            Fat = 2.18f,
+                            Fiber = 12.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.69f,
+                            Sugar = 48.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("15fee063-9c84-46b9-b41c-44e5b89ee431"),
+                            Calories = 446.27f,
+                            Carbs = 14.15f,
+                            Fat = 7.6f,
+                            Fiber = 14.85f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 40.48f,
+                            Sugar = 4.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e53460f0-022a-4890-9490-7f0bb5283bd4"),
+                            Calories = 110.74f,
+                            Carbs = 59.03f,
+                            Fat = 47.07f,
+                            Fiber = 11.26f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.69f,
+                            Sugar = 21.01f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bd0b3b80-6443-4119-b39b-382bb17c1d0f"),
+                            Calories = 145.16f,
+                            Carbs = 74.22f,
+                            Fat = 37.44f,
+                            Fiber = 1.65f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 7.15f,
+                            Sugar = 24.35f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("883fcc98-d6b5-4339-b940-73f177d1cfd7"),
+                            Calories = 102.06f,
+                            Carbs = 39.63f,
+                            Fat = 16.14f,
+                            Fiber = 8.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.38f,
+                            Sugar = 31.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("33af4113-1a4c-4e3b-8dd7-796bcc1295a2"),
+                            Calories = 318.36f,
+                            Carbs = 54.51f,
+                            Fat = 11.54f,
+                            Fiber = 5.81f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.88f,
+                            Sugar = 27.43f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5add2fd4-6231-4233-a217-2406b2a827b4"),
+                            Calories = 359.37f,
+                            Carbs = 26.83f,
+                            Fat = 45.72f,
+                            Fiber = 5.1f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 1.26f,
+                            Sugar = 4.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7e2651d3-aa3b-4b9f-80b2-79f6878d7162"),
+                            Calories = 367.66f,
+                            Carbs = 10.54f,
+                            Fat = 4.16f,
+                            Fiber = 4.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.77f,
+                            Sugar = 4.88f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d0126234-0258-4554-844c-7db4a2c23a30"),
+                            Calories = 357.94f,
+                            Carbs = 19.22f,
+                            Fat = 4.06f,
+                            Fiber = 12.74f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.32f,
+                            Sugar = 6.81f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e4305984-d783-4100-94d3-764e418d11a2"),
+                            Calories = 445.29f,
+                            Carbs = 86.31f,
+                            Fat = 35.56f,
+                            Fiber = 13.26f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.16f,
+                            Sugar = 18.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4e9e2c36-5bee-4e02-9bbb-916243a4db34"),
+                            Calories = 143.1f,
+                            Carbs = 75.33f,
+                            Fat = 4.61f,
+                            Fiber = 7.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.4f,
+                            Sugar = 10.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b88af125-5043-4eed-861c-d1ef778c3d3f"),
+                            Calories = 392.42f,
+                            Carbs = 73.3f,
+                            Fat = 25.82f,
+                            Fiber = 14.54f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.43f,
+                            Sugar = 14.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7aa6ec6e-1f2d-404b-b2e9-ac5a22686221"),
+                            Calories = 424.08f,
+                            Carbs = 94.67f,
+                            Fat = 42.46f,
+                            Fiber = 6.88f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.66f,
+                            Sugar = 24.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("32f3aaf3-059c-4dd6-9a4d-ed71745a4495"),
+                            Calories = 241.42f,
+                            Carbs = 74.91f,
+                            Fat = 32.08f,
+                            Fiber = 12.38f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.77f,
+                            Sugar = 5.24f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e270bf3c-fddb-4d35-a41f-82ec932decab"),
+                            Calories = 376.2f,
+                            Carbs = 65.39f,
+                            Fat = 19.25f,
+                            Fiber = 0.09f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.43f,
+                            Sugar = 12.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("afb05126-7bca-46b8-993c-8dfcaabc1396"),
+                            Calories = 347.3f,
+                            Carbs = 16.93f,
+                            Fat = 44.82f,
+                            Fiber = 3.94f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.76f,
+                            Sugar = 39.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("65b8c52f-0359-4667-86ac-05005c23a1a0"),
+                            Calories = 245.94f,
+                            Carbs = 36.79f,
+                            Fat = 19.41f,
+                            Fiber = 15.69f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.87f,
+                            Sugar = 5.66f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e74bce62-6fb9-4105-be05-154905210676"),
+                            Calories = 420.79f,
+                            Carbs = 50.44f,
+                            Fat = 6.17f,
+                            Fiber = 11.27f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.67f,
+                            Sugar = 12.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f9199912-fcbe-4e7d-8ccb-1c3b919ba3f5"),
+                            Calories = 186.59f,
+                            Carbs = 22.49f,
+                            Fat = 19.13f,
+                            Fiber = 15.76f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 0.51f,
+                            Sugar = 24.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b5853349-f15c-42cf-abbb-98c17791f4c3"),
+                            Calories = 183.76f,
+                            Carbs = 85.57f,
+                            Fat = 5.42f,
+                            Fiber = 14.68f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 34.5f,
+                            Sugar = 17.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("166039f9-7ac3-4460-a97c-888d8489e02f"),
+                            Calories = 434.01f,
+                            Carbs = 48.9f,
+                            Fat = 3.25f,
+                            Fiber = 18.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.7f,
+                            Sugar = 15.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9e7b588f-6886-48c4-be32-1e4fc6174025"),
+                            Calories = 141.52f,
+                            Carbs = 7.41f,
+                            Fat = 23.36f,
+                            Fiber = 12.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 42.02f,
+                            Sugar = 46.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b522406c-e749-4deb-98cb-c70e86db6612"),
+                            Calories = 121.2f,
+                            Carbs = 66.05f,
+                            Fat = 15.55f,
+                            Fiber = 1.23f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.23f,
+                            Sugar = 5.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("26a70753-7a4c-407d-a818-1632d00ba8af"),
+                            Calories = 54.9f,
+                            Carbs = 97.36f,
+                            Fat = 45.72f,
+                            Fiber = 12.23f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 30.22f,
+                            Sugar = 18.87f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9a7f84ff-9196-4774-9d54-3ce17608fa8d"),
+                            Calories = 306.01f,
+                            Carbs = 38.85f,
+                            Fat = 12.74f,
+                            Fiber = 12.75f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 36.52f,
+                            Sugar = 46.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c7e69e1e-6c22-4062-b781-1c074e52336e"),
+                            Calories = 351.5f,
+                            Carbs = 79.35f,
+                            Fat = 25.57f,
+                            Fiber = 3.48f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 6.34f,
+                            Sugar = 25.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e69ce066-4122-432f-a0c8-8ddd76a2ceb6"),
+                            Calories = 39.98f,
+                            Carbs = 34.44f,
+                            Fat = 26.25f,
+                            Fiber = 18.56f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 0.58f,
+                            Sugar = 2.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("718fdbf4-ddd1-4978-89e4-6bc3e39ff265"),
+                            Calories = 441.48f,
+                            Carbs = 39.91f,
+                            Fat = 26.99f,
+                            Fiber = 13.3f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 9.32f,
+                            Sugar = 24.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d1dffc51-72d4-4379-adc4-09c7e6857baf"),
+                            Calories = 1.54f,
+                            Carbs = 43.3f,
+                            Fat = 37.76f,
+                            Fiber = 8.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.71f,
+                            Sugar = 33.26f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("03f585a8-fe76-447c-859c-b4e8ec75aedd"),
+                            Calories = 455.26f,
+                            Carbs = 45.79f,
+                            Fat = 1.47f,
+                            Fiber = 19.5f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.58f,
+                            Sugar = 30.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8f649265-1f5c-4b17-8aec-ad70db198c84"),
+                            Calories = 71.8f,
+                            Carbs = 91.56f,
+                            Fat = 11.52f,
+                            Fiber = 18.73f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.7f,
+                            Sugar = 33.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("473c1c3f-843a-47fb-a7c5-c1a65b7154ca"),
+                            Calories = 91.83f,
+                            Carbs = 91.69f,
+                            Fat = 21.89f,
+                            Fiber = 12.7f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.81f,
+                            Sugar = 45.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6d5b448d-d5a4-4632-8970-a1e1b59eec92"),
+                            Calories = 269.02f,
+                            Carbs = 47.63f,
+                            Fat = 44.19f,
+                            Fiber = 2.12f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 0.24f,
+                            Sugar = 20.26f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c8448227-89dc-4b06-acc7-03a4c36c02bb"),
+                            Calories = 336.91f,
+                            Carbs = 51.35f,
+                            Fat = 5.61f,
+                            Fiber = 1.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.67f,
+                            Sugar = 31.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4634e802-460d-4c42-81cc-54d1b2857425"),
+                            Calories = 83.2f,
+                            Carbs = 30.66f,
+                            Fat = 26.6f,
+                            Fiber = 4.7f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 3.3f,
+                            Sugar = 2.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("204eecae-7a53-45fa-b8d4-081b0d5fde7d"),
+                            Calories = 457.57f,
+                            Carbs = 84.57f,
+                            Fat = 14.36f,
+                            Fiber = 1.29f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 31.7f,
+                            Sugar = 21.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("862c8fbd-4f46-4e32-83d0-eee7b8ba80de"),
+                            Calories = 310.24f,
+                            Carbs = 82.83f,
+                            Fat = 18.39f,
+                            Fiber = 9.04f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 16.04f,
+                            Sugar = 21.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ce3264d6-95d4-4f73-a722-6eceaa98cd12"),
+                            Calories = 451.13f,
+                            Carbs = 63.14f,
+                            Fat = 37.77f,
+                            Fiber = 11f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 38.61f,
+                            Sugar = 7.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("badc15e1-6078-4d7e-9a76-b7fa3c50d96b"),
+                            Calories = 260.52f,
+                            Carbs = 92.25f,
+                            Fat = 39.01f,
+                            Fiber = 5.37f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.31f,
+                            Sugar = 34.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dcc728e2-a7d4-49b3-b672-4432605bd53c"),
+                            Calories = 236.23f,
+                            Carbs = 34.67f,
+                            Fat = 37.74f,
+                            Fiber = 15.13f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.37f,
+                            Sugar = 27.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dc35a75b-043c-4ceb-90a2-f6c82e9f4265"),
+                            Calories = 225.21f,
+                            Carbs = 63.25f,
+                            Fat = 40.93f,
+                            Fiber = 15.31f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.07f,
+                            Sugar = 21f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("13864b42-92c2-4adc-9475-8dd2a32fa257"),
+                            Calories = 31.93f,
+                            Carbs = 53.81f,
+                            Fat = 38.36f,
+                            Fiber = 4.8f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 30.31f,
+                            Sugar = 18.38f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("80ec4c4a-67cb-497f-9253-a485ed198394"),
+                            Calories = 167.91f,
+                            Carbs = 72.51f,
+                            Fat = 40.85f,
+                            Fiber = 9.7f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.64f,
+                            Sugar = 34.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("78d0ffa1-254e-4c99-bb8e-24c20e0de407"),
+                            Calories = 235.05f,
+                            Carbs = 67f,
+                            Fat = 36.59f,
+                            Fiber = 4.82f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.25f,
+                            Sugar = 0.71f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e5cb2e44-4a79-4aba-a749-baa7838db29f"),
+                            Calories = 412.94f,
+                            Carbs = 81.76f,
+                            Fat = 35.02f,
+                            Fiber = 19.84f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.81f,
+                            Sugar = 6.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("46a50dab-9d9f-44bd-ada5-65532c08838f"),
+                            Calories = 317.52f,
+                            Carbs = 43.66f,
+                            Fat = 35.14f,
+                            Fiber = 13.26f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.6f,
+                            Sugar = 26.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dfd713c0-a7cf-4772-ae9f-18985e895449"),
+                            Calories = 59.24f,
+                            Carbs = 81.11f,
+                            Fat = 24.51f,
+                            Fiber = 4.35f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.67f,
+                            Sugar = 23.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e29160dd-840c-4ff0-a8b6-9daca02da73a"),
+                            Calories = 368.43f,
+                            Carbs = 53.55f,
+                            Fat = 14.57f,
+                            Fiber = 7.89f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 15.84f,
+                            Sugar = 27.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c2b5c5ef-e749-494d-9a11-9228f625b9af"),
+                            Calories = 371.2f,
+                            Carbs = 21.99f,
+                            Fat = 41.75f,
+                            Fiber = 11.2f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.5f,
+                            Sugar = 36.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cfbf031a-2d82-492b-a358-6af60e7a83d7"),
+                            Calories = 135.01f,
+                            Carbs = 38.89f,
+                            Fat = 40.81f,
+                            Fiber = 0.32f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.72f,
+                            Sugar = 1.22f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9f0a15d4-1118-4e62-ad70-676e2779606e"),
+                            Calories = 115.08f,
+                            Carbs = 80.91f,
+                            Fat = 33.42f,
+                            Fiber = 10.89f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 18.43f,
+                            Sugar = 33.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("659c7498-5501-4c1d-9b7a-260579018499"),
+                            Calories = 477.6f,
+                            Carbs = 51.99f,
+                            Fat = 40.43f,
+                            Fiber = 8.97f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.95f,
+                            Sugar = 6.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5792c9ba-7f39-4463-92c2-5d3b32aa1aa3"),
+                            Calories = 226.4f,
+                            Carbs = 86.69f,
+                            Fat = 7.55f,
+                            Fiber = 7.66f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.17f,
+                            Sugar = 28.35f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9fe9bb1a-0a36-4de8-9ace-e5d65693c7ef"),
+                            Calories = 357.01f,
+                            Carbs = 9.96f,
+                            Fat = 21.42f,
+                            Fiber = 2.59f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.99f,
+                            Sugar = 33.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d1047e92-0b28-4188-96a0-2ba3472a2d01"),
+                            Calories = 475.52f,
+                            Carbs = 99.83f,
+                            Fat = 30.34f,
+                            Fiber = 18.14f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.35f,
+                            Sugar = 27.26f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("04f96e6b-b309-4d55-b269-948df89231dd"),
+                            Calories = 376.44f,
+                            Carbs = 76.78f,
+                            Fat = 45.18f,
+                            Fiber = 10.06f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 34.66f,
+                            Sugar = 10.7f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("982f6d23-751f-4248-b6d1-3e53d647a982"),
+                            Calories = 465.22f,
+                            Carbs = 58.52f,
+                            Fat = 49.83f,
+                            Fiber = 7.27f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 12.82f,
+                            Sugar = 3.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("646e4918-6388-40d7-b38e-8e741f2bc4d4"),
+                            Calories = 396.85f,
+                            Carbs = 91.87f,
+                            Fat = 31.86f,
+                            Fiber = 19.06f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.29f,
+                            Sugar = 1.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bc61ab55-a496-4578-96a2-056444bfeef7"),
+                            Calories = 141.47f,
+                            Carbs = 84.09f,
+                            Fat = 23.27f,
+                            Fiber = 14.59f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 7.78f,
+                            Sugar = 10.7f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0824c6e0-9095-4ef8-8e0b-64bc50ed2c3c"),
+                            Calories = 41.41f,
+                            Carbs = 12.1f,
+                            Fat = 41.1f,
+                            Fiber = 12.74f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 48.49f,
+                            Sugar = 15.58f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fea3452d-eaed-4fed-997e-dec329a8fa71"),
+                            Calories = 284.4f,
+                            Carbs = 26.11f,
+                            Fat = 48.79f,
+                            Fiber = 17.83f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.3f,
+                            Sugar = 44.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7ed099fc-c263-44ca-bf76-bc295407e722"),
+                            Calories = 53.83f,
+                            Carbs = 23.74f,
+                            Fat = 15.23f,
+                            Fiber = 6.13f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.28f,
+                            Sugar = 4.21f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b0eb383a-c0a9-4b5b-94fa-2067d29f76af"),
+                            Calories = 77.86f,
+                            Carbs = 67.04f,
+                            Fat = 16.67f,
+                            Fiber = 16.71f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.08f,
+                            Sugar = 31.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b9260a15-2617-47e5-9965-853cb21d3457"),
+                            Calories = 492.14f,
+                            Carbs = 34.56f,
+                            Fat = 39f,
+                            Fiber = 6.84f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.53f,
+                            Sugar = 38.81f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f9b0260c-929d-4f07-859b-5c1f3b7984ef"),
+                            Calories = 478.85f,
+                            Carbs = 20f,
+                            Fat = 39.95f,
+                            Fiber = 19.44f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 36.87f,
+                            Sugar = 26.31f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f0434281-1225-467d-8433-92ec590f18ce"),
+                            Calories = 386.32f,
+                            Carbs = 25.61f,
+                            Fat = 15.81f,
+                            Fiber = 10.76f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.89f,
+                            Sugar = 15.61f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5fb59ead-5e01-425d-874a-1e262a128f04"),
+                            Calories = 252.17f,
+                            Carbs = 41.1f,
+                            Fat = 38.71f,
+                            Fiber = 14.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.22f,
+                            Sugar = 10.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("90d122d7-133a-4540-99aa-2d58518deb2b"),
+                            Calories = 28.44f,
+                            Carbs = 88.58f,
+                            Fat = 0.98f,
+                            Fiber = 18.94f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.63f,
+                            Sugar = 31.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6f64f743-e9f0-4e70-8e40-cab0ef159b3b"),
+                            Calories = 53.98f,
+                            Carbs = 11.77f,
+                            Fat = 26.67f,
+                            Fiber = 18.26f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.89f,
+                            Sugar = 23.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d45b9402-8764-4109-99ed-6038ed5a7ac4"),
+                            Calories = 126.93f,
+                            Carbs = 76.81f,
+                            Fat = 9.13f,
+                            Fiber = 7.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 27.77f,
+                            Sugar = 44.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e2641884-a670-4f31-8168-1762465f0ecd"),
+                            Calories = 442.49f,
+                            Carbs = 48.14f,
+                            Fat = 2.26f,
+                            Fiber = 4.78f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 36.38f,
+                            Sugar = 0.57f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ffc97b7d-f8e7-42f0-9166-d336c9b4e726"),
+                            Calories = 41.25f,
+                            Carbs = 43.99f,
+                            Fat = 1.41f,
+                            Fiber = 11.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.84f,
+                            Sugar = 30.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("eb9e5e83-fba6-4923-82e6-4cd6a15b3a8a"),
+                            Calories = 64.03f,
+                            Carbs = 19.2f,
+                            Fat = 19.15f,
+                            Fiber = 6.7f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.33f,
+                            Sugar = 21.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3bfe6941-f2b2-4129-9c47-32d952ddae37"),
+                            Calories = 145.86f,
+                            Carbs = 14.92f,
+                            Fat = 27.59f,
+                            Fiber = 1.79f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.28f,
+                            Sugar = 19.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c6edb053-ddc2-48c1-99ec-86298dc63c77"),
+                            Calories = 139.43f,
+                            Carbs = 8.74f,
+                            Fat = 27.06f,
+                            Fiber = 11.39f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 29.88f,
+                            Sugar = 8.88f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ffc86d23-5d96-4ff5-ba4b-328980edf062"),
+                            Calories = 377.63f,
+                            Carbs = 53.13f,
+                            Fat = 12.99f,
+                            Fiber = 14.57f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 29.6f,
+                            Sugar = 6.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1bfa3865-28a5-4251-b2aa-41211004c108"),
+                            Calories = 52.42f,
+                            Carbs = 15.31f,
+                            Fat = 0.01f,
+                            Fiber = 11.71f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.69f,
+                            Sugar = 12.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("95c76569-2592-4db8-8dea-b526d6ecb9b1"),
+                            Calories = 497.51f,
+                            Carbs = 73.16f,
+                            Fat = 14.74f,
+                            Fiber = 1.01f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 40.73f,
+                            Sugar = 28.55f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c55c9652-95a9-4a40-95e1-6b8e52d2d29a"),
+                            Calories = 160.45f,
+                            Carbs = 59.74f,
+                            Fat = 35.55f,
+                            Fiber = 13.45f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.38f,
+                            Sugar = 38.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6b8137e8-14b7-48e4-bd9f-265ce504e1b7"),
+                            Calories = 136.97f,
+                            Carbs = 75.67f,
+                            Fat = 19.38f,
+                            Fiber = 14.71f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.87f,
+                            Sugar = 31.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6268be77-fcc6-44bb-956d-c0b4474c6397"),
+                            Calories = 402f,
+                            Carbs = 90.53f,
+                            Fat = 24.28f,
+                            Fiber = 7.67f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.85f,
+                            Sugar = 20.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7c4698fb-19af-497b-8220-9854a85db9d3"),
+                            Calories = 385.03f,
+                            Carbs = 16.17f,
+                            Fat = 15.9f,
+                            Fiber = 13.09f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 38.87f,
+                            Sugar = 40.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("af2a7275-50e0-4f91-bc0d-f82aafa036a5"),
+                            Calories = 37.99f,
+                            Carbs = 93.2f,
+                            Fat = 46.08f,
+                            Fiber = 0.11f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 49.84f,
+                            Sugar = 40.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("86e22adf-2d67-4279-9cb6-b6bc0cac7c2c"),
+                            Calories = 335.55f,
+                            Carbs = 28.01f,
+                            Fat = 28.92f,
+                            Fiber = 17.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.6f,
+                            Sugar = 14.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9b238b8e-79e2-4add-a71b-5545e36ac3f3"),
+                            Calories = 131.52f,
+                            Carbs = 64.34f,
+                            Fat = 30.35f,
+                            Fiber = 18.33f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.17f,
+                            Sugar = 8.55f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1f2e98ac-0e5b-4533-b0e5-28d9e1f13297"),
+                            Calories = 402.41f,
+                            Carbs = 68.48f,
+                            Fat = 27.56f,
+                            Fiber = 18.11f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 22.44f,
+                            Sugar = 35.86f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0d1e5407-d0c9-4b45-9d5c-cade7a318be0"),
+                            Calories = 205.56f,
+                            Carbs = 52.19f,
+                            Fat = 41.47f,
+                            Fiber = 18.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.23f,
+                            Sugar = 36.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0551bccb-37da-4978-9610-6313202ae728"),
+                            Calories = 468.21f,
+                            Carbs = 29.55f,
+                            Fat = 9.49f,
+                            Fiber = 16.66f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.84f,
+                            Sugar = 33.83f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dab65695-e535-4641-be0f-925f8a4716e4"),
+                            Calories = 260.4f,
+                            Carbs = 80.83f,
+                            Fat = 44.1f,
+                            Fiber = 14.12f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.79f,
+                            Sugar = 44.77f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d4e52cfe-0555-45c6-af11-77fa978491f1"),
+                            Calories = 479.49f,
+                            Carbs = 23.24f,
+                            Fat = 32.15f,
+                            Fiber = 11.93f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.15f,
+                            Sugar = 32.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b1d5c505-2972-4c12-98e5-b7a08cee7eac"),
+                            Calories = 190.94f,
+                            Carbs = 53.31f,
+                            Fat = 49.62f,
+                            Fiber = 3.4f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 42.21f,
+                            Sugar = 41.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c0990ecd-7549-4c27-b179-145e988406e9"),
+                            Calories = 211.6f,
+                            Carbs = 64.34f,
+                            Fat = 17.62f,
+                            Fiber = 7.53f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 34.01f,
+                            Sugar = 8.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ef87efa0-7613-4d00-a8b3-f40cc5e91cab"),
+                            Calories = 363.88f,
+                            Carbs = 31.72f,
+                            Fat = 16.96f,
+                            Fiber = 12.55f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 43.82f,
+                            Sugar = 13.01f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("87117a74-49f1-4949-8b58-150d42159643"),
+                            Calories = 222.48f,
+                            Carbs = 97.2f,
+                            Fat = 36.23f,
+                            Fiber = 17.69f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.4f,
+                            Sugar = 49.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d76eea19-d9f6-4d97-b1b0-73f94c80ff4e"),
+                            Calories = 71.08f,
+                            Carbs = 28.16f,
+                            Fat = 15.82f,
+                            Fiber = 4.07f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.09f,
+                            Sugar = 26.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("11c4d596-8f1c-4b75-85e5-01e2e59a4052"),
+                            Calories = 464.03f,
+                            Carbs = 90.37f,
+                            Fat = 47.75f,
+                            Fiber = 15.02f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.58f,
+                            Sugar = 2.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("61711578-4014-4c9c-a0a5-981e47c07596"),
+                            Calories = 445.4f,
+                            Carbs = 91.89f,
+                            Fat = 15.59f,
+                            Fiber = 11.75f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.73f,
+                            Sugar = 41.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("94fe33a1-edec-44a1-b530-30b3379f3361"),
+                            Calories = 400.96f,
+                            Carbs = 29.01f,
+                            Fat = 47.21f,
+                            Fiber = 2.4f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 1.48f,
+                            Sugar = 5.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b2417fde-fa5d-45fc-9040-a0fc04ef6958"),
+                            Calories = 297.64f,
+                            Carbs = 43.94f,
+                            Fat = 16.82f,
+                            Fiber = 5.38f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.12f,
+                            Sugar = 10.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("83cb2552-c8a0-4745-a91b-1215a1febda0"),
+                            Calories = 307.09f,
+                            Carbs = 4.68f,
+                            Fat = 6.32f,
+                            Fiber = 19.29f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 2.73f,
+                            Sugar = 40.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7ab0ff77-8821-4ebb-b5c9-3d08a2ceb3ca"),
+                            Calories = 433.2f,
+                            Carbs = 56.25f,
+                            Fat = 28.96f,
+                            Fiber = 3.16f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 1.04f,
+                            Sugar = 1.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8c3c7141-9029-4dd6-ae41-745b935aa458"),
+                            Calories = 354.67f,
+                            Carbs = 90.55f,
+                            Fat = 36.65f,
+                            Fiber = 4.61f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.96f,
+                            Sugar = 20.28f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fff39353-34cf-4104-be31-aa4caa765d96"),
+                            Calories = 327.24f,
+                            Carbs = 74.18f,
+                            Fat = 47.82f,
+                            Fiber = 7.1f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.14f,
+                            Sugar = 32.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("13ddae55-2e9b-4a44-a920-9c5ce949e28a"),
+                            Calories = 243.41f,
+                            Carbs = 51.75f,
+                            Fat = 42.8f,
+                            Fiber = 10.56f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 47.63f,
+                            Sugar = 48.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("27000dde-658f-481a-8841-cb4ec6864827"),
+                            Calories = 68.77f,
+                            Carbs = 16.75f,
+                            Fat = 12.56f,
+                            Fiber = 14.91f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 30.44f,
+                            Sugar = 38.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("32568b7e-a641-4b61-9e4c-adbcaf0f7923"),
+                            Calories = 230.88f,
+                            Carbs = 82.29f,
+                            Fat = 43.18f,
+                            Fiber = 7.81f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.21f,
+                            Sugar = 14.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8b3381f4-7d06-4baf-baa0-9dd104194a41"),
+                            Calories = 243.76f,
+                            Carbs = 11.38f,
+                            Fat = 37.81f,
+                            Fiber = 18.08f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.76f,
+                            Sugar = 17.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2b824fe4-4c33-4cbb-83ff-7d84b1a7df91"),
+                            Calories = 120.23f,
+                            Carbs = 64.19f,
+                            Fat = 29.28f,
+                            Fiber = 17.24f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 31.89f,
+                            Sugar = 37.81f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7d8a7fbc-7735-4e5a-8cd0-a41b07bc9e95"),
+                            Calories = 165.87f,
+                            Carbs = 57.51f,
+                            Fat = 2.15f,
+                            Fiber = 12.82f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 42.13f,
+                            Sugar = 38.58f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c42f0be0-66ea-4851-8932-54a1e1d2007a"),
+                            Calories = 377.73f,
+                            Carbs = 7.37f,
+                            Fat = 48.68f,
+                            Fiber = 11.87f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.63f,
+                            Sugar = 0.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("91f27235-5182-4cfb-80ed-154b33eaeb8b"),
+                            Calories = 16.86f,
+                            Carbs = 49.27f,
+                            Fat = 24.69f,
+                            Fiber = 13.28f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.99f,
+                            Sugar = 11.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8630ad52-999c-47f7-87ae-25ddb204f83f"),
+                            Calories = 426.16f,
+                            Carbs = 87.6f,
+                            Fat = 16.61f,
+                            Fiber = 4.61f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.33f,
+                            Sugar = 29.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6b62ab7e-5a24-42bd-a4c7-81df7b844788"),
+                            Calories = 172f,
+                            Carbs = 73.46f,
+                            Fat = 48.78f,
+                            Fiber = 16.51f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.88f,
+                            Sugar = 47.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e75bcc09-e3be-4539-9bf6-589290fe54a6"),
+                            Calories = 277.45f,
+                            Carbs = 93.34f,
+                            Fat = 45.45f,
+                            Fiber = 14.6f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 39.85f,
+                            Sugar = 42.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9e43220c-0fbd-4796-81d1-ac885e6fa771"),
+                            Calories = 218.74f,
+                            Carbs = 34.89f,
+                            Fat = 15.49f,
+                            Fiber = 4.22f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 12.72f,
+                            Sugar = 35.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("68d776ff-43ab-4fad-85ac-109959044155"),
+                            Calories = 459.34f,
+                            Carbs = 21.39f,
+                            Fat = 17.45f,
+                            Fiber = 15.34f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.25f,
+                            Sugar = 27.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6f96a7b8-13db-4a83-b4e4-cd024dc06d13"),
+                            Calories = 196.85f,
+                            Carbs = 53.69f,
+                            Fat = 4.37f,
+                            Fiber = 9.72f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 14.93f,
+                            Sugar = 15.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cfac588d-9e79-432f-9013-73713b259c44"),
+                            Calories = 474.31f,
+                            Carbs = 19.86f,
+                            Fat = 9.73f,
+                            Fiber = 0.5f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 29.51f,
+                            Sugar = 18.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c2b44164-ad94-47e5-b146-23a3fd2aceba"),
+                            Calories = 296.2f,
+                            Carbs = 2.92f,
+                            Fat = 5.93f,
+                            Fiber = 2.72f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.03f,
+                            Sugar = 22.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b102aaee-cb96-43ed-8549-2ae4f9983bc4"),
+                            Calories = 234.99f,
+                            Carbs = 14.58f,
+                            Fat = 17.97f,
+                            Fiber = 13.53f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.89f,
+                            Sugar = 12.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f60a3321-ba03-4b67-94eb-c04cfb3e5e70"),
+                            Calories = 232.88f,
+                            Carbs = 1.41f,
+                            Fat = 5.03f,
+                            Fiber = 7.53f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.99f,
+                            Sugar = 13.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("572b6a6a-b69b-4a55-8aac-20252058f5b7"),
+                            Calories = 33.63f,
+                            Carbs = 17.4f,
+                            Fat = 31.11f,
+                            Fiber = 14.85f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.15f,
+                            Sugar = 24.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("828de5db-51dd-4362-85a4-9c5abbdfe080"),
+                            Calories = 273.01f,
+                            Carbs = 40.34f,
+                            Fat = 42.64f,
+                            Fiber = 19.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.75f,
+                            Sugar = 11.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("35e64964-99f4-403a-8ae9-a1e613d5e39a"),
+                            Calories = 364.07f,
+                            Carbs = 0.11f,
+                            Fat = 22.34f,
+                            Fiber = 9.47f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25.74f,
+                            Sugar = 26.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("714948bb-a725-4025-afcd-0ad5bc27a0a2"),
+                            Calories = 164.25f,
+                            Carbs = 57.86f,
+                            Fat = 28.2f,
+                            Fiber = 1.8f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.15f,
+                            Sugar = 18.7f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4843016d-1ca6-4e79-a3a2-9430aa55bf23"),
+                            Calories = 160.06f,
+                            Carbs = 10.68f,
+                            Fat = 15.1f,
+                            Fiber = 16.09f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.73f,
+                            Sugar = 46.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("53b052cf-ec13-4a14-820b-99f1e2486a44"),
+                            Calories = 456.1f,
+                            Carbs = 71.21f,
+                            Fat = 32.74f,
+                            Fiber = 14.71f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.14f,
+                            Sugar = 30.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("81719409-e3fc-4154-979e-2d21cfa3bbed"),
+                            Calories = 28.86f,
+                            Carbs = 56.74f,
+                            Fat = 0.78f,
+                            Fiber = 8.19f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 15.36f,
+                            Sugar = 10.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cad38b1a-5990-4d01-8bce-a04347cca41f"),
+                            Calories = 248.95f,
+                            Carbs = 32f,
+                            Fat = 5.07f,
+                            Fiber = 13.47f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.21f,
+                            Sugar = 39.17f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e9199e46-887c-4f59-b018-915ab9e8c445"),
+                            Calories = 216.11f,
+                            Carbs = 64.58f,
+                            Fat = 47.29f,
+                            Fiber = 18.1f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.09f,
+                            Sugar = 30.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1d6e3d8a-c201-432c-8325-11f210ce57f6"),
+                            Calories = 224.84f,
+                            Carbs = 72.19f,
+                            Fat = 23.44f,
+                            Fiber = 12.82f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.05f,
+                            Sugar = 17.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b82f56d8-b588-4e0c-9525-9a519ff3f0fe"),
+                            Calories = 309.74f,
+                            Carbs = 10.89f,
+                            Fat = 43.44f,
+                            Fiber = 6.41f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 28.05f,
+                            Sugar = 34.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f5dcbd13-4aac-4f00-8b67-759e3ce79416"),
+                            Calories = 320.8f,
+                            Carbs = 61.66f,
+                            Fat = 2.71f,
+                            Fiber = 2.46f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 49.09f,
+                            Sugar = 45.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("eff6e0f3-e53c-4f48-abb7-a82311a6872e"),
+                            Calories = 397.69f,
+                            Carbs = 96.32f,
+                            Fat = 41.33f,
+                            Fiber = 18.95f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 46.26f,
+                            Sugar = 44.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bf3074fe-a082-4c5a-96ce-1eea0004506e"),
+                            Calories = 477.04f,
+                            Carbs = 98.53f,
+                            Fat = 9.17f,
+                            Fiber = 4.38f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 3.88f,
+                            Sugar = 13.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("74ee2c6d-a7fe-4dae-b89f-f9d8989bb0aa"),
+                            Calories = 118.29f,
+                            Carbs = 50.65f,
+                            Fat = 24.18f,
+                            Fiber = 4.85f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 39.46f,
+                            Sugar = 44.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f3760f5a-5ed8-4186-a2e0-9451e27d769b"),
+                            Calories = 258.59f,
+                            Carbs = 92.15f,
+                            Fat = 13.51f,
+                            Fiber = 8.36f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.63f,
+                            Sugar = 8.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4f76b2cf-6152-4892-847d-f581e1715e8c"),
+                            Calories = 487.04f,
+                            Carbs = 72.45f,
+                            Fat = 12.83f,
+                            Fiber = 6.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 1.59f,
+                            Sugar = 2.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("02b61290-13f1-4abd-ad13-ad3624d3fd62"),
+                            Calories = 153.79f,
+                            Carbs = 8.78f,
+                            Fat = 5.09f,
+                            Fiber = 8.25f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 15.38f,
+                            Sugar = 15.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e12e4b87-fd1c-4692-9d44-599e345746a2"),
+                            Calories = 25.08f,
+                            Carbs = 62.72f,
+                            Fat = 9.06f,
+                            Fiber = 4.63f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.74f,
+                            Sugar = 10.63f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("474cd06a-b10c-4509-be93-1ba161a4ac9d"),
+                            Calories = 469.24f,
+                            Carbs = 46.91f,
+                            Fat = 36.18f,
+                            Fiber = 8.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 33.26f,
+                            Sugar = 4.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8125c04c-79d8-4a9a-8eb9-9bfab200185e"),
+                            Calories = 147.75f,
+                            Carbs = 69.89f,
+                            Fat = 2.3f,
+                            Fiber = 12.57f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 39.52f,
+                            Sugar = 48.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("af1bda61-5235-4bf7-8014-46e9aee23c75"),
+                            Calories = 157.59f,
+                            Carbs = 72.34f,
+                            Fat = 26.88f,
+                            Fiber = 9.09f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.33f,
+                            Sugar = 3.67f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("50f114b2-7d84-4b94-980a-4de2bba7c35b"),
+                            Calories = 12.66f,
+                            Carbs = 64.62f,
+                            Fat = 42.11f,
+                            Fiber = 3.78f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.84f,
+                            Sugar = 31.35f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4032a3d3-17d9-425a-929e-b5a7bd408741"),
+                            Calories = 174.72f,
+                            Carbs = 31.04f,
+                            Fat = 21.87f,
+                            Fiber = 17.09f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.24f,
+                            Sugar = 40.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bbf3bc01-04a2-447d-8a0c-d98c61b134dc"),
+                            Calories = 174.31f,
+                            Carbs = 88.22f,
+                            Fat = 40.24f,
+                            Fiber = 1.04f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 39.7f,
+                            Sugar = 4.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a3435096-7f5d-4788-878d-d857b0c56ae1"),
+                            Calories = 45.24f,
+                            Carbs = 30.23f,
+                            Fat = 34.52f,
+                            Fiber = 10.03f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 45.73f,
+                            Sugar = 5.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("44f24e74-99fd-4ef7-885f-2e4ded71000d"),
+                            Calories = 237.76f,
+                            Carbs = 56.62f,
+                            Fat = 38.08f,
+                            Fiber = 18f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.32f,
+                            Sugar = 26.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("016edc4a-f1d4-467a-bd59-22aa4c995d78"),
+                            Calories = 468.64f,
+                            Carbs = 53.61f,
+                            Fat = 40.28f,
+                            Fiber = 1.31f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.42f,
+                            Sugar = 8.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ad8af5ec-bab7-4e42-a290-8d1a677e0ca9"),
+                            Calories = 266.48f,
+                            Carbs = 20.98f,
+                            Fat = 47.14f,
+                            Fiber = 11.7f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.43f,
+                            Sugar = 49.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("76d72e67-db89-4dfc-8554-1baa2cc3aab3"),
+                            Calories = 141.93f,
+                            Carbs = 13.98f,
+                            Fat = 14.38f,
+                            Fiber = 2.16f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 15.89f,
+                            Sugar = 20.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3bd2408b-06e1-433a-a0b2-b3e4e1bb2ac2"),
+                            Calories = 61.59f,
+                            Carbs = 18.17f,
+                            Fat = 39.1f,
+                            Fiber = 5.76f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.32f,
+                            Sugar = 27.64f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ba7d4987-d9ad-4ef4-842e-d8240499dcbe"),
+                            Calories = 441.09f,
+                            Carbs = 1.47f,
+                            Fat = 34.64f,
+                            Fiber = 5.72f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.87f,
+                            Sugar = 13.67f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b22123ea-2186-4fbf-8b3d-c8c6fb7f125e"),
+                            Calories = 481.92f,
+                            Carbs = 89.43f,
+                            Fat = 35.52f,
+                            Fiber = 16.99f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.37f,
+                            Sugar = 19.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a1a4899f-40bd-4ed7-84f4-0916902660f6"),
+                            Calories = 478.54f,
+                            Carbs = 79.45f,
+                            Fat = 45.87f,
+                            Fiber = 15.23f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.21f,
+                            Sugar = 1.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("913db800-0a8b-4736-aaa4-65855fbc41c0"),
+                            Calories = 446.58f,
+                            Carbs = 33.5f,
+                            Fat = 42.26f,
+                            Fiber = 6.37f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 34.72f,
+                            Sugar = 27.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8400f6cd-8734-48e3-bd89-eb26a5c6d455"),
+                            Calories = 63.49f,
+                            Carbs = 0.98f,
+                            Fat = 16.26f,
+                            Fiber = 13.39f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.48f,
+                            Sugar = 24.24f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("560581b4-2f4b-43a1-a23d-a36075eb4e02"),
+                            Calories = 173.16f,
+                            Carbs = 13.82f,
+                            Fat = 16.4f,
+                            Fiber = 13.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.06f,
+                            Sugar = 32.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2ac9728f-3eb5-41d2-ac8e-2e20aed4217c"),
+                            Calories = 283.05f,
+                            Carbs = 42.38f,
+                            Fat = 6.86f,
+                            Fiber = 19.21f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.61f,
+                            Sugar = 39.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("aaaac7ed-30ab-4dff-8db7-835a87ba0104"),
+                            Calories = 290.08f,
+                            Carbs = 33.44f,
+                            Fat = 46.83f,
+                            Fiber = 12.09f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.62f,
+                            Sugar = 4.22f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1ad7082c-9a3c-455b-af6c-cb56bbe27442"),
+                            Calories = 189.4f,
+                            Carbs = 83.06f,
+                            Fat = 5.32f,
+                            Fiber = 16.14f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 33.22f,
+                            Sugar = 28.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("eaec260e-f258-4138-bb88-c96f509911a7"),
+                            Calories = 151.15f,
+                            Carbs = 20.24f,
+                            Fat = 45.17f,
+                            Fiber = 10.82f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.36f,
+                            Sugar = 1.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("48e86fd4-2f76-4f33-a779-80da6734a81d"),
+                            Calories = 223.63f,
+                            Carbs = 45.69f,
+                            Fat = 45.62f,
+                            Fiber = 7.49f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.93f,
+                            Sugar = 45.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("21e99458-d2e7-45d8-8986-0c2c6cee8078"),
+                            Calories = 54.35f,
+                            Carbs = 41.37f,
+                            Fat = 18.66f,
+                            Fiber = 15.64f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.79f,
+                            Sugar = 10.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e5c1d34e-2769-4ae5-b551-c393a14dea1d"),
+                            Calories = 467.53f,
+                            Carbs = 0.13f,
+                            Fat = 44.43f,
+                            Fiber = 13.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.52f,
+                            Sugar = 28.55f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("18575e54-eaa3-465e-90d5-4d2eaff60b6a"),
+                            Calories = 303.2f,
+                            Carbs = 39.35f,
+                            Fat = 36.69f,
+                            Fiber = 0.21f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.42f,
+                            Sugar = 31.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ea1f0f0f-398b-433b-94aa-99c5f1b605e9"),
+                            Calories = 494.25f,
+                            Carbs = 39.22f,
+                            Fat = 1.46f,
+                            Fiber = 18.33f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 30.24f,
+                            Sugar = 23.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8a394506-726e-4d2a-b054-fc1a72d8a33d"),
+                            Calories = 330.45f,
+                            Carbs = 10.07f,
+                            Fat = 1.65f,
+                            Fiber = 14.22f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.87f,
+                            Sugar = 36.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a5f18e35-6cb3-41c5-8a5f-e7437647559a"),
+                            Calories = 188.41f,
+                            Carbs = 18.39f,
+                            Fat = 13.46f,
+                            Fiber = 19.47f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.88f,
+                            Sugar = 43.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b0b5b894-9114-4764-846f-ccf6a266bcbf"),
+                            Calories = 332.12f,
+                            Carbs = 48.68f,
+                            Fat = 28.46f,
+                            Fiber = 19.46f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 37.36f,
+                            Sugar = 15.88f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("56d80e7b-4a9e-4157-afd9-d3061247cae5"),
+                            Calories = 362.62f,
+                            Carbs = 50.82f,
+                            Fat = 23.24f,
+                            Fiber = 4.14f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 43.2f,
+                            Sugar = 44.47f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cf23ff5d-af30-4c2b-8e8d-2cbe1f0d9362"),
+                            Calories = 377.17f,
+                            Carbs = 65.21f,
+                            Fat = 32.38f,
+                            Fiber = 2.18f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.42f,
+                            Sugar = 8.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("877f8fc8-303e-4c66-aac0-462bab8926ed"),
+                            Calories = 271.97f,
+                            Carbs = 21.18f,
+                            Fat = 46.19f,
+                            Fiber = 16.44f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.97f,
+                            Sugar = 48.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("706c59ec-2d96-44b8-b37f-efed740a8534"),
+                            Calories = 126.7f,
+                            Carbs = 20.96f,
+                            Fat = 19.32f,
+                            Fiber = 5.04f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.68f,
+                            Sugar = 4.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d7c5677c-35e9-4a64-8f2a-25fcfffb1ec3"),
+                            Calories = 110.4f,
+                            Carbs = 63.15f,
+                            Fat = 11.38f,
+                            Fiber = 16.86f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.3f,
+                            Sugar = 21.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("12110dc7-a339-46c6-a147-abb6c66d5ab3"),
+                            Calories = 499.77f,
+                            Carbs = 62.59f,
+                            Fat = 39.81f,
+                            Fiber = 1.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 15.87f,
+                            Sugar = 26.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3314414d-0042-4d39-b6ce-11b0b44de1cc"),
+                            Calories = 223.01f,
+                            Carbs = 25.42f,
+                            Fat = 45.14f,
+                            Fiber = 6.79f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 35.48f,
+                            Sugar = 33.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("34f18bdf-9bb0-4de3-9504-90ee4719d025"),
+                            Calories = 259.79f,
+                            Carbs = 97.53f,
+                            Fat = 26.81f,
+                            Fiber = 3.74f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.39f,
+                            Sugar = 18.95f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("adfb9fd6-b3e8-482f-80cb-6b643d36c9b7"),
+                            Calories = 17.9f,
+                            Carbs = 36.83f,
+                            Fat = 29.55f,
+                            Fiber = 12.17f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.87f,
+                            Sugar = 29.21f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b8d4c8f4-c3a3-4fa0-ae60-7ede44ff4eb3"),
+                            Calories = 15.76f,
+                            Carbs = 98.63f,
+                            Fat = 2.12f,
+                            Fiber = 10.38f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.04f,
+                            Sugar = 36.81f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("65cb3d29-70b0-4939-8f72-af87bfc6f3ee"),
+                            Calories = 311.17f,
+                            Carbs = 89.32f,
+                            Fat = 38.33f,
+                            Fiber = 7.6f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.8f,
+                            Sugar = 9.18f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("886eaf77-87da-470a-af1f-f504d3605b62"),
+                            Calories = 119.34f,
+                            Carbs = 10.93f,
+                            Fat = 49.65f,
+                            Fiber = 6.17f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.96f,
+                            Sugar = 11.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f56f9d5c-d13f-40bc-90c9-806996a94732"),
+                            Calories = 449.44f,
+                            Carbs = 70.33f,
+                            Fat = 10.11f,
+                            Fiber = 14.86f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.8f,
+                            Sugar = 2.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("94b3b8c5-6101-455b-831b-b9e5caea8559"),
+                            Calories = 331.32f,
+                            Carbs = 20.79f,
+                            Fat = 24.06f,
+                            Fiber = 7.9f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.97f,
+                            Sugar = 12.08f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c4c2e9a9-dcad-4c07-ab5c-9397ac08459a"),
+                            Calories = 391.11f,
+                            Carbs = 56.05f,
+                            Fat = 35.03f,
+                            Fiber = 2.86f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 46.99f,
+                            Sugar = 2.73f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("892bcaa0-b21e-4a24-9846-a05598162fd0"),
+                            Calories = 217.02f,
+                            Carbs = 76.04f,
+                            Fat = 6.85f,
+                            Fiber = 6.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.11f,
+                            Sugar = 1.47f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bf49cfc2-6b39-4934-bc0a-4f676ec653b1"),
+                            Calories = 126.41f,
+                            Carbs = 97.6f,
+                            Fat = 19.28f,
+                            Fiber = 13.05f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 0.24f,
+                            Sugar = 2.98f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("27912a44-9d4f-4239-b727-b0e8e5115d02"),
+                            Calories = 167.8f,
+                            Carbs = 70.21f,
+                            Fat = 42.76f,
+                            Fiber = 8.48f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.28f,
+                            Sugar = 14.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("57a6915e-45b3-4f65-8761-93eb07ef3b37"),
+                            Calories = 489.09f,
+                            Carbs = 98.29f,
+                            Fat = 46.13f,
+                            Fiber = 12.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.02f,
+                            Sugar = 30.28f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cb04ccf4-2e19-46fb-aa15-14600ca62448"),
+                            Calories = 325.83f,
+                            Carbs = 43.78f,
+                            Fat = 28.7f,
+                            Fiber = 17.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 11.71f,
+                            Sugar = 8.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("92f399a7-5987-43c8-9273-bcfd575e4ced"),
+                            Calories = 119.23f,
+                            Carbs = 31.96f,
+                            Fat = 1.14f,
+                            Fiber = 10.15f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.11f,
+                            Sugar = 40.9f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("109cde7a-35ee-427d-a152-6165a6d6fa63"),
+                            Calories = 313.86f,
+                            Carbs = 28.37f,
+                            Fat = 24.49f,
+                            Fiber = 19.82f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.75f,
+                            Sugar = 13.76f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2ed54e2c-fcd6-4e8b-97ef-3c04ca2d7c65"),
+                            Calories = 143.49f,
+                            Carbs = 55.11f,
+                            Fat = 4.98f,
+                            Fiber = 3.03f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.86f,
+                            Sugar = 16.63f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("81925a1a-9e73-4706-b40b-15f8b40f6525"),
+                            Calories = 289.32f,
+                            Carbs = 63.48f,
+                            Fat = 40.87f,
+                            Fiber = 0.96f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.98f,
+                            Sugar = 1.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e4eb5f77-f656-435e-8940-b6dadd730d7b"),
+                            Calories = 360.02f,
+                            Carbs = 37.26f,
+                            Fat = 5.63f,
+                            Fiber = 0.17f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.3f,
+                            Sugar = 12.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("88902e03-ba2b-4530-9a44-c0ee1aa0d398"),
+                            Calories = 289.88f,
+                            Carbs = 49.85f,
+                            Fat = 37.91f,
+                            Fiber = 6.25f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.4f,
+                            Sugar = 24.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4fa87207-5007-4b29-ab51-8ca04091ccb3"),
+                            Calories = 158.81f,
+                            Carbs = 20.2f,
+                            Fat = 29.48f,
+                            Fiber = 5.57f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 36.93f,
+                            Sugar = 31.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("407ee129-1b46-4105-95fd-0380c9966cd7"),
+                            Calories = 329.82f,
+                            Carbs = 55.44f,
+                            Fat = 18.79f,
+                            Fiber = 12.18f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 1.08f,
+                            Sugar = 28.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dfe74925-8a64-4ea7-a618-34195c71a6d2"),
+                            Calories = 275.9f,
+                            Carbs = 27.5f,
+                            Fat = 14.73f,
+                            Fiber = 17.83f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 29.85f,
+                            Sugar = 21.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b3653be4-8192-4935-a234-67fc94fbd580"),
+                            Calories = 39.63f,
+                            Carbs = 75.59f,
+                            Fat = 27.01f,
+                            Fiber = 15.86f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.03f,
+                            Sugar = 19.1f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("30336627-554e-4327-aba2-9726a01bbf81"),
+                            Calories = 167.26f,
+                            Carbs = 67.85f,
+                            Fat = 27.6f,
+                            Fiber = 0.21f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 45.91f,
+                            Sugar = 26.06f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d8fbc31d-5654-44ad-b470-265a61123c86"),
+                            Calories = 11.72f,
+                            Carbs = 65.63f,
+                            Fat = 7.22f,
+                            Fiber = 4.51f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.5f,
+                            Sugar = 4.53f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("57a9fcb2-db17-4212-9faa-eeca618de1e8"),
+                            Calories = 49.29f,
+                            Carbs = 35.93f,
+                            Fat = 46.22f,
+                            Fiber = 8.03f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 35.7f,
+                            Sugar = 9.35f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d57ce5f5-52a7-4266-9c28-764bf46e3bf7"),
+                            Calories = 481.3f,
+                            Carbs = 1.6f,
+                            Fat = 0.22f,
+                            Fiber = 19.39f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.13f,
+                            Sugar = 10.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("060abfd4-1372-4397-85d5-9945f25ef114"),
+                            Calories = 250.12f,
+                            Carbs = 5.66f,
+                            Fat = 48.09f,
+                            Fiber = 11.24f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 16.87f,
+                            Sugar = 19.18f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a2aa3a48-540b-4cb8-b64f-f5a9ec8056ca"),
+                            Calories = 1.5f,
+                            Carbs = 41.63f,
+                            Fat = 11.5f,
+                            Fiber = 0.36f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.76f,
+                            Sugar = 24.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ecb0f702-c54d-4803-ace1-714ec48ae76a"),
+                            Calories = 98.58f,
+                            Carbs = 78.46f,
+                            Fat = 43.86f,
+                            Fiber = 10.24f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 41.41f,
+                            Sugar = 42.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f9d1160d-926d-4d34-a8e5-7396e1c8e513"),
+                            Calories = 248.87f,
+                            Carbs = 0.41f,
+                            Fat = 10.09f,
+                            Fiber = 18.24f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.73f,
+                            Sugar = 37.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("eb8367ac-1349-49fd-b207-74cde05f7714"),
+                            Calories = 390.87f,
+                            Carbs = 25.36f,
+                            Fat = 49.5f,
+                            Fiber = 8.06f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.59f,
+                            Sugar = 38.88f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("27b8e273-521d-43fb-9da8-ac2fe7be191e"),
+                            Calories = 247.36f,
+                            Carbs = 7.04f,
+                            Fat = 34.55f,
+                            Fiber = 11.63f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.57f,
+                            Sugar = 26.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("36624f7a-5724-4039-bdae-059515ec1f85"),
+                            Calories = 166.5f,
+                            Carbs = 69.95f,
+                            Fat = 4.93f,
+                            Fiber = 5.41f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 24.2f,
+                            Sugar = 29.1f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("531ecc23-6225-47c0-ad7d-03141302349a"),
+                            Calories = 11.82f,
+                            Carbs = 62.8f,
+                            Fat = 42.27f,
+                            Fiber = 9.7f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.78f,
+                            Sugar = 27.43f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9872a0ff-0a7d-4a9b-b2a3-3e5030960dd9"),
+                            Calories = 457.62f,
+                            Carbs = 12.32f,
+                            Fat = 40.98f,
+                            Fiber = 2.2f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.09f,
+                            Sugar = 38.8f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3449360c-c323-4501-914d-f01feb603ea1"),
+                            Calories = 358.31f,
+                            Carbs = 31.39f,
+                            Fat = 28.4f,
+                            Fiber = 8.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.79f,
+                            Sugar = 32.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("842d1c96-4194-4491-a5dd-12b52ef8bfa1"),
+                            Calories = 62.21f,
+                            Carbs = 72.19f,
+                            Fat = 0.25f,
+                            Fiber = 17.14f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.15f,
+                            Sugar = 10.66f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0bd5887f-5cdf-4e1e-927f-905ff13e60f9"),
+                            Calories = 97.03f,
+                            Carbs = 75.5f,
+                            Fat = 41.69f,
+                            Fiber = 11.73f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 6.84f,
+                            Sugar = 37.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("304652ad-9eb4-4980-b159-4c5692028e57"),
+                            Calories = 402.29f,
+                            Carbs = 4.61f,
+                            Fat = 41.28f,
+                            Fiber = 7.82f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 31.41f,
+                            Sugar = 10.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("db7cd157-0d77-4937-b242-42675ab0b012"),
+                            Calories = 211.9f,
+                            Carbs = 75.73f,
+                            Fat = 49.74f,
+                            Fiber = 4.33f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.97f,
+                            Sugar = 8.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ffb72580-8b50-4819-ab7c-db4235c790b6"),
+                            Calories = 139.68f,
+                            Carbs = 26.26f,
+                            Fat = 24.58f,
+                            Fiber = 9.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 10.97f,
+                            Sugar = 15.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4e3868bb-f70a-4da9-8e65-15e5aabcf03f"),
+                            Calories = 347.01f,
+                            Carbs = 9.17f,
+                            Fat = 20.38f,
+                            Fiber = 0.69f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.96f,
+                            Sugar = 29.71f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f11e9b00-1b20-4326-8281-648d7a65d30f"),
+                            Calories = 459.46f,
+                            Carbs = 57.41f,
+                            Fat = 35.77f,
+                            Fiber = 19.77f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.56f,
+                            Sugar = 40.21f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a249754b-7ba7-4b23-86a6-c389b8b21b5d"),
+                            Calories = 44.01f,
+                            Carbs = 39.23f,
+                            Fat = 7.31f,
+                            Fiber = 11.81f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 15.97f,
+                            Sugar = 21.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("157f7fb8-06b3-4de5-b920-1f5273de343c"),
+                            Calories = 145.03f,
+                            Carbs = 80.19f,
+                            Fat = 7.87f,
+                            Fiber = 2.53f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 14.36f,
+                            Sugar = 30.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c7eb2a36-51ef-4e64-a744-04474ad29252"),
+                            Calories = 312.42f,
+                            Carbs = 32.28f,
+                            Fat = 42.96f,
+                            Fiber = 3.34f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 22.2f,
+                            Sugar = 8.98f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9ef089ab-9aff-4080-a255-deaa66eeb99e"),
+                            Calories = 418.97f,
+                            Carbs = 38.46f,
+                            Fat = 3.4f,
+                            Fiber = 8.64f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 7.74f,
+                            Sugar = 47.24f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d3c84b3b-f032-482e-8027-01865c753355"),
+                            Calories = 229.18f,
+                            Carbs = 79.66f,
+                            Fat = 33.38f,
+                            Fiber = 0.9f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 14.98f,
+                            Sugar = 49.81f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8a534e74-0052-45f8-8226-36801912a373"),
+                            Calories = 265.02f,
+                            Carbs = 14.17f,
+                            Fat = 22.82f,
+                            Fiber = 6.57f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.01f,
+                            Sugar = 4.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dfa16156-4f03-44f8-8597-6c437ef0ca5d"),
+                            Calories = 359.96f,
+                            Carbs = 8.76f,
+                            Fat = 2.93f,
+                            Fiber = 11.25f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.23f,
+                            Sugar = 11.67f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("30590bcd-8c9a-46b6-b2db-213c6665427c"),
+                            Calories = 206.38f,
+                            Carbs = 80.37f,
+                            Fat = 19.18f,
+                            Fiber = 11.1f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.66f,
+                            Sugar = 32.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c8fff15f-e010-4699-9cf7-2f2104ab399f"),
+                            Calories = 433.03f,
+                            Carbs = 76.91f,
+                            Fat = 32.71f,
+                            Fiber = 10.8f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.17f,
+                            Sugar = 42.51f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c810126c-c16e-4d74-8917-cd19d2b6cf8b"),
+                            Calories = 285.53f,
+                            Carbs = 22.98f,
+                            Fat = 46.28f,
+                            Fiber = 18.79f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 12.25f,
+                            Sugar = 34.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5933143f-0cde-4ccb-ad4c-64dbe072e1fd"),
+                            Calories = 1.4f,
+                            Carbs = 11.84f,
+                            Fat = 34.09f,
+                            Fiber = 2.07f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.84f,
+                            Sugar = 27.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2d0d8659-f8e0-464d-abf1-1edca778ec7b"),
+                            Calories = 241.5f,
+                            Carbs = 72.12f,
+                            Fat = 2.55f,
+                            Fiber = 9.64f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.28f,
+                            Sugar = 2.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("644939d9-c791-4052-85f7-a6d1e1850f13"),
+                            Calories = 69.79f,
+                            Carbs = 85.33f,
+                            Fat = 28.93f,
+                            Fiber = 13.65f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 28.89f,
+                            Sugar = 39.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d053d7bd-034f-4bb0-a9bc-bc6118814f78"),
+                            Calories = 154.89f,
+                            Carbs = 50.93f,
+                            Fat = 8.19f,
+                            Fiber = 15.85f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.81f,
+                            Sugar = 13.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("505ffb96-44f5-469e-bc9e-46401b683936"),
+                            Calories = 44.74f,
+                            Carbs = 37.91f,
+                            Fat = 22.38f,
+                            Fiber = 18.24f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.14f,
+                            Sugar = 0.49f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6b8aac3e-0d04-4ba6-be63-23da0f0b606d"),
+                            Calories = 408.67f,
+                            Carbs = 50.97f,
+                            Fat = 3.98f,
+                            Fiber = 9.4f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 12.54f,
+                            Sugar = 17.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("81c27b09-4a47-4c22-af26-f01bafedc329"),
+                            Calories = 466.48f,
+                            Carbs = 33.85f,
+                            Fat = 4.07f,
+                            Fiber = 3.55f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 1.52f,
+                            Sugar = 4.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8718be58-08f0-4ec4-9b56-07c989ef0307"),
+                            Calories = 404.11f,
+                            Carbs = 47.9f,
+                            Fat = 37.45f,
+                            Fiber = 8.38f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.63f,
+                            Sugar = 35.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("132b1dab-6265-4f9b-888f-612def63ae2b"),
+                            Calories = 272.59f,
+                            Carbs = 42.16f,
+                            Fat = 15.95f,
+                            Fiber = 16.58f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.16f,
+                            Sugar = 8.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0b8046df-67fc-4261-9f9e-427849de33b2"),
+                            Calories = 481.31f,
+                            Carbs = 18.04f,
+                            Fat = 22.12f,
+                            Fiber = 19.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 43.56f,
+                            Sugar = 22.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("eadbea1b-066a-4dea-87aa-f87d0cfbfc2c"),
+                            Calories = 80.86f,
+                            Carbs = 32.13f,
+                            Fat = 18.35f,
+                            Fiber = 15.37f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.18f,
+                            Sugar = 5.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("adcda597-3716-449e-8faf-69bd335e39c3"),
+                            Calories = 34.71f,
+                            Carbs = 39.93f,
+                            Fat = 21.92f,
+                            Fiber = 10.17f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.92f,
+                            Sugar = 42.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("06bd7dc1-07de-4471-9a58-76f40a200422"),
+                            Calories = 92.7f,
+                            Carbs = 19.13f,
+                            Fat = 12.17f,
+                            Fiber = 0.38f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 6.62f,
+                            Sugar = 16.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("932c3a88-0518-4740-b39d-28ea1d799571"),
+                            Calories = 3.65f,
+                            Carbs = 52.28f,
+                            Fat = 24.99f,
+                            Fiber = 1.72f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 3.89f,
+                            Sugar = 9.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a9b78fff-7771-4150-bd1c-4016ddf5ff03"),
+                            Calories = 49.8f,
+                            Carbs = 34.23f,
+                            Fat = 19.98f,
+                            Fiber = 6.17f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.05f,
+                            Sugar = 6.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fbe49bd6-2e36-49bf-9d0c-81df8825c2ee"),
+                            Calories = 390.11f,
+                            Carbs = 52.87f,
+                            Fat = 27.08f,
+                            Fiber = 11.46f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.2f,
+                            Sugar = 41.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8a3666eb-dc03-4e30-a449-f98b4b02593e"),
+                            Calories = 143.26f,
+                            Carbs = 7.3f,
+                            Fat = 32.66f,
+                            Fiber = 9.81f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.01f,
+                            Sugar = 48.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9de276ee-1fc1-4ff4-bb59-573e210db9eb"),
+                            Calories = 433.15f,
+                            Carbs = 47.63f,
+                            Fat = 41.83f,
+                            Fiber = 9.98f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 43.42f,
+                            Sugar = 7.65f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6cc967a7-da67-47a9-8012-d2d0e089f4eb"),
+                            Calories = 451.62f,
+                            Carbs = 57.98f,
+                            Fat = 34.14f,
+                            Fiber = 10.19f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.62f,
+                            Sugar = 0.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6efdea0d-9005-4f53-9fc4-d9ea18726d07"),
+                            Calories = 74.36f,
+                            Carbs = 54.86f,
+                            Fat = 35.32f,
+                            Fiber = 19.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.61f,
+                            Sugar = 40.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c6071b86-0b73-407a-a343-0479db1f3da8"),
+                            Calories = 457.98f,
+                            Carbs = 97.37f,
+                            Fat = 21.31f,
+                            Fiber = 18.39f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.33f,
+                            Sugar = 10.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("81cffc4b-5a0a-4ca5-8189-382c28cca922"),
+                            Calories = 281.95f,
+                            Carbs = 20.07f,
+                            Fat = 36.99f,
+                            Fiber = 10.53f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 14.24f,
+                            Sugar = 39.3f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ac04f95e-51a0-4a74-82cd-e6814aa25101"),
+                            Calories = 434.66f,
+                            Carbs = 99f,
+                            Fat = 9.39f,
+                            Fiber = 5.01f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25.14f,
+                            Sugar = 49.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8e3a4a28-982e-4748-9168-e2a5e2c82456"),
+                            Calories = 327.25f,
+                            Carbs = 21.45f,
+                            Fat = 20.58f,
+                            Fiber = 3.72f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 37.5f,
+                            Sugar = 13.1f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ee6bbc56-9db5-415e-a0d3-02a6d9a77366"),
+                            Calories = 135.82f,
+                            Carbs = 22.23f,
+                            Fat = 2.28f,
+                            Fiber = 2.1f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.95f,
+                            Sugar = 18.21f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("720f9a12-6920-4d42-99d4-8bc7e24aeb71"),
+                            Calories = 481.52f,
+                            Carbs = 54.29f,
+                            Fat = 48.79f,
+                            Fiber = 6.02f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.7f,
+                            Sugar = 10.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3d2967ea-6ad5-441f-816e-c0ca099908d4"),
+                            Calories = 303.08f,
+                            Carbs = 40.89f,
+                            Fat = 41.95f,
+                            Fiber = 0.66f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.51f,
+                            Sugar = 7.87f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3e7afd72-f67e-4dc2-81df-aad4364fef9e"),
+                            Calories = 362.57f,
+                            Carbs = 79.64f,
+                            Fat = 40.67f,
+                            Fiber = 19.16f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 45.59f,
+                            Sugar = 11.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a91309f5-cd22-4300-a35d-6f6ad1ad389a"),
+                            Calories = 328.32f,
+                            Carbs = 9.65f,
+                            Fat = 12.2f,
+                            Fiber = 3.24f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 11.14f,
+                            Sugar = 15.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c333c6eb-4e4f-4ef8-b61b-136820a7d66a"),
+                            Calories = 74.42f,
+                            Carbs = 9.44f,
+                            Fat = 31.01f,
+                            Fiber = 2.73f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 10.42f,
+                            Sugar = 48.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("31a678cd-e102-44c3-b161-bfdb2d8a9740"),
+                            Calories = 453.58f,
+                            Carbs = 61.61f,
+                            Fat = 5.21f,
+                            Fiber = 10.17f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.74f,
+                            Sugar = 10.89f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("69f36ff6-99c3-485e-b155-bad5df2bbee2"),
+                            Calories = 356.42f,
+                            Carbs = 34.15f,
+                            Fat = 5.72f,
+                            Fiber = 18.4f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.22f,
+                            Sugar = 8.67f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("41c800ef-210b-4efe-ac30-f404ee3f5560"),
+                            Calories = 364.11f,
+                            Carbs = 8.47f,
+                            Fat = 30.11f,
+                            Fiber = 5.26f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.25f,
+                            Sugar = 26.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("87de13db-6787-4c30-947a-1229b426b748"),
+                            Calories = 123.93f,
+                            Carbs = 77.31f,
+                            Fat = 39.49f,
+                            Fiber = 13.84f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.55f,
+                            Sugar = 10.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4f9b227f-5204-40f6-b6e3-4eb6a280aacf"),
+                            Calories = 308.21f,
+                            Carbs = 0.75f,
+                            Fat = 10.1f,
+                            Fiber = 15.65f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25.95f,
+                            Sugar = 46.84f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("40875e92-ef16-4154-947e-85579f2ded35"),
+                            Calories = 300.41f,
+                            Carbs = 93.74f,
+                            Fat = 11.98f,
+                            Fiber = 10.96f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.49f,
+                            Sugar = 41.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("90c58645-f7a2-408e-b649-13e1ad4ce83d"),
+                            Calories = 345.96f,
+                            Carbs = 75.28f,
+                            Fat = 49.19f,
+                            Fiber = 5.98f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.03f,
+                            Sugar = 26.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c5b51157-2a19-4489-901e-9b98d857697e"),
+                            Calories = 309.58f,
+                            Carbs = 96.78f,
+                            Fat = 48.75f,
+                            Fiber = 14.59f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.56f,
+                            Sugar = 1.35f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5f1afcec-a9e8-4648-bec9-5391eccb3af3"),
+                            Calories = 490.61f,
+                            Carbs = 58.35f,
+                            Fat = 24.26f,
+                            Fiber = 3.75f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 44.14f,
+                            Sugar = 34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3a5490bc-c3c8-4265-bb6c-dc3b81aa786e"),
+                            Calories = 251.24f,
+                            Carbs = 5.7f,
+                            Fat = 28.41f,
+                            Fiber = 7.63f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 49.01f,
+                            Sugar = 31.64f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cea92287-668c-4457-abfe-1be9c6882f34"),
+                            Calories = 18.49f,
+                            Carbs = 37.02f,
+                            Fat = 41.98f,
+                            Fiber = 16.55f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.5f,
+                            Sugar = 49.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1941a196-5eff-44d2-9e3a-366bf5241412"),
+                            Calories = 170.31f,
+                            Carbs = 64.21f,
+                            Fat = 28.28f,
+                            Fiber = 10.46f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 13.13f,
+                            Sugar = 1.33f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f8eb81d7-b78d-47d2-978f-69a4f7beffc3"),
+                            Calories = 5.57f,
+                            Carbs = 92.56f,
+                            Fat = 31.84f,
+                            Fiber = 0.82f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 1.51f,
+                            Sugar = 33.18f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("02e49acf-487d-4dea-b41c-f9a865f95df6"),
+                            Calories = 383.78f,
+                            Carbs = 35.46f,
+                            Fat = 23.35f,
+                            Fiber = 9.45f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.43f,
+                            Sugar = 34.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1a798cf3-a4d4-450c-b170-b42b1ec5bd6b"),
+                            Calories = 109.44f,
+                            Carbs = 41.74f,
+                            Fat = 4.42f,
+                            Fiber = 15.18f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 32.15f,
+                            Sugar = 7.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f127281b-574c-4989-a18d-cf6438350a36"),
+                            Calories = 77.89f,
+                            Carbs = 91.2f,
+                            Fat = 18.04f,
+                            Fiber = 16.52f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.24f,
+                            Sugar = 24.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ebc1ebdb-5327-469c-92f3-49fa15349e4e"),
+                            Calories = 438.81f,
+                            Carbs = 65.04f,
+                            Fat = 0.52f,
+                            Fiber = 7.72f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.14f,
+                            Sugar = 8.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dc5a09ef-21b2-4a7d-9596-86670425eed9"),
+                            Calories = 121.42f,
+                            Carbs = 39.7f,
+                            Fat = 7.33f,
+                            Fiber = 16.54f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 24.31f,
+                            Sugar = 18.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f0dee6d9-081a-4965-9bc4-fe7f66272dd6"),
+                            Calories = 497.96f,
+                            Carbs = 56.06f,
+                            Fat = 35.2f,
+                            Fiber = 0.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 42.38f,
+                            Sugar = 15.52f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cc3222c3-f683-44f2-b7a6-0d4be213347f"),
+                            Calories = 48.11f,
+                            Carbs = 16.29f,
+                            Fat = 27.53f,
+                            Fiber = 5.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 9.85f,
+                            Sugar = 22.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("98e2c0c5-d25d-4a3a-81ed-d2d0cb2ddfbe"),
+                            Calories = 204.85f,
+                            Carbs = 48.39f,
+                            Fat = 15.99f,
+                            Fiber = 0.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 29.15f,
+                            Sugar = 46.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("56ab5472-e7d8-4905-ae87-b01c5c22bb0b"),
+                            Calories = 58.31f,
+                            Carbs = 18.87f,
+                            Fat = 40.01f,
+                            Fiber = 3.33f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 31.33f,
+                            Sugar = 36.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7af6cb41-4a01-48c9-a830-63593e2808f2"),
+                            Calories = 355f,
+                            Carbs = 62.68f,
+                            Fat = 47.92f,
+                            Fiber = 0.48f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 33.99f,
+                            Sugar = 26.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9215f98d-9993-480f-b336-a8f59e0bb274"),
+                            Calories = 57.5f,
+                            Carbs = 50.5f,
+                            Fat = 28.74f,
+                            Fiber = 5.12f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.19f,
+                            Sugar = 45.72f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fcac6baf-2deb-4894-94d8-2758bcfd1ed2"),
+                            Calories = 294.37f,
+                            Carbs = 45.5f,
+                            Fat = 6.27f,
+                            Fiber = 11.76f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.6f,
+                            Sugar = 18.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c73f18f1-b944-4cfe-9508-ad27f3b734d4"),
+                            Calories = 155.55f,
+                            Carbs = 8.4f,
+                            Fat = 14.09f,
+                            Fiber = 1.88f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 10.95f,
+                            Sugar = 0.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ba4b7d6d-4565-4d65-a1e6-fed5be6a1b67"),
+                            Calories = 293.27f,
+                            Carbs = 24.65f,
+                            Fat = 26.32f,
+                            Fiber = 2.87f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.42f,
+                            Sugar = 1.64f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6b12b676-e3fc-4a6f-89d5-cf992d14ec69"),
+                            Calories = 478.05f,
+                            Carbs = 91.91f,
+                            Fat = 14.32f,
+                            Fiber = 18.06f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.11f,
+                            Sugar = 12.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0d6584f8-b817-43f7-9240-26ca41cd2d18"),
+                            Calories = 315.21f,
+                            Carbs = 43.27f,
+                            Fat = 4.57f,
+                            Fiber = 7.6f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 7.09f,
+                            Sugar = 42.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("85446373-a03d-442d-999a-9c78456fe548"),
+                            Calories = 377.49f,
+                            Carbs = 29.38f,
+                            Fat = 18.24f,
+                            Fiber = 9.76f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.49f,
+                            Sugar = 18.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ea8b408e-064b-4441-9475-ee997a8c0b6c"),
+                            Calories = 371.75f,
+                            Carbs = 32.5f,
+                            Fat = 42.9f,
+                            Fiber = 0.5f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 2.23f,
+                            Sugar = 7.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3385623f-6ce0-4cf0-a078-563693348b20"),
+                            Calories = 251.64f,
+                            Carbs = 25.26f,
+                            Fat = 14.38f,
+                            Fiber = 17.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.74f,
+                            Sugar = 2.77f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("876fbeb7-be14-43c4-b6a9-7d9d4bcc4538"),
+                            Calories = 391.58f,
+                            Carbs = 8.49f,
+                            Fat = 5.46f,
+                            Fiber = 18.1f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 3.15f,
+                            Sugar = 18.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("edbc775d-00cd-46b8-becb-651ca9bbcb9a"),
+                            Calories = 164.98f,
+                            Carbs = 90.5f,
+                            Fat = 46.97f,
+                            Fiber = 4.77f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 31.09f,
+                            Sugar = 18.47f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("03fd6cad-358f-4870-b6a9-143127129846"),
+                            Calories = 403.74f,
+                            Carbs = 90.1f,
+                            Fat = 21.53f,
+                            Fiber = 3.98f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.03f,
+                            Sugar = 1.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("55a5b12f-1456-4187-9d17-5fb0555ed2f0"),
+                            Calories = 347.56f,
+                            Carbs = 40.29f,
+                            Fat = 27.89f,
+                            Fiber = 11.44f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 31.16f,
+                            Sugar = 3.61f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fc2f6162-45ec-4875-bf5b-ada7d3613108"),
+                            Calories = 421.43f,
+                            Carbs = 96.41f,
+                            Fat = 12.68f,
+                            Fiber = 19.66f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 29.86f,
+                            Sugar = 17.02f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("207c3cce-865a-4c0e-a81e-c5feb9923c94"),
+                            Calories = 246.66f,
+                            Carbs = 43.17f,
+                            Fat = 25.1f,
+                            Fiber = 6.36f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 19.5f,
+                            Sugar = 47.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cccb2b7e-e45f-41d2-9422-22b5df701292"),
+                            Calories = 363.75f,
+                            Carbs = 38.43f,
+                            Fat = 30.98f,
+                            Fiber = 13.22f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.19f,
+                            Sugar = 43.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6707159e-5764-497e-8241-bd056984fc91"),
+                            Calories = 277.35f,
+                            Carbs = 91.87f,
+                            Fat = 22.98f,
+                            Fiber = 14.47f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 38.15f,
+                            Sugar = 6.13f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7cdc907b-4077-4154-a1c0-5437da05779f"),
+                            Calories = 17.9f,
+                            Carbs = 96.65f,
+                            Fat = 3.8f,
+                            Fiber = 7.94f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.85f,
+                            Sugar = 20.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c2196062-efcd-49cd-b59a-43026f094fc5"),
+                            Calories = 24.25f,
+                            Carbs = 57.65f,
+                            Fat = 12.83f,
+                            Fiber = 17.27f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.21f,
+                            Sugar = 29.58f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f73b76c1-dfc0-4c78-b0ba-76fe6beeb2af"),
+                            Calories = 341.28f,
+                            Carbs = 28.67f,
+                            Fat = 25.52f,
+                            Fiber = 6.19f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 23.8f,
+                            Sugar = 36.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("14c92178-6b35-4cc4-b631-48b1bd3b90fc"),
+                            Calories = 278.62f,
+                            Carbs = 38.42f,
+                            Fat = 48.62f,
+                            Fiber = 0.61f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.28f,
+                            Sugar = 10.46f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fa8b325c-e947-46b6-bfb1-59c13281a22c"),
+                            Calories = 274.16f,
+                            Carbs = 7.74f,
+                            Fat = 21.11f,
+                            Fiber = 5.63f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 17.97f,
+                            Sugar = 35.08f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("08a99d04-5c7f-41cf-8a8a-4304dd0100f7"),
+                            Calories = 123.26f,
+                            Carbs = 88.13f,
+                            Fat = 11.58f,
+                            Fiber = 2.8f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.23f,
+                            Sugar = 34.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("54869e59-5aae-491c-a8b4-6fc2a6b64d27"),
+                            Calories = 296.64f,
+                            Carbs = 62.7f,
+                            Fat = 9.02f,
+                            Fiber = 6.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 7.59f,
+                            Sugar = 26.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("dba29128-6979-44e4-b2d0-9d34c6494480"),
+                            Calories = 103.29f,
+                            Carbs = 0.5f,
+                            Fat = 34.8f,
+                            Fiber = 8.7f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.01f,
+                            Sugar = 25.17f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("29bdc745-b089-4e97-85ca-ead671285d7f"),
+                            Calories = 274.26f,
+                            Carbs = 58.14f,
+                            Fat = 26.65f,
+                            Fiber = 7.94f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.14f,
+                            Sugar = 14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4c789a43-0a27-4db3-bf84-9c68ef39c4a7"),
+                            Calories = 441.26f,
+                            Carbs = 95.26f,
+                            Fat = 36.43f,
+                            Fiber = 10.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 8.01f,
+                            Sugar = 24.41f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a77f942b-ccce-4197-a3f3-e4a69e34eebc"),
+                            Calories = 243.81f,
+                            Carbs = 98.88f,
+                            Fat = 2.47f,
+                            Fiber = 3.92f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 37.4f,
+                            Sugar = 25.63f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2f81276a-f58a-4947-875b-4158a87ed35b"),
+                            Calories = 313.55f,
+                            Carbs = 22.32f,
+                            Fat = 32.2f,
+                            Fiber = 1.15f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 42.22f,
+                            Sugar = 39.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cf81b693-58d4-4a05-8fc1-0c9d6d1d02bf"),
+                            Calories = 206.59f,
+                            Carbs = 0.36f,
+                            Fat = 23.03f,
+                            Fiber = 17.15f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.49f,
+                            Sugar = 19.84f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2202b950-4d02-43ae-bff1-a69ee027f185"),
+                            Calories = 474.79f,
+                            Carbs = 18.67f,
+                            Fat = 42.31f,
+                            Fiber = 6.53f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 29.02f,
+                            Sugar = 44.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("96ae7381-0bb0-418f-85ea-8a54ba289c34"),
+                            Calories = 248.66f,
+                            Carbs = 72.59f,
+                            Fat = 46.02f,
+                            Fiber = 0.77f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 48.9f,
+                            Sugar = 2.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("6d1307d7-0a32-48bf-83d0-eefc5422f7e3"),
+                            Calories = 48.02f,
+                            Carbs = 6.53f,
+                            Fat = 46.61f,
+                            Fiber = 5.38f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.56f,
+                            Sugar = 44.18f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1155cd07-7d1d-49a5-a3c2-9f6a7a18b91b"),
+                            Calories = 25.52f,
+                            Carbs = 56.56f,
+                            Fat = 7.37f,
+                            Fiber = 0.72f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 9.41f,
+                            Sugar = 25.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3da9be57-bced-4f5e-a184-dc5ad4a29569"),
+                            Calories = 450.98f,
+                            Carbs = 82.17f,
+                            Fat = 11.87f,
+                            Fiber = 14.85f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.92f,
+                            Sugar = 10.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1ced1b3d-b34d-47bc-b77d-63bfa42dd97b"),
+                            Calories = 387.78f,
+                            Carbs = 18.5f,
+                            Fat = 34.83f,
+                            Fiber = 13.02f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.1f,
+                            Sugar = 4.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e871ff50-13a9-415a-8038-1faf8b8e3072"),
+                            Calories = 435.5f,
+                            Carbs = 41.9f,
+                            Fat = 28.23f,
+                            Fiber = 18.95f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.81f,
+                            Sugar = 45.86f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4bece3be-8e5b-4eed-9ebe-c27a52ee76fa"),
+                            Calories = 116.34f,
+                            Carbs = 17.1f,
+                            Fat = 36.62f,
+                            Fiber = 12.96f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.59f,
+                            Sugar = 45.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8bdcd57b-b78e-41e1-b77f-68084ebc6672"),
+                            Calories = 125.3f,
+                            Carbs = 31.85f,
+                            Fat = 16.95f,
+                            Fiber = 4.99f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 21.36f,
+                            Sugar = 32.72f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bc849dac-1bf4-4fb6-adff-9b2b03427b29"),
+                            Calories = 200.71f,
+                            Carbs = 90.88f,
+                            Fat = 28.25f,
+                            Fiber = 4.61f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.5f,
+                            Sugar = 34.95f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f953212b-2aa7-4cfd-9911-e67e6addb439"),
+                            Calories = 389.97f,
+                            Carbs = 72.39f,
+                            Fat = 5.04f,
+                            Fiber = 19.5f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.91f,
+                            Sugar = 2.69f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d71477d7-be14-4b06-93b0-22fdc97d83dd"),
+                            Calories = 294.34f,
+                            Carbs = 53.95f,
+                            Fat = 17f,
+                            Fiber = 1.84f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.25f,
+                            Sugar = 17.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5adcbade-dbff-4676-993f-936334e353ab"),
+                            Calories = 142.8f,
+                            Carbs = 98.71f,
+                            Fat = 16.03f,
+                            Fiber = 11.87f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.19f,
+                            Sugar = 23.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("11f70174-62c2-4904-a092-cdc0b8170527"),
+                            Calories = 215.05f,
+                            Carbs = 33.35f,
+                            Fat = 32.96f,
+                            Fiber = 19.25f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 36.8f,
+                            Sugar = 34.45f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("53ec4914-34e4-4c16-957d-6fa62bfe29e9"),
+                            Calories = 164.54f,
+                            Carbs = 74.36f,
+                            Fat = 0.74f,
+                            Fiber = 10.86f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.4f,
+                            Sugar = 39.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("96a0151b-53f8-45cb-bd91-ad059aebde64"),
+                            Calories = 491.51f,
+                            Carbs = 5.37f,
+                            Fat = 30.14f,
+                            Fiber = 13.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.89f,
+                            Sugar = 34.74f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ab05b234-1ba2-43e5-8444-48d75d9cc044"),
+                            Calories = 407.32f,
+                            Carbs = 35.95f,
+                            Fat = 3.86f,
+                            Fiber = 1.92f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 16.62f,
+                            Sugar = 27.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("13ffb5a9-7c42-4094-a749-fdd20843a403"),
+                            Calories = 21.18f,
+                            Carbs = 21.15f,
+                            Fat = 29.82f,
+                            Fiber = 3.8f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.53f,
+                            Sugar = 2.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3aa14da1-5049-43d7-b8fd-b99036b76770"),
+                            Calories = 302.16f,
+                            Carbs = 6.74f,
+                            Fat = 7.69f,
+                            Fiber = 11.13f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 30.32f,
+                            Sugar = 7.82f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("81c80e29-706a-41b1-8316-ccb082eb2f90"),
+                            Calories = 142.55f,
+                            Carbs = 93.92f,
+                            Fat = 27.18f,
+                            Fiber = 8.24f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 6.03f,
+                            Sugar = 46.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("fbcd8ccd-eeeb-4b88-88de-6e8c7e337e6b"),
+                            Calories = 434.38f,
+                            Carbs = 21.9f,
+                            Fat = 4.45f,
+                            Fiber = 12.94f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 17.78f,
+                            Sugar = 28.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("71ee23e4-2bdc-4564-a98b-c9462357794f"),
+                            Calories = 327.46f,
+                            Carbs = 73.1f,
+                            Fat = 49.42f,
+                            Fiber = 18.48f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.62f,
+                            Sugar = 41.55f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7214a2bd-fc04-4115-be4c-1afbda582f90"),
+                            Calories = 246.2f,
+                            Carbs = 32.29f,
+                            Fat = 9.92f,
+                            Fiber = 2.99f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 2.9f,
+                            Sugar = 21.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2bdf212e-8946-48d6-bfa7-8ae0be1ea985"),
+                            Calories = 492.59f,
+                            Carbs = 5.41f,
+                            Fat = 29.32f,
+                            Fiber = 10.81f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 37.45f,
+                            Sugar = 35.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9596123a-ece7-4079-9b6a-343dd6dc95c0"),
+                            Calories = 118.45f,
+                            Carbs = 4.26f,
+                            Fat = 38.42f,
+                            Fiber = 5.68f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.86f,
+                            Sugar = 14.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("95055e2d-d437-49db-8221-07db513d2baa"),
+                            Calories = 426.27f,
+                            Carbs = 16.88f,
+                            Fat = 12.85f,
+                            Fiber = 8.25f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.89f,
+                            Sugar = 13.08f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a384fcdd-2396-482e-9eee-8b6cc1c5dbec"),
+                            Calories = 489.6f,
+                            Carbs = 85.72f,
+                            Fat = 44.6f,
+                            Fiber = 18.05f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.14f,
+                            Sugar = 33.11f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("3c238d3b-3ba7-4762-804f-3bfba46d4e78"),
+                            Calories = 176.93f,
+                            Carbs = 30.07f,
+                            Fat = 23.2f,
+                            Fiber = 17.87f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.96f,
+                            Sugar = 19.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5d8882f1-27d8-43a9-b94e-e27102e0b290"),
+                            Calories = 78.7f,
+                            Carbs = 63.59f,
+                            Fat = 29.52f,
+                            Fiber = 17.65f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 27.4f,
+                            Sugar = 0.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b285cf73-28db-4d58-b18e-67a946ec3ff4"),
+                            Calories = 274.44f,
+                            Carbs = 84.67f,
+                            Fat = 29.95f,
+                            Fiber = 4.31f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 49.87f,
+                            Sugar = 0.44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("db1d1212-32a5-4fe6-98f9-2e2e9e5b286d"),
+                            Calories = 159.53f,
+                            Carbs = 82.66f,
+                            Fat = 20.78f,
+                            Fiber = 17.89f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 32.39f,
+                            Sugar = 11.71f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e58ef087-b8ba-4ffb-a142-3d6da156fc81"),
+                            Calories = 249.69f,
+                            Carbs = 40.61f,
+                            Fat = 5.55f,
+                            Fiber = 1.16f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 1.47f,
+                            Sugar = 42.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c985fb50-677d-4b59-b11c-f824e431ea2d"),
+                            Calories = 492.9f,
+                            Carbs = 41.26f,
+                            Fat = 27.85f,
+                            Fiber = 5.38f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.38f,
+                            Sugar = 29.72f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("07832cf8-6055-4c4c-a5ff-495341db6e39"),
+                            Calories = 339.31f,
+                            Carbs = 53.45f,
+                            Fat = 37.9f,
+                            Fiber = 5.88f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 0.96f,
+                            Sugar = 32.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("07a19147-fb5b-44b4-9fad-81d3de1b957f"),
+                            Calories = 175.14f,
+                            Carbs = 52.53f,
+                            Fat = 2.27f,
+                            Fiber = 1.77f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 12.01f,
+                            Sugar = 9.31f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("01fd96aa-3efd-4d89-814a-42d67c94f919"),
+                            Calories = 229.09f,
+                            Carbs = 85.43f,
+                            Fat = 26.16f,
+                            Fiber = 2.95f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 42.39f,
+                            Sugar = 25.71f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("cc3bac99-5d27-4244-bf37-4e0fe20dbddd"),
+                            Calories = 129.66f,
+                            Carbs = 91.3f,
+                            Fat = 14.48f,
+                            Fiber = 17.42f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 23.84f,
+                            Sugar = 13.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("38d2b7f2-e038-4a27-9c56-ff242dc84f02"),
+                            Calories = 468.82f,
+                            Carbs = 1.82f,
+                            Fat = 42.01f,
+                            Fiber = 15.76f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 21.98f,
+                            Sugar = 37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4e0fec47-c260-47e2-91c4-f22446b04b5c"),
+                            Calories = 238.65f,
+                            Carbs = 71.79f,
+                            Fat = 21.33f,
+                            Fiber = 8.64f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 47.02f,
+                            Sugar = 46.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("36aacdc6-342e-4919-a7fa-ae98360c47a0"),
+                            Calories = 119.58f,
+                            Carbs = 30.87f,
+                            Fat = 5.3f,
+                            Fiber = 9.47f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25.27f,
+                            Sugar = 19.19f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ffb1513d-bd58-4203-af0a-9a693db48a9e"),
+                            Calories = 287.1f,
+                            Carbs = 89.09f,
+                            Fat = 13.73f,
+                            Fiber = 15.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.79f,
+                            Sugar = 3.75f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("86fd0ed5-af1b-4880-9996-f50a550f55c8"),
+                            Calories = 33.47f,
+                            Carbs = 95.09f,
+                            Fat = 10.89f,
+                            Fiber = 15.25f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 25.24f,
+                            Sugar = 15.34f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a29b94a8-3dff-4feb-899f-7f4e223e2991"),
+                            Calories = 108.4f,
+                            Carbs = 41.52f,
+                            Fat = 45.26f,
+                            Fiber = 5.14f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.33f,
+                            Sugar = 49.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bc2859c1-fa6b-43a9-bc28-83f096b868df"),
+                            Calories = 336.08f,
+                            Carbs = 85.1f,
+                            Fat = 31.23f,
+                            Fiber = 15.41f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 27.8f,
+                            Sugar = 39.86f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0b3f0d3f-cdc0-41b8-a067-d45502d99701"),
+                            Calories = 418.28f,
+                            Carbs = 69.53f,
+                            Fat = 17.56f,
+                            Fiber = 10.59f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.64f,
+                            Sugar = 36.93f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ae9e2784-8545-4e31-b396-5bba918f80cb"),
+                            Calories = 165.27f,
+                            Carbs = 17.25f,
+                            Fat = 21.3f,
+                            Fiber = 19.86f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 11.38f,
+                            Sugar = 21.14f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("32e1bcc8-6290-4209-9ff1-62aa74e8baca"),
+                            Calories = 357.07f,
+                            Carbs = 33.42f,
+                            Fat = 44.51f,
+                            Fiber = 8.36f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.54f,
+                            Sugar = 0.36f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ba77a9d1-2e8f-44da-9050-63eba6b527a8"),
+                            Calories = 306.17f,
+                            Carbs = 59.94f,
+                            Fat = 2.46f,
+                            Fiber = 6.3f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 35.45f,
+                            Sugar = 1.22f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0453d849-9930-4adc-b176-3b8762db87a4"),
+                            Calories = 26.33f,
+                            Carbs = 49.91f,
+                            Fat = 26.95f,
+                            Fiber = 14.22f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.24f,
+                            Sugar = 38.27f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c1b721ff-74b6-464c-9ab1-5c88aec87f8c"),
+                            Calories = 296.61f,
+                            Carbs = 20.21f,
+                            Fat = 49.62f,
+                            Fiber = 18.5f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 1f,
+                            Sugar = 24.23f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f2bf5249-3ff7-4942-aa98-b5582d217a8b"),
+                            Calories = 185.59f,
+                            Carbs = 76.09f,
+                            Fat = 28.89f,
+                            Fiber = 19.28f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 33.78f,
+                            Sugar = 30.05f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1ebd1409-d2a1-4c78-b62a-9a423c751ebf"),
+                            Calories = 186.72f,
+                            Carbs = 59.3f,
+                            Fat = 27.26f,
+                            Fiber = 11.55f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 30.24f,
+                            Sugar = 0.87f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e5361d4f-55ea-4536-8b5f-8daadddc291f"),
+                            Calories = 57.87f,
+                            Carbs = 79.75f,
+                            Fat = 4.1f,
+                            Fiber = 10.18f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.33f,
+                            Sugar = 5.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c8c8c31b-24ef-4cd4-b04c-74c84cc33b86"),
+                            Calories = 424.34f,
+                            Carbs = 60.73f,
+                            Fat = 3.08f,
+                            Fiber = 16.26f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.56f,
+                            Sugar = 39.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("add09ed7-f1a3-4a72-9635-3005adf36f54"),
+                            Calories = 45.51f,
+                            Carbs = 16.12f,
+                            Fat = 48.06f,
+                            Fiber = 3f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 22.88f,
+                            Sugar = 22.85f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f5cee83c-b9b3-4e2d-b922-cdb7c1db2db7"),
+                            Calories = 328.54f,
+                            Carbs = 46.42f,
+                            Fat = 2.38f,
+                            Fiber = 0.07f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 27.79f,
+                            Sugar = 10.92f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("955be1c6-1d60-4f1e-b253-c871099bef30"),
+                            Calories = 210.99f,
+                            Carbs = 68.67f,
+                            Fat = 43.22f,
+                            Fiber = 18.91f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 15.92f,
+                            Sugar = 46.07f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("bf91b723-c8c6-433c-86be-5c6260d04a93"),
+                            Calories = 110.33f,
+                            Carbs = 8.5f,
+                            Fat = 15.95f,
+                            Fiber = 15.14f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.55f,
+                            Sugar = 10.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("44deb096-2f61-4cc3-b2fe-c1c5980ead0c"),
+                            Calories = 318.84f,
+                            Carbs = 30.02f,
+                            Fat = 19.22f,
+                            Fiber = 0.93f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 49.46f,
+                            Sugar = 43.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d92ba598-1e6f-4542-b923-5dba9a0da202"),
+                            Calories = 374.14f,
+                            Carbs = 48.45f,
+                            Fat = 38.57f,
+                            Fiber = 13.7f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.51f,
+                            Sugar = 16.37f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d157bdb2-19ca-43f5-b834-799fddc7433c"),
+                            Calories = 453.68f,
+                            Carbs = 95.36f,
+                            Fat = 49.76f,
+                            Fiber = 14.05f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 25.64f,
+                            Sugar = 13.06f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("9300773c-4d02-4e2e-83ad-ff52a5f42035"),
+                            Calories = 269.76f,
+                            Carbs = 84.32f,
+                            Fat = 5.36f,
+                            Fiber = 11.98f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 34.54f,
+                            Sugar = 17.56f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d4ed8387-1dd9-4eaf-afd0-9bd7efe84ab3"),
+                            Calories = 309.06f,
+                            Carbs = 55.49f,
+                            Fat = 37.94f,
+                            Fiber = 18.76f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 10.2f,
+                            Sugar = 5.77f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("11e84f9d-68e5-4b04-88fd-8a905cf3e1f9"),
+                            Calories = 260.05f,
+                            Carbs = 21.62f,
+                            Fat = 30.13f,
+                            Fiber = 11.1f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 40.63f,
+                            Sugar = 14.78f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d9cbe44a-f2f0-455c-8dfe-a218d904ed7e"),
+                            Calories = 346.68f,
+                            Carbs = 24.23f,
+                            Fat = 27.18f,
+                            Fiber = 6.63f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 3.65f,
+                            Sugar = 42.59f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2804c605-a39b-4bbe-abcf-bf76161aacd2"),
+                            Calories = 152.97f,
+                            Carbs = 34.06f,
+                            Fat = 47.67f,
+                            Fiber = 8.41f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 19.94f,
+                            Sugar = 6.68f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("67e09efc-00d2-4bbc-bbcf-24f4776dc1d8"),
+                            Calories = 4.9f,
+                            Carbs = 44.17f,
+                            Fat = 34.82f,
+                            Fiber = 8.4f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.84f,
+                            Sugar = 49.39f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("c605d872-b706-47e9-bc47-5730ab73e211"),
+                            Calories = 56.19f,
+                            Carbs = 69.84f,
+                            Fat = 32.82f,
+                            Fiber = 18.13f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 20.37f,
+                            Sugar = 46.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b5be3af1-001e-459a-b7d2-2ce172014b36"),
+                            Calories = 338.21f,
+                            Carbs = 96.53f,
+                            Fat = 26.27f,
+                            Fiber = 0.51f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.7f,
+                            Sugar = 27.99f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("df9eddd3-18d2-436c-a308-c83d7c562448"),
+                            Calories = 292.42f,
+                            Carbs = 85.76f,
+                            Fat = 19.91f,
+                            Fiber = 15.26f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 38.25f,
+                            Sugar = 19.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("023a0200-19a5-4292-bdae-9b2fdb752f61"),
+                            Calories = 454.34f,
+                            Carbs = 95.65f,
+                            Fat = 16.5f,
+                            Fiber = 11.82f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.71f,
+                            Sugar = 2.88f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("96eb9d60-8606-4f28-92ae-c61fda19ede6"),
+                            Calories = 189.55f,
+                            Carbs = 30.33f,
+                            Fat = 12.7f,
+                            Fiber = 2.61f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 18.91f,
+                            Sugar = 18.91f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("7c8fe6a2-602f-4ea8-8a76-610f775f8c2f"),
+                            Calories = 240f,
+                            Carbs = 56.16f,
+                            Fat = 27.67f,
+                            Fiber = 11.77f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 29.07f,
+                            Sugar = 11.94f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("46fe31f1-7832-4db3-a4d3-d669f70d53d4"),
+                            Calories = 346.78f,
+                            Carbs = 16.29f,
+                            Fat = 25.44f,
+                            Fiber = 15.53f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 13.6f,
+                            Sugar = 47.28f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("0b41a9c4-a232-4dc7-95b7-75a56f2e19c9"),
+                            Calories = 210.07f,
+                            Carbs = 3.68f,
+                            Fat = 29.02f,
+                            Fiber = 14.77f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 20.85f,
+                            Sugar = 47.42f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8ad7f13e-2813-46e3-b758-a19f0d21eb6e"),
+                            Calories = 476.49f,
+                            Carbs = 13.95f,
+                            Fat = 31.05f,
+                            Fiber = 9.67f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 7.16f,
+                            Sugar = 24.83f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("76010b01-ae59-44ef-b4eb-2a1a927cd33c"),
+                            Calories = 391.09f,
+                            Carbs = 41.66f,
+                            Fat = 19.63f,
+                            Fiber = 3.12f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 39.5f,
+                            Sugar = 1.95f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("df12fd7c-8344-4cf1-a892-41b688cf427e"),
+                            Calories = 398.41f,
+                            Carbs = 55.77f,
+                            Fat = 15.98f,
+                            Fiber = 9.11f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 42.72f,
+                            Sugar = 40.16f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("2634bb19-8b06-4b45-9484-da800f055f49"),
+                            Calories = 301.72f,
+                            Carbs = 33.87f,
+                            Fat = 8.78f,
+                            Fiber = 8.35f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 26.01f,
+                            Sugar = 8.48f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("51cc1159-e9b9-4ea1-a16c-0808c9b4a85b"),
+                            Calories = 38.18f,
+                            Carbs = 77.31f,
+                            Fat = 47.12f,
+                            Fiber = 3.01f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 42.82f,
+                            Sugar = 49.67f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("efde5067-8dc6-4c56-8cd4-b1aa8cbaa19d"),
+                            Calories = 217.14f,
+                            Carbs = 58.79f,
+                            Fat = 47.93f,
+                            Fiber = 10.91f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 28.09f,
+                            Sugar = 35.93f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ef31ae92-073d-4f58-bc34-c27a4cb1d490"),
+                            Calories = 421.01f,
+                            Carbs = 58.69f,
+                            Fat = 15.91f,
+                            Fiber = 3.12f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 43.8f,
+                            Sugar = 26.2f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("143d3406-a768-4e06-8353-5ef70d3485ad"),
+                            Calories = 305.98f,
+                            Carbs = 75.46f,
+                            Fat = 37.91f,
+                            Fiber = 8.87f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.46f,
+                            Sugar = 19.12f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ad5ea53b-f165-4e4f-92bd-9e5a57b5227f"),
+                            Calories = 36.46f,
+                            Carbs = 13.38f,
+                            Fat = 5.97f,
+                            Fiber = 2.56f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 31.51f,
+                            Sugar = 3.97f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d2b03a16-153f-4928-b7e1-ae707506ffe4"),
+                            Calories = 263.41f,
+                            Carbs = 66.61f,
+                            Fat = 22.04f,
+                            Fiber = 18.67f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 18.26f,
+                            Sugar = 33.72f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("f020779b-c5e1-40e2-a517-65141115ea61"),
+                            Calories = 379.89f,
+                            Carbs = 92.73f,
+                            Fat = 13.84f,
+                            Fiber = 10.26f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 10.85f,
+                            Sugar = 42.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1bbc7687-1d69-4e4a-b616-73fba3940d71"),
+                            Calories = 467.82f,
+                            Carbs = 39.97f,
+                            Fat = 36.43f,
+                            Fiber = 11.34f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 48.2f,
+                            Sugar = 44.56f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("08eac197-2807-4268-b0cf-d1f8bca9ad85"),
+                            Calories = 292.51f,
+                            Carbs = 68.64f,
+                            Fat = 14.64f,
+                            Fiber = 8.8f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 28.92f,
+                            Sugar = 20.86f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("88894845-cd5b-4783-9c88-a8392d5a7f9e"),
+                            Calories = 43.4f,
+                            Carbs = 4.35f,
+                            Fat = 28.59f,
+                            Fiber = 10.6f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 31.38f,
+                            Sugar = 2.7f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("a7532885-32f3-4dc4-93bf-a70265bb8698"),
+                            Calories = 397.97f,
+                            Carbs = 82.16f,
+                            Fat = 41.68f,
+                            Fiber = 18.39f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 41.71f,
+                            Sugar = 35.54f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4a753476-43f5-4ccd-bf1b-e9a0a0c2caad"),
+                            Calories = 388.82f,
+                            Carbs = 80.28f,
+                            Fat = 1.87f,
+                            Fiber = 14.33f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 34.69f,
+                            Sugar = 44f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("4f4fb064-2e40-4925-87dd-0be3a0edeb87"),
+                            Calories = 156.22f,
+                            Carbs = 78.23f,
+                            Fat = 38.08f,
+                            Fiber = 3.18f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 26.63f,
+                            Sugar = 24.6f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d8d20f27-5e90-4d4f-ad9d-7dcec32bb299"),
+                            Calories = 25f,
+                            Carbs = 65.23f,
+                            Fat = 4.82f,
+                            Fiber = 9.64f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 40.82f,
+                            Sugar = 38.83f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("e081dce4-37f5-4e2b-8ba1-cc1ab5b7d87b"),
+                            Calories = 54.08f,
+                            Carbs = 16.14f,
+                            Fat = 36.35f,
+                            Fiber = 18.55f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 1.45f,
+                            Sugar = 12.25f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("73fd02f8-8b65-45ca-9fba-62e0ba537154"),
+                            Calories = 5.74f,
+                            Carbs = 64.98f,
+                            Fat = 37.52f,
+                            Fiber = 17.71f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 49.7f,
+                            Sugar = 20.62f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("08944615-8965-4296-930b-f8e93d448465"),
+                            Calories = 181.06f,
+                            Carbs = 19.6f,
+                            Fat = 34.74f,
+                            Fiber = 2.89f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 5.57f,
+                            Sugar = 27.06f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d9c34158-f0e5-4dff-ba84-b84af46e8bee"),
+                            Calories = 42.4f,
+                            Carbs = 21.12f,
+                            Fat = 33.28f,
+                            Fiber = 17.87f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 44.68f,
+                            Sugar = 35.31f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("5c678ae5-7634-49e9-ad19-2ed888ddf359"),
+                            Calories = 84.35f,
+                            Carbs = 99.23f,
+                            Fat = 37.54f,
+                            Fiber = 5.04f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 8.36f,
+                            Sugar = 24.79f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("314c4a82-e7a3-4cec-bd01-c3cde5a1bc55"),
+                            Calories = 312.11f,
+                            Carbs = 2.73f,
+                            Fat = 8.34f,
+                            Fiber = 7.34f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 1.36f,
+                            Sugar = 33.09f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("b73f31e0-763f-4630-a29e-5fc4a181c82e"),
+                            Calories = 155.84f,
+                            Carbs = 42.3f,
+                            Fat = 10.02f,
+                            Fiber = 19.35f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 45.7f,
+                            Sugar = 40.58f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("19e31140-a8f8-43b8-88a7-d03d4d5b3558"),
+                            Calories = 496.93f,
+                            Carbs = 14.41f,
+                            Fat = 21f,
+                            Fiber = 8.07f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 11.64f,
+                            Sugar = 48.03f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ae4aed32-1dc4-4f37-8a4c-5ed5a567998d"),
+                            Calories = 250.84f,
+                            Carbs = 26.74f,
+                            Fat = 7f,
+                            Fiber = 4.23f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 4.91f,
+                            Sugar = 39.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("d9e8dc3e-bb40-48b4-93c1-268efcfbd12a"),
+                            Calories = 295.74f,
+                            Carbs = 87.68f,
+                            Fat = 5.03f,
+                            Fiber = 14.24f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 6.25f,
+                            Sugar = 8.5f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ba8fe158-82ef-466f-a7c8-34d31e0a4244"),
+                            Calories = 454.25f,
+                            Carbs = 72.26f,
+                            Fat = 30.49f,
+                            Fiber = 17f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 24.45f,
+                            Sugar = 0.04f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("ccc8925e-5a44-42cd-b7de-d3f2bb35343a"),
+                            Calories = 76.53f,
+                            Carbs = 58.91f,
+                            Fat = 22.57f,
+                            Fiber = 7.61f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 27.55f,
+                            Sugar = 44.01f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("665cd335-d24a-425d-b7d2-f9a7883288ce"),
+                            Calories = 159.16f,
+                            Carbs = 18.31f,
+                            Fat = 43.58f,
+                            Fiber = 0.78f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 36.96f,
+                            Sugar = 33.96f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("1261989f-6fc5-457e-ada1-cb79473dd5bf"),
+                            Calories = 27.23f,
+                            Carbs = 84.45f,
+                            Fat = 8.85f,
+                            Fiber = 2.71f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 4.69f,
+                            Sugar = 31.32f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("8c745647-950d-4f38-bddb-2baa58a562a9"),
+                            Calories = 84.48f,
+                            Carbs = 48.17f,
+                            Fat = 5.68f,
+                            Fiber = 7.64f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 46.79f,
+                            Sugar = 9.4f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("61668bd3-42de-496e-9cd9-e9939481e54d"),
+                            Calories = 103.32f,
+                            Carbs = 54.17f,
+                            Fat = 35.98f,
+                            Fiber = 9.05f,
+                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
+                            Protein = 5.91f,
+                            Sugar = 43.29f
+                        },
+                        new
+                        {
+                            NutritionId = new Guid("62c5673b-054d-4b62-8124-b9c712d97c9c"),
+                            Calories = 264.03f,
+                            Carbs = 20.32f,
+                            Fat = 6.11f,
+                            Fiber = 8.11f,
+                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
+                            Protein = 16.36f,
+                            Sugar = 44.78f
+                        });
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Portion", b =>
@@ -1527,7 +12529,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3fa51b9a-8857-4616-ac3b-d55491e3a11b",
+                            ConcurrencyStamp = "d0d256c6-0b56-4d2d-9d03-6b461300892f",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -1535,10 +12537,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEK4GxHS1+rliWZcuznF3Szjvl2xJJfF6vIUcwWrftUnBpQ/s6+DmV7Nce1ykRrLtQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAdyi9m9D+PjaTLsWN3INtNFeLLjpWTyQKo7tvsQdbVKmodHdMppdeE/p5RpClCQRQ==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0c5a4b94-82c5-42ce-9a01-2384accc3fcb",
+                            SecurityStamp = "d5993de2-4ba6-4f4d-9934-072e696e8ef2",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1548,7 +12550,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "66ae87a3-3beb-4a74-a24e-4379179da5f9",
+                            ConcurrencyStamp = "2954efcd-88fb-47ba-b264-60c071ff0022",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -1556,10 +12558,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMDAW7ucMKDeA5Fpbly8gfT4X8FrUsHOgQxNz2BVxgUKPDXWbYxmJpnv8hQGLb5LtQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPltc1ouUKP7vrizVbNqyJHtaa9NbeyzkqsgRL6DJeI+Cmn82YuBl+F5uYU9IwmLXg==",
                             PhoneNumber = "0999998888",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dacc6fa5-bf96-4199-a936-a85b1791906b",
+                            SecurityStamp = "db70977d-fbb7-4793-8a44-302c948cb40f",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1569,7 +12571,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ec31f49a-0e87-4c62-a55d-5c0a5689dc61",
+                            ConcurrencyStamp = "69e78536-9ae4-4faa-b819-5afe67e1d11d",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -1577,10 +12579,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAELi4SpNazwxIdXYOiCcAH13FowLfSId+pUqqLo2CTDUGOypd7sNUQVGzbfuSq3PS1w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC45K9ju3N5h8zhyyc522NX+Py+HjadWbRS2YfJE8V6K+8EJX/K9wBl8O/Ti25kJ6g==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4415839e-ea8d-4547-904f-a007f708eb3b",
+                            SecurityStamp = "4a14c3c6-0ce3-4778-ae84-6b0c6bdc1a29",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1590,7 +12592,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cd67ff27-577b-4ee1-8eeb-5bd49a0aeaab",
+                            ConcurrencyStamp = "b798b5e2-4447-43c7-a95b-fbdf8b7895c6",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -1598,10 +12600,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAiCzsmWT31mi1jLrt4JOIXTvaHnG7oW+StBxsEn9xUhcixGHqzzm2mzeVmRuOEH/g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO/M7XWC3DriadkT+TmdHYR6LUqmwjfKVmm0gFHD7neGyMvdYrieLNsyMkLLySTpwg==",
                             PhoneNumber = "0777444499",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5bde04ed-cf85-4970-8bc5-be524a544551",
+                            SecurityStamp = "8aca9481-c612-4929-9d80-dca9c0047654",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1611,7 +12613,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "47397846-ffc7-416d-bdb1-5a156f4c7657",
+                            ConcurrencyStamp = "0abef958-939d-40db-b980-1cac78e4cc73",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -1619,10 +12621,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFzNv0wrLiV7ACiUPHkQtd5PX81vlVAyisfiTVH1Nvj+uW5jVGiL2Xisn3ABpF/5Sg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKMHveYI5N70n4wdiMTI2bzCjYkdLO4oBh7pUCL6/3qre0FQCKyLrXuwuPYu/eN6Og==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "09f66786-631f-4185-9948-b22827149583",
+                            SecurityStamp = "f305da02-2298-4cd5-a080-e55866de503a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1632,7 +12634,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8fc0ac5d-40be-45a0-9928-078eaf3059e4",
+                            ConcurrencyStamp = "6c06366b-7b99-4dd2-ac69-71913e9ce2c8",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -1640,10 +12642,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGodVHtqdBFpcFwuPvahtmsDACOuZ6yJqNHR3pGS66Wvh89cXhLfKMYpiGzCqGML3g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAy8O5UYOEu/seJesz5rk3vIDhrIwc8wEnygkS1rzMPe5icvE9j5XcAt9hdOlyooAg==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a555bd30-5c3c-4107-8a9b-b2086c310c32",
+                            SecurityStamp = "83832ba7-a07b-4768-9fdd-2ab4ffb42b64",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),

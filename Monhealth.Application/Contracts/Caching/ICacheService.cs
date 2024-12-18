@@ -9,7 +9,7 @@ namespace Monhealth.Application.Contracts.Caching
     {
 
         Task<T> GetAsync<T>(string key);
-        Task SetAsync(string key, string value, TimeSpan slidingExpiration, TimeSpan absoluteExpiration);
+        Task SetAsync(string key, string value, TimeSpan slidingExpiration);
         Task RemoveAsync(string key);
     }
 }
