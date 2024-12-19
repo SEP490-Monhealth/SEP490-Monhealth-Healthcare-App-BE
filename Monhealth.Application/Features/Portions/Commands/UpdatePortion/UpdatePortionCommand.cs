@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Monhealth.Application.Features.Portions.Commands.UpdatePortion;
 
 namespace Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion
 {
@@ -6,13 +7,14 @@ namespace Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion
     {
         public Guid PortionId { get; set; }
         public string? PortionSize { get; set; }
-        public string PortionWeight { get; set; }
+        public float PortionWeight { get; set; }
         public string MeasurementUnit { get; set; }
-        public UpdatePortionCommand(string portionSize, string portionWeight, string measurementUnit)
+        public UpdatePortionCommand(Guid portionId, UpdatePortionRequest update)
         {
-            PortionSize = portionSize;
-            PortionWeight = portionWeight;
-            MeasurementUnit = measurementUnit;
+            PortionId = portionId;
+            PortionSize = update.PortionSize;
+            PortionWeight = update.PortionWeight;
+            MeasurementUnit = update.MeasurementUnit;
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Portions.Commands.CreateFoodPortion;
 using Monhealth.Application.Features.Portions.Commands.DeletePortion;
 using Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion;
+using Monhealth.Application.Features.Portions.Commands.UpdatePortion;
 using Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion;
 using Monhealth.Application.Features.Portions.Queries.GetPortionById;
 using Monhealth.Application.Models;
@@ -21,9 +22,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery] int page = 1, [FromQuery] int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllPortions(string sort = null, string order = null)
         {
-            var query = new GetAllPortionQuery(page, limit);
+            var query = new GetAllPortionQuery(sort, order);
             var result = await _mediator.Send(query);
             return new ResultModel
             {
@@ -78,11 +79,11 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{portionId}")]
-        public async Task<ActionResult<ResultModel>> Update(Guid portionId, [FromBody] UpdatePortionCommand updatePortion)
+        public async Task<ActionResult<ResultModel>> Update(Guid portionId, [FromBody] UpdatePortionRequest updatePortion)
         {
-            updatePortion.PortionId = portionId;
-            var update = await _mediator.Send(updatePortion);
-            if (!update)
+            var command = new UpdatePortionCommand(portionId, updatePortion);
+            var result = await _mediator.Send(command);
+            if (!result)
             {
                 return new ResultModel
                 {
