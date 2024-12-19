@@ -21,9 +21,9 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery]int page = 1, [FromQuery]int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery]int page = 1, [FromQuery]int limit = 10, string sort = null, string order = null)
         {
-            var query = new GetAllPortionQuery(page, limit);
+            var query = new GetAllPortionQuery(page, limit, sort, order);
             var result = await _mediator.Send(query);
             return new ResultModel
             {

@@ -21,7 +21,7 @@ namespace Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion
         }
         public async Task<PageResult<PortionDto>> Handle(GetAllPortionQuery request, CancellationToken cancellationToken)
         {
-            var portions = await _portionRepository.GetAllPortionAsync(request.page, request.limit);
+            var portions = await _portionRepository.GetAllPortionAsync(request.page, request.limit, request.sort, request.order);
             var result = _mapper.Map<List<PortionDto>>(portions.Data).ToList();
             return new PageResult<PortionDto>()
             {

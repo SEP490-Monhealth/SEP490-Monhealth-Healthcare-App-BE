@@ -9,7 +9,7 @@ namespace Monhealth.Domain
         [Key]
         public Guid PortionId { get; set; }
         public string PortionSize { get; set; } = string.Empty;
-        public string PortionWeight { get; set; } = string.Empty;
+        public float PortionWeight { get; set; }
         public string MeasurementUnit { get; set; } = string.Empty;
         public ICollection<FoodPortion> FoodPortions { get; set; }
     }

@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.Portions.Commands.CreateFoodPortion
     public class CreatePortionCommand : IRequest<Unit>
     {
         public string? PortionSize { get; set; }
-        public string PortionWeight { get; set; }
+        public float PortionWeight { get; set; }
         public string MeasurementUnit { get; set; }
         public Guid FoodId { get; set; }
     }

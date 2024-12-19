@@ -11,9 +11,9 @@ namespace Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion
     {
         public Guid PortionId { get; set; }
         public string? PortionSize { get; set; }
-        public string PortionWeight { get; set; }
+        public float PortionWeight { get; set; }
         public string MeasurementUnit { get; set; }
-        public UpdatePortionCommand(string portionSize, string portionWeight, string measurementUnit)
+        public UpdatePortionCommand(string portionSize, float portionWeight, string measurementUnit)
         {
             PortionSize = portionSize;
             PortionWeight = portionWeight;
