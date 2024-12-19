@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.User.Commands.CreateUser;
+using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Features.User.Queries.GetAllUser;
 using Monhealth.Application.Features.User.Queries.GetUserDetail;
 using Monhealth.Application.Models;
@@ -63,6 +64,19 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo người dùng thất bại.",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
+            };
+        }
+
+        [HttpPut("{userId}")]
+        public async Task<ActionResult<ResultModel>> UpdateUser(Guid userId, [FromBody] UpdateUserRequest request)
+        {
+            var command = new UpdateUserCommand(userId, request);
+            var result = await _mediator.Send(command);
+            return new ResultModel
+            {
+                Message = "cập nhập người dùng thành công.",
+                Status = 200,
+                Success = true
             };
         }
     }

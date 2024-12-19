@@ -3,7 +3,7 @@ using Monhealth.Identity.Models;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
-    public interface IUserRepository
+    public interface IUserRepository : IGenericRepository<AppUser, Guid>
     {
         Task<AppUser> GetByPhoneNumberAsync(string phoneNumber);
         Task<AppUser> GetUserByUserId(Guid userId);
