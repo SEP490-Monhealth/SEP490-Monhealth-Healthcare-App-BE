@@ -28,7 +28,7 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Data = result,
-                Message = "Login successfully",
+                Message = "Đăng nhập thành công.",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
             };
@@ -42,7 +42,7 @@ namespace Monhealth.Api.Controllers
             await _authService.Register(request);
             return new ResultModel
             {
-                Message = "Register successfully",
+                Message = "Đăng ký thành công.",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
             };
@@ -54,6 +54,16 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetInformationOfUser()
         {
             var phoneNumber = User.FindFirst(ClaimTypes.MobilePhone)?.Value;
+            if (phoneNumber == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Message = "Không tìm thấy thông tin người dùng.",
+                    Status = (int)HttpStatusCode.BadRequest
+                };
+            }
+
             var user = await _authService.GetInfomationCurrentUser(phoneNumber);
             return new ResultModel
             {
@@ -69,7 +79,7 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Success = true,
-                Message = "Logged out successfully."
+                Message = "Đăng xuất thành công."
             };
         }
     }

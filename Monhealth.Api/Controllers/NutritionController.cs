@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 using Monhealth.Application.Features.Nutrition.AddNutrition;
 using Monhealth.Application.Features.Nutrition.DeleteNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition;
@@ -25,6 +20,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllMetrics()
         {
@@ -37,6 +33,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet]
         [Route("{nutritionId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetNutritionDetail(Guid nutritionId)
@@ -61,6 +58,7 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
         [HttpGet]
         [Route("food/{foodId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetNutritionByFoodIdDetail(Guid foodId)
@@ -85,11 +83,12 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddNutrition([FromBody] AddNutritionRequest request)
         {
             var result = await _mediator.Send(request);
-            if (result != null)
+            if (result)
             {
                 return Ok(new ResultModel
                 {
@@ -106,6 +105,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo dinh dưỡng thất bại."
             });
         }
+
         [HttpPut]
         [Route("{nutritionId:Guid}")]
         public async Task<ActionResult<ResultModel>> UpdateNutrition(Guid nutritionId, [FromBody] UpdateNutritionRequest request)
@@ -126,6 +126,7 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
             });
         }
+
         [HttpDelete]
         [Route("{nutritionId:Guid}")]
         public async Task<ActionResult<ResultModel>> RemoveNutrition(Guid nutritionId)

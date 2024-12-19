@@ -48,7 +48,6 @@ namespace Monhealth.Identity.Services
                 Role = roles.FirstOrDefault() ?? "No Role",  // Đảm bảo role không bị null
                 PhoneNumber = user.PhoneNumber ?? string.Empty  // Kiểm tra null cho PhoneNumber
             };
-
         }
 
         public async Task<AuthResponse> Login(AuthenRequest request)
@@ -59,13 +58,12 @@ namespace Monhealth.Identity.Services
             //if (IsEmail(request.Email))
             //{
             //    user = await _userManager.FindByEmailAsync(request.Email);
-
             //}
 
             user = await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == request.PhoneNumber);
             if (user == null)
             {
-                throw new BadRequestException("Incorrect phone number.");
+                throw new BadRequestException("Số điện thoại không tồn tại.");
             }
 
 
@@ -78,7 +76,7 @@ namespace Monhealth.Identity.Services
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, true);
             if (!result.Succeeded)
             {
-                throw new BadRequestException("Incorrect Password. Please try again.");
+                throw new BadRequestException("Mật khẩu không đúng.");
             }
 
             // Authorization

@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.AddCategory;
@@ -23,6 +19,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+        
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllCategories()
         {
@@ -35,6 +32,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet]
         [Route("{categoryId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetCategoryDetail(Guid categoryId)
@@ -47,7 +45,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Loại đồ ăn không tồn tại.",
+                    Message = "Danh mục không tồn tại.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -69,18 +67,18 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo loại đồ ăn thành công.",
+                    Message = "Tạo danh mục thành công.",
                     Status = 201,
-
                 });
             }
 
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo loại đồ ăn thất bại."
+                Message = "Tạo danh mục thất bại."
             });
         }
+
         [HttpDelete]
         [Route("{categoryId:Guid}")]
         public async Task<ActionResult<ResultModel>> RemoveCategory(Guid categoryId)
@@ -93,7 +91,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Loại đồ ăn không tồn tại.",
+                    Message = "Danh mục không tồn tại.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -103,11 +101,12 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Xóa loại đồ ăn thành công.",
+                Message = "Xóa danh mục thành công.",
                 Status = 204,
                 Data = null
             });
         }
+
         [HttpPut]
         [Route("{categoryId:Guid}")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid categoryId, [FromBody] UpdateCategoryRequest request)
@@ -117,13 +116,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật loại đồ ăn thất bại.",
+                    Message = "Cập nhật danh mục thất bại.",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật loại đồ ăn thành công.",
+                Message = "Cập nhật danh mục thành công.",
                 Success = true,
                 Status = 204,
             });

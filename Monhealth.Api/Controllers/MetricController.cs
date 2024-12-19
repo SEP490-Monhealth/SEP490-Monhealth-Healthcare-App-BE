@@ -16,6 +16,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+        
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllMetrics()
         {
@@ -30,7 +31,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{metricId:guid}")]
-
         public async Task<ActionResult<ResultModel>> GetMetricById(Guid metricId)
         {
             var metric = await _mediator.Send(new GetMetricDetailQuery() { MetricId = metricId });

@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 using Monhealth.Application.Features.Portions.Commands.CreateFoodPortion;
 using Monhealth.Application.Features.Portions.Commands.DeletePortion;
 using Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion;
@@ -20,8 +19,9 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery]int page = 1, [FromQuery]int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery] int page = 1, [FromQuery] int limit = 10)
         {
             var query = new GetAllPortionQuery(page, limit);
             var result = await _mediator.Send(query);
@@ -33,11 +33,12 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet("{portionId:guid}")]
         public async Task<ActionResult<ResultModel>> GetPortionById(Guid portionId)
         {
             var portion = await _mediator.Send(new GetPortionByIdQuery() { PortionId = portionId });
-            if(portion == null)
+            if (portion == null)
             {
                 return new ResultModel
                 {
@@ -54,32 +55,34 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpPost]
-        public async Task<ActionResult<ResultModel>> CreateFoodPortion([FromBody]CreatePortionCommand createPortion)
+        public async Task<ActionResult<ResultModel>> CreateFoodPortion([FromBody] CreatePortionCommand createPortion)
         {
             var create = await _mediator.Send(createPortion);
-            if(create == null)
+            if (create == Unit.Value)
             {
                 return new ResultModel
                 {
-                    Message = "Tạo khẩu phần ăn thất bại",
-                    Status = (int)HttpStatusCode.BadRequest,
-                    Success = false
+                    Message = "Tạo khẩu phần ăn thành công",
+                    Status = 201,
+                    Success = true
                 };
             }
             return new ResultModel
             {
-                Message = "Tạo khẩu phần ăn thành công",
-                Status = 200,
-                Success = true
+                Message = "Tạo khẩu phần ăn thất bại",
+                Status = (int)HttpStatusCode.BadRequest,
+                Success = false
             };
         }
+
         [HttpPut("{portionId}")]
         public async Task<ActionResult<ResultModel>> Update(Guid portionId, [FromBody] UpdatePortionCommand updatePortion)
         {
             updatePortion.PortionId = portionId;
             var update = await _mediator.Send(updatePortion);
-            if(!update)
+            if (!update)
             {
                 return new ResultModel
                 {
@@ -95,6 +98,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật khẩu phần ăn thành công."
             };
         }
+
         [HttpDelete("{portionId}")]
         public async Task<ActionResult<ResultModel>> Delete(Guid portionId)
         {

@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Application.Features.Portions.Queries.GetPortionById
 {
@@ -21,11 +16,11 @@ namespace Monhealth.Application.Features.Portions.Queries.GetPortionById
         public async Task<GetPortionByIdDto> Handle(GetPortionByIdQuery request, CancellationToken cancellationToken)
         {
             var portion = await _portionRepository.GetByIdAsync(request.PortionId);
-            if(portion == null)
+            if (portion == null)
             {
                 throw new Exception("Không tìm thấy khẩu phần ăn.");
             }
-            return _mapper.Map<GetPortionByIdDto>(portion);            
+            return _mapper.Map<GetPortionByIdDto>(portion);
         }
     }
 }

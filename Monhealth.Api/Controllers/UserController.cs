@@ -6,7 +6,7 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/users")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -15,8 +15,8 @@ namespace Monhealth.Api.Controllers
         public UserController(IMediator mediator)
         {
             _mediator = mediator;
-
         }
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllUser(int page, int limit, string? search, string? role, bool? status)
         {
@@ -25,12 +25,11 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Data = result,
-                Message = "User retrieve successfully",
                 Status = 200,
                 Success = true
             };
-
         }
+
         [HttpGet]
         [Route("{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetUserById(Guid userId)
@@ -39,7 +38,6 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Data = result,
-                Message = "User retrieve successfully",
                 Status = 200,
                 Success = true
             };

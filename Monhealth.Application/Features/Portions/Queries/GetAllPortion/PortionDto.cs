@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion
+﻿namespace Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion
 {
     public class PortionDto
     {
