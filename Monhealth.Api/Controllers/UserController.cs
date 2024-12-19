@@ -1,8 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.User.Commands.CreateUser;
 using Monhealth.Application.Features.User.Queries.GetAllUser;
 using Monhealth.Application.Features.User.Queries.GetUserDetail;
 using Monhealth.Application.Models;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -18,7 +20,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllUser(int page, int limit, string? search, string? role, bool? status)
+        public async Task<ActionResult<ResultModel>> GetAllUser(int page = 1, int limit = 10, string? search = null, string? role = null, bool? status = null)
         {
             var result = await _mediator.Send(new GetAllUserQuery { Page = page, Limit = limit, Search = search, Role = role, Status = status });
 
@@ -40,6 +42,27 @@ namespace Monhealth.Api.Controllers
                 Data = result,
                 Status = 200,
                 Success = true
+            };
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> CreateUser([FromBody] CreateUserCommand request)
+        {
+            var result = await _mediator.Send(request);
+            if (result == Unit.Value)
+            {
+                return new ResultModel
+                {
+                    Message = "Tạo người dùng thành công.",
+                    Status = 201,
+                    Success = true
+                };
+            }
+            return new ResultModel
+            {
+                Message = "Tạo người dùng thất bại.",
+                Status = (int)HttpStatusCode.BadRequest,
+                Success = false
             };
         }
     }

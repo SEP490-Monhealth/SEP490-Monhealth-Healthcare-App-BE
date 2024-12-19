@@ -13,6 +13,7 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+
         public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status)
         {
             search = search?.Trim();
@@ -22,7 +23,7 @@ namespace Monhealth.Identity.Repositories
             if (!string.IsNullOrEmpty(search))
             {
                 search = search.ToLower();
-                query = query.Where(s => (s.UserName.ToLower().Contains(search) ||
+                query = query.Where(s => (s.PhoneNumber.ToLower().Contains(search) ||
                                           s.Email.ToLower().Contains(search) ||
                                           s.FullName.ToLower().Contains(search))
                                           );
@@ -63,6 +64,23 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.Users
                 .FirstOrDefaultAsync(u => u.Id == userId);
+        }
+
+        public async Task<bool> IsEmailDuplicatedAsync(string email)
+        {
+            var exist = await _context.Users.AnyAsync(u => u.Email == email);
+            return exist;
+        }
+
+        public async Task<bool> IsPhoneNumberDuplicateAsync(string phoneNumber)
+        {
+            var exist = await _context.Users.AnyAsync(u => u.PhoneNumber == phoneNumber);
+            return exist;
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync();
         }
 
     }

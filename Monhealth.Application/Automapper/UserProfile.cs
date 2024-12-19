@@ -9,8 +9,14 @@ namespace Monhealth.Application.Automapper
     {
         public UserProfile()
         {
-            CreateMap<AppUser, UserDto>().ReverseMap();
-            CreateMap<AppUser, UserDetailDto>().ReverseMap();
+            CreateMap<AppUser, UserDto>()
+                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.AvatarUrl, opt => opt.MapFrom(src => src.Avatar));
+
+            CreateMap<AppUser, UserDetailDto>()
+                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.AvatarUrl, opt => opt.MapFrom(src => src.Avatar));
+
         }
     }
 }
