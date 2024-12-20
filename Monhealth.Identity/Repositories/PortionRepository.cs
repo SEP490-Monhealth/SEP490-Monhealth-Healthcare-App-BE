@@ -25,7 +25,7 @@ namespace Monhealth.Identity.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<PageResult<Portion>> GetAllPortionAsync(int page, int limit, string? sort, string? order)
+        public async Task<List<Portion>> GetAllPortionAsync(string? sort, string? order)
         {
             IQueryable<Portion> query = _context.Portions.Include(fp => fp.FoodPortions).AsQueryable();
 
@@ -35,18 +35,9 @@ namespace Monhealth.Identity.Repositories
                 string sorting = $"{sort} {(order?.ToLower() == "desc" ? "descending" : "ascending")}";
                 query = query.OrderBy(sorting);
             }
-
-            var totalItems = await query.CountAsync();
-            if (page > 0 && limit > 0)
-            {
-                query = query.Skip((page - 1) * limit).Take(limit);
-            }            
+        
             var portions = await query.ToListAsync();
-            return new PageResult<Portion>
-            {
-                Data = portions,
-                TotalItems = totalItems
-            };
+            return portions;
         }
 
         public async Task<int> SaveChangesAsync()

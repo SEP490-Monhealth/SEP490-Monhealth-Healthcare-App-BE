@@ -10,7 +10,7 @@ namespace Monhealth.Application.Contracts.Persistence
 {
     public interface IPortionRepository : IGenericRepository<Portion, Guid>
     {
-        Task<PageResult<Portion>> GetAllPortionAsync(int page, int limit, string? sort, string? order);
+        Task<List<Portion>> GetAllPortionAsync(string? sort, string? order);
         Task AddPortionAsync(FoodPortion foodPortion);
         Task<int> SaveChangesAsync();
     }
