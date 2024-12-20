@@ -31,7 +31,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<MealFood> MealFoods { get; set; }
         public DbSet<MealUserFood> MealUserFoods { get; set; }
         public DbSet<Nutrition> Nutritions { get; set; }
-        public DbSet<UserFood> UserFoods { get; set; }
+        
         public DbSet<FoodCategory> FoodCategories { get; set; }
         public DbSet<FoodPortion> FoodPortions { get; set; }
 

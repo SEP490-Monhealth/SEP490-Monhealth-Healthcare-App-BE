@@ -8,7 +8,6 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid NutritionId { get; set; }
-        public Guid? UserFoodId { get; set; }
         public Guid? FoodId { get; set; }
         public float Calories { get; set; }
         public float Protein { get; set; }
@@ -20,7 +19,6 @@ namespace Monhealth.Domain
         [ForeignKey(nameof(FoodId))]
         public Food Food { get; set; }
 
-        [ForeignKey(nameof(UserFoodId))]
-        public UserFood UserFood { get; set; }
+       
     }
 }

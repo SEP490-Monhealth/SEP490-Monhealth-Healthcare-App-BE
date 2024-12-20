@@ -176,218 +176,6 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("FoodId");
 
                     b.ToTable("FoodCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            FoodCategoryId = new Guid("17d4b096-43fb-4ead-aa15-b4f3796a0095"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
-                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("a82c5ca4-16d0-4f8c-aca7-0c8a8eb9c195"),
-                            CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
-                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("c412b3ae-23d1-4f64-9cb2-b4208f29c1c4"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
-                            FoodId = new Guid("f789601f-8026-499b-98cb-0f189926094a")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("714cb573-594e-47d0-a017-2f51d1588bf8"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
-                            FoodId = new Guid("f789601f-8026-499b-98cb-0f189926094a")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("ecd2cc49-a429-4f77-b074-d5bdf407b720"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-                            FoodId = new Guid("52c7f28c-1d5a-470e-87cd-2be1ab0ac3db")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("b534c4d6-bd93-4825-8866-05a8d7a282cb"),
-                            CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
-                            FoodId = new Guid("52c7f28c-1d5a-470e-87cd-2be1ab0ac3db")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("d340e3a2-f56c-48be-b33b-93e1c655abd4"),
-                            CategoryId = new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
-                            FoodId = new Guid("c82a256d-5573-4d27-b045-a411db42e694")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("542ed436-d4ab-44e9-971d-f3fd64b1d305"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-                            FoodId = new Guid("c567f8a9-71e4-4167-839d-a839ece79427")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("400db0ab-1a3e-4de5-b0e0-68a01663c2e7"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
-                            FoodId = new Guid("c567f8a9-71e4-4167-839d-a839ece79427")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("c8f19b8c-8487-4c74-acc9-5e6c1cf5a80b"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
-                            FoodId = new Guid("00a16b6c-9396-4389-95fd-205f72fe5164")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("54f2de38-ce45-4168-80e7-74b1574f6401"),
-                            CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
-                            FoodId = new Guid("80c5e605-307f-4fef-bdf8-9967a800eab9")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("008dbfb1-2fa6-4bb6-8313-0d15afb5a217"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
-                            FoodId = new Guid("d65bff7e-4a2d-498b-97b2-676d4dd92a90")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("232587aa-9171-4816-80de-3f2ca21e7809"),
-                            CategoryId = new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
-                            FoodId = new Guid("ced123e2-0b86-444b-ac83-7dba6860e354")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("c4e7cbb0-fe65-4fee-bcce-bc43ef5aab15"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
-                            FoodId = new Guid("d4f8f2c7-5318-4f07-803d-2b093be4d6c7")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("cc1a2489-196e-4f98-b68e-785f9842b4e5"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
-                            FoodId = new Guid("d4f8f2c7-5318-4f07-803d-2b093be4d6c7")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("7b42248c-c0c4-46b7-aa60-2bf7f7dcc2c7"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
-                            FoodId = new Guid("d4f8f2c7-5318-4f07-803d-2b093be4d6c7")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("38e471a8-d7f3-4885-9873-8ace803a6e26"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
-                            FoodId = new Guid("e34e9f9b-2d65-4e94-bcf0-37f5903c38b9")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("da9f39bb-9e03-447a-8874-220b14b2bea7"),
-                            CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
-                            FoodId = new Guid("e34e9f9b-2d65-4e94-bcf0-37f5903c38b9")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("4584e6b9-8c30-490f-af08-52f093f1d294"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
-                            FoodId = new Guid("e1b0767d-4b3b-42ea-820f-2154f7883ab9")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("2f71d694-34fa-4e27-9a45-c85636ae80c4"),
-                            CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
-                            FoodId = new Guid("e1b0767d-4b3b-42ea-820f-2154f7883ab9")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("f6e1ebb2-9c7a-424a-803c-2b7cb7747fce"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
-                            FoodId = new Guid("62cd0ff3-f69e-4a5f-bc8d-94f1f94e4552")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("cab91050-7489-4967-93c7-62bd2cd64a9f"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
-                            FoodId = new Guid("62cd0ff3-f69e-4a5f-bc8d-94f1f94e4552")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("4f80dc13-5a25-48ae-8563-5c3e998aaf63"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
-                            FoodId = new Guid("dd918def-34c2-4f5c-b402-6d51d8a1c604")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("b88c6718-9bbd-4efa-8cac-6aafdc1e27f8"),
-                            CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
-                            FoodId = new Guid("dd918def-34c2-4f5c-b402-6d51d8a1c604")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("46f54659-1d67-4107-96a5-124a5302d873"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
-                            FoodId = new Guid("b2fe4b42-56e1-4630-99e1-bb74d6d5ab2f")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("a4927114-6501-4c79-a466-42ae40364b9d"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
-                            FoodId = new Guid("b2fe4b42-56e1-4630-99e1-bb74d6d5ab2f")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("ff7d6a78-5d2d-4475-910a-154e395c5426"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
-                            FoodId = new Guid("b2fe4b42-56e1-4630-99e1-bb74d6d5ab2f")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("e7265736-1531-47b1-a665-bcecdac73bd2"),
-                            CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
-                            FoodId = new Guid("c4f9e44d-b7f6-4530-8b2e-b64c8f993f2a")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("71cd5ed0-003e-4185-8001-ab4bfba3cd21"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
-                            FoodId = new Guid("97a2fdd1-ff1f-4f5b-85cf-9f68b0cf2b91")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("4528e935-231a-4069-b5ee-f07c99b14170"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
-                            FoodId = new Guid("97a2fdd1-ff1f-4f5b-85cf-9f68b0cf2b91")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("bdcd6f3c-4844-418b-9ed9-95a58fe9c518"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
-                            FoodId = new Guid("97a2fdd1-ff1f-4f5b-85cf-9f68b0cf2b91")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("8dbd85a6-ab87-43db-a763-81ee66f10dd0"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
-                            FoodId = new Guid("3b372064-e2a9-4729-b725-635e54e11c5d")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("2824c391-f2a7-4b96-b54d-72d49d224c6c"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
-                            FoodId = new Guid("3b372064-e2a9-4729-b725-635e54e11c5d")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("448b576b-aeb6-43ea-9040-09d47c5eaa42"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
-                            FoodId = new Guid("a3c8f7f1-dfe7-4e1e-9e9d-36a3c6b395b7")
-                        },
-                        new
-                        {
-                            FoodCategoryId = new Guid("e0ff9c14-ff0e-46ce-b1e2-b4eec545f188"),
-                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
-                            FoodId = new Guid("a3c8f7f1-dfe7-4e1e-9e9d-36a3c6b395b7")
-                        });
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Category", b =>
@@ -426,96 +214,96 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CategoryDescription = "Các bữa ăn nhanh, tiện lợi, thường được phục vụ trong môi trường nhịp độ nhanh.",
                             CategoryName = "Fast food",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CategoryDescription = "Thức ăn nhiều carbohydrate (carb) thường là những thực phẩm chứa hàm lượng tinh bột hoặc đường cao.",
                             CategoryName = "Nhiều carbs",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CategoryDescription = "Các món ăn đậm đà, cay nóng, thường được tăng cường với ớt và gia vị.",
                             CategoryName = "Nhiều gia vị",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CategoryDescription = "Các bữa ăn không có thịt hoặc cá, tập trung vào rau củ và ngũ cốc.",
                             CategoryName = "Đồ ăn chay",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CategoryDescription = "Cá tươi, động vật có vỏ, và các sinh vật biển khác, mang lại hương vị đậm đà của đại dương.",
                             CategoryName = "Hải sản",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
                             CategoryDescription = "Thực phẩm giàu protein, bao gồm thịt, đậu, trứng, và các loại hạt, cần thiết cho việc xây dựng và sửa chữa cơ bắp.",
                             CategoryName = "Giàu protein",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CategoryDescription = "Thực phẩm có hàm lượng năng lượng (calo) thấp, thường được thiết kế để hỗ trợ kiểm soát cân nặng hoặc duy trì sức khỏe.",
                             CategoryName = "Ít calo",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CategoryDescription = "Thực phẩm giàu chất xơ, giúp thúc đẩy sức khỏe tiêu hóa, chẳng hạn như trái cây, rau và ngũ cốc nguyên hạt.",
                             CategoryName = "Giàu chất xơ",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CategoryDescription = "Món tráng miệng hoặc đồ ăn giàu đường, mang lại hương vị ngọt ngào, thỏa mãn.",
                             CategoryName = "Đồ ngọt",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CategoryDescription = "Thực phẩm đã qua quá trình lên men, mang lại hương vị độc đáo và chứa probiotics, như kim chi hoặc sữa chua.",
                             CategoryName = "Lên men",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
                             CategoryDescription = "Thực phẩm được trồng mà không sử dụng thuốc trừ sâu tổng hợp hoặc phân bón, tập trung vào tính bền vững và sức khỏe.",
                             CategoryName = "Hữu cơ",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
                             CategoryDescription = "Thực phẩm đã qua xử lý để thay đổi trạng thái tự nhiên của chúng thông qua các phương pháp như đóng hộp, đông lạnh hoặc thêm chất bảo quản.",
                             CategoryName = "Chế biến sẵn",
-                            CreatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -699,177 +487,31 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MeasurementUnit")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PortionSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("PortionWeight")
+                        .HasColumnType("real");
+
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("FoodId");
 
-                    b.ToTable("Foods");
+                    b.HasIndex("UserId");
 
-                    b.HasData(
-                        new
-                        {
-                            FoodId = new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Cơm trắng",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("a3be942d-a225-44fb-9c98-22a109995145"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Thịt heo nạc",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("f789601f-8026-499b-98cb-0f189926094a"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Rau muống",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("52c7f28c-1d5a-470e-87cd-2be1ab0ac3db"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Tôm biển",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("c82a256d-5573-4d27-b045-a411db42e694"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Xúc xích",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("c567f8a9-71e4-4167-839d-a839ece79427"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Bỏng ngô",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("00a16b6c-9396-4389-95fd-205f72fe5164"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Nem chua",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("80c5e605-307f-4fef-bdf8-9967a800eab9"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Mãng cầu",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("d65bff7e-4a2d-498b-97b2-676d4dd92a90"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Bắp luộc",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("ced123e2-0b86-444b-ac83-7dba6860e354"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Chả giò",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("d4f8f2c7-5318-4f07-803d-2b093be4d6c7"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Bưởi",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("e34e9f9b-2d65-4e94-bcf0-37f5903c38b9"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Giá đỗ",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("e1b0767d-4b3b-42ea-820f-2154f7883ab9"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Nấm kim châm",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("62cd0ff3-f69e-4a5f-bc8d-94f1f94e4552"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Khoai tây",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("dd918def-34c2-4f5c-b402-6d51d8a1c604"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Bầu",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("b2fe4b42-56e1-4630-99e1-bb74d6d5ab2f"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Đậu phộng",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("c4f9e44d-b7f6-4530-8b2e-b64c8f993f2a"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Thịt bò",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("97a2fdd1-ff1f-4f5b-85cf-9f68b0cf2b91"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Chuối tây",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("3b372064-e2a9-4729-b725-635e54e11c5d"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Bún tươi",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            FoodId = new Guid("a3c8f7f1-dfe7-4e1e-9e9d-36a3c6b395b7"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodDescription = "",
-                            FoodName = "Sầu riêng",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
+                    b.ToTable("Foods");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.FoodPortion", b =>
@@ -1075,14 +717,9 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserFoodId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("MealUserFoodId");
 
                     b.HasIndex("MealId");
-
-                    b.HasIndex("UserFoodId");
 
                     b.ToTable("MealUserFoods");
                 });
@@ -1185,18 +822,11 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("UserFoodId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("NutritionId");
 
                     b.HasIndex("FoodId")
                         .IsUnique()
                         .HasFilter("[FoodId] IS NOT NULL");
-
-                    b.HasIndex("UserFoodId")
-                        .IsUnique()
-                        .HasFilter("[UserFoodId] IS NOT NULL");
 
                     b.ToTable("Nutritions");
                 });
@@ -1276,47 +906,6 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("GoalId");
 
                     b.ToTable("Targets");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
-                {
-                    b.Property<Guid>("UserFoodId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("FoodName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MeasurementUnit")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PortionSize")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("PortionWeight")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("UserFoodId");
-
-                    b.ToTable("UserFoods");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Vital", b =>
@@ -1526,7 +1115,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "44522466-2e8d-4010-894d-1015ad7bb9ce",
+                            ConcurrencyStamp = "e29d9627-3c92-45d6-8ce9-b421b90a479e",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -1534,10 +1123,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAk4m/NdgMnUCHZnmPg3rybpz4hEV9r5Otc4pKWUwCKlVAoepIngzpi+Ow4JwB2XHg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDAZwIRCZi5nrNwHBBA46knGbUv+QAgeXvZKMV8+YG3XMGUtIUmew3kC8ssb2i8OkQ==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6966647e-c5bc-4d14-9fb9-73acd60ae5c3",
+                            SecurityStamp = "420c851b-64a4-457b-aa1a-1a5836086af2",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1547,7 +1136,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3491dea7-0dd5-40bf-bb5a-f2de9e5d9082",
+                            ConcurrencyStamp = "436b4a2a-0665-49f9-8beb-e95834ae0959",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -1555,10 +1144,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFSlDe0G3P26nB/0qcfnm+3TNdpK3gEVLEGDT098ZKQpbd59uCpY7G4Gz/318h3PKA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELmUj4dP3KMPM5Up7JBwBk7zECWrEj+0zayAy/zmkGLVCzoAHnDkh6yKwvP/Pk223w==",
                             PhoneNumber = "0999998888",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "065dc293-ff19-4b37-a98d-71784262493c",
+                            SecurityStamp = "8ff55e72-5bbb-403b-861f-532668ff3f90",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1568,7 +1157,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "05dcfebe-678c-4077-b4f7-6f89139b26ff",
+                            ConcurrencyStamp = "7aebf8f3-0a74-41d0-a571-27e1c3aa73ca",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -1576,10 +1165,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFTcSJHWz+kB4cl8cLpUtsAbWaCAWGoKISq1JB8cK7cYFXAX7r6NbE//q8aNBUSZSg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEPPfqYcMjVi+L8Bm6i/GCrt+PG7COauzAaARxD7qb7CeY8ouUwvnm9PXQsWeKFcfQ==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c91d8ceb-13d8-4661-9281-9631b6900516",
+                            SecurityStamp = "37132735-b650-42ab-b9b5-247f9617a278",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1589,7 +1178,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0a5b3195-d84e-4eca-9ce6-d8103b8e861f",
+                            ConcurrencyStamp = "0a950ee3-f7ed-4281-adcb-654cb1c2fb5d",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -1597,10 +1186,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJ9seQHx/f3p/FbLAXPHQ1q+tW1hiOLi36BrVhlPAw2msclLwhKdb8KrmQZduaAVHQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGmgOKwVnvOjpt+uQglv0KEVL6D++uuHgaaEX0mOnqZ6C1t0nVTbJpIJpF4HGPZf+g==",
                             PhoneNumber = "0777444499",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f6c85add-cde0-4727-befe-92d257a9f70c",
+                            SecurityStamp = "1b2b0e8e-5d78-44c7-a5ff-8f3ab12af190",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1610,7 +1199,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6fd7da96-e82d-4e5f-b835-98c8dcfbda47",
+                            ConcurrencyStamp = "ab3996a9-5246-46e1-b83c-c9f514c05f0e",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -1618,10 +1207,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBuEWGzhVIN+HzsZcr+tDUS9ILWnef8yKt6f4KAF9KueJ/RRmhEySU0UFbobNc3Wyg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ2xv85cJyfIkJkkIXYlwtEsRWC8wP1HBKcj08QkDKfDSyprtLkFfB2xZBLuCiZ0Nw==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a7a94079-acff-4d81-bf77-a5c1995f6d89",
+                            SecurityStamp = "f47a8b20-753c-4b41-a74d-60933f4e27ac",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1631,7 +1220,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "19a593d0-4b57-4ab4-b072-40888ea1b8f6",
+                            ConcurrencyStamp = "738d5821-df02-4fea-af6c-85aa8fe2da57",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -1639,10 +1228,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAED9apHnVys/y+i16/EfjlJG7aGErFBzPYiOMpMr//cj1lA4VYR2vU2J5OrF17siTnA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAs8eT1UEVwNFo1glAaO2D/P5ozSbq6aENAHEMPBzDd3ChVV3lQ/Sp3t41hV/fnKHQ==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3ae08119-e738-480b-baa6-f2f01e78c0bf",
+                            SecurityStamp = "d582ca8a-e86c-41f6-b957-1d51e1896cbe",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1750,6 +1339,17 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("DailyStat");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Food", b =>
+                {
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
+                        .WithMany("Foods")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.FoodPortion", b =>
                 {
                     b.HasOne("Monhealth.Domain.Food", "Food")
@@ -1829,15 +1429,7 @@ namespace Monhealth.Identity.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Monhealth.Domain.UserFood", "UserFood")
-                        .WithMany("MealUserFoods")
-                        .HasForeignKey("UserFoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Meal");
-
-                    b.Navigation("UserFood");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Metric", b =>
@@ -1857,13 +1449,7 @@ namespace Monhealth.Identity.Migrations
                         .WithOne("Nutrition")
                         .HasForeignKey("Monhealth.Domain.Nutrition", "FoodId");
 
-                    b.HasOne("Monhealth.Domain.UserFood", "UserFood")
-                        .WithOne("Nutrition")
-                        .HasForeignKey("Monhealth.Domain.Nutrition", "UserFoodId");
-
                     b.Navigation("Food");
-
-                    b.Navigation("UserFood");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Target", b =>
@@ -1932,18 +1518,12 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("FoodPortions");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
-                {
-                    b.Navigation("MealUserFoods");
-
-                    b.Navigation("Nutrition")
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Monhealth.Identity.Models.AppUser", b =>
                 {
                     b.Navigation("Consultant")
                         .IsRequired();
+
+                    b.Navigation("Foods");
 
                     b.Navigation("Goals");
 

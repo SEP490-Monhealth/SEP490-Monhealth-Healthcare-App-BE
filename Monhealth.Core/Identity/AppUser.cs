@@ -21,7 +21,9 @@ namespace Monhealth.Identity.Models
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
 
+
         public Consultant Consultant { get; set; } //one to one 
+        public ICollection<Food> Foods { get; set; }
         public InterestFood InterestFood { get; set; } //one to one
         public ICollection<Vital> Vitals { get; set; }
         public ICollection<Metric> Metrics { get; set; }
