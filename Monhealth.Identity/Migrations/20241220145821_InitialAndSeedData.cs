@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -35,13 +36,7 @@ namespace Monhealth.Identity.Migrations
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Dob = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    VipStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    VipExpireDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    LastLoginDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -75,8 +70,8 @@ namespace Monhealth.Identity.Migrations
                     CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -99,8 +94,8 @@ namespace Monhealth.Identity.Migrations
                     TotalCarbs = table.Column<float>(type: "real", nullable: false),
                     TotalFat = table.Column<float>(type: "real", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -115,8 +110,8 @@ namespace Monhealth.Identity.Migrations
                     DepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -132,8 +127,8 @@ namespace Monhealth.Identity.Migrations
                     FoodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FoodDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -147,36 +142,16 @@ namespace Monhealth.Identity.Migrations
                 {
                     PortionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PortionSize = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PortionWeight = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PortionWeight = table.Column<float>(type: "real", nullable: false),
                     MeasurementUnit = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Portions", x => x.PortionId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserFoods",
-                columns: table => new
-                {
-                    UserFoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FoodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PortionSize = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PortionWeight = table.Column<float>(type: "real", nullable: false),
-                    MeasurementUnit = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserFoods", x => x.UserFoodId);
                 });
 
             migrationBuilder.CreateTable(
@@ -291,13 +266,14 @@ namespace Monhealth.Identity.Migrations
                 {
                     GoalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GoalType = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -322,8 +298,8 @@ namespace Monhealth.Identity.Migrations
                     Nutrition = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Allergies = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -344,7 +320,6 @@ namespace Monhealth.Identity.Migrations
                     MetricId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    MetricName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     Height = table.Column<float>(type: "real", nullable: false),
                     Weight = table.Column<float>(type: "real", nullable: false),
@@ -354,8 +329,8 @@ namespace Monhealth.Identity.Migrations
                     Tdee = table.Column<float>(type: "real", nullable: false),
                     Ibw = table.Column<float>(type: "real", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -363,6 +338,32 @@ namespace Monhealth.Identity.Migrations
                     table.PrimaryKey("PK_Metrics", x => x.MetricId);
                     table.ForeignKey(
                         name: "FK_Metrics_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserFoods",
+                columns: table => new
+                {
+                    FoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FoodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PortionSize = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PortionWeight = table.Column<float>(type: "real", nullable: false),
+                    MeasurementUnit = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserFoods", x => x.FoodId);
+                    table.ForeignKey(
+                        name: "FK_UserFoods_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -380,8 +381,8 @@ namespace Monhealth.Identity.Migrations
                     BloodGlucose = table.Column<float>(type: "real", nullable: false),
                     Allergies = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -409,8 +410,8 @@ namespace Monhealth.Identity.Migrations
                     TotalProteins = table.Column<float>(type: "real", nullable: false),
                     TotalFats = table.Column<float>(type: "real", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -432,8 +433,8 @@ namespace Monhealth.Identity.Migrations
                     DepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -504,39 +505,6 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Nutritions",
-                columns: table => new
-                {
-                    NutritionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserFoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    FoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    Calories = table.Column<float>(type: "real", nullable: false),
-                    Protein = table.Column<float>(type: "real", nullable: false),
-                    Carbs = table.Column<float>(type: "real", nullable: false),
-                    Fat = table.Column<float>(type: "real", nullable: false),
-                    Fiber = table.Column<float>(type: "real", nullable: false),
-                    Sugar = table.Column<float>(type: "real", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Nutritions", x => x.NutritionId);
-                    table.ForeignKey(
-                        name: "FK_Nutritions_Foods_FoodId",
-                        column: x => x.FoodId,
-                        principalTable: "Foods",
-                        principalColumn: "FoodId");
-                    table.ForeignKey(
-                        name: "FK_Nutritions_UserFoods_UserFoodId",
-                        column: x => x.UserFoodId,
-                        principalTable: "UserFoods",
-                        principalColumn: "UserFoodId");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Targets",
                 columns: table => new
                 {
@@ -548,8 +516,8 @@ namespace Monhealth.Identity.Migrations
                     ExerciseMinutes = table.Column<int>(type: "int", nullable: false),
                     DailySteps = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -564,6 +532,40 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Nutritions",
+                columns: table => new
+                {
+                    NutritionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Calories = table.Column<float>(type: "real", nullable: false),
+                    Protein = table.Column<float>(type: "real", nullable: false),
+                    Carbs = table.Column<float>(type: "real", nullable: false),
+                    Fat = table.Column<float>(type: "real", nullable: false),
+                    Fiber = table.Column<float>(type: "real", nullable: false),
+                    Sugar = table.Column<float>(type: "real", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Nutritions", x => x.NutritionId);
+                    table.ForeignKey(
+                        name: "FK_Nutritions_Foods_FoodId",
+                        column: x => x.FoodId,
+                        principalTable: "Foods",
+                        principalColumn: "FoodId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Nutritions_UserFoods_FoodId",
+                        column: x => x.FoodId,
+                        principalTable: "UserFoods",
+                        principalColumn: "FoodId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Meals",
                 columns: table => new
                 {
@@ -572,8 +574,8 @@ namespace Monhealth.Identity.Migrations
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MealType = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -596,8 +598,8 @@ namespace Monhealth.Identity.Migrations
                     FoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PortionSize = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -626,8 +628,8 @@ namespace Monhealth.Identity.Migrations
                     UserFoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PortionSize = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -643,7 +645,7 @@ namespace Monhealth.Identity.Migrations
                         name: "FK_MealUserFoods_UserFoods_UserFoodId",
                         column: x => x.UserFoodId,
                         principalTable: "UserFoods",
-                        principalColumn: "UserFoodId",
+                        principalColumn: "FoodId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -658,15 +660,15 @@ namespace Monhealth.Identity.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "Address", "Avatar", "ConcurrencyStamp", "CreatedAt", "CreatedBy", "Dob", "Email", "EmailConfirmed", "FullName", "Gender", "LastLoginDate", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RefreshToken", "RefreshTokenExpiryTime", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedAt", "UpdatedBy", "UserName", "VipExpireDate", "VipStartDate" },
+                columns: new[] { "Id", "AccessFailedCount", "Avatar", "ConcurrencyStamp", "CreatedAt", "CreatedBy", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RefreshToken", "RefreshTokenExpiryTime", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedAt", "UpdatedBy", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, null, "ec31f49a-0e87-4c62-a55d-5c0a5689dc61", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "khanhpham@gmail.com", true, "Nguyen Pham Khanh", null, null, false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAELi4SpNazwxIdXYOiCcAH13FowLfSId+pUqqLo2CTDUGOypd7sNUQVGzbfuSq3PS1w==", "0969998878", false, null, null, "4415839e-ea8d-4547-904f-a007f708eb3b", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "kuem113", null, null },
-                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, null, "8fc0ac5d-40be-45a0-9928-078eaf3059e4", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", null, null, false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEGodVHtqdBFpcFwuPvahtmsDACOuZ6yJqNHR3pGS66Wvh89cXhLfKMYpiGzCqGML3g==", "0555666612", false, null, null, "a555bd30-5c3c-4107-8a9b-b2086c310c32", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duypro113", null, null },
-                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, null, "3fa51b9a-8857-4616-ac3b-d55491e3a11b", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "quocdai@gmail.com", true, "Nguyen Quoc Dai", null, null, false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAEEK4GxHS1+rliWZcuznF3Szjvl2xJJfF6vIUcwWrftUnBpQ/s6+DmV7Nce1ykRrLtQ==", "0932748924", false, null, null, "0c5a4b94-82c5-42ce-9a01-2384accc3fcb", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "dainq115", null, null },
-                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, null, "cd67ff27-577b-4ee1-8eeb-5bd49a0aeaab", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "khaitoi@gmail.com", true, "Phan Van Khai", null, null, false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEAiCzsmWT31mi1jLrt4JOIXTvaHnG7oW+StBxsEn9xUhcixGHqzzm2mzeVmRuOEH/g==", "0777444499", false, null, null, "5bde04ed-cf85-4970-8bc5-be524a544551", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "xautrai123", null, null },
-                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, null, "47397846-ffc7-416d-bdb1-5a156f4c7657", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "quangdalat@gmail.com", true, "Quang La Tui", null, null, false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEFzNv0wrLiV7ACiUPHkQtd5PX81vlVAyisfiTVH1Nvj+uW5jVGiL2Xisn3ABpF/5Sg==", "0999777712", false, null, null, "09f66786-631f-4185-9948-b22827149583", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangspa09", null, null },
-                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, null, "66ae87a3-3beb-4a74-a24e-4379179da5f9", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "toanvan@gmail.com", true, "Van Huu Toan", null, null, false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEMDAW7ucMKDeA5Fpbly8gfT4X8FrUsHOgQxNz2BVxgUKPDXWbYxmJpnv8hQGLb5LtQ==", "0999998888", false, null, null, "dacc6fa5-bf96-4199-a936-a85b1791906b", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "vipro123", null, null }
+                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, "ba7d267f-7f21-4a6a-9f6c-7ad094546b3a", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khanhpham@gmail.com", true, "Nguyen Pham Khanh", false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAELyQ+A2bedYZh5kuBarGi8HVWfQEmz+wP45Q3BG2JCSWxZP6SgISe7CkMa9lWrZCTQ==", "0969998878", false, null, null, "b327421a-7c21-4938-a51d-464a5d0c1b42", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "kuem113" },
+                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, "0a0e1022-b80d-4674-8fec-70d2d503d88f", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEIm4HCcTMuyUKruPNEzYQbQtcLlMxX50S6szjG7k4qL+QLL0DOx0211YMRVP2fpX1w==", "0555666612", false, null, null, "4e7eeeaf-ba43-4fc2-bad2-e1fee73cc5c7", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duypro113" },
+                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, "bb9d163f-83ab-4fc9-97fc-e61997fd3a83", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quocdai@gmail.com", true, "Nguyen Quoc Dai", false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAENziQgUCtU6EbmZZgkdramXpksDlNvXVMVzzG5fK2eQLkVzuE+i9+nrmxQi+1SSJMQ==", "0932748924", false, null, null, "5c1e7792-427a-4920-a26a-cdc7104cde5d", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "dainq115" },
+                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, "8707e68d-ba13-4b81-b387-4ac645c2976b", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khaitoi@gmail.com", true, "Phan Van Khai", false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEITcIpPsWHGVxnQTBpvhHA/RfJ0JyDLKayZqADxKYORbg4pBPvtQudOkTJfVIWInCA==", "0963122758", false, null, null, "f25caf72-3cde-4c7b-aea5-f7b9846e5680", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "xautrai123" },
+                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, "8512dc41-d778-474c-8ea4-832f64cc1baf", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangdalat@gmail.com", true, "Quang La Tui", false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEBPqw1+QjdC4VeobVMBXPCNmVgIL65SczaaLyJ8S7zi/K1Tl4q0FHhAu6G39up5qPA==", "0999777712", false, null, null, "b7beb976-02f8-4062-8467-0b5b01363ef8", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangspa09" },
+                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, "925ed51c-db00-43d3-bc83-85c675fbf482", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "toanvan@gmail.com", true, "Van Huu Toan", false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEPEnLQFGNOzBr7Fr/fbcHBzZ22CdpH1iKpN1TVnsZtRw+4r9VpuMdhh+0SbxgdXYjw==", "0792766979", false, null, null, "e4de4cd8-88df-42f3-b4e7-0f7f7c1de114", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "vipro123" }
                 });
 
             migrationBuilder.InsertData(
@@ -674,18 +676,18 @@ namespace Monhealth.Identity.Migrations
                 columns: new[] { "CategoryId", "CategoryDescription", "CategoryName", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"), "Thực phẩm đã qua quá trình lên men, mang lại hương vị độc đáo và chứa probiotics, như kim chi hoặc sữa chua.", "Lên men", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"), "Thực phẩm giàu protein, bao gồm thịt, đậu, trứng, và các loại hạt, cần thiết cho việc xây dựng và sửa chữa cơ bắp.", "Giàu protein", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"), "Các bữa ăn không có thịt hoặc cá, tập trung vào rau củ và ngũ cốc.", "Đồ ăn chay", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"), "Các món ăn đậm đà, cay nóng, thường được tăng cường với ớt và gia vị.", "Nhiều gia vị", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("78651ea5-2013-4e50-a55f-714de91a712d"), "Thực phẩm có hàm lượng năng lượng (calo) thấp, thường được thiết kế để hỗ trợ kiểm soát cân nặng hoặc duy trì sức khỏe.", "Ít calo", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"), "Thức ăn nhiều carbohydrate (carb) thường là những thực phẩm chứa hàm lượng tinh bột hoặc đường cao.", "Nhiều carbs", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"), "Thực phẩm được trồng mà không sử dụng thuốc trừ sâu tổng hợp hoặc phân bón, tập trung vào tính bền vững và sức khỏe.", "Hữu cơ", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"), "Thực phẩm đã qua xử lý để thay đổi trạng thái tự nhiên của chúng thông qua các phương pháp như đóng hộp, đông lạnh hoặc thêm chất bảo quản.", "Chế biến sẵn", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"), "Các bữa ăn nhanh, tiện lợi, thường được phục vụ trong môi trường nhịp độ nhanh.", "Fast food", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"), "Thực phẩm giàu chất xơ, giúp thúc đẩy sức khỏe tiêu hóa, chẳng hạn như trái cây, rau và ngũ cốc nguyên hạt.", "Giàu chất xơ", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"), "Món tráng miệng hoặc đồ ăn giàu đường, mang lại hương vị ngọt ngào, thỏa mãn.", "Đồ ngọt", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"), "Cá tươi, động vật có vỏ, và các sinh vật biển khác, mang lại hương vị đậm đà của đại dương.", "Hải sản", new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"), "Thực phẩm đã qua quá trình lên men, mang lại hương vị độc đáo và chứa probiotics, như kim chi hoặc sữa chua.", "Lên men", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"), "Thực phẩm giàu protein, bao gồm thịt, đậu, trứng, và các loại hạt, cần thiết cho việc xây dựng và sửa chữa cơ bắp.", "Giàu protein", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"), "Các bữa ăn không có thịt hoặc cá, tập trung vào rau củ và ngũ cốc.", "Đồ ăn chay", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"), "Các món ăn đậm đà, cay nóng, thường được tăng cường với ớt và gia vị.", "Nhiều gia vị", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("78651ea5-2013-4e50-a55f-714de91a712d"), "Thực phẩm có hàm lượng năng lượng (calo) thấp, thường được thiết kế để hỗ trợ kiểm soát cân nặng hoặc duy trì sức khỏe.", "Ít calo", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"), "Thức ăn nhiều carbohydrate (carb) thường là những thực phẩm chứa hàm lượng tinh bột hoặc đường cao.", "Nhiều carbs", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"), "Thực phẩm được trồng mà không sử dụng thuốc trừ sâu tổng hợp hoặc phân bón, tập trung vào tính bền vững và sức khỏe.", "Hữu cơ", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"), "Thực phẩm đã qua xử lý để thay đổi trạng thái tự nhiên của chúng thông qua các phương pháp như đóng hộp, đông lạnh hoặc thêm chất bảo quản.", "Chế biến sẵn", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"), "Các bữa ăn nhanh, tiện lợi, thường được phục vụ trong môi trường nhịp độ nhanh.", "Fast food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"), "Thực phẩm giàu chất xơ, giúp thúc đẩy sức khỏe tiêu hóa, chẳng hạn như trái cây, rau và ngũ cốc nguyên hạt.", "Giàu chất xơ", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"), "Món tráng miệng hoặc đồ ăn giàu đường, mang lại hương vị ngọt ngào, thỏa mãn.", "Đồ ngọt", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"), "Cá tươi, động vật có vỏ, và các sinh vật biển khác, mang lại hương vị đậm đà của đại dương.", "Hải sản", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -894,16 +896,14 @@ namespace Monhealth.Identity.Migrations
                 filter: "[FoodId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Nutritions_UserFoodId",
-                table: "Nutritions",
-                column: "UserFoodId",
-                unique: true,
-                filter: "[UserFoodId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Targets_GoalId",
                 table: "Targets",
                 column: "GoalId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserFoods_UserId",
+                table: "UserFoods",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vitals_UserId",

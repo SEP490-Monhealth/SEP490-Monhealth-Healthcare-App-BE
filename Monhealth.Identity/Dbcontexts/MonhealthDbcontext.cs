@@ -42,6 +42,19 @@ namespace Monhealth.Identity.Dbcontexts
             builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
          .HasKey(x => new { x.RoleId, x.UserId });
 
+            // One-to-One relationship between UserFoods and Nutrition
+            builder.Entity<UserFood>()
+                .HasOne(uf => uf.Nutrition)
+                .WithOne(n => n.UserFood)
+                .HasForeignKey<Nutrition>(n => n.FoodId) // Nutrition.FoodId references UserFood.FoodId
+                .OnDelete(DeleteBehavior.Restrict); // Avoid cascading delete
+
+            // One-to-One relationship between Foods and Nutrition
+            builder.Entity<Food>()
+                .HasOne(f => f.Nutrition)
+                .WithOne(n => n.Food)
+                .HasForeignKey<Nutrition>(n => n.FoodId) // Nutrition.FoodId references Food.FoodId
+                .OnDelete(DeleteBehavior.Restrict); // Avoid cascading delete
 
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());

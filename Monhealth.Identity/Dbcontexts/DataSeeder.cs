@@ -31,7 +31,6 @@ namespace Monhealth.Identity.Dbcontexts
                     NormalizedEmail = "ASD@GMAIL.COM",
                     UserName = "asd",
                     NormalizedUserName = "ASD",
-                    Address = "Cu Chi",
                     PhoneNumber = "0123456789",
                     Status = true,
                     LockoutEnabled = false,

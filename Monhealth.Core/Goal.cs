@@ -11,6 +11,7 @@ namespace Monhealth.Domain
         [Key]
         public Guid GoalId { get; set; }
         public Guid UserId { get; set; }
+        public GoalType GoalType { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Note { get; set; } = string.Empty;

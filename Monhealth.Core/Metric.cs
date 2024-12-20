@@ -12,7 +12,6 @@ namespace Monhealth.Domain
         public Guid MetricId { get; set; }
         public Guid UserId { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string MetricName { get; set; }
         public Gender Gender { get; set; }
         public float Height { get; set; }
         public float Weight { get; set; }
