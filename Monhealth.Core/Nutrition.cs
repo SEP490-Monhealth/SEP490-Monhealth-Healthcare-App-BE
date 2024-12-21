@@ -1,5 +1,6 @@
 ﻿using Monhealth.Domain.Common;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
@@ -15,7 +16,9 @@ namespace Monhealth.Domain
         public float Fiber { get; set; }
         public float Sugar { get; set; }
 
+        [ForeignKey(nameof(FoodId))]
         public Food Food { get; set; }
-        public UserFood UserFood { get; set; }
+
+       
     }
 }

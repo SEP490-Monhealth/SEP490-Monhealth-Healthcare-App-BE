@@ -26,6 +26,11 @@ namespace Monhealth.Identity.Repositories
             return await _context.Categories.ToListAsync();
         }
 
+        public async Task<Category> GetCategoryByCategoryName(string Name)
+        {
+            return await _context.Categories.FirstOrDefaultAsync(c => c.CategoryName == Name);
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

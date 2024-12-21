@@ -699,13 +699,25 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FoodType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("FoodId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Foods");
 
@@ -716,7 +728,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Cơm trắng",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -724,7 +739,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Thịt heo nạc",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -732,7 +750,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Rau muống",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -740,7 +761,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Tôm biển",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -748,7 +772,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Xúc xích",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -756,7 +783,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Bỏng ngô",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -764,7 +794,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Nem chua",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -772,7 +805,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Mãng cầu",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -780,7 +816,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Bắp luộc",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -788,7 +827,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Chả giò",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -796,7 +838,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Bưởi",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -804,7 +849,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Giá đỗ",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -812,7 +860,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Nấm kim châm",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -820,7 +871,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Khoai tây",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -828,7 +882,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Bầu",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -836,7 +893,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Đậu phộng",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -844,7 +904,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Thịt bò",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -852,7 +915,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Chuối tây",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -860,7 +926,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Bún tươi",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
@@ -868,7 +937,10 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "",
                             FoodName = "Sầu riêng",
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            FoodType = "",
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         });
                 });
 
@@ -907,9 +979,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("GoalType")
-                        .HasColumnType("int");
 
                     b.Property<string>("Note")
                         .IsRequired()
@@ -1078,14 +1147,9 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserFoodId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("MealUserFoodId");
 
                     b.HasIndex("MealId");
-
-                    b.HasIndex("UserFoodId");
 
                     b.ToTable("MealUserFoods");
                 });
@@ -1122,6 +1186,10 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<float>("Ibw")
                         .HasColumnType("real");
+
+                    b.Property<string>("MetricName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Tdee")
                         .HasColumnType("real");
@@ -1225,22 +1293,6 @@ namespace Monhealth.Identity.Migrations
                     b.HasKey("PortionId");
 
                     b.ToTable("Portions");
-
-                    b.HasData(
-                        new
-                        {
-                            PortionId = new Guid("d2f3a6c9-19c1-45fa-9a4f-3ad8396c19a7"),
-                            MeasurementUnit = "g",
-                            PortionSize = "Phần ăn",
-                            PortionWeight = 100f
-                        },
-                        new
-                        {
-                            PortionId = new Guid("a44fd2e0-b595-4423-9e6f-42a010d96f66"),
-                            MeasurementUnit = "g",
-                            PortionSize = "Chén",
-                            PortionWeight = 100f
-                        });
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Target", b =>
@@ -1284,49 +1336,6 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("GoalId");
 
                     b.ToTable("Targets");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
-                {
-                    b.Property<Guid>("FoodId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("FoodName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MeasurementUnit")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PortionSize")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("PortionWeight")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("FoodId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserFoods");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Vital", b =>
@@ -1429,6 +1438,9 @@ namespace Monhealth.Identity.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Avatar")
                         .HasColumnType("nvarchar(max)");
 
@@ -1442,6 +1454,9 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("Dob")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -1452,6 +1467,12 @@ namespace Monhealth.Identity.Migrations
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastLoginDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -1501,6 +1522,12 @@ namespace Monhealth.Identity.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<DateTime?>("VipExpireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("VipStartDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -1518,7 +1545,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0e8767ac-8310-4cfe-a434-418c0cc1bed6",
+                            ConcurrencyStamp = "aa053cdf-b2df-4342-9e6b-68144f0eb7ca",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -1526,10 +1553,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPgTHPf89TJwnxAdC+B7OwWgUvkzVI84bNM2znHtv55iEdcjRMAidpsyDCA1CzO5qg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKOlGFx5OVUkhE+nNzwJZ1quQ6lfFuQvsWwrvGpashkLP1LMYC2O1kIjO10fpVR9QA==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "70f2cac6-f1ea-4e3c-8ab1-07084f9fd99d",
+                            SecurityStamp = "11ac8d4b-e3c9-4b64-999c-31b32d9aee34",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1539,7 +1566,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "81732088-4eb2-489a-b13a-d0340450dbac",
+                            ConcurrencyStamp = "e5ad227f-f041-45c4-92f8-6cf416711489",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -1547,10 +1574,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEELRiYixWKNrESe/z2W4lSgrP2SjlIKar1Fc57BifH/NNE6a3hF+fPMWoi5VYxq8pw==",
-                            PhoneNumber = "0792766979",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC70aFCe5Sq4g3a2jJgzHV6OFtVsVT9V/N0TXzERMFH0XgM7SVkpbhoQKag9rhOG2g==",
+                            PhoneNumber = "0999998888",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c0a537da-3014-4885-b2d8-9f3b2d47b25f",
+                            SecurityStamp = "d80065f3-793d-45ce-923a-e612aae96365",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1560,7 +1587,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b6241ebf-c959-445c-8d78-618bae1ed5e3",
+                            ConcurrencyStamp = "3db195d5-9e78-4621-8863-6e4890250e37",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -1568,10 +1595,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAELcnJkdLE3L5FSx3mZeexuAoJW5hvONUCZ5h7YeDAg63QEOhJlv7b9arfVmifNCvbw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENHAAFIQSVsBeEsx5c+wsz7RQQDBh5MNgc0aNGPSV5vs9aECNJuJsyQTYhCFtfdpaQ==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f794865a-ae56-40e8-8b43-c64a413ec970",
+                            SecurityStamp = "90c3bf3a-bd1b-4aca-91fb-5845c41689c2",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1581,7 +1608,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a4022108-f21b-4c33-b9f3-51c8cf0126dc",
+                            ConcurrencyStamp = "c3f1d2e1-31e6-4946-a7d0-5d2c1cf5204b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -1589,10 +1616,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAENwKa6gRwyJsRoFFTdl6T8UnaRcD+VAcFeMmP//OJ6F7Ewv/t+GtPi3btRZjAuq9eQ==",
-                            PhoneNumber = "0963122758",
+                            PasswordHash = "AQAAAAIAAYagAAAAEG65WcYB3ICC5KVo+4/F1v4Bd8uTrpy7DB/bqwsGdzisHGzE9e8oXfWbQebXGPbdmQ==",
+                            PhoneNumber = "0777444499",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b4a8d109-71d7-4f23-872f-28998b887db4",
+                            SecurityStamp = "53854e35-c9a8-4155-ba59-f60e796e193b",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1602,7 +1629,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "28c8b356-10ec-4445-970d-6b8287f8c34c",
+                            ConcurrencyStamp = "e9661612-d9eb-4854-891f-0c8a3d7e579f",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -1610,10 +1637,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGBg0abwyAmxht0lYIIswV/7q2NI87Mh+0CFUBAeiY6IX3Y7lO2EpN/nwXYel/yv3A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFb4G+J0tCJrMys1Gb/bw3G++9pJxo20/cFt5CeDiuQ0Sn7B4uzuUxOhh+So89xh8A==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e014119f-e618-41c9-8077-15b5e56edf3a",
+                            SecurityStamp = "20d8ef16-85c8-40e3-91f5-d270757ab211",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1623,7 +1650,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "059e146d-8f2c-4edd-b359-6ec738bfafc6",
+                            ConcurrencyStamp = "98d3cb37-d2f5-4f65-86e9-845bea5c3010",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -1631,10 +1658,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEATFhPvj+sk+VdxYSDhk10oUM8vYSC1iDJfuRaBGPMVVALvzxRS89b9S34OOju2E9Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOM7cl+S7o7alQp/CytfVnqGCxkwQY5a/i6VirjrG1XD0wbgPT8PeEqkQa/daOaTCA==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c9b292e1-095b-481b-bff9-37b607f7be1a",
+                            SecurityStamp = "96a68e3f-d666-47ed-bcdc-6660e37ac4a5",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1742,6 +1769,17 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("DailyStat");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Food", b =>
+                {
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
+                        .WithMany("Foods")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.FoodPortion", b =>
                 {
                     b.HasOne("Monhealth.Domain.Food", "Food")
@@ -1821,15 +1859,7 @@ namespace Monhealth.Identity.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Monhealth.Domain.UserFood", "UserFood")
-                        .WithMany("MealUserFoods")
-                        .HasForeignKey("UserFoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Meal");
-
-                    b.Navigation("UserFood");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Metric", b =>
@@ -1847,17 +1877,9 @@ namespace Monhealth.Identity.Migrations
                 {
                     b.HasOne("Monhealth.Domain.Food", "Food")
                         .WithOne("Nutrition")
-                        .HasForeignKey("Monhealth.Domain.Nutrition", "FoodId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Monhealth.Domain.UserFood", "UserFood")
-                        .WithOne("Nutrition")
-                        .HasForeignKey("Monhealth.Domain.Nutrition", "FoodId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("Monhealth.Domain.Nutrition", "FoodId");
 
                     b.Navigation("Food");
-
-                    b.Navigation("UserFood");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Target", b =>
@@ -1869,17 +1891,6 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
 
                     b.Navigation("Goal");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
-                {
-                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
-                        .WithMany("Foods")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Vital", b =>
@@ -1935,14 +1946,6 @@ namespace Monhealth.Identity.Migrations
             modelBuilder.Entity("Monhealth.Domain.Portion", b =>
                 {
                     b.Navigation("FoodPortions");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
-                {
-                    b.Navigation("MealUserFoods");
-
-                    b.Navigation("Nutrition")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Monhealth.Identity.Models.AppUser", b =>
