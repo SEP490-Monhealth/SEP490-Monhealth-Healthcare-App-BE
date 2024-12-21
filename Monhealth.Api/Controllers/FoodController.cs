@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Food.AddFood;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
 using Monhealth.Application.Features.Food.Queries.GetFoodById;
+using Monhealth.Application.Features.Food.Queries.GetFoodsByCategory;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -37,7 +38,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{foodType}")]
+        [Route("food/{foodType}")]
         public async Task<ActionResult<ResultModel>> GetFoodsByFoodType(string foodType)
         {
             var foods = await _mediator.
@@ -67,6 +68,31 @@ namespace Monhealth.Api.Controllers
         {
             var food = await _mediator.
             Send(new GetFoodByIdQuery { FoodId = foodId });
+
+            if (food == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Thức ăn không tồn tại.",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = food
+            });
+        }
+        
+        [HttpGet]
+        [Route("category/{categoryName}")]
+        public async Task<ActionResult<ResultModel>> GetFoodByCategory(string categoryName)
+        {
+            var food = await _mediator.
+            Send(new GetFoodListQueryByCategoryQuery { CategoryName = categoryName });
 
             if (food == null)
             {

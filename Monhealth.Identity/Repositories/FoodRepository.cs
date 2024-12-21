@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Dynamic.Core;
+using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
@@ -27,6 +28,14 @@ namespace Monhealth.Identity.Repositories
                          .ToListAsync();
         }
 
+        public async Task<List<Food>> GetFoodByCategoryName(string categoryName)
+        {
+            return await _context.Foods
+            .Include(f => f.FoodCategories)
+            .ThenInclude(fc => fc.Category)
+            .Where(f => f.FoodCategories.Any(fc => fc.Category.CategoryName == categoryName))
+            .ToListAsync();
+        }
         public async Task<Food> GetFoodByIdAsync(Guid foodId)
         {
             return await _context.Foods
