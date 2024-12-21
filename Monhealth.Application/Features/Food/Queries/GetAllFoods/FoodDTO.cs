@@ -14,6 +14,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         public List<string> CategoryName { get; set; }
         public string FoodName { get; set; } = string.Empty;
         public string FoodDescription { get; set; } = string.Empty;
+        public bool Status { get; set; }
         //  public string PortionSize { get; set; } = string.Empty;
         //         public float PortionWeight { get; set; }
         //         public string MeasurementUnit { get; set; } = string.Empty;
