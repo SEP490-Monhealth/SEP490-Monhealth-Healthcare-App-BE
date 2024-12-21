@@ -18,15 +18,16 @@ namespace Monhealth.Api.Controllers
         }
         
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllMetrics()
+        public async Task<ActionResult<ResultModel>> GetAllMetrics(int page = 1, int limit = 10)
         {
-            var metrics = await _mediator.Send(new GetMetricListQuery());
+            var metrics = await _mediator.Send(new GetMetricListQuery(page, limit));
 
             return new ResultModel
             {
                 Data = metrics,
-                Status = 200,
-                Success = true
+                Status = (int)HttpStatusCode.OK,
+                Success = true,
+                Message = "Lấy danh sách số liệu thành công"
             };
         }
 
