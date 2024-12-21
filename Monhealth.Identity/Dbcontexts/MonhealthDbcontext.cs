@@ -31,7 +31,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<MealFood> MealFoods { get; set; }
         public DbSet<MealUserFood> MealUserFoods { get; set; }
         public DbSet<Nutrition> Nutritions { get; set; }
-        
+
         public DbSet<FoodCategory> FoodCategories { get; set; }
         public DbSet<FoodPortion> FoodPortions { get; set; }
 
@@ -42,12 +42,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
          .HasKey(x => new { x.RoleId, x.UserId });
 
-            // One-to-One relationship between UserFoods and Nutrition
-            builder.Entity<UserFood>()
-                .HasOne(uf => uf.Nutrition)
-                .WithOne(n => n.UserFood)
-                .HasForeignKey<Nutrition>(n => n.FoodId) // Nutrition.FoodId references UserFood.FoodId
-                .OnDelete(DeleteBehavior.Restrict); // Avoid cascading delete
+
 
             // One-to-One relationship between Foods and Nutrition
             builder.Entity<Food>()

@@ -22,7 +22,6 @@ namespace Monhealth.Identity.Models
         public ICollection<Vital> Vitals { get; set; }
         public ICollection<Metric> Metrics { get; set; }
         public ICollection<Goal> Goals { get; set; }
-        public ICollection<UserFood> Foods { get; set; }
 
     }
 }

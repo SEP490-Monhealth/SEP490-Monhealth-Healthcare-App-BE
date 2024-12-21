@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Monhealth.Identity.Migrations
 {
     /// <inheritdoc />
-    public partial class fixDatabase : Migration
+    public partial class InitialAndSeedData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -120,26 +120,6 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<<< HEAD:Monhealth.Identity/Migrations/20241220145821_InitialAndSeedData.cs
-                name: "Foods",
-                columns: table => new
-                {
-                    FoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FoodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FoodDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Foods", x => x.FoodId);
-                });
-
-            migrationBuilder.CreateTable(
-========
->>>>>>>> origin/Nutrition-Table:Monhealth.Identity/Migrations/20241221051834_fixDatabase.cs
                 name: "Portions",
                 columns: table => new
                 {
@@ -272,9 +252,7 @@ namespace Monhealth.Identity.Migrations
                     FoodType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FoodDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FoodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PortionSize = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PortionWeight = table.Column<float>(type: "real", nullable: false),
-                    MeasurementUnit = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -369,32 +347,6 @@ namespace Monhealth.Identity.Migrations
                     table.PrimaryKey("PK_Metrics", x => x.MetricId);
                     table.ForeignKey(
                         name: "FK_Metrics_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserFoods",
-                columns: table => new
-                {
-                    FoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FoodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PortionSize = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PortionWeight = table.Column<float>(type: "real", nullable: false),
-                    MeasurementUnit = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserFoods", x => x.FoodId);
-                    table.ForeignKey(
-                        name: "FK_UserFoods_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -536,8 +488,6 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<<< HEAD:Monhealth.Identity/Migrations/20241220145821_InitialAndSeedData.cs
-========
                 name: "Nutritions",
                 columns: table => new
                 {
@@ -561,11 +511,11 @@ namespace Monhealth.Identity.Migrations
                         name: "FK_Nutritions_Foods_FoodId",
                         column: x => x.FoodId,
                         principalTable: "Foods",
-                        principalColumn: "FoodId");
+                        principalColumn: "FoodId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
->>>>>>>> origin/Nutrition-Table:Monhealth.Identity/Migrations/20241221051834_fixDatabase.cs
                 name: "Targets",
                 columns: table => new
                 {
@@ -590,40 +540,6 @@ namespace Monhealth.Identity.Migrations
                         principalTable: "Goals",
                         principalColumn: "GoalId",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Nutritions",
-                columns: table => new
-                {
-                    NutritionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FoodId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    Calories = table.Column<float>(type: "real", nullable: false),
-                    Protein = table.Column<float>(type: "real", nullable: false),
-                    Carbs = table.Column<float>(type: "real", nullable: false),
-                    Fat = table.Column<float>(type: "real", nullable: false),
-                    Fiber = table.Column<float>(type: "real", nullable: false),
-                    Sugar = table.Column<float>(type: "real", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Nutritions", x => x.NutritionId);
-                    table.ForeignKey(
-                        name: "FK_Nutritions_Foods_FoodId",
-                        column: x => x.FoodId,
-                        principalTable: "Foods",
-                        principalColumn: "FoodId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Nutritions_UserFoods_FoodId",
-                        column: x => x.FoodId,
-                        principalTable: "UserFoods",
-                        principalColumn: "FoodId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -701,15 +617,6 @@ namespace Monhealth.Identity.Migrations
                         principalTable: "Meals",
                         principalColumn: "MealId",
                         onDelete: ReferentialAction.Cascade);
-<<<<<<<< HEAD:Monhealth.Identity/Migrations/20241220145821_InitialAndSeedData.cs
-                    table.ForeignKey(
-                        name: "FK_MealUserFoods_UserFoods_UserFoodId",
-                        column: x => x.UserFoodId,
-                        principalTable: "UserFoods",
-                        principalColumn: "FoodId",
-                        onDelete: ReferentialAction.Cascade);
-========
->>>>>>>> origin/Nutrition-Table:Monhealth.Identity/Migrations/20241221051834_fixDatabase.cs
                 });
 
             migrationBuilder.InsertData(
@@ -726,21 +633,12 @@ namespace Monhealth.Identity.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Avatar", "ConcurrencyStamp", "CreatedAt", "CreatedBy", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RefreshToken", "RefreshTokenExpiryTime", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedAt", "UpdatedBy", "UserName" },
                 values: new object[,]
                 {
-<<<<<<<< HEAD:Monhealth.Identity/Migrations/20241220145821_InitialAndSeedData.cs
-                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, "ba7d267f-7f21-4a6a-9f6c-7ad094546b3a", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khanhpham@gmail.com", true, "Nguyen Pham Khanh", false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAELyQ+A2bedYZh5kuBarGi8HVWfQEmz+wP45Q3BG2JCSWxZP6SgISe7CkMa9lWrZCTQ==", "0969998878", false, null, null, "b327421a-7c21-4938-a51d-464a5d0c1b42", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "kuem113" },
-                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, "0a0e1022-b80d-4674-8fec-70d2d503d88f", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEIm4HCcTMuyUKruPNEzYQbQtcLlMxX50S6szjG7k4qL+QLL0DOx0211YMRVP2fpX1w==", "0555666612", false, null, null, "4e7eeeaf-ba43-4fc2-bad2-e1fee73cc5c7", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duypro113" },
-                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, "bb9d163f-83ab-4fc9-97fc-e61997fd3a83", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quocdai@gmail.com", true, "Nguyen Quoc Dai", false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAENziQgUCtU6EbmZZgkdramXpksDlNvXVMVzzG5fK2eQLkVzuE+i9+nrmxQi+1SSJMQ==", "0932748924", false, null, null, "5c1e7792-427a-4920-a26a-cdc7104cde5d", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "dainq115" },
-                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, "8707e68d-ba13-4b81-b387-4ac645c2976b", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khaitoi@gmail.com", true, "Phan Van Khai", false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEITcIpPsWHGVxnQTBpvhHA/RfJ0JyDLKayZqADxKYORbg4pBPvtQudOkTJfVIWInCA==", "0963122758", false, null, null, "f25caf72-3cde-4c7b-aea5-f7b9846e5680", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "xautrai123" },
-                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, "8512dc41-d778-474c-8ea4-832f64cc1baf", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangdalat@gmail.com", true, "Quang La Tui", false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEBPqw1+QjdC4VeobVMBXPCNmVgIL65SczaaLyJ8S7zi/K1Tl4q0FHhAu6G39up5qPA==", "0999777712", false, null, null, "b7beb976-02f8-4062-8467-0b5b01363ef8", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangspa09" },
-                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, "925ed51c-db00-43d3-bc83-85c675fbf482", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "toanvan@gmail.com", true, "Van Huu Toan", false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEPEnLQFGNOzBr7Fr/fbcHBzZ22CdpH1iKpN1TVnsZtRw+4r9VpuMdhh+0SbxgdXYjw==", "0792766979", false, null, null, "e4de4cd8-88df-42f3-b4e7-0f7f7c1de114", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "vipro123" }
-========
-                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, null, "1e8832be-2a98-40c1-ab0d-5d70f42b9b76", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "khanhpham@gmail.com", true, "Nguyen Pham Khanh", null, null, false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAEKQf3D66wZH2YXXWEqouzalcm4h1qctm49qs6rKchSyoEprtOgDav1EqtPQfLtXycw==", "0969998878", false, null, null, "160ee2fc-c5e7-4fdf-90f1-7e4245e74e53", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "kuem113", null, null },
-                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, null, "94f2d413-16bb-438e-8842-923601ac578b", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", null, null, false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAENjp5N6Pvnli/eciT7wzZQBXleKUu9IDxQpw6lunoRM9g040mn7wRwCSeW0LZLe6aQ==", "0555666612", false, null, null, "246fe14e-d96b-4d0f-ae46-3ee844001b70", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duypro113", null, null },
-                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, null, "f6356c76-eda6-42fa-bfe6-f50d5fc1f68b", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "quocdai@gmail.com", true, "Nguyen Quoc Dai", null, null, false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAEBO8I0+nMOXTCyAvlScLpDqi3F5sDF+KenO7JzdIbCaKAn1y+Rs39pdJw2JU9oT+bA==", "0932748924", false, null, null, "a7723236-3311-43c6-ad9a-0101b87d0309", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "dainq115", null, null },
-                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, null, "18327a55-14d4-4b5b-b48e-5952682de6a5", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "khaitoi@gmail.com", true, "Phan Van Khai", null, null, false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEMP1U1IZI6C9Q+09PeUdv/731K6wJiIcAEiNM6J60eLkeB9wFI0VJZB/LHrCh5g1Ig==", "0777444499", false, null, null, "124dd4bb-c809-497b-8bd3-46c7bcc1b5ec", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "xautrai123", null, null },
-                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, null, "56a9e949-7fe7-4a74-b6cb-3f6dab48aeb7", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "quangdalat@gmail.com", true, "Quang La Tui", null, null, false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEGEB4pIoFiIKvzre5mz5NNGGZDdc5v7yZMeamh3gOjA0Y5+WLS0ddf9iOZRq1EyngA==", "0999777712", false, null, null, "db597951-95f2-4dee-b3c9-48c628cdafc4", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangspa09", null, null },
-                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, null, "748ea5b7-79f9-4ff4-939c-f45ed64a09b6", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "toanvan@gmail.com", true, "Van Huu Toan", null, null, false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEKRofNARpYjcaNqKPOUv8XSDPCO4nbGai9EentZvzORP8CiyQu4+wP5lxf2bcw6TKg==", "0999998888", false, null, null, "ce13b708-f294-490f-a348-29907180ab5a", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "vipro123", null, null }
->>>>>>>> origin/Nutrition-Table:Monhealth.Identity/Migrations/20241221051834_fixDatabase.cs
+                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, "b8c4a18a-0dbc-4ae0-985d-ed4df547747c", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khanhpham@gmail.com", true, "Nguyen Pham Khanh", false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAEH3p2BOnUJbafWfXfK1h34jHO/pkpvnMd+xPtDm3oHS+BGUVRjO8j69XpcaaUr1R9w==", "0969998878", false, null, null, "666f2be0-6e15-4b9b-8f22-1c03917118ec", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "kuem113" },
+                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, "5f2a18f1-0a5e-45c6-a2e0-b9848fa91288", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEJPEleCQ90pCuLWxavtapy15UtEFhAbkKwM1hBcjeGYDHBONc5F1Yz1feT3fAEsfvA==", "0555666612", false, null, null, "06f38de3-000d-4e08-ab58-409ba45ba7c4", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duypro113" },
+                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, "bf9d6949-c382-4a70-852c-1fa596d394b8", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quocdai@gmail.com", true, "Nguyen Quoc Dai", false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAEKfC3nCmlu3Z9E4fLE8tvBmiLuK1Uyi2ZRJFd/Aypp2LGAgIJOjOpOhifranSORZ8g==", "0932748924", false, null, null, "f7ee0f16-008c-45e4-a703-10801d346c96", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "dainq115" },
+                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, "47d21914-f2c0-4a97-adf3-8dc76234b0d2", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khaitoi@gmail.com", true, "Phan Van Khai", false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEIMHM2fg58iqtjc4J+/NvzFjpxts73iP/IQPqq8/YlFJJNOKXyMKW16ZMGRCqEYRGg==", "0963122758", false, null, null, "f2bc2631-0eb2-4c7b-88d0-e509f9442214", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "xautrai123" },
+                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, "e9ddcae3-412f-48b3-bf1a-ad64a80da3e1", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangdalat@gmail.com", true, "Quang La Tui", false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEArtF9pchOPUS2g1/Ijl/eMtjSFTdgAWbYv95EFYv75P9KEtU1HPWfvVVn/P465Brw==", "0999777712", false, null, null, "8de76eb8-c6f7-4d05-a774-2dceecf4312e", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangspa09" },
+                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, "24514e5c-be9f-4394-a2cf-0d0b558f400c", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "toanvan@gmail.com", true, "Van Huu Toan", false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEIjGxtU8OrwTXoSaoQoEcPhwbtFyUvFIuA0iEOSWzfo2U5y011UY/o3gyFA6D2G93A==", "0792766979", false, null, null, "6e5ca6e1-950c-4a51-ac89-1fe09e5a91fc", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "vipro123" }
                 });
 
             migrationBuilder.InsertData(
@@ -760,36 +658,15 @@ namespace Monhealth.Identity.Migrations
                     { new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"), "Thực phẩm giàu chất xơ, giúp thúc đẩy sức khỏe tiêu hóa, chẳng hạn như trái cây, rau và ngũ cốc nguyên hạt.", "Giàu chất xơ", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"), "Món tráng miệng hoặc đồ ăn giàu đường, mang lại hương vị ngọt ngào, thỏa mãn.", "Đồ ngọt", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"), "Cá tươi, động vật có vỏ, và các sinh vật biển khác, mang lại hương vị đậm đà của đại dương.", "Hải sản", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
-<<<<<<<< HEAD:Monhealth.Identity/Migrations/20241220145821_InitialAndSeedData.cs
                 });
 
             migrationBuilder.InsertData(
-                table: "Foods",
-                columns: new[] { "FoodId", "CreatedAt", "CreatedBy", "FoodDescription", "FoodName", "UpdatedAt", "UpdatedBy" },
+                table: "Portions",
+                columns: new[] { "PortionId", "CreatedAt", "CreatedBy", "MeasurementUnit", "PortionSize", "PortionWeight", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { new Guid("00a16b6c-9396-4389-95fd-205f72fe5164"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Nem chua", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("3b372064-e2a9-4729-b725-635e54e11c5d"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bún tươi", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("52c7f28c-1d5a-470e-87cd-2be1ab0ac3db"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Tôm biển", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("62cd0ff3-f69e-4a5f-bc8d-94f1f94e4552"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Khoai tây", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("80c5e605-307f-4fef-bdf8-9967a800eab9"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Mãng cầu", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("97a2fdd1-ff1f-4f5b-85cf-9f68b0cf2b91"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Chuối tây", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("a3be942d-a225-44fb-9c98-22a109995145"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Thịt heo nạc", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("a3c8f7f1-dfe7-4e1e-9e9d-36a3c6b395b7"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Sầu riêng", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("b2fe4b42-56e1-4630-99e1-bb74d6d5ab2f"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Đậu phộng", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Cơm trắng", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("c4f9e44d-b7f6-4530-8b2e-b64c8f993f2a"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Thịt bò", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("c567f8a9-71e4-4167-839d-a839ece79427"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bỏng ngô", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("c82a256d-5573-4d27-b045-a411db42e694"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Xúc xích", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("ced123e2-0b86-444b-ac83-7dba6860e354"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Chả giò", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("d4f8f2c7-5318-4f07-803d-2b093be4d6c7"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bưởi", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("d65bff7e-4a2d-498b-97b2-676d4dd92a90"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bắp luộc", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("dd918def-34c2-4f5c-b402-6d51d8a1c604"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bầu", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("e1b0767d-4b3b-42ea-820f-2154f7883ab9"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Nấm kim châm", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("e34e9f9b-2d65-4e94-bcf0-37f5903c38b9"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Giá đỗ", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("f789601f-8026-499b-98cb-0f189926094a"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Rau muống", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
-========
->>>>>>>> origin/Nutrition-Table:Monhealth.Identity/Migrations/20241221051834_fixDatabase.cs
+                    { new Guid("a44fd2e0-b595-4423-9e6f-42a010d96f66"), null, null, "g", "Chén", 100f, null, null },
+                    { new Guid("d2f3a6c9-19c1-45fa-9a4f-3ad8396c19a7"), null, null, "g", "Phần ăn", 100f, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -807,29 +684,29 @@ namespace Monhealth.Identity.Migrations
 
             migrationBuilder.InsertData(
                 table: "Foods",
-                columns: new[] { "FoodId", "CreatedAt", "CreatedBy", "FoodDescription", "FoodName", "FoodType", "MeasurementUnit", "PortionSize", "PortionWeight", "UpdatedAt", "UpdatedBy", "UserId" },
+                columns: new[] { "FoodId", "CreatedAt", "CreatedBy", "FoodDescription", "FoodName", "FoodType", "Status", "UpdatedAt", "UpdatedBy", "UserId" },
                 values: new object[,]
                 {
-                    { new Guid("00a16b6c-9396-4389-95fd-205f72fe5164"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Nem chua", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("3b372064-e2a9-4729-b725-635e54e11c5d"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bún tươi", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("52c7f28c-1d5a-470e-87cd-2be1ab0ac3db"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Tôm biển", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("62cd0ff3-f69e-4a5f-bc8d-94f1f94e4552"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Khoai tây", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("80c5e605-307f-4fef-bdf8-9967a800eab9"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Mãng cầu", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("97a2fdd1-ff1f-4f5b-85cf-9f68b0cf2b91"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Chuối tây", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("a3be942d-a225-44fb-9c98-22a109995145"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Thịt heo nạc", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("a3c8f7f1-dfe7-4e1e-9e9d-36a3c6b395b7"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Sầu riêng", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("b2fe4b42-56e1-4630-99e1-bb74d6d5ab2f"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Đậu phộng", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Cơm trắng", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("c4f9e44d-b7f6-4530-8b2e-b64c8f993f2a"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Thịt bò", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("c567f8a9-71e4-4167-839d-a839ece79427"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bỏng ngô", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("c82a256d-5573-4d27-b045-a411db42e694"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Xúc xích", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("ced123e2-0b86-444b-ac83-7dba6860e354"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Chả giò", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("d4f8f2c7-5318-4f07-803d-2b093be4d6c7"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bưởi", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("d65bff7e-4a2d-498b-97b2-676d4dd92a90"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bắp luộc", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("dd918def-34c2-4f5c-b402-6d51d8a1c604"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bầu", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("e1b0767d-4b3b-42ea-820f-2154f7883ab9"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Nấm kim châm", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("e34e9f9b-2d65-4e94-bcf0-37f5903c38b9"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Giá đỗ", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("f789601f-8026-499b-98cb-0f189926094a"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Rau muống", "", "", "", 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") }
+                    { new Guid("00a16b6c-9396-4389-95fd-205f72fe5164"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Nem chua", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("3b372064-e2a9-4729-b725-635e54e11c5d"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bún tươi", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("52c7f28c-1d5a-470e-87cd-2be1ab0ac3db"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Tôm biển", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("62cd0ff3-f69e-4a5f-bc8d-94f1f94e4552"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Khoai tây", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("80c5e605-307f-4fef-bdf8-9967a800eab9"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Mãng cầu", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("97a2fdd1-ff1f-4f5b-85cf-9f68b0cf2b91"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Chuối tây", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("a3be942d-a225-44fb-9c98-22a109995145"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Thịt heo nạc", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("a3c8f7f1-dfe7-4e1e-9e9d-36a3c6b395b7"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Sầu riêng", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("b2fe4b42-56e1-4630-99e1-bb74d6d5ab2f"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Đậu phộng", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("b6fa82bc-715c-42da-af22-93290d3f2421"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Cơm trắng", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("c4f9e44d-b7f6-4530-8b2e-b64c8f993f2a"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Thịt bò", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("c567f8a9-71e4-4167-839d-a839ece79427"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bỏng ngô", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("c82a256d-5573-4d27-b045-a411db42e694"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Xúc xích", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("ced123e2-0b86-444b-ac83-7dba6860e354"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Chả giò", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("d4f8f2c7-5318-4f07-803d-2b093be4d6c7"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bưởi", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("d65bff7e-4a2d-498b-97b2-676d4dd92a90"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bắp luộc", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("dd918def-34c2-4f5c-b402-6d51d8a1c604"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Bầu", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("e1b0767d-4b3b-42ea-820f-2154f7883ab9"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Nấm kim châm", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("e34e9f9b-2d65-4e94-bcf0-37f5903c38b9"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Giá đỗ", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
+                    { new Guid("f789601f-8026-499b-98cb-0f189926094a"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", "Rau muống", "", false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") }
                 });
 
             migrationBuilder.InsertData(
@@ -1001,11 +878,6 @@ namespace Monhealth.Identity.Migrations
                 name: "IX_Targets_GoalId",
                 table: "Targets",
                 column: "GoalId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserFoods_UserId",
-                table: "UserFoods",
-                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vitals_UserId",
