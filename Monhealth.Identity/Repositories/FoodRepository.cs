@@ -29,7 +29,9 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Food>> GetFoodListByFoodType(string foodType)
         {
-            return await _context.Foods.Where(f => f.FoodType == foodType).ToListAsync();
+            return await _context.Foods.Where(f => f.FoodType == foodType)
+            .Include(f => f.FoodCategories)
+            .ThenInclude(fc => fc.Category).ToListAsync();
 
         }
 

@@ -15,14 +15,7 @@ namespace Monhealth.Domain
         public string FoodType { get; set; } = string.Empty;
         public string FoodDescription { get; set; } = string.Empty;
         public string FoodName { get; set; } = string.Empty;
-        public string PortionSize { get; set; } = string.Empty;
-        public float PortionWeight { get; set; }
-        public string MeasurementUnit { get; set; } = string.Empty;
         public bool Status { get; set; }
-        // Navigation properties
-
-
-
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; } // One-to-one with AppUser
 
