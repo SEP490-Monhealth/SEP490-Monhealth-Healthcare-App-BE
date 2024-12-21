@@ -11,16 +11,17 @@ namespace Monhealth.Domain
         [Key]
         public Guid FoodId { get; set; }
         // Foreign Key
-
-        public string FoodName { get; set; } = string.Empty;
+        public Guid UserId { get; set; }
+        public string FoodType { get; set; } = string.Empty;
         public string FoodDescription { get; set; } = string.Empty;
+        public string FoodName { get; set; } = string.Empty;
         public string PortionSize { get; set; } = string.Empty;
         public float PortionWeight { get; set; }
         public string MeasurementUnit { get; set; } = string.Empty;
-
-        // Navigation properties
         
-        public Guid UserId { get; set; }
+        // Navigation properties
+
+
 
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; } // One-to-one with AppUser

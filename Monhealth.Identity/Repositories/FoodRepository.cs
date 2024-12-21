@@ -2,11 +2,6 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -18,7 +13,10 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Food>> GetAllFoodAsync()
         {
-            return await _context.Foods.ToListAsync();
+            var foods = await _context.Foods.Include(f => f.FoodCategories)
+            .ThenInclude(fc => fc.Category)
+            .ToListAsync();
+            return foods;
         }
 
         public async Task<List<Food>> GetByIdsAsync(IEnumerable<Guid> foodIds)
@@ -26,8 +24,37 @@ namespace Monhealth.Identity.Repositories
             return await _context.Foods
                          .Include(f => f.FoodPortions)
                          .Where(f => foodIds.Contains(f.FoodId))
-                         .ToListAsync(); 
+                         .ToListAsync();
         }
+
+        public async Task<List<Food>> GetFoodListByFoodType(string foodType)
+        {
+            return await _context.Foods.Where(f => f.FoodType == foodType).ToListAsync();
+
+        }
+
+        // public async Task<List<Food>> GetFoodListByUser(Guid userId)
+        // {
+        //     var isCustomer = await _context.Roles.Where(role => role.Name == "Customer")
+        //                         .Join(_context.UserRoles,
+        //                               role => role.Id,
+        //                               userRole => userRole.RoleId,
+        //                               (role, userRole) => userRole.UserId)
+        //                         .Distinct()
+        //                         .ToListAsync();
+        //     if (isCustomer == null)
+        //     {
+
+        //         return new List<Food>();
+        //     }
+
+
+        //     var foods = await _context.Foods
+        //         .Where(f => f.UserId == userId)
+        //         .ToListAsync();
+
+        //     return foods;
+        // }
 
         public async Task<int> SaveChangesAsync()
         {
