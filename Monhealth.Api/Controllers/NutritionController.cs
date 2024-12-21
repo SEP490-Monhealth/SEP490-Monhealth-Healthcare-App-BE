@@ -95,7 +95,6 @@ namespace Monhealth.Api.Controllers
                     Success = true,
                     Message = "Tạo dinh dưỡng thành công.",
                     Status = 201,
-
                 });
             }
 
