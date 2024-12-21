@@ -43,6 +43,11 @@ namespace Monhealth.Identity.Repositories
             .FirstOrDefaultAsync(f => f.FoodId == foodId);
         }
 
+        public async Task<Food> GetFoodByNameAsync(string foodName)
+        {
+            return await _context.Foods.FirstOrDefaultAsync(f => f.FoodName == foodName);
+        }
+
         public async Task<List<Food>> GetFoodListByFoodType(string foodType)
         {
             return await _context.Foods.Where(f => f.FoodType == foodType)
@@ -50,6 +55,8 @@ namespace Monhealth.Identity.Repositories
             .ThenInclude(fc => fc.Category).ToListAsync();
 
         }
+
+      
 
         // public async Task<List<Food>> GetFoodListByUser(Guid userId)
         // {

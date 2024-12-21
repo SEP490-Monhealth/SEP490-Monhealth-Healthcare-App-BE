@@ -14,18 +14,22 @@ namespace Monhealth.Application.Features.Food.AddFood
         private readonly IFoodRepository _foodRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IPortionRepository _portionRepository;
+        private readonly INutritionRepository _nutritionRepository;
         public AddFoodHandle(IFoodRepository foodRepository,
         ICategoryRepository categoryRepository,
-        IPortionRepository portionRepository)
+        IPortionRepository portionRepository,
+        INutritionRepository nutritionRepository)
         {
             _foodRepository = foodRepository;
             _categoryRepository = categoryRepository;
             _portionRepository = portionRepository;
+            _nutritionRepository = nutritionRepository;
         }
 
         public async Task<bool> Handle(AddFoodRequest request, CancellationToken cancellationToken)
         {
-            // Tạo thực thể Food
+            var existingFood = await _foodRepository.GetFoodByNameAsync(request.FoodName);
+            if (existingFood != null) throw new Exception("Thức ăn đã tồn tại");
             var food = new Monhealth.Domain.Food
             {
                 UserId = request.UserId,
@@ -34,24 +38,13 @@ namespace Monhealth.Application.Features.Food.AddFood
                 FoodDescription = request.FoodDescription,
                 FoodCategories = new List<FoodCategory>(),
                 FoodPortions = new List<FoodPortion>(),
-                Nutrition = new Monhealth.Domain.Nutrition
-                {
-                    Calories = request.Calories,
-                    Carbs = request.Carbs,
-                    Fat = request.Fat,
-                    Fiber = request.Fiber,
-                    Protein = request.Protein,
-                    Sugar = request.Sugar,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow
-                },
                 Status = false,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             };
 
             // Xử lý danh mục (CategoryName)
-            foreach (var categoryName in request.CategoryName)
+            foreach (var categoryName in request.Category)
             {
                 var category = await _categoryRepository.GetCategoryByCategoryName(categoryName);
                 if (category == null)
@@ -66,25 +59,56 @@ namespace Monhealth.Application.Features.Food.AddFood
                     CategoryId = category.CategoryId
                 });
             }
-
-            var portion = new Portion
+            _foodRepository.Add(food);
+            await _foodRepository.SaveChangesAsync();
+            var nutrition = new Monhealth.Domain.Nutrition
             {
-                PortionId = Guid.NewGuid(),
-                MeasurementUnit = request.MeasurementUnit,
-                PortionSize = request.PortionSize,
-                PortionWeight = request.PortionWeight,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                FoodId = food.FoodId,
+                Calories = request.Nutrition.Calories,
+                Carbs = request.Nutrition.Carbs,
+                Fat = request.Nutrition.Fat,
+                Fiber = request.Nutrition.Fiber,
+                Protein = request.Nutrition.Protein,
+                Sugar = request.Nutrition.Sugar,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
+            _nutritionRepository.Add(nutrition);
+            // Kiểm tra xem Portion đã tồn tại chưa
+            var existingPortion = await _portionRepository.GetPortionAsync(
+                request.Portion.MeasurementUnit,
+                request.Portion.PortionSize,
+                request.Portion.PortionWeight
+            );
 
-            _portionRepository.Add(portion); // Thêm Portion vào DB
+            Portion portion;
+            if (existingPortion != null)
+            {
+                // Nếu Portion đã tồn tại, sử dụng lại
+                portion = existingPortion;
+            }
+            else
+            {
+                // Nếu Portion chưa tồn tại, tạo mới
+                portion = new Portion
+                {
+                    PortionId = Guid.NewGuid(),
+                    MeasurementUnit = request.Portion.MeasurementUnit,
+                    PortionSize = request.Portion.PortionSize,
+                    PortionWeight = request.Portion.PortionWeight,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
+                };
+                _portionRepository.Add(portion);
+            }
 
+            // Liên kết Portion với Food qua FoodPortion
             food.FoodPortions.Add(new FoodPortion
             {
                 FoodId = food.FoodId,
                 PortionId = portion.PortionId
             });
-            _foodRepository.Add(food);
+
             await _foodRepository.SaveChangesAsync();
             return true;
         }

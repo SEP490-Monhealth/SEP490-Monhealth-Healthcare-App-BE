@@ -15,5 +15,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Food>> GetFoodListByFoodType(string foodType);
         Task<Food> GetFoodByIdAsync(Guid foodId);
         Task<List<Food>> GetFoodByCategoryName(string categoryName);
+        Task<Food> GetFoodByNameAsync(string foodName);
+      
     }
 }
