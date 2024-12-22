@@ -9,7 +9,6 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
     public class AddFoodUserRequest : IRequest<bool>
     {
         public Guid UserId { get; set; }
-        public string FoodType { get; set; } = string.Empty;
         public string FoodName { get; set; } = string.Empty;
         public string FoodDescription { get; set; } = string.Empty;
         public PortionDTO1 Portion { get; set; }
