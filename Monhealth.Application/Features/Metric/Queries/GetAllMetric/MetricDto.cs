@@ -16,5 +16,9 @@ namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
         public float Bmr { get; set; }
         public float Tdee { get; set; }
         public float Ibw { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public Guid? CreatedBy { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public Guid? UpdatedBy { get; set; }
     }
 }
