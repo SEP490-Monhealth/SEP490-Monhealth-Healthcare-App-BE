@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
+using Monhealth.Application.Features.Metric.Commands.DeleteMetric;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
@@ -94,6 +95,27 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Message = "Cập nhật số liệu thành công"
+            };
+        }
+        [HttpDelete("{metricId}")]
+        public async Task<ActionResult<ResultModel>> Delete(Guid metricId)
+        {
+            var metricCommand = new DeleteMetricCommand { MetricId = metricId };
+            var delete = await _mediator.Send(metricCommand);
+            if (!delete)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy số liệu"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Xóa số liệu thành công"
             };
         }
     }
