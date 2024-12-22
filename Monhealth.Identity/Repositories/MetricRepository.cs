@@ -34,5 +34,10 @@ namespace Monhealth.Identity.Repositories
                 TotalItems = totalItems,
             };
         }
+
+        public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }

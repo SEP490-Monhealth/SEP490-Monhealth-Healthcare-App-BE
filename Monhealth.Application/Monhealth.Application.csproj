@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Monhealth.Core\Monhealth.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Metric\Commands\" />
-  </ItemGroup>
-
 </Project>

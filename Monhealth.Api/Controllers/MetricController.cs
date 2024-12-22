@@ -1,7 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Metric.Commands.CreateMetric;
+using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
+using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -49,6 +52,48 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = metric
+            };
+        }
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> Create([FromBody]CreateMetricDto metricRequest)
+        {
+            var command = new CreateMetricCommand(metricRequest);
+            var createMetric = await _mediator.Send(command);
+            if(createMetric == Unit.Value)
+            {
+                return new ResultModel
+                {
+                    Message = "Tạo số liệu thành công",
+                    Status = 201,
+                    Success = true
+                };
+            }
+            return new ResultModel
+            {
+                Message = "Tạo số liệu thất bại.",
+                Status = (int)HttpStatusCode.BadRequest,
+                Success = false
+            };
+        }
+        [HttpPut("{metricId}")]
+        public async Task<ActionResult<ResultModel>> Update(Guid metricId, [FromBody] UpdateMetricDto metricDto)
+        {
+            var command = new UpdateMetricCommand(metricId, metricDto);
+            var result = await _mediator.Send(command);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Cập nhật số liệu thất bại."
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật số liệu thành công"
             };
         }
     }
