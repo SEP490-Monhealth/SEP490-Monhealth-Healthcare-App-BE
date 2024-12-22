@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
 
 namespace Monhealth.Application.Features.Nutrition.UpdateNutrition
@@ -15,8 +11,5 @@ namespace Monhealth.Application.Features.Nutrition.UpdateNutrition
         public float Fat { get; set; }
         public float Fiber { get; set; }
         public float Sugar { get; set; }
-      
-
-
     }
 }

@@ -1,10 +1,4 @@
-﻿using Monhealth.Application.Models;
-using Monhealth.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Monhealth.Domain;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
