@@ -23,15 +23,16 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllFoods()
+        public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? search = null, bool? status = null)
         {
-            var foods = await _mediator.Send(new GetFoodListQuery());
+            var foods = await _mediator.Send(new GetFoodListQuery(page, limit, search, status));
 
             return new ResultModel
             {
                 Data = foods,
                 Status = 200,
-                Success = true
+                Success = true,
+                Message = "Lấy danh sách đồ ăn thành công"
             };
         }
 
@@ -47,7 +48,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "thức ăn không tồn tại.",
+                    Message = "Thức ăn không tồn tại.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });

@@ -1,8 +1,10 @@
 ﻿using System.Linq.Dynamic.Core;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
+using Monhealth.Identity.Models;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -12,12 +14,33 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<List<Food>> GetAllFoodAsync()
+        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status)
         {
-            var foods = await _context.Foods.Include(f => f.FoodCategories)
-            .ThenInclude(fc => fc.Category)
-            .ToListAsync();
-            return foods;
+            search = search?.Trim();
+            IQueryable<Food> query = _context.Foods.Include(f => f.FoodCategories).ThenInclude(fc => fc.Category).AsQueryable();
+
+            // filter search
+            if(!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(s => s.FoodId.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.FoodName.ToLower().Contains(search.ToLower()));
+            }
+            
+            // filter status
+            if(status.HasValue)
+            {
+                query = query.Where(s => s.Status == status.Value);
+            }
+            int totalItems = await query.CountAsync();
+            if(page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Food>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<List<Food>> GetByIdsAsync(IEnumerable<Guid> foodIds)

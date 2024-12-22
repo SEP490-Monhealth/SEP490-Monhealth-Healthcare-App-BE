@@ -1,10 +1,12 @@
 using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Features.User.Queries.GetAllUser;
+using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
 {
-    public class GetFoodListQueryHandler : IRequestHandler<GetFoodListQuery, List<FoodDTO>>
+    public class GetFoodListQueryHandler : IRequestHandler<GetFoodListQuery, PageResult<FoodDTO>>
     {
         private readonly IFoodRepository _foodRepository;
         private readonly IMapper _mapper;
@@ -15,10 +17,19 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
             _mapper = mapper;
         }
 
-        public async Task<List<FoodDTO>> Handle(GetFoodListQuery request, CancellationToken cancellationToken)
+        public async Task<PageResult<FoodDTO>> Handle(GetFoodListQuery request, CancellationToken cancellationToken)
         {
-            var foods = await _foodRepository.GetAllFoodAsync();
-            return _mapper.Map<List<FoodDTO>>(foods);
+            var paginatedUser = await _foodRepository.GetAllFoodAsync(request.Page, request.Limit, request.Search, request.Status);
+            var foodList = paginatedUser.Items.ToList();
+            var foodDtoList = _mapper.Map<List<FoodDTO>>(foodList);
+            return new PageResult<FoodDTO>()
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(paginatedUser.TotalCount / (double)request.Limit),
+                TotalItems = paginatedUser.TotalCount,
+                Data = foodDtoList
+            };
+
         }
     }
 }

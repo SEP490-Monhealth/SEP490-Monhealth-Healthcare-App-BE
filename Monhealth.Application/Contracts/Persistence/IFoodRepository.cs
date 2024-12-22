@@ -1,10 +1,11 @@
-﻿using Monhealth.Domain;
+﻿using Monhealth.Application.Models.Paging;
+using Monhealth.Domain;
 namespace Monhealth.Application.Contracts.Persistence
 {
     public interface IFoodRepository : IGenericRepository<Food, Guid>
     {
         Task<List<Food>> GetByIdsAsync(IEnumerable<Guid> foodIds);
-        Task<List<Food>> GetAllFoodAsync();
+        Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status);
         Task<int> SaveChangesAsync();
         Task<List<Food>> GetFoodListByFoodType(string foodType);
         Task<Food> GetFoodByIdAsync(Guid foodId);
