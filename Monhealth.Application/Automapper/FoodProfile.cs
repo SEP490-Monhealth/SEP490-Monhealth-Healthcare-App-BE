@@ -22,7 +22,9 @@ namespace Monhealth.Application.Automapper
             CreateMap<Food, GetFoodByIdDTO>()
             .ForMember(dest => dest.Category,
             opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()))
-            .ForMember(dest => dest.FoodName, opt => opt.MapFrom(src => src.FoodName));
+            .ForMember(dest => dest.FoodName, opt => opt.MapFrom(src => src.FoodName))
+            .ForMember(dest => dest.FoodDescription, opt => opt.MapFrom(src => src.FoodDescription));
+
 
             CreateMap<Food, GetFoodByCategoryDTO>().ReverseMap();
         }

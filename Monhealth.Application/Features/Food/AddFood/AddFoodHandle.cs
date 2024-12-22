@@ -92,8 +92,8 @@ namespace Monhealth.Application.Features.Food.AddFood
                     MeasurementUnit = request.Portion.MeasurementUnit,
                     PortionSize = request.Portion.PortionSize,
                     PortionWeight = request.Portion.PortionWeight,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
                 };
                 _portionRepository.Add(portion);
             }

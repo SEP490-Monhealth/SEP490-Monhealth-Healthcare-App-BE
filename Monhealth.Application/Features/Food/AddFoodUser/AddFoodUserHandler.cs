@@ -40,8 +40,8 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
                 FoodDescription = request.FoodDescription,
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
 
             _foodRepository.Add(food);
@@ -81,8 +81,8 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
                     MeasurementUnit = request.Portion.MeasurementUnit,
                     PortionSize = request.Portion.PortionSize,
                     PortionWeight = request.Portion.PortionWeight,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
                 };
                 _portionRepository.Add(portion);
             }
