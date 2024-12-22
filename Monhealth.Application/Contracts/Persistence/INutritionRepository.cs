@@ -11,5 +11,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<int> SaveChangeAsync();
         Task<List<Nutrition>> GetAllNutritionAsync();
         Task<List<Nutrition>> GetAllNutritionByFoodIdAsync(Guid foodId);
+        Task<List<Nutrition>>GetByFoodIdAsync(Guid foodId);
     }
 }
