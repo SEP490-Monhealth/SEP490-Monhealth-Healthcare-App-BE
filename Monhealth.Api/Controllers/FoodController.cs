@@ -48,7 +48,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Thức ăn không tồn tại.",
+                    Message = "Món ăn không tồn tại.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -73,7 +73,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Thức ăn không tồn tại.",
+                    Message = "Món ăn không tồn tại.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -98,7 +98,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Thức ăn không tồn tại.",
+                    Message = "Món ăn không tồn tại.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -110,6 +110,7 @@ namespace Monhealth.Api.Controllers
                 Data = food
             });
         }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddFood([FromBody] AddFoodRequest request)
         {
@@ -119,7 +120,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo thức ăn thành công.",
+                    Message = "Tạo món ăn thành công.",
                     Status = 201,
                 });
             }
@@ -127,7 +128,33 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo thức ăn thất bại."
+                Message = "Tạo món ăn thất bại."
+            });
+        }
+
+        [HttpPut]
+        [Route("{foodId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateFood(Guid foodId, [FromBody] UpdateFoodRequestAdmin request)
+        {
+
+            var command = new UpdateFoodRequestAdminHandler(foodId, request);
+            var result = await _mediator.Send(command);
+
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Message = "Cập nhật món ăn không thành công.",
+                    Success = false,
+                    Data = null
+                });
+            }
+
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật món ăn thành công.",
+                Success = true,
+                Status = 204,
             });
         }
 
@@ -143,7 +170,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Xóa thức ăn không thành công.",
+                    Message = "Xóa món ăn không thành công.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -151,36 +178,10 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Xóa thức ăn thành công.",
+                Message = "Xóa món ăn thành công.",
                 Status = 204,
                 Data = null
             });
         }
-        [HttpPut]
-        [Route("{foodId:Guid}")]
-        public async Task<ActionResult<ResultModel>> UpdateFood(Guid foodId, [FromBody] UpdateFoodRequestAdmin request)
-        {
-
-            var command = new UpdateFoodRequestAdminHandler(foodId, request);
-            var result = await _mediator.Send(command);
-
-            if (!result)
-            {
-                return BadRequest(new ResultModel
-                {
-                    Message = "Cập nhật thức ăn không thành công.",
-                    Success = false,
-                    Data = null
-                });
-            }
-
-            return Ok(new ResultModel
-            {
-                Message = "Cập nhật thức ăn thành công.",
-                Success = true,
-                Status = 204,
-            });
-        }
-
     }
 }

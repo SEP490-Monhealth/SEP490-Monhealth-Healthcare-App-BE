@@ -36,9 +36,9 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
 
             var food = await _foodRepository.GetByIdWithCategoriesAsync(request.FoodId);
             if (food == null)
-                throw new Exception("Thức ăn không tồn tại.");
+                throw new Exception("Món ăn không tồn tại.");
             var existingFood = await _foodRepository.GetFoodByNameAsync(request.RequestData.FoodName);
-            if (existingFood != null) throw new Exception("Thức ăn đã tồn tại.");
+            if (existingFood != null) throw new Exception("Món ăn đã tồn tại.");
 
             food.FoodName = request.RequestData.FoodName;
             food.FoodType = request.RequestData.FoodType;

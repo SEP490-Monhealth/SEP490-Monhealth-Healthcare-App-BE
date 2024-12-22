@@ -50,9 +50,6 @@ namespace Monhealth.Identity.Dbcontexts
                 });
                 await context.SaveChangesAsync();
             }
-
-
-
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Monhealth.Identity.Configurations
     {
         CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
         CategoryName = "Nhiều carbs",
-        CategoryDescription = "Thức ăn nhiều carbohydrate (carb) thường là những thực phẩm chứa hàm lượng tinh bột hoặc đường cao.",
+        CategoryDescription = "Món ăn nhiều carbohydrate (carb) thường là những thực phẩm chứa hàm lượng tinh bột hoặc đường cao.",
         CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
         UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null)
     },

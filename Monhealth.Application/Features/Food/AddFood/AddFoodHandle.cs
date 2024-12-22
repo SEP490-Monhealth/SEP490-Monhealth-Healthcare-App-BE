@@ -29,7 +29,7 @@ namespace Monhealth.Application.Features.Food.AddFood
                 throw new Exception("FoodType chỉ được phép là 'User' hoặc 'Public'.");
             }
             var existingFood = await _foodRepository.GetFoodByNameAsync(request.FoodName);
-            if (existingFood != null) throw new Exception("Thức ăn đã tồn tại");
+            if (existingFood != null) throw new Exception("Món ăn đã tồn tại");
 
             var food = new Monhealth.Domain.Food
             {

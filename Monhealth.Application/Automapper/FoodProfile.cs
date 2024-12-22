@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
@@ -28,8 +24,7 @@ namespace Monhealth.Application.Automapper
             opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()))
             .ForMember(dest => dest.FoodName, opt => opt.MapFrom(src => src.FoodName));
 
-             CreateMap<Food, GetFoodByCategoryDTO>().ReverseMap();
-           
+            CreateMap<Food, GetFoodByCategoryDTO>().ReverseMap();
         }
     }
 }
