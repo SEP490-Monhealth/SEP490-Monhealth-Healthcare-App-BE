@@ -28,9 +28,9 @@ namespace Monhealth.Application.Features.Food.AddFood
 
         public async Task<bool> Handle(AddFoodRequest request, CancellationToken cancellationToken)
         {
-            if (request.FoodType != "User" && request.FoodType != "Admin")
+            if (request.FoodType != "User" && request.FoodType != "Public")
             {
-                throw new Exception("FoodType chỉ được phép là 'User' hoặc 'Admin'.");
+                throw new Exception("FoodType chỉ được phép là 'User' hoặc 'Public'.");
             }
             var existingFood = await _foodRepository.GetFoodByNameAsync(request.FoodName);
             if (existingFood != null) throw new Exception("Thức ăn đã tồn tại");

@@ -30,6 +30,11 @@ namespace Monhealth.Identity.Repositories
             return await _context.Nutritions.Where(n => n.FoodId == foodId).ToListAsync();
         }
 
+        public async Task<Nutrition> GetNutritionByFoodIdAsync(Guid foodId)
+        {
+           return await _context.Nutritions.FirstOrDefaultAsync(n => n.FoodId == foodId);
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

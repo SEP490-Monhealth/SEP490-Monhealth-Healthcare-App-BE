@@ -11,6 +11,7 @@ using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
 using Monhealth.Application.Features.Food.Queries.GetFoodById;
 using Monhealth.Application.Features.Food.Queries.GetFoodsByCategory;
+using Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -158,5 +159,31 @@ namespace Monhealth.Api.Controllers
                 Data = null
             });
         }
+        [HttpPut]
+        [Route("{foodId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateFood(Guid foodId, [FromBody] UpdateFoodRequestAdmin request)
+        {
+
+            var command = new UpdateFoodRequestAdminHandler(foodId, request);
+            var result = await _mediator.Send(command);
+
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Message = "Cập nhật thức ăn không thành công.",
+                    Success = false,
+                    Data = null
+                });
+            }
+
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật thức ăn thành công.",
+                Success = true,
+                Status = 204,
+            });
+        }
+
     }
 }

@@ -28,6 +28,14 @@ namespace Monhealth.Identity.Repositories
                          .ToListAsync();
         }
 
+        public async Task<Food> GetByIdWithCategoriesAsync(Guid foodId)
+        {
+            return await _context.Foods
+        .Include(f => f.FoodCategories)
+        .Include(f => f.FoodPortions)
+        .FirstOrDefaultAsync(f => f.FoodId == foodId);
+        }
+
         public async Task<List<Food>> GetFoodByCategoryName(string categoryName)
         {
             return await _context.Foods
@@ -56,7 +64,19 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-      
+        public void RemoveFoodCategories(Guid foodId)
+        {
+            var categoriesToRemove = _context.FoodCategories.Where(fc => fc.FoodId == foodId);
+            _context.FoodCategories.RemoveRange(categoriesToRemove);
+        }
+
+        public void RemoveFoodPortions(Guid foodId)
+        {
+            var portionsToRemove = _context.FoodPortions.Where(fp => fp.FoodId == foodId);
+            _context.FoodPortions.RemoveRange(portionsToRemove);
+        }
+
+
 
         // public async Task<List<Food>> GetFoodListByUser(Guid userId)
         // {
