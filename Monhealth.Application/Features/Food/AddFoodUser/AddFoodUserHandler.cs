@@ -1,17 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Core;
 using Monhealth.Domain;
 
-namespace Monhealth.Application.Features.Food.AddFood
+namespace Monhealth.Application.Features.Food.AddFoodUser
 {
-    public class AddFoodHandle : IRequestHandler<AddFoodRequest, bool>
+    public class AddFoodUserHandler : IRequestHandler<AddFoodUserRequest, bool>
     {
+
         private readonly IFoodRepository _foodRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IPortionRepository _portionRepository;
         private readonly INutritionRepository _nutritionRepository;
-        public AddFoodHandle(IFoodRepository foodRepository,
+        public AddFoodUserHandler(IFoodRepository foodRepository,
         ICategoryRepository categoryRepository,
         IPortionRepository portionRepository,
         INutritionRepository nutritionRepository)
@@ -22,14 +26,14 @@ namespace Monhealth.Application.Features.Food.AddFood
             _nutritionRepository = nutritionRepository;
         }
 
-        public async Task<bool> Handle(AddFoodRequest request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(AddFoodUserRequest request, CancellationToken cancellationToken)
         {
-            if (request.FoodType != "User" && request.FoodType != "Public")
+            if (request.FoodType != "User")
             {
-                throw new Exception("FoodType chỉ được phép là 'User' hoặc 'Public'.");
+                throw new Exception("FoodType chỉ được phép là 'User'.");
             }
             var existingFood = await _foodRepository.GetFoodByNameAsync(request.FoodName);
-            if (existingFood != null) throw new Exception("Món ăn đã tồn tại");
+            if (existingFood != null) throw new Exception("Thức ăn đã tồn tại");
 
             var food = new Monhealth.Domain.Food
             {
@@ -37,26 +41,12 @@ namespace Monhealth.Application.Features.Food.AddFood
                 FoodName = request.FoodName,
                 FoodType = request.FoodType,
                 FoodDescription = request.FoodDescription,
-                FoodCategories = new List<FoodCategory>(),
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             };
 
-            // Xử lý danh mục (CategoryName)
-            foreach (var categoryName in request.Category)
-            {
-                var category = await _categoryRepository.GetCategoryByCategoryName(categoryName);
-                if (category == null)
-                    throw new Exception("Danh mục không tồn tại.");
-
-                food.FoodCategories.Add(new FoodCategory
-                {
-                    FoodId = food.FoodId,
-                    CategoryId = category.CategoryId
-                });
-            }
             _foodRepository.Add(food);
             await _foodRepository.SaveChangesAsync();
             var nutrition = new Monhealth.Domain.Nutrition
@@ -110,9 +100,5 @@ namespace Monhealth.Application.Features.Food.AddFood
             await _foodRepository.SaveChangesAsync();
             return true;
         }
-
-
     }
-
-
 }

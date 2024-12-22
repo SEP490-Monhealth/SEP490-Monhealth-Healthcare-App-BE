@@ -1,24 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using MediatR;
 
-namespace Monhealth.Application.Features.Food.AddFood
+namespace Monhealth.Application.Features.Food.AddFoodUser
 {
-    public class AddFoodRequest : IRequest<bool>
+    public class AddFoodUserRequest : IRequest<bool>
     {
         public Guid UserId { get; set; }
         public string FoodType { get; set; } = string.Empty;
-        public List<string>? Category { get; set; } = new List<string>();
         public string FoodName { get; set; } = string.Empty;
         public string FoodDescription { get; set; } = string.Empty;
-        public PortionDTO Portion { get; set; }
-        public NutritionDTO Nutrition { get; set; }
+        public PortionDTO1 Portion { get; set; }
+        public NutritionDTO1 Nutrition { get; set; }
     }
-    public class PortionDTO
+    public class PortionDTO1
     {
         public string PortionSize { get; set; } = string.Empty;
         public float PortionWeight { get; set; }
         public string MeasurementUnit { get; set; } = string.Empty;
     }
-    public class NutritionDTO
+    public class NutritionDTO1
     {
         public float Calories { get; set; }
         public float Protein { get; set; }

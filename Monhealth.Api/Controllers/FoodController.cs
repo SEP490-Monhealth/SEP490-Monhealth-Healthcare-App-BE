@@ -1,6 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Category.AddCategory;
 using Monhealth.Application.Features.Food.AddFood;
+using Monhealth.Application.Features.Food.AddFoodUser;
 using Monhealth.Application.Features.Food.DeleteFood;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
@@ -110,9 +112,9 @@ namespace Monhealth.Api.Controllers
                 Data = food
             });
         }
-
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> AddFood([FromBody] AddFoodRequest request)
+        [HttpPost("Admin")]
+        [ActionName("AddFoodAdmin")]
+        public async Task<ActionResult<ResultModel>> AddFoodForAdmin([FromBody] AddFoodRequest request)
         {
             var result = await _mediator.Send(request);
             if (result != null)
@@ -157,6 +159,29 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
             });
         }
+
+        [HttpPost("User")]
+        [ActionName("AddFoodUser")]
+        public async Task<ActionResult<ResultModel>> AddFoodForUser([FromBody] AddFoodUserRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo thức ăn thành công.",
+                    Status = 201,
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo thức ăn thất bại."
+            });
+        }
+
 
         [HttpDelete]
         [Route("{foodId:Guid}")]

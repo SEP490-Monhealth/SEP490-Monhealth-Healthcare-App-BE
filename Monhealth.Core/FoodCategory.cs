@@ -16,7 +16,7 @@ namespace Monhealth.Core
         public Guid FoodId { get; set; }
         public Food Food { get; set; }
         [ForeignKey(nameof(CategoryId))]
-        public Guid CategoryId { get; set; }
+        public Guid? CategoryId { get; set; }
         public Category Category { get; set; }
     }
 }
