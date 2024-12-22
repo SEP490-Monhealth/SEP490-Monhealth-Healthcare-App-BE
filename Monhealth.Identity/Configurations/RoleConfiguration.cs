@@ -12,18 +12,24 @@ namespace Monhealth.Identity.Configurations
                         new AppRole
                         {
                             Id = Guid.Parse("322488F9-7AA9-49B0-B2B8-FD98B7B260FC"),
-                            Name = "Customer",
-                            NormalizedName = "CUSTOMER",
+                            Name = "Member",
+                            NormalizedName = "MEMBER",
                             DisplayName = "Khách Hàng"
                         },
                         new AppRole
                         {
                             Id = Guid.Parse("C0278115-8549-4FAD-890A-44F8E8FCC022"),
+                            Name = "Consultant",
+                            NormalizedName = "CONSULTANT",
+                            DisplayName = "Tư Vấn Viên"
+                        },
+                        new AppRole
+                        {
+                            Id = Guid.Parse("1975eaae-fd39-417e-bfcc-5e09f963b95f"),
                             Name = "Manager",
                             NormalizedName = "MANAGER",
-                            DisplayName = "Quản Lí"
+                            DisplayName = "Quản lí"
                         }
-
 
                       );
         }

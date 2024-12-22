@@ -11,7 +11,7 @@ namespace Monhealth.Identity.Configurations
             builder.HasData(
                         new IdentityUserRole<Guid>
                         {
-                            RoleId = Guid.Parse("322488F9-7AA9-49B0-B2B8-FD98B7B260FC"),
+                            RoleId = Guid.Parse("C0278115-8549-4FAD-890A-44F8E8FCC022"),
                             UserId = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87")
                         },
                         new IdentityUserRole<Guid>

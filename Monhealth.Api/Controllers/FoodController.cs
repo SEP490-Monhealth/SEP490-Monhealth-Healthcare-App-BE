@@ -4,6 +4,7 @@ using Monhealth.Application.Features.Food.AddFood;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
 using Monhealth.Application.Models;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {

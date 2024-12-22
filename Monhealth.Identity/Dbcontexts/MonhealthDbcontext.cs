@@ -15,7 +15,6 @@ namespace Monhealth.Identity.Dbcontexts
 
         }
 
-        public DbSet<Vital> Vitals { get; set; }
         public DbSet<Target> Targets { get; set; }
         public DbSet<Metric> Metrics { get; set; }
         public DbSet<Goal> Goals { get; set; }
