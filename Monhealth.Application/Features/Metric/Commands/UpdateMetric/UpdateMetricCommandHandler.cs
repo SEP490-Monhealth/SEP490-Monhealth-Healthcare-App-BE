@@ -25,7 +25,7 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             {
                 return false;
             }
-
+            metricToUpdate.UpdatedAt = DateTime.Now;
             // map DTO to entity
             _mapper.Map(request.MetricDto, metricToUpdate);
             _metricRepository.Update(metricToUpdate);

@@ -22,6 +22,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
                 // new metricId
                 newMetric.MetricId = Guid.NewGuid();
+                newMetric.CreatedAt = DateTime.Now;
+                newMetric.UpdatedAt = DateTime.Now;
 
                 _metricRepository.Add(newMetric);
                 await _metricRepository.SaveChangeAsync();
