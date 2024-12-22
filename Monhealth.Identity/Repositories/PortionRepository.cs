@@ -35,9 +35,17 @@ namespace Monhealth.Identity.Repositories
                 string sorting = $"{sort} {(order?.ToLower() == "desc" ? "descending" : "ascending")}";
                 query = query.OrderBy(sorting);
             }
-        
+
             var portions = await query.ToListAsync();
             return portions;
+        }
+
+        public async Task<Portion> GetPortionAsync(string measurementUnit, string portionSize, float portionWeight)
+        {
+            return await _context.Portions.FirstOrDefaultAsync(p =>
+            p.MeasurementUnit == measurementUnit &&
+            p.PortionSize == portionSize &&
+            p.PortionWeight == portionWeight);
         }
 
         public async Task<int> SaveChangesAsync()

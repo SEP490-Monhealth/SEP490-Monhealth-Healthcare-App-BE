@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
+using Monhealth.Application.Features.Food.Queries.GetFoodById;
+using Monhealth.Application.Features.Food.Queries.GetFoodsByCategory;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Automapper
@@ -14,12 +16,20 @@ namespace Monhealth.Application.Automapper
         public FoodProfile()
         {
             CreateMap<Food, FoodDTO>()
-   .ForMember(dest => dest.CategoryName,
-               opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()));
-            CreateMap<Food, FoodDetailByFoodTypeDTO>()
-   .ForMember(dest => dest.CategoryName,
-               opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()));
+            .ForMember(dest => dest.Category,
+             opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()));
 
+            CreateMap<Food, FoodDetailByFoodTypeDTO>()
+            .ForMember(dest => dest.Category,
+            opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()));
+
+            CreateMap<Food, GetFoodByIdDTO>()
+            .ForMember(dest => dest.Category,
+            opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()))
+            .ForMember(dest => dest.FoodName, opt => opt.MapFrom(src => src.FoodName));
+
+             CreateMap<Food, GetFoodByCategoryDTO>().ReverseMap();
+           
         }
     }
 }

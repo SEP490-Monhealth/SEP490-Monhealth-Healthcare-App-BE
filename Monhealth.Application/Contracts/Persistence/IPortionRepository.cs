@@ -7,5 +7,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Portion>> GetAllPortionAsync(string? sort, string? order);
         Task AddPortionAsync(FoodPortion foodPortion);
         Task<int> SaveChangesAsync();
+        Task<Portion> GetPortionAsync(string measurementUnit, string portionSize, float portionWeight);
     }
 }
