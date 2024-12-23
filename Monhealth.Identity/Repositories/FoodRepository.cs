@@ -17,23 +17,24 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status)
         {
             search = search?.Trim();
-            IQueryable<Food> query = _context.Foods.Include(f => f.FoodCategories).ThenInclude(fc => fc.Category).AsQueryable();
+            IQueryable<Food> query = _context.Foods.Include(f => f.FoodCategories).ThenInclude(fc => fc.Category).
+            Include(f => f.Nutrition).Include(f => f.FoodPortions).ThenInclude(f => f.Portion).AsQueryable();
 
             // filter search
-            if(!string.IsNullOrEmpty(search))
+            if (!string.IsNullOrEmpty(search))
             {
                 // cho phep search khong dau
                 query = query.Where(s => EF.Functions.Collate(s.FoodName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) || 
                     s.FoodId.ToString().ToLower().Contains(search.ToLower()));
             }
-            
+
             // filter status
-            if(status.HasValue)
+            if (status.HasValue)
             {
                 query = query.Where(s => s.Status == status.Value);
             }
             int totalItems = await query.CountAsync();
-            if(page > 0 && limit > 0)
+            if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
             }
