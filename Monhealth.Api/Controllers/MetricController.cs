@@ -22,9 +22,9 @@ namespace Monhealth.Api.Controllers
         }
         
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllMetrics(Guid? userId, int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllMetrics(Guid? userId)
         {
-            var metrics = await _mediator.Send(new GetMetricListQuery(userId, page, limit));
+            var metrics = await _mediator.Send(new GetMetricListQuery(userId));
 
             return new ResultModel
             {

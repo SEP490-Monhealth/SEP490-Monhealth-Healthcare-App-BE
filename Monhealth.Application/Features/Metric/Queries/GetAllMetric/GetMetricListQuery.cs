@@ -3,16 +3,12 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
 {
-    public class GetMetricListQuery : IRequest<PageResult<MetricDto>>
+    public class GetMetricListQuery : IRequest<List<MetricDto>>
     {
         public Guid? UserId { get; set; }
-        public int Page { get; set; }
-        public int Limit { get; set; }
-        public GetMetricListQuery(Guid? userId, int pageIndex, int limit)
+        public GetMetricListQuery(Guid? userId)
         {
             UserId = userId;
-            Page = pageIndex;
-            Limit = limit;
         }
     }
 }
