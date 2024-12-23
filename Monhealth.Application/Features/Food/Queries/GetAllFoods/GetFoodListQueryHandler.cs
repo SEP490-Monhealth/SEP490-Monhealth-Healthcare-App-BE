@@ -1,7 +1,6 @@
 using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.User.Queries.GetAllUser;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
@@ -27,9 +26,8 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
                 CurrentPage = request.Page,
                 TotalPages = (int)Math.Ceiling(paginatedUser.TotalCount / (double)request.Limit),
                 TotalItems = paginatedUser.TotalCount,
-                Data = foodDtoList
+                Items = foodDtoList
             };
-
         }
     }
 }

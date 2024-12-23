@@ -39,7 +39,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("food/{foodType}")]
+        [Route("{foodType}")]
         public async Task<ActionResult<ResultModel>> GetFoodsByFoodType(string foodType)
         {
             var foods = await _mediator.
@@ -112,7 +112,8 @@ namespace Monhealth.Api.Controllers
                 Data = food
             });
         }
-        [HttpPost("Admin")]
+
+        [HttpPost("public")]
         [ActionName("AddFoodAdmin")]
         public async Task<ActionResult<ResultModel>> AddFoodForAdmin([FromBody] AddFoodRequest request)
         {
@@ -131,6 +132,28 @@ namespace Monhealth.Api.Controllers
             {
                 Success = false,
                 Message = "Tạo món ăn thất bại."
+            });
+        }
+
+        [HttpPost]
+        [ActionName("AddFoodUser")]
+        public async Task<ActionResult<ResultModel>> AddFoodForUser([FromBody] AddFoodUserRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo thức ăn thành công.",
+                    Status = 201,
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo thức ăn thất bại."
             });
         }
 
@@ -157,28 +180,6 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật món ăn thành công.",
                 Success = true,
                 Status = 204,
-            });
-        }
-
-        [HttpPost("User")]
-        [ActionName("AddFoodUser")]
-        public async Task<ActionResult<ResultModel>> AddFoodForUser([FromBody] AddFoodUserRequest request)
-        {
-            var result = await _mediator.Send(request);
-            if (result != null)
-            {
-                return Ok(new ResultModel
-                {
-                    Success = true,
-                    Message = "Tạo thức ăn thành công.",
-                    Status = 201,
-                });
-            }
-
-            return BadRequest(new ResultModel
-            {
-                Success = false,
-                Message = "Tạo thức ăn thất bại."
             });
         }
 

@@ -20,13 +20,13 @@ namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
             try
             {
                 var metrics = await _metricRepository.GetAllMetricAsync(request.UserId, request.Page, request.Limit);
-                var metricsResponse = _mapper.Map<List<MetricDto>>(metrics.Data).ToList();
+                var metricsResponse = _mapper.Map<List<MetricDto>>(metrics.Items).ToList();
                 return new PageResult<MetricDto>
                 {
                     CurrentPage = request.Page,
                     TotalItems = metrics.TotalItems,
                     TotalPages = (int)Math.Ceiling(metrics.TotalItems / (double)request.Limit),
-                    Data = metricsResponse
+                    Items = metricsResponse
                 };
             }
             catch (Exception ex)

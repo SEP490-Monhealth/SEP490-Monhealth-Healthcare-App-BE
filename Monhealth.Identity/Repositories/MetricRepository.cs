@@ -16,10 +16,10 @@ namespace Monhealth.Identity.Repositories
         public async Task<PageResult<Metric>> GetAllMetricAsync(Guid? userId, int page, int limit)
         {
             IQueryable<Metric> query = _context.Metrics.AsQueryable();
-            if(userId != null)
+            if (userId != null)
             {
                 query = query.Where(u => u.UserId == userId);
-            }            
+            }
             // get total count
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
@@ -30,7 +30,7 @@ namespace Monhealth.Identity.Repositories
             var metrics = await query.ToListAsync();
             return new PageResult<Metric>
             {
-                Data = metrics,
+                Items = metrics,
                 TotalItems = totalItems,
             };
         }
