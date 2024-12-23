@@ -27,7 +27,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Portion>> GetAllPortionAsync(string? sort, string? order)
         {
-            IQueryable<Portion> query = _context.Portions.Include(fp => fp.FoodPortions).AsQueryable();
+            IQueryable<Portion> query = _context.Portions.AsQueryable();
 
             // sap xep
             if (!string.IsNullOrEmpty(sort))
@@ -46,6 +46,14 @@ namespace Monhealth.Identity.Repositories
             p.MeasurementUnit == measurementUnit &&
             p.PortionSize == portionSize &&
             p.PortionWeight == portionWeight);
+        }
+
+        public async Task<List<Portion>> GetPortionsByFoodIdAsync(Guid foodId)
+        {
+            var listPortions = await _context.Portions
+                .Where(f => f.FoodPortions.Any(fp => fp.FoodId == foodId))
+                .ToListAsync();
+            return listPortions;
         }
 
         public async Task<int> SaveChangesAsync()

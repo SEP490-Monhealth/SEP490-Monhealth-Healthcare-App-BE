@@ -13,26 +13,16 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PageResult<Metric>> GetAllMetricAsync(Guid? userId, int page, int limit)
+        public async Task<List<Metric>> GetAllMetricAsync(Guid? userId)
         {
             IQueryable<Metric> query = _context.Metrics.AsQueryable();
             if (userId != null)
             {
                 query = query.Where(u => u.UserId == userId);
             }
-            // get total count
-            int totalItems = await query.CountAsync();
-            if (page > 0 && limit > 0)
-            {
-                query = query.Skip((page - 1) * limit).Take(limit);
-            }
 
             var metrics = await query.ToListAsync();
-            return new PageResult<Metric>
-            {
-                Items = metrics,
-                TotalItems = totalItems,
-            };
+            return metrics;
         }
 
         public async Task<int> SaveChangeAsync()
