@@ -2,6 +2,7 @@
 using Monhealth.Application.Features.Portions.Commands.CreateFoodPortion;
 using Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion;
 using Monhealth.Application.Features.Portions.Queries.GetPortionById;
+using Monhealth.Application.Features.Portions.Queries.GetPortionsByFoodId;
 using Monhealth.Domain;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Monhealth.Application.Automapper
             CreateMap<Portion, CreatePortionCommand>().ReverseMap();
 
             CreateMap<Portion, GetPortionByIdDto>().ReverseMap();
+            CreateMap<Portion, GetPortionsByFoodIdDto>().ReverseMap();
         }
     }
 }

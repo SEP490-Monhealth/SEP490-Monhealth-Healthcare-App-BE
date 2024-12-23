@@ -6,6 +6,7 @@ using Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion;
 using Monhealth.Application.Features.Portions.Commands.UpdatePortion;
 using Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion;
 using Monhealth.Application.Features.Portions.Queries.GetPortionById;
+using Monhealth.Application.Features.Portions.Queries.GetPortionsByFoodId;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -30,7 +31,8 @@ namespace Monhealth.Api.Controllers
             {
                 Data = result,
                 Status = 200,
-                Success = true
+                Success = true,
+                Message = "Lấy danh sách khẩu phần ăn thành công"
             };
         }
 
@@ -52,6 +54,27 @@ namespace Monhealth.Api.Controllers
                 Data = portion,
                 Status = 200,
                 Success = true
+            };
+        }
+        [HttpGet("food/{foodId}")]
+        public async Task<ActionResult<ResultModel>> GetPortionsByFoodId(Guid foodId)
+        {
+            var portion = await _mediator.Send(new GetPortionsByFoodIdQuery() { FoodId = foodId });
+            if (portion == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy khẩu phần ăn."
+                };
+            }
+            return new ResultModel
+            {
+                Data = portion,
+                Status = 200,
+                Success = true,
+                Message = "Lấy khẩu phần ăn thành công."
             };
         }
 
