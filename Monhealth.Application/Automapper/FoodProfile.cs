@@ -12,8 +12,28 @@ namespace Monhealth.Application.Automapper
         public FoodProfile()
         {
             CreateMap<Food, FoodDTO>()
-            .ForMember(dest => dest.Category,
-             opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()));
+
+       .ForMember(dest => dest.Category,
+        opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()))
+
+
+       .ForMember(dest => dest.Portion,
+        opt => opt.MapFrom(src => src.FoodPortions.Select(fp => new GetPortionForGetAllFoodDTO
+        {
+            PortionSize = fp.Portion.PortionSize,
+            PortionWeight = fp.Portion.PortionWeight,
+            MeasurementUnit = fp.Portion.MeasurementUnit
+        }).FirstOrDefault()))
+
+
+       .ForMember(dest => dest.Nutrition,
+        opt => opt.MapFrom(src => src.Nutrition != null
+            ? new GetNutritionForGetAllFoodDTO
+            {
+                Calories = src.Nutrition.Calories,
+
+            }
+            : null));
 
             CreateMap<Food, FoodDetailByFoodTypeDTO>()
             .ForMember(dest => dest.Category,
