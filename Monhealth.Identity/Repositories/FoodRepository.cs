@@ -22,8 +22,9 @@ namespace Monhealth.Identity.Repositories
             // filter search
             if(!string.IsNullOrEmpty(search))
             {
-                query = query.Where(s => s.FoodId.ToString().ToLower().Contains(search.ToLower()) ||
-                    s.FoodName.ToLower().Contains(search.ToLower()));
+                // cho phep search khong dau
+                query = query.Where(s => EF.Functions.Collate(s.FoodName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) || 
+                    s.FoodId.ToString().ToLower().Contains(search.ToLower()));
             }
             
             // filter status
