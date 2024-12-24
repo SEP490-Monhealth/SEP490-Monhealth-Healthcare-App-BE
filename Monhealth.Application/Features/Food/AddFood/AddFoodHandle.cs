@@ -1,6 +1,5 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Core;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Food.AddFood
@@ -24,37 +23,25 @@ namespace Monhealth.Application.Features.Food.AddFood
 
         public async Task<bool> Handle(AddFoodRequest request, CancellationToken cancellationToken)
         {
-           
-            var existingFood = await _foodRepository.GetFoodByNameAsync(request.FoodName);
-            if (existingFood != null) throw new Exception("Món ăn đã tồn tại");
 
+            var existingFood = await _foodRepository.GetFoodByNameAsync(request.FoodName);
+            if (existingFood != null) throw new Exception("Món ăn đã tồn tại. ");
+            var category = await _categoryRepository.GetCategoryByCategoryName(request.Category);
+            if (category == null)
+                throw new Exception("Danh mục không tồn tại.");
             var food = new Monhealth.Domain.Food
             {
                 UserId = request.UserId,
                 FoodName = request.FoodName,
                 FoodType = "Public",
                 FoodDescription = request.FoodDescription,
-                FoodCategories = new List<FoodCategory>(),
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                
+                CategoryId = category.CategoryId
             };
 
-            // Xử lý danh mục (CategoryName)
-            foreach (var categoryName in request.Category)
-            {
-                var category = await _categoryRepository.GetCategoryByCategoryName(categoryName);
-                if (category == null)
-                    throw new Exception("Danh mục không tồn tại.");
-
-                food.FoodCategories.Add(new FoodCategory
-                {
-                    FoodId = food.FoodId,
-                    CategoryId = category.CategoryId
-                });
-            }
             _foodRepository.Add(food);
             await _foodRepository.SaveChangesAsync();
             var nutrition = new Monhealth.Domain.Nutrition
@@ -80,12 +67,11 @@ namespace Monhealth.Application.Features.Food.AddFood
             Portion portion;
             if (existingPortion != null)
             {
-                // Nếu Portion đã tồn tại, sử dụng lại
                 portion = existingPortion;
             }
             else
             {
-                // Nếu Portion chưa tồn tại, tạo mới
+                
                 portion = new Portion
                 {
                     PortionId = Guid.NewGuid(),
@@ -98,7 +84,7 @@ namespace Monhealth.Application.Features.Food.AddFood
                 _portionRepository.Add(portion);
             }
 
-            // Liên kết Portion với Food qua FoodPortion
+        
             food.FoodPortions.Add(new FoodPortion
             {
                 FoodId = food.FoodId,

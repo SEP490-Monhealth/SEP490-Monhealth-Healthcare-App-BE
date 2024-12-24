@@ -9,7 +9,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
     public class GetFoodByIdDTO : BaseEntity
     {
         public string FoodName { get; set; }
-        public List<string> Category { get; set; }
+        public string Category { get; set; }
         public string FoodDescription { get; set; } = string.Empty;
         public bool Status { get; set; }
     }

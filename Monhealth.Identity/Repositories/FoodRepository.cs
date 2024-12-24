@@ -17,14 +17,14 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status)
         {
             search = search?.Trim();
-            IQueryable<Food> query = _context.Foods.Include(f => f.FoodCategories).ThenInclude(fc => fc.Category).
+            IQueryable<Food> query = _context.Foods.Include(f => f.Category).
             Include(f => f.Nutrition).Include(f => f.FoodPortions).ThenInclude(f => f.Portion).AsQueryable();
 
             // filter search
             if (!string.IsNullOrEmpty(search))
             {
                 // cho phep search khong dau
-                query = query.Where(s => EF.Functions.Collate(s.FoodName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) || 
+                query = query.Where(s => EF.Functions.Collate(s.FoodName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
                     s.FoodId.ToString().ToLower().Contains(search.ToLower()));
             }
 
@@ -56,23 +56,20 @@ namespace Monhealth.Identity.Repositories
         public async Task<Food> GetByIdWithCategoriesAsync(Guid foodId)
         {
             return await _context.Foods
-        .Include(f => f.FoodCategories)
+        .Include(f => f.Category)
         .Include(f => f.FoodPortions)
         .FirstOrDefaultAsync(f => f.FoodId == foodId);
         }
 
         public async Task<List<Food>> GetFoodByCategoryName(string categoryName)
         {
-            return await _context.Foods
-            .Include(f => f.FoodCategories)
-            .ThenInclude(fc => fc.Category)
-            .Where(f => f.FoodCategories.Any(fc => fc.Category.CategoryName == categoryName))
+            return await _context.Foods.Where(f => f.Category.CategoryName == categoryName)
             .ToListAsync();
         }
         public async Task<Food> GetFoodByIdAsync(Guid foodId)
         {
-            return await _context.Foods
-            .Include(f => f.FoodCategories).ThenInclude(fc => fc.Category)
+            return await _context.Foods.
+            Include(fc => fc.Category)
             .FirstOrDefaultAsync(f => f.FoodId == foodId);
         }
 
@@ -84,16 +81,15 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<Food>> GetFoodListByFoodType(string foodType)
         {
             return await _context.Foods.Where(f => f.FoodType == foodType)
-            .Include(f => f.FoodCategories)
-            .ThenInclude(fc => fc.Category).ToListAsync();
+            .Include(f => f.Category).ToListAsync();
 
         }
 
-        public void RemoveFoodCategories(Guid foodId)
-        {
-            var categoriesToRemove = _context.FoodCategories.Where(fc => fc.FoodId == foodId);
-            _context.FoodCategories.RemoveRange(categoriesToRemove);
-        }
+        // public void RemoveFoodCategories(Guid foodId)
+        // {
+        //     var categoriesToRemove = _context.FoodCategories.Where(fc => fc.FoodId == foodId);
+        //     _context.FoodCategories.RemoveRange(categoriesToRemove);
+        // }
 
         public void RemoveFoodPortions(Guid foodId)
         {

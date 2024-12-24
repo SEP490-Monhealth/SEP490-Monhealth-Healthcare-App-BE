@@ -14,10 +14,7 @@ namespace Monhealth.Application.Automapper
             CreateMap<Food, FoodDTO>()
 
        .ForMember(dest => dest.Category,
-        opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()))
-
-
-       .ForMember(dest => dest.Portion,
+        opt => opt.MapFrom(src => src.Category.CategoryName)).ForMember(dest => dest.Portion,
         opt => opt.MapFrom(src => src.FoodPortions.Select(fp => new GetPortionForGetAllFoodDTO
         {
             PortionSize = fp.Portion.PortionSize,
@@ -37,11 +34,11 @@ namespace Monhealth.Application.Automapper
 
             CreateMap<Food, FoodDetailByFoodTypeDTO>()
             .ForMember(dest => dest.Category,
-            opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()));
+            opt => opt.MapFrom(src => src.Category.CategoryName));
 
             CreateMap<Food, GetFoodByIdDTO>()
             .ForMember(dest => dest.Category,
-            opt => opt.MapFrom(src => src.FoodCategories.Select(fc => fc.Category.CategoryName).ToList()))
+            opt => opt.MapFrom(src => src.Category.CategoryName))
             .ForMember(dest => dest.FoodName, opt => opt.MapFrom(src => src.FoodName))
             .ForMember(dest => dest.FoodDescription, opt => opt.MapFrom(src => src.FoodDescription));
 
