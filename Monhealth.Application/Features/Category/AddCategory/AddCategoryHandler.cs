@@ -22,7 +22,7 @@ namespace Monhealth.Application.Features.Category.AddCategory
             if (isCategoryExist)
             {
                 // Trả về lỗi không hợp lệ
-                throw new Exception("CategoryName already exists.");
+                throw new Exception("Danh mục đã tồn tại.");
             }
             var model = new Monhealth.Domain.Category
             {
