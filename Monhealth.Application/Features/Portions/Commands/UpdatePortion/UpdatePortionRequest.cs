@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Portions.Commands.UpdatePortion
 {
     public class UpdatePortionRequest
     {
+        [JsonPropertyName("size")]
         public string? PortionSize { get; set; }
+        [JsonPropertyName("weight")]
         public float PortionWeight { get; set; }
+        [JsonPropertyName("unit")]
         public string MeasurementUnit { get; set; }
     }
 }

@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 using MediatR;
 
 namespace Monhealth.Application.Features.Food.AddFoodUser
@@ -9,7 +6,9 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
     public class AddFoodUserRequest : IRequest<bool>
     {
         public Guid UserId { get; set; }
+        [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
+        [JsonPropertyName("description")]
         public string FoodDescription { get; set; } = string.Empty;
         public PortionDTO1 Portion { get; set; }
         public NutritionDTO1 Nutrition { get; set; }
