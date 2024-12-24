@@ -25,9 +25,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? search = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? search = null, string? categoryName = null, bool? status = null)
         {
-            var foods = await _mediator.Send(new GetFoodListQuery(page, limit, search, status));
+            var foods = await _mediator.Send(new GetFoodListQuery(page, limit, search, categoryName, status));
 
             return new ResultModel
             {

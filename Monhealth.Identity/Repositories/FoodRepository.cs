@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status)
+        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status , string categoryName)
         {
             search = search?.Trim();
             IQueryable<Food> query = _context.Foods.Include(f => f.Category).
@@ -27,7 +27,8 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(s => EF.Functions.Collate(s.FoodName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
                     s.FoodId.ToString().ToLower().Contains(search.ToLower()));
             }
-
+            if(!string .IsNullOrEmpty(categoryName))
+            query = query.Where(f => f.Category.CategoryName == categoryName);
             // filter status
             if (status.HasValue)
             {
