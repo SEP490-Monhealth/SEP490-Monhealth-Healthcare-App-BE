@@ -6,5 +6,6 @@ namespace Monhealth.Application.Features.Category.AddCategory
     {
         public string CategoryName { get; set; } = string.Empty;
         public string CategoryDescription { get; set; } = string.Empty;
+        public string CategoryImage { get; set; } = string.Empty;
     }
 }
