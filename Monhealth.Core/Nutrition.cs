@@ -18,7 +18,5 @@ namespace Monhealth.Domain
 
         [ForeignKey(nameof(FoodId))]
         public Food Food { get; set; }
-
-       
     }
 }

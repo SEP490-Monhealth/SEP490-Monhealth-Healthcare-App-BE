@@ -1,13 +1,11 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Category.AddCategory;
 using Monhealth.Application.Features.Food.AddFood;
 using Monhealth.Application.Features.Food.AddFoodUser;
 using Monhealth.Application.Features.Food.DeleteFood;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
 using Monhealth.Application.Features.Food.Queries.GetFoodById;
-using Monhealth.Application.Features.Food.Queries.GetFoodsByCategory;
 using Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin;
 using Monhealth.Application.Models;
 using System.Net;
@@ -34,7 +32,6 @@ namespace Monhealth.Api.Controllers
                 Data = foods,
                 Status = 200,
                 Success = true,
-                Message = "Lấy danh sách đồ ăn thành công"
             };
         }
 
@@ -88,31 +85,6 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet]
-        [Route("category/{categoryName}")]
-        public async Task<ActionResult<ResultModel>> GetFoodByCategory(string categoryName)
-        {
-            var food = await _mediator.
-            Send(new GetFoodListQueryByCategoryQuery { CategoryName = categoryName });
-
-            if (food == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Món ăn không tồn tại.",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = food
-            });
-        }
-
         [HttpPost("public")]
         [ActionName("AddFoodAdmin")]
         public async Task<ActionResult<ResultModel>> AddFoodForAdmin([FromBody] AddFoodRequest request)
@@ -131,7 +103,8 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo món ăn thất bại."
+                Message = "Tạo món ăn thất bại.",
+                Status = 400,
             });
         }
 
@@ -145,7 +118,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo thức ăn thành công.",
+                    Message = "Tạo món ăn thành công.",
                     Status = 201,
                 });
             }
@@ -153,7 +126,8 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo thức ăn thất bại."
+                Message = "Tạo món ăn thất bại.",
+                Status = 400,
             });
         }
 
@@ -182,7 +156,6 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
             });
         }
-
 
         [HttpDelete]
         [Route("{foodId:Guid}")]

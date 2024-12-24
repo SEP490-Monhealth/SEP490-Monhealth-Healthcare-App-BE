@@ -75,7 +75,8 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo danh mục thất bại."
+                Message = "Tạo danh mục thất bại.",
+                Status = 400,
             });
         }
 

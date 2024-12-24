@@ -10,10 +10,9 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         public string Category { get; set; }
         public string FoodName { get; set; } = string.Empty;
         public string FoodDescription { get; set; } = string.Empty;
-        public bool Status { get; set; }
         public GetPortionForGetAllFoodDTO Portion { get; set; }
         public GetNutritionForGetAllFoodDTO Nutrition { get; set; }
-
+        public bool Status { get; set; }
     }
     public class GetPortionForGetAllFoodDTO
     {

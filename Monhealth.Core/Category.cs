@@ -12,6 +12,5 @@ namespace Monhealth.Domain
         public string CategoryDescription { get; set; } = string.Empty;
         public string CategoryImage { get; set; } = string.Empty;
         public List<Food> Foods { get; set; }
-
     }
 }
