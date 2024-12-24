@@ -11,5 +11,17 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType
         public string FoodName { get; set; } = string.Empty;
         public string FoodDescription { get; set; } = string.Empty;
         public bool Status { get; set; }
+        public GetPortionForGetTypeFoodDTO Portion { get; set; }
+        public GetNutritionForGetTypeFoodDTO Nutrition { get; set; }
+    }
+    public class GetPortionForGetTypeFoodDTO
+    {
+        public string PortionSize { get; set; } = string.Empty;
+        public float PortionWeight { get; set; }
+        public string MeasurementUnit { get; set; } = string.Empty;
+    }
+    public class GetNutritionForGetTypeFoodDTO
+    {
+        public float Calories { get; set; }
     }
 }

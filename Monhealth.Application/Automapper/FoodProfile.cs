@@ -11,6 +11,7 @@ namespace Monhealth.Application.Automapper
     {
         public FoodProfile()
         {
+            //Get all foods
             CreateMap<Food, FoodDTO>()
 
        .ForMember(dest => dest.Category,
@@ -20,10 +21,7 @@ namespace Monhealth.Application.Automapper
             PortionSize = fp.Portion.PortionSize,
             PortionWeight = fp.Portion.PortionWeight,
             MeasurementUnit = fp.Portion.MeasurementUnit
-        }).FirstOrDefault()))
-
-
-       .ForMember(dest => dest.Nutrition,
+        }).FirstOrDefault())).ForMember(dest => dest.Nutrition,
         opt => opt.MapFrom(src => src.Nutrition != null
             ? new GetNutritionForGetAllFoodDTO
             {
@@ -31,11 +29,28 @@ namespace Monhealth.Application.Automapper
 
             }
             : null));
-
+            //Get food by FoodType
             CreateMap<Food, FoodDetailByFoodTypeDTO>()
             .ForMember(dest => dest.Category,
-            opt => opt.MapFrom(src => src.Category.CategoryName));
+            opt => opt.MapFrom(src => src.Category.CategoryName)).ForMember(dest => dest.Portion,
+        opt => opt.MapFrom(src => src.FoodPortions.Select(fp => new GetPortionForGetTypeFoodDTO
+        {
+            PortionSize = fp.Portion.PortionSize,
+            PortionWeight = fp.Portion.PortionWeight,
+            MeasurementUnit = fp.Portion.MeasurementUnit
+        }).FirstOrDefault()))
 
+
+       .ForMember(dest => dest.Nutrition,
+        opt => opt.MapFrom(src => src.Nutrition != null
+            ? new GetNutritionForGetTypeFoodDTO
+            {
+                Calories = src.Nutrition.Calories,
+
+            }
+            : null));
+
+            //Get food by foodId
             CreateMap<Food, GetFoodByIdDTO>()
             .ForMember(dest => dest.Category,
             opt => opt.MapFrom(src => src.Category.CategoryName))

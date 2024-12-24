@@ -39,7 +39,6 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
             food.FoodDescription = request.RequestData.FoodDescription;
             food.UpdatedAt = DateTime.Now;
             food.CategoryId = null;
-            // Thêm các danh mục mới
             var categoryName = request.RequestData.Category; 
             if (categoryName != null)
             {
