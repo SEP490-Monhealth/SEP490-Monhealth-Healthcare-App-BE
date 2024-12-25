@@ -4,7 +4,7 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
-using Monhealth.Identity.Models;
+
 
 namespace Monhealth.Identity.Repositories
 {
@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status , string categoryName)
+        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName)
         {
             search = search?.Trim();
             IQueryable<Food> query = _context.Foods.Include(f => f.Category).
@@ -27,8 +27,8 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(s => EF.Functions.Collate(s.FoodName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
                     s.FoodId.ToString().ToLower().Contains(search.ToLower()));
             }
-            if(!string .IsNullOrEmpty(categoryName))
-            query = query.Where(f => f.Category.CategoryName == categoryName);
+            if (!string.IsNullOrEmpty(categoryName))
+                query = query.Where(f => f.Category.CategoryName == categoryName);
             // filter status
             if (status.HasValue)
             {
@@ -77,6 +77,13 @@ namespace Monhealth.Identity.Repositories
         public async Task<Food> GetFoodByNameAsync(string foodName)
         {
             return await _context.Foods.FirstOrDefaultAsync(f => f.FoodName == foodName);
+        }
+
+        public async Task<List<Food>> GetFoodByUserId(Guid userId)
+        {
+            return await _context.Foods.Where(f => f.UserId == userId)
+             .Include(f => f.Category).Include(f => f.Nutrition).
+             Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
         }
 
         public async Task<List<Food>> GetFoodListByFoodType(string foodType)
