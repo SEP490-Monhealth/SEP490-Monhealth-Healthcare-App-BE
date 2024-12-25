@@ -48,7 +48,7 @@ namespace Monhealth.Identity.Dbcontexts
                 .WithOne(n => n.Food)
                 .HasForeignKey<Nutrition>(n => n.FoodId) // Nutrition.FoodId references Food.FoodId
                 .OnDelete(DeleteBehavior.Restrict); // Avoid cascading delete
-
+            
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());
@@ -56,6 +56,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new FoodConfiguration());
             // builder.ApplyConfiguration(new FoodCategoryConfiguration());
             builder.ApplyConfiguration(new PortionConfiguration());
+            builder.ApplyConfiguration(new NutritionConfiguration());
         }
 
     }

@@ -17,6 +17,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         public GetPortionForGetAllFoodDTO Portion { get; set; }
         public GetNutritionForGetAllFoodDTO Nutrition { get; set; }
         public bool Status { get; set; }
+       
     }
     public class GetPortionForGetAllFoodDTO
     {

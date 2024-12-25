@@ -1,8 +1,9 @@
 ﻿using System.Text.Json.Serialization;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion
 {
-    public class PortionDto
+    public class PortionDto : BaseEntity
     {
         public Guid PortionId { get; set; }
         [JsonPropertyName("size")]

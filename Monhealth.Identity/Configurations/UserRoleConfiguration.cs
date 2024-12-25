@@ -9,6 +9,7 @@ namespace Monhealth.Identity.Configurations
         public void Configure(EntityTypeBuilder<IdentityUserRole<Guid>> builder)
         {
             builder.HasData(
+
                         new IdentityUserRole<Guid>
                         {
                             RoleId = Guid.Parse("C0278115-8549-4FAD-890A-44F8E8FCC022"),
@@ -38,8 +39,12 @@ namespace Monhealth.Identity.Configurations
                          {
                              RoleId = Guid.Parse("322488F9-7AA9-49B0-B2B8-FD98B7B260FC"),
                              UserId = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
+                         },
+                         new IdentityUserRole<Guid>
+                         {
+                             RoleId = Guid.Parse("D21EDFD6-42D5-490A-A41C-43F7EF09C61F"),
+                             UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6")
                          }
-
 
                         );
         }
