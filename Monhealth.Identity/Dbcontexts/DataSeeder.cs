@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Dbcontexts
             {
                 await context.Roles.AddAsync(new AppRole()
                 {
-                    Id = rootAdminRoleId,
+                Id = rootAdminRoleId,
                     Name = "Admin",
                     NormalizedName = "ADMIN",
                     DisplayName = "Quản trị viên"
