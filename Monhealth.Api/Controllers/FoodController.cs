@@ -5,6 +5,7 @@ using Monhealth.Application.Features.Food.AddFoodUser;
 using Monhealth.Application.Features.Food.DeleteFood;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
+using Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId;
 using Monhealth.Application.Features.Food.Queries.GetFoodById;
 using Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin;
 using Monhealth.Application.Models;
@@ -41,6 +42,30 @@ namespace Monhealth.Api.Controllers
         {
             var foods = await _mediator.
             Send(new GetFoodDetailByFoodTypeQuery() { foodType = foodType });
+
+            if (foods == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Món ăn không tồn tại.",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = foods
+            });
+        }
+        [HttpGet]
+        [Route("user/{userId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetFoodsByUserId(Guid userId)
+        {
+            var foods = await _mediator.
+            Send(new GetFoodListByUserIdQuery() { UserId = userId });
 
             if (foods == null)
             {
