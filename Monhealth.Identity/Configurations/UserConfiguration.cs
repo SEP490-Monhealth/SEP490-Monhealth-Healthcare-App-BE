@@ -12,6 +12,7 @@ namespace Monhealth.Identity.Configurations
             var hasher = new PasswordHasher<AppUser>();
 
             builder.HasData(
+
                 new AppUser
                 {
                     Id = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87"),
@@ -119,7 +120,25 @@ namespace Monhealth.Identity.Configurations
 
                         UpdatedAt = DateTime.Parse("2025-01-06"),
                         CreatedAt = DateTime.Parse("2025-01-06"),
-                    }
+                    },
+                     new AppUser
+                     {
+                         Id = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
+                         FullName = "asd",
+                         Status = true,
+                         Email = "asd@gmail.com",
+                         NormalizedEmail = "ASD@GMAIL.COM",
+                         UserName = "asd",
+                         NormalizedUserName = "ASD",
+                         PhoneNumber = "0123456789",
+                         LockoutEnabled = false,
+                         EmailConfirmed = true,
+                         PasswordHash = hasher.HashPassword(null, "123As@"),
+                         SecurityStamp = Guid.NewGuid().ToString(),
+
+                         UpdatedAt = DateTime.Parse("2025-01-06"),
+                         CreatedAt = DateTime.Parse("2025-01-06"),
+                     }
                 );
         }
     }
