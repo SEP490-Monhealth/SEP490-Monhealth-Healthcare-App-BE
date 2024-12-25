@@ -5,7 +5,6 @@ namespace Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition
     public class NutritionByFoodIdDto : BaseEntity
     {
         public Guid NutritionId { get; set; }
-        public Guid? FoodId { get; set; }
         public float Calories { get; set; }
         public float Protein { get; set; }
         public float Carbs { get; set; }
