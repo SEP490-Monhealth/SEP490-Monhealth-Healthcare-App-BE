@@ -25,6 +25,5 @@ namespace Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition
         public float? VitaminC { get; set; }
         public float? VitaminD { get; set; }
         public float? VitaminE { get; set; }
-
     }
 }
