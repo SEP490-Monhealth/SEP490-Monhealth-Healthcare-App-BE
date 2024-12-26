@@ -79,11 +79,22 @@ namespace Monhealth.Identity.Repositories
             return await _context.Foods.FirstOrDefaultAsync(f => f.FoodName == foodName);
         }
 
-        public async Task<List<Food>> GetFoodByUserId(Guid userId)
+        public async Task<PaginatedResult<Food>> GetFoodByUserId(int page, int limit, Guid userId)
         {
-            return await _context.Foods.Where(f => f.UserId == userId)
+            IQueryable<Food> query = _context.Foods.Where(f => f.UserId == userId)
              .Include(f => f.Category).Include(f => f.Nutrition).
-             Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
+             Include(f => f.FoodPortions).ThenInclude(f => f.Portion).AsQueryable
+             ();
+            int totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Food>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<List<Food>> GetFoodListByFoodType(string foodType)

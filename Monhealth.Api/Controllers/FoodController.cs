@@ -62,28 +62,18 @@ namespace Monhealth.Api.Controllers
         }
         [HttpGet]
         [Route("user/{userId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetFoodsByUserId(Guid userId)
+        public async Task<ActionResult<ResultModel>> GetFoodsByUserId(Guid userId, int page = 1, int limit = 10)
         {
-            var foods = await _mediator.
-            Send(new GetFoodListByUserIdQuery() { UserId = userId });
+            var foods = await _mediator.Send(new GetFoodListByUserIdQuery(userId, page, limit));
 
-            if (foods == null)
+            return new ResultModel
             {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Món ăn không tồn tại.",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
+                Data = foods,
                 Status = 200,
-                Data = foods
-            });
+                Success = true,
+            };
         }
+
 
         [HttpGet]
         [Route("{foodId:Guid}")]

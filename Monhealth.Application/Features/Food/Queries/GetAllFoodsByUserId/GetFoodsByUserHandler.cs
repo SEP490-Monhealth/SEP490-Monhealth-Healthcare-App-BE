@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
 {
-    public class GetFoodsByUserHandler : IRequestHandler<GetFoodListByUserIdQuery, List<FoodsByUserIdDTO>>
+    public class GetFoodsByUserHandler : IRequestHandler<GetFoodListByUserIdQuery, PageResult<FoodsByUserIdDTO>>
     {
         private readonly IFoodRepository _foodRepository;
         private readonly IMapper _mapper;
@@ -20,11 +21,18 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
             _mapper = mapper;
         }
 
-        public async Task<List<FoodsByUserIdDTO>> Handle(GetFoodListByUserIdQuery request, CancellationToken cancellationToken)
+        public async Task<PageResult<FoodsByUserIdDTO>> Handle(GetFoodListByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var foods = await _foodRepository.GetFoodByUserId(request.UserId);
-            if (foods == null) throw new Exception("Người dùng không tồn tại.");
-            return _mapper.Map<List<FoodsByUserIdDTO>>(foods);
+            var paginatedUser = await _foodRepository.GetFoodByUserId(request.Page, request.Limit, request.UserId);
+            var foodList = paginatedUser.Items.ToList();
+            var foodDtoList = _mapper.Map<List<FoodsByUserIdDTO>>(foodList);
+            return new PageResult<FoodsByUserIdDTO>()
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(paginatedUser.TotalCount / (double)request.Limit),
+                TotalItems = paginatedUser.TotalCount,
+                Items = foodDtoList
+            };
         }
     }
 }
