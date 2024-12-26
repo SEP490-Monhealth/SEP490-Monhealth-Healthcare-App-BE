@@ -5,7 +5,7 @@ using Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition;
 
 namespace Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId
 {
-    public class GetNutritionByFoodIdHandler : IRequestHandler<GetNutritionByFoodIdListQuery, List<NutritionByFoodIdDto>>
+    public class GetNutritionByFoodIdHandler : IRequestHandler<GetNutritionByFoodIdListQuery, NutritionByFoodIdDto>
     {
         private readonly INutritionRepository _nutritionRepository;
         private readonly IMapper _mapper;
@@ -15,11 +15,11 @@ namespace Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfood
             _nutritionRepository = nutritionRepository;
         }
 
-        public async Task<List<NutritionByFoodIdDto>> Handle(GetNutritionByFoodIdListQuery request, CancellationToken cancellationToken)
+        public async Task<NutritionByFoodIdDto> Handle(GetNutritionByFoodIdListQuery request, CancellationToken cancellationToken)
         {
             var query = await _nutritionRepository.GetAllNutritionByFoodIdAsync(request.FoodId);
             if (query == null) throw new Exception("Not found food.");
-            return _mapper.Map<List<NutritionByFoodIdDto>>(query);
+            return _mapper.Map<NutritionByFoodIdDto>(query);
         }
     }
 }
