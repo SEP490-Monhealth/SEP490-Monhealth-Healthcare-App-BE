@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Monhealth.Application.Features.User;
 using System.Reflection;
 
 namespace Monhealth.Application
@@ -10,6 +11,7 @@ namespace Monhealth.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped<IUserContext, UserContext>();
             return services;
         }
     }

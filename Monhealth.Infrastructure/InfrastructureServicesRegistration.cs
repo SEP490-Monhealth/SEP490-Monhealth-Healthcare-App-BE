@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Monhealth.Application.Contracts.Email;
+using Monhealth.Infrastructure.Email;
 
 namespace Monhealth.Infrastructure
 {
@@ -10,6 +12,8 @@ namespace Monhealth.Infrastructure
             //services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
             //services.AddTransient<IEmailSender, EmailSender>();
             //services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
+            services.AddScoped<IEmailSender, EmailService>();
+
             return services;
         }
     }

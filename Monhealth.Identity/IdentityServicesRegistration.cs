@@ -24,6 +24,8 @@ namespace Monhealth.Identity
 
             services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<MonhealthDbcontext>().AddDefaultTokenProviders();
+
+
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings.   

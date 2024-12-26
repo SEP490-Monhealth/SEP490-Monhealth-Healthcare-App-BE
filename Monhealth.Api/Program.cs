@@ -11,6 +11,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddIdentityServices(configuration);
 builder.Services.AddInfrastructureServices(configuration);
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddEndpointsApiExplorer();
 
 
 
@@ -69,6 +70,7 @@ app.Use(async (context, next) =>
     }
     await next();
 });
+
 app.UseAuthentication();
 app.UseAuthorization();
 
