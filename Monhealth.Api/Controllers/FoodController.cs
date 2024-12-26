@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId;
 using Monhealth.Application.Features.Food.Queries.GetFoodById;
 using Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin;
+using Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForUser;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -149,7 +150,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPost]
+        [HttpPost("user")]
         [ActionName("AddFoodUser")]
         public async Task<ActionResult<ResultModel>> AddFoodForUser([FromBody] AddFoodUserRequest request)
         {
@@ -178,6 +179,31 @@ namespace Monhealth.Api.Controllers
         {
 
             var command = new UpdateFoodRequestAdminHandler(foodId, request);
+            var result = await _mediator.Send(command);
+
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Message = "Cập nhật món ăn không thành công.",
+                    Success = false,
+                    Data = null
+                });
+            }
+
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật món ăn thành công.",
+                Success = true,
+                Status = 204,
+            });
+        }
+        [HttpPut]
+        [Route("user/{foodId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateFoodForUser(Guid foodId, [FromBody] UpdateFoodRequestUser request)
+        {
+
+            var command = new UpdateFoodRequestUserHandler(foodId, request);
             var result = await _mediator.Send(command);
 
             if (!result)

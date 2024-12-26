@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Domain;
+
 
 namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
 {
@@ -13,18 +8,14 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
     {
         private readonly IFoodRepository _foodRepository;
         private readonly ICategoryRepository _categoryRepository;
-        private readonly INutritionRepository _nutritionRepository;
-        private readonly IPortionRepository _portionRepository;
+    
 
         public UpdateFoodForAdminAHandler(IFoodRepository foodRepository
-        , ICategoryRepository categoryRepository,
-        INutritionRepository nutritionRepository,
-        IPortionRepository portionRepository)
+        , ICategoryRepository categoryRepository)
         {
             _foodRepository = foodRepository;
             _categoryRepository = categoryRepository;
-            _nutritionRepository = nutritionRepository;
-            _portionRepository = portionRepository;
+          
         }
         public async Task<bool> Handle(UpdateFoodRequestAdminHandler request, CancellationToken cancellationToken)
         {
