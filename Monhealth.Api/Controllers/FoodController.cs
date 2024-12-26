@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Food.AddFood;
 using Monhealth.Application.Features.Food.AddFoodUser;
+using Monhealth.Application.Features.Food.ChangeStatus;
 using Monhealth.Application.Features.Food.DeleteFood;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
@@ -58,6 +59,31 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = 200,
                 Data = foods
+            });
+        }
+
+        [HttpPatch]
+        [Route("{foodId:Guid}")]
+        public async Task<ActionResult<ResultModel>> ChangeStatus(Guid foodId)
+        {
+            var foods = await _mediator.
+            Send(new ChangeStatusByFoodIdQuery() { FoodId = foodId });
+
+            if (foods == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Món ăn không tồn tại.",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Message = "Cập nhật trạng thái thành công."
             });
         }
         [HttpGet]
