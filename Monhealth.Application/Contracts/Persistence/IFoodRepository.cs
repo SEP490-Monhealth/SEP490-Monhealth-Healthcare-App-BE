@@ -5,7 +5,7 @@ namespace Monhealth.Application.Contracts.Persistence
     public interface IFoodRepository : IGenericRepository<Food, Guid>
     {
         Task<List<Food>> GetByIdsAsync(IEnumerable<Guid> foodIds);
-        Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName);
+        Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName,string foodType);
         Task<int> SaveChangesAsync();
         Task<List<Food>> GetFoodListByFoodType(string foodType);
         Task<Food> GetFoodByIdAsync(Guid foodId);

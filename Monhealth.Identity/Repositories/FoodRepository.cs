@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName)
+        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName, string foodType)
         {
             search = search?.Trim();
             IQueryable<Food> query = _context.Foods.Include(f => f.Category).
@@ -29,6 +29,9 @@ namespace Monhealth.Identity.Repositories
             }
             if (!string.IsNullOrEmpty(categoryName))
                 query = query.Where(f => f.Category.CategoryName == categoryName);
+            //filter FoodType
+            if (!string.IsNullOrEmpty(foodType))
+                query = query.Where(f => f.FoodType == foodType);
             // filter status
             if (status.HasValue)
             {
