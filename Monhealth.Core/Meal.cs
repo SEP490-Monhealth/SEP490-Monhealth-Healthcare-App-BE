@@ -9,9 +9,9 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid MealId { get; set; }
-        public Guid DailyMealId { get; set; }
+        public Guid? DailyMealId { get; set; }
         public Guid UserId { get; set; }
-        public MealType MealType { get; set; }
+        public string MealType { get; set; } = string.Empty;
         [ForeignKey(nameof(DailyMealId))]
         public DailyMeal DailyMeal { get; set; }
         public ICollection<MealFood> MealFoods { get; set; }
