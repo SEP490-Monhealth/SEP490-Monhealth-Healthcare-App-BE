@@ -1,13 +1,12 @@
 
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Meal.Queries.GetAllMeals;
 using Monhealth.Application.Features.MealFood.Commands.UpdateMealFood;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/mealFoods")]
+    [Route("api/v1/meal-foods")]
     [ApiController]
     public class MealFoodController : ControllerBase
     {
@@ -19,7 +18,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("{mealFoodId:Guid}/{quantity:int}")]
+        [Route("{mealFoodId:Guid}/quantity")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid mealFoodId, int quantity)
         {
             var command = new MealFoodCommand(mealFoodId, quantity);
