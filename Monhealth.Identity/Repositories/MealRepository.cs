@@ -27,5 +27,16 @@ namespace Monhealth.Identity.Repositories
                    .ThenInclude(fp => fp.Portion)
        .ToListAsync();
         }
+
+        public async Task<Meal> GetByUserIdAndMealType(Guid userId, string mealType)
+        {
+            return await _context.Meals.FirstOrDefaultAsync
+            (m => m.UserId == userId && m.MealType == mealType);
+        }
+
+        public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Meal.Commands.CreateMeal;
 using Monhealth.Application.Features.Meal.Queries.GetAllMeals;
 using Monhealth.Application.Models;
 
@@ -29,6 +30,28 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
+        }
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> AddMeal([FromBody] CreateMealDTO request)
+        {
+            var command = new CreateMealCommand(request);
+            var result = await _mediator.Send(command);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo bữa ăn thành công.",
+                    Status = 201,
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo bữa ăn thất bại.",
+                Status = 400,
+            });
         }
     }
 }
