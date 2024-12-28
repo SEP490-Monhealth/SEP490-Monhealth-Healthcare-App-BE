@@ -12,7 +12,7 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20241227141446_AddDatabase")]
+    [Migration("20241228065045_AddDatabase")]
     partial class AddDatabase
     {
         /// <inheritdoc />
@@ -1904,6 +1904,248 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("PortionId");
 
                     b.ToTable("FoodPortions");
+
+                    b.HasData(
+                        new
+                        {
+                            FoodPortionId = new Guid("6956e07b-da21-481e-ac76-65255fd9587f"),
+                            FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
+                            PortionId = new Guid("1808de3e-ae43-41a6-b9ce-bfe89131be5a")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("8c85d7a4-bace-4691-ab0f-e1628f24bfd3"),
+                            FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
+                            PortionId = new Guid("40991196-f258-43f1-ac84-0381afa83477")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("c15e4bd1-ddaa-4330-8ae5-dbf1549a8f9c"),
+                            FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
+                            PortionId = new Guid("28b06cf6-6367-4786-bccb-89c43dd3ce3a")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("9fcf8d40-47b2-45fb-8197-e77bf2071542"),
+                            FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
+                            PortionId = new Guid("91524cc2-db22-4cab-abb7-700725232f1f")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("db166416-f2d4-4e69-98b2-4b14ac28f725"),
+                            FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
+                            PortionId = new Guid("1b56833b-1ff5-4a90-aea9-074de2d0dd67")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("00b508dc-fd72-46b5-8fd0-71caa552cf8d"),
+                            FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
+                            PortionId = new Guid("c605aa91-495e-4977-9876-b2a198ce356e")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("aac2bdea-12f2-4a18-970b-53f31238c765"),
+                            FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
+                            PortionId = new Guid("7be0e4d3-1e50-4de1-931d-08adb85f628b")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("99a56d5b-3a27-437b-b2dd-9ed46689be76"),
+                            FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
+                            PortionId = new Guid("698c67ad-a726-435b-b9d2-c5690a79eb5a")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("b915f9fe-df4f-4b9a-aeee-746a7206a297"),
+                            FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
+                            PortionId = new Guid("399eee61-90b5-464f-b3f7-7ddc1077ab0d")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("6dfc62b1-fc62-4aea-a8f4-aa93dcfb10fe"),
+                            FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
+                            PortionId = new Guid("6f34350b-8f99-446e-9de9-e0c6277b10f3")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("b38e1bf5-f34c-422f-bc6a-456eb9f1439f"),
+                            FoodId = new Guid("8fa26c41-16b2-49f8-a284-856024a5f947"),
+                            PortionId = new Guid("41ae956e-14fc-44af-bc6a-e5ba77661cee")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("63c7b97d-ad3e-47c0-a294-fc74ae5c312e"),
+                            FoodId = new Guid("1387c20d-27a6-495b-a3a0-efbb715f6430"),
+                            PortionId = new Guid("a1589990-affa-4805-a1e0-73de1ffa8516")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("7a61797f-8c44-44f2-87d7-9d14946e91e0"),
+                            FoodId = new Guid("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
+                            PortionId = new Guid("4e9013c8-d6f7-4740-80d5-e95d318873b9")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("e07e4ccc-de61-4564-a047-d5f29395e765"),
+                            FoodId = new Guid("eac10b91-8509-4986-b689-7ee3a3757a18"),
+                            PortionId = new Guid("1bf9c3e0-7a2c-46f5-8187-82e5ad1af649")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("77ff6660-2d5b-45db-bd7b-524a3eac0a98"),
+                            FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
+                            PortionId = new Guid("faec7c41-2e11-4092-8ab9-cc9c152d858f")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("ea36ca31-4756-426f-8f30-116a401871ff"),
+                            FoodId = new Guid("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
+                            PortionId = new Guid("268e00a0-2da3-4e5c-8ea7-5ad8923cfd52")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("da959267-1066-4a30-84a6-c5975af7c398"),
+                            FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
+                            PortionId = new Guid("40bbc8c4-f383-4ae6-979a-3ac83c275881")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("49e440ff-31d5-49a0-8f8b-98c9a9d95cf9"),
+                            FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
+                            PortionId = new Guid("de5d78a3-c5b1-4e2a-b9eb-f3757c999024")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("8d47ad59-d162-4777-81dc-c2bec9e72f22"),
+                            FoodId = new Guid("de097440-db5c-4d91-bd55-76618d70599d"),
+                            PortionId = new Guid("92e149ff-8491-48cf-a4e8-8106b1e95c4c")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("bdfe0d61-37a3-4062-bff8-b1ab5d7959cc"),
+                            FoodId = new Guid("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
+                            PortionId = new Guid("3f77fd90-591c-45f3-8bbc-87d0bb49e461")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("d5d5889a-bbc4-408c-9884-d194e1f48346"),
+                            FoodId = new Guid("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
+                            PortionId = new Guid("6792c392-3c86-4162-be91-4fc8646f861d")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("cfab2fdb-5a1a-4b4c-8e85-5247c64e3492"),
+                            FoodId = new Guid("48113ca0-a1e7-4181-85fa-be6538a70873"),
+                            PortionId = new Guid("c4fc900f-5a92-4228-ac03-57285fff159e")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("3dcc2c21-c974-4827-b8bf-224881a2af24"),
+                            FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
+                            PortionId = new Guid("cd0a9e6f-bf5b-40b3-bb6c-22ccb8e6ab6a")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("55ed9075-67ec-4a5e-8d67-71b778fb480f"),
+                            FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
+                            PortionId = new Guid("a33065fe-80ad-4879-9333-424aadc6734f")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("50cd88da-4abe-448a-bf7f-4c50bd4d1bc3"),
+                            FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
+                            PortionId = new Guid("eceaaa32-4023-4eab-abb6-9172c908f77c")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("29be3e7f-31f6-459d-bcb5-2342e7e0a250"),
+                            FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
+                            PortionId = new Guid("31e9bda5-8ec3-4444-a23a-908e84da6a14")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("3cea29a7-afbb-4d5d-9755-6f514ae1a0a2"),
+                            FoodId = new Guid("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
+                            PortionId = new Guid("93984b54-2044-4ea9-8364-a03c6568e358")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("eef1a8f0-25f1-4695-b6ff-c57662e845cd"),
+                            FoodId = new Guid("da89578e-9470-4b18-af4f-0bdcc011882f"),
+                            PortionId = new Guid("749b288c-112b-4b7b-8750-0daff63d9ab3")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("e428756d-f4a5-4ea2-a168-409faa856d57"),
+                            FoodId = new Guid("37a66f5c-437f-4520-90ec-4376e0093061"),
+                            PortionId = new Guid("1500876f-ef20-40de-baae-de0336bdc47b")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("034c5f36-35f5-4fb4-b567-4631a20c99b6"),
+                            FoodId = new Guid("d9fa8f03-5825-4e83-88d3-1a7c49e39a7d"),
+                            PortionId = new Guid("e4e4252f-ad38-4190-aba5-8989e3cca994")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("689236b2-c41a-4581-97f4-9943a8bf619f"),
+                            FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d"),
+                            PortionId = new Guid("24a4ed15-69e4-4fb5-8dd2-1695de52c264")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("79f8e00a-8627-4c17-ad1b-1f2e30152cf7"),
+                            FoodId = new Guid("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
+                            PortionId = new Guid("bfc705ab-d7e9-44c9-9447-c0b39bc76ca1")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("ff83c895-9e7c-497d-ba90-48a0b27ac753"),
+                            FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
+                            PortionId = new Guid("b6623163-4c27-4d0c-99ef-12a67b87635f")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("05d20084-3157-48d2-bbdf-59bd4be2d7f9"),
+                            FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
+                            PortionId = new Guid("a88faa7c-6eab-4ecb-8a75-b078a9cf7834")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("6488aed8-d811-4054-aa55-1419362b89f6"),
+                            FoodId = new Guid("c5822776-96df-4208-82b2-02f22594063b"),
+                            PortionId = new Guid("3d7eafa9-9fcc-4f49-b8fb-2a5c629ae6eb")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("ef7605fb-2047-4fd6-b9eb-bcaa4265dcfa"),
+                            FoodId = new Guid("fb7d87aa-2bb8-4065-bd31-b54239057405"),
+                            PortionId = new Guid("22f0a09e-6816-410e-a5a2-c802103b089b")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("c5c017a3-f52c-4e61-b3f5-d36fc3da9438"),
+                            FoodId = new Guid("9122357a-179f-45f4-9106-67eea24d48ab"),
+                            PortionId = new Guid("5feca670-1f15-430d-9b04-7ac86a329a6c")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("166bdafd-3440-45db-af3c-9f254f75381d"),
+                            FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
+                            PortionId = new Guid("f483bb75-84f0-4ecc-8a06-f366a488c6bf")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("624eeb3d-b90c-41de-aaac-82aac1278366"),
+                            FoodId = new Guid("87225215-43af-49f2-a40b-a5ebb087d27b"),
+                            PortionId = new Guid("a9385e8a-e9b9-484f-beeb-bc35529cf91a")
+                        },
+                        new
+                        {
+                            FoodPortionId = new Guid("4601ad5c-3b27-4b7b-a4c1-4e2c0acbd844"),
+                            FoodId = new Guid("23443efa-dc06-4e7a-949c-5c823ee6e575"),
+                            PortionId = new Guid("8a81e20e-ea16-4073-957e-29508a8f7419")
+                        });
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Goal", b =>
@@ -2047,10 +2289,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("MealId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("PortionSize")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -5220,21 +5458,363 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            PortionId = new Guid("d2f3a6c9-19c1-45fa-9a4f-3ad8396c19a7"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PortionId = new Guid("1808de3e-ae43-41a6-b9ce-bfe89131be5a"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MeasurementUnit = "g",
-                            PortionSize = "Phần ăn",
+                            PortionSize = "chén",
                             PortionWeight = 100f,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            PortionId = new Guid("a44fd2e0-b595-4423-9e6f-42a010d96f66"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PortionId = new Guid("40991196-f258-43f1-ac84-0381afa83477"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MeasurementUnit = "g",
-                            PortionSize = "Chén",
+                            PortionSize = "tô",
+                            PortionWeight = 300f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("28b06cf6-6367-4786-bccb-89c43dd3ce3a"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "quả nhỏ",
+                            PortionWeight = 81f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("91524cc2-db22-4cab-abb7-700725232f1f"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "quả vừa",
+                            PortionWeight = 118f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("1b56833b-1ff5-4a90-aea9-074de2d0dd67"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "quả lớn",
+                            PortionWeight = 136f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("c605aa91-495e-4977-9876-b2a198ce356e"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "quả nhỏ",
+                            PortionWeight = 38f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("7be0e4d3-1e50-4de1-931d-08adb85f628b"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "quả vừa",
+                            PortionWeight = 44f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("698c67ad-a726-435b-b9d2-c5690a79eb5a"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "quả lớn",
+                            PortionWeight = 50f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("399eee61-90b5-464f-b3f7-7ddc1077ab0d"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "ml",
+                            PortionSize = "hộp",
+                            PortionWeight = 110f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("6f34350b-8f99-446e-9de9-e0c6277b10f3"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "ml",
+                            PortionSize = "hộp",
+                            PortionWeight = 180f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("41ae956e-14fc-44af-bc6a-e5ba77661cee"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 350f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("a1589990-affa-4805-a1e0-73de1ffa8516"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "trái",
+                            PortionWeight = 150f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("4e9013c8-d6f7-4740-80d5-e95d318873b9"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 300f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("1bf9c3e0-7a2c-46f5-8187-82e5ad1af649"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "miếng",
+                            PortionWeight = 150f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("faec7c41-2e11-4092-8ab9-cc9c152d858f"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "cây",
+                            PortionWeight = 35f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("268e00a0-2da3-4e5c-8ea7-5ad8923cfd52"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "trái",
+                            PortionWeight = 164f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("40bbc8c4-f383-4ae6-979a-3ac83c275881"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "ml",
+                            PortionSize = "cốc",
+                            PortionWeight = 240f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("de5d78a3-c5b1-4e2a-b9eb-f3757c999024"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "cái",
+                            PortionWeight = 50f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("92e149ff-8491-48cf-a4e8-8106b1e95c4c"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "ml",
+                            PortionSize = "cốc",
+                            PortionWeight = 200f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("3f77fd90-591c-45f3-8bbc-87d0bb49e461"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 250f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("6792c392-3c86-4162-be91-4fc8646f861d"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "ml",
+                            PortionSize = "ly",
                             PortionWeight = 100f,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("c4fc900f-5a92-4228-ac03-57285fff159e"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "đĩa vừa",
+                            PortionWeight = 350f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("cd0a9e6f-bf5b-40b3-bb6c-22ccb8e6ab6a"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "ml",
+                            PortionSize = "hộp",
+                            PortionWeight = 180f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("a33065fe-80ad-4879-9333-424aadc6734f"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 350f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("eceaaa32-4023-4eab-abb6-9172c908f77c"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 250f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("31e9bda5-8ec3-4444-a23a-908e84da6a14"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "ml",
+                            PortionSize = "cốc",
+                            PortionWeight = 240f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("93984b54-2044-4ea9-8364-a03c6568e358"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 330f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("749b288c-112b-4b7b-8750-0daff63d9ab3"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 228f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("1500876f-ef20-40de-baae-de0336bdc47b"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "ml",
+                            PortionSize = "cốc",
+                            PortionWeight = 240f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("e4e4252f-ad38-4190-aba5-8989e3cca994"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "miếng",
+                            PortionWeight = 114f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("24a4ed15-69e4-4fb5-8dd2-1695de52c264"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "cái",
+                            PortionWeight = 100f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("bfc705ab-d7e9-44c9-9447-c0b39bc76ca1"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 250f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("b6623163-4c27-4d0c-99ef-12a67b87635f"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 350f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("a88faa7c-6eab-4ecb-8a75-b078a9cf7834"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "củ",
+                            PortionWeight = 150f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("3d7eafa9-9fcc-4f49-b8fb-2a5c629ae6eb"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "cái",
+                            PortionWeight = 50f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("22f0a09e-6816-410e-a5a2-c802103b089b"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "đĩa",
+                            PortionWeight = 200f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("5feca670-1f15-430d-9b04-7ac86a329a6c"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "ml",
+                            PortionSize = "ly",
+                            PortionWeight = 100f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("f483bb75-84f0-4ecc-8a06-f366a488c6bf"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "hộp",
+                            PortionWeight = 116f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("a9385e8a-e9b9-484f-beeb-bc35529cf91a"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "tô",
+                            PortionWeight = 330f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            PortionId = new Guid("8a81e20e-ea16-4073-957e-29508a8f7419"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MeasurementUnit = "g",
+                            PortionSize = "củ",
+                            PortionWeight = 150f,
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -5442,7 +6022,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a540db70-cc97-4849-8943-c78a5a9c6982",
+                            ConcurrencyStamp = "ecf14932-6ce7-4d82-849a-cdc94e18bde4",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -5450,10 +6030,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE4/ZctPgjLFY8Dm/gKYU4b0GUvZBYpnr5L/Keo3OMMWCxU+/drnpGW3RcdSIj3Rog==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKjiCZtNQHN3tKFG8USceXl0+shaq07Kuh8HdYPrXPl4JKAqVW9QavWMeQpDp7mrOg==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8d55c49a-e96b-49d1-8935-e4e4ac810816",
+                            SecurityStamp = "2fd0e49c-2cfc-4467-9922-833d169fc703",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -5463,7 +6043,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "da5bd825-5c0c-44e2-a2cf-a09c77aa226f",
+                            ConcurrencyStamp = "b8937fe0-d9b9-4828-a77e-f0551fede90e",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -5471,10 +6051,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB4TBVqPRJ59GJsxnkG8ZAo50Q6kmQWZMUq0WNpVE5zstuzVfRuh6vSxhdZWHYn3eA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELm0fHGzjrgYiO9DqeaAnwrSIHuTuWlQXVto1cK7VQIQ4UHBwpxOlsaor1QW7PSzsQ==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "694dd591-eabe-41e9-9302-aac319aa5b69",
+                            SecurityStamp = "db2af95e-dc00-44e1-bea7-78fa2490d3e8",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -5484,7 +6064,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ec0b2684-cfb8-4119-a96f-3357f8594212",
+                            ConcurrencyStamp = "1c1ec97d-eb19-4002-a2f5-47c26e39d0c4",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -5492,10 +6072,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAECNs5o6gRNkU4Rb2zwvEwR1jwOHvSagqUCm8qAQKXnrhEJEwYoCYFD9HOp0LIKWYVA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPW3bOHarXsnnhP0LQlmwYb+UaFCKwidGY66ysxKcArp4ALuFDhBzVWkDE9lykEAFQ==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d2be625-6eeb-4ba6-a6bc-54570f21b75a",
+                            SecurityStamp = "d11d0694-9390-4a19-8427-665423b09c68",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -5505,7 +6085,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f7b0d300-1c0c-4d95-beef-f43470a9ada9",
+                            ConcurrencyStamp = "b7661a17-1758-4ede-a3d8-78dd679dac74",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -5513,10 +6093,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAECb3BFnhiVxiDnS9b3KxJBeRmj/+ntCunRDxcuYnH8Qg6eCHdbrr4TH0fDvd2vlnAw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIJdwuvliXzK41GL3mscrTiLGhqoAc57CSUnU2J+u2f7tIZ82+jVrzGvLI0zm61zOg==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "340c05e1-8ae3-4a44-a069-288cc53d4fc7",
+                            SecurityStamp = "40d04c3b-12fa-4555-9aaf-0d681a0814a5",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -5526,7 +6106,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2feeb498-2d98-4744-bc41-303c61f51cd9",
+                            ConcurrencyStamp = "19f2cdd0-7a96-42aa-adb9-4070636098a9",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -5534,10 +6114,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAbsACBdx/DU6J7kyGEnAZVQBLIzL/a1SNul4ixyXyJapglBh4bSBj7Yu7C+tpdsRQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEB/4YdR1jf4qD/5WQu0Mkf4fG6ySQbJGg1Csp8Nrioc1f/qrnoODnCQzrf1SMJd1Ww==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "482c832a-887c-405c-8da7-7525a043f66a",
+                            SecurityStamp = "18e93a29-d409-4c07-8949-8d7e0e6cea67",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -5547,7 +6127,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ee89a6a6-0b46-4849-b6bc-85275a3f645c",
+                            ConcurrencyStamp = "40d3dead-e570-4ce6-8472-8983ba7e3e11",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -5555,10 +6135,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAECgYOF1BVJ7tqVb9ffzXemqKJnsj23S7w0nagsd+TsiNguQv23qK4haZM9aqhMr60Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAP9KNdfpESuIKAAGNReoY5M9PRPJZupmcU8iGkYzEkFoKOQ2mf3sTy/rruVilnNkA==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ab69c249-694b-4ea6-a7ed-e96d6f4f185e",
+                            SecurityStamp = "74416eda-8324-421e-8e42-f194ee2671df",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -5568,7 +6148,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "08809abc-e60f-4b03-830f-904770bcc7fb",
+                            ConcurrencyStamp = "14d1dbd2-c3ac-4203-a7f6-08eddf47f1d7",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -5576,10 +6156,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEX+SfBdzK9llxDm0ASLRnL0rMKAGhaDw68EZ4ftMSM6EF47rGJ95taxR0ot/ATlnw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBXfjln436rLJLgQdJDCp0RjKqCa7kKbLnQg25FVumYZrkbqg/5AW9eItm4ARSac8A==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6c0c0eef-191e-4fbd-9aea-4f47aedb56d5",
+                            SecurityStamp = "18438277-294c-46b8-8520-6363f5bf4ffd",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),

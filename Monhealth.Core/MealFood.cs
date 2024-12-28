@@ -11,7 +11,6 @@ namespace Monhealth.Domain
         public Guid MealId { get; set; }
         public Guid FoodId { get; set; }
         public int Quantity { get; set; }
-        public string PortionSize { get; set; } = string.Empty;
         [ForeignKey(nameof(FoodId))]
         public Food Food { get; set; }
         [ForeignKey(nameof(MealId))]

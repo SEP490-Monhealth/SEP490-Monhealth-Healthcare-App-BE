@@ -16,7 +16,10 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
     public class MealFoodsDTO
     {
         public Guid FoodId { get; set; }
-        public string PortionSize { get; set; } = string.Empty;
         public int Quantity { get; set; }
+        public string PortionSize { get; set; } = string.Empty;
+        public float PortionWeight { get; set; }
+        public string MeasurementUnit { get; set; } = string.Empty;
+
     }
 }
