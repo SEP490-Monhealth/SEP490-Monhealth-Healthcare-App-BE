@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Meal.Commands.CreateMeal;
+using Monhealth.Application.Features.Meal.Commands.DeleteMeal;
 using Monhealth.Application.Features.Meal.Queries.GetAllMeals;
 using Monhealth.Application.Models;
 
@@ -51,6 +53,31 @@ namespace Monhealth.Api.Controllers
                 Success = false,
                 Message = "Tạo bữa ăn thất bại.",
                 Status = 400,
+            });
+        }
+        [HttpDelete]
+        [Route("{mealId:Guid}")]
+        public async Task<ActionResult<ResultModel>> RemoveMeal(Guid mealId)
+        {
+            var result = await _mediator.Send(new DeleteMealCommand(mealId));
+
+            if (!result)
+            {
+                // Trả về lỗi nếu xóa không thành công
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Xóa bữa ăn không thành công.",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa bữa ăn thành công.",
+                Status = 204,
+                Data = null
             });
         }
     }
