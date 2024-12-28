@@ -9,5 +9,6 @@ namespace Monhealth.Application.Contracts.Persistence
     public interface IMealFoodRepository : IGenericRepository<MealFood, Guid>
     {
         Task<MealFood> GetByMealIdAndFoodId(Guid mealId, Guid FoodId);
+        Task<int> SaveChangeAsync();
     }
 }

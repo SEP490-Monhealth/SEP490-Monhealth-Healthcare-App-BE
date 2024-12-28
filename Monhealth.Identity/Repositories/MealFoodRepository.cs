@@ -20,5 +20,10 @@ namespace Monhealth.Identity.Repositories
             return await _context.MealFoods.FirstOrDefaultAsync(mf => mf.MealId == mealId
             && mf.FoodId == FoodId);
         }
+
+        public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }
