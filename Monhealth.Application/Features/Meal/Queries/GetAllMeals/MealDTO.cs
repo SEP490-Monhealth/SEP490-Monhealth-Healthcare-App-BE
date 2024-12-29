@@ -14,19 +14,21 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
         [JsonPropertyName("type")]
         public string MealType { get; set; } = string.Empty;
         public MealFoodNutritionDTO Nutrition { get; set; }
-        public List<MealFoodDTO> Items { get; set; }
-    }
+        // public List<MealFoodDTO> Items { get; set; }
 
-    public class MealFoodDTO
-    {
-        public Guid MealFoodId { get; set; }
-        public Guid FoodId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public int Quantity { get; set; }
-        public MealFoodPortionDTO Portions { get; set; }
-        public float Calories { get; set; }
-    }
 
+    }
+    // public class MealFoodDTO
+    // {
+    //     public Guid MealFoodId { get; set; }
+    //     public Guid FoodId { get; set; }
+    //     public int Quantity { get; set; }
+    //     public string Name { get; set; } = string.Empty;
+    //     public MealFoodPortionDTO Portions { get; set; }
+    //     public float Calories { get; set; }
+
+
+    // }
     public class MealFoodPortionDTO
     {
         public string Size { get; set; } = string.Empty;

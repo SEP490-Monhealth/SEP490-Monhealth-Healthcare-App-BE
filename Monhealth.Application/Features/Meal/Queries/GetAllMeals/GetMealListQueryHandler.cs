@@ -45,23 +45,25 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
                         Sugar = meal.MealFoods.Sum(mf => (mf.Food.Nutrition.Sugar / (mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)) 
                         * (mf.Quantity * (mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1))),
                     },
-                    Items = meal.MealFoods.Select(mf => new MealFoodDTO
-                    {
-                        MealFoodId = mf.MealFoodId,
-                        FoodId = mf.FoodId,
-                        Quantity = mf.Quantity,
-                        Name = mf.Food.FoodName,
+                    // Items = meal.MealFoods.Select(mf => new MealFoodDTO
+                    // {
+                    //     MealFoodId = mf.MealFoodId,
+                    //     FoodId = mf.FoodId,
+                    //     Quantity = mf.Quantity,
+                    //     Name = mf.Food.FoodName,
 
-                        Calories = (mf.Food.Nutrition.Calories / (mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)) * (mf.Quantity * (mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)),
+                    //     Calories = (mf.Food.Nutrition.Calories / (mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)) * (mf.Quantity * (mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)),
 
 
-                        Portions = new MealFoodPortionDTO
-                        {
-                            Size = mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionSize ?? string.Empty,
-                            Weight = mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight,
-                            Unit = mf.Food.FoodPortions.FirstOrDefault()?.Portion.MeasurementUnit ?? string.Empty,
-                        }
-                    }).ToList()
+                    //     Portions = new MealFoodPortionDTO
+                    //     {
+                    //         Size = mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionSize ?? string.Empty,
+                    //         Weight = mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight,
+                    //         Unit = mf.Food.FoodPortions.FirstOrDefault()?.Portion.MeasurementUnit ?? string.Empty,
+                    //     }
+                    // }).ToList()
+                    CreatedAt = meal.CreatedAt,
+                    UpdatedAt = meal.UpdatedAt
                 };
 
                 result.Add(mealDTO);
