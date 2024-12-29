@@ -42,7 +42,7 @@ namespace Monhealth.Identity.Services
             {
                 UserId = user.Id,
                 Email = user.Email,
-                Username = user.UserName,
+                // Username = user.UserName,
                 Avatar = user.Avatar ?? string.Empty,  // Kiểm tra null cho Avatar
                 FullName = user.FullName ?? string.Empty,  // Kiểm tra null cho FullName
                 Role = roles.FirstOrDefault() ?? "No Role",  // Đảm bảo role không bị null
