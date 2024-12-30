@@ -73,7 +73,8 @@ namespace Monhealth.Identity.Repositories
         public async Task<Food> GetFoodByIdAsync(Guid foodId)
         {
             return await _context.Foods.
-            Include(fc => fc.Category)
+            Include(fc => fc.Category).Include(fc => fc.Nutrition)
+            .Include(fc => fc.FoodPortions).ThenInclude(fc => fc.Portion)
             .FirstOrDefaultAsync(f => f.FoodId == foodId);
         }
 

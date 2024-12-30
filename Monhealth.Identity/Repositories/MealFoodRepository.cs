@@ -24,7 +24,9 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<MealFood>> GetMealFoodByMealId(Guid mealId)
         {
             return await _context.MealFoods.Where(mf => mf.MealId == mealId)
-            .Include(mf => mf.Food).ThenInclude(mf => mf.FoodPortions)
+            .Include(mf => mf.Food).ThenInclude(mf => mf.Nutrition).
+            Include(mf => mf.Food)
+            .ThenInclude(mf => mf.FoodPortions)
             .ThenInclude(mf => mf.Portion).ToListAsync();
         }
 

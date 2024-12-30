@@ -34,6 +34,25 @@ namespace Monhealth.Identity.Repositories
             (m => m.UserId == userId && m.MealType == mealType);
         }
 
+        public async Task<List<Meal>> GetMealByUserAndDate(DateTime createAt, Guid userId)
+        {
+            var targetDate = createAt.Date;
+
+            return  _context.Meals
+                .Where(m => m.UserId == userId)
+                .AsEnumerable() // Chuyển sang xử lý phía client
+                .Where(m => m.CreatedAt.HasValue && m.CreatedAt.Value.Date == targetDate)
+                .ToList();
+        }
+
+
+
+
+
+
+
+
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();
