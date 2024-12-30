@@ -163,12 +163,12 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                         var portionWeight = portion.PortionWeight > 0 ? portion.PortionWeight : 1; // Tránh chia cho 0
 
                         // Tính toán giá trị dinh dưỡng dựa trên khẩu phần và số lượng
-                        totalNutrition.Calories += (food.Nutrition.Calories / portionWeight) * (mealFood.Quantity * portionWeight);
-                        totalNutrition.Proteins += (food.Nutrition.Protein / portionWeight) * (mealFood.Quantity * portionWeight);
-                        totalNutrition.Carbs += (food.Nutrition.Carbs / portionWeight) * (mealFood.Quantity * portionWeight);
-                        totalNutrition.Fats += (food.Nutrition.Fat / portionWeight) * (mealFood.Quantity * portionWeight);
-                        totalNutrition.Fibers += (food.Nutrition.Fiber / portionWeight) * (mealFood.Quantity * portionWeight);
-                        totalNutrition.Sugars += (food.Nutrition.Sugar / portionWeight) * (mealFood.Quantity * portionWeight);
+                        totalNutrition.Calories += (food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                        totalNutrition.Proteins += (food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+                        totalNutrition.Carbs += (food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+                        totalNutrition.Fats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+                        totalNutrition.Fibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
+                        totalNutrition.Sugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
                     }
                 }
                 dailyMeal = new DailyMeal
@@ -209,12 +209,12 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                         var portionWeight = food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1;
 
                         // Cập nhật giá trị dinh dưỡng DailyMeal bằng công thức cộng dồn
-                        dailyMeal.TotalCalories += (food.Nutrition.Calories / portionWeight) * (mealFood.Quantity * portionWeight);
-                        dailyMeal.TotalProteins += (food.Nutrition.Protein / portionWeight) * (mealFood.Quantity * portionWeight);
-                        dailyMeal.TotalCarbs += (food.Nutrition.Carbs / portionWeight) * (mealFood.Quantity * portionWeight);
-                        dailyMeal.TotalFats += (food.Nutrition.Fat / portionWeight) * (mealFood.Quantity * portionWeight);
-                        dailyMeal.TotalFibers += (food.Nutrition.Fiber / portionWeight) * (mealFood.Quantity * portionWeight);
-                        dailyMeal.TotalSugars += (food.Nutrition.Sugar / portionWeight) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalCalories += (food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalProteins += (food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalCarbs += (food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalFats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalFibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalSugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
                     }
                 }
 
