@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 {

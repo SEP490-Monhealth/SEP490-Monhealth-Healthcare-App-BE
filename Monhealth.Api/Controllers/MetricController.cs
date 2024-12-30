@@ -55,6 +55,7 @@ namespace Monhealth.Api.Controllers
                 Data = metric
             };
         }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Create([FromBody]CreateMetricDto metricRequest)
         {
@@ -76,6 +77,7 @@ namespace Monhealth.Api.Controllers
                 Success = false
             };
         }
+
         [HttpPut("{metricId}")]
         public async Task<ActionResult<ResultModel>> Update(Guid metricId, [FromBody] UpdateMetricDto metricDto)
         {
@@ -97,6 +99,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật số liệu thành công"
             };
         }
+        
         [HttpDelete("{metricId}")]
         public async Task<ActionResult<ResultModel>> Delete(Guid metricId)
         {

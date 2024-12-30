@@ -9,7 +9,5 @@ namespace Monhealth.Application.Features.Nutrition.DeleteNutrition
         {
             NutritionId = nutritionId;
         }
-
-
     }
 }

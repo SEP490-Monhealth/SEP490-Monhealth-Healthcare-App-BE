@@ -1,5 +1,4 @@
-﻿
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Portions.Queries.GetPortionsByFoodId

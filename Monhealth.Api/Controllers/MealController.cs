@@ -29,6 +29,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddMeal([FromBody] CreateMealDTO request)
         {
@@ -51,6 +52,7 @@ namespace Monhealth.Api.Controllers
                 Status = 400,
             });
         }
+        
         [HttpDelete]
         [Route("{mealId:Guid}")]
         public async Task<ActionResult<ResultModel>> RemoveMeal(Guid mealId)

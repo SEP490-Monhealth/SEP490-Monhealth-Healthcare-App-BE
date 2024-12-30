@@ -1,7 +1,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
-
 namespace Monhealth.Application.Features.Food.ChangeStatus
 {
     public class ChangeStatusByIdHandler : IRequestHandler<ChangeStatusByFoodIdQuery, bool>

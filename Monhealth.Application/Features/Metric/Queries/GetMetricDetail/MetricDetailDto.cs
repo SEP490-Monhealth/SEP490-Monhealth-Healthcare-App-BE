@@ -1,8 +1,9 @@
-﻿using Monhealth.Domain.Enum;
+﻿using Monhealth.Domain.Common;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
 {
-    public class MetricDetailDto
+    public class MetricDetailDto : BaseEntity
     {
         public Guid UserId { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -14,7 +15,5 @@ namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
         public float Bmr { get; set; }
         public float Tdee { get; set; }
         public float Ibw { get; set; }
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
     }
 }

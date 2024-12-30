@@ -9,7 +9,5 @@ namespace Monhealth.Application.Features.Category.DeleteCategory
         {
             CategoryId = categoryId;
         }
-
-
     }
 }

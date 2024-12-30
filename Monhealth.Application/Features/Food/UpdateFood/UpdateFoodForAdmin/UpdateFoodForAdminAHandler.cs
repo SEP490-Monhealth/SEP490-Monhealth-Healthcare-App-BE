@@ -1,7 +1,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
-
 namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
 {
     public class UpdateFoodForAdminAHandler : IRequestHandler<UpdateFoodRequestAdminHandler, bool>

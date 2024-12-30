@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Models;
-using System.Collections.Generic;
 
 namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
 {

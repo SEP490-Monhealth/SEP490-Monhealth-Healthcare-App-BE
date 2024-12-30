@@ -88,6 +88,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật trạng thái thành công."
             });
         }
+
         [HttpGet]
         [Route("user/{userId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetFoodsByUserId(Guid userId, int page = 1, int limit = 10)
@@ -101,7 +102,6 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
-
 
         [HttpGet]
         [Route("{foodId:Guid}")]
@@ -199,8 +199,9 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
             });
         }
+
         [HttpPut]
-        [Route("{foodId:Guid}/public")]
+        [Route("public/{foodId:Guid}")]
         public async Task<ActionResult<ResultModel>> UpdateFoodForUser(Guid foodId, [FromBody] UpdateFoodRequestUser request)
         {
 

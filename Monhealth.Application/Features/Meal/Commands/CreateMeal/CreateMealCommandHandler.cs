@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.Meal.NewClassForMeal;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Meal.Commands.CreateMeal

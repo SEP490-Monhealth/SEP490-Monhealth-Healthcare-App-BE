@@ -14,8 +14,6 @@ namespace Monhealth.Application.Features.User.Commands.UpdateUser
             FullName = update.FullName;
             Email = update.Email;
             PhoneNumber = update.PhoneNumber;
-
-
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
 {

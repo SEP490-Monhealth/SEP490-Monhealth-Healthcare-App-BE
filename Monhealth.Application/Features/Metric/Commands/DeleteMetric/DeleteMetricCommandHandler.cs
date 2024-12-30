@@ -1,11 +1,5 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Monhealth.Application.Features.Metric.Commands.DeleteMetric
 {
     public class DeleteMetricCommandHandler : IRequestHandler<DeleteMetricCommand, bool>

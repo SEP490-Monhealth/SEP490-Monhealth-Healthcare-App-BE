@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion
 {

@@ -7,7 +7,6 @@ namespace Monhealth.Domain
 {
     public class Consultant : BaseEntity
     {
-
         [Key]
         public Guid ConsultantId { get; set; }
         public Guid DepartmentId { get; set; }
@@ -17,6 +16,5 @@ namespace Monhealth.Domain
         public AppUser AppUser { get; set; }
         [ForeignKey(nameof(DepartmentId))]
         public Department Department { get; set; }
-
     }
 }
