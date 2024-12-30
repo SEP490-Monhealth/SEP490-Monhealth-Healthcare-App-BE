@@ -18,7 +18,6 @@ namespace Monhealth.Domain
         public float TotalFibers { get; set; }
         public float TotalSugars { get; set; }
         [ForeignKey(nameof(DailyStatId))]
-        public DailyStat DailyStat { get; set; }
         public ICollection<Meal> Meals { get; set; }
     }
 }

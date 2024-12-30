@@ -61,7 +61,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 _mealRepository.Add(model);
             }
 
-            foreach (var item in request.CreateMeal.MealItems)
+            foreach (var item in request.CreateMeal.Items)
             {
                 if (item.Quantity <= 0) throw new Exception("Quantity phải lớn hơn hoặc bằng 0.");
 

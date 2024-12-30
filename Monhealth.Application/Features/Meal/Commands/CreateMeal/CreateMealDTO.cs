@@ -11,7 +11,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
         public Guid UserId { get; set; }
         [JsonPropertyName("type")]
         public string MealType { get; set; } = string.Empty;
-        public ICollection<MealFoodsDTO> MealItems { get; set; }
+        public ICollection<MealFoodsDTO> Items { get; set; }
     }
     public class MealFoodsDTO
     {
