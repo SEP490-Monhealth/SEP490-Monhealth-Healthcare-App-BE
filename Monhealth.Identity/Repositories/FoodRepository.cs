@@ -109,6 +109,13 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<List<Food>> GetFoodsByCategoryNameAsync(string[] categoryNames)
+        {
+            return await _context.Foods.Where(f => categoryNames.Contains(f.Category.CategoryName)).
+               Include(f => f.Nutrition).Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
+
+        }
+
         // public void RemoveFoodCategories(Guid foodId)
         // {
         //     var categoriesToRemove = _context.FoodCategories.Where(fc => fc.FoodId == foodId);

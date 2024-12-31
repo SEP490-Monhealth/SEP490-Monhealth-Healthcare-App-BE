@@ -1,3 +1,4 @@
+
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
@@ -112,7 +113,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(currentDate, userId);
             if (dailyMeal == null)
             {
-                dailyMeal = new DailyMeal
+                dailyMeal = new Monhealth.Domain.DailyMeal
                 {
                     UserId = userId,
                     CreatedAt = currentDate,
@@ -125,6 +126,9 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     TotalSugars = 0
                 };
                 _dailyMealRepository.Add(dailyMeal);
+
+                // Lưu DailyMeal để lấy DailyMealID
+                await _dailyMealRepository.SaveChangeAsync();
             }
             else
             {
@@ -136,8 +140,12 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 dailyMeal.TotalSugars = 0;
             }
 
+            // Gán DailyMealID cho từng Meal
             foreach (var meal in mealsForDay)
             {
+                meal.DailyMealId = dailyMeal.DailyMealId; // Gán DailyMealID cho Meal
+                _mealRepository.Update(meal);
+
                 var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
                 foreach (var mealFood in mealFoods)
                 {
@@ -158,5 +166,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
             return Unit.Value;
         }
+
     }
 }
