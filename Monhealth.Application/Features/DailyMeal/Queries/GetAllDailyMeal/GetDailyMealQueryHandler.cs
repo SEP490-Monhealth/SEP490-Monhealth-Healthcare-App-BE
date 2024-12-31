@@ -59,7 +59,9 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                     DailyMealId = meal.DailyMealId,
                     UserId = meal.UserId,
                     Nutrition = nutrition,
-                    Meals = meals
+                    Meals = meals,
+                    CreatedAt = meal.CreatedAt,
+                    UpdatedAt = meal.UpdatedAt
                 };
 
                 result.Add(dailyMeal);

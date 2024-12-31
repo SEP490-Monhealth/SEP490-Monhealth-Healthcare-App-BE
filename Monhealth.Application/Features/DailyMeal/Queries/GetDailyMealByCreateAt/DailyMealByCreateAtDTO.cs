@@ -1,15 +1,15 @@
 using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
-namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
+
+namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealByCreateAt
 {
-    public class DailyMealDTO : BaseEntity
+    public class DailyMealByCreateAtDTO
     {
         public Guid DailyMealId { get; set; }
         public Guid UserId { get; set; }
-        public NutritionOfDailyMeal Nutrition { get; set; }
-        public List<MealForDailyMeal> Meals { get; set; }
+        public NutritionOfDailyMeal1 Nutrition { get; set; }
+        public IEnumerable<MealForDailyMeal1> Meals { get; set; }
     }
-    public class NutritionOfDailyMeal
+    public class NutritionOfDailyMeal1
     {
         [JsonPropertyName("calories")]
         public float TotalCalories { get; set; }
@@ -24,7 +24,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
         [JsonPropertyName("sugar")]
         public float TotalSugars { get; set; }
     }
-    public class MealForDailyMeal
+    public class MealForDailyMeal1
     {
         public Guid mealId { get; set; }
         public string MealType { get; set; } = string.Empty;

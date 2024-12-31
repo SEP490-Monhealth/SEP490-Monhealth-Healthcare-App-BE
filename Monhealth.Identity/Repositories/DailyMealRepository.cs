@@ -25,6 +25,18 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
+        public async Task<DailyMeal> GetDailyMealByCreateAt(DateTime createAt)
+        {
+            return await _context.DailyMeals.Include(dl => dl.Meals)
+                    .ThenInclude(m => m.MealFoods)
+                        .ThenInclude(mf => mf.Food)
+                            .ThenInclude(f => f.FoodPortions)
+                .Include(dl => dl.Meals)
+                    .ThenInclude(m => m.MealFoods)
+                        .ThenInclude(mf => mf.Food)
+                            .ThenInclude(f => f.Nutrition).
+            FirstOrDefaultAsync(dl => dl.CreatedAt == createAt);
+        }
 
         public async Task<DailyMeal> GetDailyMealByUserAndDate(DateTime createAt, Guid userID)
         {

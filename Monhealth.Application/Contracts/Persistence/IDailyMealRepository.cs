@@ -11,5 +11,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<DailyMeal> GetDailyMealByUserAndDate(DateTime createAt, Guid userId);
         Task<int> SaveChangeAsync();
         Task<List<DailyMeal>> GetAllDailyMeals();
+        Task<DailyMeal>GetDailyMealByCreateAt(DateTime createAt);
     }
 }
