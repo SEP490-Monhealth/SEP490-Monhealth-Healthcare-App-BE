@@ -8,6 +8,7 @@ using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId;
 using Monhealth.Application.Features.Food.Queries.GetFoodById;
+using Monhealth.Application.Features.Food.Queries.GetFoodsByCategoryName;
 using Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin;
 using Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForUser;
 using Monhealth.Application.Models;
@@ -127,6 +128,50 @@ namespace Monhealth.Api.Controllers
                 Data = food
             });
         }
+
+        [HttpGet("filter-by-category")]
+        public async Task<ActionResult<ResultModel>> GetFoodByCategoryName([FromQuery] string category)
+        {
+            // Kiểm tra nếu không có giá trị categoryName
+            if (string.IsNullOrEmpty(category))
+            {
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Message = "Tên danh mục là bắt buộc.",
+                    Status = (int)HttpStatusCode.BadRequest,
+                    Data = null
+                });
+            }
+
+            // Tách chuỗi categoryName thành mảng
+            var categoryNames = category.Split(',').Select(c => c.Trim()).ToArray();
+
+            // Gửi query qua Mediator
+            var food = await _mediator.Send(new GetFoodByCategoryNameQuery { categoryNames = categoryNames });
+
+            // Xử lý trường hợp không tìm thấy món ăn
+            if (food == null || !food.Any())
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Món ăn không tồn tại.",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Lấy danh sách món ăn thành công.",
+                Data = food
+            });
+        }
+
 
         [HttpPost("public")]
         [ActionName("AddFoodAdmin")]
