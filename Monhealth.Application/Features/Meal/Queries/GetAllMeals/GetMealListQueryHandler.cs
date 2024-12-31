@@ -32,19 +32,25 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
 
                     Nutrition = new MealFoodNutritionDTO
                     {
-                        
-                        Calories = meal.MealFoods.Sum(mf => (mf.Food.Nutrition.Calories / 100) 
-                        * (mf.Quantity * mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)),
-                        Protein = meal.MealFoods.Sum(mf => (mf.Food.Nutrition.Protein / 100) 
-                        * (mf.Quantity * mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)),
-                        Carbs = meal.MealFoods.Sum(mf => (mf.Food.Nutrition.Carbs / 100) 
-                        * (mf.Quantity * mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)),
-                        Fat = meal.MealFoods.Sum(mf => (mf.Food.Nutrition.Fat / 100) 
-                        * (mf.Quantity * mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)),
-                        Fiber = meal.MealFoods.Sum(mf => (mf.Food.Nutrition.Fiber / 100) 
-                        * (mf.Quantity * mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)),
-                        Sugar = meal.MealFoods.Sum(mf => (mf.Food.Nutrition.Sugar / 100) 
-                        * (mf.Quantity * mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1)),
+
+                        Calories = meal.MealFoods?.Sum(mf =>
+                    ((mf.Food?.Nutrition?.Calories ?? 0) / 100) *
+                    (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                        Protein = meal.MealFoods?.Sum(mf =>
+                            ((mf.Food?.Nutrition?.Protein ?? 0) / 100) *
+                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                        Carbs = meal.MealFoods?.Sum(mf =>
+                            ((mf.Food?.Nutrition?.Carbs ?? 0) / 100) *
+                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                        Fat = meal.MealFoods?.Sum(mf =>
+                            ((mf.Food?.Nutrition?.Fat ?? 0) / 100) *
+                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                        Fiber = meal.MealFoods?.Sum(mf =>
+                            ((mf.Food?.Nutrition?.Fiber ?? 0) / 100) *
+                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                        Sugar = meal.MealFoods?.Sum(mf =>
+                            ((mf.Food?.Nutrition?.Sugar ?? 0) / 100) *
+                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0
                     },
                     // Items = meal.MealFoods.Select(mf => new MealFoodDTO
                     // {
