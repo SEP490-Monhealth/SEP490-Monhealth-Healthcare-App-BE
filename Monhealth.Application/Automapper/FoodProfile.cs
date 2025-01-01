@@ -1,4 +1,5 @@
 using AutoMapper;
+using Monhealth.Application.Automapper.CustomResolver;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId;
@@ -30,6 +31,16 @@ namespace Monhealth.Application.Automapper
 
             }
             : null));
+
+            CreateMap<Food, FoodDTO>()
+            .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category.CategoryName))
+            .ForMember(dest => dest.Portion, opt => opt.MapFrom(src => src.FoodPortions.Select(fp => fp.Portion).FirstOrDefault()))
+            .ForMember(dest => dest.Nutrition, opt => opt.MapFrom<CaloriesValueResolver>());
+
+            CreateMap<Portion, GetPortionForGetAllFoodDTO>()
+                .ForMember(dest => dest.PortionSize, opt => opt.MapFrom(src => src.PortionSize))
+                .ForMember(dest => dest.PortionWeight, opt => opt.MapFrom(src => src.PortionWeight))
+                .ForMember(dest => dest.MeasurementUnit, opt => opt.MapFrom(src => src.MeasurementUnit));
 
             //Get food by FoodType
             CreateMap<Food, FoodDetailByFoodTypeDTO>()
@@ -83,5 +94,6 @@ namespace Monhealth.Application.Automapper
            }
            : null));
         }
+
     }
 }
