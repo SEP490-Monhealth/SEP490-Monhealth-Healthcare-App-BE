@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.MealFood.Queries
@@ -6,8 +7,9 @@ namespace Monhealth.Application.Features.MealFood.Queries
     {
         public Guid MealFoodId { get; set; }
         public Guid FoodId { get; set; }
-        public int Quantity { get; set; }
         public string Name { get; set; } = string.Empty;
+        public int Quantity { get; set; }
+        [JsonPropertyName("portion")]
         public MealFoodPortionDTO1 Portions { get; set; }
         public NutritionDTO1 Nutrition { get; set; }
 

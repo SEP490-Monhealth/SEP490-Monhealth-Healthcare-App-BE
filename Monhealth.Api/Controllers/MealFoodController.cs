@@ -7,7 +7,7 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/meal-foods")]
+    [Route("api/v1/meal/foods")]
     [ApiController]
     public class MealFoodController : ControllerBase
     {

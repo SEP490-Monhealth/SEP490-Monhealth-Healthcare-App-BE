@@ -55,14 +55,14 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                     UserId = dailyMeal.UserId,
                     Nutrition = new NutritionOfDailyMeal
                     {
-                        TotalCalories = dailyMeal.TotalCalories , // Tính tổng từ danh sách Meals
+                        TotalCalories = dailyMeal.TotalCalories, // Tính tổng từ danh sách Meals
                         TotalProteins = dailyMeal.TotalProteins,
                         TotalCarbs = dailyMeal.TotalCarbs,
                         TotalFats = dailyMeal.TotalFats,
                         TotalFibers = dailyMeal.TotalFibers, // Giữ nguyên nếu không cần tính lại
-                        TotalSugars =  dailyMeal.TotalSugars// Giữ nguyên nếu không cần tính lại
+                        TotalSugars = dailyMeal.TotalSugars// Giữ nguyên nếu không cần tính lại
                     },
-                    Meals = meals,
+                    Items = meals,
                     CreatedAt = dailyMeal.CreatedAt,
                     UpdatedAt = dailyMeal.UpdatedAt
                 };

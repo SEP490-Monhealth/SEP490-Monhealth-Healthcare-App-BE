@@ -7,7 +7,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
         public Guid DailyMealId { get; set; }
         public Guid UserId { get; set; }
         public NutritionOfDailyMeal Nutrition { get; set; }
-        public List<MealForDailyMeal> Meals { get; set; }
+        public List<MealForDailyMeal> Items { get; set; }
     }
     public class NutritionOfDailyMeal
     {
@@ -27,6 +27,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
     public class MealForDailyMeal
     {
         public Guid mealId { get; set; }
+        [JsonPropertyName("type")]
         public string MealType { get; set; } = string.Empty;
         public float Calories { get; set; }
         public float Protein { get; set; }
