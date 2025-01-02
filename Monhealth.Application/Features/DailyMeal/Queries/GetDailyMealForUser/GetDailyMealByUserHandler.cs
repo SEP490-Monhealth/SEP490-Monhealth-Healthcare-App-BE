@@ -22,7 +22,12 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
         public async Task<GetDailyMealByUserDTO> Handle(GetDailyMealByUserQuery request, CancellationToken cancellationToken)
         {
             var query = await _dailyMealRepository.GetDailyMealsByUser(request.UseId, request.date);
-            // if (query == null) throw new Exception("Không tìm thấy ngày tạo.");
+
+            if (query == null)
+            {
+                return null;
+            }
+
 
             // Lấy danh sách toàn bộ Meals từ MealRepository
             var mealQuery = await _mealRepository.GetAllMeals();
