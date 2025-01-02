@@ -5,6 +5,7 @@ using Monhealth.Application.Features.Meal.Commands.CreateMeal;
 using Monhealth.Application.Features.Meal.Commands.DeleteMeal;
 using Monhealth.Application.Features.Meal.Queries.GetAllMeals;
 using Monhealth.Application.Features.Meal.Queries.GetMealById;
+using Monhealth.Application.Features.Meal.Queries.GetMealByUser;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -37,6 +38,30 @@ namespace Monhealth.Api.Controllers
         {
             var meal = await _mediator.
             Send(new GetMealDetailQuery() { MealId = mealId });
+
+            if (meal == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Bữa ăn không tồn tại.",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = meal
+            });
+        }
+        [HttpGet]
+        [Route("user/{userId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetMealByUser(Guid userId)
+        {
+            var meal = await _mediator.
+            Send(new GetMealByUserQuery() { UserId = userId });
 
             if (meal == null)
             {
