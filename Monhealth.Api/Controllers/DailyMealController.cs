@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal;
@@ -59,8 +54,9 @@ namespace Monhealth.Api.Controllers
         //         Data = categories
         //     });
         // }
+
         [HttpGet]
-        [Route("user-date")]
+        [Route("user")]
         public async Task<ActionResult<ResultModel>> GetDailyMealByUser([FromQuery][Required] Guid userId,
          [FromQuery][Required] DateTime date)
         {
