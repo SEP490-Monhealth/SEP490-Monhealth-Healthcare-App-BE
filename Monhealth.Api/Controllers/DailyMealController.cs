@@ -73,7 +73,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Message = "Bữa ăn hằng ngày không tồn tại.",
-                    Status = (int)HttpStatusCode.NotFound,
+                    Status = 200,
                     Data = null
                 });
             }
