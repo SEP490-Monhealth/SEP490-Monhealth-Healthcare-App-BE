@@ -7,7 +7,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealByCreateA
         public Guid DailyMealId { get; set; }
         public Guid UserId { get; set; }
         public NutritionOfDailyMeal1 Nutrition { get; set; }
-        public IEnumerable<MealForDailyMeal1> Meals { get; set; }
+        public IEnumerable<MealForDailyMeal1> Items { get; set; }
     }
     public class NutritionOfDailyMeal1
     {
