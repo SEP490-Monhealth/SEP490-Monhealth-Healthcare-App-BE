@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealByUser
     public class GetMealByUserDTO : BaseEntity
     {
         public Guid MealId { get; set; }
-        public Guid UserId { get; set; }
+      
         [JsonPropertyName("type")]
         public string MealType { get; set; } = string.Empty;
         public MealFoodNutritionDTO2 Nutrition { get; set; }

@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealByUser
                 var mealDTO = new GetMealByUserDTO
                 {
                     MealId = meal.MealId,
-                    UserId = meal.UserId,
+                   
                     MealType = meal.MealType,
 
 

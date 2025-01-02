@@ -44,6 +44,19 @@ namespace Monhealth.Identity.Repositories
             (d => d.CreatedAt == createAt && d.UserId == userID);
         }
 
+        public async Task<List<DailyMeal>> GetDailyMealsByUser(Guid userId)
+        {
+            return await _context.DailyMeals.Include(dl => dl.Meals)
+                    .ThenInclude(m => m.MealFoods)
+                        .ThenInclude(mf => mf.Food)
+                            .ThenInclude(f => f.FoodPortions)
+                .Include(dl => dl.Meals)
+                    .ThenInclude(m => m.MealFoods)
+                        .ThenInclude(mf => mf.Food)
+                            .ThenInclude(f => f.Nutrition).
+            Where(dl => dl.UserId == userId).ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();
