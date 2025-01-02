@@ -23,14 +23,13 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
 
         public async Task<PageResult<FoodsByUserIdDTO>> Handle(GetFoodListByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var paginatedUser = await _foodRepository.GetFoodByUserId(request.Page, request.Limit, request.UserId);
-            var foodList = paginatedUser.Items.ToList();
-            var foodDtoList = _mapper.Map<List<FoodsByUserIdDTO>>(foodList);
+            var paginatedFood = await _foodRepository.GetFoodByUserId(request.Page, request.Limit, request.UserId);
+            var foodDtoList = _mapper.Map<List<FoodsByUserIdDTO>>(paginatedFood.Items);
             return new PageResult<FoodsByUserIdDTO>()
             {
                 CurrentPage = request.Page,
-                TotalPages = (int)Math.Ceiling(paginatedUser.TotalCount / (double)request.Limit),
-                TotalItems = paginatedUser.TotalCount,
+                TotalPages = (int)Math.Ceiling(paginatedFood.TotalCount / (double)request.Limit),
+                TotalItems = paginatedFood.TotalCount,
                 Items = foodDtoList
             };
         }
