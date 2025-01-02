@@ -60,16 +60,16 @@ namespace Monhealth.Api.Controllers
         //     });
         // }
         [HttpGet]
-        [Route("user")]
+        [Route("user-date")]
         public async Task<ActionResult<ResultModel>> GetDailyMealByUser([FromQuery][Required] Guid userId,
-         [FromQuery][Required]DateTime date)
+         [FromQuery][Required] DateTime date)
         {
-            var categories = await _mediator.
+            var queries = await _mediator.
             Send(new GetDailyMealByUserQuery(userId, date));
 
-            if (categories == null)
+            if (queries == null)
             {
-                return NotFound(new ResultModel
+                return Ok(new ResultModel
                 {
                     Success = false,
                     Message = "Bữa ăn hằng ngày không tồn tại.",
@@ -81,7 +81,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 200,
-                Data = categories
+                Data = queries
             });
         }
 
