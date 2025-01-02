@@ -74,7 +74,7 @@ namespace Monhealth.Api.Controllers
                     Success = false,
                     Message = "Bữa ăn hằng ngày không tồn tại.",
                     Status = 200,
-                    Data = null
+                    Data = queries
                 });
             }
             return Ok(new ResultModel
