@@ -25,7 +25,15 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
 
             if (query == null)
             {
-                return null;
+                return new GetDailyMealByUserDTO
+                {
+                   DailyMealId = Guid.Empty,
+                   CreatedAt = DateTime.Now,
+                   UpdatedAt = DateTime.Now,
+                   Items = null,
+                   Nutrition = null,
+                   
+                };
             }
 
 
