@@ -26,6 +26,7 @@ namespace Monhealth.Identity.Repositories
                .ThenInclude(f => f.FoodPortions)
                    .ThenInclude(fp => fp.Portion)
        .ToListAsync();
+
         }
 
         public async Task<Meal> GetByUserIdAndMealType(Guid userId, string mealType)

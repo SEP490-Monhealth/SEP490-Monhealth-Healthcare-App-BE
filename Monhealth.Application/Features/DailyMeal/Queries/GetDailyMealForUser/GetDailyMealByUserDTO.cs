@@ -10,8 +10,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
     public class GetDailyMealByUserDTO : BaseEntity
     {
         public Guid DailyMealId { get; set; }
-     
-   public NutritionOfDailyMeal2 Nutrition { get; set; }
+
+        public NutritionOfDailyMeal2 Nutrition { get; set; }
         public List<MealForDailyMeal2> Items { get; set; }
     }
     public class NutritionOfDailyMeal2
@@ -38,6 +38,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
         public float Protein { get; set; }
         public float Carbs { get; set; }
         public float Fat { get; set; }
-
+        public float Fiber { get; set; }
+        public float Sugar { get; set; }
     }
 }

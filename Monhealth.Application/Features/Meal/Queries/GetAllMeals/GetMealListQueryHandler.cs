@@ -30,8 +30,8 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
                     {
 
                         Calories = meal.MealFoods?.Sum(mf =>
-                    ((mf.Food?.Nutrition?.Calories ?? 0) / 100) *
-                    (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                            ((mf.Food?.Nutrition?.Calories ?? 0) / 100) *
+                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
                         Protein = meal.MealFoods?.Sum(mf =>
                             ((mf.Food?.Nutrition?.Protein ?? 0) / 100) *
                             (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,

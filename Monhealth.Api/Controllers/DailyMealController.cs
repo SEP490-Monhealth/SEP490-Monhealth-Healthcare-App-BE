@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -34,36 +35,37 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet]
-        [Route("{date:DateTime}")]
-        public async Task<ActionResult<ResultModel>> GetDailyMealDetail(DateTime date)
-        {
-            var categories = await _mediator.
-            Send(new GetDailyMealByCreateAtQuery() { CreateAt = date });
+        // [HttpGet]
+        // [Route("{date:DateTime}")]
+        // public async Task<ActionResult<ResultModel>> GetDailyMealDetail(DateTime date)
+        // {
+        //     var categories = await _mediator.
+        //     Send(new GetDailyMealByCreateAtQuery() { CreateAt = date });
 
-            if (categories == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Ngày tạo không tồn tại.",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = categories
-            });
-        }
+        //     if (categories == null)
+        //     {
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Ngày tạo không tồn tại.",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 200,
+        //         Data = categories
+        //     });
+        // }
         [HttpGet]
-        [Route("user{userId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetDailyMealByUser(Guid userId)
+        [Route("user")]
+        public async Task<ActionResult<ResultModel>> GetDailyMealByUser([FromQuery][Required] Guid userId,
+         [FromQuery][Required]DateTime date)
         {
             var categories = await _mediator.
-            Send(new GetDailyMealByUserQuery { UseId = userId });
+            Send(new GetDailyMealByUserQuery(userId, date));
 
             if (categories == null)
             {

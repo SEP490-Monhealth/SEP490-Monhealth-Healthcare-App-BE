@@ -8,7 +8,7 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
 {
-    public class GetDailyMealByUserHandler : IRequestHandler<GetDailyMealByUserQuery, List<GetDailyMealByUserDTO>>
+    public class GetDailyMealByUserHandler : IRequestHandler<GetDailyMealByUserQuery, GetDailyMealByUserDTO>
     {
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IMealRepository _mealRepository;
@@ -19,59 +19,62 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
             _mealRepository = mealRepository;
         }
 
-        public async Task<List<GetDailyMealByUserDTO>> Handle(GetDailyMealByUserQuery request, CancellationToken cancellationToken)
+        public async Task<GetDailyMealByUserDTO> Handle(GetDailyMealByUserQuery request, CancellationToken cancellationToken)
         {
-            var query = await _dailyMealRepository.GetDailyMealsByUser(request.UseId);
-            var mealQuery = await _mealRepository.GetAllMeals(); // Lấy tất cả Meals từ MealRepository
+            var query = await _dailyMealRepository.GetDailyMealsByUser(request.UseId, request.date);
+            if (query == null) throw new Exception("Không tìm thấy ngày tạo.");
 
-            var result = new List<GetDailyMealByUserDTO>();
+            // Lấy danh sách toàn bộ Meals từ MealRepository
+            var mealQuery = await _mealRepository.GetAllMeals();
 
-            foreach (var dailyMeal in query)
-            {
-            
-                var meals = mealQuery
-                    .Where(m => dailyMeal.Meals.Select(dm => dm.MealId).Contains(m.MealId))
-                    .Select(m => new MealForDailyMeal2
-                    {
-                        mealId = m.MealId,
-                        MealType = m.MealType,
-                        Calories = m.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Calories ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                        Protein = m.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Protein ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                        Carbs = m.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Carbs ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                        Fat = m.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Fat ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0
-                    }).ToList();
-
-                // Tạo đối tượng DailyMealDTO
-                var dailyMealDTO = new GetDailyMealByUserDTO
+            // Lọc danh sách Meal từ danh sách toàn bộ Meals bằng DailyMeal.Meals
+            var meals = mealQuery
+                .Where(m => query.Meals.Select(dm => dm.MealId).Contains(m.MealId))
+                .Select(m => new MealForDailyMeal2
                 {
-                    DailyMealId = dailyMeal.DailyMealId,
-                    
-                    Nutrition = new NutritionOfDailyMeal2
-                    {
-                        TotalCalories = dailyMeal.TotalCalories, // Tính tổng từ danh sách Meals
-                        TotalProteins = dailyMeal.TotalProteins,
-                        TotalCarbs = dailyMeal.TotalCarbs,
-                        TotalFats = dailyMeal.TotalFats,
-                        TotalFibers = dailyMeal.TotalFibers, // Giữ nguyên nếu không cần tính lại
-                        TotalSugars = dailyMeal.TotalSugars// Giữ nguyên nếu không cần tính lại
-                    },
-                    Items = meals,
-                    CreatedAt = dailyMeal.CreatedAt,
-                    UpdatedAt = dailyMeal.UpdatedAt
-                };
+                    mealId = m.MealId,
+                    MealType = m.MealType,
+                    Calories = m.MealFoods?.Sum(mf =>
+                        ((mf.Food?.Nutrition?.Calories ?? 0) / 100) *
+                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                    Protein = m.MealFoods?.Sum(mf =>
+                        ((mf.Food?.Nutrition?.Protein ?? 0) / 100) *
+                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                    Carbs = m.MealFoods?.Sum(mf =>
+                        ((mf.Food?.Nutrition?.Carbs ?? 0) / 100) *
+                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                    Fat = m.MealFoods?.Sum(mf =>
+                        ((mf.Food?.Nutrition?.Fat ?? 0) / 100) *
+                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                    Fiber = m.MealFoods?.Sum(mf =>
+                        ((mf.Food?.Nutrition?.Fiber ?? 0) / 100) *
+                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                    Sugar = m.MealFoods?.Sum(mf =>
+                        ((mf.Food?.Nutrition?.Sugar ?? 0) / 100) *
+                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0
+                }).ToList();
 
-                result.Add(dailyMealDTO);
-            }
+            // Tạo đối tượng Nutrition
+            var nutrition = new NutritionOfDailyMeal2
+            {
+                TotalCalories = query.TotalCalories, // Tổng từ DB
+                TotalProteins = query.TotalProteins,
+                TotalCarbs = query.TotalCarbs,
+                TotalFats = query.TotalFats,
+                TotalFibers = query.TotalFibers,
+                TotalSugars = query.TotalSugars
+            };
 
-            return result;
+            // Tạo đối tượng DailyMealDTO
+            var dailyMealDTO = new GetDailyMealByUserDTO
+            {
+                DailyMealId = query.DailyMealId,
+                Nutrition = nutrition, // Gán nutrition
+                Items = meals, // Gán danh sách Meals
+
+            };
+
+            return dailyMealDTO;
         }
     }
 }
