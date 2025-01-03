@@ -2,6 +2,7 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Reminder.Commands.CreateReminder;
+using Monhealth.Application.Features.Reminders.Commands.DeleteReminder;
 using Monhealth.Application.Features.Reminders.Commands.UpdateReminder;
 using Monhealth.Application.Features.Reminders.Commands.UpdateReminderStatus;
 using Monhealth.Application.Models;
@@ -19,7 +20,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResultModel>> AddMeal([FromBody] CreateReminderCommand request)
+        public async Task<ActionResult<ResultModel>> CreateReminder([FromBody] CreateReminderCommand request)
         {
 
             var result = await _mediator.Send(request);
@@ -81,6 +82,28 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Message = "Cập nhật trạng thái thành công."
+            };
+
+        }
+        [HttpDelete("{reminderId}")]
+        public async Task<ActionResult<ResultModel>> DeleteReminder(Guid reminderId)
+        {
+            var command = await _mediator.Send(new DeleteReminderCommand() { RemindId = reminderId });
+
+            if (command == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Xóa lời nhắc thất bại."
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Xóa lời nhắc thành công."
             };
         }
     }
