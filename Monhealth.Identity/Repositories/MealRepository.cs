@@ -35,6 +35,8 @@ namespace Monhealth.Identity.Repositories
             (m => m.UserId == userId && m.MealType == mealType);
         }
 
+
+
         public async Task<Meal> GetMealByMealId(Guid mealId)
         {
             return await _context.Meals
@@ -72,13 +74,14 @@ namespace Monhealth.Identity.Repositories
                 .ToList();
         }
 
+        public async Task<IEnumerable<Meal>> GetMealsByDailyMealId(Guid dailyMealId)
+        {
+            return await _context.Meals
+           .Where(m => m.DailyMealId == dailyMealId)
+           .ToListAsync();
+        }
 
-
-
-
-
-
-
+       
 
         public async Task<int> SaveChangeAsync()
         {

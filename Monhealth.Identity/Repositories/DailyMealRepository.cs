@@ -50,6 +50,7 @@ namespace Monhealth.Identity.Repositories
         }
 
 
+
         public async Task<DailyMeal> GetDailyMealByCreateAt(DateTime createAt)
         {
 
@@ -84,6 +85,12 @@ namespace Monhealth.Identity.Repositories
             return dailyMeal;
         }
 
+        public async Task<DailyMeal> GetDailyMealByIdAsync(Guid dailyMealId, CancellationToken cancellationToken)
+        {
+            return await _context.DailyMeals
+            .Include(dm => dm.Meals)
+            .FirstOrDefaultAsync(dm => dm.DailyMealId == dailyMealId, cancellationToken);
+        }
 
         public async Task<DailyMeal> GetDailyMealByUserAndDate(DateTime createAt, Guid userID)
         {

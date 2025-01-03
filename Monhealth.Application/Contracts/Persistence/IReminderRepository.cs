@@ -5,5 +5,6 @@ namespace Monhealth.Application.Contracts.Persistence
     public interface IReminderRepository : IGenericRepository<Reminder, Guid>
     {
         Task<int> SaveChangeAsync();
+        Task<List<Reminder>>GetAllReminderAsync();
     }
 }

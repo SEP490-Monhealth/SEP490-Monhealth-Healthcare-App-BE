@@ -12,7 +12,9 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<Meal> GetByUserIdAndMealType(Guid userId, string mealType);
         Task<int> SaveChangeAsync();
         Task<List<Meal>> GetMealByUserAndDate(DateTime createAt, Guid userId);
-        Task<Meal>GetMealByMealId(Guid mealId);
-        Task<List<Meal>>GetMealByUser(Guid userId);
+        Task<Meal> GetMealByMealId(Guid mealId);
+        Task<List<Meal>> GetMealByUser(Guid userId);
+        Task<IEnumerable<Meal>> GetMealsByDailyMealId(Guid dailyMealId);
+
     }
 }
