@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Goals.Commands.CreateCommand;
 using Monhealth.Application.Features.Goals.Queries.GetAllGoals;
+using Monhealth.Application.Features.Goals.Queries.GetGoalById;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
+using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -29,6 +31,26 @@ namespace Monhealth.Api.Controllers
                 Status = (int)HttpStatusCode.OK,
                 Success = true,
                 Message = "Lấy danh sách mục tiêu thành công"
+            };
+        }
+        [HttpGet("{goalId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetById(Guid goalId)
+        {
+            var goal = await _mediator.Send(new GetGoalByIdQuery() { GoalId = goalId });
+            if (goal == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Mục tiêu không tồn tại."
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Data = goal
             };
         }
         [HttpPost]
