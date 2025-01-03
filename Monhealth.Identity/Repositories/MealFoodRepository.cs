@@ -21,6 +21,11 @@ namespace Monhealth.Identity.Repositories
             && mf.FoodId == FoodId);
         }
 
+        public async Task<List<MealFood>> GetMealFoodByFoodId(Guid foodId)
+        {
+            return await _context.MealFoods.Where(mf => mf.FoodId == foodId).ToListAsync();
+        }
+
         public async Task<List<MealFood>> GetMealFoodByMealId(Guid mealId)
         {
             return await _context.MealFoods.Where(mf => mf.MealId == mealId)
