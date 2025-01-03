@@ -1,15 +1,18 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Contracts.Services;
 
 namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 {
     public class CreateMetricCommandHandler : IRequestHandler<CreateMetricCommand, Unit>
     {
+        private readonly IMetricsCalculate _metricCalculate;
         private readonly IMetricRepository _metricRepository;
         private readonly IMapper _mapper;
-        public CreateMetricCommandHandler(IMetricRepository metricRepository, IMapper mapper)
+        public CreateMetricCommandHandler(IMetricRepository metricRepository, IMapper mapper, IMetricsCalculate metricCalculate)
         {
+            _metricCalculate = metricCalculate;
             _metricRepository = metricRepository;
             _mapper = mapper;
         }
@@ -27,24 +30,23 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 }
 
                 // tinh toan BMI, BMR, TDEE, IBW
-                var calculator = new MetricsCalculate();
                 var weight = request.CreateMetricDto.Weight;
                 var height = request.CreateMetricDto.Height;
                 var gender = request.CreateMetricDto.Gender;
                 var activityLevel = request.CreateMetricDto.ActivityLevel;
 
                 // tinh BMI
-                newMetric.Bmi = (float)calculator.CalculateBMI(weight, height);
+                newMetric.Bmi = (float)_metricCalculate.CalculateBMI(weight, height);
 
                 // tinh BMR
-                var bmr = calculator.CalculateBMR(weight, height, age, gender);
+                var bmr = _metricCalculate.CalculateBMR(weight, height, age, gender);
                 newMetric.Bmr = bmr;
 
                 // tinh TDEE
-                newMetric.Tdee = calculator.CalculateTDEE(bmr, activityLevel);
+                newMetric.Tdee = _metricCalculate.CalculateTDEE(bmr, activityLevel);
 
                 // tinh IBW
-                newMetric.Ibw = calculator.CalculateIBW(height, gender);
+                newMetric.Ibw = _metricCalculate.CalculateIBW(height, gender);
 
 
                 // new metricId

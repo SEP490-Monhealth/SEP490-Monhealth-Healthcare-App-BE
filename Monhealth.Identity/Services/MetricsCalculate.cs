@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Monhealth.Application.Contracts.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
+namespace Monhealth.Identity.Services
 {
-    public class UpdateMetricsCalculate
+    public class MetricsCalculate : IMetricsCalculate
     {
         public double CalculateBMI(double weight, double height)
         {
