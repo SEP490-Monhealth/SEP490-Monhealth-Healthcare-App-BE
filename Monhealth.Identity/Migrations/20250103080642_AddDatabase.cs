@@ -87,7 +87,6 @@ namespace Monhealth.Identity.Migrations
                     DailyMealId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ScheduleId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    DailyStatId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     TotalCalories = table.Column<float>(type: "real", nullable: false),
                     TotalProteins = table.Column<float>(type: "real", nullable: false),
                     TotalCarbs = table.Column<float>(type: "real", nullable: false),
@@ -329,6 +328,31 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Reminders",
+                columns: table => new
+                {
+                    ReminderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Volume = table.Column<float>(type: "real", nullable: false),
+                    Time = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reminders", x => x.ReminderId);
+                    table.ForeignKey(
+                        name: "FK_Reminders_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Foods",
                 columns: table => new
                 {
@@ -368,7 +392,6 @@ namespace Monhealth.Identity.Migrations
                     DailyMealId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MealType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DailyStatId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
@@ -380,11 +403,6 @@ namespace Monhealth.Identity.Migrations
                     table.ForeignKey(
                         name: "FK_Meals_DailyMeals_DailyMealId",
                         column: x => x.DailyMealId,
-                        principalTable: "DailyMeals",
-                        principalColumn: "DailyMealId");
-                    table.ForeignKey(
-                        name: "FK_Meals_DailyMeals_DailyStatId",
-                        column: x => x.DailyStatId,
                         principalTable: "DailyMeals",
                         principalColumn: "DailyMealId");
                 });
@@ -580,13 +598,13 @@ namespace Monhealth.Identity.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Avatar", "ConcurrencyStamp", "CreatedAt", "CreatedBy", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RefreshToken", "RefreshTokenExpiryTime", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedAt", "UpdatedBy", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, "e29f5de7-2c4f-40a5-952f-c643ff090b23", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khanhpham@gmail.com", true, "Nguyen Pham Khanh", false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAEJu09S/iiMZz9vLNQHX8RscLvTcgT2+vSy5lrDPq/biJMWG8DC+KXeU+lCNzcUiYew==", "0969998878", false, null, null, "fc4604c8-9c83-4f16-b01f-2e1012d0dc6a", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "kuem113" },
-                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, "7be1a60d-ebca-483a-b52a-4b40497f03d0", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEIqE+uHomQDOlJinZqrnifmggkTdOHBon2SyUSsnd19HEWI1xgib1S0jRhCSitl6VQ==", "0555666612", false, null, null, "1705b020-72bc-43b3-a928-f55155d0d2a0", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duypro113" },
-                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, "053e30ff-97b4-49c7-9c90-f0760d67a904", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quocdai@gmail.com", true, "Nguyen Quoc Dai", false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAELbHy/mhZWKCgbiijDGRB0FhJ0N3CI//FjkyMnqZvN6eA4vzjFpAgiM4T8xnDq+b4Q==", "0932748924", false, null, null, "306b2fa2-885e-4e3a-b3e0-a6456764daa4", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "dainq115" },
-                    { new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, null, "cfd90036-bd60-4d7a-ab9c-9e97dd7c898c", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "asd@gmail.com", true, "asd", false, null, "ASD@GMAIL.COM", "ASD", "AQAAAAIAAYagAAAAELeaQ3l4xCJQWHiJU//SimHW1t/ERYlI8I0/EUoa4mWrNopdc9Q4KyTJ/3iq34skpA==", "0123456789", false, null, null, "f7ec9fc0-9542-4084-9d3e-c44d5daba35f", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "asd" },
-                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, "9cac3038-9a83-423a-8b79-c07d30b3e417", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khaitoi@gmail.com", true, "Phan Van Khai", false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEGSGWM9XaSTC98qJBJjZZB1yMALi8BLH7+yIQ/4zc+PRarF094CE9jKjcA71NczV9Q==", "0963122758", false, null, null, "1b789a5f-4222-482f-b559-16ce64720d3c", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "xautrai123" },
-                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, "9edb72da-ca59-4be1-9c07-b6f39fcd4a7a", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangdalat@gmail.com", true, "Quang La Tui", false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEK8lxdC8NLFZI5h/VNBXJMOvpi3UiNCw4A/i01e+ePSxUeZ9xNkd0hmEUPECsAUyJQ==", "0999777712", false, null, null, "0e12ba75-f6fd-4e81-a36b-389ad3ad50fb", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangspa09" },
-                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, "8b730f0e-1ea4-45ed-a520-394db101a3ed", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "toanvan@gmail.com", true, "Van Huu Toan", false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEDIKgOippohyjXKhs16Nv2boEK5M2okMHS5NrmlilYPoq6tSSaAUGXAqLngDFHACwg==", "0792766979", false, null, null, "190a369a-cd44-4a98-b1a2-77552d13a893", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "vipro123" }
+                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, "ba29cc75-aeb8-4e66-89bf-8c9f6cabc1c1", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khanhpham@gmail.com", true, "Nguyen Pham Khanh", false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAEKwDaEyGBahyMj5gdtigBgSzu++PUexkETormaroyVgeZO076zx1tVIbP7/4frXl+A==", "0969998878", false, null, null, "36bb08be-1371-422a-92fe-6c96a1164d4c", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "kuem113" },
+                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, "f3e1340c-4c70-4ceb-92f5-a06785f61374", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEGGXbsFQiMPBcg+pwsMo2C4oq7D0gIyF0MeMrxSXDNOTMHtn0jMvlV+Mngc7qnr5MA==", "0555666612", false, null, null, "49d84977-efd9-4c8b-b3fe-454b6c39ed1c", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duypro113" },
+                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, "3c70f324-8689-4a47-b66b-62317a5f0a58", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quocdai@gmail.com", true, "Nguyen Quoc Dai", false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAEPoAqUIUmdoMn2KD41HTo6fLgdrpT+Gocmicp8ZQvDBcXLa5qWQ6FzZybAlKb2KLOQ==", "0932748924", false, null, null, "0a442de1-b9a2-4dfe-93bf-7e3aed523623", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "dainq115" },
+                    { new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, null, "a35f5519-b2ed-4c41-b1b3-ef80db24faf0", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "asd@gmail.com", true, "asd", false, null, "ASD@GMAIL.COM", "ASD", "AQAAAAIAAYagAAAAEMh5tkTr4vxQaJoXBYdbhKO/Lh5O+RuuOh8POyegNAgIrqW51NPZhkPNjyhr5Vti+g==", "0123456789", false, null, null, "57f62789-e0fa-4a59-82bc-42164df84fd8", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "asd" },
+                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, "2ff55e78-6398-4805-abc7-49ce379ba6f8", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khaitoi@gmail.com", true, "Phan Van Khai", false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEMBbOpS8foEE/QVVwPQof/cN0zos+dK2uPwKIQz/hoq+0E7PKxtOwu93hoNE7j8PJw==", "0963122758", false, null, null, "899a29b0-ac2d-4c04-8af6-221a98ced407", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "xautrai123" },
+                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, "46088fbd-abe2-4eb9-9191-ad9fc79f7aaf", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangdalat@gmail.com", true, "Quang La Tui", false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEFvU9jsG+SbeWm3ZpzT9jHQJ8R+0d/tRToEoORgzYYX+LKPqMSfccgQirOa4yGe+5g==", "0999777712", false, null, null, "ad39ee68-1bad-41b8-a71f-e7139b147488", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangspa09" },
+                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, "75d36245-0a1c-4e0c-89ee-247731ad7f5e", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "toanvan@gmail.com", true, "Van Huu Toan", false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEKY+JMM9LAwPesVZss/uSal0LoktcfePcZzTiZGKlPQVQSOtpLN/AchoeNABjRg1fQ==", "0792766979", false, null, null, "3c5c3616-81d5-4d62-9fae-79cffca35f8a", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "vipro123" }
                 });
 
             migrationBuilder.InsertData(
@@ -1054,11 +1072,6 @@ namespace Monhealth.Identity.Migrations
                 column: "DailyMealId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Meals_DailyStatId",
-                table: "Meals",
-                column: "DailyStatId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_MealUserFoods_MealId",
                 table: "MealUserFoods",
                 column: "MealId");
@@ -1074,6 +1087,11 @@ namespace Monhealth.Identity.Migrations
                 column: "FoodId",
                 unique: true,
                 filter: "[FoodId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reminders_UserId",
+                table: "Reminders",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Targets_GoalId",
@@ -1119,6 +1137,9 @@ namespace Monhealth.Identity.Migrations
 
             migrationBuilder.DropTable(
                 name: "Nutritions");
+
+            migrationBuilder.DropTable(
+                name: "Reminders");
 
             migrationBuilder.DropTable(
                 name: "Targets");

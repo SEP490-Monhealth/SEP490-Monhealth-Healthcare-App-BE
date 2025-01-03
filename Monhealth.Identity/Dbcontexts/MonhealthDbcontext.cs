@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Monhealth.Core;
 using Monhealth.Domain;
 using Monhealth.Identity.Configurations;
 using Monhealth.Identity.Models;
@@ -28,7 +29,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<MealFood> MealFoods { get; set; }
         public DbSet<MealUserFood> MealUserFoods { get; set; }
         public DbSet<Nutrition> Nutritions { get; set; }
-
+        public DbSet<Reminder> Reminders { get; set; }
 
         public DbSet<FoodPortion> FoodPortions { get; set; }
 
