@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.User;
+using Monhealth.Application.Services;
 using System.Reflection;
 
 namespace Monhealth.Application
@@ -12,6 +14,8 @@ namespace Monhealth.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<IUserContext, UserContext>();
+
+            services.AddScoped<IGenerateDailyMenuService, GenerateDailyMenuService>();
             return services;
         }
     }
