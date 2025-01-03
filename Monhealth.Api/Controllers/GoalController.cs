@@ -3,10 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Goals.Commands.CreateCommand;
 using Monhealth.Application.Features.Goals.Queries.GetAllGoals;
 using Monhealth.Application.Features.Goals.Queries.GetGoalById;
+using Monhealth.Application.Features.Goals.Queries.GetGoalByUserId;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
+using Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId;
 using Monhealth.Application.Models;
+using Monhealth.Domain;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -52,6 +55,27 @@ namespace Monhealth.Api.Controllers
                 Status = (int)HttpStatusCode.OK,
                 Data = goal
             };
+        }
+        [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetByUserId (Guid userId)
+        {
+            var queries = await _mediator.Send(new GetGoalByUserIdQuery() { UserId = userId });
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Mục tiêu không tồn tại.",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
         }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateGoalDTO createGoalDTO)

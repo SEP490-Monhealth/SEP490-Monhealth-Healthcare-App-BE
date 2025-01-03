@@ -1,4 +1,5 @@
-﻿using Monhealth.Application.Contracts.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 using System;
@@ -13,6 +14,11 @@ namespace Monhealth.Identity.Repositories
     {
         public GoalRepository(MonhealthDbcontext context) : base(context)
         {
+        }
+
+        public async Task<List<Goal>> GetGoalsByYserIdAsync(Guid userId)
+        {
+            return await _context.Goals.Where(u => u.UserId == userId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

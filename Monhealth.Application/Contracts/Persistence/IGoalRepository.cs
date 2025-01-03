@@ -9,6 +9,7 @@ namespace Monhealth.Application.Contracts.Persistence
 {
     public interface IGoalRepository : IGenericRepository<Goal, Guid>
     {
+        Task<List<Goal>> GetGoalsByYserIdAsync(Guid userId);
         Task<int> SaveChangeAsync();
     }
 }
