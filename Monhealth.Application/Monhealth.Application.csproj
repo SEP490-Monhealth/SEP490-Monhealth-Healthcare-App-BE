@@ -15,4 +15,8 @@
     <ProjectReference Include="..\Monhealth.Core\Monhealth.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Goals\Queries\" />
+  </ItemGroup>
+
 </Project>
