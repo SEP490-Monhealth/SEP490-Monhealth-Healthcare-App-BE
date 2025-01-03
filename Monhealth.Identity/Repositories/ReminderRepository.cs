@@ -16,6 +16,16 @@ namespace Monhealth.Identity.Repositories
             return await _context.Reminders.Include(r => r.AppUser).ToListAsync();
         }
 
+        public async Task<Reminder> GetReminderById(Guid reminderId)
+        {
+            return await _context.Reminders.FirstOrDefaultAsync(r => r.ReminderId == reminderId);
+        }
+
+        public async Task<List<Reminder>> GetReminderByUser(Guid userId)
+        {
+            return await _context.Reminders.Where(r => r.UserId == userId).ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

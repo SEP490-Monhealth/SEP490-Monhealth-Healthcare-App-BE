@@ -5,6 +5,9 @@ using Monhealth.Application.Features.Reminder.Commands.CreateReminder;
 using Monhealth.Application.Features.Reminders.Commands.DeleteReminder;
 using Monhealth.Application.Features.Reminders.Commands.UpdateReminder;
 using Monhealth.Application.Features.Reminders.Commands.UpdateReminderStatus;
+using Monhealth.Application.Features.Reminders.Queries.GetAllReminder;
+using Monhealth.Application.Features.Reminders.Queries.GetReminderByUser;
+using Monhealth.Application.Features.Reminders.Queries.GetReminderDetail;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -19,6 +22,60 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllReminder()
+        {
+            var query = new GetAllReminderQuery();
+            var result = await _mediator.Send(query);
+            return new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true,
+                Message = "Lấy danh sách nhắc nhở thành công"
+            };
+        }
+        
+        [HttpGet("{reminderId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetReminderById(Guid reminderId)
+        {
+            var portion = await _mediator.Send(new GerReminderDetailQuery() { ReminderId = reminderId });
+            if (portion == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm lời nhắc."
+                };
+            }
+            return new ResultModel
+            {
+                Data = portion,
+                Status = 200,
+                Success = true
+            };
+        }
+         [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetReminderByUser(Guid userId)
+        {
+            var portion = await _mediator.Send(new GetAllReminderByUserQuery() { UserId = userId });
+            if (portion == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm lời nhắc."
+                };
+            }
+            return new ResultModel
+            {
+                Data = portion,
+                Status = 200,
+                Success = true
+            };
+        }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateReminder([FromBody] CreateReminderCommand request)
         {
