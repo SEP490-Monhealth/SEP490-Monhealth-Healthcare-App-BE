@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Goals.Commands.CreateCommand;
+using Monhealth.Application.Features.Goals.Queries.GetAllGoals;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
+using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -15,6 +17,19 @@ namespace Monhealth.Api.Controllers
         public GoalController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAll()
+        {
+            var goals = await _mediator.Send(new GetAllGoalsListQuery());
+
+            return new ResultModel
+            {
+                Data = goals,
+                Status = (int)HttpStatusCode.OK,
+                Success = true,
+                Message = "Lấy danh sách mục tiêu thành công"
+            };
         }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateGoalDTO createGoalDTO)
