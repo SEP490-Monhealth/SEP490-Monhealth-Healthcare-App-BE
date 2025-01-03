@@ -1,8 +1,5 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-
-
-
 namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
 {
     public class CreateReminderCommandHandler : IRequestHandler<CreateReminderCommand, Unit>
