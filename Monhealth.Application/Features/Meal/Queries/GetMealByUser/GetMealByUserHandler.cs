@@ -1,37 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
-namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
+namespace Monhealth.Application.Features.Meal.Queries.GetMealByUser
 {
-    public class GetMealListQueryHandler : IRequestHandler<GetMealListQuery, List<MealDTO>>
+    public class GetMealByUserHandler : IRequestHandler<GetMealByUserQuery, List<GetMealByUserDTO>>
     {
+
         private readonly IMealRepository _mealRepository;
 
-        public GetMealListQueryHandler(IMealRepository mealRepository)
+        public GetMealByUserHandler(IMealRepository mealRepository)
         {
             _mealRepository = mealRepository;
         }
 
-        public async Task<List<MealDTO>> Handle(GetMealListQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetMealByUserDTO>> Handle(GetMealByUserQuery request, CancellationToken cancellationToken)
         {
-            var query = await _mealRepository.GetAllMeals();
-            var result = new List<MealDTO>();
+            var query = await _mealRepository.GetMealByUser(request.UserId);
+            if(query == null) throw new Exception("Người dùng không tồn tại.");
+            var result = new List<GetMealByUserDTO>();
 
             foreach (var meal in query)
             {
-                var mealDTO = new MealDTO
+                var mealDTO = new GetMealByUserDTO
                 {
                     MealId = meal.MealId,
-                    UserId = meal.UserId,
+                   
                     MealType = meal.MealType,
 
 
-                    Nutrition = new MealFoodNutritionDTO
+                    Nutrition = new MealFoodNutritionDTO2
                     {
 
                         Calories = meal.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Calories ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
+                    ((mf.Food?.Nutrition?.Calories ?? 0) / 100) *
+                    (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
                         Protein = meal.MealFoods?.Sum(mf =>
                             ((mf.Food?.Nutrition?.Protein ?? 0) / 100) *
                             (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
@@ -48,23 +54,7 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
                             ((mf.Food?.Nutrition?.Sugar ?? 0) / 100) *
                             (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0
                     },
-                    // Items = meal.MealFoods.Select(mf => new MealFoodDTO
-                    // {
-                    //     MealFoodId = mf.MealFoodId,
-                    //     FoodId = mf.FoodId,
-                    //     Quantity = mf.Quantity,
-                    //     Name = mf.Food.FoodName,
 
-                    //     Calories = (mf.Food.Nutrition.Calories / 100) * (mf.Quantity * 100),
-
-
-                    //     Portions = new MealFoodPortionDTO
-                    //     {
-                    //         Size = mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionSize ?? string.Empty,
-                    //         Weight = mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight,
-                    //         Unit = mf.Food.FoodPortions.FirstOrDefault()?.Portion.MeasurementUnit ?? string.Empty,
-                    //     }
-                    // }).ToList()
                     CreatedAt = meal.CreatedAt,
                     UpdatedAt = meal.UpdatedAt
                 };
@@ -73,7 +63,6 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
             }
 
             return result;
-
         }
     }
 }

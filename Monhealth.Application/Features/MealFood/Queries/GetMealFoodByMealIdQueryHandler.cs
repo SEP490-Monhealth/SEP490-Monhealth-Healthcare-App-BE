@@ -29,7 +29,7 @@ namespace Monhealth.Application.Features.MealFood.Queries
                 Nutrition = new NutritionDTO1
                 {
                     Calories = mf.Food?.Nutrition != null && mf.Food.FoodPortions?.Any() == true
-                 ? (mf.Food.Nutrition.Calories / (mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1))
+                 ? (mf.Food.Nutrition.Calories / 100)
                    * (mf.Quantity * (mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1))
                  : 0
                 },

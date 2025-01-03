@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Monhealth.Application.Contracts.Services;
+using Monhealth.Application.Automapper.CustomFoodMapper.CustomMapper;
 using Monhealth.Application.Features.User;
 using Monhealth.Application.Services;
 using System.Reflection;
@@ -16,6 +17,9 @@ namespace Monhealth.Application
             services.AddScoped<IUserContext, UserContext>();
 
             services.AddScoped<IGenerateDailyMenuService, GenerateDailyMenuService>();
+            services.AddAutoMapper(typeof(GetAllFoodProfile).Assembly);
+            services.AddAutoMapper(typeof(GetFoodByUserIdProfile).Assembly);
+            services.AddAutoMapper(typeof(GetFoodByFoodTypeProfile).Assembly);
             return services;
         }
     }

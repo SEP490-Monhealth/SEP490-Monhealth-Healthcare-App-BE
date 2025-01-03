@@ -129,7 +129,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("filter-by-category")]
+        [HttpGet("categories")]
         public async Task<ActionResult<ResultModel>> GetFoodByCategoryName([FromQuery] string category)
         {
             // Kiểm tra nếu không có giá trị categoryName

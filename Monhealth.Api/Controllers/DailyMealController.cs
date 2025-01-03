@@ -1,17 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal;
 using Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealByCreateAt;
+using Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/dailyMeals")]
+    [Route("api/v1/daily-meals")]
     [ApiController]
     public class DailyMealController : ControllerBase
     {
@@ -33,28 +30,54 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet]
-        [Route("{date:DateTime}")]
-        public async Task<ActionResult<ResultModel>> GetDailyMealDetail(DateTime date)
-        {
-            var categories = await _mediator.
-            Send(new GetDailyMealByCreateAtQuery() { CreateAt = date });
+        // [HttpGet]
+        // [Route("{date:DateTime}")]
+        // public async Task<ActionResult<ResultModel>> GetDailyMealDetail(DateTime date)
+        // {
+        //     var categories = await _mediator.
+        //     Send(new GetDailyMealByCreateAtQuery() { CreateAt = date });
 
-            if (categories == null)
+        //     if (categories == null)
+        //     {
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Ngày tạo không tồn tại.",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 200,
+        //         Data = categories
+        //     });
+        // }
+
+        [HttpGet]
+        [Route("user")]
+        public async Task<ActionResult<ResultModel>> GetDailyMealByUser([FromQuery][Required] Guid userId,
+         [FromQuery][Required] DateTime date)
+        {
+            var queries = await _mediator.
+            Send(new GetDailyMealByUserQuery(userId, date));
+
+            if (queries == null)
             {
-                return NotFound(new ResultModel
+                return Ok(new ResultModel
                 {
                     Success = false,
-                    Message = "Ngày tạo không tồn tại.",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
+                    Message = "Bữa ăn hằng ngày không tồn tại.",
+                    Status = 200,
+                    Data = queries
                 });
             }
             return Ok(new ResultModel
             {
                 Success = true,
                 Status = 200,
-                Data = categories
+                Data = queries
             });
         }
 

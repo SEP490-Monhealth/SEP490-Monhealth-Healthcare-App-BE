@@ -7,7 +7,7 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/meal-foods")]
+    [Route("api/v1/meal")]
     [ApiController]
     public class MealFoodController : ControllerBase
     {
@@ -18,29 +18,8 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpPatch]
-        [Route("{mealFoodId:Guid}/quantity")]
-        public async Task<ActionResult<ResultModel>> UpdateCategory(Guid mealFoodId, int quantity)
-        {
-            var command = new MealFoodCommand(mealFoodId, quantity);
-            var result = await _mediator.Send(command);
-            if (!result)
-                return new ResultModel
-                {
-                    Message = "Cập nhật Số lượng thất bại.",
-                    Success = false,
-                    Data = null
-                };
-            return Ok(new ResultModel
-            {
-                Message = "Cập nhật số lượng thành công.",
-                Success = true,
-                Status = 204,
-            });
-        }
-
         [HttpGet]
-        [Route("{mealId:Guid}")]
+        [Route("{mealId:Guid}/foods")]
         public async Task<ActionResult<ResultModel>> GetMealFoodByMealId(Guid mealId)
         {
             var food = await _mediator.
@@ -61,6 +40,27 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = 200,
                 Data = food
+            });
+        }
+
+        [HttpPatch]
+        [Route("{mealFoodId:Guid}/foods/quantity")]
+        public async Task<ActionResult<ResultModel>> UpdateCategory(Guid mealFoodId, int quantity)
+        {
+            var command = new MealFoodCommand(mealFoodId, quantity);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Cập nhật Số lượng thất bại.",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật số lượng thành công.",
+                Success = true,
+                Status = 204,
             });
         }
     }

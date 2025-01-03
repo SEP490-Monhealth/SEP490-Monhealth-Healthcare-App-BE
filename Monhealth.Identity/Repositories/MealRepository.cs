@@ -26,6 +26,7 @@ namespace Monhealth.Identity.Repositories
                .ThenInclude(f => f.FoodPortions)
                    .ThenInclude(fp => fp.Portion)
        .ToListAsync();
+
         }
 
         public async Task<Meal> GetByUserIdAndMealType(Guid userId, string mealType)
@@ -34,11 +35,37 @@ namespace Monhealth.Identity.Repositories
             (m => m.UserId == userId && m.MealType == mealType);
         }
 
+        public async Task<Meal> GetMealByMealId(Guid mealId)
+        {
+            return await _context.Meals
+      .Include(m => m.MealFoods)
+          .ThenInclude(mf => mf.Food)
+              .ThenInclude(f => f.Nutrition)
+      .Include(m => m.MealFoods)
+          .ThenInclude(mf => mf.Food)
+              .ThenInclude(f => f.FoodPortions)
+                  .ThenInclude(fp => fp.Portion)
+      .FirstOrDefaultAsync(m => m.MealId == mealId);
+        }
+
+        public async Task<List<Meal>> GetMealByUser(Guid userId)
+        {
+            return await _context.Meals
+      .Include(m => m.MealFoods)
+          .ThenInclude(mf => mf.Food)
+              .ThenInclude(f => f.Nutrition)
+      .Include(m => m.MealFoods)
+          .ThenInclude(mf => mf.Food)
+              .ThenInclude(f => f.FoodPortions)
+                  .ThenInclude(fp => fp.Portion)
+      .Where(m => m.UserId == userId).ToListAsync();
+        }
+
         public async Task<List<Meal>> GetMealByUserAndDate(DateTime createAt, Guid userId)
         {
             var targetDate = createAt.Date;
 
-            return  _context.Meals
+            return _context.Meals
                 .Where(m => m.UserId == userId)
                 .AsEnumerable() // Chuyển sang xử lý phía client
                 .Where(m => m.CreatedAt.HasValue && m.CreatedAt.Value.Date == targetDate)
