@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Contracts.Services;
+using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Models.Identity;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
@@ -65,6 +67,8 @@ namespace Monhealth.Identity
             services.AddScoped<IMealFoodRepository, MealFoodRepository>();
             services.AddScoped<IDailyMealRepository, DailyMealRepository>();
             services.AddScoped<IReminderRepository, ReminderRepository>();
+            services.AddScoped<IMetricsCalculate, MetricsCalculate>();
+            services.AddScoped<IGoalRepository, GoalRepository>();
             // Add Authentication
             services.AddAuthentication(options =>
             {

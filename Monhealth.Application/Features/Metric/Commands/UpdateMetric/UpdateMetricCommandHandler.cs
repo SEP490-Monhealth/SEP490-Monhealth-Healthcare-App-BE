@@ -1,16 +1,19 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Contracts.Services;
 
 namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
 {
     public class UpdateMetricCommandHandler : IRequestHandler<UpdateMetricCommand, bool>
     {
+        private readonly IMetricsCalculate _metricCalculate;
         private readonly IMetricRepository _metricRepository;
         private readonly IMapper _mapper;
 
-        public UpdateMetricCommandHandler(IMetricRepository metricRepository, IMapper mapper)
+        public UpdateMetricCommandHandler(IMetricRepository metricRepository, IMapper mapper, IMetricsCalculate metricCalculate)
         {
+            _metricCalculate = metricCalculate;
             _metricRepository = metricRepository;
             _mapper = mapper;
         }
@@ -33,12 +36,10 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             // De kiem tra co thay doi that su khong
             bool isUpdated = false;
 
-            var metricsCalculate = new UpdateMetricsCalculate();
-
             // Kiem tra và cap nhat BMI
             if (request.MetricDto.Height != metricToUpdate.Height || request.MetricDto.Weight != metricToUpdate.Weight)
             {
-                metricToUpdate.Bmi = (float)metricsCalculate.CalculateBMI(request.MetricDto.Weight, request.MetricDto.Height);
+                metricToUpdate.Bmi = (float)_metricCalculate.CalculateBMI(request.MetricDto.Weight, request.MetricDto.Height);
                 isUpdated = true;
             }
 
@@ -48,14 +49,14 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
                 request.MetricDto.DateOfBirth != metricToUpdate.DateOfBirth ||
                 !string.Equals(request.MetricDto.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
             {
-                metricToUpdate.Bmr = metricsCalculate.CalculateBMR(request.MetricDto.Weight, request.MetricDto.Height, age, request.MetricDto.Gender);
+                metricToUpdate.Bmr = _metricCalculate.CalculateBMR(request.MetricDto.Weight, request.MetricDto.Height, age, request.MetricDto.Gender);
                 isUpdated = true;
             }
 
             // Kiem tra va cap nhat TDEE
             if (request.MetricDto.ActivityLevel != metricToUpdate.ActivityLevel || isUpdated)
             {
-                metricToUpdate.Tdee = metricsCalculate.CalculateTDEE(metricToUpdate.Bmr, request.MetricDto.ActivityLevel);
+                metricToUpdate.Tdee = _metricCalculate.CalculateTDEE(metricToUpdate.Bmr, request.MetricDto.ActivityLevel);
                 isUpdated = true;
             }
 
@@ -63,7 +64,7 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             if (request.MetricDto.Height != metricToUpdate.Height ||
                 !string.Equals(request.MetricDto.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
             {
-                metricToUpdate.Ibw = metricsCalculate.CalculateIBW(request.MetricDto.Height, request.MetricDto.Gender);
+                metricToUpdate.Ibw = _metricCalculate.CalculateIBW(request.MetricDto.Height, request.MetricDto.Gender);
                 isUpdated = true;
             }
 

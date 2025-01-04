@@ -1,6 +1,8 @@
-﻿namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
+using Monhealth.Application.Contracts.Services;
+
+namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
 {
-    public class MetricsCalculate
+    public class MetricsCalculate : IMetricsCalculate
     {
         public double CalculateBMI(double weight, double height)
         {
