@@ -22,16 +22,9 @@ namespace Monhealth.Application.Features.Goals.Queries.GetAllGoals
         }
         public async Task<List<GetAllGoalsDTO>> Handle(GetAllGoalsListQuery request, CancellationToken cancellationToken)
         {
-            try
-            {
-                var goals = await _goalRepository.GetAllAsync();
-                var goalsResponse = _mapper.Map<List<GetAllGoalsDTO>>(goals);
-                return goalsResponse;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Lỗi " + ex.Message);
-            }
+            var goals = await _goalRepository.GetAllAsync();
+            var goalsResponse = _mapper.Map<List<GetAllGoalsDTO>>(goals);
+            return goalsResponse;
         }
     }
 }

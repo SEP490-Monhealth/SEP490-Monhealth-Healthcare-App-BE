@@ -20,20 +20,13 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
         }
         public async Task<Unit> Handle(CreateGoalCommand request, CancellationToken cancellationToken)
         {
-            try
-            {
-                var newGoal = _mapper.Map<Monhealth.Domain.Goal>(request.CreateGoalDTO);
-                newGoal.GoalId = Guid.NewGuid();
-                newGoal.CreatedAt = DateTime.Now;
-                newGoal.UpdatedAt = DateTime.Now;
-                _goalRepository.Add(newGoal);
-                await _goalRepository.SaveChangeAsync();
-                return Unit.Value;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Lỗi create " + ex.Message);
-            }
+            var newGoal = _mapper.Map<Monhealth.Domain.Goal>(request.CreateGoalDTO);
+            newGoal.GoalId = Guid.NewGuid();
+            newGoal.CreatedAt = DateTime.Now;
+            newGoal.UpdatedAt = DateTime.Now;
+            _goalRepository.Add(newGoal);
+            await _goalRepository.SaveChangeAsync();
+            return Unit.Value;
         }
     }
 }

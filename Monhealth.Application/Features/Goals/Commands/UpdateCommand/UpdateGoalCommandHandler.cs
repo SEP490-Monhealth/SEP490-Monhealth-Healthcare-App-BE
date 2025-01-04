@@ -15,29 +15,23 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
         private readonly IMapper _mapper;
         public UpdateGoalCommandHandler(IGoalRepository goalRepository, IMapper mapper)
         {
-            _goalRepository = goalRepository;   
+            _goalRepository = goalRepository;
             _mapper = mapper;
         }
         public async Task<bool> Handle(UpdateGoalCommand request, CancellationToken cancellationToken)
         {
-            try
+            var goal = await _goalRepository.GetByIdAsync(request.GoalId);
+            if (goal == null)
             {
-                var goal = await _goalRepository.GetByIdAsync(request.GoalId);
-                if (goal == null)
-                {
-                    throw new Exception("Không tìm thấy mục tiêu.");
-                }
-                goal.UpdatedAt = DateTime.Now;
-                _mapper.Map(request.UpdateGoalDTO, goal);
-                _goalRepository.Update(goal);
-                await _goalRepository.SaveChangeAsync();
-                return true;
+                throw new Exception("Không tìm thấy mục tiêu.");
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Lỗi cập nhật mục tiêu " + ex.Message);
-            }
-            
+            goal.UpdatedAt = DateTime.Now;
+            _mapper.Map(request.UpdateGoalDTO, goal);
+            _goalRepository.Update(goal);
+            await _goalRepository.SaveChangeAsync();
+            return true;
+
+
         }
     }
 }

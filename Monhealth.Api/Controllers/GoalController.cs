@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
+using Monhealth.Application.Features.Food.ChangeStatus;
+using Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand;
 using Monhealth.Application.Features.Goals.Commands.CreateCommand;
 using Monhealth.Application.Features.Goals.Commands.DeleteCommand;
 using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
@@ -15,6 +17,7 @@ using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId;
 using Monhealth.Application.Models;
 using Monhealth.Domain;
+using System;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -143,6 +146,27 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Message = "Xóa số liệu thành công"
+            };
+        }
+        [HttpPatch("{goalId}")]
+        public async Task<ActionResult<ResultModel>> ChangeStatus(Guid goalId, [FromBody] ChangeStatusGoalDTO statusGoalDTO)
+        {
+            var command = new ChangeStatusGoalCommand(goalId, statusGoalDTO );
+            var changeStatus = await _mediator.Send(command);
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy mục tiêu."
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Thay đổi trạng thái thành công."
             };
         }
     }
