@@ -35,7 +35,7 @@ namespace Monhealth.Api.Controllers
               
             };
         }
-        
+
         [HttpGet("{reminderId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid reminderId)
         {
@@ -46,7 +46,6 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm lời nhắc."
                 };
             }
             return new ResultModel
@@ -56,7 +55,8 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
-         [HttpGet("user/{userId:guid}")]
+
+        [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReminderByUser(Guid userId)
         {
             var portion = await _mediator.Send(new GetAllReminderByUserQuery() { UserId = userId });
@@ -76,6 +76,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateReminder([FromBody] CreateReminderCommand request)
         {
@@ -120,7 +121,8 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật lời nhắc thành công."
             };
         }
-        [HttpPatch("{reminderId}")]
+
+        [HttpPatch("{reminderId}/status")]
         public async Task<ActionResult<ResultModel>> UpdateStatus(Guid reminderId)
         {
             var command = await _mediator.Send(new UpdateReminderStatusCommand() { ReminderId = reminderId });

@@ -44,7 +44,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("{mealFoodId:Guid}/foods/quantity")]
+        [Route("foods/{mealFoodId:Guid}/quantity")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid mealFoodId, int quantity)
         {
             var command = new MealFoodCommand(mealFoodId, quantity);
