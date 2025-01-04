@@ -32,7 +32,7 @@ namespace Monhealth.Api.Controllers
                 Data = result,
                 Status = 200,
                 Success = true,
-                Message = "Lấy danh sách nhắc nhở thành công"
+              
             };
         }
         

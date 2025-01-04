@@ -11,6 +11,7 @@ namespace Monhealth.Core
         public Guid ReminderId { get; set; }
         public Guid UserId { get; set; }
         public float Volume { get; set; }
+        public string ReminderName { get; set; } = string.Empty;
         public string Time { get; set; } = string.Empty;
         public bool Status { get; set; }
         [ForeignKey(nameof(UserId))]

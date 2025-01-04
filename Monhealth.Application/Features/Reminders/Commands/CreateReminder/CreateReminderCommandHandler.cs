@@ -20,7 +20,8 @@ namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
                 Time = request.Time,
                 Volume = request.Volume,
                 CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                UpdatedAt = DateTime.Now,
+                ReminderName = request.ReminderName
             };
             _reminderRepository.Add(model);
             await _reminderRepository.SaveChangeAsync();
