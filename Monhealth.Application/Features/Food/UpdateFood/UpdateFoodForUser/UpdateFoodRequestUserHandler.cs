@@ -11,6 +11,5 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForUser
             FoodId = foodId;
             RequestData = requestUser;
         }
-
     }
 }

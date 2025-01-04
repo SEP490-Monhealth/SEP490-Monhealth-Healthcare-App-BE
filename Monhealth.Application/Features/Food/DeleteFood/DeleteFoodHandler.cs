@@ -1,7 +1,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
-
 namespace Monhealth.Application.Features.Food.DeleteFood
 {
     public class DeleteFoodHandler : IRequestHandler<DeleteFoodRequest, bool>

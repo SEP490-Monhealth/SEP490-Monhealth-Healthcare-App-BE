@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
 
 namespace Monhealth.Application.Features.Food.DeleteFood
 {
-
     public class DeleteFoodRequest : IRequest<bool>
     {
         public Guid FoodId { get; set; }
@@ -14,6 +9,5 @@ namespace Monhealth.Application.Features.Food.DeleteFood
         {
             FoodId = foodId;
         }
-
     }
 }

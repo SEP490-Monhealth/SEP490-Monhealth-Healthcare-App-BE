@@ -18,8 +18,8 @@ namespace Monhealth.Application.Features.Reminders.Queries.GetAllReminder
 
         public async Task<List<ReminderDTo>> Handle(GetAllReminderQuery request, CancellationToken cancellationToken)
         {
-           var query = await _reminderRepository.GetAllReminderAsync();
-           return _mapper.Map<List<ReminderDTo>>(query);
+            var query = await _reminderRepository.GetAllReminderAsync();
+            return _mapper.Map<List<ReminderDTo>>(query);
         }
     }
 }

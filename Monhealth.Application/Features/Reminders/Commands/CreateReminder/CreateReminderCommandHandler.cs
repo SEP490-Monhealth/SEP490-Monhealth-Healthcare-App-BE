@@ -16,12 +16,12 @@ namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
             var model = new Monhealth.Core.Reminder
             {
                 UserId = request.UserId,
-                Status = true,
+                ReminderName = request.ReminderName,
                 Time = request.Time,
                 Volume = request.Volume,
+                Status = true,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                ReminderName = request.ReminderName
             };
             _reminderRepository.Add(model);
             await _reminderRepository.SaveChangeAsync();

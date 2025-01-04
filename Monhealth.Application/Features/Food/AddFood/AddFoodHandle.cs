@@ -71,7 +71,7 @@ namespace Monhealth.Application.Features.Food.AddFood
             }
             else
             {
-                
+
                 portion = new Portion
                 {
                     PortionId = Guid.NewGuid(),
@@ -84,7 +84,7 @@ namespace Monhealth.Application.Features.Food.AddFood
                 _portionRepository.Add(portion);
             }
 
-        
+
             food.FoodPortions.Add(new FoodPortion
             {
                 FoodId = food.FoodId,

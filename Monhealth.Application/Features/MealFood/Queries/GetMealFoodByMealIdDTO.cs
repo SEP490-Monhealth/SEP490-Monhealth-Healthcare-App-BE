@@ -12,7 +12,6 @@ namespace Monhealth.Application.Features.MealFood.Queries
         [JsonPropertyName("portion")]
         public MealFoodPortionDTO1 Portions { get; set; }
         public NutritionDTO1 Nutrition { get; set; }
-
     }
     public class NutritionDTO1
     {

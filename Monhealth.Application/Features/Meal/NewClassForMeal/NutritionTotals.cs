@@ -2,7 +2,6 @@ namespace Monhealth.Application.Features.Meal.NewClassForMeal
 {
     public class NutritionTotals
     {
-
         public float Calories { get; set; }
         public float Proteins { get; set; }
         public float Carbs { get; set; }

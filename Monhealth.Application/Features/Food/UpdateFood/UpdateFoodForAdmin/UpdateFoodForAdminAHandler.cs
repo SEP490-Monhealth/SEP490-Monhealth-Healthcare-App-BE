@@ -7,19 +7,16 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
     {
         private readonly IFoodRepository _foodRepository;
         private readonly ICategoryRepository _categoryRepository;
-    
 
         public UpdateFoodForAdminAHandler(IFoodRepository foodRepository
         , ICategoryRepository categoryRepository)
         {
             _foodRepository = foodRepository;
             _categoryRepository = categoryRepository;
-          
+
         }
         public async Task<bool> Handle(UpdateFoodRequestAdminHandler request, CancellationToken cancellationToken)
         {
-         
-
             var food = await _foodRepository.GetFoodByIdAsync(request.FoodId);
             if (food == null) throw new Exception("Món ăn không tồn tại.");
             var existingFood = await _foodRepository.GetFoodByNameAsync(request.RequestData.FoodName);
@@ -29,7 +26,7 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
             food.FoodDescription = request.RequestData.FoodDescription;
             food.UpdatedAt = DateTime.Now;
             food.CategoryId = null;
-            var categoryName = request.RequestData.Category; 
+            var categoryName = request.RequestData.Category;
             if (categoryName != null)
             {
                 var category = await _categoryRepository.GetCategoryByCategoryName(categoryName);
@@ -43,6 +40,5 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
 
             return true;
         }
-
     }
 }

@@ -9,6 +9,5 @@ namespace Monhealth.Application.Features.Meal.Commands.DeleteMeal
         {
             MealId = mealId;
         }
-
     }
 }

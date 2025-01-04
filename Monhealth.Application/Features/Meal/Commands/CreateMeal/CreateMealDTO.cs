@@ -19,6 +19,5 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
         public float PortionWeight { get; set; }
         [JsonPropertyName("unit")]
         public string MeasurementUnit { get; set; } = string.Empty;
-
     }
 }

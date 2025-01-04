@@ -21,7 +21,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
                 // tinh tuoi tu DateOfBirth
                 var age = DateTime.Now.Year - request.CreateMetricDto.DateOfBirth.Year;
-                if(DateTime.Now.DayOfYear < request.CreateMetricDto.DateOfBirth.DayOfYear)
+                if (DateTime.Now.DayOfYear < request.CreateMetricDto.DateOfBirth.DayOfYear)
                 {
                     age--;
                 }
@@ -60,7 +60,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             {
                 throw new Exception("Lỗi create " + ex.Message);
             }
-            
+
         }
     }
 }

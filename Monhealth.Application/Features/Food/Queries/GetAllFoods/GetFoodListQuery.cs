@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         public string Search { get; set; }
         public string CategoryName { get; set; }
         public bool? Status { get; set; }
-        public string FoodType { get; set; } 
+        public string FoodType { get; set; }
         public GetFoodListQuery(int page, int limit, string? search, string? categoryName, string foodType, bool? status)
         {
             Page = page;

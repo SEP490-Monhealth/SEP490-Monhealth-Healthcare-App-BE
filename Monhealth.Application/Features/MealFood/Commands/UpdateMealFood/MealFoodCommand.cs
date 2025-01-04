@@ -11,6 +11,5 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
             MealFoodId = mealFoodId;
             Quantity = quantity;
         }
-
     }
 }

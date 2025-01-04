@@ -1,7 +1,5 @@
 using MediatR;
-using Microsoft.AspNetCore.WebUtilities;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Food.Queries.GetFoodsByCategoryName
 {

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -27,12 +22,12 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
             {
                 return new GetDailyMealByUserDTO
                 {
-                   DailyMealId = Guid.Empty,
-                   CreatedAt = DateTime.Now,
-                   UpdatedAt = DateTime.Now,
-                   Items = null,
-                   Nutrition = null,
-                   
+                    DailyMealId = Guid.Empty,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Items = null,
+                    Nutrition = null,
+
                 };
             }
 

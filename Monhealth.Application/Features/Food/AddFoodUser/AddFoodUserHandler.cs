@@ -6,7 +6,6 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
 {
     public class AddFoodUserHandler : IRequestHandler<AddFoodUserRequest, bool>
     {
-
         private readonly IFoodRepository _foodRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IPortionRepository _portionRepository;

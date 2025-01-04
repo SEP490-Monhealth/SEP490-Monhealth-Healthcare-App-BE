@@ -11,10 +11,9 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminder
         UpdateReminderRequest request)
         {
             ReminderId = remindId;
-            Volume = request.Volume;
-            Time = request.Time;
             ReminderName = request.ReminderName;
-
+            Time = request.Time;
+            Volume = request.Volume;
         }
     }
 }

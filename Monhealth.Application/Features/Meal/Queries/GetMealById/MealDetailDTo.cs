@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Meal.Queries.GetMealById
@@ -13,9 +9,6 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealById
         [JsonPropertyName("type")]
         public string MealType { get; set; } = string.Empty;
         public MealFoodNutritionDTO1 Nutrition { get; set; }
-
-
-
     }
 
     public class MealFoodNutritionDTO1

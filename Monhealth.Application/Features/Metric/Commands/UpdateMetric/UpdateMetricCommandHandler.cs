@@ -31,7 +31,7 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             }
 
             // De kiem tra co thay doi that su khong
-            bool isUpdated = false; 
+            bool isUpdated = false;
 
             var metricsCalculate = new UpdateMetricsCalculate();
 

@@ -24,7 +24,7 @@ namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
             catch (Exception ex)
             {
                 throw new Exception("Lỗi" + ex.Message);
-            }          
+            }
         }
     }
 }

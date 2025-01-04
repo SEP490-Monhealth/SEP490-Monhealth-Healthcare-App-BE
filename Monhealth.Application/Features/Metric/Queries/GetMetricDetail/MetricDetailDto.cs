@@ -1,5 +1,4 @@
 ﻿using Monhealth.Domain.Common;
-using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
 {
