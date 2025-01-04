@@ -1,10 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using Monhealth.Application.Features.Goals.Commands.CreateCommand;
+using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
 using Monhealth.Application.Features.Goals.Queries.GetAllGoals;
 using Monhealth.Application.Features.Goals.Queries.GetGoalById;
 using Monhealth.Application.Features.Goals.Queries.GetGoalByUserId;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
+using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId;
@@ -96,6 +99,27 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo mục tiêu thất bại.",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
+            };
+        }
+        [HttpPut("{goalId}")]
+        public async Task<ActionResult<ResultModel>> Update(Guid goalId, [FromBody] UpdateGoalDTO updateGoalDTO)
+        {
+            var command = new UpdateGoalCommand(goalId, updateGoalDTO);
+            var result = await _mediator.Send(command);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Cập nhật mục tiêu thất bại."
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật mục tiêu thành công"
             };
         }
     }
