@@ -130,10 +130,10 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("categories")]
-        public async Task<ActionResult<ResultModel>> GetFoodByCategoryName([FromQuery] string category)
+        public async Task<ActionResult<ResultModel>> GetFoodByCategoryName([FromQuery] string categories)
         {
             // Kiểm tra nếu không có giá trị categoryName
-            if (string.IsNullOrEmpty(category))
+            if (string.IsNullOrEmpty(categories))
             {
                 return BadRequest(new ResultModel
                 {
@@ -145,7 +145,7 @@ namespace Monhealth.Api.Controllers
             }
 
             // Tách chuỗi categoryName thành mảng
-            var categoryNames = category.Split(',').Select(c => c.Trim()).ToArray();
+            var categoryNames = categories.Split(',').Select(c => c.Trim()).ToArray();
 
             // Gửi query qua Mediator
             var food = await _mediator.Send(new GetFoodByCategoryNameQuery { categoryNames = categoryNames });

@@ -10,16 +10,13 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
 
         public GetMealListQueryHandler(IMealRepository mealRepository, IPortionRepository portionRepository)
         {
-            _mealRepository = mealRepository ;
+            _mealRepository = mealRepository;
             _portionRepository = portionRepository;
         }
 
         public async Task<List<MealDTO>> Handle(GetMealListQuery request, CancellationToken cancellationToken)
         {
             var meals = await _mealRepository.GetAllMeals();
-            if (meals == null || !meals.Any())
-                throw new Exception("Không có bữa ăn nào.");
-
             var result = new List<MealDTO>();
 
             foreach (var meal in meals)

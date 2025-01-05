@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 using Monhealth.Application.Features.Food.ChangeStatus;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand;
 using Monhealth.Application.Features.Goals.Commands.CreateCommand;
@@ -9,15 +8,7 @@ using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
 using Monhealth.Application.Features.Goals.Queries.GetAllGoals;
 using Monhealth.Application.Features.Goals.Queries.GetGoalById;
 using Monhealth.Application.Features.Goals.Queries.GetGoalByUserId;
-using Monhealth.Application.Features.Metric.Commands.CreateMetric;
-using Monhealth.Application.Features.Metric.Commands.DeleteMetric;
-using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
-using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
-using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
-using Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId;
 using Monhealth.Application.Models;
-using Monhealth.Domain;
-using System;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -31,6 +22,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAll()
         {
@@ -41,9 +33,9 @@ namespace Monhealth.Api.Controllers
                 Data = goals,
                 Status = (int)HttpStatusCode.OK,
                 Success = true,
-                Message = "Lấy danh sách mục tiêu thành công"
             };
         }
+
         [HttpGet("{goalId:guid}")]
         public async Task<ActionResult<ResultModel>> GetById(Guid goalId)
         {
@@ -64,8 +56,9 @@ namespace Monhealth.Api.Controllers
                 Data = goal
             };
         }
+
         [HttpGet("user/{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetByUserId (Guid userId)
+        public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
         {
             var queries = await _mediator.Send(new GetGoalByUserIdQuery() { UserId = userId });
             if (queries == null)
@@ -85,6 +78,7 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateGoalDTO createGoalDTO)
         {
@@ -106,6 +100,7 @@ namespace Monhealth.Api.Controllers
                 Success = false
             };
         }
+
         [HttpPut("{goalId}")]
         public async Task<ActionResult<ResultModel>> Update(Guid goalId, [FromBody] UpdateGoalDTO updateGoalDTO)
         {
@@ -127,6 +122,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật mục tiêu thành công"
             };
         }
+
         [HttpDelete("{goalId}")]
         public async Task<ActionResult<ResultModel>> Delete(Guid goalId)
         {
@@ -148,10 +144,11 @@ namespace Monhealth.Api.Controllers
                 Message = "Xóa số liệu thành công"
             };
         }
-        [HttpPatch("{goalId}")]
+
+        [HttpPatch("{goalId}/status")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid goalId, [FromBody] ChangeStatusGoalDTO statusGoalDTO)
         {
-            var command = new ChangeStatusGoalCommand(goalId, statusGoalDTO );
+            var command = new ChangeStatusGoalCommand(goalId, statusGoalDTO);
             var changeStatus = await _mediator.Send(command);
             if (!changeStatus)
             {
