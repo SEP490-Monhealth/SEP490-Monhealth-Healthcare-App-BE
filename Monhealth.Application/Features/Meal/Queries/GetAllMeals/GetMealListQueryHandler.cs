@@ -6,65 +6,68 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
     public class GetMealListQueryHandler : IRequestHandler<GetMealListQuery, List<MealDTO>>
     {
         private readonly IMealRepository _mealRepository;
+        private readonly IPortionRepository _portionRepository;
 
-        public GetMealListQueryHandler(IMealRepository mealRepository)
+        public GetMealListQueryHandler(IMealRepository mealRepository, IPortionRepository portionRepository)
         {
-            _mealRepository = mealRepository;
+            _mealRepository = mealRepository ;
+            _portionRepository = portionRepository;
         }
 
         public async Task<List<MealDTO>> Handle(GetMealListQuery request, CancellationToken cancellationToken)
         {
-            var query = await _mealRepository.GetAllMeals();
+            var meals = await _mealRepository.GetAllMeals();
+            if (meals == null || !meals.Any())
+                throw new Exception("Không có bữa ăn nào.");
+
             var result = new List<MealDTO>();
 
-            foreach (var meal in query)
+            foreach (var meal in meals)
             {
+                // Khởi tạo giá trị dinh dưỡng
+                float totalCalories = 0;
+                float totalProtein = 0;
+                float totalCarbs = 0;
+                float totalFat = 0;
+                float totalFiber = 0;
+                float totalSugar = 0;
+
+                foreach (var mealFood in meal.MealFoods)
+                {
+                    if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
+                        continue;
+
+                    // Lấy portion từ repository
+                    var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
+                    if (portion == null)
+                        continue;
+
+                    var portionWeight = portion.PortionWeight;
+
+                    // Tính toán giá trị dinh dưỡng
+                    totalCalories += (mealFood.Food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                    totalProtein += (mealFood.Food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+                    totalCarbs += (mealFood.Food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+                    totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+                    totalFiber += (mealFood.Food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
+                    totalSugar += (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+                }
+
+                // Tạo DTO cho meal
                 var mealDTO = new MealDTO
                 {
                     MealId = meal.MealId,
                     UserId = meal.UserId,
                     MealType = meal.MealType,
-
-
                     Nutrition = new MealFoodNutritionDTO
                     {
-
-                        Calories = meal.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Calories ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                        Protein = meal.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Protein ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                        Carbs = meal.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Carbs ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                        Fat = meal.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Fat ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                        Fiber = meal.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Fiber ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                        Sugar = meal.MealFoods?.Sum(mf =>
-                            ((mf.Food?.Nutrition?.Sugar ?? 0) / 100) *
-                            (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0
+                        Calories = totalCalories,
+                        Protein = totalProtein,
+                        Carbs = totalCarbs,
+                        Fat = totalFat,
+                        Fiber = totalFiber,
+                        Sugar = totalSugar
                     },
-                    // Items = meal.MealFoods.Select(mf => new MealFoodDTO
-                    // {
-                    //     MealFoodId = mf.MealFoodId,
-                    //     FoodId = mf.FoodId,
-                    //     Quantity = mf.Quantity,
-                    //     Name = mf.Food.FoodName,
-
-                    //     Calories = (mf.Food.Nutrition.Calories / 100) * (mf.Quantity * 100),
-
-
-                    //     Portions = new MealFoodPortionDTO
-                    //     {
-                    //         Size = mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionSize ?? string.Empty,
-                    //         Weight = mf.Food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight,
-                    //         Unit = mf.Food.FoodPortions.FirstOrDefault()?.Portion.MeasurementUnit ?? string.Empty,
-                    //     }
-                    // }).ToList()
                     CreatedAt = meal.CreatedAt,
                     UpdatedAt = meal.UpdatedAt
                 };
@@ -73,7 +76,6 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
             }
 
             return result;
-
         }
     }
 }

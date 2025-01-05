@@ -70,18 +70,26 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     UpdatedAt = DateTime.Now
                 };
 
+                Guid portionId;
                 if (existingPortion == null)
                 {
                     _portionRepository.Add(portion);
+                    await _portionRepository.SaveChangesAsync();
                     _foodPortionRepository.Add(new FoodPortion
                     {
                         FoodId = item.FoodId,
                         PortionId = portion.PortionId
                     });
+                    portionId = portion.PortionId;
+                }
+                else
+                {
+                    portionId = existingPortion.PortionId;
                 }
 
+
                 var existingMealItem = await _mealFoodRepository.GetByMealIdAndFoodId(model.MealId, item.FoodId);
-                if (existingMealItem != null)
+                if (existingMealItem != null && existingMealItem.PortionId == portionId)
                 {
                     existingMealItem.Quantity += item.Quantity;
                     existingMealItem.UpdatedAt = DateTime.Now;
@@ -94,7 +102,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                         FoodId = item.FoodId,
                         Quantity = item.Quantity,
                         CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now
+                        UpdatedAt = DateTime.Now,
+                        PortionId = portionId
                     };
                     _mealFoodRepository.Add(mealFood);
                 }
@@ -148,9 +157,15 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
                 var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
                 foreach (var mealFood in mealFoods)
+
                 {
+                    var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
+                    if (portion == null)
+                    {
+                        throw new Exception($"Không tìm thấy Portion với PortionId: {mealFood.PortionId}");
+                    }
                     var food = mealFood.Food;
-                    var portionWeight = food.FoodPortions.FirstOrDefault()?.Portion.PortionWeight ?? 1;
+                    var portionWeight = portion.PortionWeight;
 
                     dailyMeal.TotalCalories += (food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
                     dailyMeal.TotalProteins += (food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);

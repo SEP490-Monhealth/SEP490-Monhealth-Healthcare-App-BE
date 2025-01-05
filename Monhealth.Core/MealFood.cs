@@ -9,6 +9,7 @@ namespace Monhealth.Domain
         [Key]
         public Guid MealFoodId { get; set; }
         public Guid MealId { get; set; }
+        public Guid PortionId { get; set; }
         public Guid FoodId { get; set; }
         public int Quantity { get; set; }
         [ForeignKey(nameof(FoodId))]

@@ -7,11 +7,16 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
     {
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IMealRepository _mealRepository;
-        public GetDailyMealByUserHandler(IDailyMealRepository dailyMealRepository,
-        IMealRepository mealRepository)
+        private readonly IPortionRepository _portionRepository;
+
+        public GetDailyMealByUserHandler(
+            IDailyMealRepository dailyMealRepository,
+            IMealRepository mealRepository,
+            IPortionRepository portionRepository)
         {
-            _dailyMealRepository = dailyMealRepository;
-            _mealRepository = mealRepository;
+            _dailyMealRepository = dailyMealRepository ;
+            _mealRepository = mealRepository ;
+            _portionRepository = portionRepository;
         }
 
         public async Task<GetDailyMealByUserDTO> Handle(GetDailyMealByUserQuery request, CancellationToken cancellationToken)
@@ -27,45 +32,62 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                     UpdatedAt = DateTime.Now,
                     Items = null,
                     Nutrition = null,
-
                 };
             }
-
 
             // Lấy danh sách toàn bộ Meals từ MealRepository
             var mealQuery = await _mealRepository.GetAllMeals();
 
             // Lọc danh sách Meal từ danh sách toàn bộ Meals bằng DailyMeal.Meals
-            var meals = mealQuery
-                .Where(m => query.Meals.Select(dm => dm.MealId).Contains(m.MealId))
-                .Select(m => new MealForDailyMeal2
+            var meals = new List<MealForDailyMeal2>();
+
+            foreach (var meal in mealQuery.Where(m => query.Meals.Select(dm => dm.MealId).Contains(m.MealId)))
+            {
+                float totalCalories = 0;
+                float totalProtein = 0;
+                float totalCarbs = 0;
+                float totalFat = 0;
+                float totalFiber = 0;
+                float totalSugar = 0;
+
+                foreach (var mealFood in meal.MealFoods)
                 {
-                    mealId = m.MealId,
-                    MealType = m.MealType,
-                    Calories = m.MealFoods?.Sum(mf =>
-                        ((mf.Food?.Nutrition?.Calories ?? 0) / 100) *
-                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                    Protein = m.MealFoods?.Sum(mf =>
-                        ((mf.Food?.Nutrition?.Protein ?? 0) / 100) *
-                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                    Carbs = m.MealFoods?.Sum(mf =>
-                        ((mf.Food?.Nutrition?.Carbs ?? 0) / 100) *
-                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                    Fat = m.MealFoods?.Sum(mf =>
-                        ((mf.Food?.Nutrition?.Fat ?? 0) / 100) *
-                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                    Fiber = m.MealFoods?.Sum(mf =>
-                        ((mf.Food?.Nutrition?.Fiber ?? 0) / 100) *
-                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0,
-                    Sugar = m.MealFoods?.Sum(mf =>
-                        ((mf.Food?.Nutrition?.Sugar ?? 0) / 100) *
-                        (mf.Quantity * (mf.Food?.FoodPortions?.FirstOrDefault()?.Portion?.PortionWeight ?? 1))) ?? 0
-                }).ToList();
+                    if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
+                        continue;
+
+                    // Lấy Portion từ repository
+                    var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
+                    if (portion == null)
+                        continue;
+
+                    var portionWeight = portion.PortionWeight;
+
+                    // Tính toán giá trị dinh dưỡng
+                    totalCalories += (mealFood.Food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                    totalProtein += (mealFood.Food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+                    totalCarbs += (mealFood.Food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+                    totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+                    totalFiber += (mealFood.Food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
+                    totalSugar += (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+                }
+
+                meals.Add(new MealForDailyMeal2
+                {
+                    mealId = meal.MealId,
+                    MealType = meal.MealType,
+                    Calories = totalCalories,
+                    Protein = totalProtein,
+                    Carbs = totalCarbs,
+                    Fat = totalFat,
+                    Fiber = totalFiber,
+                    Sugar = totalSugar
+                });
+            }
 
             // Tạo đối tượng Nutrition
             var nutrition = new NutritionOfDailyMeal2
             {
-                TotalCalories = query.TotalCalories, // Tổng từ DB
+                TotalCalories = query.TotalCalories,
                 TotalProteins = query.TotalProteins,
                 TotalCarbs = query.TotalCarbs,
                 TotalFats = query.TotalFats,
@@ -77,8 +99,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
             var dailyMealDTO = new GetDailyMealByUserDTO
             {
                 DailyMealId = query.DailyMealId,
-                Nutrition = nutrition, // Gán nutrition
-                Items = meals, // Gán danh sách Meals
+                Nutrition = nutrition,
+                Items = meals,
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt
             };
