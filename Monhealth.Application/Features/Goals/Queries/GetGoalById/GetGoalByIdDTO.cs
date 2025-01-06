@@ -10,9 +10,15 @@ namespace Monhealth.Application.Features.Goals.Queries.GetGoalById
     {
         public Guid UserId { get; set; }
         public string GoalType { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public string Note { get; set; } = string.Empty;
+        public int WeightGoal { get; set; }
+        public float CaloriesGoal { get; set; }
+        public float ProteinGoal { get; set; }
+        public float CarbGoal { get; set; }
+        public float FatGoal { get; set; }
+        public float FiberGoal { get; set; }
+        public float SugarGoal { get; set; }
+        public int WaterGoal { get; set; }
+        public float ExerciseGoal { get; set; }
         public string Status { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

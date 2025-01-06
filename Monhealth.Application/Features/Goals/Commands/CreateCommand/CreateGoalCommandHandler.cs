@@ -39,7 +39,7 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
                         throw new Exception("Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại.");
                     }
                     var caloriesWeightLoss = infoUser.Tdee * 0.8f; // Giảm 20%
-                    newGoal.CalorieGoal = caloriesWeightLoss; 
+                    newGoal.CaloriesGoal = caloriesWeightLoss; 
                     newGoal.ProteinGoal = (caloriesWeightLoss * 0.4f);
 
                     var carbGoalWeightLoss = caloriesWeightLoss * 0.35f;
@@ -56,7 +56,7 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
                         throw new Exception("Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại.");
                     }
                     var caloriesMaintainWeight = infoUser.Tdee * 1.1f; // Tăng 10-15%
-                    newGoal.CalorieGoal = caloriesMaintainWeight; 
+                    newGoal.CaloriesGoal = caloriesMaintainWeight; 
                     newGoal.ProteinGoal = (caloriesMaintainWeight * 0.3f);
 
                     var carbGoalMaintainWeight = caloriesMaintainWeight * 0.5f;
@@ -69,7 +69,7 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
                     break;
                 case "WeightGain":
                     var caloriesWeightGain = infoUser.Tdee; // Giữ nguyên TDEE
-                    newGoal.CalorieGoal = caloriesWeightGain; 
+                    newGoal.CaloriesGoal = caloriesWeightGain; 
                     newGoal.ProteinGoal = (caloriesWeightGain * 0.3f);
 
                     var carbGoalWeightGain = caloriesWeightGain * 0.4f;

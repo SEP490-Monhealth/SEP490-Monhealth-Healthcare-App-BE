@@ -13,7 +13,7 @@ namespace Monhealth.Domain
         public Guid UserId { get; set; }
         public GoalType GoalType { get; set; }
         public int WeightGoal { get; set; }
-        public float CalorieGoal { get; set; }
+        public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }
         public float CarbGoal { get; set; }
         public float FatGoal { get; set; }
