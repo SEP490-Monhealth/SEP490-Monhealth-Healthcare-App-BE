@@ -25,6 +25,11 @@ namespace Monhealth.Identity.Repositories
             return metrics;
         }
 
+        public async Task<Metric> GetMetricByUserIdAsync(Guid userId)
+        {
+            return await _context.Metrics.FirstOrDefaultAsync(u => u.UserId == userId);
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

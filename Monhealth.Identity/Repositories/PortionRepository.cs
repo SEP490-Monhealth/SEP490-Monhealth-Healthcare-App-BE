@@ -25,6 +25,15 @@ namespace Monhealth.Identity.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<Portion> CheckPortion(string portionSize, float portionWeight, string measurementUnit)
+        {
+            var existingPortion = await _context.Portions.FirstOrDefaultAsync(p => 
+            p.PortionSize == portionSize && 
+            p.PortionWeight == portionWeight &&
+            p.MeasurementUnit == measurementUnit);
+            return existingPortion;
+        }
+
         public async Task<List<Portion>> GetAllPortionAsync(string? sort, string? order)
         {
             IQueryable<Portion> query = _context.Portions.AsQueryable();

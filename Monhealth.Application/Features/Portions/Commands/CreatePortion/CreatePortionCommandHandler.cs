@@ -21,18 +21,26 @@ namespace Monhealth.Application.Features.Portions.Commands.CreateFoodPortion
         }
         public async Task<Unit> Handle(CreatePortionCommand request, CancellationToken cancellationToken)
         {
-            // tao khau phan an
-            var portion = new Portion
+            var existingPortion = await _portionRepository.CheckPortion(request.PortionSize, request.PortionWeight, request.MeasurementUnit);
+            Portion portion;
+            if (existingPortion != null)
             {
-                PortionId = Guid.NewGuid(),
-                PortionSize = request.PortionSize,
-                PortionWeight = request.PortionWeight,
-                MeasurementUnit = request.MeasurementUnit,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-            };
-            _portionRepository.Add(portion);
-
+                portion = existingPortion;
+            }
+            else
+            {
+                // tao khau phan an
+                portion = new Portion
+                {
+                    PortionId = Guid.NewGuid(),
+                    PortionSize = request.PortionSize,
+                    PortionWeight = request.PortionWeight,
+                    MeasurementUnit = request.MeasurementUnit,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                };
+                _portionRepository.Add(portion);
+            }
             // lay cac mon an theo FoodIds
             var food = await _foodRepository.GetByIdAsync(request.FoodId);
             if (food == null)

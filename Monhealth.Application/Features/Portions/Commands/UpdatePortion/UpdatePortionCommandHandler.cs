@@ -15,6 +15,14 @@ namespace Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion
         }
         public async Task<bool> Handle(UpdatePortionCommand request, CancellationToken cancellationToken)
         {
+            // Kiem tra Portion 
+            var existingPortion = await _portionRepository.CheckPortion(request.PortionSize, request.PortionWeight, request.MeasurementUnit);
+
+            if (existingPortion != null && existingPortion.PortionId != request.PortionId)
+            {
+                // Neu da ton tai thi khong cap nhat
+                return false;
+            }
             var portionToUpdate = await _portionRepository.GetByIdAsync(request.PortionId);
             if (portionToUpdate == null)
             {
