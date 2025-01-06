@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -14,8 +15,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
             IMealRepository mealRepository,
             IPortionRepository portionRepository)
         {
-            _dailyMealRepository = dailyMealRepository ;
-            _mealRepository = mealRepository ;
+            _dailyMealRepository = dailyMealRepository;
+            _mealRepository = mealRepository;
             _portionRepository = portionRepository;
         }
 
@@ -54,14 +55,12 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                 {
                     if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
                         continue;
-
-                    // Lấy Portion từ repository
+                    if (mealFood.Status == true) {
                     var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
                     if (portion == null)
                         continue;
 
                     var portionWeight = portion.PortionWeight;
-                  
 
                     // Tính toán giá trị dinh dưỡng
                     totalCalories += (mealFood.Food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
@@ -70,7 +69,12 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                     totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
                     totalFiber += (mealFood.Food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
                     totalSugar += (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
-             
+
+
+                     }
+                    // Lấy Portion từ repository
+
+
                 }
 
                 meals.Add(new MealForDailyMeal2

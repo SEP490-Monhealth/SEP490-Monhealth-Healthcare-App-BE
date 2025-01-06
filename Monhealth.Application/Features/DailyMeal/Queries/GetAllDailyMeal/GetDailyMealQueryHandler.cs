@@ -18,9 +18,9 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
             IMealRepository mealRepository,
             IPortionRepository portionRepository)
         {
-            _dailyMealRepository = dailyMealRepository ;
-            _mealRepository = mealRepository  ;
-            _portionRepository = portionRepository ;
+            _dailyMealRepository = dailyMealRepository;
+            _mealRepository = mealRepository;
+            _portionRepository = portionRepository;
         }
 
         public async Task<List<DailyMealDTO>> Handle(GetDailyMealQuery request, CancellationToken cancellationToken)
@@ -46,8 +46,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                     {
                         if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
                             continue;
-
-                        // Lấy Portion từ repository
+                        if (mealFood.Status == true)
+                        {
                         var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
                         if (portion == null)
                             continue;
@@ -59,6 +59,9 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                         totalProtein += (mealFood.Food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
                         totalCarbs += (mealFood.Food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
                         totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+
+                        }
+                        // Lấy Portion từ repository
                     }
 
                     meals.Add(new MealForDailyMeal
