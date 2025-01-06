@@ -61,6 +61,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                         continue;
 
                     var portionWeight = portion.PortionWeight;
+                  
 
                     // Tính toán giá trị dinh dưỡng
                     totalCalories += (mealFood.Food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
@@ -69,6 +70,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                     totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
                     totalFiber += (mealFood.Food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
                     totalSugar += (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+             
                 }
 
                 meals.Add(new MealForDailyMeal2
