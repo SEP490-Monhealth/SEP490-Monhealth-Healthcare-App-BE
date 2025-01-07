@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
@@ -13,6 +9,19 @@ namespace Monhealth.Identity.Repositories
     {
         public MealRepository(MonhealthDbcontext context) : base(context)
         {
+        }
+
+        public async Task<List<Meal>> GetAllMealFoodForMeal(Guid MealId)
+        {
+            return await _context.Meals.Where(m => m.MealId == MealId)
+            .Include(m => m.MealFoods)
+           .ThenInclude(mf => mf.Food)
+               .ThenInclude(f => f.Nutrition)
+       .Include(m => m.MealFoods)
+           .ThenInclude(mf => mf.Food)
+               .ThenInclude(f => f.FoodPortions)
+                   .ThenInclude(fp => fp.Portion)
+       .ToListAsync();
         }
 
         public async Task<List<Meal>> GetAllMeals()

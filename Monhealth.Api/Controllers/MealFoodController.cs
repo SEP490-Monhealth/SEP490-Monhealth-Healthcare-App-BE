@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.MealFood.Commands.UpdateMealFood;
 using Monhealth.Application.Features.MealFood.Commands.UpdateStatusMealFood;
+using Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal;
 using Monhealth.Application.Features.MealFood.Queries;
 using Monhealth.Application.Models;
 
@@ -25,6 +26,30 @@ namespace Monhealth.Api.Controllers
         {
             var food = await _mediator.
             Send(new GetMealFoodByMealIdQuery { MealId = mealId });
+
+            if (food == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Bữa ăn không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = food
+            });
+        }
+        [HttpGet]
+        [Route("{mealId:Guid}/foods/mealFood")]
+        public async Task<ActionResult<ResultModel>> GetAllMealFoodByMealId(Guid mealId)
+        {
+            var food = await _mediator.
+            Send(new GetALLMealFoodByMealQuery { MealId = mealId });
 
             if (food == null)
             {
