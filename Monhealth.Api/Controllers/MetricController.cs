@@ -45,7 +45,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Số liệu không tồn tại."
+                    Message = "Số liệu không tồn tại"
                 };
             }
             return new ResultModel
@@ -83,7 +83,7 @@ namespace Monhealth.Api.Controllers
             }
             return new ResultModel
             {
-                Message = "Tạo số liệu thất bại.",
+                Message = "Tạo số liệu thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };
@@ -100,7 +100,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật số liệu thất bại."
+                    Message = "Cập nhật số liệu thất bại"
                 };
             }
             return new ResultModel

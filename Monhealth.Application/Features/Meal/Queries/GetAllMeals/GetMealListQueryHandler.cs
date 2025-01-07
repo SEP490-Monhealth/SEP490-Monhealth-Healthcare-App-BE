@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
         {
             var meals = await _mealRepository.GetAllMeals();
             // if (meals == null || !meals.Any())
-            //     throw new Exception("Không có bữa ăn nào.");
+            //     throw new Exception("Không có bữa ăn nào");
 
             var result = new List<MealDTO>();
 

@@ -21,9 +21,9 @@ namespace Monhealth.Application.Features.User.Commands.CreateUser
         {
 
             if (await _userRepository.IsPhoneNumberDuplicateAsync(request.PhoneNumber))
-                throw new BadRequestException("trùng số điện thoại.");
+                throw new BadRequestException("trùng số điện thoại");
             if (await _userRepository.IsEmailDuplicatedAsync(request.Email))
-                throw new BadRequestException("trùng email.");
+                throw new BadRequestException("trùng email");
             var user = new AppUser()
             {
                 Id = Guid.NewGuid(),

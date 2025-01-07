@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealById
         {
             var query = await _mealRepository.GetMealByMealId(request.MealId);
 
-            if (query == null) throw new Exception("Bữa ăn không tồn tại.");
+            if (query == null) throw new Exception("Bữa ăn không tồn tại");
 
             // Khởi tạo các giá trị dinh dưỡng tổng cộng
             float totalCalories = 0;

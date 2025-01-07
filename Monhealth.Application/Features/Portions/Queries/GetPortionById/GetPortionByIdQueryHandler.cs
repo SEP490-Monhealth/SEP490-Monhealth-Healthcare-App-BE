@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Portions.Queries.GetPortionById
             var portion = await _portionRepository.GetByIdAsync(request.PortionId);
             if (portion == null)
             {
-                throw new Exception("Không tìm thấy khẩu phần ăn.");
+                throw new Exception("Không tìm thấy khẩu phần ăn");
             }
             return _mapper.Map<GetPortionByIdDto>(portion);
         }

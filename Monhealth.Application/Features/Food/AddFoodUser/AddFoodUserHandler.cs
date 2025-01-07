@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
             if (existingFood != null) throw new Exception("món ăn đã tồn tại");
             if (request.FoodType != "Public" && request.FoodType != "User")
             {
-                throw new Exception("FoodType chỉ được nhập Public hoặc User.");
+                throw new Exception("FoodType chỉ được nhập Public hoặc User");
             }
 
             var food = new Monhealth.Domain.Food

@@ -27,7 +27,7 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
             var infoUser = await _metricRepository.GetMetricByUserIdAsync(request.CreateGoalDTO.UserId);
             if(infoUser == null)
             {
-                throw new Exception("Không tìm thấy thông tin TDEE cho người dùng.");
+                throw new Exception("Không tìm thấy thông tin TDEE cho người dùng");
             }
             var newGoal = _mapper.Map<Monhealth.Domain.Goal>(request.CreateGoalDTO);
             // Tính CaloriesGoal dựa trên GoalType
@@ -36,7 +36,7 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
             //    case "WeightLoss":
             //        if(newGoal.WeightGoal > infoUser.Weight)
             //        {
-            //            throw new Exception($"Cân nặng hiện tại là {infoUser.Weight}. Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại.");
+            //            throw new Exception($"Cân nặng hiện tại là {infoUser.Weight}. Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại");
             //        }
             //        var caloriesWeightLoss = infoUser.Tdee * 0.8f; // Giảm 20%
             //        newGoal.CaloriesGoal = caloriesWeightLoss; 
@@ -53,7 +53,7 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
             //    case "MaintainWeight":
             //        if (newGoal.WeightGoal < infoUser.Weight)
             //        {
-            //            throw new Exception("Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại.");
+            //            throw new Exception("Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại");
             //        }
             //        var caloriesMaintainWeight = infoUser.Tdee * 1.1f; // Tăng 10-15%
             //        newGoal.CaloriesGoal = caloriesMaintainWeight; 
@@ -81,7 +81,7 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
             //        newGoal.SugarGoal = carbGoalWeightGain * 0.25f;
             //        break;
             //    default:
-            //        throw new Exception("Loại mục tiêu không hợp lệ.");
+            //        throw new Exception("Loại mục tiêu không hợp lệ");
             //}
             //// tinh WaterGoal
             //if(infoUser.ActivityLevel == 1.2f || infoUser.ActivityLevel == 1.375f)

@@ -35,7 +35,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             var userId = request.CreateMeal.UserId;
             var validMealTypes = new HashSet<string> { "Breakfast", "Lunch", "Dinner", "Snack" };
             if (!validMealTypes.Contains(request.CreateMeal.MealType))
-                throw new ArgumentException("MealType phải là một trong các giá trị: Breakfast, Lunch, Dinner, Snack.");
+                throw new ArgumentException("MealType phải là một trong các giá trị: Breakfast, Lunch, Dinner, Snack");
 
             var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, request.CreateMeal.MealType);
             Monhealth.Domain.Meal model;
@@ -58,7 +58,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
             foreach (var item in request.CreateMeal.Items)
             {
-                if (item.Quantity <= 0) throw new Exception("Quantity phải lớn hơn hoặc bằng 0.");
+                if (item.Quantity <= 0) throw new Exception("Quantity phải lớn hơn hoặc bằng 0");
 
                 var existingPortion = await _portionRepository.GetPortionAsync(item.MeasurementUnit, item.PortionSize, item.PortionWeight);
                 Portion portion = existingPortion ?? new Portion

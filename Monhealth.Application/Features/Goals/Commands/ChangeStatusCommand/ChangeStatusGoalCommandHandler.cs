@@ -25,7 +25,7 @@ namespace Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand
             }
             if(!Enum.TryParse<GoalStatus>(request.ChangeStatusGoalDTO.Status, out var status))
             {
-                throw new Exception("Trạng thái không hợp lệ.");
+                throw new Exception("Trạng thái không hợp lệ");
             }
             goal.Status = status;
             _goalRepository.Update(goal);

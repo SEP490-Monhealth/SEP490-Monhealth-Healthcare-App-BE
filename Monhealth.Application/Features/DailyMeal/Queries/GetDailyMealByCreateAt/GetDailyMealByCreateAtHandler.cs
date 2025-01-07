@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealByCreateA
         {
             // Lấy DailyMeal theo ngày tạo
             var query = await _dailyMealRepository.GetDailyMealByCreateAt(request.CreateAt);
-            if (query == null) throw new Exception("Không tìm thấy ngày tạo.");
+            if (query == null) throw new Exception("Không tìm thấy ngày tạo");
 
             // Lấy danh sách toàn bộ Meals từ MealRepository
             var mealQuery = await _mealRepository.GetAllMeals();

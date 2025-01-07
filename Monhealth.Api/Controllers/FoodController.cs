@@ -31,7 +31,7 @@ namespace Monhealth.Api.Controllers
         {
             var foods = await _mediator.Send(new GetFoodListQuery(page, limit, search, category, type, popular, status));
             if (type != "Public" && type != "User")
-                throw new Exception("Type chỉ được nhập Public hoặc User.");
+                throw new Exception("Type chỉ được nhập Public hoặc User");
             return new ResultModel
             {
                 Data = foods,
@@ -52,7 +52,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Món ăn không tồn tại.",
+                    Message = "Món ăn không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -77,7 +77,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Món ăn không tồn tại.",
+                    Message = "Món ăn không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -86,7 +86,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 200,
-                Message = "Cập nhật trạng thái thành công."
+                Message = "Cập nhật trạng thái thành công"
             });
         }
 
@@ -116,7 +116,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Món ăn không tồn tại.",
+                    Message = "Món ăn không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -138,7 +138,7 @@ namespace Monhealth.Api.Controllers
                 return BadRequest(new ResultModel
                 {
                     Success = false,
-                    Message = "Tên danh mục là bắt buộc.",
+                    Message = "Tên danh mục là bắt buộc",
                     Status = (int)HttpStatusCode.BadRequest,
                     Data = null
                 });
@@ -156,7 +156,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Món ăn không tồn tại.",
+                    Message = "Món ăn không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -167,7 +167,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Lấy danh sách món ăn thành công.",
+                Message = "Lấy danh sách món ăn thành công",
                 Data = food
             });
         }
@@ -183,7 +183,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo món ăn thành công.",
+                    Message = "Tạo món ăn thành công",
                     Status = 201,
                 });
             }
@@ -191,7 +191,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo món ăn thất bại.",
+                Message = "Tạo món ăn thất bại",
                 Status = 400,
             });
         }
@@ -206,7 +206,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo món ăn thành công.",
+                    Message = "Tạo món ăn thành công",
                     Status = 201,
                 });
             }
@@ -214,7 +214,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo món ăn thất bại.",
+                Message = "Tạo món ăn thất bại",
                 Status = 400,
             });
         }
@@ -231,7 +231,7 @@ namespace Monhealth.Api.Controllers
             {
                 return BadRequest(new ResultModel
                 {
-                    Message = "Cập nhật món ăn không thành công.",
+                    Message = "Cập nhật món ăn không thành công",
                     Success = false,
                     Data = null
                 });
@@ -239,7 +239,7 @@ namespace Monhealth.Api.Controllers
 
             return Ok(new ResultModel
             {
-                Message = "Cập nhật món ăn thành công.",
+                Message = "Cập nhật món ăn thành công",
                 Success = true,
                 Status = 204,
             });
@@ -257,7 +257,7 @@ namespace Monhealth.Api.Controllers
             {
                 return BadRequest(new ResultModel
                 {
-                    Message = "Cập nhật món ăn không thành công.",
+                    Message = "Cập nhật món ăn không thành công",
                     Success = false,
                     Data = null
                 });
@@ -265,7 +265,7 @@ namespace Monhealth.Api.Controllers
 
             return Ok(new ResultModel
             {
-                Message = "Cập nhật món ăn thành công.",
+                Message = "Cập nhật món ăn thành công",
                 Success = true,
                 Status = 204,
             });
@@ -283,7 +283,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Xóa món ăn không thành công.",
+                    Message = "Xóa món ăn không thành công",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -291,7 +291,7 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Xóa món ăn thành công.",
+                Message = "Xóa món ăn thành công",
                 Status = 204,
                 Data = null
             });

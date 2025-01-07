@@ -25,14 +25,14 @@ namespace Monhealth.Application.Features.Meal.Commands.DeleteMeal
             var meal = await _mealRepository.GetByIdAsync(request.MealId);
             if (meal == null)
             {
-                throw new KeyNotFoundException("Meal không tồn tại.");
+                throw new KeyNotFoundException("Meal không tồn tại");
             }
 
             // Lấy DailyMeal liên quan
             var dailyMeal = await _dailyMealRepository.GetByIdAsync(meal.DailyMealId.Value);
             if (dailyMeal == null)
             {
-                throw new Exception("DailyMeal không tồn tại.");
+                throw new Exception("DailyMeal không tồn tại");
             }
 
             // Lấy tất cả MealFood liên quan đến Meal

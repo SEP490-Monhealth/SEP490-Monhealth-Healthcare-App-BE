@@ -45,7 +45,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Danh mục không tồn tại.",
+                    Message = "Danh mục không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -67,7 +67,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo danh mục thành công.",
+                    Message = "Tạo danh mục thành công",
                     Status = 201,
                 });
             }
@@ -75,7 +75,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo danh mục thất bại.",
+                Message = "Tạo danh mục thất bại",
                 Status = 400,
             });
         }
@@ -92,7 +92,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Danh mục không tồn tại.",
+                    Message = "Danh mục không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -102,7 +102,7 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Xóa danh mục thành công.",
+                Message = "Xóa danh mục thành công",
                 Status = 204,
                 Data = null
             });
@@ -117,13 +117,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật danh mục thất bại.",
+                    Message = "Cập nhật danh mục thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật danh mục thành công.",
+                Message = "Cập nhật danh mục thành công",
                 Success = true,
                 Status = 204,
             });

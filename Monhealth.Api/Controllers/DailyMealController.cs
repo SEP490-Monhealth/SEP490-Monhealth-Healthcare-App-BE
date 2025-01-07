@@ -42,7 +42,7 @@ namespace Monhealth.Api.Controllers
         //         return NotFound(new ResultModel
         //         {
         //             Success = false,
-        //             Message = "Ngày tạo không tồn tại.",
+        //             Message = "Ngày tạo không tồn tại",
         //             Status = (int)HttpStatusCode.NotFound,
         //             Data = null
         //         });
@@ -68,7 +68,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = false,
-                    Message = "Bữa ăn hằng ngày không tồn tại.",
+                    Message = "Bữa ăn hằng ngày không tồn tại",
                     Status = 200,
                     Data = queries
                 });

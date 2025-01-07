@@ -89,7 +89,7 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             var goalToUpdate = await _goalRepository.GetByIdAsync(request.MetricId);
             if (goalToUpdate == null)
             {
-                throw new Exception("Không tìm thấy mục tiêu.");
+                throw new Exception("Không tìm thấy mục tiêu");
             }
             goalToUpdate.UpdatedAt = DateTime.Now;
             _goalsCalculator.UpdateMetricCalculateGoal(goalToUpdate, request.UpdateMetricDto, metricToUpdate.Tdee);

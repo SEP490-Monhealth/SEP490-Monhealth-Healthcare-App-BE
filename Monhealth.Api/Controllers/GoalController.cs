@@ -46,7 +46,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Mục tiêu không tồn tại."
+                    Message = "Mục tiêu không tồn tại"
                 };
             }
             return new ResultModel
@@ -66,7 +66,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Mục tiêu không tồn tại.",
+                    Message = "Mục tiêu không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -95,7 +95,7 @@ namespace Monhealth.Api.Controllers
             }
             return new ResultModel
             {
-                Message = "Tạo mục tiêu thất bại.",
+                Message = "Tạo mục tiêu thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };
@@ -112,7 +112,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật mục tiêu thất bại."
+                    Message = "Cập nhật mục tiêu thất bại"
                 };
             }
             return new ResultModel
@@ -134,7 +134,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy mục tiêu."
+                    Message = "Không tìm thấy mục tiêu"
                 };
             }
             return new ResultModel
@@ -156,14 +156,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy mục tiêu."
+                    Message = "Không tìm thấy mục tiêu"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Thay đổi trạng thái thành công."
+                Message = "Thay đổi trạng thái thành công"
             };
         }
     }

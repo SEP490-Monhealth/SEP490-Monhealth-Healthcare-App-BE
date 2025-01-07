@@ -25,7 +25,7 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateStatusMealFood
         public async Task<bool> Handle(ChangeStatusMealFoodQuery request, CancellationToken cancellationToken)
         {
             var mealFood = await _mealFoodRepository.GetByIdAsync(request.MealFoodId);
-            if (mealFood == null) throw new Exception("MealFood không tồn tại.");
+            if (mealFood == null) throw new Exception("MealFood không tồn tại");
 
             // Đổi trạng thái của MealFood
             mealFood.Status = !mealFood.Status;
@@ -33,7 +33,7 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateStatusMealFood
             await _mealFoodRepository.SaveChangeAsync();
 
             var meal = await _mealRepository.GetByIdAsync(mealFood.MealId);
-            if (meal == null) throw new Exception("Meal không tồn tại.");
+            if (meal == null) throw new Exception("Meal không tồn tại");
 
             // Lấy DailyMeal liên quan
             var dailyMeal = meal.DailyMealId.HasValue

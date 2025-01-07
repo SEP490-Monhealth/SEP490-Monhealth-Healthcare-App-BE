@@ -46,7 +46,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Dinh dưỡng không tồn tại.",
+                    Message = "Dinh dưỡng không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -71,7 +71,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Dinh dưỡng không tồn tại.",
+                    Message = "Dinh dưỡng không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -93,7 +93,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo dinh dưỡng thành công.",
+                    Message = "Tạo dinh dưỡng thành công",
                     Status = 201,
                 });
             }
@@ -101,7 +101,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo dinh dưỡng thất bại."
+                Message = "Tạo dinh dưỡng thất bại"
             });
         }
 
@@ -114,13 +114,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật dinh dưỡng không thành công.",
+                    Message = "Cập nhật dinh dưỡng không thành công",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật dinh dưỡng thành công.",
+                Message = "Cập nhật dinh dưỡng thành công",
                 Success = true,
                 Status = 204,
             });
@@ -138,7 +138,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Xóa dinh dưỡng không thành công.",
+                    Message = "Xóa dinh dưỡng không thành công",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -148,7 +148,7 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Xóa dinh dưỡng thành công.",
+                Message = "Xóa dinh dưỡng thành công",
                 Status = 204,
                 Data = null
             });

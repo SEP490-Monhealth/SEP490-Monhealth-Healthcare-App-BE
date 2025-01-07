@@ -28,7 +28,7 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Data = result,
-                Message = "Đăng nhập thành công.",
+                Message = "Đăng nhập thành công",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
             };
@@ -42,7 +42,7 @@ namespace Monhealth.Api.Controllers
             await _authService.Register(request);
             return new ResultModel
             {
-                Message = "Đăng ký thành công.",
+                Message = "Đăng ký thành công",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
             };
@@ -59,7 +59,7 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = false,
-                    Message = "Không tìm thấy thông tin người dùng.",
+                    Message = "Không tìm thấy thông tin người dùng",
                     Status = (int)HttpStatusCode.BadRequest
                 };
             }
@@ -79,7 +79,7 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Success = true,
-                Message = "Đăng xuất thành công."
+                Message = "Đăng xuất thành công"
             };
         }
     }

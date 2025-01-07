@@ -26,11 +26,11 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
         {
             // 1. Lấy MealFood
             var mealFood = await _mealFoodRepository.GetByIdAsync(request.MealFoodId);
-            if (mealFood == null) throw new Exception("MealFood không tồn tại.");
+            if (mealFood == null) throw new Exception("MealFood không tồn tại");
 
             // 2. Lấy Meal liên quan
             var meal = await _mealRepository.GetByIdAsync(mealFood.MealId);
-            if (meal == null) throw new Exception("Meal không tồn tại.");
+            if (meal == null) throw new Exception("Meal không tồn tại");
 
             // 3. Lấy DailyMeal liên quan
             var dailyMeal = meal.DailyMealId.HasValue

@@ -15,7 +15,7 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminderStatus
         public async Task<bool> Handle(UpdateReminderStatusCommand request, CancellationToken cancellationToken)
         {
             var id = await _reminderRepository.GetByIdAsync(request.ReminderId);
-            if (id == null) throw new Exception("lời nhắc không tồn tại.");
+            if (id == null) throw new Exception("lời nhắc không tồn tại");
             id.Status = !id.Status;
             _reminderRepository.Update(id);
             await _reminderRepository.SaveChangeAsync();

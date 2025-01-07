@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealByUser
             // Lấy danh sách meal theo UserId
             var meals = await _mealRepository.GetMealByUser(request.UserId);
             if (meals == null || !meals.Any())
-                throw new Exception("Người dùng không tồn tại hoặc không có bữa ăn.");
+                throw new Exception("Người dùng không tồn tại hoặc không có bữa ăn");
 
             var result = new List<GetMealByUserDTO>();
 

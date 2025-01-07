@@ -48,7 +48,7 @@ namespace Monhealth.Api.GlobalException
                 var result = new ResultModel
                 {
                     Status = StatusCodes.Status500InternalServerError,
-                    Message = "An unexpected error occurred."
+                    Message = "An unexpected error occurred"
                 };
                 await httpContext.Response.WriteAsync(JsonSerializer.Serialize(result));
             }

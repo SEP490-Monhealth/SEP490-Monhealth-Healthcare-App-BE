@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfood
         public async Task<NutritionByFoodIdDto> Handle(GetNutritionByFoodIdListQuery request, CancellationToken cancellationToken)
         {
             var query = await _nutritionRepository.GetAllNutritionByFoodIdAsync(request.FoodId);
-            if (query == null) throw new Exception("Not found food.");
+            if (query == null) throw new Exception("Not found food");
             return _mapper.Map<NutritionByFoodIdDto>(query);
         }
     }

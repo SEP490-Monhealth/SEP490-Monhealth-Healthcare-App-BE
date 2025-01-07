@@ -45,7 +45,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Bữa ăn không tồn tại.",
+                    Message = "Bữa ăn không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -69,7 +69,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Bữa ăn không tồn tại.",
+                    Message = "Bữa ăn không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -92,7 +92,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo bữa ăn thành công.",
+                    Message = "Tạo bữa ăn thành công",
                     Status = 201,
                     Data = new { mealId = result } // Trả về mealId
                 });
@@ -101,7 +101,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo bữa ăn thất bại.",
+                Message = "Tạo bữa ăn thất bại",
                 Status = 400,
             });
         }
@@ -118,7 +118,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Xóa bữa ăn không thành công.",
+                    Message = "Xóa bữa ăn không thành công",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -126,7 +126,7 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Xóa bữa ăn thành công.",
+                Message = "Xóa bữa ăn thành công",
                 Status = 204,
                 Data = null
             });

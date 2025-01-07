@@ -24,7 +24,7 @@ namespace Monhealth.Identity.Services
         {
             if (!Enum.TryParse<GoalType>(createMetricDto.GoalType, true, out var goalType))
             {
-                throw new Exception("Loại mục tiêu không hợp lệ.");
+                throw new Exception("Loại mục tiêu không hợp lệ");
             }
             goal.GoalType = goalType;
             // tinh toan cac chi so Macros
@@ -46,7 +46,7 @@ namespace Monhealth.Identity.Services
         {
             if (!Enum.TryParse<GoalType>(updateMetricDto.GoalType, true, out var goalType))
             {
-                throw new Exception("Loại mục tiêu không hợp lệ.");
+                throw new Exception("Loại mục tiêu không hợp lệ");
             }
             goalToUpdate.GoalType = goalType;
             // tinh toan cac chi so Macros
@@ -71,7 +71,7 @@ namespace Monhealth.Identity.Services
             {
                 case "WeightLoss":
                 if (targetWeight >= currentWeight)
-                    throw new Exception($"Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại ({currentWeight}).");
+                    throw new Exception($"Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại ({currentWeight})");
                 calories = tdee * 0.8f; // Giảm 20%
                 proteinPercentage = 0.4f; // 40% Protein
                 carbPercentage = 0.35f;  // 35% Carb
@@ -80,7 +80,7 @@ namespace Monhealth.Identity.Services
 
             case "MaintainWeight":
                 if (targetWeight <= currentWeight)
-                    throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight}).");
+                    throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight})");
                 calories = tdee * 1.1f; // Tăng 10-15%
                 proteinPercentage = 0.3f; // 30% Protein
                 carbPercentage = 0.5f;   // 50% Carb
@@ -95,7 +95,7 @@ namespace Monhealth.Identity.Services
                 break;
 
             default:
-                throw new Exception("Loại mục tiêu không hợp lệ.");
+                throw new Exception("Loại mục tiêu không hợp lệ");
             }
 
             float protein = calories * proteinPercentage;

@@ -46,7 +46,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy khẩu phần ăn."
+                    Message = "Không tìm thấy khẩu phần ăn"
                 };
             }
             return new ResultModel
@@ -67,7 +67,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy khẩu phần ăn."
+                    Message = "Không tìm thấy khẩu phần ăn"
                 };
             }
             return new ResultModel
@@ -75,7 +75,7 @@ namespace Monhealth.Api.Controllers
                 Data = portion,
                 Status = 200,
                 Success = true,
-                Message = "Lấy khẩu phần ăn thành công."
+                Message = "Lấy khẩu phần ăn thành công"
             };
         }
 
@@ -87,14 +87,14 @@ namespace Monhealth.Api.Controllers
             {
                 return new ResultModel
                 {
-                    Message = "Tạo khẩu phần ăn thành công.",
+                    Message = "Tạo khẩu phần ăn thành công",
                     Status = 201,
                     Success = true
                 };
             }
             return new ResultModel
             {
-                Message = "Tạo khẩu phần ăn thất bại.",
+                Message = "Tạo khẩu phần ăn thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };
@@ -111,14 +111,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật khẩu phần ăn thất bại."
+                    Message = "Cập nhật khẩu phần ăn thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật khẩu phần ăn thành công."
+                Message = "Cập nhật khẩu phần ăn thành công"
             };
         }
 
@@ -133,14 +133,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Xóa khẩu phần ăn thất bại."
+                    Message = "Xóa khẩu phần ăn thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Xóa khẩu phần ăn thành công."
+                Message = "Xóa khẩu phần ăn thành công"
             };
         }
     }

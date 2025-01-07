@@ -54,14 +54,14 @@ namespace Monhealth.Api.Controllers
             {
                 return new ResultModel
                 {
-                    Message = "Tạo người dùng thành công.",
+                    Message = "Tạo người dùng thành công",
                     Status = 201,
                     Success = true
                 };
             }
             return new ResultModel
             {
-                Message = "Tạo người dùng thất bại.",
+                Message = "Tạo người dùng thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };
@@ -74,7 +74,7 @@ namespace Monhealth.Api.Controllers
             var result = await _mediator.Send(command);
             return new ResultModel
             {
-                Message = "cập nhập người dùng thành công.",
+                Message = "cập nhập người dùng thành công",
                 Status = 200,
                 Success = true
             };

@@ -22,7 +22,7 @@ namespace Monhealth.Application.Features.User.Queries.GetUserDetail
         public async Task<UserDetailDto> Handle(GetUserDetailQuery request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetUserByUserId(request.Id);
-            if (user == null) throw new NotFoundException("User not found.");
+            if (user == null) throw new NotFoundException("User not found");
             var userDto = _mapper.Map<UserDetailDto>(user);
             var roles = await _userManager.GetRolesAsync(user);
             userDto.Role = roles.FirstOrDefault();

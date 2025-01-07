@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Food.AddFood
             if (existingFood != null) throw new Exception("Món ăn đã tồn tại. ");
             var category = await _categoryRepository.GetCategoryByCategoryName(request.Category);
             if (category == null)
-                throw new Exception("Danh mục không tồn tại.");
+                throw new Exception("Danh mục không tồn tại");
             var food = new Monhealth.Domain.Food
             {
                 UserId = request.UserId,

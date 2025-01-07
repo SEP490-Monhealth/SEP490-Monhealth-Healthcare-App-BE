@@ -21,7 +21,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
 
             if (isCategoryExist)
             {
-                throw new Exception("CategoryName already exists.");
+                throw new Exception("CategoryName already exists");
             }
             category.CategoryName = request.CategoryName;
             category.CategoryDescription = request.CategoryDescription;

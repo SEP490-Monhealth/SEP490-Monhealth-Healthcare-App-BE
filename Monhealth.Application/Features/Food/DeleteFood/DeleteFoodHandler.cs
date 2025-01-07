@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Food.DeleteFood
         public async Task<bool> Handle(DeleteFoodRequest request, CancellationToken cancellationToken)
         {
             var food = await _foodRepository.GetByIdAsync(request.FoodId);
-            if (food == null) throw new Exception("Món ăn không tồn tại.");
+            if (food == null) throw new Exception("Món ăn không tồn tại");
             var nutritions = await _nutritionRepository.GetByFoodIdAsync(request.FoodId);
             if (nutritions.Any()) _nutritionRepository.RemoveRange(nutritions);
             _foodRepository.Remove(food);

@@ -35,7 +35,7 @@ namespace Monhealth.Identity.Services
         {
             if (string.IsNullOrEmpty(phoneNumber)) throw new BadRequestException("Invalid PhoneNumer");
             var user = await _userRepository.GetByPhoneNumberAsync(phoneNumber);
-            if (user == null) throw new NotFoundException("User not found.");
+            if (user == null) throw new NotFoundException("Người dùng không tồn tại");
 
             var roles = await _userManager.GetRolesAsync(user);
             return new MeResponse
@@ -63,20 +63,20 @@ namespace Monhealth.Identity.Services
             user = await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == request.PhoneNumber);
             if (user == null)
             {
-                throw new BadRequestException("Số điện thoại không tồn tại.");
+                throw new BadRequestException("Số điện thoại không tồn tại");
             }
 
 
             if (user == null || !user.Status || user.LockoutEnabled)
             {
 
-                throw new BadRequestException("Invalid Email.");
+                throw new BadRequestException("Email không tồn tại hoặc chưa được kích hoạt");
             }
 
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, true);
             if (!result.Succeeded)
             {
-                throw new BadRequestException("Mật khẩu không đúng.");
+                throw new BadRequestException("Mật khẩu không đúng");
             }
 
             // Authorization
@@ -117,7 +117,7 @@ namespace Monhealth.Identity.Services
             var checkUser = await _userRepository.GetByPhoneNumberAsync(request.PhoneNumber);
             if (checkUser != null)
             {
-                throw new BadRequestException("Phone number already in use.");
+                throw new BadRequestException("Số điện thoại đã tồn tại");
             }
             var user = new AppUser
             {
