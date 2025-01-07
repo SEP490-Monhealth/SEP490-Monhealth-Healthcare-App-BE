@@ -17,6 +17,9 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
         public async Task<List<MealDTO>> Handle(GetMealListQuery request, CancellationToken cancellationToken)
         {
             var meals = await _mealRepository.GetAllMeals();
+            // if (meals == null || !meals.Any())
+            //     throw new Exception("Không có bữa ăn nào.");
+
             var result = new List<MealDTO>();
 
             foreach (var meal in meals)
@@ -31,6 +34,7 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
 
                 foreach (var mealFood in meal.MealFoods)
                 {
+                    if(mealFood.Status == true){
                     if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
                         continue;
 
@@ -48,6 +52,8 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
                     totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
                     totalFiber += (mealFood.Food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
                     totalSugar += (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+                        
+                    }
                 }
 
                 // Tạo DTO cho meal

@@ -53,7 +53,8 @@ namespace Monhealth.Application.Features.MealFood.Queries
                         Unit = portion.MeasurementUnit ?? string.Empty,
                     },
                     CreatedAt = mf.CreatedAt,
-                    UpdatedAt = mf.UpdatedAt
+                    UpdatedAt = mf.UpdatedAt,
+                    Status = mf.Status
                 };
 
                 result.Add(mealFoodDTO);

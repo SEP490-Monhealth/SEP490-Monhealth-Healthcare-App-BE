@@ -103,7 +103,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                         Quantity = item.Quantity,
                         CreatedAt = DateTime.Now,
                         UpdatedAt = DateTime.Now,
-                        PortionId = portionId
+                        PortionId = portionId,
+                        Status = false
                     };
                     _mealFoodRepository.Add(mealFood);
                 }
@@ -156,6 +157,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 _mealRepository.Update(meal);
 
                 var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
+
                 foreach (var mealFood in mealFoods)
 
                 {
@@ -164,6 +166,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     {
                         throw new Exception($"Không tìm thấy Portion với PortionId: {mealFood.PortionId}");
                     }
+                    if (mealFood.Status == true)
+                    {
                     var food = mealFood.Food;
                     var portionWeight = portion.PortionWeight;
 
@@ -173,6 +177,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     dailyMeal.TotalFats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
                     dailyMeal.TotalFibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
                     dailyMeal.TotalSugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+
+                    }
                 }
             }
 

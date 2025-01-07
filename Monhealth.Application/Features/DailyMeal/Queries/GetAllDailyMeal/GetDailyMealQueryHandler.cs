@@ -18,9 +18,9 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
             IMealRepository mealRepository,
             IPortionRepository portionRepository)
         {
-            _dailyMealRepository = dailyMealRepository ;
-            _mealRepository = mealRepository  ;
-            _portionRepository = portionRepository ;
+            _dailyMealRepository = dailyMealRepository;
+            _mealRepository = mealRepository;
+            _portionRepository = portionRepository;
         }
 
         public async Task<List<DailyMealDTO>> Handle(GetDailyMealQuery request, CancellationToken cancellationToken)
@@ -28,6 +28,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
             var dailyMeals = await _dailyMealRepository.GetAllDailyMeals();
             var allMeals = await _mealRepository.GetAllMeals(); // Lấy tất cả Meals từ MealRepository
 
+            var mealTypeOrder = new List<string> { "Breakfast", "Lunch", "Dinner", "Snack" };
             var result = new List<DailyMealDTO>();
 
             foreach (var dailyMeal in dailyMeals)
@@ -37,28 +38,34 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
 
                 foreach (var meal in allMeals.Where(m => dailyMeal.Meals.Select(dm => dm.MealId).Contains(m.MealId)))
                 {
+
                     float totalCalories = 0;
                     float totalProtein = 0;
                     float totalCarbs = 0;
                     float totalFat = 0;
 
+                    // Sắp xếp danh sách meals theo thứ tự MealType
+
                     foreach (var mealFood in meal.MealFoods)
                     {
                         if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
                             continue;
+                        if (mealFood.Status == true)
+                        {
+                            var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
+                            if (portion == null)
+                                continue;
 
+                            var portionWeight = portion.PortionWeight;
+
+                            // Tính toán giá trị dinh dưỡng
+                            totalCalories += (mealFood.Food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                            totalProtein += (mealFood.Food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+                            totalCarbs += (mealFood.Food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+                            totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+
+                        }
                         // Lấy Portion từ repository
-                        var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
-                        if (portion == null)
-                            continue;
-
-                        var portionWeight = portion.PortionWeight;
-
-                        // Tính toán giá trị dinh dưỡng
-                        totalCalories += (mealFood.Food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
-                        totalProtein += (mealFood.Food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
-                        totalCarbs += (mealFood.Food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
-                        totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
                     }
 
                     meals.Add(new MealForDailyMeal
@@ -71,6 +78,9 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                         Fat = totalFat
                     });
                 }
+                var sortedMeals = meals
+               .OrderBy(m => mealTypeOrder.IndexOf(m.MealType))
+               .ToList();
 
                 // Tạo đối tượng DailyMealDTO
                 var dailyMealDTO = new DailyMealDTO
@@ -86,7 +96,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                         TotalFibers = dailyMeal.TotalFibers,
                         TotalSugars = dailyMeal.TotalSugars
                     },
-                    Items = meals,
+                    Items = sortedMeals,
                     CreatedAt = dailyMeal.CreatedAt,
                     UpdatedAt = dailyMeal.UpdatedAt
                 };
