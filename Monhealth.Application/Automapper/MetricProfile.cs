@@ -4,6 +4,7 @@ using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
+using Monhealth.Application.Features.Metric.Queries.GetMetricByUserId;
 using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetNutritionDetail;
@@ -39,6 +40,7 @@ namespace Monhealth.Application.Automapper
                 opt => opt.MapFrom(
                     (src, dest) => Enum.TryParse(src.Gender ?? string.Empty, out Gender gender) ? gender : Gender.Male)
                 );
+            CreateMap<Metric, GetMetricByUserIdDTO>().ReverseMap();
         }
     }
 }

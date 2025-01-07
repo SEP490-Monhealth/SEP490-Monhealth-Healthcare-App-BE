@@ -1,4 +1,6 @@
-﻿using Monhealth.Application.Contracts.Services;
+﻿using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Contracts.Services;
+using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Domain;
@@ -13,6 +15,11 @@ namespace Monhealth.Identity.Services
 {
     public class GoalsCalculator : IGoalsCalculator
     {
+        private readonly IMetricRepository _metricRepository;
+        public GoalsCalculator(IMetricRepository metricRepository)
+        {
+            _metricRepository = metricRepository; 
+        }
         public void CreateCalculateGoal(Goal goal, CreateMetricDto createMetricDto, float tdee)
         {
             if (!Enum.TryParse<GoalType>(createMetricDto.GoalType, true, out var goalType))
@@ -35,7 +42,7 @@ namespace Monhealth.Identity.Services
             goal.WaterGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel == 1.2f || createMetricDto.ActivityLevel == 1.375f ? 30 : 40));
         }
 
-        public void UpdateCalculateGoal(Goal goalToUpdate, UpdateMetricDto updateMetricDto, float tdee)
+        public void UpdateMetricCalculateGoal(Goal goalToUpdate, UpdateMetricDto updateMetricDto, float tdee)
         {
             if (!Enum.TryParse<GoalType>(updateMetricDto.GoalType, true, out var goalType))
             {

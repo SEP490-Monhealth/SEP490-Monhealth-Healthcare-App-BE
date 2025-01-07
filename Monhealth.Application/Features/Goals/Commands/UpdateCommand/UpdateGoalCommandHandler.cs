@@ -28,29 +28,36 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
             {
                 throw new Exception("Không tìm thấy mục tiêu.");
             }
+
             // Lấy TDEE từ Metric dựa trên UserId
-            var infoUser = await _metricRepository.GetMetricByUserIdAsync(existingGoal.UserId);
-            if (infoUser == null)
+            var infoMetricOfUser = await _metricRepository.GetMetricByMetricIdUserIdAsync(request.GoalId, existingGoal.UserId);
+            if (infoMetricOfUser == null)
             {
                 throw new Exception("Không tìm thấy thông tin TDEE cho người dùng.");
             }
+            
             // Chuyen tu string sang enum
             if (!Enum.TryParse<GoalType>(request.UpdateGoalDTO.GoalType, true, out var parsedGoalType))
             {
                 throw new Exception("Loại mục tiêu không hợp lệ.");
             }
+            infoMetricOfUser.GoalType = parsedGoalType;
+            infoMetricOfUser.WeightGoal = request.UpdateGoalDTO.WeightGoal;
+            infoMetricOfUser.UpdatedAt = DateTime.Now;
+
             existingGoal.GoalType = parsedGoalType;
             existingGoal.WeightGoal = request.UpdateGoalDTO.WeightGoal;
             existingGoal.UpdatedAt = DateTime.Now;
+
             // Tính CaloriesGoal dựa trên GoalType
             switch (request.UpdateGoalDTO.GoalType)
             {
                 case "WeightLoss":
-                    if (existingGoal.WeightGoal > infoUser.Weight)
+                    if (existingGoal.WeightGoal > infoMetricOfUser.Weight)
                     {
-                        throw new Exception($"Cân nặng hiện tại là {infoUser.Weight}. Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại.");
+                        throw new Exception($"Cân nặng hiện tại là {infoMetricOfUser.Weight}. Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại.");
                     }
-                    var caloriesWeightLoss = infoUser.Tdee * 0.8f; // Giảm 20%
+                    var caloriesWeightLoss = infoMetricOfUser.Tdee * 0.8f; // Giảm 20%
                     existingGoal.CaloriesGoal = caloriesWeightLoss;
                     existingGoal.ProteinGoal = (caloriesWeightLoss * 0.4f);
 
@@ -63,11 +70,11 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
                     existingGoal.SugarGoal = carbGoalWeightLoss * 0.25f;
                     break;
                 case "MaintainWeight":
-                    if (existingGoal.WeightGoal < infoUser.Weight)
+                    if (existingGoal.WeightGoal < infoMetricOfUser.Weight)
                     {
-                        throw new Exception("Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại.");
+                        throw new Exception($"Cân nặng hiện tại là {infoMetricOfUser.Weight}. Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại.");
                     }
-                    var caloriesMaintainWeight = infoUser.Tdee * 1.1f; // Tăng 10-15%
+                    var caloriesMaintainWeight = infoMetricOfUser.Tdee * 1.1f; // Tăng 10-15%
                     existingGoal.CaloriesGoal = caloriesMaintainWeight;
                     existingGoal.ProteinGoal = (caloriesMaintainWeight * 0.3f);
 
@@ -80,7 +87,7 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
                     existingGoal.SugarGoal = carbGoalMaintainWeight * 0.25f;
                     break;
                 case "WeightGain":
-                    var caloriesWeightGain = infoUser.Tdee; // Giữ nguyên TDEE
+                    var caloriesWeightGain = infoMetricOfUser.Tdee; // Giữ nguyên TDEE
                     existingGoal.CaloriesGoal = caloriesWeightGain;
                     existingGoal.ProteinGoal = (caloriesWeightGain * 0.3f);
 
@@ -96,13 +103,13 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
                     throw new Exception("Loại mục tiêu không hợp lệ.");
             }
             // tinh WaterGoal
-            if (infoUser.ActivityLevel == 1.2f || infoUser.ActivityLevel == 1.375f)
+            if (infoMetricOfUser.ActivityLevel == 1.2f || infoMetricOfUser.ActivityLevel == 1.375f)
             {
-                existingGoal.WaterGoal = (int)infoUser.Weight * 30;
+                existingGoal.WaterGoal = (int)infoMetricOfUser.Weight * 30;
             }
             else
             {
-                existingGoal.WaterGoal = (int)infoUser.Weight * 40;
+                existingGoal.WaterGoal = (int)infoMetricOfUser.Weight * 40;
             }
             _goalRepository.Update(existingGoal);
             await _goalRepository.SaveChangeAsync();

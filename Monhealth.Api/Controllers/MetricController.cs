@@ -4,6 +4,7 @@ using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Application.Features.Metric.Commands.DeleteMetric;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
+using Monhealth.Application.Features.Metric.Queries.GetMetricByUserId;
 using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
 using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Models;
@@ -22,9 +23,9 @@ namespace Monhealth.Api.Controllers
         }
         
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllMetrics(Guid? userId)
+        public async Task<ActionResult<ResultModel>> GetAllMetrics()
         {
-            var metrics = await _mediator.Send(new GetMetricListQuery(userId));
+            var metrics = await _mediator.Send(new GetMetricListQuery());
 
             return new ResultModel
             {
@@ -47,6 +48,17 @@ namespace Monhealth.Api.Controllers
                     Message = "Số liệu không tồn tại."
                 };
             }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Data = metric
+            };
+        }
+        [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetMetricByUserId(Guid userId)
+        {
+            var metric = await _mediator.Send(new GetMetricByUserIdQuery() { UserId = userId });
             return new ResultModel
             {
                 Success = true,

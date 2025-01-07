@@ -15,16 +15,9 @@ namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
         }
         public async Task<List<MetricDto>> Handle(GetMetricListQuery request, CancellationToken cancellationToken)
         {
-            try
-            {
-                var metrics = await _metricRepository.GetAllMetricAsync(request.UserId);
-                var metricsResponse = _mapper.Map<List<MetricDto>>(metrics);
-                return metricsResponse;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Lỗi" + ex.Message);
-            }
+            var metrics = await _metricRepository.GetAllMetricAsync();
+            var metricsResponse = _mapper.Map<List<MetricDto>>(metrics);
+            return metricsResponse;
         }
     }
 }

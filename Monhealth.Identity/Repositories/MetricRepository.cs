@@ -13,21 +13,19 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<List<Metric>> GetAllMetricAsync(Guid? userId)
+        public async Task<List<Metric>> GetAllMetricAsync()
         {
-            IQueryable<Metric> query = _context.Metrics.AsQueryable();
-            if (userId != null)
-            {
-                query = query.Where(u => u.UserId == userId);
-            }
-
-            var metrics = await query.ToListAsync();
-            return metrics;
+            return await _context.Metrics.ToListAsync();
         }
 
-        public async Task<Metric> GetMetricByUserIdAsync(Guid userId)
+        public async Task<Metric> GetMetricByMetricIdUserIdAsync(Guid metricId, Guid userId)
         {
-            return await _context.Metrics.FirstOrDefaultAsync(u => u.UserId == userId);
+            return await _context.Metrics.FirstOrDefaultAsync(m => m.MetricId == metricId && m.UserId == userId);
+        }
+
+        public async Task<List<Metric>> GetMetricByUserIdAsync(Guid userId)
+        {
+            return await _context.Metrics.Where(u => u.UserId == userId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()
