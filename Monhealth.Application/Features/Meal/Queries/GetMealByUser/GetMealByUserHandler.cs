@@ -35,7 +35,8 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealByUser
 
                 foreach (var mealFood in meal.MealFoods)
                 {
-                    // Kiểm tra MealFood hợp lệ
+                    if(mealFood.Status){
+
                     if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
                         continue;
 
@@ -53,6 +54,8 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealByUser
                     totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
                     totalFiber += (mealFood.Food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
                     totalSugar += (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+                    }
+                    // Kiểm tra MealFood hợp lệ
                 }
 
                 // Tạo DTO cho Meal

@@ -29,6 +29,16 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<List<string>> GetAllMealTypesAsync()
+        {
+            // Truy vấn tất cả MealType từ bảng MealFood
+            return await _context.Meals
+                .Select(mf => mf.MealType) // Lấy trường MealType
+                .Distinct()                // Loại bỏ trùng lặp
+                .ToListAsync();            // Trả về danh sách bất đồng bộ
+        }
+
+
         public async Task<Meal> GetByUserIdAndMealType(Guid userId, string mealType)
         {
             return await _context.Meals.FirstOrDefaultAsync
@@ -81,7 +91,7 @@ namespace Monhealth.Identity.Repositories
            .ToListAsync();
         }
 
-       
+
 
         public async Task<int> SaveChangeAsync()
         {
