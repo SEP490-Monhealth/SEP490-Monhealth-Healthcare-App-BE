@@ -81,12 +81,12 @@ namespace Monhealth.Api.Controllers
                 Data = meal
             });
         }
-
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddMeal([FromBody] CreateMealDTO request)
         {
             var command = new CreateMealCommand(request);
             var result = await _mediator.Send(command);
+
             if (result != null)
             {
                 return Ok(new ResultModel
@@ -94,6 +94,7 @@ namespace Monhealth.Api.Controllers
                     Success = true,
                     Message = "Tạo bữa ăn thành công.",
                     Status = 201,
+                    Data = new { mealId = result } // Trả về mealId
                 });
             }
 

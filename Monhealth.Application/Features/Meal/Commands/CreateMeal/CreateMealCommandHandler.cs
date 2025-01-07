@@ -5,7 +5,7 @@ using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 {
-    public class CreateMealCommandHandler : IRequestHandler<CreateMealCommand, Unit>
+    public class CreateMealCommandHandler : IRequestHandler<CreateMealCommand, Guid>
     {
         private readonly IMealRepository _mealRepository;
         private readonly IMealFoodRepository _mealFoodRepository;
@@ -30,7 +30,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             _foodRepository = foodRepository;
         }
 
-        public async Task<Unit> Handle(CreateMealCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateMealCommand request, CancellationToken cancellationToken)
         {
             var userId = request.CreateMeal.UserId;
             var validMealTypes = new HashSet<string> { "Breakfast", "Lunch", "Dinner", "Snack" };
@@ -87,7 +87,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     portionId = existingPortion.PortionId;
                 }
 
-
                 var existingMealItem = await _mealFoodRepository.GetByMealIdAndFoodId(model.MealId, item.FoodId);
                 if (existingMealItem != null && existingMealItem.PortionId == portionId)
                 {
@@ -114,11 +113,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
             var currentDate = DateTime.Now.Date;
             var mealsForDay = await _mealRepository.GetMealByUserAndDate(currentDate, userId);
-
-            if (mealsForDay == null || !mealsForDay.Any())
-            {
-                throw new Exception("Không có Meal nào trong ngày hiện tại để tạo DailyMeal.");
-            }
 
             var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(currentDate, userId);
             if (dailyMeal == null)
@@ -185,7 +179,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             dailyMeal.UpdatedAt = DateTime.Now;
             await _dailyMealRepository.SaveChangeAsync();
 
-            return Unit.Value;
+            return model.MealId;
         }
 
     }
