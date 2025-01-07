@@ -1,10 +1,13 @@
 using Monhealth.Api.GlobalException;
 using Monhealth.Application;
+using Monhealth.Application.Models.Phone;
 using Monhealth.Identity;
 using Monhealth.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+var twilioSettings = builder.Configuration.GetSection("Twilio").Get<TwilioSettings>();
+builder.Services.AddSingleton(twilioSettings);
 
 // Add services to the container.
 builder.Services.AddApplicationServices();
