@@ -1,8 +1,12 @@
-﻿namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
+﻿using Monhealth.Domain.Enum;
+
+namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 {
     public class CreateMetricDto
     {
         public Guid UserId { get; set; }
+        public string GoalType { get; set; }
+        public int WeightGoal { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
         public float Height { get; set; }

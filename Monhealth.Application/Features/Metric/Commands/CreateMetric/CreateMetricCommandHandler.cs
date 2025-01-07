@@ -2,73 +2,64 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
+using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 {
     public class CreateMetricCommandHandler : IRequestHandler<CreateMetricCommand, Unit>
     {
-        private readonly IMetricsCalculate _metricCalculate;
+        private readonly IMetricsCalculator _metricCalculator;
+        private readonly IGoalsCalculator _goalCalculator;
         private readonly IMetricRepository _metricRepository;
+        private readonly IGoalRepository _goalRepository;
         private readonly IMapper _mapper;
-        private readonly IGenerateDailyMenuService _generateDailyMenuService;
-        private readonly IDailyMealRepository _dailyMealRepository;
-        public CreateMetricCommandHandler(IMetricRepository metricRepository, IMapper mapper, IGenerateDailyMenuService generateDailyMenuService, IDailyMealRepository dailyMealRepository, IMetricsCalculate metricCalculate)
+        public CreateMetricCommandHandler(
+            IMetricRepository metricRepository, 
+            IMapper mapper, 
+            IMetricsCalculator metricCalculator, 
+            IGoalRepository goalRepository, 
+            IGoalsCalculator goalsCalculator)
         {
+            _metricCalculator = metricCalculator;
             _metricRepository = metricRepository;
             _mapper = mapper;
-            _generateDailyMenuService = generateDailyMenuService;
-            _dailyMealRepository = dailyMealRepository;
-            _metricCalculate = metricCalculate;
+            _goalRepository = goalRepository;
+            _goalCalculator = goalsCalculator;
         }
         public async Task<Unit> Handle(CreateMetricCommand request, CancellationToken cancellationToken)
         {
-
-
+            #region tinh toan Metric
             var newMetric = _mapper.Map<Monhealth.Domain.Metric>(request.CreateMetricDto);
-
-            // tinh tuoi tu DateOfBirth
             var age = DateTime.Now.Year - request.CreateMetricDto.DateOfBirth.Year;
             if (DateTime.Now.DayOfYear < request.CreateMetricDto.DateOfBirth.DayOfYear)
             {
                 age--;
             }
+            newMetric.Bmi = (float)_metricCalculator.CalculateBMI(request.CreateMetricDto.Weight, request.CreateMetricDto.Height);
+            newMetric.Bmr = _metricCalculator.CalculateBMR(request.CreateMetricDto.Weight, request.CreateMetricDto.Height, age, request.CreateMetricDto.Gender);
+            newMetric.Tdee = _metricCalculator.CalculateTDEE(newMetric.Bmr, request.CreateMetricDto.ActivityLevel);
+            newMetric.Ibw = _metricCalculator.CalculateIBW(request.CreateMetricDto.Height, request.CreateMetricDto.Gender);
 
-            // tinh toan BMI, BMR, TDEE, IBW
-            var weight = request.CreateMetricDto.Weight;
-            var height = request.CreateMetricDto.Height;
-            var gender = request.CreateMetricDto.Gender;
-            var activityLevel = request.CreateMetricDto.ActivityLevel;
-
-            // tinh BMI
-            newMetric.Bmi = (float)_metricCalculate.CalculateBMI(weight, height);
-
-            // tinh BMR
-            var bmr = _metricCalculate.CalculateBMR(weight, height, age, gender);
-            newMetric.Bmr = bmr;
-
-            // tinh TDEE
-            newMetric.Tdee = _metricCalculate.CalculateTDEE(bmr, activityLevel);
-
-            // tinh IBW
-            newMetric.Ibw = _metricCalculate.CalculateIBW(height, gender);
-
-
-            // new metricId
             newMetric.MetricId = Guid.NewGuid();
             newMetric.CreatedAt = DateTime.Now;
             newMetric.UpdatedAt = DateTime.Now;
-
             _metricRepository.Add(newMetric);
+            #endregion
 
-            var dailyMeal = await _generateDailyMenuService.GenerateDailyMealAsync(request.CreateMetricDto.UserId, newMetric.Tdee, "lose");
-            _dailyMealRepository.Add(dailyMeal);
-
-            await _metricRepository.SaveChangeAsync();
+            #region tinh toan Goal
+            var newGoal = _mapper.Map<Goal>(request.CreateMetricDto);          
+            _goalCalculator.CreateCalculateGoal(newGoal, request.CreateMetricDto, newMetric.Tdee);
+            newGoal.GoalId = newMetric.MetricId;
+            newGoal.Status = GoalStatus.Active;
+            newGoal.CreatedAt = DateTime.Now;
+            newGoal.UpdatedAt = DateTime.Now;
+            _goalRepository.Add(newGoal);
+            await _goalRepository.SaveChangeAsync();
+            #endregion
             return Unit.Value;
-
-
-
         }
 
     }
 }
+

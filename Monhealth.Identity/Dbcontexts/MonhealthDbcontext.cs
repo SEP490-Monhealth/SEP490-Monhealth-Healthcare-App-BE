@@ -15,7 +15,6 @@ namespace Monhealth.Identity.Dbcontexts
 
         }
 
-        public DbSet<Target> Targets { get; set; }
         public DbSet<Metric> Metrics { get; set; }
         public DbSet<Goal> Goals { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -27,7 +26,6 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<InterestFood> InterestFoods { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<MealFood> MealFoods { get; set; }
-        public DbSet<MealUserFood> MealUserFoods { get; set; }
         public DbSet<Nutrition> Nutritions { get; set; }
         public DbSet<Reminder> Reminders { get; set; }
 

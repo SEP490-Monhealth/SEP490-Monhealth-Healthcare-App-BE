@@ -22,7 +22,7 @@ namespace Monhealth.Application.Features.Goals.Queries.GetGoalByUserId
 
         public async Task<List<GetGoalByUserIdDTO>> Handle(GetGoalByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var listGoals = await _goalRepository.GetGoalsByYserIdAsync(request.UserId);
+            var listGoals = await _goalRepository.GetGoalsByUserIdAsync(request.UserId);
             return _mapper.Map<List<GetGoalByUserIdDTO>>(listGoals);
 
         }

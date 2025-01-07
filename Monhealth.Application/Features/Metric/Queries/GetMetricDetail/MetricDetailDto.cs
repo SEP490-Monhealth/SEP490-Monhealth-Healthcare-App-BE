@@ -1,10 +1,13 @@
 ﻿using Monhealth.Domain.Common;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
 {
     public class MetricDetailDto : BaseEntity
     {
         public Guid UserId { get; set; }
+        public string GoalType { get; set; }
+        public int WeightGoal { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
         public float Height { get; set; }

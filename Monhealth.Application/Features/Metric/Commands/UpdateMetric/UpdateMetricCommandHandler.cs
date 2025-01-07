@@ -2,19 +2,29 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
+using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
 {
     public class UpdateMetricCommandHandler : IRequestHandler<UpdateMetricCommand, bool>
     {
-        private readonly IMetricsCalculate _metricCalculate;
+        private readonly IMetricsCalculator _metricCalculator;
+        private readonly IGoalsCalculator _goalsCalculator;
         private readonly IMetricRepository _metricRepository;
+        private readonly IGoalRepository _goalRepository;
         private readonly IMapper _mapper;
 
-        public UpdateMetricCommandHandler(IMetricRepository metricRepository, IMapper mapper, IMetricsCalculate metricCalculate)
+        public UpdateMetricCommandHandler(
+            IMetricRepository metricRepository, 
+            IMapper mapper, 
+            IMetricsCalculator metricCalculator, 
+            IGoalsCalculator goalsCalculator,
+            IGoalRepository goalRepository)
         {
-            _metricCalculate = metricCalculate;
+            _metricCalculator = metricCalculator;
+            _goalsCalculator = goalsCalculator;
             _metricRepository = metricRepository;
+            _goalRepository = goalRepository;
             _mapper = mapper;
         }
 
@@ -27,8 +37,8 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             }
 
             // Tinh tuoi tu DateOfBirth
-            var age = DateTime.Now.Year - request.MetricDto.DateOfBirth.Year;
-            if (DateTime.Now.DayOfYear < request.MetricDto.DateOfBirth.DayOfYear)
+            var age = DateTime.Now.Year - request.UpdateMetricDto.DateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < request.UpdateMetricDto.DateOfBirth.DayOfYear)
             {
                 age--;
             }
@@ -37,47 +47,56 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             bool isUpdated = false;
 
             // Kiem tra và cap nhat BMI
-            if (request.MetricDto.Height != metricToUpdate.Height || request.MetricDto.Weight != metricToUpdate.Weight)
+            if (request.UpdateMetricDto.Height != metricToUpdate.Height || request.UpdateMetricDto.Weight != metricToUpdate.Weight)
             {
-                metricToUpdate.Bmi = (float)_metricCalculate.CalculateBMI(request.MetricDto.Weight, request.MetricDto.Height);
+                metricToUpdate.Bmi = (float)_metricCalculator.CalculateBMI(request.UpdateMetricDto.Weight, request.UpdateMetricDto.Height);
                 isUpdated = true;
             }
 
             // Kiem tra va cap nhat BMR
-            if (request.MetricDto.Height != metricToUpdate.Height ||
-                request.MetricDto.Weight != metricToUpdate.Weight ||
-                request.MetricDto.DateOfBirth != metricToUpdate.DateOfBirth ||
-                !string.Equals(request.MetricDto.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
+            if (request.UpdateMetricDto.Height != metricToUpdate.Height ||
+                request.UpdateMetricDto.Weight != metricToUpdate.Weight ||
+                request.UpdateMetricDto.DateOfBirth != metricToUpdate.DateOfBirth ||
+                !string.Equals(request.UpdateMetricDto.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
             {
-                metricToUpdate.Bmr = _metricCalculate.CalculateBMR(request.MetricDto.Weight, request.MetricDto.Height, age, request.MetricDto.Gender);
+                metricToUpdate.Bmr = _metricCalculator.CalculateBMR(request.UpdateMetricDto.Weight, request.UpdateMetricDto.Height, age, request.UpdateMetricDto.Gender);
                 isUpdated = true;
             }
 
             // Kiem tra va cap nhat TDEE
-            if (request.MetricDto.ActivityLevel != metricToUpdate.ActivityLevel || isUpdated)
+            if (request.UpdateMetricDto.ActivityLevel != metricToUpdate.ActivityLevel || isUpdated)
             {
-                metricToUpdate.Tdee = _metricCalculate.CalculateTDEE(metricToUpdate.Bmr, request.MetricDto.ActivityLevel);
+                metricToUpdate.Tdee = _metricCalculator.CalculateTDEE(metricToUpdate.Bmr, request.UpdateMetricDto.ActivityLevel);
                 isUpdated = true;
             }
 
             // Kiem tra va cap nhat IBW
-            if (request.MetricDto.Height != metricToUpdate.Height ||
-                !string.Equals(request.MetricDto.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
+            if (request.UpdateMetricDto.Height != metricToUpdate.Height ||
+                !string.Equals(request.UpdateMetricDto.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
             {
-                metricToUpdate.Ibw = _metricCalculate.CalculateIBW(request.MetricDto.Height, request.MetricDto.Gender);
+                metricToUpdate.Ibw = _metricCalculator.CalculateIBW(request.UpdateMetricDto.Height, request.UpdateMetricDto.Gender);
                 isUpdated = true;
             }
-
             // Cap nhat neu co bat ky thay doi nao
             if (isUpdated)
             {
                 metricToUpdate.UpdatedAt = DateTime.Now;
-                _mapper.Map(request.MetricDto, metricToUpdate);
+                _mapper.Map(request.UpdateMetricDto, metricToUpdate);
                 _metricRepository.Update(metricToUpdate);
                 await _metricRepository.SaveChangeAsync();
             }
-
-            return isUpdated;
+            #region Update Goal
+            var goalToUpdate = await _goalRepository.GetByIdAsync(request.MetricId);
+            if (goalToUpdate == null)
+            {
+                throw new Exception("Không tìm thấy mục tiêu.");
+            }
+            goalToUpdate.UpdatedAt = DateTime.Now;
+            _goalsCalculator.UpdateMetricCalculateGoal(goalToUpdate, request.UpdateMetricDto, metricToUpdate.Tdee);
+            _goalRepository.Update(goalToUpdate);
+            await _goalRepository.SaveChangeAsync();
+            #endregion
+            return true;
         }
     }
 

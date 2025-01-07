@@ -1,20 +1,19 @@
 ﻿using Monhealth.Domain.Common;
-using Monhealth.Domain.Enum;
-using Monhealth.Identity.Models;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Monhealth.Domain
+namespace Monhealth.Application.Features.Metric.Queries.GetMetricByUserId
 {
-    public class Metric : BaseEntity
+    public class GetMetricByUserIdDTO : BaseEntity
     {
-        [Key]
         public Guid MetricId { get; set; }
-        public Guid UserId { get; set; }
-        public GoalType GoalType { get; set; }
+        public string GoalType { get; set; }
         public int WeightGoal { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public Gender Gender { get; set; }
+        public string Gender { get; set; }
         public float Height { get; set; }
         public float Weight { get; set; }
         public float ActivityLevel { get; set; }
@@ -22,7 +21,5 @@ namespace Monhealth.Domain
         public float Bmr { get; set; }
         public float Tdee { get; set; }
         public float Ibw { get; set; }
-        [ForeignKey(nameof(UserId))]
-        public AppUser AppUser { get; set; }
     }
 }
