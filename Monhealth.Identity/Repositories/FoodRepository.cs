@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName, string foodType)
+        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName, string foodType, bool? popular)
         {
             search = search?.Trim();
             IQueryable<Food> query = _context.Foods.Include(f => f.Category).
@@ -38,6 +38,10 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(s => s.Status == status.Value);
             }
             int totalItems = await query.CountAsync();
+            if (popular.HasValue && popular.Value)
+            {
+                query = query.OrderByDescending(s => s.Views);
+            }
             if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
@@ -72,11 +76,25 @@ namespace Monhealth.Identity.Repositories
         }
         public async Task<Food> GetFoodByIdAsync(Guid foodId)
         {
-            return await _context.Foods.
-            Include(fc => fc.Category).Include(fc => fc.Nutrition)
-            .Include(fc => fc.FoodPortions).ThenInclude(fc => fc.Portion)
-            .FirstOrDefaultAsync(f => f.FoodId == foodId);
+            // Fetch the food item along with its related data
+            var food = await _context.Foods
+                .Include(fc => fc.Category)
+                .Include(fc => fc.Nutrition)
+                .Include(fc => fc.FoodPortions)
+                .ThenInclude(fc => fc.Portion)
+                .FirstOrDefaultAsync(f => f.FoodId == foodId);
+
+            // If the food item exists, increment its Views count
+            if (food != null)
+            {
+                await _context.Database.ExecuteSqlRawAsync(
+       "UPDATE Foods SET Views = Views + 1 WHERE FoodId = {0}", foodId);
+            }
+
+            return food;
         }
+
+
 
         public async Task<Food> GetFoodByNameAsync(string foodName)
         {
@@ -94,10 +112,6 @@ namespace Monhealth.Identity.Repositories
 
             // Tính tổng số lượng bản ghi
             int totalItems = await query.CountAsync();
-
-            // Tăng số lượt xem (Views) bằng SQL trực tiếp
-            await _context.Database.ExecuteSqlRawAsync(
-                "UPDATE Foods SET Views = Views + 1 WHERE UserId = {0}", userId);
 
             // Áp dụng phân trang
             if (page > 0 && limit > 0)
