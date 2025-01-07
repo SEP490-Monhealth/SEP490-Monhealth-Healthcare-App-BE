@@ -45,7 +45,7 @@ namespace Monhealth.Application.Features.User.Commands.CreateUser
                 var errorMessages = string.Join("; ", result.Errors.Select(e => e.Description));
                 throw new Exception($"Failed to create user: {errorMessages}");
             }
-            await _userManager.AddToRoleAsync(user, Roles.Customer);
+            await _userManager.AddToRoleAsync(user, Roles.Member);
             return Unit.Value;
 
         }

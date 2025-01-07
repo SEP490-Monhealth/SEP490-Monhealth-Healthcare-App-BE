@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Contracts.Identity;
+using Monhealth.Application.Contracts.Phone;
 using Monhealth.Application.Models;
 using Monhealth.Application.Models.Identity;
 using System.Net;
@@ -13,9 +14,11 @@ namespace Monhealth.Api.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
-        public AuthController(IAuthService authService)
+        private readonly IOtpService _otpService;
+        public AuthController(IAuthService authService, IOtpService otpService)
         {
             _authService = authService;
+            _otpService = otpService;
         }
 
         [HttpPost]
@@ -81,6 +84,29 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Message = "Đăng xuất thành công"
             };
+        }
+        [HttpPost("send")]
+        public async Task<IActionResult> SendOtp([FromBody] OtpRequest request)
+        {
+            try
+            {
+                var sid = await _otpService.SendOtpAsync(request.PhoneNumber);
+                return Ok(new { MessageSid = sid });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+        }
+        public class OtpRequest
+        {
+            public string PhoneNumber { get; set; }
+        }
+
+        public class OtpVerifyRequest
+        {
+            public string PhoneNumber { get; set; }
+            public string Otp { get; set; }
         }
     }
 }
