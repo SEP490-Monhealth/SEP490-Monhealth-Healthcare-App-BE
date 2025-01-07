@@ -14,6 +14,7 @@ namespace Monhealth.Domain
         public string FoodType { get; set; } = string.Empty;
         public string FoodDescription { get; set; } = string.Empty;
         public string FoodName { get; set; } = string.Empty;
+        public int Views { get; set; } = 0;
         public bool Status { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }

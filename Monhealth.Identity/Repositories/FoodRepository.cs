@@ -85,21 +85,34 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Food>> GetFoodByUserId(int page, int limit, Guid userId)
         {
-            IQueryable<Food> query = _context.Foods.Where(f => f.UserId == userId)
-             .Include(f => f.Category).Include(f => f.Nutrition).
-             Include(f => f.FoodPortions).ThenInclude(f => f.Portion).AsQueryable
-             ();
+            // Truy vấn dữ liệu cơ bản
+            IQueryable<Food> query = _context.Foods
+                .Where(f => f.UserId == userId)
+                .Include(f => f.Category)
+                .Include(f => f.Nutrition)
+                .Include(f => f.FoodPortions).ThenInclude(fp => fp.Portion);
+
+            // Tính tổng số lượng bản ghi
             int totalItems = await query.CountAsync();
+
+            // Tăng số lượt xem (Views) bằng SQL trực tiếp
+            await _context.Database.ExecuteSqlRawAsync(
+                "UPDATE Foods SET Views = Views + 1 WHERE UserId = {0}", userId);
+
+            // Áp dụng phân trang
             if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
             }
+
+            // Trả về kết quả phân trang
             return new PaginatedResult<Food>
             {
                 Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
         }
+
 
         public async Task<List<Food>> GetFoodListByFoodType(string foodType)
         {

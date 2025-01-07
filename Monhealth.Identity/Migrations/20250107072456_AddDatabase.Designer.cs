@@ -12,8 +12,8 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250107065127_InitialAndSeedData")]
-    partial class InitialAndSeedData
+    [Migration("20250107072456_AddDatabase")]
+    partial class AddDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -508,6 +508,9 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("Views")
+                        .HasColumnType("int");
+
                     b.HasKey("FoodId");
 
                     b.HasIndex("CategoryId");
@@ -527,7 +530,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -539,7 +543,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -551,7 +556,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -563,7 +569,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -575,7 +582,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -587,7 +595,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -599,7 +608,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -611,7 +621,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -623,7 +634,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -635,7 +647,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -647,7 +660,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -659,7 +673,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -671,7 +686,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -683,7 +699,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -695,7 +712,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -707,7 +725,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -719,7 +738,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -731,7 +751,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -743,7 +764,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -755,7 +777,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -767,7 +790,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -779,7 +803,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -791,7 +816,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -803,7 +829,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -815,7 +842,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -827,7 +855,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -839,7 +868,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -851,7 +881,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -863,7 +894,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -875,7 +907,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -887,7 +920,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -899,7 +933,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -911,7 +946,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -923,7 +959,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -935,7 +972,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -947,7 +985,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -959,7 +998,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -971,7 +1011,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -983,7 +1024,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -995,7 +1037,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1007,7 +1050,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1019,7 +1063,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1031,7 +1076,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1043,7 +1089,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1055,7 +1102,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1067,7 +1115,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1079,7 +1128,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1091,7 +1141,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1103,7 +1154,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1115,7 +1167,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1127,7 +1180,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1139,7 +1193,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1151,7 +1206,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1163,7 +1219,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1175,7 +1232,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1187,7 +1245,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1199,7 +1258,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1211,7 +1271,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1223,7 +1284,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1235,7 +1297,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1247,7 +1310,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1259,7 +1323,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1271,7 +1336,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1283,7 +1349,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1295,7 +1362,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1307,7 +1375,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1319,7 +1388,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1331,7 +1401,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1343,7 +1414,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1355,7 +1427,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1367,7 +1440,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1379,7 +1453,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1391,7 +1466,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1403,7 +1479,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1415,7 +1492,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1427,7 +1505,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1439,7 +1518,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1451,7 +1531,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1463,7 +1544,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1475,7 +1557,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1487,7 +1570,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1499,7 +1583,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1511,7 +1596,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1523,7 +1609,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1535,7 +1622,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1547,7 +1635,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1559,7 +1648,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1571,7 +1661,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1583,7 +1674,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1595,7 +1687,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1607,7 +1700,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1619,7 +1713,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1631,7 +1726,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1643,7 +1739,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1655,7 +1752,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1667,7 +1765,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1679,7 +1778,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1691,7 +1791,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1703,7 +1804,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1715,7 +1817,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1727,7 +1830,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1739,7 +1843,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1751,7 +1856,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1763,7 +1869,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1775,7 +1882,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1787,7 +1895,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1799,7 +1908,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1811,7 +1921,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1823,7 +1934,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1835,7 +1947,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1847,7 +1960,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1859,7 +1973,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         },
                         new
                         {
@@ -1871,7 +1986,8 @@ namespace Monhealth.Identity.Migrations
                             FoodType = "Public",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0
                         });
                 });
 
@@ -5966,7 +6082,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fed302a3-f681-4e30-a16e-978f28cdedfb",
+                            ConcurrencyStamp = "d93f6221-00f9-4a42-85f0-c61b0871d844",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -5974,10 +6090,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGxLOgW7vptLgkVnuKSIS/lCNKbGF0yyLIq1LjVqARleOgRLDIDwEDrh4+V/DhcswA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENYhIct71cZMLL9/mSnbX7aa24mjcOfLMVnXEPFI3mQ85n9t9Mqi2bcqnFWb9+wNGQ==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d609bba2-b42c-45a6-9215-306be13dbb8f",
+                            SecurityStamp = "563508f7-17f1-4b2b-a0f1-d7ded6efcf3a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -5987,7 +6103,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ac57fb97-3700-47af-a5df-0883cb9f9315",
+                            ConcurrencyStamp = "cc80aca0-08b2-4ddb-a3ef-f2606a08a99d",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -5995,10 +6111,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMZ99IEjpQn2lrHklGyLPgd5RiwYK96qI7h81I+JuRxD9ff02lpvKIBfUfh1KkzyGw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHLdiutWvdVbM6JEFxmsu0lUFOQ5sJYhgeGQxARweQaIZi0BxGzt3nISDIB2g27+mg==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f7692821-7f20-49f8-bec6-4b0ada850a00",
+                            SecurityStamp = "146b453a-3e6e-43c9-bb0a-c3c2c562d383",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6008,7 +6124,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0d09bbfe-eee6-47d0-ae88-92f9155a731d",
+                            ConcurrencyStamp = "dab1e000-a660-46a3-831e-383a5aa28d51",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -6016,10 +6132,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMtvLbfIXxCRr3vk6KpPRvHcgonOndgjGHLAtfaR0mqLlWN6MF6CilKpBvtLS/iHNg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFcTDXGpe2tz+x2XL+FKW+uavOtXsAM91PgVrE5oXWXyp66jPgRT4PSu+quBo41zZg==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "17d8127d-e98c-4202-84c1-a14e5c9c2518",
+                            SecurityStamp = "0d6ff544-9388-4f87-83a3-ef8d004777b3",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6029,7 +6145,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6ad0ebe4-ee25-4742-8ab6-2969a1e9865a",
+                            ConcurrencyStamp = "69feed6b-10b1-447c-adc9-5a7c14f2d144",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -6037,10 +6153,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEH9xXra9I07i5sW5IzTOeRn/hW4ZPQqNQsPbD7CBuFgdutiZSEBusDeq7rmdwYRuQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOWcqq7ECGwsabXKZSgTuMoFtxd2ufXbAVHSilz1PFunHmT26sFo312bgWUxUXyXbA==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "729c13ca-3c60-42ac-97c5-4d93ed1d08db",
+                            SecurityStamp = "e3fd46a0-bcd5-46dd-983f-3d05dffd080f",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6050,7 +6166,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8acba12d-f69b-4451-a295-bb720a806c13",
+                            ConcurrencyStamp = "db8e8f05-5387-441c-9bf2-1618a873b6a1",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -6058,10 +6174,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPiD9WgucxQRgjlRHJeRKVQzH1Khbk7iShwsGukMjBHrhNeY4Ml9nfCEnLe5gKzUqA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEALu8UtSFWdTPnW1xEwSAysS1xVwxZiB57qWK6IjG686QHVIM1El3W+GoK0/z4iMuw==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "04a78b1f-c8dd-42f5-9f74-dc3c48313ac8",
+                            SecurityStamp = "fdf90724-9419-413b-8cff-4001d49bd46c",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6071,7 +6187,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c3245d7d-e5af-45a8-986d-c1df6f1076a7",
+                            ConcurrencyStamp = "072eb73e-a279-48c2-9708-db187082aa1b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -6079,10 +6195,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHWRqJVC0jshVA+FkhtRpGB3TX6yO0RdQcyc9Mm1daHh4230Oli7V5Kmta5bWjJkfQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKUOPyXCvcgRGsZbdX5CbVwjuaOqS5DUry0YemYYjjS8B4XJNnLh4mP9W+FJHCLSiw==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "df673b36-98e5-4ac3-b7a7-0ab34f0d1d58",
+                            SecurityStamp = "625df8d0-fdfb-4a8e-8afe-f2ce65ca10a4",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6092,7 +6208,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "95409f22-f42e-42a7-8479-04d1dc145070",
+                            ConcurrencyStamp = "00b7f7d6-a8a3-49f9-a1d0-f2c54ad9430e",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -6100,10 +6216,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE4Edv9RYLTQFyDJE/iuyXzBL7IqpQSXpBbTfshJ6WGiiuWdcSLSLY61Ojyj+miW5Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHGevzOzx3zkXEsAQu6Ux/zK1bQKOQr3IMdK2VKaAta1Kg2lTzsb3MIMM72CuqKXnQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5ff6255f-141d-4714-afc9-3903f5df2aef",
+                            SecurityStamp = "f0ad76b0-56e8-4b10-9bfb-d0936d7254e6",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
