@@ -9,9 +9,10 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         public int Limit { get; set; }
         public string Search { get; set; }
         public string CategoryName { get; set; }
-        public bool? Status { get; set; }
         public string FoodType { get; set; }
-        public GetFoodListQuery(int page, int limit, string? search, string? categoryName, string foodType, bool? status)
+        public bool? Popular {get; set;}
+        public bool? Status { get; set; }
+        public GetFoodListQuery(int page, int limit, string? search, string? categoryName, string foodType,bool? popular, bool? status ) 
         {
             Page = page;
             Limit = limit;
@@ -19,6 +20,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
             Status = status;
             CategoryName = categoryName;
             FoodType = foodType;
+            Popular = popular;
         }
     }
 }
