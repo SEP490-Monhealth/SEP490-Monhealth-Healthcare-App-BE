@@ -31,7 +31,6 @@ namespace Monhealth.Api.Controllers
                 Data = metrics,
                 Status = (int)HttpStatusCode.OK,
                 Success = true,
-                Message = "Lấy danh sách số liệu thành công"
             };
         }
 

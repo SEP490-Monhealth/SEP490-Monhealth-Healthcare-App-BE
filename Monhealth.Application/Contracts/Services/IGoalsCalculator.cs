@@ -1,4 +1,5 @@
 ﻿using Monhealth.Application.Features.Metric.Commands.CreateMetric;
+using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Domain;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Monhealth.Application.Contracts.Services
 {
     public interface IGoalsCalculator
     {
-        void CalculateGoal(Goal goal, CreateMetricDto createMetricDto, float tdee);
+        void CreateCalculateGoal(Goal goal, CreateMetricDto createMetricDto, float tdee);
+        void UpdateCalculateGoal(Goal metricToUpdate, UpdateMetricDto updateMetricDto, float tdee);
     }
 }

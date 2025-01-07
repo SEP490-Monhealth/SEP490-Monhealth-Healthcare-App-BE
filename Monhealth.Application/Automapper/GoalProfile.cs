@@ -5,6 +5,7 @@ using Monhealth.Application.Features.Goals.Queries.GetAllGoalQuery;
 using Monhealth.Application.Features.Goals.Queries.GetGoalById;
 using Monhealth.Application.Features.Goals.Queries.GetGoalByUserId;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
+using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Domain;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace Monhealth.Application.Automapper
             CreateMap<Goal, GetGoalByUserIdDTO>().ReverseMap();
             CreateMap<Goal, UpdateGoalDTO>().ReverseMap();
             CreateMap<Goal, CreateMetricDto>().ReverseMap();
+            CreateMap<Goal, UpdateMetricDto>().ReverseMap();
         }
     }
 }

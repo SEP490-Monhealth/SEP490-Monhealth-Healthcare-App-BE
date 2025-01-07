@@ -1,5 +1,6 @@
 ﻿using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
+using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 using System;
@@ -12,7 +13,7 @@ namespace Monhealth.Identity.Services
 {
     public class GoalsCalculator : IGoalsCalculator
     {
-        public void CalculateGoal(Goal goal, CreateMetricDto createMetricDto, float tdee)
+        public void CreateCalculateGoal(Goal goal, CreateMetricDto createMetricDto, float tdee)
         {
             if (!Enum.TryParse<GoalType>(createMetricDto.GoalType, true, out var goalType))
             {
@@ -33,6 +34,29 @@ namespace Monhealth.Identity.Services
             // Tinh toan water
             goal.WaterGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel == 1.2f || createMetricDto.ActivityLevel == 1.375f ? 30 : 40));
         }
+
+        public void UpdateCalculateGoal(Goal goalToUpdate, UpdateMetricDto updateMetricDto, float tdee)
+        {
+            if (!Enum.TryParse<GoalType>(updateMetricDto.GoalType, true, out var goalType))
+            {
+                throw new Exception("Loại mục tiêu không hợp lệ.");
+            }
+            goalToUpdate.GoalType = goalType;
+            // tinh toan cac chi so Macros
+            var (calories, protein, carbs, fats) = CalculateMacros(tdee, updateMetricDto.GoalType, updateMetricDto.Weight, goalToUpdate.WeightGoal);
+            goalToUpdate.CaloriesGoal = calories;
+            goalToUpdate.ProteinGoal = protein;
+            goalToUpdate.CarbGoal = carbs;
+            goalToUpdate.FatGoal = fats;
+
+            // Tinh FiberGoal và SugarGoal tu carbs
+            goalToUpdate.FiberGoal = carbs * 0.1f;
+            goalToUpdate.SugarGoal = carbs * 0.25f;
+
+            // Tinh toan water
+            goalToUpdate.WaterGoal = (int)(updateMetricDto.Weight * (updateMetricDto.ActivityLevel == 1.2f || updateMetricDto.ActivityLevel == 1.375f ? 30 : 40));
+        }
+
         private (float calories, float protein, float carbs, float fats) CalculateMacros(float tdee, string goalType, float currentWeight, float targetWeight)
         {
             float calories, proteinPercentage, carbPercentage, fatPercentage;

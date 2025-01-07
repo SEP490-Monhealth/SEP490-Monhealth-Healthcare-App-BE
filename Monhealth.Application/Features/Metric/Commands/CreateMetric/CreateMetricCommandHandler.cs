@@ -49,8 +49,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
             #region tinh toan Goal
             var newGoal = _mapper.Map<Goal>(request.CreateMetricDto);          
-            _goalCalculator.CalculateGoal(newGoal, request.CreateMetricDto, newMetric.Tdee);
-            newGoal.GoalId = Guid.NewGuid();
+            _goalCalculator.CreateCalculateGoal(newGoal, request.CreateMetricDto, newMetric.Tdee);
+            newGoal.GoalId = newMetric.MetricId;
             newGoal.Status = GoalStatus.Active;
             newGoal.CreatedAt = DateTime.Now;
             newGoal.UpdatedAt = DateTime.Now;
