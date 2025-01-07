@@ -48,7 +48,7 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
                 case "WeightLoss":
                     if (existingGoal.WeightGoal > infoUser.Weight)
                     {
-                        throw new Exception("Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại.");
+                        throw new Exception($"Cân nặng hiện tại là {infoUser.Weight}. Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại.");
                     }
                     var caloriesWeightLoss = infoUser.Tdee * 0.8f; // Giảm 20%
                     existingGoal.CaloriesGoal = caloriesWeightLoss;

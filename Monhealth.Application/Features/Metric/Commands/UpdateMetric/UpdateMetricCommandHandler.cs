@@ -7,11 +7,11 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
 {
     public class UpdateMetricCommandHandler : IRequestHandler<UpdateMetricCommand, bool>
     {
-        private readonly IMetricsCalculate _metricCalculate;
+        private readonly IMetricsCalculator _metricCalculate;
         private readonly IMetricRepository _metricRepository;
         private readonly IMapper _mapper;
 
-        public UpdateMetricCommandHandler(IMetricRepository metricRepository, IMapper mapper, IMetricsCalculate metricCalculate)
+        public UpdateMetricCommandHandler(IMetricRepository metricRepository, IMapper mapper, IMetricsCalculator metricCalculate)
         {
             _metricCalculate = metricCalculate;
             _metricRepository = metricRepository;

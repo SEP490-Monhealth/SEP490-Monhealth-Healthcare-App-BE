@@ -31,66 +31,66 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
             }
             var newGoal = _mapper.Map<Monhealth.Domain.Goal>(request.CreateGoalDTO);
             // Tính CaloriesGoal dựa trên GoalType
-            switch (request.CreateGoalDTO.GoalType)
-            {
-                case "WeightLoss":
-                    if(newGoal.WeightGoal > infoUser.Weight)
-                    {
-                        throw new Exception("Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại.");
-                    }
-                    var caloriesWeightLoss = infoUser.Tdee * 0.8f; // Giảm 20%
-                    newGoal.CaloriesGoal = caloriesWeightLoss; 
-                    newGoal.ProteinGoal = (caloriesWeightLoss * 0.4f);
+            //switch (request.CreateGoalDTO.GoalType)
+            //{
+            //    case "WeightLoss":
+            //        if(newGoal.WeightGoal > infoUser.Weight)
+            //        {
+            //            throw new Exception($"Cân nặng hiện tại là {infoUser.Weight}. Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại.");
+            //        }
+            //        var caloriesWeightLoss = infoUser.Tdee * 0.8f; // Giảm 20%
+            //        newGoal.CaloriesGoal = caloriesWeightLoss; 
+            //        newGoal.ProteinGoal = (caloriesWeightLoss * 0.4f);
 
-                    var carbGoalWeightLoss = caloriesWeightLoss * 0.35f;
-                    newGoal.CarbGoal = carbGoalWeightLoss;
+            //        var carbGoalWeightLoss = caloriesWeightLoss * 0.35f;
+            //        newGoal.CarbGoal = carbGoalWeightLoss;
 
-                    newGoal.FatGoal = (caloriesWeightLoss * 0.25f);
+            //        newGoal.FatGoal = (caloriesWeightLoss * 0.25f);
 
-                    newGoal.FiberGoal = carbGoalWeightLoss * 0.1f;
-                    newGoal.SugarGoal = carbGoalWeightLoss * 0.25f;
-                    break;
-                case "MaintainWeight":
-                    if (newGoal.WeightGoal < infoUser.Weight)
-                    {
-                        throw new Exception("Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại.");
-                    }
-                    var caloriesMaintainWeight = infoUser.Tdee * 1.1f; // Tăng 10-15%
-                    newGoal.CaloriesGoal = caloriesMaintainWeight; 
-                    newGoal.ProteinGoal = (caloriesMaintainWeight * 0.3f);
+            //        newGoal.FiberGoal = carbGoalWeightLoss * 0.1f;
+            //        newGoal.SugarGoal = carbGoalWeightLoss * 0.25f;
+            //        break;
+            //    case "MaintainWeight":
+            //        if (newGoal.WeightGoal < infoUser.Weight)
+            //        {
+            //            throw new Exception("Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại.");
+            //        }
+            //        var caloriesMaintainWeight = infoUser.Tdee * 1.1f; // Tăng 10-15%
+            //        newGoal.CaloriesGoal = caloriesMaintainWeight; 
+            //        newGoal.ProteinGoal = (caloriesMaintainWeight * 0.3f);
 
-                    var carbGoalMaintainWeight = caloriesMaintainWeight * 0.5f;
-                    newGoal.CarbGoal = carbGoalMaintainWeight;
+            //        var carbGoalMaintainWeight = caloriesMaintainWeight * 0.5f;
+            //        newGoal.CarbGoal = carbGoalMaintainWeight;
 
-                    newGoal.FatGoal = (caloriesMaintainWeight * 0.2f);
+            //        newGoal.FatGoal = (caloriesMaintainWeight * 0.2f);
 
-                    newGoal.FiberGoal = carbGoalMaintainWeight * 0.1f;
-                    newGoal.SugarGoal = carbGoalMaintainWeight * 0.25f;
-                    break;
-                case "WeightGain":
-                    var caloriesWeightGain = infoUser.Tdee; // Giữ nguyên TDEE
-                    newGoal.CaloriesGoal = caloriesWeightGain; 
-                    newGoal.ProteinGoal = (caloriesWeightGain * 0.3f);
+            //        newGoal.FiberGoal = carbGoalMaintainWeight * 0.1f;
+            //        newGoal.SugarGoal = carbGoalMaintainWeight * 0.25f;
+            //        break;
+            //    case "WeightGain":
+            //        var caloriesWeightGain = infoUser.Tdee; // Giữ nguyên TDEE
+            //        newGoal.CaloriesGoal = caloriesWeightGain; 
+            //        newGoal.ProteinGoal = (caloriesWeightGain * 0.3f);
 
-                    var carbGoalWeightGain = caloriesWeightGain * 0.4f;
-                    newGoal.CarbGoal = carbGoalWeightGain;
+            //        var carbGoalWeightGain = caloriesWeightGain * 0.4f;
+            //        newGoal.CarbGoal = carbGoalWeightGain;
 
-                    newGoal.FatGoal = (caloriesWeightGain * 0.3f);
+            //        newGoal.FatGoal = (caloriesWeightGain * 0.3f);
 
-                    newGoal.FiberGoal = carbGoalWeightGain * 0.1f;
-                    newGoal.SugarGoal = carbGoalWeightGain * 0.25f;
-                    break;
-                default:
-                    throw new Exception("Loại mục tiêu không hợp lệ.");
-            }
-            // tinh WaterGoal
-            if(infoUser.ActivityLevel == 1.2f || infoUser.ActivityLevel == 1.375f)
-            {
-                newGoal.WaterGoal = (int)infoUser.Weight * 30;
-            } else
-            {
-                newGoal.WaterGoal = (int)infoUser.Weight * 40;
-            }
+            //        newGoal.FiberGoal = carbGoalWeightGain * 0.1f;
+            //        newGoal.SugarGoal = carbGoalWeightGain * 0.25f;
+            //        break;
+            //    default:
+            //        throw new Exception("Loại mục tiêu không hợp lệ.");
+            //}
+            //// tinh WaterGoal
+            //if(infoUser.ActivityLevel == 1.2f || infoUser.ActivityLevel == 1.375f)
+            //{
+            //    newGoal.WaterGoal = (int)infoUser.Weight * 30;
+            //} else
+            //{
+            //    newGoal.WaterGoal = (int)infoUser.Weight * 40;
+            //}
 
             newGoal.GoalId = Guid.NewGuid();
             newGoal.Status = GoalStatus.Active;
