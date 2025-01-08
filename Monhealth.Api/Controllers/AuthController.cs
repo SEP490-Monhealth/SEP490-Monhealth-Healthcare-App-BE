@@ -85,7 +85,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Đăng xuất thành công"
             };
         }
-        [HttpPost("send")]
+        [HttpPost("otp-verification")]
         public async Task<IActionResult> SendOtp([FromBody] OtpRequest request)
         {
             try

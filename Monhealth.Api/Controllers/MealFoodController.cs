@@ -45,7 +45,7 @@ namespace Monhealth.Api.Controllers
             });
         }
         [HttpGet]
-        [Route("{mealId:Guid}/foods/mealFood")]
+        [Route("{mealId:Guid}/meal-foods")]
         public async Task<ActionResult<ResultModel>> GetAllMealFoodByMealId(Guid mealId)
         {
             var food = await _mediator.
