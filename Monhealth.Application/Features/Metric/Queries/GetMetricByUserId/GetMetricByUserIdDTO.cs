@@ -10,8 +10,6 @@ namespace Monhealth.Application.Features.Metric.Queries.GetMetricByUserId
     public class GetMetricByUserIdDTO : BaseEntity
     {
         public Guid MetricId { get; set; }
-        public string GoalType { get; set; }
-        public int WeightGoal { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
         public float Height { get; set; }
