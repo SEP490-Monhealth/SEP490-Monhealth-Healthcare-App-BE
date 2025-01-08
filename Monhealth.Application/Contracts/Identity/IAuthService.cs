@@ -7,6 +7,7 @@ namespace Monhealth.Application.Contracts.Identity
         Task<AuthResponse> Login(AuthenRequest request);
         Task Register(RegistrationRequest request);
         Task<MeResponse> GetInfomationCurrentUser(string phoneNumber);
+        Task<TokenDto> RefreshToken(TokenDto tokenDto);
         Task LogoutAsync();
     }
 }

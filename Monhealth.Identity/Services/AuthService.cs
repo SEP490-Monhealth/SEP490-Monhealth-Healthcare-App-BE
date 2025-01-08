@@ -104,12 +104,37 @@ namespace Monhealth.Identity.Services
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,
                 ExpiredAt = user.RefreshTokenExpiryTime
-            }; ;
+            };
         }
 
         public async Task LogoutAsync()
         {
             await _signInManager.SignOutAsync();
+        }
+
+        public async Task<TokenDto> RefreshToken(TokenDto tokenDto)
+        {
+            var principal = _tokenService.GetPrincipalFromExpiredToken(tokenDto.AccessToken);
+            var user = await _userManager.FindByNameAsync(principal.Identity.Name);
+            if (user is null || user.RefreshToken != tokenDto.RefreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
+            {
+
+                throw new BadRequestException("Token không hợp lệ");
+            }
+            var roles = await _userManager.GetRolesAsync(user);
+            var claims = new[]
+            {
+                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                 new Claim(ClaimTypes.NameIdentifier, user.UserName),
+                 new Claim(ClaimTypes.MobilePhone, user.PhoneNumber),
+
+                 new Claim(ClaimTypes.Name, user.UserName),
+                 new Claim(UserClaims.UserId, user.Id.ToString()),
+                 new Claim(UserClaims.FullName, user.FullName),
+                 new Claim(UserClaims.Role, string.Join(";", roles)),
+                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+            return new TokenDto() { AccessToken = _tokenService.GenerateAccessToken(claims), RefreshToken = _tokenService.GenerateRefreshToken() };
         }
 
         public async Task Register(RegistrationRequest request)

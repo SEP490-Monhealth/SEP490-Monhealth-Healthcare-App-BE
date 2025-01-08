@@ -98,6 +98,19 @@ namespace Monhealth.Api.Controllers
                 return BadRequest(new { Message = ex.Message });
             }
         }
+
+        [HttpPost("refresh")]
+        public async Task<ActionResult<ResultModel>> RefreshToken([FromBody] TokenDto tokenDto)
+        {
+            var result = await _authService.RefreshToken(tokenDto);
+            return new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập token thành công",
+                Data = result
+
+            };
+        }
         public class OtpRequest
         {
             public string PhoneNumber { get; set; }
