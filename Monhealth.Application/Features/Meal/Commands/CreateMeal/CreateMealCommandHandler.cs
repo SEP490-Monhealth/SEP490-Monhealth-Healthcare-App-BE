@@ -33,11 +33,13 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
         public async Task<Guid> Handle(CreateMealCommand request, CancellationToken cancellationToken)
         {
             var userId = request.CreateMeal.UserId;
+            var mealType = request.CreateMeal.MealType;
+            var currentDate1 = DateTime.Now.Date;
             var validMealTypes = new HashSet<string> { "Breakfast", "Lunch", "Dinner", "Snack" };
             if (!validMealTypes.Contains(request.CreateMeal.MealType))
                 throw new ArgumentException("MealType phải là một trong các giá trị: Breakfast, Lunch, Dinner, Snack");
 
-            var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, request.CreateMeal.MealType);
+            var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId,mealType,currentDate1);
             Monhealth.Domain.Meal model;
 
             if (existingMeal != null)
@@ -162,15 +164,15 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     }
                     if (mealFood.Status == true)
                     {
-                    var food = mealFood.Food;
-                    var portionWeight = portion.PortionWeight;
+                        var food = mealFood.Food;
+                        var portionWeight = portion.PortionWeight;
 
-                    dailyMeal.TotalCalories += (food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalProteins += (food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalCarbs += (food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalFats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalFibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalSugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalCalories += (food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalProteins += (food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalCarbs += (food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalFats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalFibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalSugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
 
                     }
                 }
