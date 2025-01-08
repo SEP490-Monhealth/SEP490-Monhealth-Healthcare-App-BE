@@ -48,11 +48,11 @@ namespace Monhealth.Identity.Repositories
         }
 
 
-        public async Task<Meal> GetByUserIdAndMealType(Guid userId, string mealType , DateTime date)
+        public async Task<Meal> GetByUserIdAndMealType(Guid userId, string mealType , int date)
         {
             return await _context.Meals.FirstOrDefaultAsync
             (m => m.UserId == userId && m.MealType == mealType
-            && m.CreatedAt == date.Date);
+            && m.CreatedAt.Value.Date.Day == date);
         }
 
 
