@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Food.ChangeStatus;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand;
+using Monhealth.Application.Features.Goals.Commands.ChangeStatusCompletedCommand;
 using Monhealth.Application.Features.Goals.Commands.CreateCommand;
 using Monhealth.Application.Features.Goals.Commands.DeleteCommand;
 using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
@@ -145,10 +146,32 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPatch("{goalId}/status")]
-        public async Task<ActionResult<ResultModel>> ChangeStatus(Guid goalId, [FromBody] ChangeStatusGoalDTO statusGoalDTO)
+        [HttpPatch("{goalId}/status/abandoned")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusAbandoned(Guid goalId)
         {
-            var command = new ChangeStatusGoalCommand(goalId, statusGoalDTO);
+            var command = new ChangeStatusAbandonedGoalCommand { GoalId = goalId};
+            var changeStatus = await _mediator.Send(command);
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy mục tiêu"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Thay đổi trạng thái thành công"
+            };
+        }
+
+        [HttpPatch("{goalId}/status/completed")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusCompleted(Guid goalId)
+        {
+            var command = new ChangeStatusCompletedGoalCommand { GoalId = goalId };
             var changeStatus = await _mediator.Send(command);
             if (!changeStatus)
             {

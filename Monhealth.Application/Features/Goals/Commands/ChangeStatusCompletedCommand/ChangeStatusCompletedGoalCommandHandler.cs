@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand;
 using Monhealth.Domain.Enum;
 using System;
 using System.Collections.Generic;
@@ -7,27 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand
+namespace Monhealth.Application.Features.Goals.Commands.ChangeStatusCompletedCommand
 {
-    public class ChangeStatusGoalCommandHandler : IRequestHandler<ChangeStatusGoalCommand, bool>
+    public class ChangeStatusCompletedGoalCommandHandler : IRequestHandler<ChangeStatusCompletedGoalCommand, bool>
     {
         private readonly IGoalRepository _goalRepository;
-        public ChangeStatusGoalCommandHandler(IGoalRepository goalRepository)
+        public ChangeStatusCompletedGoalCommandHandler(IGoalRepository goalRepository)
         {
             _goalRepository = goalRepository;
         }
-        public async Task<bool> Handle(ChangeStatusGoalCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(ChangeStatusCompletedGoalCommand request, CancellationToken cancellationToken)
         {
             var goal = await _goalRepository.GetByIdAsync(request.GoalId);
-            if(goal == null)
+            if (goal == null)
             {
                 return false;
             }
-            if(!Enum.TryParse<GoalStatus>(request.ChangeStatusGoalDTO.Status, out var status))
-            {
-                throw new Exception("Trạng thái không hợp lệ");
-            }
-            goal.Status = status;
+            goal.Status = GoalStatus.Completed;
             _goalRepository.Update(goal);
             await _goalRepository.SaveChangeAsync();
             return true;
