@@ -11,8 +11,6 @@ namespace Monhealth.Domain
         [Key]
         public Guid MetricId { get; set; }
         public Guid UserId { get; set; }
-        public GoalType GoalType { get; set; }
-        public int WeightGoal { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Gender Gender { get; set; }
         public float Height { get; set; }

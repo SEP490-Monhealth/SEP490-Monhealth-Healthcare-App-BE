@@ -41,9 +41,6 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
             {
                 throw new Exception("Loại mục tiêu không hợp lệ");
             }
-            infoMetricOfUser.GoalType = parsedGoalType;
-            infoMetricOfUser.WeightGoal = request.UpdateGoalDTO.WeightGoal;
-            infoMetricOfUser.UpdatedAt = DateTime.Now;
 
             existingGoal.GoalType = parsedGoalType;
             existingGoal.WeightGoal = request.UpdateGoalDTO.WeightGoal;
