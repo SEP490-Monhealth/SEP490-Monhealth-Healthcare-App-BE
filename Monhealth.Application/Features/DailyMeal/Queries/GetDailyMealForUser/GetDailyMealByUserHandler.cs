@@ -102,6 +102,17 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                 TotalFibers = query.TotalFibers,
                 TotalSugars = query.TotalSugars
             };
+            var goal = new GoalDailyMealDTO2
+            {
+                CaloriesGoal = query.Goal?.CaloriesGoal ?? 0, // Gán giá trị 0 nếu Goal hoặc CaloriesGoal là null
+                CarbsGoal = query.Goal?.CarbGoal ?? 0,
+                FatGoal = query.Goal?.FatGoal ?? 0,
+                FiberGoal = query.Goal?.FiberGoal ?? 0,
+                GoalType = query.Goal?.GoalType.ToString() ?? string.Empty, // Gán chuỗi rỗng nếu GoalType null
+                ProteinGoal = query.Goal?.ProteinGoal ?? 0,
+                SugarGoal = query.Goal?.SugarGoal ?? 0,
+            };
+
             var sortedMeals = meals
             .OrderBy(m => mealTypeOrder.IndexOf(m.MealType))
             .ToList();
@@ -111,6 +122,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
             {
                 DailyMealId = query.DailyMealId,
                 Nutrition = nutrition,
+                Goal = goal,
                 Items = sortedMeals,
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt
