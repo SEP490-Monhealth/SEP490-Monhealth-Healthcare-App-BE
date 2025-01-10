@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -8,9 +9,11 @@ using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
+using Monhealth.Application.Features.Notificacation.Commands;
 using Monhealth.Application.Models.Identity;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
+using Monhealth.Identity.NotificationService;
 using Monhealth.Identity.Repositories;
 using Monhealth.Identity.Services;
 using System.Text;
@@ -70,6 +73,12 @@ namespace Monhealth.Identity
             services.AddScoped<IMetricsCalculator, MetricsCalculator>();
             services.AddScoped<IGoalRepository, GoalRepository>();
             services.AddScoped<IGoalsCalculator, GoalsCalculator>();
+            services.AddScoped<INotificationRepository , NotificationRepository>();
+            // Đăng ký MediatR
+            services.AddMediatR(typeof(CreateNotificationCommandHandler).Assembly);
+
+            // Đăng ký Background Service
+            services.AddHostedService<ReminderBackgroundService>();
             // Add Authentication
             services.AddAuthentication(options =>
             {

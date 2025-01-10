@@ -16,5 +16,6 @@ namespace Monhealth.Core
         public bool Status { get; set; }
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
+        public ICollection<Notification> Notifications { get; set; }
     }
 }

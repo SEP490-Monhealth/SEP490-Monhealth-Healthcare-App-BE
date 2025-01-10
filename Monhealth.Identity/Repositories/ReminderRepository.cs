@@ -11,6 +11,14 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+        public async Task<List<Reminder>> GetActiveRemindersAsync(string currentTime)
+        {
+            return await _context.Reminders
+            .Where(r => r.Status && r.Time == currentTime)
+            .ToListAsync();
+
+        }
+
         public async Task<List<Reminder>> GetAllReminderAsync()
         {
             return await _context.Reminders.Include(r => r.AppUser).ToListAsync();
