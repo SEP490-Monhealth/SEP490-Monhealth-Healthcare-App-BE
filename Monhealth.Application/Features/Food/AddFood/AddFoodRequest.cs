@@ -16,8 +16,11 @@ namespace Monhealth.Application.Features.Food.AddFood
     }
     public class PortionDTO
     {
+        [JsonPropertyName("size")]
         public string PortionSize { get; set; } = string.Empty;
+        [JsonPropertyName("weight")]
         public float PortionWeight { get; set; }
+        [JsonPropertyName("unit")]
         public string MeasurementUnit { get; set; } = string.Empty;
     }
     public class NutritionDTO

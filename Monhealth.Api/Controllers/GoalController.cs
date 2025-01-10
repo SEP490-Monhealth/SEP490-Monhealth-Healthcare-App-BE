@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Food.ChangeStatus;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCompletedCommand;
 using Monhealth.Application.Features.Goals.Commands.CreateCommand;
@@ -146,10 +145,10 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPatch("{goalId}/status/abandoned")]
-        public async Task<ActionResult<ResultModel>> ChangeStatusAbandoned(Guid goalId)
+        [HttpPatch("{goalId}/completed")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusCompleted(Guid goalId)
         {
-            var command = new ChangeStatusAbandonedGoalCommand { GoalId = goalId};
+            var command = new ChangeStatusCompletedGoalCommand { GoalId = goalId };
             var changeStatus = await _mediator.Send(command);
             if (!changeStatus)
             {
@@ -168,10 +167,10 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPatch("{goalId}/status/completed")]
-        public async Task<ActionResult<ResultModel>> ChangeStatusCompleted(Guid goalId)
+        [HttpPatch("{goalId}/abandoned")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusAbandoned(Guid goalId)
         {
-            var command = new ChangeStatusCompletedGoalCommand { GoalId = goalId };
+            var command = new ChangeStatusAbandonedGoalCommand { GoalId = goalId };
             var changeStatus = await _mediator.Send(command);
             if (!changeStatus)
             {

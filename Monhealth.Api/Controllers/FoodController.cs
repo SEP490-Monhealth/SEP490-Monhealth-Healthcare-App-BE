@@ -246,7 +246,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut]
-        [Route("public/{foodId:Guid}")]
+        [Route("{foodId:Guid}/public")]
         public async Task<ActionResult<ResultModel>> UpdateFoodForUser(Guid foodId, [FromBody] UpdateFoodRequestUser request)
         {
 

@@ -99,7 +99,7 @@ namespace Monhealth.Api.Controllers
             }
         }
 
-        [HttpPost("refresh")]
+        [HttpPost("refresh-token")]
         public async Task<ActionResult<ResultModel>> RefreshToken([FromBody] TokenDto tokenDto)
         {
             var result = await _authService.RefreshToken(tokenDto);
