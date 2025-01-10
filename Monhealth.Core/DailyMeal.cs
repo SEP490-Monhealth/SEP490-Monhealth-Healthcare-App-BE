@@ -9,6 +9,7 @@ namespace Monhealth.Domain
         [Key]
         public Guid DailyMealId { get; set; }
         public Guid UserId { get; set; }
+        public Guid GoalId { get; set; }
         public Guid? ScheduleId { get; set; }
         public float TotalCalories { get; set; }
         public float TotalProteins { get; set; }
@@ -16,7 +17,8 @@ namespace Monhealth.Domain
         public float TotalFats { get; set; }
         public float TotalFibers { get; set; }
         public float TotalSugars { get; set; }
-      
+        [ForeignKey(nameof(GoalId))]
+        public Goal Goal {get ;set ;}
         public ICollection<Meal> Meals { get; set; }
     }
 }
