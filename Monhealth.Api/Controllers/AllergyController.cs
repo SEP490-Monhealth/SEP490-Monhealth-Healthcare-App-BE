@@ -2,6 +2,7 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Allergy.Commands.CreateAllergy;
+using Monhealth.Application.Features.Allergy.Commands.UpdateAllergy;
 using Monhealth.Application.Features.Allergy.Queries.GetAll;
 using Monhealth.Application.Features.Allergy.Queries.GetDetail;
 using Monhealth.Application.Models;
@@ -72,6 +73,26 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = 200,
                 Data = categories
+            });
+        }
+        [HttpPut]
+        [Route("{allergyId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateAllergy(Guid allergyId, [FromBody] UpdateAllergyRequest request)
+        {
+            var command = new UpdateAllergyRequestHandler(allergyId, request);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Cập nhật triệu chứng thất bại",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật triệu chứng thành công",
+                Success = true,
+                Status = 204,
             });
         }
     }
