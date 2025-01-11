@@ -1,15 +1,8 @@
 ﻿using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
-using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
-using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Identity.Services
 {

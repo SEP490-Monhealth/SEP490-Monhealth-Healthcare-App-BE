@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Common;
+﻿using Monhealth.Core;
+using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
@@ -25,5 +26,6 @@ namespace Monhealth.Domain
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         public ICollection<DailyMeal> DailyMeals { get; set; }
+        public ICollection<Reminder> Reminders { get; set; }
     }
 }

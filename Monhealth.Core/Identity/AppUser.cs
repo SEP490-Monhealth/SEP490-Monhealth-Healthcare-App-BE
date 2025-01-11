@@ -21,6 +21,6 @@ namespace Monhealth.Identity.Models
         public InterestFood InterestFood { get; set; } //one to one
         public ICollection<Metric> Metrics { get; set; }
         public ICollection<Goal> Goals { get; set; }
-
+        public ICollection<UserAllergy> UserAllergies { get; set; }
     }
 }

@@ -74,6 +74,7 @@ namespace Monhealth.Identity
             services.AddScoped<IGoalRepository, GoalRepository>();
             services.AddScoped<IGoalsCalculator, GoalsCalculator>();
             services.AddScoped<INotificationRepository , NotificationRepository>();
+            services.AddScoped<IAllergyRepository , AllergyRepository>();
             // Đăng ký MediatR
             services.AddMediatR(typeof(CreateNotificationCommandHandler).Assembly);
 

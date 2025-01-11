@@ -56,6 +56,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             newGoal.UpdatedAt = DateTime.Now;
             _goalRepository.Add(newGoal);
             await _goalRepository.SaveChangeAsync();
+            
             #endregion
             return Unit.Value;
         }

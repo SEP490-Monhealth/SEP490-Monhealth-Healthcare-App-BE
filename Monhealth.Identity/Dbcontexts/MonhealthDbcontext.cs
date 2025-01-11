@@ -31,7 +31,8 @@ namespace Monhealth.Identity.Dbcontexts
 
         public DbSet<FoodPortion> FoodPortions { get; set; }
         public DbSet<Notification> Notifications { get; set; }
-
+        public DbSet<UserAllergy> UserAllergies { get; set; }
+        public DbSet<FoodAllergy> FoodAllergies { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -57,6 +58,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new PortionConfiguration());
             builder.ApplyConfiguration(new NutritionConfiguration());
             builder.ApplyConfiguration(new FoodPortionConfiguration());
+            builder.ApplyConfiguration(new AllergyConfiguration());
         }
 
     }
