@@ -2,6 +2,7 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Allergy.Commands.CreateAllergy;
+using Monhealth.Application.Features.Allergy.Commands.DeleteAllergy;
 using Monhealth.Application.Features.Allergy.Commands.UpdateAllergy;
 using Monhealth.Application.Features.Allergy.Queries.GetAll;
 using Monhealth.Application.Features.Allergy.Queries.GetDetail;
@@ -90,9 +91,36 @@ namespace Monhealth.Api.Controllers
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật triệu chứng thành công",
+                Message = "Cập nhật triệu ch thành công",
                 Success = true,
                 Status = 204,
+            });
+        }
+        [HttpDelete]
+        [Route("{allergyId:Guid}")]
+        public async Task<ActionResult<ResultModel>> RemoveAllergy(Guid allergyId)
+        {
+            var result = await _mediator.Send(new DeleteAllergyRequest(allergyId));
+
+            if (!result)
+            {
+                // Trả về lỗi nếu xóa không thành công
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Triệu chứng không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa triệu chứng thành công",
+                Status = 204,
+                Data = null
             });
         }
     }
