@@ -39,6 +39,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
     }
     public class GoalDailyMealDTO2
     {
+        [JsonPropertyName("type")]
         public string GoalType { get; set; } = string.Empty;
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }
