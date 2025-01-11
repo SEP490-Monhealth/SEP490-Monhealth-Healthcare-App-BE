@@ -58,6 +58,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new PortionConfiguration());
             builder.ApplyConfiguration(new NutritionConfiguration());
             builder.ApplyConfiguration(new FoodPortionConfiguration());
+            builder.ApplyConfiguration(new AllergyConfiguration());
         }
 
     }
