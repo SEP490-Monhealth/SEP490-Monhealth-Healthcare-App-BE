@@ -1,7 +1,9 @@
+using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Allergy.Commands.CreateAllergy;
 using Monhealth.Application.Features.Allergy.Queries.GetAll;
+using Monhealth.Application.Features.Allergy.Queries.GetDetail;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -47,6 +49,30 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
+        }
+        [HttpGet]
+        [Route("{allergyId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetAllergyIdDetail(Guid allergyId)
+        {
+            var categories = await _mediator.
+            Send(new GetAllergyDetailQuery { AllergyId = allergyId });
+
+            if (categories == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Triệu chứng không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = categories
+            });
         }
     }
 }

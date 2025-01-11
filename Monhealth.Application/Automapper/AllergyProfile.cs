@@ -1,5 +1,6 @@
 using AutoMapper;
 using Monhealth.Application.Features.Allergy.Queries.GetAll;
+using Monhealth.Application.Features.Allergy.Queries.GetDetail;
 using Monhealth.Core;
 
 namespace Monhealth.Application.Automapper
@@ -8,7 +9,8 @@ namespace Monhealth.Application.Automapper
     {
         public AllergyProfile()
         {
-                CreateMap<AllergyDTO , Allergy>().ReverseMap();
+            CreateMap<AllergyDTO, Allergy>().ReverseMap();
+            CreateMap<AllergyDetailDTO, Allergy>().ReverseMap();
         }
     }
 }
