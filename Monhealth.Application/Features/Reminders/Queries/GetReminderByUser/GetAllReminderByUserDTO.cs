@@ -10,5 +10,6 @@ namespace Monhealth.Application.Features.Reminders.Queries.GetReminderByUser
         public string Time { get; set; } = string.Empty;
         public float Volume { get; set; }
         public bool Status { get; set; }
+        public bool IsDefault { get; set; }
     }
 }

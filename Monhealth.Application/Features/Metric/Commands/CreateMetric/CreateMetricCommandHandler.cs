@@ -14,18 +14,21 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         private readonly IMetricRepository _metricRepository;
         private readonly IGoalRepository _goalRepository;
         private readonly IMapper _mapper;
+        private readonly IReminderRepository _reminderRepository;
         public CreateMetricCommandHandler(
-            IMetricRepository metricRepository, 
-            IMapper mapper, 
-            IMetricsCalculator metricCalculator, 
-            IGoalRepository goalRepository, 
-            IGoalsCalculator goalsCalculator)
+            IMetricRepository metricRepository,
+            IMapper mapper,
+            IMetricsCalculator metricCalculator,
+            IGoalRepository goalRepository,
+            IGoalsCalculator goalsCalculator,
+            IReminderRepository reminderRepository)
         {
             _metricCalculator = metricCalculator;
             _metricRepository = metricRepository;
             _mapper = mapper;
             _goalRepository = goalRepository;
             _goalCalculator = goalsCalculator;
+            _reminderRepository = reminderRepository;
         }
         public async Task<Unit> Handle(CreateMetricCommand request, CancellationToken cancellationToken)
         {
@@ -48,7 +51,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             #endregion
 
             #region tinh toan Goal
-            var newGoal = _mapper.Map<Goal>(request.CreateMetricDto);          
+            var newGoal = _mapper.Map<Goal>(request.CreateMetricDto);
             _goalCalculator.CreateCalculateGoal(newGoal, request.CreateMetricDto, newMetric.Tdee);
             newGoal.GoalId = newMetric.MetricId;
             newGoal.Status = GoalStatus.Active;
@@ -56,11 +59,23 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             newGoal.UpdatedAt = DateTime.Now;
             _goalRepository.Add(newGoal);
             await _goalRepository.SaveChangeAsync();
-            
+
+            #endregion
+
+            #region Tạo Reminder
+            Guid? userId = request.CreateMetricDto.UserId; 
+            var reminders = await _reminderRepository.CreateReminders(newGoal.WaterGoal, newGoal.GoalId , userId);
+            foreach (var reminder in reminders)
+            {
+                _reminderRepository.Add(reminder); 
+            }
+            await _reminderRepository.SaveChangeAsync();
+
             #endregion
             return Unit.Value;
         }
 
     }
+
 }
 
