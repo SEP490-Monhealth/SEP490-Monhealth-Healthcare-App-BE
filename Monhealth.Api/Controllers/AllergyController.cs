@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Allergy.Commands.CreateAllergy;
+using Monhealth.Application.Features.Allergy.Queries.GetAll;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -34,6 +35,18 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo dị ứng thất bại.",
                 Status = 400,
             });
+        }
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllAllergies()
+        {
+            var categories = await _mediator.Send(new GetAllergyQuery());
+
+            return new ResultModel
+            {
+                Data = categories,
+                Status = 200,
+                Success = true
+            };
         }
     }
 }
