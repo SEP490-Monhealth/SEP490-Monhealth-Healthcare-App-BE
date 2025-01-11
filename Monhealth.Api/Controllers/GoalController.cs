@@ -6,8 +6,12 @@ using Monhealth.Application.Features.Goals.Commands.CreateCommand;
 using Monhealth.Application.Features.Goals.Commands.DeleteCommand;
 using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
 using Monhealth.Application.Features.Goals.Queries.GetAllGoals;
+using Monhealth.Application.Features.Goals.Queries.GetExerciseByGoalId;
 using Monhealth.Application.Features.Goals.Queries.GetGoalById;
 using Monhealth.Application.Features.Goals.Queries.GetGoalByUserId;
+using Monhealth.Application.Features.Goals.Queries.GetNutritionByGoalId;
+using Monhealth.Application.Features.Goals.Queries.GetWaterByGoalId;
+using Monhealth.Application.Features.Goals.Queries.GetWeightByGoalId;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -78,7 +82,90 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
-
+        [HttpGet("{goalId:guid}/weight")]
+        public async Task<ActionResult<ResultModel>> GetWeightByGoalId([FromRoute] Guid goalId)
+        {
+            var queries = await _mediator.Send(new GetWeightByGoalIdQuery() { GoalId = goalId });
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Mục tiêu không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
+        [HttpGet("{goalId:guid}/water")]
+        public async Task<ActionResult<ResultModel>> GetWaterByGoalId([FromRoute] Guid goalId)
+        {
+            var queries = await _mediator.Send(new GetWaterByGoalIdQuery() { GoalId = goalId });
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Mục tiêu không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
+        [HttpGet("{goalId:guid}/nutrition")]
+        public async Task<ActionResult<ResultModel>> GetNutrionByGoalId([FromRoute] Guid goalId)
+        {
+            var queries = await _mediator.Send(new GetNutritionByGoalIdQuery() { GoalId = goalId });
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Mục tiêu không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
+        [HttpGet("{goalId:guid}/exercise")]
+        public async Task<ActionResult<ResultModel>> GetExercise([FromRoute] Guid goalId)
+        {
+            var queries = await _mediator.Send(new GetExerciseByGoalIdQuery() { GoalId = goalId });
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Mục tiêu không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateGoalDTO createGoalDTO)
         {

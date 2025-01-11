@@ -2,16 +2,15 @@
 using Monhealth.Application.Features.Goals.Commands.CreateCommand;
 using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
 using Monhealth.Application.Features.Goals.Queries.GetAllGoalQuery;
+using Monhealth.Application.Features.Goals.Queries.GetExerciseByGoalId;
 using Monhealth.Application.Features.Goals.Queries.GetGoalById;
 using Monhealth.Application.Features.Goals.Queries.GetGoalByUserId;
+using Monhealth.Application.Features.Goals.Queries.GetNutritionByGoalId;
+using Monhealth.Application.Features.Goals.Queries.GetWaterByGoalId;
+using Monhealth.Application.Features.Goals.Queries.GetWeightByGoalId;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Application.Automapper
 {
@@ -26,6 +25,11 @@ namespace Monhealth.Application.Automapper
             CreateMap<Goal, UpdateGoalDTO>().ReverseMap();
             CreateMap<Goal, CreateMetricDto>().ReverseMap();
             CreateMap<Goal, UpdateMetricDto>().ReverseMap();
+            CreateMap<Goal, GetWeightByGoalIdDto>().ReverseMap();
+            CreateMap<Goal, GetWaterByGoalIdDto>().ReverseMap();
+            CreateMap<Goal, GetNutritionByGoalIdDto>().ReverseMap();
+            CreateMap<Goal, GetExerciseByGoalIdDto>().ReverseMap();
+
         }
     }
 }
