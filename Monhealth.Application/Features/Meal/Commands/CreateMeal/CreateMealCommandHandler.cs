@@ -12,7 +12,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
         private readonly IPortionRepository _portionRepository;
         private readonly IFoodPortionRepository _foodPortionRepository;
         private readonly IDailyMealRepository _dailyMealRepository;
-        private readonly IFoodRepository _foodRepository;
+        private readonly IGoalRepository _goalRepository;
 
         public CreateMealCommandHandler(
             IMealRepository mealRepository,
@@ -20,14 +20,14 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             IPortionRepository portionRepository,
             IFoodPortionRepository foodPortionRepository,
             IDailyMealRepository dailyMealRepository,
-            IFoodRepository foodRepository)
+            IGoalRepository goalRepository)
         {
             _mealRepository = mealRepository;
             _mealFoodRepository = mealFoodRepository;
             _portionRepository = portionRepository;
             _foodPortionRepository = foodPortionRepository;
             _dailyMealRepository = dailyMealRepository;
-            _foodRepository = foodRepository;
+            _goalRepository = goalRepository;
         }
 
         public async Task<Guid> Handle(CreateMealCommand request, CancellationToken cancellationToken)
@@ -122,10 +122,16 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             var mealsForDay = await _mealRepository.GetMealByUserAndDate(currentDate, userId);
 
             var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(currentDate, userId);
+            var goal = await _goalRepository.GetByUserIdAsync(userId);
+            if (goal == null)
+            {
+                throw new Exception($"Không tìm thấy Goal nào liên kết với UserId: {userId}");
+            }
             if (dailyMeal == null)
             {
                 dailyMeal = new Monhealth.Domain.DailyMeal
                 {
+                    GoalId = goal.GoalId,
                     UserId = userId,
                     CreatedAt = currentDate,
                     UpdatedAt = DateTime.Now,

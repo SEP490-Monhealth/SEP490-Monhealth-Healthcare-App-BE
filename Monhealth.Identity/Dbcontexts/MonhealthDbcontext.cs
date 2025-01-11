@@ -30,6 +30,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Reminder> Reminders { get; set; }
 
         public DbSet<FoodPortion> FoodPortions { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

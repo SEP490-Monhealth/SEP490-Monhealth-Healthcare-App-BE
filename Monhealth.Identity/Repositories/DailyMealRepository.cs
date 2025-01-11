@@ -23,6 +23,7 @@ namespace Monhealth.Identity.Repositories
                     .ThenInclude(m => m.MealFoods)
                         .ThenInclude(mf => mf.Food)
                             .ThenInclude(f => f.Nutrition)
+                .Include(dl => dl.Goal)
                 .ToListAsync();
 
             // Định nghĩa thứ tự ưu tiên cho MealType
@@ -118,6 +119,7 @@ namespace Monhealth.Identity.Repositories
                     .ThenInclude(m => m.MealFoods)
                         .ThenInclude(mf => mf.Food)
                             .ThenInclude(f => f.Nutrition)
+                .Include(m => m.Goal)
                 .FirstOrDefaultAsync(dl => dl.UserId == userId && dl.CreatedAt == createAt.Date);
 
             // Kiểm tra nếu DailyMeal tồn tại và sắp xếp Meals

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -95,6 +91,16 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                         TotalFats = dailyMeal.TotalFats,
                         TotalFibers = dailyMeal.TotalFibers,
                         TotalSugars = dailyMeal.TotalSugars
+                    },
+                    Goal = new GoalDailyMealDTO
+                    {
+                       CaloriesGoal = dailyMeal.Goal.CaloriesGoal,
+                       CarbsGoal = dailyMeal.Goal.CarbGoal,
+                       FatGoal = dailyMeal.Goal.FatGoal,
+                       FiberGoal = dailyMeal.Goal.FiberGoal,
+                       GoalType = dailyMeal.Goal.GoalType.ToString(),
+                       ProteinGoal = dailyMeal.Goal.ProteinGoal,
+                       SugarGoal = dailyMeal.Goal.SugarGoal
                     },
                     Items = sortedMeals,
                     CreatedAt = dailyMeal.CreatedAt,

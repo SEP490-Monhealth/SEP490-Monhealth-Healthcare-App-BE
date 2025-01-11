@@ -16,6 +16,11 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+        public async Task<Goal> GetByUserIdAsync(Guid userId)
+        {
+            return await _context.Goals.FirstOrDefaultAsync(u => u.UserId == userId);
+        }
+
         public async Task<List<Goal>> GetGoalsByUserIdAsync(Guid userId)
         {
             return await _context.Goals.Where(u => u.UserId == userId).ToListAsync();
