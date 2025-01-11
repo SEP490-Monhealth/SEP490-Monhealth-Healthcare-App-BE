@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Common;
+﻿using Monhealth.Core;
+using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,5 +24,6 @@ namespace Monhealth.Domain
         public Nutrition Nutrition { get; set; }
         public ICollection<FoodPortion> FoodPortions { get; set; }
         public ICollection<MealFood> MealFoods { get; set; }
+        public ICollection<FoodAllergy>FoodAllergies{get ;set;}
     }
 }

@@ -72,11 +72,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                         totalFiber += (mealFood.Food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
                         totalSugar += (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
 
-
                     }
                     // Lấy Portion từ repository
-
-
                 }
 
                 meals.Add(new MealForDailyMeal2
