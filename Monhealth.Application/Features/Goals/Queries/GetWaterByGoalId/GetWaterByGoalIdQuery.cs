@@ -4,6 +4,6 @@ namespace Monhealth.Application.Features.Goals.Queries.GetWaterByGoalId
 {
     public class GetWaterByGoalIdQuery : IRequest<GetWaterByGoalIdDto>
     {
-        public Guid GoalId { get; set; }
+        public Guid UserId { get; set; }
     }
 }

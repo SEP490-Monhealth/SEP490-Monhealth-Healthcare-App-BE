@@ -82,10 +82,10 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
-        [HttpGet("{goalId:guid}/weight")]
-        public async Task<ActionResult<ResultModel>> GetWeightByGoalId([FromRoute] Guid goalId)
+        [HttpGet("{userId:guid}/weight")]
+        public async Task<ActionResult<ResultModel>> GetWeightByGoalId([FromRoute] Guid userId)
         {
-            var queries = await _mediator.Send(new GetWeightByGoalIdQuery() { GoalId = goalId });
+            var queries = await _mediator.Send(new GetWeightByGoalIdQuery() { UserId = userId });
             if (queries == null)
             {
                 return NotFound(new ResultModel
@@ -103,10 +103,10 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
-        [HttpGet("{goalId:guid}/water")]
-        public async Task<ActionResult<ResultModel>> GetWaterByGoalId([FromRoute] Guid goalId)
+        [HttpGet("{userId:guid}/water")]
+        public async Task<ActionResult<ResultModel>> GetWaterByGoalId([FromRoute] Guid userId)
         {
-            var queries = await _mediator.Send(new GetWaterByGoalIdQuery() { GoalId = goalId });
+            var queries = await _mediator.Send(new GetWaterByGoalIdQuery() { UserId = userId });
             if (queries == null)
             {
                 return NotFound(new ResultModel
@@ -124,10 +124,10 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
-        [HttpGet("{goalId:guid}/nutrition")]
-        public async Task<ActionResult<ResultModel>> GetNutrionByGoalId([FromRoute] Guid goalId)
+        [HttpGet("{userId:guid}/nutrition")]
+        public async Task<ActionResult<ResultModel>> GetNutrionByGoalId([FromRoute] Guid userId)
         {
-            var queries = await _mediator.Send(new GetNutritionByGoalIdQuery() { GoalId = goalId });
+            var queries = await _mediator.Send(new GetNutritionByGoalIdQuery() { UserId = userId });
             if (queries == null)
             {
                 return NotFound(new ResultModel
@@ -145,10 +145,10 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
-        [HttpGet("{goalId:guid}/exercise")]
-        public async Task<ActionResult<ResultModel>> GetExercise([FromRoute] Guid goalId)
+        [HttpGet("{userId:guid}/exercise")]
+        public async Task<ActionResult<ResultModel>> GetExercise([FromRoute] Guid userId)
         {
-            var queries = await _mediator.Send(new GetExerciseByGoalIdQuery() { GoalId = goalId });
+            var queries = await _mediator.Send(new GetExerciseByGoalIdQuery() { UserId = userId });
             if (queries == null)
             {
                 return NotFound(new ResultModel

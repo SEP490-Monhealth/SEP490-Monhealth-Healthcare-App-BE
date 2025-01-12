@@ -8,7 +8,8 @@ namespace Monhealth.Application.Features.Goals.Queries.GetExerciseByGoalId
     {
         public async Task<GetExerciseByGoalIdDto> Handle(GetExerciseByGoalIdQuery request, CancellationToken cancellationToken)
         {
-            var goal = await goalRepository.GetByIdAsync(request.GoalId);
+            var goals = await goalRepository.GetGoalsByUserIdAsync(request.UserId);
+            var goal = goals.FirstOrDefault();
             return mapper.Map<GetExerciseByGoalIdDto>(goal);
         }
     }

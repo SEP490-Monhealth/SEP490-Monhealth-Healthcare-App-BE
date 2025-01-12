@@ -2,11 +2,6 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -23,7 +18,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Goal>> GetGoalsByUserIdAsync(Guid userId)
         {
-            return await _context.Goals.Where(u => u.UserId == userId).ToListAsync();
+            return await _context.Goals.Where(u => u.UserId == userId).OrderByDescending(g => g.CreatedAt).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

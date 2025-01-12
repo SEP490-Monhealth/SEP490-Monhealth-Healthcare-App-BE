@@ -8,7 +8,8 @@ namespace Monhealth.Application.Features.Goals.Queries.GetWaterByGoalId
     {
         public async Task<GetWaterByGoalIdDto> Handle(GetWaterByGoalIdQuery request, CancellationToken cancellationToken)
         {
-            var goal = await goalRepository.GetByIdAsync(request.GoalId);
+            var goals = await goalRepository.GetGoalsByUserIdAsync(request.UserId);
+            var goal = goals.FirstOrDefault();
             return mapper.Map<GetWaterByGoalIdDto>(goal);
 
 
