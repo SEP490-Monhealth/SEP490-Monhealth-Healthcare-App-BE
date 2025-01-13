@@ -6,5 +6,6 @@ namespace Monhealth.Application.Contracts.Persistence
     {
           Task<int>SaveChangeAsync();
           Task<bool>CheckIfUserIsAllergicToFoodAsync(Guid user , Guid food);
+          Task<List<Allergy>>GetByUserId(Guid userId);
     }
 }

@@ -1,4 +1,3 @@
-
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
@@ -38,17 +37,11 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
         public async Task<Guid> Handle(CreateMealCommand request, CancellationToken cancellationToken)
         {
+        
             var userId = request.CreateMeal.UserId;
             var mealType = request.CreateMeal.MealType;
             var currentDate1 = DateTime.Now.Date.Day;
-            foreach (var item in request.CreateMeal.Items)
-            {
-
-                var checkIfUserIsAllergicToFoodAsync = await _allergyRepository.CheckIfUserIsAllergicToFoodAsync(userId, item.FoodId);
-                if (checkIfUserIsAllergicToFoodAsync)
-                    throw new Exception("Bạn có thể dị ứng với món ăn này");
-                continue;
-            }
+            
 
             // Kiểm tra loại bữa ăn hợp lệ
             var validMealTypes = new HashSet<string> { "Breakfast", "Lunch", "Dinner", "Snack" };
