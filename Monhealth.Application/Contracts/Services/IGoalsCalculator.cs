@@ -1,6 +1,4 @@
-﻿using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
-using Monhealth.Application.Features.Metric.Commands.CreateMetric;
-using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
+﻿using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Domain;
 
 

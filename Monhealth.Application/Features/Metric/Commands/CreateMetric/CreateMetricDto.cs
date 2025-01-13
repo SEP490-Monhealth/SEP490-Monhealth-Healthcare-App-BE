@@ -1,6 +1,4 @@
-﻿using Monhealth.Domain.Enum;
-
-namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
+﻿namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 {
     public class CreateMetricDto
     {

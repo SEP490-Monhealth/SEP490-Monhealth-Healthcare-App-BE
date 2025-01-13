@@ -19,6 +19,7 @@ namespace Monhealth.Identity.Services
             {
                 throw new Exception("Loại mục tiêu không hợp lệ.");
             }
+            
             goal.GoalType = goalType;
             // tinh toan cac chi so Macros
             var (calories, protein, carbs, fats) = CreateCalculateMacros(tdee, createMetricDto.GoalType, createMetricDto.Weight, goal.WeightGoal);
@@ -69,9 +70,9 @@ namespace Monhealth.Identity.Services
                     throw new Exception("Loại mục tiêu không hợp lệ.");
             }
 
-            float protein = calories * proteinPercentage;
-            float carbs = calories * carbPercentage;
-            float fats = calories * fatPercentage;
+            float protein = calories * proteinPercentage / 4;
+            float carbs = calories * carbPercentage / 4;
+            float fats = calories * fatPercentage / 9;
 
             return (calories, protein, carbs, fats);
         }
@@ -122,9 +123,9 @@ namespace Monhealth.Identity.Services
                     throw new Exception("Loại mục tiêu không hợp lệ.");
             }
 
-            float protein = calories * proteinPercentage;
-            float carbs = calories * carbPercentage;
-            float fats = calories * fatPercentage;
+            float protein = calories * proteinPercentage / 4;
+            float carbs = calories * carbPercentage / 4;
+            float fats = calories * fatPercentage / 9;
 
             return (calories, protein, carbs, fats);
         }

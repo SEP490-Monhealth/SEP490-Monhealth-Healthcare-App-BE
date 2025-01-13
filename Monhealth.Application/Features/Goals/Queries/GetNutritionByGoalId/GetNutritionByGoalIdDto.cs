@@ -1,9 +1,12 @@
-﻿namespace Monhealth.Application.Features.Goals.Queries.GetNutritionByGoalId
+﻿using System.Text.Json.Serialization;
+
+namespace Monhealth.Application.Features.Goals.Queries.GetNutritionByGoalId
 {
     public class GetNutritionByGoalIdDto
     {
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }
+        [JsonPropertyName("carbsGoal")]
         public float CarbGoal { get; set; }
         public float FatGoal { get; set; }
         public float FiberGoal { get; set; }
