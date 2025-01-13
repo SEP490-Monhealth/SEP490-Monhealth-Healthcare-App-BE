@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Core;
 using Monhealth.Identity.Dbcontexts;
@@ -8,6 +9,17 @@ namespace Monhealth.Identity.Repositories
     {
         public AllergyRepository(MonhealthDbcontext context) : base(context)
         {
+        }
+
+        public async Task<bool> CheckIfUserIsAllergicToFoodAsync(Guid user, Guid food)
+        {
+            return await _context.UserAllergies
+           .Where(ua => ua.UserId == user)
+           .Join(_context.FoodAllergies,
+                 ua => ua.AllergyId,
+                 fa => fa.AllergyId,
+                 (ua, fa) => new { ua, fa })
+           .AnyAsync(joined => joined.fa.FoodId == food);
         }
 
         public async Task<int> SaveChangeAsync()
