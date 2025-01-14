@@ -113,32 +113,32 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            RoleId = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
                             UserId = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b")
                         },
                         new
                         {
-                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            RoleId = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
                             UserId = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2")
                         },
                         new
                         {
-                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            RoleId = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
                             UserId = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e")
                         },
                         new
                         {
-                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            RoleId = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
                             UserId = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d")
                         },
                         new
                         {
-                            RoleId = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            RoleId = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
                             UserId = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b")
                         },
                         new
                         {
-                            RoleId = new Guid("d21edfd6-42d5-490a-a41c-43f7ef09c61f"),
+                            RoleId = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
                         });
                 });
@@ -178,7 +178,7 @@ namespace Monhealth.Identity.Migrations
 
                     b.HasKey("AllergyId");
 
-                    b.ToTable("Allergies");
+                    b.ToTable("Allergy");
 
                     b.HasData(
                         new
@@ -361,6 +361,58 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("UserAllergies");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Booking", b =>
+                {
+                    b.Property<Guid>("BookingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("ConsultantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("BookingId");
+
+                    b.HasIndex("ConsultantId");
+
+                    b.HasIndex("ServiceId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bookings");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.Category", b =>
                 {
                     b.Property<Guid>("CategoryId")
@@ -515,11 +567,15 @@ namespace Monhealth.Identity.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.Consultant", b =>
+            modelBuilder.Entity("Monhealth.Domain.Certificate", b =>
                 {
-                    b.Property<Guid>("ConsultantId")
+                    b.Property<Guid>("CertificateId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CertificateName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -527,8 +583,14 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("DepartmentId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("IssueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -539,14 +601,31 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("ConsultantId");
+                    b.HasKey("CertificateId");
 
-                    b.HasIndex("DepartmentId");
+                    b.HasIndex("UserId");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.ToTable("Certificates");
+                });
 
-                    b.ToTable("Consultants");
+            modelBuilder.Entity("Monhealth.Domain.CertificateImage", b =>
+                {
+                    b.Property<Guid>("ImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CertificateId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ImageId");
+
+                    b.HasIndex("CertificateId");
+
+                    b.ToTable("CertificateImages");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
@@ -599,33 +678,6 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("GoalId");
 
                     b.ToTable("DailyMeals");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.Department", b =>
-                {
-                    b.Property<Guid>("DepartmentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("DepartmentId");
-
-                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
@@ -2472,51 +2524,6 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Goals");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.InterestFood", b =>
-                {
-                    b.Property<Guid>("InterestFoodId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Allergies")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Categories")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Foods")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nutrition")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("InterestFoodId");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("InterestFoods");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Meal", b =>
@@ -5678,6 +5685,44 @@ namespace Monhealth.Identity.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Payment", b =>
+                {
+                    b.Property<Guid>("PaymentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("BookingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SubscriptionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("PaymentId");
+
+                    b.HasIndex("BookingId");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.Portion", b =>
                 {
                     b.Property<Guid>("PortionId")
@@ -6074,6 +6119,206 @@ namespace Monhealth.Identity.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Review", b =>
+                {
+                    b.Property<Guid>("ReviewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ConsultantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ReviewId");
+
+                    b.HasIndex("BookingId");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Schedule", b =>
+                {
+                    b.Property<Guid>("ScheduleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ConsultantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateOnly?>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeOnly>("Time")
+                        .HasColumnType("time");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ScheduleId");
+
+                    b.HasIndex("ConsultantId");
+
+                    b.ToTable("Schedules");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Service", b =>
+                {
+                    b.Property<Guid>("ServiceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ConsultantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ServiceDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ServiceId");
+
+                    b.HasIndex("ConsultantId");
+
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Subscription", b =>
+                {
+                    b.Property<Guid>("SubscriptionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SubscriptionName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("SubscriptionId");
+
+                    b.ToTable("Subscriptions");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
+                {
+                    b.Property<Guid>("UserFoodId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Allergies")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Categories")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserFoodId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("UserFoods");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.UserSubscription", b =>
+                {
+                    b.Property<Guid>("UserSubscriptionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("SubscriptionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserSubscriptionId");
+
+                    b.HasIndex("SubscriptionId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserSubscriptions");
+                });
+
             modelBuilder.Entity("Monhealth.Identity.Models.AppRole", b =>
                 {
                     b.Property<Guid>("Id")
@@ -6134,6 +6379,13 @@ namespace Monhealth.Identity.Migrations
                             DisplayName = "Quản trị viên",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
+                            DisplayName = "Người dùng",
+                            Name = "User",
+                            NormalizedName = "USER"
                         });
                 });
 
@@ -6235,7 +6487,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8f6ea8dd-4df8-4112-b67f-d5a88e016f75",
+                            ConcurrencyStamp = "db00d6da-188a-4980-a923-ee3ea60952db",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -6243,10 +6495,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJAt47QpU5iznQXOXJZNombQ9xfjigscq0Dyl3aBkQQ+vjZNieszlIOWjpeQCjMX/A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJFYo9Blx2CUAtMwsGytkPnNn09F39A1zczlzjVitxbjBz+uWFT+ZT4uHVepHFFqrQ==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "254d4e75-9637-438c-a20b-e5239b33f905",
+                            SecurityStamp = "88eb7969-3ca4-41e5-baeb-9667507db111",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6256,7 +6508,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b7cd9bff-6729-49a9-a2ab-a8d7ce9927aa",
+                            ConcurrencyStamp = "0187f21e-36d1-485d-ac6a-1d4d2dbc6206",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -6264,10 +6516,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAENX2SRmej1jxQ6B8Ot40CJW7lt4NzakbkzQ0kJpZQMcElFbx6/rL2GaNZawXdpj3xw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGDQtcGjfnnBPTHkf6c2EvU0xxjLz2tR6nHGbF16vSCxOQjRZn7z1/9p6PDdUgFakA==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "86a23128-d0e6-4fe6-83ea-1279b8b45ac2",
+                            SecurityStamp = "3a4bb8d9-a292-423d-a9c3-e109f592b35f",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6277,7 +6529,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e172e0d5-1ce8-4435-a91d-abbb3ffec04e",
+                            ConcurrencyStamp = "cac71803-605f-4744-95e3-f269696a259c",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -6285,10 +6537,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOx6A7DQpCRVur8zlTbAJ5OheItbXTByz9zir8hQDnqf+YJS2XW1FEfoIZSoGJVuxg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBHc0+qsX9X882Y/AZjLRdqBLhFms79+E52Myuck96XJAuy8Q5nLELfgEWLQNY0trw==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d71035c-4753-4a90-9c9b-66f3867cb584",
+                            SecurityStamp = "2b7afe71-65e6-4bce-9ed6-24cbfb3dd644",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6298,7 +6550,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0e29a490-11ff-41de-bf3b-48efb60d3002",
+                            ConcurrencyStamp = "2ddd401f-d666-4e34-9c40-0374a8642bdb",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -6306,10 +6558,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAENHkQ0DJrQsqvCnxSbmG7F3zrJgz72tht+GtyRtTK+55eEZuZGH80cz4Qbwb7Q6Jzw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPb2sUZJFUPqNKWkqPOVxAW0AdwYmsoc4K3PlEnbBtuVISeR6JtsHxPRh+uVLsJVHg==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6c753666-de64-4069-a22c-ba0f55541f40",
+                            SecurityStamp = "62b88d04-ce7a-486a-91b1-fb7202caafeb",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6319,7 +6571,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ba74bea4-9cae-4d2d-8d4d-b46486ea8be3",
+                            ConcurrencyStamp = "0d0becb5-92cd-451f-94d7-1ea53115b354",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -6327,10 +6579,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO9eyOgdco3aQd4elNK5Nt5Q4SQ6lxY9iGzoLkFVqBqjts8Jy4Yt1rfvs4SLXOgkYg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECVpCENK88dTj7BIlc3JGVu+HdXq2dOgYHjLWDyCJh+PfT/dXkGvjcFFjk2N9U79vg==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a1d1b42d-3625-46c2-ae2e-b81ee3e2837c",
+                            SecurityStamp = "157459dd-ce48-4e51-8050-1f95e57ab3eb",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6340,7 +6592,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "75e36abf-3e07-43b0-b423-e83aa518a178",
+                            ConcurrencyStamp = "8be55590-36f1-4477-85ae-64f675763221",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -6348,10 +6600,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAED6qSz2DlkWZLpBIi+oRs+OnUDyLbfVVOxp0+gJMkcekcl0YR5sO1kFC3pIAfbZzTw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEId3l/548SXR2FEWJXlZCHYyArV9eaE7ywa0hGbWXB+z/KM5JFII6xjCTuOFo8Kzag==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c44db97b-d2b6-4bda-bf31-19bd42f67342",
+                            SecurityStamp = "b70eeb40-9acd-478e-9eaf-e6a59154ab7d",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6361,7 +6613,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2a2b3e8e-b6be-45a1-b484-a5b821250378",
+                            ConcurrencyStamp = "cdab9bbf-0e17-4f78-bfdc-0f8d3a60464b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -6369,10 +6621,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJ9XI3+wsXzPBggHX1j9X4ZsaqCLWUOwF8F353Jaln6qcPEKdzFvSaMFhF6109nFTA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECks37gEje+j24CRJoaoIiGepFnlwgd+BetdOFGt6s0dBd9NaY4V1U6K6o2CTiZtVg==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f14da1b2-c19c-481f-be2a-41565ef11968",
+                            SecurityStamp = "35ffb416-ca57-45e2-8906-dd223c9f66cc",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6497,23 +6749,47 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.Consultant", b =>
+            modelBuilder.Entity("Monhealth.Domain.Booking", b =>
                 {
-                    b.HasOne("Monhealth.Domain.Department", "Department")
-                        .WithMany("Consultants")
-                        .HasForeignKey("DepartmentId")
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "Consultant")
+                        .WithMany("ConsultantBookings")
+                        .HasForeignKey("ConsultantId");
+
+                    b.HasOne("Monhealth.Domain.Service", "Service")
+                        .WithMany("Bookings")
+                        .HasForeignKey("ServiceId");
+
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "User")
+                        .WithMany("UserBookings")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Consultant");
+
+                    b.Navigation("Service");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Certificate", b =>
+                {
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "User")
+                        .WithMany("Certificates")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
-                        .WithOne("Consultant")
-                        .HasForeignKey("Monhealth.Domain.Consultant", "UserId")
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.CertificateImage", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Certificate", "Certificate")
+                        .WithMany("Images")
+                        .HasForeignKey("CertificateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
-
-                    b.Navigation("Department");
+                    b.Navigation("Certificate");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
@@ -6574,17 +6850,6 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.InterestFood", b =>
-                {
-                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
-                        .WithOne("InterestFood")
-                        .HasForeignKey("Monhealth.Domain.InterestFood", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("Monhealth.Domain.Meal", b =>
                 {
                     b.HasOne("Monhealth.Domain.DailyMeal", "DailyMeal")
@@ -6634,6 +6899,80 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("Food");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Payment", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Booking", "Booking")
+                        .WithMany("Payments")
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Review", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Booking", "Booking")
+                        .WithMany()
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Schedule", b =>
+                {
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "User")
+                        .WithMany("Schedules")
+                        .HasForeignKey("ConsultantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Service", b =>
+                {
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "Consultant")
+                        .WithMany("Services")
+                        .HasForeignKey("ConsultantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Consultant");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
+                {
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "User")
+                        .WithOne("UserFood")
+                        .HasForeignKey("Monhealth.Domain.UserFood", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.UserSubscription", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Subscription", "Subscription")
+                        .WithMany("UserSubscriptions")
+                        .HasForeignKey("SubscriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "User")
+                        .WithMany("UserSubscriptions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Subscription");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Monhealth.Core.Allergy", b =>
                 {
                     b.Navigation("foodAllergies");
@@ -6646,19 +6985,24 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("Notifications");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Booking", b =>
+                {
+                    b.Navigation("Payments");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.Category", b =>
                 {
                     b.Navigation("Foods");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Certificate", b =>
+                {
+                    b.Navigation("Images");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
                 {
                     b.Navigation("Meals");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.Department", b =>
-                {
-                    b.Navigation("Consultants");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
@@ -6690,23 +7034,42 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("FoodPortions");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Service", b =>
+                {
+                    b.Navigation("Bookings");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Subscription", b =>
+                {
+                    b.Navigation("UserSubscriptions");
+                });
+
             modelBuilder.Entity("Monhealth.Identity.Models.AppUser", b =>
                 {
-                    b.Navigation("Consultant")
-                        .IsRequired();
+                    b.Navigation("Certificates");
+
+                    b.Navigation("ConsultantBookings");
 
                     b.Navigation("Foods");
 
                     b.Navigation("Goals");
 
-                    b.Navigation("InterestFood")
-                        .IsRequired();
-
                     b.Navigation("Metrics");
 
                     b.Navigation("Reminders");
 
+                    b.Navigation("Schedules");
+
+                    b.Navigation("Services");
+
                     b.Navigation("UserAllergies");
+
+                    b.Navigation("UserBookings");
+
+                    b.Navigation("UserFood")
+                        .IsRequired();
+
+                    b.Navigation("UserSubscriptions");
                 });
 #pragma warning restore 612, 618
         }

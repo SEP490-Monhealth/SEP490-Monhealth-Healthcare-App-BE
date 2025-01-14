@@ -18,12 +18,9 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Metric> Metrics { get; set; }
         public DbSet<Goal> Goals { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Consultant> Consultants { get; set; }
         public DbSet<DailyMeal> DailyMeals { get; set; }
-        public DbSet<Department> Departments { get; set; }
         public DbSet<Food> Foods { get; set; }
         public DbSet<Portion> Portions { get; set; }
-        public DbSet<InterestFood> InterestFoods { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<MealFood> MealFoods { get; set; }
         public DbSet<Nutrition> Nutritions { get; set; }
@@ -33,7 +30,17 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<UserAllergy> UserAllergies { get; set; }
         public DbSet<FoodAllergy> FoodAllergies { get; set; }
-        public DbSet<Allergy> Allergies { get; set; }
+        public DbSet<Certificate> Certificates { get; set; }
+        public DbSet<CertificateImage> CertificateImages { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<UserSubscription> UserSubscriptions { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<UserFood> UserFoods { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

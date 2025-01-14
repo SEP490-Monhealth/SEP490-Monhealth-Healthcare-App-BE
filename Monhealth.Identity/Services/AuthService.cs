@@ -162,7 +162,7 @@ namespace Monhealth.Identity.Services
             if (result.Succeeded)
             {
                 // Step 6: Assign a role to the user
-                await _userManager.AddToRoleAsync(user, Roles.Member);
+                await _userManager.AddToRoleAsync(user, Roles.User);
 
                 return;
             }

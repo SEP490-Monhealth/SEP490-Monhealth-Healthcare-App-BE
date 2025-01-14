@@ -36,6 +36,13 @@ namespace Monhealth.Identity.Configurations
                    Name = "Admin",
                    NormalizedName = "ADMIN",
                    DisplayName = "Quản trị viên"
+               },
+               new AppRole
+               {
+                   Id = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                   Name = "User",
+                   NormalizedName = "USER",
+                   DisplayName = "Người dùng"
                }
             );
         }

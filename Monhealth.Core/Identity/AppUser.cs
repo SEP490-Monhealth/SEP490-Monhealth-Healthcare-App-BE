@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Monhealth.Core;
 using Monhealth.Domain;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Identity.Models
 {
@@ -16,11 +17,18 @@ namespace Monhealth.Identity.Models
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
         public ICollection<Reminder> Reminders { get; set; }
-        public Consultant Consultant { get; set; } //one to one 
         public ICollection<Food> Foods { get; set; }
-        public InterestFood InterestFood { get; set; } //one to one
         public ICollection<Metric> Metrics { get; set; }
         public ICollection<Goal> Goals { get; set; }
         public ICollection<UserAllergy> UserAllergies { get; set; }
+        public ICollection<Certificate> Certificates { get; set; }
+        public ICollection<UserSubscription> UserSubscriptions { get; set; }
+        public ICollection<Schedule> Schedules { get; set; }
+        public ICollection<Service> Services { get; set; }
+        [InverseProperty(nameof(Booking.User))]
+        public ICollection<Booking> UserBookings { get; set; }
+        [InverseProperty(nameof(Booking.Consultant))]
+        public ICollection<Booking> ConsultantBookings { get; set; }
+        public UserFood UserFood { get; set; }
     }
 }
