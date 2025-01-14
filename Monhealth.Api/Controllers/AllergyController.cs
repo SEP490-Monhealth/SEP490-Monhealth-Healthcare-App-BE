@@ -5,6 +5,7 @@ using Monhealth.Application.Features.Allergy.Commands.CreateAllergy;
 using Monhealth.Application.Features.Allergy.Commands.DeleteAllergy;
 using Monhealth.Application.Features.Allergy.Commands.UpdateAllergy;
 using Monhealth.Application.Features.Allergy.Queries.GetAll;
+using Monhealth.Application.Features.Allergy.Queries.GetByUser;
 using Monhealth.Application.Features.Allergy.Queries.GetDetail;
 using Monhealth.Application.Models;
 
@@ -58,6 +59,30 @@ namespace Monhealth.Api.Controllers
         {
             var categories = await _mediator.
             Send(new GetAllergyDetailQuery { AllergyId = allergyId });
+
+            if (categories == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Triệu chứng không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = categories
+            });
+        }
+        [HttpGet]
+        [Route("user/{userId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetAllergyByUser(Guid userId)
+        {
+            var categories = await _mediator.
+            Send(new GetAllergyByUserQuery { UserId = userId });
 
             if (categories == null)
             {

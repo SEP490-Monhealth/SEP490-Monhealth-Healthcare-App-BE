@@ -1,4 +1,3 @@
-
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
@@ -13,6 +12,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
         private readonly IFoodPortionRepository _foodPortionRepository;
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IGoalRepository _goalRepository;
+        private readonly IAllergyRepository _allergyRepository;
+        private readonly IFoodRepository _foodRepository;
 
         public CreateMealCommandHandler(
             IMealRepository mealRepository,
@@ -20,7 +21,9 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             IPortionRepository portionRepository,
             IFoodPortionRepository foodPortionRepository,
             IDailyMealRepository dailyMealRepository,
-            IGoalRepository goalRepository)
+            IGoalRepository goalRepository,
+            IAllergyRepository allergyRepository,
+            IFoodRepository foodRepository)
         {
             _mealRepository = mealRepository;
             _mealFoodRepository = mealFoodRepository;
@@ -28,13 +31,17 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             _foodPortionRepository = foodPortionRepository;
             _dailyMealRepository = dailyMealRepository;
             _goalRepository = goalRepository;
+            _allergyRepository = allergyRepository;
+            _foodRepository = foodRepository;
         }
 
         public async Task<Guid> Handle(CreateMealCommand request, CancellationToken cancellationToken)
         {
+        
             var userId = request.CreateMeal.UserId;
             var mealType = request.CreateMeal.MealType;
             var currentDate1 = DateTime.Now.Date.Day;
+            
 
             // Kiểm tra loại bữa ăn hợp lệ
             var validMealTypes = new HashSet<string> { "Breakfast", "Lunch", "Dinner", "Snack" };
@@ -116,6 +123,14 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 }
 
                 await _mealRepository.SaveChangeAsync();
+                var food = await _foodRepository.GetByIdAsync(item.FoodId);
+                if (food != null)
+                {
+                    food.Views += 1;
+                    _foodRepository.Update(food);
+                    await _foodRepository.SaveChangesAsync();
+                }
+
             }
 
             var currentDate = DateTime.Now.Date;

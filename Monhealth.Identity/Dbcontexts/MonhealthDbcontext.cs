@@ -33,6 +33,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<UserAllergy> UserAllergies { get; set; }
         public DbSet<FoodAllergy> FoodAllergies { get; set; }
+        public DbSet<Allergy> Allergies { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
