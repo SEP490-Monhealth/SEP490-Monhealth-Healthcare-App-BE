@@ -7,6 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Subscription.Commands.Create;
 using Monhealth.Application.Features.Subscription.Queries.GetAll;
+using Monhealth.Application.Features.Subscription.Queries.GetDetail;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -56,6 +57,26 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
+        [HttpGet("{subscriptionId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetReminderById(Guid subscriptionId)
+        {
+            var portion = await _mediator.Send(new SubscriptionDetailQuery() {SubscriptionId  = subscriptionId });
+            if (portion == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                };
+            }
+            return new ResultModel
+            {
+                Data = portion,
+                Status = 200,
+                Success = true
+            };
+        }
+
 
     }
 }
