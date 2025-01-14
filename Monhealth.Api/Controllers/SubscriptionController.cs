@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Subscription.Commands.Create;
+using Monhealth.Application.Features.Subscription.Commands.Delete;
 using Monhealth.Application.Features.Subscription.Commands.Update;
 using Monhealth.Application.Features.Subscription.Queries.GetAll;
 using Monhealth.Application.Features.Subscription.Queries.GetDetail;
@@ -95,6 +96,31 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật chứng chỉ thành công",
                 Success = true,
                 Status = 204,
+            });
+        }
+        [HttpDelete]
+        [Route("{subscriptionId:Guid}")]
+        public async Task<ActionResult<ResultModel>> Remove(Guid subscriptionId)
+        {
+            var command = await _mediator.Send(new DeleteSubscriptionRequest() { SubscriptionId = subscriptionId });
+  
+            if (!command)
+            {
+                // Trả về lỗi nếu xóa không thành công
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Xóa chứng chỉ không thành công",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa chứng chỉ thành công",
+                Status = 204,
+                Data = null
             });
         }
 
