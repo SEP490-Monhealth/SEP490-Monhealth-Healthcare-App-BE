@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Subscription.Commands.Create;
 using Monhealth.Application.Features.Subscription.Commands.Delete;
 using Monhealth.Application.Features.Subscription.Commands.Update;
 using Monhealth.Application.Features.Subscription.Queries.GetAll;
+using Monhealth.Application.Features.Subscription.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetDetail;
 using Monhealth.Application.Models;
 
@@ -78,6 +79,25 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+        [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
+        {
+            var portion = await _mediator.Send(new GetSubscriptionByUserQuery() { Userid = userId });
+            if (portion == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                };
+            }
+            return new ResultModel
+            {
+                Data = portion,
+                Status = 200,
+                Success = true
+            };
+        }
         [HttpPut]
         [Route("{subscriptionId:Guid}")]
         public async Task<ActionResult<ResultModel>> Update(Guid subscriptionId, [FromBody] UpdateSubscriptionRequest request)
@@ -103,7 +123,7 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> Remove(Guid subscriptionId)
         {
             var command = await _mediator.Send(new DeleteSubscriptionRequest() { SubscriptionId = subscriptionId });
-  
+
             if (!command)
             {
                 // Trả về lỗi nếu xóa không thành công

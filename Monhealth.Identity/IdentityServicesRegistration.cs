@@ -77,6 +77,7 @@ namespace Monhealth.Identity
             services.AddScoped<IAllergyRepository, AllergyRepository>();
             services.AddScoped<IUserFoodRepository, UserFoodRepository>();
             services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
+            services.AddScoped<IUserSubscriptionRepository, UserSubscriptionRepository>();
             // Đăng ký MediatR
             services.AddMediatR(typeof(CreateNotificationCommandHandler).Assembly);
 
