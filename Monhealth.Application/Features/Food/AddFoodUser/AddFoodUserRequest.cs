@@ -6,7 +6,6 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
     public class AddFoodUserRequest : IRequest<bool>
     {
         public Guid UserId { get; set; }
-        [JsonPropertyName("type")]
         public string FoodType { get; set; } = string.Empty;
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;

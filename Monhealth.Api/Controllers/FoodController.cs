@@ -27,10 +27,10 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? search = null, string? category = null, string? type = "Public", bool? popular = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? search = null, string? category = null, string? foodType = "Public", bool? popular = null, bool? status = null)
         {
-            var foods = await _mediator.Send(new GetFoodListQuery(page, limit, search, category, type, popular, status));
-            if (type != "Public" && type != "User")
+            var foods = await _mediator.Send(new GetFoodListQuery(page, limit, search, category, foodType, popular, status));
+            if (foodType != "Public" && foodType != "User")
                 throw new Exception("Type chỉ được nhập Public hoặc User");
             return new ResultModel
             {

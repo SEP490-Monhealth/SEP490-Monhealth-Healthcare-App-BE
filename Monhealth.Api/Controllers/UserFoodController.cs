@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/userFoods")]
+    [Route("api/v1/user-foods")]
     [ApiController]
     public class UserFoodController(IMediator mediator) : ControllerBase
     {

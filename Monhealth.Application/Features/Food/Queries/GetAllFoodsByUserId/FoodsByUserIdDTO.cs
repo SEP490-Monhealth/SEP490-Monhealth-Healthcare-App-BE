@@ -6,7 +6,6 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
     public class FoodsByUserIdDTO : BaseEntity
     {
         public Guid FoodId { get; set; }
-        [JsonPropertyName("type")]
         public string FoodType { get; set; } = string.Empty;
         public string Category { get; set; }
         [JsonPropertyName("name")]

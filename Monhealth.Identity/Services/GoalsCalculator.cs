@@ -50,7 +50,7 @@ namespace Monhealth.Identity.Services
                     fatPercentage = 0.25f;   // 25% Fat
                     break;
 
-                case "MaintainWeight":
+                case "WeightGain":
                     if (targetWeight <= currentWeight)
                         throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight}).");
                     calories = tdee * 1.1f; // Tăng 10-15%
@@ -59,7 +59,7 @@ namespace Monhealth.Identity.Services
                     fatPercentage = 0.2f;    // 20% Fat
                     break;
 
-                case "WeightGain":
+                case "MaintainWeight":
                     calories = tdee; // Giữ nguyên TDEE
                     proteinPercentage = 0.3f; // 30% Protein
                     carbPercentage = 0.4f;   // 40% Carb
@@ -105,14 +105,14 @@ namespace Monhealth.Identity.Services
                     fatPercentage = 0.25f;   // 25% Fat
                     break;
 
-                case "MaintainWeight":
+                case "WeightGain":
                     calories = tdee * 1.1f; // Tăng 10-15%
                     proteinPercentage = 0.3f; // 30% Protein
                     carbPercentage = 0.5f;   // 50% Carb
                     fatPercentage = 0.2f;    // 20% Fat
                     break;
 
-                case "WeightGain":
+                case "MaintainWeight":
                     calories = tdee; // Giữ nguyên TDEE
                     proteinPercentage = 0.3f; // 30% Protein
                     carbPercentage = 0.4f;   // 40% Carb
