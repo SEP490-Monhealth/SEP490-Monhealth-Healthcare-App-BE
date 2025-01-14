@@ -25,9 +25,9 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<MealFood> MealFoods { get; set; }
         public DbSet<Nutrition> Nutritions { get; set; }
         public DbSet<Reminder> Reminders { get; set; }
-
         public DbSet<FoodPortion> FoodPortions { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Allergy> Allergies { get; set; }
         public DbSet<UserAllergy> UserAllergies { get; set; }
         public DbSet<FoodAllergy> FoodAllergies { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
