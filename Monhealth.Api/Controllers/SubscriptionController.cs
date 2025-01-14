@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Subscription.Commands.Create;
+using Monhealth.Application.Features.Subscription.Commands.Update;
 using Monhealth.Application.Features.Subscription.Queries.GetAll;
 using Monhealth.Application.Features.Subscription.Queries.GetDetail;
 using Monhealth.Application.Models;
@@ -60,7 +61,7 @@ namespace Monhealth.Api.Controllers
         [HttpGet("{subscriptionId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid subscriptionId)
         {
-            var portion = await _mediator.Send(new SubscriptionDetailQuery() {SubscriptionId  = subscriptionId });
+            var portion = await _mediator.Send(new SubscriptionDetailQuery() { SubscriptionId = subscriptionId });
             if (portion == null)
             {
                 return new ResultModel
@@ -76,7 +77,26 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
-
+        [HttpPut]
+        [Route("{subscriptionId:Guid}")]
+        public async Task<ActionResult<ResultModel>> Update(Guid subscriptionId, [FromBody] UpdateSubscriptionRequest request)
+        {
+            var command = new UpdateSubscriptionCommand(subscriptionId, request);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Cập nhật chứng chỉ thất bại",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật chứng chỉ thành công",
+                Success = true,
+                Status = 204,
+            });
+        }
 
     }
 }
