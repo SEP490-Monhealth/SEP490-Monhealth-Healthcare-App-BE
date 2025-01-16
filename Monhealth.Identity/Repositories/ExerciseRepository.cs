@@ -48,5 +48,22 @@ namespace Monhealth.Identity.Repositories
                 TotalCount = totalItems
             };
         }
+
+        public async Task<Exercise> GetExerciseByIdAsync(Guid exerciseId)
+        {
+            var exercise = _context.Exercises.Include(t => t.Type).FirstOrDefault(e => e.ExerciseId == exerciseId);
+            // If the food item exists, increment its Views count
+            if (exercise != null)
+            {
+                exercise.Views += 1;
+                await _context.SaveChangesAsync();
+            }
+            return exercise;
+        }
+
+        public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }

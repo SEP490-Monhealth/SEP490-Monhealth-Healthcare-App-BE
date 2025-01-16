@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
+using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Automapper
@@ -14,6 +15,7 @@ namespace Monhealth.Application.Automapper
         public ExerciseProfile()
         {
             CreateMap<Exercise, GetAllExercisesDTO>().ReverseMap();
+            CreateMap<Exercise, GetExerciseByIdDTO>().ReverseMap();
         }
     }
 }
