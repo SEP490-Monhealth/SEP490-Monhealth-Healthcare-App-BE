@@ -10,9 +10,9 @@ namespace Monhealth.Application.Automapper.CustomFoodMapper.ReminderMapper
     {
         public ReminderProfile()
         {
-            CreateMap<Reminder , ReminderDTo>();
-            CreateMap<Reminder , GetAllReminderByUserDTO>();            
-            CreateMap<Reminder, ReminderDetailDTO>();
+            CreateMap<WaterReminder , ReminderDTo>();
+            CreateMap<WaterReminder , GetAllReminderByUserDTO>();            
+            CreateMap<WaterReminder, ReminderDetailDTO>();
         }
 
 

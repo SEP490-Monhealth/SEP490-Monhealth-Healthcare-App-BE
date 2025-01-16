@@ -19,7 +19,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Exercise>> GetAllExerciseAsync(int page, int limit, string? search, bool? popular, string? exerciseType)
         {
-            IQueryable<Exercise> query = _context.Exercises.Include(t => t.Type).AsQueryable();
+            IQueryable<Exercise> query = _context.Exercises.Include(t => t.Category).AsQueryable();
             // filter search
             if (!string.IsNullOrEmpty(search))
             {
@@ -30,7 +30,7 @@ namespace Monhealth.Identity.Repositories
             // filter exerciseType
             if (!string.IsNullOrEmpty(exerciseType))
             {
-                query = query.Where(f => f.Type.TypeName == exerciseType);
+                query = query.Where(f => f.Category.CategoryName == exerciseType && f.Category.CategoryType == "Exercise");
             }
             int totalItems = await query.CountAsync();
             // filter popular
@@ -51,8 +51,8 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Exercise> GetExerciseByIdAsync(Guid exerciseId)
         {
-            var exercise = _context.Exercises.Include(t => t.Type).FirstOrDefault(e => e.ExerciseId == exerciseId);
-            // If the food item exists, increment its Views count
+            var exercise = _context.Exercises.Include(t => t.Category).FirstOrDefault(e => e.ExerciseId == exerciseId);
+            // Neu exercise ton tai thi tang Views len 1
             if (exercise != null)
             {
                 exercise.Views += 1;

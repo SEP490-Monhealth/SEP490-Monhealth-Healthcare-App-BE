@@ -12,6 +12,6 @@ namespace Monhealth.Core
         public string Message { get; set; } = string.Empty;
         public bool IsSent { get; set; }
         [ForeignKey(nameof(ReminderId))]
-        public Reminder Reminder { get; set; }
+        public WaterReminder Reminder { get; set; }
     }
 }

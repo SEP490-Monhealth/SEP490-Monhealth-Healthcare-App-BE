@@ -80,6 +80,7 @@ namespace Monhealth.Identity.Migrations
                 columns: table => new
                 {
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoryType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryImage = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -126,24 +127,6 @@ namespace Monhealth.Identity.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Subscriptions", x => x.SubscriptionId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Types",
-                columns: table => new
-                {
-                    TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TypeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TypeDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TypeImage = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Types", x => x.TypeId);
                 });
 
             migrationBuilder.CreateTable(
@@ -318,6 +301,10 @@ namespace Monhealth.Identity.Migrations
                     SugarGoal = table.Column<float>(type: "real", nullable: false),
                     WaterGoal = table.Column<int>(type: "int", nullable: false),
                     ExerciseGoal = table.Column<float>(type: "real", nullable: false),
+                    WaterIntakesGoal = table.Column<float>(type: "real", nullable: false),
+                    ExerciseDurationGoal = table.Column<float>(type: "real", nullable: false),
+                    ExerciseCaloriesGoal = table.Column<float>(type: "real", nullable: false),
+                    StepsGoal = table.Column<float>(type: "real", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -462,6 +449,38 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Exercises",
+                columns: table => new
+                {
+                    ExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ExerciseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ExerciseDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Duration = table.Column<int>(type: "int", nullable: false),
+                    CaloriesBurned = table.Column<float>(type: "real", nullable: false),
+                    Instructions = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IntensityLevel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DifficultyLevel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Views = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exercises", x => x.ExerciseId);
+                    table.ForeignKey(
+                        name: "FK_Exercises_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Foods",
                 columns: table => new
                 {
@@ -522,35 +541,6 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Exercises",
-                columns: table => new
-                {
-                    ExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExerciseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IntensityLevel = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Duration = table.Column<int>(type: "int", nullable: false),
-                    CaloriesBurned = table.Column<float>(type: "real", nullable: false),
-                    Instructions = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Views = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Exercises", x => x.ExerciseId);
-                    table.ForeignKey(
-                        name: "FK_Exercises_Types_TypeId",
-                        column: x => x.TypeId,
-                        principalTable: "Types",
-                        principalColumn: "TypeId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "CertificateImages",
                 columns: table => new
                 {
@@ -576,7 +566,7 @@ namespace Monhealth.Identity.Migrations
                     WorkoutId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DailyWorkoutId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    WorkoutName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
                     CaloriesBurned = table.Column<float>(type: "real", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -598,6 +588,37 @@ namespace Monhealth.Identity.Migrations
                         column: x => x.DailyWorkoutId,
                         principalTable: "DailyWorkouts",
                         principalColumn: "DailyWorkoutId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DailyActivities",
+                columns: table => new
+                {
+                    DailyActivityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GoalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TotalDuration = table.Column<int>(type: "int", nullable: false),
+                    TotalCaloriesBurned = table.Column<float>(type: "real", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DailyActivities", x => x.DailyActivityId);
+                    table.ForeignKey(
+                        name: "FK_DailyActivities_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DailyActivities_Goals_GoalId",
+                        column: x => x.GoalId,
+                        principalTable: "Goals",
+                        principalColumn: "GoalId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -632,17 +653,13 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reminders",
+                name: "DailyWaterIntakes",
                 columns: table => new
                 {
-                    ReminderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DailyWaterIntakeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     GoalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Volume = table.Column<float>(type: "real", nullable: false),
-                    ReminderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Time = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
-                    IsDefault = table.Column<bool>(type: "bit", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TotalVolume = table.Column<float>(type: "real", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
@@ -650,18 +667,51 @@ namespace Monhealth.Identity.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reminders", x => x.ReminderId);
+                    table.PrimaryKey("PK_DailyWaterIntakes", x => x.DailyWaterIntakeId);
                     table.ForeignKey(
-                        name: "FK_Reminders_AspNetUsers_UserId",
+                        name: "FK_DailyWaterIntakes_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DailyWaterIntakes_Goals_GoalId",
+                        column: x => x.GoalId,
+                        principalTable: "Goals",
+                        principalColumn: "GoalId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WaterReminders",
+                columns: table => new
+                {
+                    WaterReminderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Volume = table.Column<float>(type: "real", nullable: false),
+                    IsRecurring = table.Column<bool>(type: "bit", nullable: false),
+                    WaterReminderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Time = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    GoalId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WaterReminders", x => x.WaterReminderId);
+                    table.ForeignKey(
+                        name: "FK_WaterReminders_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Reminders_Goals_GoalId",
+                        name: "FK_WaterReminders_Goals_GoalId",
                         column: x => x.GoalId,
                         principalTable: "Goals",
-                        principalColumn: "GoalId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "GoalId");
                 });
 
             migrationBuilder.CreateTable(
@@ -798,7 +848,8 @@ namespace Monhealth.Identity.Migrations
                 {
                     WorkoutExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     WorkoutId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -841,6 +892,35 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "WaterIntakes",
+                columns: table => new
+                {
+                    WaterIntakeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DailyWaterIntakeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WaterIntakes", x => x.WaterIntakeId);
+                    table.ForeignKey(
+                        name: "FK_WaterIntakes_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_WaterIntakes_DailyWaterIntakes_DailyWaterIntakeId",
+                        column: x => x.DailyWaterIntakeId,
+                        principalTable: "DailyWaterIntakes",
+                        principalColumn: "DailyWaterIntakeId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Notifications",
                 columns: table => new
                 {
@@ -854,10 +934,10 @@ namespace Monhealth.Identity.Migrations
                 {
                     table.PrimaryKey("PK_Notifications", x => x.NotificationId);
                     table.ForeignKey(
-                        name: "FK_Notifications_Reminders_ReminderId",
+                        name: "FK_Notifications_WaterReminders_ReminderId",
                         column: x => x.ReminderId,
-                        principalTable: "Reminders",
-                        principalColumn: "ReminderId",
+                        principalTable: "WaterReminders",
+                        principalColumn: "WaterReminderId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -944,6 +1024,36 @@ namespace Monhealth.Identity.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "WaterIntakeReminders",
+                columns: table => new
+                {
+                    WaterIntakeReminderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WaterIntakeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WaterReminderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WaterIntakeReminders", x => x.WaterIntakeReminderId);
+                    table.ForeignKey(
+                        name: "FK_WaterIntakeReminders_WaterIntakes_WaterIntakeId",
+                        column: x => x.WaterIntakeId,
+                        principalTable: "WaterIntakes",
+                        principalColumn: "WaterIntakeId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_WaterIntakeReminders_WaterReminders_WaterReminderId",
+                        column: x => x.WaterReminderId,
+                        principalTable: "WaterReminders",
+                        principalColumn: "WaterReminderId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Allergies",
                 columns: new[] { "AllergyId", "AllergyDescription", "AllergyName" },
@@ -978,33 +1088,40 @@ namespace Monhealth.Identity.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Avatar", "ConcurrencyStamp", "CreatedAt", "CreatedBy", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RefreshToken", "RefreshTokenExpiryTime", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedAt", "UpdatedBy", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, "4bb837ef-3a10-48b0-a2a6-6921b2850293", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khanhpham@gmail.com", true, "Nguyen Pham Khanh", false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAEIPJROjzzCKQsBjg4I0zoCpas+EXhwH4EelaO8f243jbGkNBSGhZUVsyD/wA6ADayA==", "0969998878", false, null, null, "0fcbffe0-99e4-4db7-ac5d-c8941a1dd2f8", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "kuem113" },
-                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, "3a616320-8e9d-463f-981d-c90a1ce7ce25", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEBlt3NXHIK6T84IKlc4O6HpPMoTL9gcXITUJmc/B3FHtI2LZsHq+URaiPm0I9YDXsA==", "0555666612", false, null, null, "4f8608e0-39f3-47e4-a63e-6e89f536d788", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duypro113" },
-                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, "fa63506c-3df9-4df9-815f-1a3c441dfd11", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quocdai@gmail.com", true, "Nguyen Quoc Dai", false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAEAv/K6Z45ANWWVmXdUEC0foGk1b+VMvnRP9ehHoRSiGHB07u7PWN55QXr6YNdGP69A==", "0932748924", false, null, null, "667fd19f-c4e2-4649-bfed-0f3a7c8bfd77", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "dainq115" },
-                    { new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, null, "77b57883-eda1-45e6-b820-6dee25e86939", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "asd@gmail.com", true, "asd", false, null, "ASD@GMAIL.COM", "ASD", "AQAAAAIAAYagAAAAEJxWS621gokBrjnJnw8nysqxFlbztqwKRfk1cBZaGBY04MsXlcyeTV1oQdFn7rwV+Q==", "0123456789", false, null, null, "2704b9d0-acfc-4665-8b04-28f07a2fa151", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "asd" },
-                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, "add3e6b7-c17f-4559-a930-e7327e1a5bf9", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khaitoi@gmail.com", true, "Phan Van Khai", false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEOFJXkOEwpCgrYLUamsJltpFVBaiBME7FTcIGP4UuBwiXRtjBbPjmgETz1dHUQIIBQ==", "0963122758", false, null, null, "d3ff480c-82f4-415d-9009-14d5e1bc6a35", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "xautrai123" },
-                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, "8542d1dc-4933-4e0c-9941-49871ae81f26", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangdalat@gmail.com", true, "Quang La Tui", false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEKLVC4Rt4gfZM5j4ib2ne6QyBUe9NjvZmPTyNZFysAXx2F5eMtJ0fg7ucW78+weXVA==", "0999777712", false, null, null, "396d69ea-96df-4ba1-bfb3-a95ce9e341b7", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangspa09" },
-                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, "463c1012-bf60-4b9c-8eca-ad2a99ab90c4", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "toanvan@gmail.com", true, "Van Huu Toan", false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEECfYtF7OvGqx2dl/xlVT7OK/TfbtN6lPYbQzx8bts/iWV8vaxAw+lGqA5BylhrYmA==", "0792766979", false, null, null, "c4015f14-8ba0-4b9c-b8f2-af6198931502", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "vipro123" }
+                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, "e28506c4-8041-4b0f-8385-0a3dbffd8044", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khanhpham@gmail.com", true, "Nguyen Pham Khanh", false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAEDh2x34ptsOMeTUfklIqB0n27pKha+V7OgqSjn3Q7scyWgVDQiEPCFuPpbszFVT+Dg==", "0969998878", false, null, null, "8a76b572-4e5b-4614-b07d-24d89448a5db", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "kuem113" },
+                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, "815e0896-738e-4036-9cb6-2303ee6cb1c8", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEAePC5njfgCYJ3jw2WzCMCWucbCIBJK0BVOvkDeUgx2XVr8KyScQK0PVIdIzybvWDg==", "0555666612", false, null, null, "95fe693a-0dcb-4b82-b794-67e6ba8b0d97", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "duypro113" },
+                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, "595b338f-c5db-4e40-985d-efcf7fb3797d", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quocdai@gmail.com", true, "Nguyen Quoc Dai", false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAEGIzPaT9jkNvo01isvMC6J0l9yZkYf/TsF9f7+gCt/4f0Hbi11Uijzzzdmve8pD5GA==", "0932748924", false, null, null, "74c27e8f-bdeb-4c69-b4cc-7d6e9d435e21", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "dainq115" },
+                    { new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, null, "b07e9d21-01c2-4b74-9d7e-800abf10a180", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "asd@gmail.com", true, "asd", false, null, "ASD@GMAIL.COM", "ASD", "AQAAAAIAAYagAAAAEO3snTyHkzZotpQ21a/cQjOVaV6yVswkAjdWd8vfvDEQczVIuyfd992n7XmVCgl4NA==", "0123456789", false, null, null, "939cdd09-7507-4c30-8f70-cc28b4b15080", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "asd" },
+                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, "75877ee9-ab77-49f0-a67e-cd20574447f1", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "khaitoi@gmail.com", true, "Phan Van Khai", false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEKdz/6kRWn8lrUx32SOlp/SicIKPBpmYrl3CFrk1ypGLe970cbBSQ1lsKu7aYpHyJw==", "0963122758", false, null, null, "23546acb-f4f4-4488-9b07-2d2b606fd594", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "xautrai123" },
+                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, "207fa33d-c89c-454f-abbd-678bd2597f6c", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangdalat@gmail.com", true, "Quang La Tui", false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEM7vDbVzCcoSrW8adCSkTol9N3Ek3GMJSTiqKXbjJlK+EE9u/zzHlQ1qI83E+UKJJA==", "0999777712", false, null, null, "06fa3ee2-db1f-4e8c-b2a7-fc6c4f15cf71", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "quangspa09" },
+                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, "f47c7217-13a5-4bd1-9527-557677272bda", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "toanvan@gmail.com", true, "Van Huu Toan", false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEP9mUsVpOHHWx0woOH+ZCG06pyt/Ftvy+t27VDI0yG43OPkkmo6eJfPpetnh0o/y4w==", "0792766979", false, null, null, "072fb2c5-4749-4868-be87-596aa974f757", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "vipro123" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "CategoryId", "CategoryDescription", "CategoryImage", "CategoryName", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy" },
+                columns: new[] { "CategoryId", "CategoryDescription", "CategoryImage", "CategoryName", "CategoryType", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"), "Hoa quả tươi hoặc chế biến như salad trái cây, nước ép, sinh tố, cung cấp vitamin và khoáng chất", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fapple.png?alt=media&token=106a39ee-5c36-4c27-8bbe-c850ee19cb02", "Trái cây", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"), "Các món ăn từ thực vật, đậu phụ, và nguyên liệu không sử dụng thịt, phù hợp với người ăn chay hoặc muốn đổi vị thanh đạm", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fradish.png?alt=media&token=c27e26f3-3f39-42ec-bf40-94c9abb074d5", "Món chay", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"), "Gạo, mì, bánh mì, yến mạch, và các loại hạt ngũ cốc. Là nguồn cung cấp năng lượng chính trong ngày", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Frice.png?alt=media&token=1ef6ca23-003f-4415-9ce4-3a3f5cd8e65e", "Ngũ cốc", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"), "Snack, khô gà, khô bò, bim bim, và các món ăn nhẹ lý tưởng cho những lúc giải trí hay nghỉ ngơi", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpopcorn.png?alt=media&token=8aecf5e1-071f-4b0f-8e55-a2c47b289def", "Đồ ăn vặt", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"), "Món ăn từ rau xanh, củ quả và nấm. Phù hợp cho những ai yêu thích thực phẩm tươi sạch, giàu dinh dưỡng", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84", "Rau củ", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("78651ea5-2013-4e50-a55f-714de91a712d"), "Bánh ngọt, kẹo, kem, và các món tráng miệng ngọt ngào, lý tưởng cho những ai yêu thích đồ ngọt", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcupcake.png?alt=media&token=8721bd49-186f-4ccf-a85a-64008e4c8e38", "Món ngọt", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"), "Bao gồm các món ăn từ thịt bò, thịt gà, thịt lợn, thịt vịt và các loại thịt khác. Là lựa chọn phổ biến trong bữa ăn chính", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fsteak.png?alt=media&token=dfffb9c2-2964-40cc-8712-e83b4200e7af", "Thịt", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"), "Pizza, burger, khoai tây chiên, gà rán, và các món ăn tiện lợi, phù hợp cho những ai bận rộn", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fburger.png?alt=media&token=66dd457f-64d3-4b66-851c-10eba13fdc7d", "Đồ ăn nhanh", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"), "Bánh mì, bánh ngọt, bánh mặn, bánh hấp, và các món bánh truyền thống hay hiện đại", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbread.png?alt=media&token=decd5d8c-994f-4a71-ab9e-2096209515fc", "Bánh các loại", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"), "Các món ăn từ tôm, cá, cua, mực, hàu, sò và các loại hải sản khác. Thích hợp cho những ai yêu thích hương vị biển cả", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2", "Hải sản", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"), "Bao gồm nước ép, sinh tố, trà, cà phê, và các loại đồ uống giải khát khác", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcoffee-cup.png?alt=media&token=14155321-cd44-422b-a49f-3e34636d7f85", "Đồ uống", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"), "Kimchi, dưa chua, sữa chua, rượu vang và các món ăn lên men, tốt cho tiêu hóa và sức khỏe đường ruột", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpickles.png?alt=media&token=2a078ceb-40a9-403d-a68c-9682faf1b97f", "Món lên men", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"), "Các loại hạt (hạnh nhân, hạt chia, hạt điều) và đậu (đậu nành, đậu xanh, đậu đen). Giàu protein và chất xơ", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fgrain.png?alt=media&token=e224b22a-925e-4aa4-ab50-d74309ba71f4", "Hạt và đậu", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), "Các bài tập aerobic giúp tăng nhịp tim, cải thiện sức khỏe tim mạch, và đốt cháy calo nhanh. Thích hợp để giảm cân hoặc cải thiện thể lực tổng thể", "", "Cardio", "Exercise", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"), "Hoa quả tươi hoặc chế biến như salad trái cây, nước ép, sinh tố, cung cấp vitamin và khoáng chất", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fapple.png?alt=media&token=106a39ee-5c36-4c27-8bbe-c850ee19cb02", "Trái cây", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"), "Các món ăn từ thực vật, đậu phụ, và nguyên liệu không sử dụng thịt, phù hợp với người ăn chay hoặc muốn đổi vị thanh đạm", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fradish.png?alt=media&token=c27e26f3-3f39-42ec-bf40-94c9abb074d5", "Món chay", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"), "Gạo, mì, bánh mì, yến mạch, và các loại hạt ngũ cốc. Là nguồn cung cấp năng lượng chính trong ngày", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Frice.png?alt=media&token=1ef6ca23-003f-4415-9ce4-3a3f5cd8e65e", "Ngũ cốc", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"), "Snack, khô gà, khô bò, bim bim, và các món ăn nhẹ lý tưởng cho những lúc giải trí hay nghỉ ngơi", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpopcorn.png?alt=media&token=8aecf5e1-071f-4b0f-8e55-a2c47b289def", "Đồ ăn vặt", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"), "Món ăn từ rau xanh, củ quả và nấm. Phù hợp cho những ai yêu thích thực phẩm tươi sạch, giàu dinh dưỡng", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84", "Rau củ", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), "Các bài tập tập trung vào việc cải thiện sự linh hoạt, thăng bằng, và giảm căng thẳng thông qua các tư thế và kỹ thuật thở. Phù hợp cho mọi lứa tuổi và thể trạng", "", "Yoga", "Exercise", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("78651ea5-2013-4e50-a55f-714de91a712d"), "Bánh ngọt, kẹo, kem, và các món tráng miệng ngọt ngào, lý tưởng cho những ai yêu thích đồ ngọt", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcupcake.png?alt=media&token=8721bd49-186f-4ccf-a85a-64008e4c8e38", "Món ngọt", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), "Bài tập kéo giãn cơ giúp cải thiện biên độ chuyển động, giảm đau nhức cơ bắp, và tăng cường sự linh hoạt. Thường được sử dụng như phần khởi động hoặc thư giãn sau buổi tập", "", "Stretching", "Exercise", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"), "Bao gồm các món ăn từ thịt bò, thịt gà, thịt lợn, thịt vịt và các loại thịt khác. Là lựa chọn phổ biến trong bữa ăn chính", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fsteak.png?alt=media&token=dfffb9c2-2964-40cc-8712-e83b4200e7af", "Thịt", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), "Các bài tập tập trung vào kỹ thuật thở sâu và có kiểm soát. Giúp thư giãn, giảm stress, và cải thiện khả năng hấp thụ oxy", "", "Breathing Exercises", "Exercise", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"), "Pizza, burger, khoai tây chiên, gà rán, và các món ăn tiện lợi, phù hợp cho những ai bận rộn", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fburger.png?alt=media&token=66dd457f-64d3-4b66-851c-10eba13fdc7d", "Đồ ăn nhanh", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), "Các bài tập tăng cường sức mạnh cơ bụng, lưng dưới, và vùng thân trung tâm. Giúp cải thiện tư thế, thăng bằng, và giảm nguy cơ chấn thương", "", "Core", "Exercise", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("cb81e687-8e2f-4814-99a6-808777410e02"), "Bài tập kết hợp giữa các động tác chậm, có kiểm soát, tập trung vào sức mạnh cơ lõi, sự linh hoạt và tư thế. Phù hợp để cải thiện cơ bắp và giảm căng thẳng", "", "Pilates", "Exercise", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"), "Bánh mì, bánh ngọt, bánh mặn, bánh hấp, và các món bánh truyền thống hay hiện đại", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbread.png?alt=media&token=decd5d8c-994f-4a71-ab9e-2096209515fc", "Bánh các loại", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"), "Các bài tập giúp tăng cường khả năng thăng bằng và sự ổn định của cơ thể. Đặc biệt hữu ích cho người lớn tuổi hoặc những ai cần cải thiện khả năng giữ thăng bằng", "", "Balance Training", "Exercise", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"), "Các món ăn từ tôm, cá, cua, mực, hàu, sò và các loại hải sản khác. Thích hợp cho những ai yêu thích hương vị biển cả", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2", "Hải sản", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"), "Bao gồm nước ép, sinh tố, trà, cà phê, và các loại đồ uống giải khát khác", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcoffee-cup.png?alt=media&token=14155321-cd44-422b-a49f-3e34636d7f85", "Đồ uống", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"), "Kimchi, dưa chua, sữa chua, rượu vang và các món ăn lên men, tốt cho tiêu hóa và sức khỏe đường ruột", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpickles.png?alt=media&token=2a078ceb-40a9-403d-a68c-9682faf1b97f", "Món lên men", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"), "Các loại hạt (hạnh nhân, hạt chia, hạt điều) và đậu (đậu nành, đậu xanh, đậu đen). Giàu protein và chất xơ", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fgrain.png?alt=media&token=e224b22a-925e-4aa4-ab50-d74309ba71f4", "Hạt và đậu", "Food", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -1055,20 +1172,6 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Types",
-                columns: new[] { "TypeId", "CreatedAt", "CreatedBy", "TypeDescription", "TypeImage", "TypeName", "UpdatedAt", "UpdatedBy" },
-                values: new object[,]
-                {
-                    { new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Các bài tập aerobic giúp tăng nhịp tim, cải thiện sức khỏe tim mạch, và đốt cháy calo nhanh. Thích hợp để giảm cân hoặc cải thiện thể lực tổng thể", "", "Cardio", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Các bài tập tập trung vào việc cải thiện sự linh hoạt, thăng bằng, và giảm căng thẳng thông qua các tư thế và kỹ thuật thở. Phù hợp cho mọi lứa tuổi và thể trạng", "", "Yoga", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Bài tập kéo giãn cơ giúp cải thiện biên độ chuyển động, giảm đau nhức cơ bắp, và tăng cường sự linh hoạt. Thường được sử dụng như phần khởi động hoặc thư giãn sau buổi tập", "", "Stretching", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Các bài tập tập trung vào kỹ thuật thở sâu và có kiểm soát. Giúp thư giãn, giảm stress, và cải thiện khả năng hấp thụ oxy", "", "Breathing Exercises", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Các bài tập tăng cường sức mạnh cơ bụng, lưng dưới, và vùng thân trung tâm. Giúp cải thiện tư thế, thăng bằng, và giảm nguy cơ chấn thương", "", "Core", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("cb81e687-8e2f-4814-99a6-808777410e02"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Bài tập kết hợp giữa các động tác chậm, có kiểm soát, tập trung vào sức mạnh cơ lõi, sự linh hoạt và tư thế. Phù hợp để cải thiện cơ bắp và giảm căng thẳng", "", "Pilates", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Các bài tập giúp tăng cường khả năng thăng bằng và sự ổn định của cơ thể. Đặc biệt hữu ích cho người lớn tuổi hoặc những ai cần cải thiện khả năng giữ thăng bằng", "", "Balance Training", new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
-                });
-
-            migrationBuilder.InsertData(
                 table: "AppUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
@@ -1084,59 +1187,59 @@ namespace Monhealth.Identity.Migrations
 
             migrationBuilder.InsertData(
                 table: "Exercises",
-                columns: new[] { "ExerciseId", "CaloriesBurned", "CreatedAt", "CreatedBy", "Duration", "ExerciseName", "Instructions", "IntensityLevel", "Status", "TypeId", "UpdatedAt", "UpdatedBy", "Views" },
+                columns: new[] { "ExerciseId", "CaloriesBurned", "CategoryId", "CreatedAt", "CreatedBy", "DifficultyLevel", "Duration", "ExerciseDescription", "ExerciseName", "Image", "Instructions", "IntensityLevel", "Status", "UpdatedAt", "UpdatedBy", "Views" },
                 values: new object[,]
                 {
-                    { new Guid("104ed03c-0460-48d2-890e-7acd517e129b"), 3.75f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, "Kéo Giãn Cột Sống", "1. Đứng thẳng 2. Gập người nhẹ về phía trước 3. Dùng tay chạm sàn, giữ vài giây rồi trở lại tư thế ban đầu", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("165cfd11-a6ee-420f-b18e-821768917488"), 4.38f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, "Đứng Gập Đầu", "1. Đứng thẳng 2. Cúi gập đầu và thân người xuống 3. Thư giãn cổ và giữ trong vài giây", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("1a8257c0-db6f-4a6b-ac06-dd88f98cd10b"), 4f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 5, "Kéo Giãn Vai", "1. Ngồi thẳng 2. Đưa tay phải qua vai trái 3. Kéo nhẹ tay bằng tay còn lại, giữ trong 10 giây và đổi bên", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("1cf971f5-5c43-44de-baec-782a473fc49e"), 10f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Bật Nhảy Hai Chân", "1. Đứng thẳng 2. Nhảy bật hai chân lên cao, tay chạm gối 3. Lặp lại liên tục", "High", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("222df2e6-90a1-4a5b-8b63-cd7b73f012bb"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Đứng Một Chân", "1. Đứng thẳng 2. Nâng một chân lên và giữ thăng bằng 3. Đổi bên sau 10 giây", "Medium", true, new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("2d8dd512-b871-4e4e-955c-cf15a50a8ef7"), 4f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Cuộn Người", "1. Nằm ngửa 2. Duỗi thẳng hai tay qua đầu 3. Từ từ cuộn người lên", "Low", true, new Guid("cb81e687-8e2f-4814-99a6-808777410e02"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("2f862941-2b92-4210-bf02-efb91feed6e4"), 10f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 15, "Đi Bộ Nâng Cao Gối", "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng gối cao ngang hông 3. Lặp lại liên tục", "Medium", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("2fdafe44-34cb-40bf-8b68-1e9f79a3aa38"), 10.67f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 15, "Nhảy Nâng Đùi Xen Kẽ", "1. Đứng thẳng 2. Nhảy nâng đùi xen kẽ, tay đưa lên cao 3. Lặp lại liên tục", "High", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("3a737328-37a9-415f-b52c-71480118d431"), 8.67f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 15, "Nhảy Sang Ngang", "1. Đứng thẳng, chân chụm lại 2. Nhảy sang bên trái và phải liên tục 3. Duy trì tốc độ đều", "Medium", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("3b17291f-8c4c-494c-bcbe-3adde745cbca"), 2f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Ngồi Thiền", "1. Ngồi thoải mái 2. Nhắm mắt và tập trung vào nhịp thở 3. Thở đều trong 10 phút", "Low", true, new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("486237f0-a55b-495e-b09a-65bf36260a1e"), 10f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 15, "Bật Nhảy Chéo", "1. Đứng thẳng 2. Nhảy chéo chân và tay 3. Lặp lại với tốc độ tăng dần", "Medium", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("4a9ca2b5-78d0-42ea-870e-b0bc76c72d9e"), 3.75f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, "Ngồi Mở Rộng Eo", "1. Ngồi thẳng lưng, chân duỗi ra 2. Đưa hai tay lên cao 3. Nghiêng người sang bên trái và đổi bên", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("4fca9170-932f-4985-8f6f-04f34c4ed80a"), 8f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Nhảy Chụm Chân", "1. Đứng thẳng 2. Nhảy chụm hai chân lại, tay đưa lên cao 3. Lặp lại động tác trong 10 phút", "Medium", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("507ca0f0-4d34-4e62-9a6a-48c12341a4d1"), 9f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Gập Lưng Trên", "1. Nằm ngửa 2. Nâng thân trên lên về phía đầu gối 3. Hạ xuống từ từ và lặp lại", "High", true, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("523a65a8-53ac-4577-b318-0dbd370ceedf"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Đá Chân Ra Sau", "1. Đứng thẳng 2. Đá chân phải ra sau, giữ thăng bằng 3. Đổi chân và lặp lại", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("6330da83-d0d8-4031-9459-ceccd41a3ac1"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Tư Thế Thư Giãn", "1. Nằm thẳng, tay và chân thả lỏng 2. Hít thở đều và thư giãn trong vài phút", "Low", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("642766b0-99d6-45b8-a1ad-e2d3c1ad8c51"), 4f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Tư Thế Em Bé", "1. Ngồi quỳ, gập người về phía trước 2. Duỗi hai tay ra trước mặt 3. Giữ trong 10 giây", "Low", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("6ca587eb-e1f3-4266-be80-af02b42a8545"), 10f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 5, "Plank", "1. Chống hai khuỷu tay xuống sàn 2. Giữ lưng thẳng và cơ bụng siết chặt 3. Giữ tư thế trong vòng 30 giây đến 1 phút", "High", true, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("6e2ffe73-18da-42e6-ab89-0d3ecf254a52"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 15, "Chào Mặt Trời", "1. Đứng thẳng 2. Đưa hai tay lên cao 3. Cúi gập người và thực hiện các tư thế yoga liên tiếp", "Low", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("769af12c-7398-4803-9a78-7a1ad54047b1"), 6.67f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Tư Thế Cây Cầu", "1. Nằm ngửa 2. Co chân, nâng hông lên cao 3. Hạ xuống từ từ và lặp lại", "Medium", true, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("7717a4d8-d310-466f-afeb-0fb7272dcf0b"), 6.67f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Tư Thế Chiến Binh II", "1. Đứng thẳng, chân mở rộng 2. Đưa hai tay sang ngang, gập một gối 3. Giữ tư thế trong vài giây", "Medium", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("7a102c6e-b15c-4260-a846-203b090603a5"), 3.75f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, "Vặn Người Đứng", "1. Đứng thẳng 2. Xoay người nhẹ sang bên trái, tay chạm eo 3. Đổi bên và lặp lại", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("7f51e931-9f04-4ff6-a383-51cfce5398e9"), 2f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 5, "Thở Bụng", "1. Ngồi thoải mái 2. Đặt tay lên bụng 3. Hít sâu bằng mũi và thở ra bằng miệng, cảm nhận sự phồng lên của bụng", "Low", true, new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("8918e071-56ca-4212-bd09-c338d2b0db8a"), 10f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 15, "Bật Nhảy Tại Chỗ", "1. Đứng thẳng 2. Nhảy cao và đưa tay lên trời 3. Tiếp đất nhẹ nhàng", "Medium", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("8bf642c5-edd8-4998-9385-c7b753f8eb16"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Đứng Vặn Mình", "1. Đứng thẳng, hai tay chống hông 2. Vặn mình sang trái, giữ vài giây 3. Đổi bên và lặp lại", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("8c34f630-f594-48ad-8db9-1e0c90439da7"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, "Gập Lưng Dưới", "1. Nằm ngửa 2. Co gối và gập thân người về phía trước 3. Hạ xuống và lặp lại", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("8c6e4c94-b58e-4d9c-8698-98c7db4021cc"), 6f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 20, "Chạy Bộ Nhẹ", "1. Đứng thẳng 2. Bắt đầu chạy bộ nhẹ nhàng 3. Duy trì tốc độ đều trong 20 phút", "Medium", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("92319d32-4758-49d2-bdd1-360f0b119a05"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Ngồi Vặn Mình", "1. Ngồi thẳng lưng, chân duỗi thẳng 2. Xoay thân người sang trái, tay chạm đầu gối 3. Đổi bên và lặp lại", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("97dd1375-9217-43b9-9c9d-c14128158ef0"), 3.75f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, "Kéo Giãn Đùi Sau", "1. Ngồi trên sàn 2. Duỗi một chân thẳng 3. Vươn tay về phía ngón chân của chân duỗi", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("9fbbaf75-bece-48ff-975f-28ab6204516b"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, "Nâng Tay Kéo Dài", "1. Đứng thẳng 2. Đưa một tay lên cao và kéo dài 3. Đổi tay và lặp lại", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("a97fb729-878b-413e-af0f-086e524874bb"), 5.83f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Tư Thế Cá Heo", "1. Bắt đầu ở tư thế bò 2. Chống hai khuỷu tay và nâng hông lên 3. Giữ tư thế và hít thở đều", "Medium", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("a98a4e19-3ccf-4e3f-90fa-a9f866230bd2"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Kéo Giãn Hông", "1. Đứng thẳng 2. Đưa một chân ra phía trước, gập nhẹ gối 3. Giữ tư thế và đổi bên", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("af983757-d7a8-412c-87e1-9f8a3a09e92f"), 9f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Tư Thế Con Quạ", "1. Ngồi xổm, đặt hai tay xuống sàn 2. Nâng hai chân lên khỏi sàn, giữ thăng bằng 3. Giữ tư thế trong vài giây", "High", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("afbf282b-5a75-4b98-94a1-c1d3dece6b25"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Chống Đẩy Đầu Gối", "1. Nằm úp 2. Chống hai tay và đầu gối xuống sàn 3. Nâng người lên và hạ xuống từ từ", "Low", true, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("b25e6da5-a48d-414d-9d94-34fc08421eb5"), 7.5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Tư Thế Thuyền", "1. Ngồi trên sàn, chân co gối lên 2. Nâng thân người và chân lên tạo hình chữ V 3. Giữ vài giây rồi hạ xuống", "High", true, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("c05e4fd1-6546-4283-bace-4cbf8affd86a"), 6f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Tư Thế Mèo - Bò", "1. Bắt đầu ở tư thế bò 2. Cong lưng và nâng đầu lên 3. Cúi đầu và gập lưng xuống", "Low", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("c54c743d-4956-4b88-94ff-c4467f463a41"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Chó Úp Mặt", "1. Bắt đầu ở tư thế bò 2. Nâng hông cao để tạo thành chữ V ngược 3. Giữ tư thế trong vài giây", "Low", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("c6717b09-eea8-4452-8900-2abd68494661"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Tư Thế Cây", "1. Đứng thẳng 2. Đặt một chân lên đầu gối chân còn lại 3. Vươn hai tay lên cao và giữ tư thế trong vài giây", "Low", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("c8c75216-1952-41c7-88d1-2e21e50a4bf7"), 5.83f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Đứng Gập Người", "1. Đứng thẳng 2. Cúi gập người, tay chạm sàn 3. Giữ tư thế vài giây và trở lại vị trí ban đầu", "Low", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("cb7a4531-62f7-4209-9489-2ef6e3a8571a"), 8.33f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Gập Gối Ngồi", "1. Ngồi xuống, hai chân mở rộng 2. Gập gối và đưa thân người xuống gần gối 3. Trở lại tư thế ban đầu", "Medium", true, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("ccd35e18-4679-4bfb-b9df-2eaaa3f4d9a8"), 5.83f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 12, "Tư Thế Tam Giác", "1. Đứng thẳng, hai chân mở rộng 2. Gập người sang bên, tay chạm vào gót chân 3. Giữ tư thế và lặp lại ở bên còn lại", "Medium", true, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("cdb6b8b0-e24d-488a-b2ac-6e38c7269b08"), 4f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 5, "Kéo Cánh Tay", "1. Đứng thẳng 2. Đưa tay phải sang vai trái 3. Kéo nhẹ tay và giữ vài giây, sau đó đổi bên", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("d622220c-af21-47bb-8540-90e01c5b63be"), 3f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 5, "Thở Hít Lâu", "1. Ngồi thoải mái 2. Hít vào sâu trong 5 giây 3. Thở ra chậm trong 7 giây", "Low", true, new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("e051611d-806d-4d70-81da-da1277c404a1"), 2f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 5, "Thở Sâu", "1. Ngồi thẳng lưng 2. Hít vào chậm rãi qua mũi 3. Thở ra từ từ qua miệng", "Low", true, new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("e3eeb6c5-aa62-4f2e-8ab1-b856c208d448"), 4.67f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 15, "Đi Bộ Tại Chỗ", "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng đùi nhẹ nhàng 3. Giữ tốc độ đều đặn", "Low", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("e3f3c590-fb64-4187-9375-db45a3bc5f26"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, "Đứng Kiễng Chân", "1. Đứng thẳng, chân chụm lại 2. Nâng gót chân lên cao 3. Giữ vài giây và hạ xuống", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("e400f9d2-1f60-4494-b5bc-73085d215043"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Kéo Gối Chạm Ngực", "1. Nằm ngửa 2. Kéo gối phải lên chạm ngực 3. Đổi bên và lặp lại", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("f05d362a-3b43-4451-9857-025a170ec0e2"), 10f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, "Gập Bụng", "1. Nằm ngửa, đầu gối co lại 2. Đặt hai tay sau đầu, nâng người lên 3. Hạ xuống từ từ và lặp lại", "Medium", true, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("f4c8fd3c-fc3e-45cb-b468-4acf0ae87266"), 10f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 15, "Chạy Nâng High Đùi", "1. Đứng thẳng 2. Nâng cao đùi một chân đến ngang hông, sau đó đổi chân 3. Lặp lại động tác với tốc độ tăng dần", "High", true, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
-                    { new Guid("fcbc0f6c-bfda-430d-a7b0-ad48391327b4"), 5f, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, "Nhún Gối", "1. Đứng thẳng 2. Gập đầu gối nhẹ nhàng xuống 3. Trở về tư thế ban đầu và lặp lại", "Low", true, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 }
+                    { new Guid("104ed03c-0460-48d2-890e-7acd517e129b"), 3.75f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 8, "", "Kéo Giãn Cột Sống", "", "1. Đứng thẳng 2. Gập người nhẹ về phía trước 3. Dùng tay chạm sàn, giữ vài giây rồi trở lại tư thế ban đầu", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("165cfd11-a6ee-420f-b18e-821768917488"), 4.38f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 8, "", "Đứng Gập Đầu", "", "1. Đứng thẳng 2. Cúi gập đầu và thân người xuống 3. Thư giãn cổ và giữ trong vài giây", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("1a8257c0-db6f-4a6b-ac06-dd88f98cd10b"), 4f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 5, "", "Kéo Giãn Vai", "", "1. Ngồi thẳng 2. Đưa tay phải qua vai trái 3. Kéo nhẹ tay bằng tay còn lại, giữ trong 10 giây và đổi bên", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("1cf971f5-5c43-44de-baec-782a473fc49e"), 10f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Bật Nhảy Hai Chân", "", "1. Đứng thẳng 2. Nhảy bật hai chân lên cao, tay chạm gối 3. Lặp lại liên tục", "High", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("222df2e6-90a1-4a5b-8b63-cd7b73f012bb"), 5f, new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Đứng Một Chân", "", "1. Đứng thẳng 2. Nâng một chân lên và giữ thăng bằng 3. Đổi bên sau 10 giây", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("2d8dd512-b871-4e4e-955c-cf15a50a8ef7"), 4f, new Guid("cb81e687-8e2f-4814-99a6-808777410e02"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Cuộn Người", "", "1. Nằm ngửa 2. Duỗi thẳng hai tay qua đầu 3. Từ từ cuộn người lên", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("2f862941-2b92-4210-bf02-efb91feed6e4"), 10f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 15, "", "Đi Bộ Nâng Cao Gối", "", "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng gối cao ngang hông 3. Lặp lại liên tục", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("2fdafe44-34cb-40bf-8b68-1e9f79a3aa38"), 10.67f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 15, "", "Nhảy Nâng Đùi Xen Kẽ", "", "1. Đứng thẳng 2. Nhảy nâng đùi xen kẽ, tay đưa lên cao 3. Lặp lại liên tục", "High", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("3a737328-37a9-415f-b52c-71480118d431"), 8.67f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 15, "", "Nhảy Sang Ngang", "", "1. Đứng thẳng, chân chụm lại 2. Nhảy sang bên trái và phải liên tục 3. Duy trì tốc độ đều", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("3b17291f-8c4c-494c-bcbe-3adde745cbca"), 2f, new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Ngồi Thiền", "", "1. Ngồi thoải mái 2. Nhắm mắt và tập trung vào nhịp thở 3. Thở đều trong 10 phút", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("486237f0-a55b-495e-b09a-65bf36260a1e"), 10f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 15, "", "Bật Nhảy Chéo", "", "1. Đứng thẳng 2. Nhảy chéo chân và tay 3. Lặp lại với tốc độ tăng dần", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("4a9ca2b5-78d0-42ea-870e-b0bc76c72d9e"), 3.75f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 8, "", "Ngồi Mở Rộng Eo", "", "1. Ngồi thẳng lưng, chân duỗi ra 2. Đưa hai tay lên cao 3. Nghiêng người sang bên trái và đổi bên", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("4fca9170-932f-4985-8f6f-04f34c4ed80a"), 8f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Nhảy Chụm Chân", "", "1. Đứng thẳng 2. Nhảy chụm hai chân lại, tay đưa lên cao 3. Lặp lại động tác trong 10 phút", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("507ca0f0-4d34-4e62-9a6a-48c12341a4d1"), 9f, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Gập Lưng Trên", "", "1. Nằm ngửa 2. Nâng thân trên lên về phía đầu gối 3. Hạ xuống từ từ và lặp lại", "High", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("523a65a8-53ac-4577-b318-0dbd370ceedf"), 5f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Đá Chân Ra Sau", "", "1. Đứng thẳng 2. Đá chân phải ra sau, giữ thăng bằng 3. Đổi chân và lặp lại", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("6330da83-d0d8-4031-9459-ceccd41a3ac1"), 5f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Tư Thế Thư Giãn", "", "1. Nằm thẳng, tay và chân thả lỏng 2. Hít thở đều và thư giãn trong vài phút", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("642766b0-99d6-45b8-a1ad-e2d3c1ad8c51"), 4f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Tư Thế Em Bé", "", "1. Ngồi quỳ, gập người về phía trước 2. Duỗi hai tay ra trước mặt 3. Giữ trong 10 giây", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("6ca587eb-e1f3-4266-be80-af02b42a8545"), 10f, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 5, "", "Plank", "", "1. Chống hai khuỷu tay xuống sàn 2. Giữ lưng thẳng và cơ bụng siết chặt 3. Giữ tư thế trong vòng 30 giây đến 1 phút", "High", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("6e2ffe73-18da-42e6-ab89-0d3ecf254a52"), 5f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 15, "", "Chào Mặt Trời", "", "1. Đứng thẳng 2. Đưa hai tay lên cao 3. Cúi gập người và thực hiện các tư thế yoga liên tiếp", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("769af12c-7398-4803-9a78-7a1ad54047b1"), 6.67f, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Tư Thế Cây Cầu", "", "1. Nằm ngửa 2. Co chân, nâng hông lên cao 3. Hạ xuống từ từ và lặp lại", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("7717a4d8-d310-466f-afeb-0fb7272dcf0b"), 6.67f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Tư Thế Chiến Binh II", "", "1. Đứng thẳng, chân mở rộng 2. Đưa hai tay sang ngang, gập một gối 3. Giữ tư thế trong vài giây", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("7a102c6e-b15c-4260-a846-203b090603a5"), 3.75f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 8, "", "Vặn Người Đứng", "", "1. Đứng thẳng 2. Xoay người nhẹ sang bên trái, tay chạm eo 3. Đổi bên và lặp lại", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("7f51e931-9f04-4ff6-a383-51cfce5398e9"), 2f, new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 5, "", "Thở Bụng", "", "1. Ngồi thoải mái 2. Đặt tay lên bụng 3. Hít sâu bằng mũi và thở ra bằng miệng, cảm nhận sự phồng lên của bụng", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("8918e071-56ca-4212-bd09-c338d2b0db8a"), 10f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 15, "", "Bật Nhảy Tại Chỗ", "", "1. Đứng thẳng 2. Nhảy cao và đưa tay lên trời 3. Tiếp đất nhẹ nhàng", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("8bf642c5-edd8-4998-9385-c7b753f8eb16"), 5f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Đứng Vặn Mình", "", "1. Đứng thẳng, hai tay chống hông 2. Vặn mình sang trái, giữ vài giây 3. Đổi bên và lặp lại", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("8c34f630-f594-48ad-8db9-1e0c90439da7"), 5f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 8, "", "Gập Lưng Dưới", "", "1. Nằm ngửa 2. Co gối và gập thân người về phía trước 3. Hạ xuống và lặp lại", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("8c6e4c94-b58e-4d9c-8698-98c7db4021cc"), 6f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 20, "", "Chạy Bộ Nhẹ", "", "1. Đứng thẳng 2. Bắt đầu chạy bộ nhẹ nhàng 3. Duy trì tốc độ đều trong 20 phút", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("92319d32-4758-49d2-bdd1-360f0b119a05"), 5f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Ngồi Vặn Mình", "", "1. Ngồi thẳng lưng, chân duỗi thẳng 2. Xoay thân người sang trái, tay chạm đầu gối 3. Đổi bên và lặp lại", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("97dd1375-9217-43b9-9c9d-c14128158ef0"), 3.75f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 8, "", "Kéo Giãn Đùi Sau", "", "1. Ngồi trên sàn 2. Duỗi một chân thẳng 3. Vươn tay về phía ngón chân của chân duỗi", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("9fbbaf75-bece-48ff-975f-28ab6204516b"), 5f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 8, "", "Nâng Tay Kéo Dài", "", "1. Đứng thẳng 2. Đưa một tay lên cao và kéo dài 3. Đổi tay và lặp lại", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("a97fb729-878b-413e-af0f-086e524874bb"), 5.83f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Tư Thế Cá Heo", "", "1. Bắt đầu ở tư thế bò 2. Chống hai khuỷu tay và nâng hông lên 3. Giữ tư thế và hít thở đều", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("a98a4e19-3ccf-4e3f-90fa-a9f866230bd2"), 5f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Kéo Giãn Hông", "", "1. Đứng thẳng 2. Đưa một chân ra phía trước, gập nhẹ gối 3. Giữ tư thế và đổi bên", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("af983757-d7a8-412c-87e1-9f8a3a09e92f"), 9f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Tư Thế Con Quạ", "", "1. Ngồi xổm, đặt hai tay xuống sàn 2. Nâng hai chân lên khỏi sàn, giữ thăng bằng 3. Giữ tư thế trong vài giây", "High", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("afbf282b-5a75-4b98-94a1-c1d3dece6b25"), 5f, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Chống Đẩy Đầu Gối", "", "1. Nằm úp 2. Chống hai tay và đầu gối xuống sàn 3. Nâng người lên và hạ xuống từ từ", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("b25e6da5-a48d-414d-9d94-34fc08421eb5"), 7.5f, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Tư Thế Thuyền", "", "1. Ngồi trên sàn, chân co gối lên 2. Nâng thân người và chân lên tạo hình chữ V 3. Giữ vài giây rồi hạ xuống", "High", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("c05e4fd1-6546-4283-bace-4cbf8affd86a"), 6f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Tư Thế Mèo - Bò", "", "1. Bắt đầu ở tư thế bò 2. Cong lưng và nâng đầu lên 3. Cúi đầu và gập lưng xuống", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("c54c743d-4956-4b88-94ff-c4467f463a41"), 5f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Chó Úp Mặt", "", "1. Bắt đầu ở tư thế bò 2. Nâng hông cao để tạo thành chữ V ngược 3. Giữ tư thế trong vài giây", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("c6717b09-eea8-4452-8900-2abd68494661"), 5f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Tư Thế Cây", "", "1. Đứng thẳng 2. Đặt một chân lên đầu gối chân còn lại 3. Vươn hai tay lên cao và giữ tư thế trong vài giây", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("c8c75216-1952-41c7-88d1-2e21e50a4bf7"), 5.83f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Đứng Gập Người", "", "1. Đứng thẳng 2. Cúi gập người, tay chạm sàn 3. Giữ tư thế vài giây và trở lại vị trí ban đầu", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("cb7a4531-62f7-4209-9489-2ef6e3a8571a"), 8.33f, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Gập Gối Ngồi", "", "1. Ngồi xuống, hai chân mở rộng 2. Gập gối và đưa thân người xuống gần gối 3. Trở lại tư thế ban đầu", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("ccd35e18-4679-4bfb-b9df-2eaaa3f4d9a8"), 5.83f, new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 12, "", "Tư Thế Tam Giác", "", "1. Đứng thẳng, hai chân mở rộng 2. Gập người sang bên, tay chạm vào gót chân 3. Giữ tư thế và lặp lại ở bên còn lại", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("cdb6b8b0-e24d-488a-b2ac-6e38c7269b08"), 4f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 5, "", "Kéo Cánh Tay", "", "1. Đứng thẳng 2. Đưa tay phải sang vai trái 3. Kéo nhẹ tay và giữ vài giây, sau đó đổi bên", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("d622220c-af21-47bb-8540-90e01c5b63be"), 3f, new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 5, "", "Thở Hít Lâu", "", "1. Ngồi thoải mái 2. Hít vào sâu trong 5 giây 3. Thở ra chậm trong 7 giây", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("e051611d-806d-4d70-81da-da1277c404a1"), 2f, new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 5, "", "Thở Sâu", "", "1. Ngồi thẳng lưng 2. Hít vào chậm rãi qua mũi 3. Thở ra từ từ qua miệng", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("e3eeb6c5-aa62-4f2e-8ab1-b856c208d448"), 4.67f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 15, "", "Đi Bộ Tại Chỗ", "", "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng đùi nhẹ nhàng 3. Giữ tốc độ đều đặn", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("e3f3c590-fb64-4187-9375-db45a3bc5f26"), 5f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 8, "", "Đứng Kiễng Chân", "", "1. Đứng thẳng, chân chụm lại 2. Nâng gót chân lên cao 3. Giữ vài giây và hạ xuống", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("e400f9d2-1f60-4494-b5bc-73085d215043"), 5f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Kéo Gối Chạm Ngực", "", "1. Nằm ngửa 2. Kéo gối phải lên chạm ngực 3. Đổi bên và lặp lại", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("f05d362a-3b43-4451-9857-025a170ec0e2"), 10f, new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 10, "", "Gập Bụng", "", "1. Nằm ngửa, đầu gối co lại 2. Đặt hai tay sau đầu, nâng người lên 3. Hạ xuống từ từ và lặp lại", "Medium", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("f4c8fd3c-fc3e-45cb-b468-4acf0ae87266"), 10f, new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 15, "", "Chạy Nâng High Đùi", "", "1. Đứng thẳng 2. Nâng cao đùi một chân đến ngang hông, sau đó đổi chân 3. Lặp lại động tác với tốc độ tăng dần", "High", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 },
+                    { new Guid("fcbc0f6c-bfda-430d-a7b0-ad48391327b4"), 5f, new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"), new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "", 8, "", "Nhún Gối", "", "1. Đứng thẳng 2. Gập đầu gối nhẹ nhàng xuống 3. Trở về tư thế ban đầu và lặp lại", "Low", true, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -1491,9 +1594,29 @@ namespace Monhealth.Identity.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DailyActivities_GoalId",
+                table: "DailyActivities",
+                column: "GoalId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DailyActivities_UserId",
+                table: "DailyActivities",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DailyMeals_GoalId",
                 table: "DailyMeals",
                 column: "GoalId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DailyWaterIntakes_GoalId",
+                table: "DailyWaterIntakes",
+                column: "GoalId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DailyWaterIntakes_UserId",
+                table: "DailyWaterIntakes",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DailyWorkouts_UserId",
@@ -1501,9 +1624,9 @@ namespace Monhealth.Identity.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Exercises_TypeId",
+                name: "IX_Exercises_CategoryId",
                 table: "Exercises",
-                column: "TypeId");
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_FoodAllergies_AllergyId",
@@ -1578,16 +1701,6 @@ namespace Monhealth.Identity.Migrations
                 column: "BookingId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reminders_GoalId",
-                table: "Reminders",
-                column: "GoalId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reminders_UserId",
-                table: "Reminders",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Reviews_BookingId",
                 table: "Reviews",
                 column: "BookingId");
@@ -1626,6 +1739,36 @@ namespace Monhealth.Identity.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_UserSubscriptions_UserId",
                 table: "UserSubscriptions",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WaterIntakeReminders_WaterIntakeId",
+                table: "WaterIntakeReminders",
+                column: "WaterIntakeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WaterIntakeReminders_WaterReminderId",
+                table: "WaterIntakeReminders",
+                column: "WaterReminderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WaterIntakes_DailyWaterIntakeId",
+                table: "WaterIntakes",
+                column: "DailyWaterIntakeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WaterIntakes_UserId",
+                table: "WaterIntakes",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WaterReminders_GoalId",
+                table: "WaterReminders",
+                column: "GoalId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WaterReminders_UserId",
+                table: "WaterReminders",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -1671,6 +1814,9 @@ namespace Monhealth.Identity.Migrations
                 name: "CertificateImages");
 
             migrationBuilder.DropTable(
+                name: "DailyActivities");
+
+            migrationBuilder.DropTable(
                 name: "FoodAllergies");
 
             migrationBuilder.DropTable(
@@ -1707,6 +1853,9 @@ namespace Monhealth.Identity.Migrations
                 name: "UserSubscriptions");
 
             migrationBuilder.DropTable(
+                name: "WaterIntakeReminders");
+
+            migrationBuilder.DropTable(
                 name: "WorkoutExercises");
 
             migrationBuilder.DropTable(
@@ -1722,9 +1871,6 @@ namespace Monhealth.Identity.Migrations
                 name: "Meals");
 
             migrationBuilder.DropTable(
-                name: "Reminders");
-
-            migrationBuilder.DropTable(
                 name: "Foods");
 
             migrationBuilder.DropTable(
@@ -1737,6 +1883,12 @@ namespace Monhealth.Identity.Migrations
                 name: "Subscriptions");
 
             migrationBuilder.DropTable(
+                name: "WaterIntakes");
+
+            migrationBuilder.DropTable(
+                name: "WaterReminders");
+
+            migrationBuilder.DropTable(
                 name: "Exercises");
 
             migrationBuilder.DropTable(
@@ -1746,13 +1898,13 @@ namespace Monhealth.Identity.Migrations
                 name: "DailyMeals");
 
             migrationBuilder.DropTable(
-                name: "Categories");
-
-            migrationBuilder.DropTable(
                 name: "Services");
 
             migrationBuilder.DropTable(
-                name: "Types");
+                name: "DailyWaterIntakes");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "DailyWorkouts");

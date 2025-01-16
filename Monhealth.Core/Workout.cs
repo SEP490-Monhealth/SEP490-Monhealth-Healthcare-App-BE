@@ -16,7 +16,7 @@ namespace Monhealth.Domain
         public Guid WorkoutId { get; set; }
         public Guid DailyWorkoutId { get; set; }
         public Guid UserId { get; set; }
-        public DateTime StartTime { get; set; }
+        public string WorkoutName { get; set; } = string.Empty;
         public int Duration { get; set; }
         public float CaloriesBurned { get; set; }
 

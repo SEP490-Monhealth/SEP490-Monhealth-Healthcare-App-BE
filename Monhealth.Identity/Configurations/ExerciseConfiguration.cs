@@ -13,7 +13,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("c6717b09-eea8-4452-8900-2abd68494661"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Tư Thế Cây",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -29,7 +29,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("1a8257c0-db6f-4a6b-ac06-dd88f98cd10b"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Kéo Giãn Vai",
                     IntensityLevel = "Low",
                     Duration = 5,
@@ -45,7 +45,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("4fca9170-932f-4985-8f6f-04f34c4ed80a"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Nhảy Chụm Chân",
                     IntensityLevel = "Medium",
                     Duration = 10,
@@ -61,7 +61,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("7f51e931-9f04-4ff6-a383-51cfce5398e9"),
-                    TypeId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                    CategoryId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                     ExerciseName = "Thở Bụng",
                     IntensityLevel = "Low",
                     Duration = 5,
@@ -77,7 +77,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("f4c8fd3c-fc3e-45cb-b468-4acf0ae87266"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Chạy Nâng High Đùi",
                     IntensityLevel = "High",
                     Duration = 15,
@@ -93,7 +93,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("ccd35e18-4679-4bfb-b9df-2eaaa3f4d9a8"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Tư Thế Tam Giác",
                     IntensityLevel = "Medium",
                     Duration = 12,
@@ -109,7 +109,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("f05d362a-3b43-4451-9857-025a170ec0e2"),
-                    TypeId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
                     ExerciseName = "Gập Bụng",
                     IntensityLevel = "Medium",
                     Duration = 10,
@@ -125,7 +125,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("e3eeb6c5-aa62-4f2e-8ab1-b856c208d448"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Đi Bộ Tại Chỗ",
                     IntensityLevel = "Low",
                     Duration = 15,
@@ -141,7 +141,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("104ed03c-0460-48d2-890e-7acd517e129b"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Kéo Giãn Cột Sống",
                     IntensityLevel = "Low",
                     Duration = 8,
@@ -157,7 +157,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("6ca587eb-e1f3-4266-be80-af02b42a8545"),
-                    TypeId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
                     ExerciseName = "Plank",
                     IntensityLevel = "High",
                     Duration = 5,
@@ -173,7 +173,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("6e2ffe73-18da-42e6-ab89-0d3ecf254a52"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Chào Mặt Trời",
                     IntensityLevel = "Low",
                     Duration = 15,
@@ -189,7 +189,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("2d8dd512-b871-4e4e-955c-cf15a50a8ef7"),
-                    TypeId = Guid.Parse("cb81e687-8e2f-4814-99a6-808777410e02"),
+                    CategoryId = Guid.Parse("cb81e687-8e2f-4814-99a6-808777410e02"),
                     ExerciseName = "Cuộn Người",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -205,7 +205,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("97dd1375-9217-43b9-9c9d-c14128158ef0"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Kéo Giãn Đùi Sau",
                     IntensityLevel = "Low",
                     Duration = 8,
@@ -221,7 +221,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("8c6e4c94-b58e-4d9c-8698-98c7db4021cc"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Chạy Bộ Nhẹ",
                     IntensityLevel = "Medium",
                     Duration = 20,
@@ -237,7 +237,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("222df2e6-90a1-4a5b-8b63-cd7b73f012bb"),
-                    TypeId = Guid.Parse("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
+                    CategoryId = Guid.Parse("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
                     ExerciseName = "Đứng Một Chân",
                     IntensityLevel = "Medium",
                     Duration = 10,
@@ -253,7 +253,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("3b17291f-8c4c-494c-bcbe-3adde745cbca"),
-                    TypeId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                    CategoryId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                     ExerciseName = "Ngồi Thiền",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -269,7 +269,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("c54c743d-4956-4b88-94ff-c4467f463a41"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Chó Úp Mặt",
                     IntensityLevel = "Low",
                     Duration = 12,
@@ -285,7 +285,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("8918e071-56ca-4212-bd09-c338d2b0db8a"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Bật Nhảy Tại Chỗ",
                     IntensityLevel = "Medium",
                     Duration = 15,
@@ -301,7 +301,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("fcbc0f6c-bfda-430d-a7b0-ad48391327b4"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Nhún Gối",
                     IntensityLevel = "Low",
                     Duration = 8,
@@ -317,7 +317,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("c8c75216-1952-41c7-88d1-2e21e50a4bf7"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Đứng Gập Người",
                     IntensityLevel = "Low",
                     Duration = 12,
@@ -333,7 +333,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("e3f3c590-fb64-4187-9375-db45a3bc5f26"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Đứng Kiễng Chân",
                     IntensityLevel = "Low",
                     Duration = 8,
@@ -349,7 +349,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("a98a4e19-3ccf-4e3f-90fa-a9f866230bd2"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Kéo Giãn Hông",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -365,7 +365,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("cb7a4531-62f7-4209-9489-2ef6e3a8571a"),
-                    TypeId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
                     ExerciseName = "Gập Gối Ngồi",
                     IntensityLevel = "Medium",
                     Duration = 12,
@@ -381,7 +381,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("642766b0-99d6-45b8-a1ad-e2d3c1ad8c51"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Tư Thế Em Bé",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -397,7 +397,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("3a737328-37a9-415f-b52c-71480118d431"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Nhảy Sang Ngang",
                     IntensityLevel = "Medium",
                     Duration = 15,
@@ -413,7 +413,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("e051611d-806d-4d70-81da-da1277c404a1"),
-                    TypeId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                    CategoryId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                     ExerciseName = "Thở Sâu",
                     IntensityLevel = "Low",
                     Duration = 5,
@@ -429,7 +429,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("b25e6da5-a48d-414d-9d94-34fc08421eb5"),
-                    TypeId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
                     ExerciseName = "Tư Thế Thuyền",
                     IntensityLevel = "High",
                     Duration = 12,
@@ -445,7 +445,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("8c34f630-f594-48ad-8db9-1e0c90439da7"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Gập Lưng Dưới",
                     IntensityLevel = "Low",
                     Duration = 8,
@@ -461,7 +461,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("8bf642c5-edd8-4998-9385-c7b753f8eb16"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Đứng Vặn Mình",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -477,7 +477,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("a97fb729-878b-413e-af0f-086e524874bb"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Tư Thế Cá Heo",
                     IntensityLevel = "Medium",
                     Duration = 12,
@@ -493,7 +493,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("2f862941-2b92-4210-bf02-efb91feed6e4"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Đi Bộ Nâng Cao Gối",
                     IntensityLevel = "Medium",
                     Duration = 15,
@@ -509,7 +509,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("afbf282b-5a75-4b98-94a1-c1d3dece6b25"),
-                    TypeId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
                     ExerciseName = "Chống Đẩy Đầu Gối",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -525,7 +525,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("cdb6b8b0-e24d-488a-b2ac-6e38c7269b08"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Kéo Cánh Tay",
                     IntensityLevel = "Low",
                     Duration = 5,
@@ -541,7 +541,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("165cfd11-a6ee-420f-b18e-821768917488"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Đứng Gập Đầu",
                     IntensityLevel = "Low",
                     Duration = 8,
@@ -557,7 +557,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("1cf971f5-5c43-44de-baec-782a473fc49e"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Bật Nhảy Hai Chân",
                     IntensityLevel = "High",
                     Duration = 12,
@@ -573,7 +573,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("d622220c-af21-47bb-8540-90e01c5b63be"),
-                    TypeId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                    CategoryId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                     ExerciseName = "Thở Hít Lâu",
                     IntensityLevel = "Low",
                     Duration = 5,
@@ -589,7 +589,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("4a9ca2b5-78d0-42ea-870e-b0bc76c72d9e"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Ngồi Mở Rộng Eo",
                     IntensityLevel = "Low",
                     Duration = 8,
@@ -605,7 +605,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("507ca0f0-4d34-4e62-9a6a-48c12341a4d1"),
-                    TypeId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
                     ExerciseName = "Gập Lưng Trên",
                     IntensityLevel = "High",
                     Duration = 10,
@@ -621,7 +621,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("7717a4d8-d310-466f-afeb-0fb7272dcf0b"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Tư Thế Chiến Binh II",
                     IntensityLevel = "Medium",
                     Duration = 12,
@@ -637,7 +637,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("92319d32-4758-49d2-bdd1-360f0b119a05"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Ngồi Vặn Mình",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -653,7 +653,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("523a65a8-53ac-4577-b318-0dbd370ceedf"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Đá Chân Ra Sau",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -669,7 +669,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("769af12c-7398-4803-9a78-7a1ad54047b1"),
-                    TypeId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
                     ExerciseName = "Tư Thế Cây Cầu",
                     IntensityLevel = "Medium",
                     Duration = 12,
@@ -685,7 +685,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("486237f0-a55b-495e-b09a-65bf36260a1e"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Bật Nhảy Chéo",
                     IntensityLevel = "Medium",
                     Duration = 15,
@@ -701,7 +701,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("9fbbaf75-bece-48ff-975f-28ab6204516b"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Nâng Tay Kéo Dài",
                     IntensityLevel = "Low",
                     Duration = 8,
@@ -717,7 +717,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("c05e4fd1-6546-4283-bace-4cbf8affd86a"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Tư Thế Mèo - Bò",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -733,7 +733,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("7a102c6e-b15c-4260-a846-203b090603a5"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Vặn Người Đứng",
                     IntensityLevel = "Low",
                     Duration = 8,
@@ -749,7 +749,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("2fdafe44-34cb-40bf-8b68-1e9f79a3aa38"),
-                    TypeId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                     ExerciseName = "Nhảy Nâng Đùi Xen Kẽ",
                     IntensityLevel = "High",
                     Duration = 15,
@@ -765,7 +765,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("e400f9d2-1f60-4494-b5bc-73085d215043"),
-                    TypeId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                     ExerciseName = "Kéo Gối Chạm Ngực",
                     IntensityLevel = "Low",
                     Duration = 10,
@@ -781,7 +781,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("6330da83-d0d8-4031-9459-ceccd41a3ac1"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Tư Thế Thư Giãn",
                     IntensityLevel = "Low",
                     Duration = 12,
@@ -797,7 +797,7 @@ namespace Monhealth.Identity.Configurations
                 new Exercise
                 {
                     ExerciseId = Guid.Parse("af983757-d7a8-412c-87e1-9f8a3a09e92f"),
-                    TypeId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
                     ExerciseName = "Tư Thế Con Quạ",
                     IntensityLevel = "High",
                     Duration = 10,

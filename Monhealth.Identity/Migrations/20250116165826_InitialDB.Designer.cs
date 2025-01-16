@@ -12,7 +12,7 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250116030555_InitialDB")]
+    [Migration("20250116165826_InitialDB")]
     partial class InitialDB
     {
         /// <inheritdoc />
@@ -293,9 +293,30 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("Notifications");
                 });
 
-            modelBuilder.Entity("Monhealth.Core.Reminder", b =>
+            modelBuilder.Entity("Monhealth.Core.UserAllergy", b =>
                 {
-                    b.Property<Guid>("ReminderId")
+                    b.Property<Guid>("UserAllergyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AllergyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserAllergyId");
+
+                    b.HasIndex("AllergyId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserAllergies");
+                });
+
+            modelBuilder.Entity("Monhealth.Core.WaterReminder", b =>
+                {
+                    b.Property<Guid>("WaterReminderId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -305,15 +326,11 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("GoalId")
+                    b.Property<Guid?>("GoalId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("IsDefault")
+                    b.Property<bool>("IsRecurring")
                         .HasColumnType("bit");
-
-                    b.Property<string>("ReminderName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -334,34 +351,17 @@ namespace Monhealth.Identity.Migrations
                     b.Property<float>("Volume")
                         .HasColumnType("real");
 
-                    b.HasKey("ReminderId");
+                    b.Property<string>("WaterReminderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("WaterReminderId");
 
                     b.HasIndex("GoalId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reminders");
-                });
-
-            modelBuilder.Entity("Monhealth.Core.UserAllergy", b =>
-                {
-                    b.Property<Guid>("UserAllergyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AllergyId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("UserAllergyId");
-
-                    b.HasIndex("AllergyId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserAllergies");
+                    b.ToTable("WaterReminders");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Booking", b =>
@@ -434,6 +434,10 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CategoryType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -457,6 +461,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Các món ăn từ tôm, cá, cua, mực, hàu, sò và các loại hải sản khác. Thích hợp cho những ai yêu thích hương vị biển cả",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2",
                             CategoryName = "Hải sản",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -466,6 +471,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Bao gồm các món ăn từ thịt bò, thịt gà, thịt lợn, thịt vịt và các loại thịt khác. Là lựa chọn phổ biến trong bữa ăn chính",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fsteak.png?alt=media&token=dfffb9c2-2964-40cc-8712-e83b4200e7af",
                             CategoryName = "Thịt",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -475,6 +481,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Món ăn từ rau xanh, củ quả và nấm. Phù hợp cho những ai yêu thích thực phẩm tươi sạch, giàu dinh dưỡng",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84",
                             CategoryName = "Rau củ",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -484,6 +491,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Gạo, mì, bánh mì, yến mạch, và các loại hạt ngũ cốc. Là nguồn cung cấp năng lượng chính trong ngày",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Frice.png?alt=media&token=1ef6ca23-003f-4415-9ce4-3a3f5cd8e65e",
                             CategoryName = "Ngũ cốc",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -493,6 +501,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Các loại hạt (hạnh nhân, hạt chia, hạt điều) và đậu (đậu nành, đậu xanh, đậu đen). Giàu protein và chất xơ",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fgrain.png?alt=media&token=e224b22a-925e-4aa4-ab50-d74309ba71f4",
                             CategoryName = "Hạt và đậu",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -502,6 +511,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Các món ăn từ thực vật, đậu phụ, và nguyên liệu không sử dụng thịt, phù hợp với người ăn chay hoặc muốn đổi vị thanh đạm",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fradish.png?alt=media&token=c27e26f3-3f39-42ec-bf40-94c9abb074d5",
                             CategoryName = "Món chay",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -511,6 +521,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Bánh ngọt, kẹo, kem, và các món tráng miệng ngọt ngào, lý tưởng cho những ai yêu thích đồ ngọt",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcupcake.png?alt=media&token=8721bd49-186f-4ccf-a85a-64008e4c8e38",
                             CategoryName = "Món ngọt",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -520,6 +531,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Bao gồm nước ép, sinh tố, trà, cà phê, và các loại đồ uống giải khát khác",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcoffee-cup.png?alt=media&token=14155321-cd44-422b-a49f-3e34636d7f85",
                             CategoryName = "Đồ uống",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -529,6 +541,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Kimchi, dưa chua, sữa chua, rượu vang và các món ăn lên men, tốt cho tiêu hóa và sức khỏe đường ruột",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpickles.png?alt=media&token=2a078ceb-40a9-403d-a68c-9682faf1b97f",
                             CategoryName = "Món lên men",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -538,6 +551,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Hoa quả tươi hoặc chế biến như salad trái cây, nước ép, sinh tố, cung cấp vitamin và khoáng chất",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fapple.png?alt=media&token=106a39ee-5c36-4c27-8bbe-c850ee19cb02",
                             CategoryName = "Trái cây",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -547,6 +561,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Pizza, burger, khoai tây chiên, gà rán, và các món ăn tiện lợi, phù hợp cho những ai bận rộn",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fburger.png?alt=media&token=66dd457f-64d3-4b66-851c-10eba13fdc7d",
                             CategoryName = "Đồ ăn nhanh",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -556,6 +571,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Bánh mì, bánh ngọt, bánh mặn, bánh hấp, và các món bánh truyền thống hay hiện đại",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbread.png?alt=media&token=decd5d8c-994f-4a71-ab9e-2096209515fc",
                             CategoryName = "Bánh các loại",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -565,8 +581,79 @@ namespace Monhealth.Identity.Migrations
                             CategoryDescription = "Snack, khô gà, khô bò, bim bim, và các món ăn nhẹ lý tưởng cho những lúc giải trí hay nghỉ ngơi",
                             CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpopcorn.png?alt=media&token=8aecf5e1-071f-4b0f-8e55-a2c47b289def",
                             CategoryName = "Đồ ăn vặt",
+                            CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            CategoryDescription = "Các bài tập tập trung vào việc cải thiện sự linh hoạt, thăng bằng, và giảm căng thẳng thông qua các tư thế và kỹ thuật thở. Phù hợp cho mọi lứa tuổi và thể trạng",
+                            CategoryImage = "",
+                            CategoryName = "Yoga",
+                            CategoryType = "Exercise",
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            CategoryDescription = "Bài tập kéo giãn cơ giúp cải thiện biên độ chuyển động, giảm đau nhức cơ bắp, và tăng cường sự linh hoạt. Thường được sử dụng như phần khởi động hoặc thư giãn sau buổi tập",
+                            CategoryImage = "",
+                            CategoryName = "Stretching",
+                            CategoryType = "Exercise",
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            CategoryDescription = "Các bài tập aerobic giúp tăng nhịp tim, cải thiện sức khỏe tim mạch, và đốt cháy calo nhanh. Thích hợp để giảm cân hoặc cải thiện thể lực tổng thể",
+                            CategoryImage = "",
+                            CategoryName = "Cardio",
+                            CategoryType = "Exercise",
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                            CategoryDescription = "Các bài tập tăng cường sức mạnh cơ bụng, lưng dưới, và vùng thân trung tâm. Giúp cải thiện tư thế, thăng bằng, và giảm nguy cơ chấn thương",
+                            CategoryImage = "",
+                            CategoryName = "Core",
+                            CategoryType = "Exercise",
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                            CategoryDescription = "Các bài tập tập trung vào kỹ thuật thở sâu và có kiểm soát. Giúp thư giãn, giảm stress, và cải thiện khả năng hấp thụ oxy",
+                            CategoryImage = "",
+                            CategoryName = "Breathing Exercises",
+                            CategoryType = "Exercise",
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
+                            CategoryDescription = "Các bài tập giúp tăng cường khả năng thăng bằng và sự ổn định của cơ thể. Đặc biệt hữu ích cho người lớn tuổi hoặc những ai cần cải thiện khả năng giữ thăng bằng",
+                            CategoryImage = "",
+                            CategoryName = "Balance Training",
+                            CategoryType = "Exercise",
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("cb81e687-8e2f-4814-99a6-808777410e02"),
+                            CategoryDescription = "Bài tập kết hợp giữa các động tác chậm, có kiểm soát, tập trung vào sức mạnh cơ lõi, sự linh hoạt và tư thế. Phù hợp để cải thiện cơ bắp và giảm căng thẳng",
+                            CategoryImage = "",
+                            CategoryName = "Pilates",
+                            CategoryType = "Exercise",
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -631,6 +718,45 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("CertificateImages");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.DailyActivity", b =>
+                {
+                    b.Property<Guid>("DailyActivityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("GoalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("TotalCaloriesBurned")
+                        .HasColumnType("real");
+
+                    b.Property<int>("TotalDuration")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DailyActivityId");
+
+                    b.HasIndex("GoalId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DailyActivities");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
                 {
                     b.Property<Guid>("DailyMealId")
@@ -683,6 +809,42 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("DailyMeals");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.DailyWaterIntake", b =>
+                {
+                    b.Property<Guid>("DailyWaterIntakeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("GoalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("TotalVolume")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DailyWaterIntakeId");
+
+                    b.HasIndex("GoalId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DailyWaterIntakes");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.DailyWorkout", b =>
                 {
                     b.Property<Guid>("DailyWorkoutId")
@@ -726,16 +888,31 @@ namespace Monhealth.Identity.Migrations
                     b.Property<float>("CaloriesBurned")
                         .HasColumnType("real");
 
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("DifficultyLevel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
+                    b.Property<string>("ExerciseDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExerciseName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -750,9 +927,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("TypeId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -764,7 +938,7 @@ namespace Monhealth.Identity.Migrations
 
                     b.HasKey("ExerciseId");
 
-                    b.HasIndex("TypeId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Exercises");
 
@@ -773,13 +947,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("c6717b09-eea8-4452-8900-2abd68494661"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Cây",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Đặt một chân lên đầu gối chân còn lại 3. Vươn hai tay lên cao và giữ tư thế trong vài giây",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -787,13 +964,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("1a8257c0-db6f-4a6b-ac06-dd88f98cd10b"),
                             CaloriesBurned = 4f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 5,
+                            ExerciseDescription = "",
                             ExerciseName = "Kéo Giãn Vai",
+                            Image = "",
                             Instructions = "1. Ngồi thẳng 2. Đưa tay phải qua vai trái 3. Kéo nhẹ tay bằng tay còn lại, giữ trong 10 giây và đổi bên",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -801,13 +981,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("4fca9170-932f-4985-8f6f-04f34c4ed80a"),
                             CaloriesBurned = 8f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Nhảy Chụm Chân",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Nhảy chụm hai chân lại, tay đưa lên cao 3. Lặp lại động tác trong 10 phút",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -815,13 +998,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("7f51e931-9f04-4ff6-a383-51cfce5398e9"),
                             CaloriesBurned = 2f,
+                            CategoryId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 5,
+                            ExerciseDescription = "",
                             ExerciseName = "Thở Bụng",
+                            Image = "",
                             Instructions = "1. Ngồi thoải mái 2. Đặt tay lên bụng 3. Hít sâu bằng mũi và thở ra bằng miệng, cảm nhận sự phồng lên của bụng",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -829,13 +1015,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("f4c8fd3c-fc3e-45cb-b468-4acf0ae87266"),
                             CaloriesBurned = 10f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 15,
+                            ExerciseDescription = "",
                             ExerciseName = "Chạy Nâng High Đùi",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Nâng cao đùi một chân đến ngang hông, sau đó đổi chân 3. Lặp lại động tác với tốc độ tăng dần",
                             IntensityLevel = "High",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -843,13 +1032,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("ccd35e18-4679-4bfb-b9df-2eaaa3f4d9a8"),
                             CaloriesBurned = 5.83f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Tam Giác",
+                            Image = "",
                             Instructions = "1. Đứng thẳng, hai chân mở rộng 2. Gập người sang bên, tay chạm vào gót chân 3. Giữ tư thế và lặp lại ở bên còn lại",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -857,13 +1049,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("f05d362a-3b43-4451-9857-025a170ec0e2"),
                             CaloriesBurned = 10f,
+                            CategoryId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Gập Bụng",
+                            Image = "",
                             Instructions = "1. Nằm ngửa, đầu gối co lại 2. Đặt hai tay sau đầu, nâng người lên 3. Hạ xuống từ từ và lặp lại",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -871,13 +1066,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("e3eeb6c5-aa62-4f2e-8ab1-b856c208d448"),
                             CaloriesBurned = 4.67f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 15,
+                            ExerciseDescription = "",
                             ExerciseName = "Đi Bộ Tại Chỗ",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng đùi nhẹ nhàng 3. Giữ tốc độ đều đặn",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -885,13 +1083,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("104ed03c-0460-48d2-890e-7acd517e129b"),
                             CaloriesBurned = 3.75f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 8,
+                            ExerciseDescription = "",
                             ExerciseName = "Kéo Giãn Cột Sống",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Gập người nhẹ về phía trước 3. Dùng tay chạm sàn, giữ vài giây rồi trở lại tư thế ban đầu",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -899,13 +1100,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("6ca587eb-e1f3-4266-be80-af02b42a8545"),
                             CaloriesBurned = 10f,
+                            CategoryId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 5,
+                            ExerciseDescription = "",
                             ExerciseName = "Plank",
+                            Image = "",
                             Instructions = "1. Chống hai khuỷu tay xuống sàn 2. Giữ lưng thẳng và cơ bụng siết chặt 3. Giữ tư thế trong vòng 30 giây đến 1 phút",
                             IntensityLevel = "High",
                             Status = true,
-                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -913,13 +1117,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("6e2ffe73-18da-42e6-ab89-0d3ecf254a52"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 15,
+                            ExerciseDescription = "",
                             ExerciseName = "Chào Mặt Trời",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Đưa hai tay lên cao 3. Cúi gập người và thực hiện các tư thế yoga liên tiếp",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -927,13 +1134,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("2d8dd512-b871-4e4e-955c-cf15a50a8ef7"),
                             CaloriesBurned = 4f,
+                            CategoryId = new Guid("cb81e687-8e2f-4814-99a6-808777410e02"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Cuộn Người",
+                            Image = "",
                             Instructions = "1. Nằm ngửa 2. Duỗi thẳng hai tay qua đầu 3. Từ từ cuộn người lên",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("cb81e687-8e2f-4814-99a6-808777410e02"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -941,13 +1151,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("97dd1375-9217-43b9-9c9d-c14128158ef0"),
                             CaloriesBurned = 3.75f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 8,
+                            ExerciseDescription = "",
                             ExerciseName = "Kéo Giãn Đùi Sau",
+                            Image = "",
                             Instructions = "1. Ngồi trên sàn 2. Duỗi một chân thẳng 3. Vươn tay về phía ngón chân của chân duỗi",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -955,13 +1168,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("8c6e4c94-b58e-4d9c-8698-98c7db4021cc"),
                             CaloriesBurned = 6f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 20,
+                            ExerciseDescription = "",
                             ExerciseName = "Chạy Bộ Nhẹ",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Bắt đầu chạy bộ nhẹ nhàng 3. Duy trì tốc độ đều trong 20 phút",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -969,13 +1185,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("222df2e6-90a1-4a5b-8b63-cd7b73f012bb"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Đứng Một Chân",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Nâng một chân lên và giữ thăng bằng 3. Đổi bên sau 10 giây",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -983,13 +1202,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("3b17291f-8c4c-494c-bcbe-3adde745cbca"),
                             CaloriesBurned = 2f,
+                            CategoryId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Ngồi Thiền",
+                            Image = "",
                             Instructions = "1. Ngồi thoải mái 2. Nhắm mắt và tập trung vào nhịp thở 3. Thở đều trong 10 phút",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -997,13 +1219,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("c54c743d-4956-4b88-94ff-c4467f463a41"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Chó Úp Mặt",
+                            Image = "",
                             Instructions = "1. Bắt đầu ở tư thế bò 2. Nâng hông cao để tạo thành chữ V ngược 3. Giữ tư thế trong vài giây",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1011,13 +1236,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("8918e071-56ca-4212-bd09-c338d2b0db8a"),
                             CaloriesBurned = 10f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 15,
+                            ExerciseDescription = "",
                             ExerciseName = "Bật Nhảy Tại Chỗ",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Nhảy cao và đưa tay lên trời 3. Tiếp đất nhẹ nhàng",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1025,13 +1253,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("fcbc0f6c-bfda-430d-a7b0-ad48391327b4"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 8,
+                            ExerciseDescription = "",
                             ExerciseName = "Nhún Gối",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Gập đầu gối nhẹ nhàng xuống 3. Trở về tư thế ban đầu và lặp lại",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1039,13 +1270,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("c8c75216-1952-41c7-88d1-2e21e50a4bf7"),
                             CaloriesBurned = 5.83f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Đứng Gập Người",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Cúi gập người, tay chạm sàn 3. Giữ tư thế vài giây và trở lại vị trí ban đầu",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1053,13 +1287,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("e3f3c590-fb64-4187-9375-db45a3bc5f26"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 8,
+                            ExerciseDescription = "",
                             ExerciseName = "Đứng Kiễng Chân",
+                            Image = "",
                             Instructions = "1. Đứng thẳng, chân chụm lại 2. Nâng gót chân lên cao 3. Giữ vài giây và hạ xuống",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1067,13 +1304,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("a98a4e19-3ccf-4e3f-90fa-a9f866230bd2"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Kéo Giãn Hông",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Đưa một chân ra phía trước, gập nhẹ gối 3. Giữ tư thế và đổi bên",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1081,13 +1321,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("cb7a4531-62f7-4209-9489-2ef6e3a8571a"),
                             CaloriesBurned = 8.33f,
+                            CategoryId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Gập Gối Ngồi",
+                            Image = "",
                             Instructions = "1. Ngồi xuống, hai chân mở rộng 2. Gập gối và đưa thân người xuống gần gối 3. Trở lại tư thế ban đầu",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1095,13 +1338,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("642766b0-99d6-45b8-a1ad-e2d3c1ad8c51"),
                             CaloriesBurned = 4f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Em Bé",
+                            Image = "",
                             Instructions = "1. Ngồi quỳ, gập người về phía trước 2. Duỗi hai tay ra trước mặt 3. Giữ trong 10 giây",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1109,13 +1355,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("3a737328-37a9-415f-b52c-71480118d431"),
                             CaloriesBurned = 8.67f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 15,
+                            ExerciseDescription = "",
                             ExerciseName = "Nhảy Sang Ngang",
+                            Image = "",
                             Instructions = "1. Đứng thẳng, chân chụm lại 2. Nhảy sang bên trái và phải liên tục 3. Duy trì tốc độ đều",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1123,13 +1372,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("e051611d-806d-4d70-81da-da1277c404a1"),
                             CaloriesBurned = 2f,
+                            CategoryId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 5,
+                            ExerciseDescription = "",
                             ExerciseName = "Thở Sâu",
+                            Image = "",
                             Instructions = "1. Ngồi thẳng lưng 2. Hít vào chậm rãi qua mũi 3. Thở ra từ từ qua miệng",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1137,13 +1389,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("b25e6da5-a48d-414d-9d94-34fc08421eb5"),
                             CaloriesBurned = 7.5f,
+                            CategoryId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Thuyền",
+                            Image = "",
                             Instructions = "1. Ngồi trên sàn, chân co gối lên 2. Nâng thân người và chân lên tạo hình chữ V 3. Giữ vài giây rồi hạ xuống",
                             IntensityLevel = "High",
                             Status = true,
-                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1151,13 +1406,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("8c34f630-f594-48ad-8db9-1e0c90439da7"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 8,
+                            ExerciseDescription = "",
                             ExerciseName = "Gập Lưng Dưới",
+                            Image = "",
                             Instructions = "1. Nằm ngửa 2. Co gối và gập thân người về phía trước 3. Hạ xuống và lặp lại",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1165,13 +1423,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("8bf642c5-edd8-4998-9385-c7b753f8eb16"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Đứng Vặn Mình",
+                            Image = "",
                             Instructions = "1. Đứng thẳng, hai tay chống hông 2. Vặn mình sang trái, giữ vài giây 3. Đổi bên và lặp lại",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1179,13 +1440,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("a97fb729-878b-413e-af0f-086e524874bb"),
                             CaloriesBurned = 5.83f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Cá Heo",
+                            Image = "",
                             Instructions = "1. Bắt đầu ở tư thế bò 2. Chống hai khuỷu tay và nâng hông lên 3. Giữ tư thế và hít thở đều",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1193,13 +1457,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("2f862941-2b92-4210-bf02-efb91feed6e4"),
                             CaloriesBurned = 10f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 15,
+                            ExerciseDescription = "",
                             ExerciseName = "Đi Bộ Nâng Cao Gối",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng gối cao ngang hông 3. Lặp lại liên tục",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1207,13 +1474,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("afbf282b-5a75-4b98-94a1-c1d3dece6b25"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Chống Đẩy Đầu Gối",
+                            Image = "",
                             Instructions = "1. Nằm úp 2. Chống hai tay và đầu gối xuống sàn 3. Nâng người lên và hạ xuống từ từ",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1221,13 +1491,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("cdb6b8b0-e24d-488a-b2ac-6e38c7269b08"),
                             CaloriesBurned = 4f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 5,
+                            ExerciseDescription = "",
                             ExerciseName = "Kéo Cánh Tay",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Đưa tay phải sang vai trái 3. Kéo nhẹ tay và giữ vài giây, sau đó đổi bên",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1235,13 +1508,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("165cfd11-a6ee-420f-b18e-821768917488"),
                             CaloriesBurned = 4.38f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 8,
+                            ExerciseDescription = "",
                             ExerciseName = "Đứng Gập Đầu",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Cúi gập đầu và thân người xuống 3. Thư giãn cổ và giữ trong vài giây",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1249,13 +1525,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("1cf971f5-5c43-44de-baec-782a473fc49e"),
                             CaloriesBurned = 10f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Bật Nhảy Hai Chân",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Nhảy bật hai chân lên cao, tay chạm gối 3. Lặp lại liên tục",
                             IntensityLevel = "High",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1263,13 +1542,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("d622220c-af21-47bb-8540-90e01c5b63be"),
                             CaloriesBurned = 3f,
+                            CategoryId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 5,
+                            ExerciseDescription = "",
                             ExerciseName = "Thở Hít Lâu",
+                            Image = "",
                             Instructions = "1. Ngồi thoải mái 2. Hít vào sâu trong 5 giây 3. Thở ra chậm trong 7 giây",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1277,13 +1559,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("4a9ca2b5-78d0-42ea-870e-b0bc76c72d9e"),
                             CaloriesBurned = 3.75f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 8,
+                            ExerciseDescription = "",
                             ExerciseName = "Ngồi Mở Rộng Eo",
+                            Image = "",
                             Instructions = "1. Ngồi thẳng lưng, chân duỗi ra 2. Đưa hai tay lên cao 3. Nghiêng người sang bên trái và đổi bên",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1291,13 +1576,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("507ca0f0-4d34-4e62-9a6a-48c12341a4d1"),
                             CaloriesBurned = 9f,
+                            CategoryId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Gập Lưng Trên",
+                            Image = "",
                             Instructions = "1. Nằm ngửa 2. Nâng thân trên lên về phía đầu gối 3. Hạ xuống từ từ và lặp lại",
                             IntensityLevel = "High",
                             Status = true,
-                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1305,13 +1593,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("7717a4d8-d310-466f-afeb-0fb7272dcf0b"),
                             CaloriesBurned = 6.67f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Chiến Binh II",
+                            Image = "",
                             Instructions = "1. Đứng thẳng, chân mở rộng 2. Đưa hai tay sang ngang, gập một gối 3. Giữ tư thế trong vài giây",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1319,13 +1610,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("92319d32-4758-49d2-bdd1-360f0b119a05"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Ngồi Vặn Mình",
+                            Image = "",
                             Instructions = "1. Ngồi thẳng lưng, chân duỗi thẳng 2. Xoay thân người sang trái, tay chạm đầu gối 3. Đổi bên và lặp lại",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1333,13 +1627,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("523a65a8-53ac-4577-b318-0dbd370ceedf"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Đá Chân Ra Sau",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Đá chân phải ra sau, giữ thăng bằng 3. Đổi chân và lặp lại",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1347,13 +1644,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("769af12c-7398-4803-9a78-7a1ad54047b1"),
                             CaloriesBurned = 6.67f,
+                            CategoryId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Cây Cầu",
+                            Image = "",
                             Instructions = "1. Nằm ngửa 2. Co chân, nâng hông lên cao 3. Hạ xuống từ từ và lặp lại",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1361,13 +1661,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("486237f0-a55b-495e-b09a-65bf36260a1e"),
                             CaloriesBurned = 10f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 15,
+                            ExerciseDescription = "",
                             ExerciseName = "Bật Nhảy Chéo",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Nhảy chéo chân và tay 3. Lặp lại với tốc độ tăng dần",
                             IntensityLevel = "Medium",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1375,13 +1678,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("9fbbaf75-bece-48ff-975f-28ab6204516b"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 8,
+                            ExerciseDescription = "",
                             ExerciseName = "Nâng Tay Kéo Dài",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Đưa một tay lên cao và kéo dài 3. Đổi tay và lặp lại",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1389,13 +1695,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("c05e4fd1-6546-4283-bace-4cbf8affd86a"),
                             CaloriesBurned = 6f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Mèo - Bò",
+                            Image = "",
                             Instructions = "1. Bắt đầu ở tư thế bò 2. Cong lưng và nâng đầu lên 3. Cúi đầu và gập lưng xuống",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1403,13 +1712,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("7a102c6e-b15c-4260-a846-203b090603a5"),
                             CaloriesBurned = 3.75f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 8,
+                            ExerciseDescription = "",
                             ExerciseName = "Vặn Người Đứng",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Xoay người nhẹ sang bên trái, tay chạm eo 3. Đổi bên và lặp lại",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1417,13 +1729,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("2fdafe44-34cb-40bf-8b68-1e9f79a3aa38"),
                             CaloriesBurned = 10.67f,
+                            CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 15,
+                            ExerciseDescription = "",
                             ExerciseName = "Nhảy Nâng Đùi Xen Kẽ",
+                            Image = "",
                             Instructions = "1. Đứng thẳng 2. Nhảy nâng đùi xen kẽ, tay đưa lên cao 3. Lặp lại liên tục",
                             IntensityLevel = "High",
                             Status = true,
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1431,13 +1746,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("e400f9d2-1f60-4494-b5bc-73085d215043"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Kéo Gối Chạm Ngực",
+                            Image = "",
                             Instructions = "1. Nằm ngửa 2. Kéo gối phải lên chạm ngực 3. Đổi bên và lặp lại",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1445,13 +1763,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("6330da83-d0d8-4031-9459-ceccd41a3ac1"),
                             CaloriesBurned = 5f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 12,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Thư Giãn",
+                            Image = "",
                             Instructions = "1. Nằm thẳng, tay và chân thả lỏng 2. Hít thở đều và thư giãn trong vài phút",
                             IntensityLevel = "Low",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         },
@@ -1459,13 +1780,16 @@ namespace Monhealth.Identity.Migrations
                         {
                             ExerciseId = new Guid("af983757-d7a8-412c-87e1-9f8a3a09e92f"),
                             CaloriesBurned = 9f,
+                            CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = "",
                             Duration = 10,
+                            ExerciseDescription = "",
                             ExerciseName = "Tư Thế Con Quạ",
+                            Image = "",
                             Instructions = "1. Ngồi xổm, đặt hai tay xuống sàn 2. Nâng hai chân lên khỏi sàn, giữ thăng bằng 3. Giữ tư thế trong vài giây",
                             IntensityLevel = "High",
                             Status = true,
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Views = 0
                         });
@@ -3274,6 +3598,12 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<float>("ExerciseCaloriesGoal")
+                        .HasColumnType("real");
+
+                    b.Property<float>("ExerciseDurationGoal")
+                        .HasColumnType("real");
+
                     b.Property<float>("ExerciseGoal")
                         .HasColumnType("real");
 
@@ -3292,6 +3622,9 @@ namespace Monhealth.Identity.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<float>("StepsGoal")
+                        .HasColumnType("real");
+
                     b.Property<float>("SugarGoal")
                         .HasColumnType("real");
 
@@ -3306,6 +3639,9 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<int>("WaterGoal")
                         .HasColumnType("int");
+
+                    b.Property<float>("WaterIntakesGoal")
+                        .HasColumnType("real");
 
                     b.Property<int>("WeightGoal")
                         .HasColumnType("int");
@@ -7058,106 +7394,6 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("Subscriptions");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.Type", b =>
-                {
-                    b.Property<Guid>("TypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("TypeDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("TypeId");
-
-                    b.ToTable("Types");
-
-                    b.HasData(
-                        new
-                        {
-                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TypeDescription = "Các bài tập tập trung vào việc cải thiện sự linh hoạt, thăng bằng, và giảm căng thẳng thông qua các tư thế và kỹ thuật thở. Phù hợp cho mọi lứa tuổi và thể trạng",
-                            TypeImage = "",
-                            TypeName = "Yoga",
-                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TypeDescription = "Bài tập kéo giãn cơ giúp cải thiện biên độ chuyển động, giảm đau nhức cơ bắp, và tăng cường sự linh hoạt. Thường được sử dụng như phần khởi động hoặc thư giãn sau buổi tập",
-                            TypeImage = "",
-                            TypeName = "Stretching",
-                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TypeDescription = "Các bài tập aerobic giúp tăng nhịp tim, cải thiện sức khỏe tim mạch, và đốt cháy calo nhanh. Thích hợp để giảm cân hoặc cải thiện thể lực tổng thể",
-                            TypeImage = "",
-                            TypeName = "Cardio",
-                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
-                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TypeDescription = "Các bài tập tăng cường sức mạnh cơ bụng, lưng dưới, và vùng thân trung tâm. Giúp cải thiện tư thế, thăng bằng, và giảm nguy cơ chấn thương",
-                            TypeImage = "",
-                            TypeName = "Core",
-                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
-                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TypeDescription = "Các bài tập tập trung vào kỹ thuật thở sâu và có kiểm soát. Giúp thư giãn, giảm stress, và cải thiện khả năng hấp thụ oxy",
-                            TypeImage = "",
-                            TypeName = "Breathing Exercises",
-                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            TypeId = new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
-                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TypeDescription = "Các bài tập giúp tăng cường khả năng thăng bằng và sự ổn định của cơ thể. Đặc biệt hữu ích cho người lớn tuổi hoặc những ai cần cải thiện khả năng giữ thăng bằng",
-                            TypeImage = "",
-                            TypeName = "Balance Training",
-                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            TypeId = new Guid("cb81e687-8e2f-4814-99a6-808777410e02"),
-                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TypeDescription = "Bài tập kết hợp giữa các động tác chậm, có kiểm soát, tập trung vào sức mạnh cơ lõi, sự linh hoạt và tư thế. Phù hợp để cải thiện cơ bắp và giảm căng thẳng",
-                            TypeImage = "",
-                            TypeName = "Pilates",
-                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
-                });
-
             modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
                 {
                     b.Property<Guid>("UserFoodId")
@@ -7210,6 +7446,75 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("UserSubscriptions");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.WaterIntake", b =>
+                {
+                    b.Property<Guid>("WaterIntakeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DailyWaterIntakeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("WaterIntakeId");
+
+                    b.HasIndex("DailyWaterIntakeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("WaterIntakes");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.WaterIntakeReminder", b =>
+                {
+                    b.Property<Guid>("WaterIntakeReminderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WaterIntakeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WaterReminderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("WaterIntakeReminderId");
+
+                    b.HasIndex("WaterIntakeId");
+
+                    b.HasIndex("WaterReminderId");
+
+                    b.ToTable("WaterIntakeReminders");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.Workout", b =>
                 {
                     b.Property<Guid>("WorkoutId")
@@ -7231,9 +7536,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -7242,6 +7544,10 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("WorkoutName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WorkoutId");
 
@@ -7260,6 +7566,9 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("ExerciseId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<Guid>("WorkoutId")
                         .HasColumnType("uniqueidentifier");
@@ -7441,7 +7750,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fa63506c-3df9-4df9-815f-1a3c441dfd11",
+                            ConcurrencyStamp = "595b338f-c5db-4e40-985d-efcf7fb3797d",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -7449,10 +7758,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAv/K6Z45ANWWVmXdUEC0foGk1b+VMvnRP9ehHoRSiGHB07u7PWN55QXr6YNdGP69A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGIzPaT9jkNvo01isvMC6J0l9yZkYf/TsF9f7+gCt/4f0Hbi11Uijzzzdmve8pD5GA==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "667fd19f-c4e2-4649-bfed-0f3a7c8bfd77",
+                            SecurityStamp = "74c27e8f-bdeb-4c69-b4cc-7d6e9d435e21",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7462,7 +7771,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "463c1012-bf60-4b9c-8eca-ad2a99ab90c4",
+                            ConcurrencyStamp = "f47c7217-13a5-4bd1-9527-557677272bda",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -7470,10 +7779,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEECfYtF7OvGqx2dl/xlVT7OK/TfbtN6lPYbQzx8bts/iWV8vaxAw+lGqA5BylhrYmA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP9mUsVpOHHWx0woOH+ZCG06pyt/Ftvy+t27VDI0yG43OPkkmo6eJfPpetnh0o/y4w==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c4015f14-8ba0-4b9c-b8f2-af6198931502",
+                            SecurityStamp = "072fb2c5-4749-4868-be87-596aa974f757",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7483,7 +7792,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4bb837ef-3a10-48b0-a2a6-6921b2850293",
+                            ConcurrencyStamp = "e28506c4-8041-4b0f-8385-0a3dbffd8044",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -7491,10 +7800,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIPJROjzzCKQsBjg4I0zoCpas+EXhwH4EelaO8f243jbGkNBSGhZUVsyD/wA6ADayA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDh2x34ptsOMeTUfklIqB0n27pKha+V7OgqSjn3Q7scyWgVDQiEPCFuPpbszFVT+Dg==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0fcbffe0-99e4-4db7-ac5d-c8941a1dd2f8",
+                            SecurityStamp = "8a76b572-4e5b-4614-b07d-24d89448a5db",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7504,7 +7813,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "add3e6b7-c17f-4559-a930-e7327e1a5bf9",
+                            ConcurrencyStamp = "75877ee9-ab77-49f0-a67e-cd20574447f1",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -7512,10 +7821,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOFJXkOEwpCgrYLUamsJltpFVBaiBME7FTcIGP4UuBwiXRtjBbPjmgETz1dHUQIIBQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKdz/6kRWn8lrUx32SOlp/SicIKPBpmYrl3CFrk1ypGLe970cbBSQ1lsKu7aYpHyJw==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d3ff480c-82f4-415d-9009-14d5e1bc6a35",
+                            SecurityStamp = "23546acb-f4f4-4488-9b07-2d2b606fd594",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7525,7 +7834,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8542d1dc-4933-4e0c-9941-49871ae81f26",
+                            ConcurrencyStamp = "207fa33d-c89c-454f-abbd-678bd2597f6c",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -7533,10 +7842,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKLVC4Rt4gfZM5j4ib2ne6QyBUe9NjvZmPTyNZFysAXx2F5eMtJ0fg7ucW78+weXVA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM7vDbVzCcoSrW8adCSkTol9N3Ek3GMJSTiqKXbjJlK+EE9u/zzHlQ1qI83E+UKJJA==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "396d69ea-96df-4ba1-bfb3-a95ce9e341b7",
+                            SecurityStamp = "06fa3ee2-db1f-4e8c-b2a7-fc6c4f15cf71",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7546,7 +7855,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3a616320-8e9d-463f-981d-c90a1ce7ce25",
+                            ConcurrencyStamp = "815e0896-738e-4036-9cb6-2303ee6cb1c8",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -7554,10 +7863,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBlt3NXHIK6T84IKlc4O6HpPMoTL9gcXITUJmc/B3FHtI2LZsHq+URaiPm0I9YDXsA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAePC5njfgCYJ3jw2WzCMCWucbCIBJK0BVOvkDeUgx2XVr8KyScQK0PVIdIzybvWDg==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4f8608e0-39f3-47e4-a63e-6e89f536d788",
+                            SecurityStamp = "95fe693a-0dcb-4b82-b794-67e6ba8b0d97",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7567,7 +7876,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "77b57883-eda1-45e6-b820-6dee25e86939",
+                            ConcurrencyStamp = "b07e9d21-01c2-4b74-9d7e-800abf10a180",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -7575,10 +7884,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJxWS621gokBrjnJnw8nysqxFlbztqwKRfk1cBZaGBY04MsXlcyeTV1oQdFn7rwV+Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO3snTyHkzZotpQ21a/cQjOVaV6yVswkAjdWd8vfvDEQczVIuyfd992n7XmVCgl4NA==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2704b9d0-acfc-4665-8b04-28f07a2fa151",
+                            SecurityStamp = "939cdd09-7507-4c30-8f70-cc28b4b15080",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7658,30 +7967,13 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Core.Notification", b =>
                 {
-                    b.HasOne("Monhealth.Core.Reminder", "Reminder")
+                    b.HasOne("Monhealth.Core.WaterReminder", "Reminder")
                         .WithMany("Notifications")
                         .HasForeignKey("ReminderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Reminder");
-                });
-
-            modelBuilder.Entity("Monhealth.Core.Reminder", b =>
-                {
-                    b.HasOne("Monhealth.Domain.Goal", "Goal")
-                        .WithMany("Reminders")
-                        .HasForeignKey("GoalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
-                        .WithMany("Reminders")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("AppUser");
-
-                    b.Navigation("Goal");
                 });
 
             modelBuilder.Entity("Monhealth.Core.UserAllergy", b =>
@@ -7699,6 +7991,19 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
 
                     b.Navigation("Allergy");
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Monhealth.Core.WaterReminder", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Goal", null)
+                        .WithMany("Reminders")
+                        .HasForeignKey("GoalId");
+
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
+                        .WithMany("WaterReminders")
+                        .HasForeignKey("UserId");
 
                     b.Navigation("AppUser");
                 });
@@ -7746,6 +8051,25 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("Certificate");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.DailyActivity", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Goal", "Goal")
+                        .WithMany("DailyActivities")
+                        .HasForeignKey("GoalId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
+                        .WithMany("DailyActivities")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Goal");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
                 {
                     b.HasOne("Monhealth.Domain.Goal", "Goal")
@@ -7753,6 +8077,25 @@ namespace Monhealth.Identity.Migrations
                         .HasForeignKey("GoalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Goal");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.DailyWaterIntake", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Goal", "Goal")
+                        .WithMany("DailyWaterIntakes")
+                        .HasForeignKey("GoalId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
+                        .WithMany("DailyWaterIntakes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Goal");
                 });
@@ -7770,13 +8113,13 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Exercise", b =>
                 {
-                    b.HasOne("Monhealth.Domain.Type", "Type")
+                    b.HasOne("Monhealth.Domain.Category", "Category")
                         .WithMany("Exercises")
-                        .HasForeignKey("TypeId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Type");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
@@ -7949,6 +8292,44 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.WaterIntake", b =>
+                {
+                    b.HasOne("Monhealth.Domain.DailyWaterIntake", "DailyWaterIntake")
+                        .WithMany("WaterIntakes")
+                        .HasForeignKey("DailyWaterIntakeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
+                        .WithMany("WaterIntakes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("DailyWaterIntake");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.WaterIntakeReminder", b =>
+                {
+                    b.HasOne("Monhealth.Domain.WaterIntake", "WaterIntake")
+                        .WithMany("WaterIntakeReminders")
+                        .HasForeignKey("WaterIntakeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Monhealth.Core.WaterReminder", "WaterReminder")
+                        .WithMany("WaterIntakeReminders")
+                        .HasForeignKey("WaterReminderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WaterIntake");
+
+                    b.Navigation("WaterReminder");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.Workout", b =>
                 {
                     b.HasOne("Monhealth.Domain.DailyWorkout", "DailyWorkout")
@@ -7994,9 +8375,11 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("userAllergies");
                 });
 
-            modelBuilder.Entity("Monhealth.Core.Reminder", b =>
+            modelBuilder.Entity("Monhealth.Core.WaterReminder", b =>
                 {
                     b.Navigation("Notifications");
+
+                    b.Navigation("WaterIntakeReminders");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Booking", b =>
@@ -8006,6 +8389,8 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Category", b =>
                 {
+                    b.Navigation("Exercises");
+
                     b.Navigation("Foods");
                 });
 
@@ -8017,6 +8402,11 @@ namespace Monhealth.Identity.Migrations
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
                 {
                     b.Navigation("Meals");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.DailyWaterIntake", b =>
+                {
+                    b.Navigation("WaterIntakes");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.DailyWorkout", b =>
@@ -8043,7 +8433,11 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Goal", b =>
                 {
+                    b.Navigation("DailyActivities");
+
                     b.Navigation("DailyMeals");
+
+                    b.Navigation("DailyWaterIntakes");
 
                     b.Navigation("Reminders");
                 });
@@ -8068,9 +8462,9 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("UserSubscriptions");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.Type", b =>
+            modelBuilder.Entity("Monhealth.Domain.WaterIntake", b =>
                 {
-                    b.Navigation("Exercises");
+                    b.Navigation("WaterIntakeReminders");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Workout", b =>
@@ -8084,6 +8478,10 @@ namespace Monhealth.Identity.Migrations
 
                     b.Navigation("ConsultantBookings");
 
+                    b.Navigation("DailyActivities");
+
+                    b.Navigation("DailyWaterIntakes");
+
                     b.Navigation("DailyWorkouts");
 
                     b.Navigation("Foods");
@@ -8091,8 +8489,6 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("Goals");
 
                     b.Navigation("Metrics");
-
-                    b.Navigation("Reminders");
 
                     b.Navigation("Schedules");
 
@@ -8106,6 +8502,10 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
 
                     b.Navigation("UserSubscriptions");
+
+                    b.Navigation("WaterIntakes");
+
+                    b.Navigation("WaterReminders");
 
                     b.Navigation("Workouts");
                 });

@@ -29,8 +29,8 @@ namespace Monhealth.Application.Features.Notificacation.Commands
                 // Tạo Notification mới
                 var notification = new Monhealth.Core.Notification
                 {
-                    ReminderId = reminder.ReminderId,
-                    Message = $"{reminder.ReminderName}",
+                    ReminderId = reminder.WaterReminderId,
+                    Message = $"{reminder.WaterReminderName}",
                     NotifyTime = DateTime.Now,
                     IsSent = false
                 };
@@ -39,7 +39,7 @@ namespace Monhealth.Application.Features.Notificacation.Commands
 
                 // Cập nhật kết quả trả về
                 response.NotificationsCreated++;
-                response.ReminderDescriptions.Add(reminder.ReminderName);
+                response.ReminderDescriptions.Add(reminder.WaterReminderName);
             }
 
             // Lưu thay đổi vào cơ sở dữ liệu

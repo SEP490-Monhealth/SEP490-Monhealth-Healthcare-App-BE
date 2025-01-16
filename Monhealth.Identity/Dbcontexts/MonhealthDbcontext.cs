@@ -25,7 +25,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Meal> Meals { get; set; }
         public DbSet<MealFood> MealFoods { get; set; }
         public DbSet<Nutrition> Nutritions { get; set; }
-        public DbSet<Reminder> Reminders { get; set; }
+        public DbSet<WaterReminder> WaterReminders { get; set; }
         public DbSet<FoodPortion> FoodPortions { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Allergy> Allergies { get; set; }
@@ -45,7 +45,10 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<DailyWorkout> DailyWorkouts { get; set; }
         public DbSet<WorkoutExercise> WorkoutExercises { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
-        public DbSet<Domain.Type> Types { get; set; }
+        public DbSet<DailyActivity> DailyActivities { get; set; }
+        public DbSet<DailyWaterIntake> DailyWaterIntakes { get; set; }
+        public DbSet<WaterIntake> WaterIntakes { get; set; }
+        public DbSet<WaterIntakeReminder> WaterIntakeReminders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -65,10 +68,28 @@ namespace Monhealth.Identity.Dbcontexts
                 .OnDelete(DeleteBehavior.Restrict); // Avoid cascading delete
 
             builder.Entity<Workout>()
-                .HasOne(w => w.DailyWorkout)                
-                .WithMany(dw => dw.Workouts)               
-                .HasForeignKey(w => w.DailyWorkoutId)      
-                .OnDelete(DeleteBehavior.Restrict);        
+                .HasOne(w => w.DailyWorkout)
+                .WithMany(dw => dw.Workouts)
+                .HasForeignKey(w => w.DailyWorkoutId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<DailyActivity>()
+                .HasOne(d => d.Goal)
+                .WithMany(g => g.DailyActivities)
+                .HasForeignKey(d => d.GoalId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<DailyWaterIntake>()
+                .HasOne(dwi => dwi.Goal)
+                .WithMany(g => g.DailyWaterIntakes)
+                .HasForeignKey(dwi => dwi.GoalId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<WaterIntake>()
+                .HasOne(wi => wi.DailyWaterIntake)
+                .WithMany(dwi => dwi.WaterIntakes)
+                .HasForeignKey(wi => wi.DailyWaterIntakeId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
@@ -80,10 +101,9 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new NutritionConfiguration());
             builder.ApplyConfiguration(new FoodPortionConfiguration());
             builder.ApplyConfiguration(new AllergyConfiguration());
-            builder.ApplyConfiguration(new TypeConfiguration());
             builder.ApplyConfiguration(new ExerciseConfiguration());
 
-            
+
         }
 
     }
