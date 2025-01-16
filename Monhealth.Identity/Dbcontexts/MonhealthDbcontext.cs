@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Reflection.Emit;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Core;
@@ -40,10 +41,16 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<UserFood> UserFoods { get; set; }
+        public DbSet<Workout> Workouts { get; set; }
+        public DbSet<DailyWorkout> DailyWorkouts { get; set; }
+        public DbSet<WorkoutExercise> WorkoutExercises { get; set; }
+        public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<Domain.Type> Types { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             // builder.ApplyConfigurationsFromAssembly(typeof(MonhealthDbcontext).Assembly);
             builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
          .HasKey(x => new { x.RoleId, x.UserId });
@@ -57,6 +64,12 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey<Nutrition>(n => n.FoodId) // Nutrition.FoodId references Food.FoodId
                 .OnDelete(DeleteBehavior.Restrict); // Avoid cascading delete
 
+            builder.Entity<Workout>()
+                .HasOne(w => w.DailyWorkout)                
+                .WithMany(dw => dw.Workouts)               
+                .HasForeignKey(w => w.DailyWorkoutId)      
+                .OnDelete(DeleteBehavior.Restrict);        
+
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());
@@ -67,6 +80,10 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new NutritionConfiguration());
             builder.ApplyConfiguration(new FoodPortionConfiguration());
             builder.ApplyConfiguration(new AllergyConfiguration());
+            builder.ApplyConfiguration(new TypeConfiguration());
+            builder.ApplyConfiguration(new ExerciseConfiguration());
+
+            
         }
 
     }

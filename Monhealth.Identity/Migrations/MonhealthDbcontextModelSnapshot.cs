@@ -680,6 +680,848 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("DailyMeals");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.DailyWorkout", b =>
+                {
+                    b.Property<Guid>("DailyWorkoutId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("TotalCaloriesBurned")
+                        .HasColumnType("real");
+
+                    b.Property<int>("TotalDuration")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DailyWorkoutId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DailyWorkouts");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Exercise", b =>
+                {
+                    b.Property<Guid>("ExerciseId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("CaloriesBurned")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExerciseName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExerciseType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instructions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IntensityLevel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("TypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Views")
+                        .HasColumnType("int");
+
+                    b.HasKey("ExerciseId");
+
+                    b.HasIndex("TypeId");
+
+                    b.ToTable("Exercises");
+
+                    b.HasData(
+                        new
+                        {
+                            ExerciseId = new Guid("c6717b09-eea8-4452-8900-2abd68494661"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Tư Thế Cây",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Đặt một chân lên đầu gối chân còn lại 3. Vươn hai tay lên cao và giữ tư thế trong vài giây",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("1a8257c0-db6f-4a6b-ac06-dd88f98cd10b"),
+                            CaloriesBurned = 4f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 5,
+                            ExerciseName = "Kéo Giãn Vai",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi thẳng 2. Đưa tay phải qua vai trái 3. Kéo nhẹ tay bằng tay còn lại, giữ trong 10 giây và đổi bên",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("4fca9170-932f-4985-8f6f-04f34c4ed80a"),
+                            CaloriesBurned = 8f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Nhảy Chụm Chân",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Nhảy chụm hai chân lại, tay đưa lên cao 3. Lặp lại động tác trong 10 phút",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("7f51e931-9f04-4ff6-a383-51cfce5398e9"),
+                            CaloriesBurned = 2f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 5,
+                            ExerciseName = "Thở Bụng",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi thoải mái 2. Đặt tay lên bụng 3. Hít sâu bằng mũi và thở ra bằng miệng, cảm nhận sự phồng lên của bụng",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("f4c8fd3c-fc3e-45cb-b468-4acf0ae87266"),
+                            CaloriesBurned = 10f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 15,
+                            ExerciseName = "Chạy Nâng High Đùi",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Nâng cao đùi một chân đến ngang hông, sau đó đổi chân 3. Lặp lại động tác với tốc độ tăng dần",
+                            IntensityLevel = "High",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("ccd35e18-4679-4bfb-b9df-2eaaa3f4d9a8"),
+                            CaloriesBurned = 5.83f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Tư Thế Tam Giác",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng, hai chân mở rộng 2. Gập người sang bên, tay chạm vào gót chân 3. Giữ tư thế và lặp lại ở bên còn lại",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("f05d362a-3b43-4451-9857-025a170ec0e2"),
+                            CaloriesBurned = 10f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Gập Bụng",
+                            ExerciseType = "",
+                            Instructions = "1. Nằm ngửa, đầu gối co lại 2. Đặt hai tay sau đầu, nâng người lên 3. Hạ xuống từ từ và lặp lại",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("e3eeb6c5-aa62-4f2e-8ab1-b856c208d448"),
+                            CaloriesBurned = 4.67f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 15,
+                            ExerciseName = "Đi Bộ Tại Chỗ",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng đùi nhẹ nhàng 3. Giữ tốc độ đều đặn",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("104ed03c-0460-48d2-890e-7acd517e129b"),
+                            CaloriesBurned = 3.75f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 8,
+                            ExerciseName = "Kéo Giãn Cột Sống",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Gập người nhẹ về phía trước 3. Dùng tay chạm sàn, giữ vài giây rồi trở lại tư thế ban đầu",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("6ca587eb-e1f3-4266-be80-af02b42a8545"),
+                            CaloriesBurned = 10f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 5,
+                            ExerciseName = "Plank",
+                            ExerciseType = "",
+                            Instructions = "1. Chống hai khuỷu tay xuống sàn 2. Giữ lưng thẳng và cơ bụng siết chặt 3. Giữ tư thế trong vòng 30 giây đến 1 phút",
+                            IntensityLevel = "High",
+                            Status = true,
+                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("6e2ffe73-18da-42e6-ab89-0d3ecf254a52"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 15,
+                            ExerciseName = "Chào Mặt Trời",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Đưa hai tay lên cao 3. Cúi gập người và thực hiện các tư thế yoga liên tiếp",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("2d8dd512-b871-4e4e-955c-cf15a50a8ef7"),
+                            CaloriesBurned = 4f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Cuộn Người",
+                            ExerciseType = "",
+                            Instructions = "1. Nằm ngửa 2. Duỗi thẳng hai tay qua đầu 3. Từ từ cuộn người lên",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("cb81e687-8e2f-4814-99a6-808777410e02"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("97dd1375-9217-43b9-9c9d-c14128158ef0"),
+                            CaloriesBurned = 3.75f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 8,
+                            ExerciseName = "Kéo Giãn Đùi Sau",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi trên sàn 2. Duỗi một chân thẳng 3. Vươn tay về phía ngón chân của chân duỗi",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("8c6e4c94-b58e-4d9c-8698-98c7db4021cc"),
+                            CaloriesBurned = 6f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 20,
+                            ExerciseName = "Chạy Bộ Nhẹ",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Bắt đầu chạy bộ nhẹ nhàng 3. Duy trì tốc độ đều trong 20 phút",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("222df2e6-90a1-4a5b-8b63-cd7b73f012bb"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Đứng Một Chân",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Nâng một chân lên và giữ thăng bằng 3. Đổi bên sau 10 giây",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("3b17291f-8c4c-494c-bcbe-3adde745cbca"),
+                            CaloriesBurned = 2f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Ngồi Thiền",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi thoải mái 2. Nhắm mắt và tập trung vào nhịp thở 3. Thở đều trong 10 phút",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("c54c743d-4956-4b88-94ff-c4467f463a41"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Chó Úp Mặt",
+                            ExerciseType = "",
+                            Instructions = "1. Bắt đầu ở tư thế bò 2. Nâng hông cao để tạo thành chữ V ngược 3. Giữ tư thế trong vài giây",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("8918e071-56ca-4212-bd09-c338d2b0db8a"),
+                            CaloriesBurned = 10f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 15,
+                            ExerciseName = "Bật Nhảy Tại Chỗ",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Nhảy cao và đưa tay lên trời 3. Tiếp đất nhẹ nhàng",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("fcbc0f6c-bfda-430d-a7b0-ad48391327b4"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 8,
+                            ExerciseName = "Nhún Gối",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Gập đầu gối nhẹ nhàng xuống 3. Trở về tư thế ban đầu và lặp lại",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("c8c75216-1952-41c7-88d1-2e21e50a4bf7"),
+                            CaloriesBurned = 5.83f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Đứng Gập Người",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Cúi gập người, tay chạm sàn 3. Giữ tư thế vài giây và trở lại vị trí ban đầu",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("e3f3c590-fb64-4187-9375-db45a3bc5f26"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 8,
+                            ExerciseName = "Đứng Kiễng Chân",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng, chân chụm lại 2. Nâng gót chân lên cao 3. Giữ vài giây và hạ xuống",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("a98a4e19-3ccf-4e3f-90fa-a9f866230bd2"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Kéo Giãn Hông",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Đưa một chân ra phía trước, gập nhẹ gối 3. Giữ tư thế và đổi bên",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("cb7a4531-62f7-4209-9489-2ef6e3a8571a"),
+                            CaloriesBurned = 8.33f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Gập Gối Ngồi",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi xuống, hai chân mở rộng 2. Gập gối và đưa thân người xuống gần gối 3. Trở lại tư thế ban đầu",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("642766b0-99d6-45b8-a1ad-e2d3c1ad8c51"),
+                            CaloriesBurned = 4f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Tư Thế Em Bé",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi quỳ, gập người về phía trước 2. Duỗi hai tay ra trước mặt 3. Giữ trong 10 giây",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("3a737328-37a9-415f-b52c-71480118d431"),
+                            CaloriesBurned = 8.67f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 15,
+                            ExerciseName = "Nhảy Sang Ngang",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng, chân chụm lại 2. Nhảy sang bên trái và phải liên tục 3. Duy trì tốc độ đều",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("e051611d-806d-4d70-81da-da1277c404a1"),
+                            CaloriesBurned = 2f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 5,
+                            ExerciseName = "Thở Sâu",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi thẳng lưng 2. Hít vào chậm rãi qua mũi 3. Thở ra từ từ qua miệng",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("b25e6da5-a48d-414d-9d94-34fc08421eb5"),
+                            CaloriesBurned = 7.5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Tư Thế Thuyền",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi trên sàn, chân co gối lên 2. Nâng thân người và chân lên tạo hình chữ V 3. Giữ vài giây rồi hạ xuống",
+                            IntensityLevel = "High",
+                            Status = true,
+                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("8c34f630-f594-48ad-8db9-1e0c90439da7"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 8,
+                            ExerciseName = "Gập Lưng Dưới",
+                            ExerciseType = "",
+                            Instructions = "1. Nằm ngửa 2. Co gối và gập thân người về phía trước 3. Hạ xuống và lặp lại",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("8bf642c5-edd8-4998-9385-c7b753f8eb16"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Đứng Vặn Mình",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng, hai tay chống hông 2. Vặn mình sang trái, giữ vài giây 3. Đổi bên và lặp lại",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("a97fb729-878b-413e-af0f-086e524874bb"),
+                            CaloriesBurned = 5.83f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Tư Thế Cá Heo",
+                            ExerciseType = "",
+                            Instructions = "1. Bắt đầu ở tư thế bò 2. Chống hai khuỷu tay và nâng hông lên 3. Giữ tư thế và hít thở đều",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("2f862941-2b92-4210-bf02-efb91feed6e4"),
+                            CaloriesBurned = 10f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 15,
+                            ExerciseName = "Đi Bộ Nâng Cao Gối",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng gối cao ngang hông 3. Lặp lại liên tục",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("afbf282b-5a75-4b98-94a1-c1d3dece6b25"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Chống Đẩy Đầu Gối",
+                            ExerciseType = "",
+                            Instructions = "1. Nằm úp 2. Chống hai tay và đầu gối xuống sàn 3. Nâng người lên và hạ xuống từ từ",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("cdb6b8b0-e24d-488a-b2ac-6e38c7269b08"),
+                            CaloriesBurned = 4f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 5,
+                            ExerciseName = "Kéo Cánh Tay",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Đưa tay phải sang vai trái 3. Kéo nhẹ tay và giữ vài giây, sau đó đổi bên",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("165cfd11-a6ee-420f-b18e-821768917488"),
+                            CaloriesBurned = 4.38f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 8,
+                            ExerciseName = "Đứng Gập Đầu",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Cúi gập đầu và thân người xuống 3. Thư giãn cổ và giữ trong vài giây",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("1cf971f5-5c43-44de-baec-782a473fc49e"),
+                            CaloriesBurned = 10f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Bật Nhảy Hai Chân",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Nhảy bật hai chân lên cao, tay chạm gối 3. Lặp lại liên tục",
+                            IntensityLevel = "High",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("d622220c-af21-47bb-8540-90e01c5b63be"),
+                            CaloriesBurned = 3f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 5,
+                            ExerciseName = "Thở Hít Lâu",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi thoải mái 2. Hít vào sâu trong 5 giây 3. Thở ra chậm trong 7 giây",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("4a9ca2b5-78d0-42ea-870e-b0bc76c72d9e"),
+                            CaloriesBurned = 3.75f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 8,
+                            ExerciseName = "Ngồi Mở Rộng Eo",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi thẳng lưng, chân duỗi ra 2. Đưa hai tay lên cao 3. Nghiêng người sang bên trái và đổi bên",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("507ca0f0-4d34-4e62-9a6a-48c12341a4d1"),
+                            CaloriesBurned = 9f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Gập Lưng Trên",
+                            ExerciseType = "",
+                            Instructions = "1. Nằm ngửa 2. Nâng thân trên lên về phía đầu gối 3. Hạ xuống từ từ và lặp lại",
+                            IntensityLevel = "High",
+                            Status = true,
+                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("7717a4d8-d310-466f-afeb-0fb7272dcf0b"),
+                            CaloriesBurned = 6.67f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Tư Thế Chiến Binh II",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng, chân mở rộng 2. Đưa hai tay sang ngang, gập một gối 3. Giữ tư thế trong vài giây",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("92319d32-4758-49d2-bdd1-360f0b119a05"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Ngồi Vặn Mình",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi thẳng lưng, chân duỗi thẳng 2. Xoay thân người sang trái, tay chạm đầu gối 3. Đổi bên và lặp lại",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("523a65a8-53ac-4577-b318-0dbd370ceedf"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Đá Chân Ra Sau",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Đá chân phải ra sau, giữ thăng bằng 3. Đổi chân và lặp lại",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("769af12c-7398-4803-9a78-7a1ad54047b1"),
+                            CaloriesBurned = 6.67f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Tư Thế Cây Cầu",
+                            ExerciseType = "",
+                            Instructions = "1. Nằm ngửa 2. Co chân, nâng hông lên cao 3. Hạ xuống từ từ và lặp lại",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("486237f0-a55b-495e-b09a-65bf36260a1e"),
+                            CaloriesBurned = 10f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 15,
+                            ExerciseName = "Bật Nhảy Chéo",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Nhảy chéo chân và tay 3. Lặp lại với tốc độ tăng dần",
+                            IntensityLevel = "Medium",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("9fbbaf75-bece-48ff-975f-28ab6204516b"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 8,
+                            ExerciseName = "Nâng Tay Kéo Dài",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Đưa một tay lên cao và kéo dài 3. Đổi tay và lặp lại",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("c05e4fd1-6546-4283-bace-4cbf8affd86a"),
+                            CaloriesBurned = 6f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Tư Thế Mèo - Bò",
+                            ExerciseType = "",
+                            Instructions = "1. Bắt đầu ở tư thế bò 2. Cong lưng và nâng đầu lên 3. Cúi đầu và gập lưng xuống",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("7a102c6e-b15c-4260-a846-203b090603a5"),
+                            CaloriesBurned = 3.75f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 8,
+                            ExerciseName = "Vặn Người Đứng",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Xoay người nhẹ sang bên trái, tay chạm eo 3. Đổi bên và lặp lại",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("2fdafe44-34cb-40bf-8b68-1e9f79a3aa38"),
+                            CaloriesBurned = 10.67f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 15,
+                            ExerciseName = "Nhảy Nâng Đùi Xen Kẽ",
+                            ExerciseType = "",
+                            Instructions = "1. Đứng thẳng 2. Nhảy nâng đùi xen kẽ, tay đưa lên cao 3. Lặp lại liên tục",
+                            IntensityLevel = "High",
+                            Status = true,
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("e400f9d2-1f60-4494-b5bc-73085d215043"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Kéo Gối Chạm Ngực",
+                            ExerciseType = "",
+                            Instructions = "1. Nằm ngửa 2. Kéo gối phải lên chạm ngực 3. Đổi bên và lặp lại",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("6330da83-d0d8-4031-9459-ceccd41a3ac1"),
+                            CaloriesBurned = 5f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 12,
+                            ExerciseName = "Tư Thế Thư Giãn",
+                            ExerciseType = "",
+                            Instructions = "1. Nằm thẳng, tay và chân thả lỏng 2. Hít thở đều và thư giãn trong vài phút",
+                            IntensityLevel = "Low",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        },
+                        new
+                        {
+                            ExerciseId = new Guid("af983757-d7a8-412c-87e1-9f8a3a09e92f"),
+                            CaloriesBurned = 9f,
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 10,
+                            ExerciseName = "Tư Thế Con Quạ",
+                            ExerciseType = "",
+                            Instructions = "1. Ngồi xổm, đặt hai tay xuống sàn 2. Nâng hai chân lên khỏi sàn, giữ thăng bằng 3. Giữ tư thế trong vài giây",
+                            IntensityLevel = "High",
+                            Status = true,
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Views = 0
+                        });
+                });
+
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
                 {
                     b.Property<Guid>("FoodId")
@@ -6267,6 +7109,106 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("Subscriptions");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Type", b =>
+                {
+                    b.Property<Guid>("TypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("TypeDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("TypeId");
+
+                    b.ToTable("Types");
+
+                    b.HasData(
+                        new
+                        {
+                            TypeId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TypeDescription = "Các bài tập tập trung vào việc cải thiện sự linh hoạt, thăng bằng, và giảm căng thẳng thông qua các tư thế và kỹ thuật thở. Phù hợp cho mọi lứa tuổi và thể trạng",
+                            TypeImage = "",
+                            TypeName = "Yoga",
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            TypeId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TypeDescription = "Bài tập kéo giãn cơ giúp cải thiện biên độ chuyển động, giảm đau nhức cơ bắp, và tăng cường sự linh hoạt. Thường được sử dụng như phần khởi động hoặc thư giãn sau buổi tập",
+                            TypeImage = "",
+                            TypeName = "Stretching",
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            TypeId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TypeDescription = "Các bài tập aerobic giúp tăng nhịp tim, cải thiện sức khỏe tim mạch, và đốt cháy calo nhanh. Thích hợp để giảm cân hoặc cải thiện thể lực tổng thể",
+                            TypeImage = "",
+                            TypeName = "Cardio",
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            TypeId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TypeDescription = "Các bài tập tăng cường sức mạnh cơ bụng, lưng dưới, và vùng thân trung tâm. Giúp cải thiện tư thế, thăng bằng, và giảm nguy cơ chấn thương",
+                            TypeImage = "",
+                            TypeName = "Core",
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            TypeId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TypeDescription = "Các bài tập tập trung vào kỹ thuật thở sâu và có kiểm soát. Giúp thư giãn, giảm stress, và cải thiện khả năng hấp thụ oxy",
+                            TypeImage = "",
+                            TypeName = "Breathing Exercises",
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            TypeId = new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TypeDescription = "Các bài tập giúp tăng cường khả năng thăng bằng và sự ổn định của cơ thể. Đặc biệt hữu ích cho người lớn tuổi hoặc những ai cần cải thiện khả năng giữ thăng bằng",
+                            TypeImage = "",
+                            TypeName = "Balance Training",
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            TypeId = new Guid("cb81e687-8e2f-4814-99a6-808777410e02"),
+                            CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TypeDescription = "Bài tập kết hợp giữa các động tác chậm, có kiểm soát, tập trung vào sức mạnh cơ lõi, sự linh hoạt và tư thế. Phù hợp để cải thiện cơ bắp và giảm căng thẳng",
+                            TypeImage = "",
+                            TypeName = "Pilates",
+                            UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
             modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
                 {
                     b.Property<Guid>("UserFoodId")
@@ -6317,6 +7259,69 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserSubscriptions");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Workout", b =>
+                {
+                    b.Property<Guid>("WorkoutId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("CaloriesBurned")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DailyWorkoutId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("WorkoutId");
+
+                    b.HasIndex("DailyWorkoutId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Workouts");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.WorkoutExercise", b =>
+                {
+                    b.Property<Guid>("WorkoutExerciseId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ExerciseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WorkoutId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("WorkoutExerciseId");
+
+                    b.HasIndex("ExerciseId");
+
+                    b.HasIndex("WorkoutId");
+
+                    b.ToTable("WorkoutExercises");
                 });
 
             modelBuilder.Entity("Monhealth.Identity.Models.AppRole", b =>
@@ -6487,7 +7492,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e427ebcc-b8c5-4de1-8c4a-db6b28a68d46",
+                            ConcurrencyStamp = "7a6cf5dc-74ff-4ffb-a1aa-87796d2a7d90",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -6495,10 +7500,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAENFSEpjou78YONEDefhAY+DHHgkFSLN+ZwdR3bYDBNLPMe7/lq8xBUdwyH5JkzROvg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIJ5Ee43gdizRcCONB87O3HlOdVCwvll/HniOswoZmhFN8yUAFiRDjx9rO/FpodoTg==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ab72a917-48ba-4913-b96b-042c56812823",
+                            SecurityStamp = "50e99178-5821-4dbf-a153-841bae56fe5e",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6508,7 +7513,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "818e4f77-ee00-4db0-9492-446d2e3dda35",
+                            ConcurrencyStamp = "3a0d131f-2337-48d1-b5a8-baf25f72eca7",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -6516,10 +7521,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBAQljY/V9YbucDOVtSC4BdkK1NH5pqV+E0pe/CMKpGC2vthz6BCmFuSb/F9ty+VQw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENocNHQlmkVLVM6HStK2WYHSLePuZykwSplrTX1v0F2z/VJkU/f2JHMP73UtVR/T8w==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "419d320b-791d-4567-99ce-0d672b4a4ba8",
+                            SecurityStamp = "390f6557-2842-4b77-a297-dd62b821b63f",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6529,7 +7534,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "acd3bd75-d102-4b82-b2bc-7f97241a0798",
+                            ConcurrencyStamp = "07f8ca0d-e2ee-4fbe-9391-e479816cb7e6",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -6537,10 +7542,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEP4LpmlVBfRk8g4yIey8mBM/W+qz3PgJSnzz8x9sgGPBABhtVBtY9Jg7yb/bj3v/Sw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENWrnJAU0diN7Xc34NkeO89Kp6HUfHjTgDvBhmsr/GTYCccgJUssLM0eZ9VNeCazog==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b854a980-2789-44e4-b2c0-6d2f262c0d3f",
+                            SecurityStamp = "563b12ee-3899-462d-9f7b-50194b1feff9",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6550,7 +7555,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "67e68d8b-c3ee-43f0-afff-3c376651b6ea",
+                            ConcurrencyStamp = "9e01d4f0-4b54-4490-8832-11bcc0fe1a50",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -6558,10 +7563,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE2wZbGvHU+4Dm1dYujDhXJ8bGH3gdrLdlYJ2irItHPr4XZH48Rim229r8F807gLWA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBsd/QtpKIegBCM6OZdYi9HNIVpixYDLDZVFoWTtHPSXY0qIoQh4qH06icmtz4Rn8g==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "43ff3ada-a30c-4d29-9e9f-ab5cd6c04050",
+                            SecurityStamp = "d05d5b17-73b0-41a1-89d2-ac80b740aa8c",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6571,7 +7576,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c0f795ae-980c-48da-8640-c7ec438fb67e",
+                            ConcurrencyStamp = "8e319de8-c7d1-4458-88ad-bf503c86777d",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -6579,10 +7584,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBpCaikBLnFz8hdWSyrUPLVrIMkFs1MRV6hVGjR1JNf4c7mHGZHMwD1krLMvYDP60g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPw+d47s4QfHwCbEop1/ZRY+ABgHRZc01d1B9JeUUBzyn8CJEqMZaxcjmjTq1c9zNg==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dc125d05-1a68-49b3-9d16-5340aa70f8db",
+                            SecurityStamp = "b97492fe-0c5b-4904-a78a-9b6706edfdec",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6592,7 +7597,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d792f5a0-a066-424b-b781-148d8d08baa0",
+                            ConcurrencyStamp = "0289b092-1f1e-4eaf-a443-c0c1a11fb71a",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -6600,10 +7605,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEG436tUokNbeq42zTUy57R5dQnMbu6KigUQQUMmhX/MjcSkgN1plNrDibn9wmeqHLA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMKYo9mKBCVduudI6cIQVyrbDj0tDDXWcsvNJN3IAuneY8I7FlL4KzH2MowdNDdbrQ==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c99dbf59-7893-4939-8ba7-d34418871e0a",
+                            SecurityStamp = "8d403688-daa2-48c9-bc1f-f123c7a31fa0",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6613,7 +7618,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "500ed216-93ae-4434-ad5d-8b89e596dac1",
+                            ConcurrencyStamp = "e6d68836-19eb-4742-94f9-52eebb65bf8d",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -6621,10 +7626,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO7sj7Fo7308D7gxrMnFUD2C3aN57KaE7cO3MDxpkcwOrnRGNnLy6jrBF+EPD+oYkg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBjy4oSw1rU3YKpMWpSimHt8Te28F2Mjyv1dzZ6zXgN4wU73/+P8Gs3tKfa1zMUjwg==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "507bdb97-d5b4-41f1-96ad-eece90bf7970",
+                            SecurityStamp = "1a2503f1-18c1-41fc-9b8c-bea36ef8d51e",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6803,6 +7808,28 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("Goal");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.DailyWorkout", b =>
+                {
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
+                        .WithMany("DailyWorkouts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Exercise", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Type", "Type")
+                        .WithMany("Exercises")
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Type");
+                });
+
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
                 {
                     b.HasOne("Monhealth.Domain.Category", "Category")
@@ -6973,6 +8000,44 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Workout", b =>
+                {
+                    b.HasOne("Monhealth.Domain.DailyWorkout", "DailyWorkout")
+                        .WithMany("Workouts")
+                        .HasForeignKey("DailyWorkoutId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
+                        .WithMany("Workouts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("DailyWorkout");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.WorkoutExercise", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Exercise", "Exercise")
+                        .WithMany("WorkoutExercises")
+                        .HasForeignKey("ExerciseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Monhealth.Domain.Workout", "Workout")
+                        .WithMany("WorkoutExercises")
+                        .HasForeignKey("WorkoutId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Exercise");
+
+                    b.Navigation("Workout");
+                });
+
             modelBuilder.Entity("Monhealth.Core.Allergy", b =>
                 {
                     b.Navigation("foodAllergies");
@@ -7003,6 +8068,16 @@ namespace Monhealth.Identity.Migrations
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
                 {
                     b.Navigation("Meals");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.DailyWorkout", b =>
+                {
+                    b.Navigation("Workouts");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Exercise", b =>
+                {
+                    b.Navigation("WorkoutExercises");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
@@ -7044,11 +8119,23 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("UserSubscriptions");
                 });
 
+            modelBuilder.Entity("Monhealth.Domain.Type", b =>
+                {
+                    b.Navigation("Exercises");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Workout", b =>
+                {
+                    b.Navigation("WorkoutExercises");
+                });
+
             modelBuilder.Entity("Monhealth.Identity.Models.AppUser", b =>
                 {
                     b.Navigation("Certificates");
 
                     b.Navigation("ConsultantBookings");
+
+                    b.Navigation("DailyWorkouts");
 
                     b.Navigation("Foods");
 
@@ -7070,6 +8157,8 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
 
                     b.Navigation("UserSubscriptions");
+
+                    b.Navigation("Workouts");
                 });
 #pragma warning restore 612, 618
         }
