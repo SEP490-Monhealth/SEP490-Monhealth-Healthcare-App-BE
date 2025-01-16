@@ -78,6 +78,7 @@ namespace Monhealth.Identity
             services.AddScoped<IUserFoodRepository, UserFoodRepository>();
             services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
             services.AddScoped<IUserSubscriptionRepository, UserSubscriptionRepository>();
+            services.AddScoped<IExerciseRepository, ExerciseRepository>();
             // Đăng ký MediatR
             services.AddMediatR(typeof(CreateNotificationCommandHandler).Assembly);
 

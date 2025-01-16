@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Exercise\Commands\" />
     <Folder Include="Features\UserFood\Queries\" />
   </ItemGroup>
 
