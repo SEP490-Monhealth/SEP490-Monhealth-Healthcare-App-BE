@@ -5,13 +5,13 @@ using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
 {
-    public class ReminderRepository : GenericRepository<Reminder, Guid>, IReminderRepository
+    public class ReminderRepository : GenericRepository<WaterReminder, Guid>, IReminderRepository
     {
         public ReminderRepository(MonhealthDbcontext context) : base(context)
         {
         }
 
-        public Task<List<Reminder>> CreateReminders(float waterGoal, Guid goalId , Guid? userId)
+        public Task<List<WaterReminder>> CreateReminders(float waterGoal , Guid? userId)
         {
             // Các khung giờ cố định và phần trăm tổng lượng nước
             var timeSlots = new List<(string Time, float Percentage)>
@@ -27,7 +27,7 @@ namespace Monhealth.Identity.Repositories
     };
 
             // Danh sách Reminder
-            var reminders = new List<Reminder>();
+            var reminders = new List<WaterReminder>();
 
             foreach (var slot in timeSlots)
             {
@@ -35,16 +35,14 @@ namespace Monhealth.Identity.Repositories
                 var volume = waterGoal * slot.Percentage;
 
                 // Tạo Reminder mới
-                reminders.Add(new Reminder
+                reminders.Add(new WaterReminder
                 {
-                    ReminderId = Guid.NewGuid(), // Tạo ID duy nhất
-                    GoalId = goalId,
+                    WaterReminderId = Guid.NewGuid(), // Tạo ID duy nhất
                     UserId = userId,// Liên kết với mục tiêu
                     Time = slot.Time, // Thời gian nhắc nhở
                     Volume = volume, // Lượng nước cần uống
-                    ReminderName = $"Uống nước {volume}ml vào {slot.Time}", // Tên nhắc nhở
+                    WaterReminderName = $"Uống nước {volume}ml vào {slot.Time}", // Tên nhắc nhở
                     Status = true, // Trạng thái mặc định
-                    IsDefault = true, // Đánh dấu nhắc nhở mặc định
                     CreatedAt = DateTime.Now, // Thời gian tạo
                     UpdatedAt = DateTime.Now // Thời gian cập nhật
                 });
@@ -55,27 +53,27 @@ namespace Monhealth.Identity.Repositories
         }
 
 
-        public async Task<List<Reminder>> GetActiveRemindersAsync(string currentTime)
+        public async Task<List<WaterReminder>> GetActiveRemindersAsync(string currentTime)
         {
-            return await _context.Reminders
+            return await _context.WaterReminders
             .Where(r => r.Status && r.Time == currentTime)
             .ToListAsync();
 
         }
 
-        public async Task<List<Reminder>> GetAllReminderAsync()
+        public async Task<List<WaterReminder>> GetAllReminderAsync()
         {
-            return await _context.Reminders.Include(r => r.AppUser).ToListAsync();
+            return await _context.WaterReminders.Include(r => r.AppUser).ToListAsync();
         }
 
-        public async Task<Reminder> GetReminderById(Guid reminderId)
+        public async Task<WaterReminder> GetReminderById(Guid reminderId)
         {
-            return await _context.Reminders.FirstOrDefaultAsync(r => r.ReminderId == reminderId);
+            return await _context.WaterReminders.FirstOrDefaultAsync(r => r.WaterReminderId == reminderId);
         }
 
-        public async Task<List<Reminder>> GetReminderByUser(Guid userId)
+        public async Task<List<WaterReminder>> GetReminderByUser(Guid userId)
         {
-            return await _context.Reminders.Where(r => r.UserId == userId).ToListAsync();
+            return await _context.WaterReminders.Where(r => r.UserId == userId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

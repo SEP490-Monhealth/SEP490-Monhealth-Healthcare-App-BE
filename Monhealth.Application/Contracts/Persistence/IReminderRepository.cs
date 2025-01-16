@@ -2,13 +2,13 @@ using Monhealth.Core;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
-    public interface IReminderRepository : IGenericRepository<Reminder, Guid>
+    public interface IReminderRepository : IGenericRepository<WaterReminder, Guid>
     {
         Task<int> SaveChangeAsync();
-        Task<List<Reminder>> GetAllReminderAsync();
-        Task<Reminder> GetReminderById(Guid reminderId);
-        Task<List<Reminder>> GetReminderByUser(Guid userId);
-        Task<List<Reminder>> GetActiveRemindersAsync(string currentTime);
-        Task<List<Reminder>>CreateReminders(float waterGoal, Guid goalId ,Guid? userId);
+        Task<List<WaterReminder>> GetAllReminderAsync();
+        Task<WaterReminder> GetReminderById(Guid reminderId);
+        Task<List<WaterReminder>> GetReminderByUser(Guid userId);
+        Task<List<WaterReminder>> GetActiveRemindersAsync(string currentTime);
+        Task<List<WaterReminder>>CreateReminders(float waterGoal ,Guid? userId);
     }
 }

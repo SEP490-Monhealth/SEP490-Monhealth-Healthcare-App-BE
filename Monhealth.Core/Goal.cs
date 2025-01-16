@@ -22,10 +22,16 @@ namespace Monhealth.Domain
         public float SugarGoal { get; set; }
         public int WaterGoal { get; set; }
         public float ExerciseGoal { get; set; }
+        public float WaterIntakesGoal { get; set; }
+        public float ExerciseDurationGoal { get; set; }
+        public float ExerciseCaloriesGoal { get; set; }
+        public float StepsGoal { get; set; }
         public GoalStatus Status { get; set; }
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         public ICollection<DailyMeal> DailyMeals { get; set; }
-        public ICollection<Reminder> Reminders { get; set; }
+        public ICollection<WaterReminder> Reminders { get; set; }
+        public ICollection<DailyActivity> DailyActivities { get; set; }
+        public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; }
     }
 }

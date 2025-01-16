@@ -16,7 +16,7 @@ namespace Monhealth.Identity.Models
         public DateTime? UpdatedAt { get; set; }
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
-        public ICollection<Reminder> Reminders { get; set; }
+        public ICollection<WaterReminder> WaterReminders { get; set; }
         public ICollection<Food> Foods { get; set; }
         public ICollection<Metric> Metrics { get; set; }
         public ICollection<Goal> Goals { get; set; }
@@ -29,6 +29,11 @@ namespace Monhealth.Identity.Models
         public ICollection<Booking> UserBookings { get; set; }
         [InverseProperty(nameof(Booking.Consultant))]
         public ICollection<Booking> ConsultantBookings { get; set; }
+        public ICollection<DailyWorkout> DailyWorkouts { get; set; }
+        public ICollection<Workout> Workouts { get; set; }
+        public ICollection<DailyActivity> DailyActivities { get; set; }
+        public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; }
+        public ICollection<WaterIntake> WaterIntakes { get; set; }
         public UserFood UserFood { get; set; }
     }
 }

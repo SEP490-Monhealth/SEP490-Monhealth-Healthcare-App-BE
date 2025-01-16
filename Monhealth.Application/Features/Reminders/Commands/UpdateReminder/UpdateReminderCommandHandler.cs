@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminder
             if (id == null) throw new Exception("Id không tồn tại");
             id.Volume = request.Volume;
             id.Time = request.Time;
-            id.ReminderName = request.ReminderName;
+            id.WaterReminderName = request.ReminderName;
             _reminderRepository.Update(id);
             await _reminderRepository.SaveChangeAsync();
             return true;
