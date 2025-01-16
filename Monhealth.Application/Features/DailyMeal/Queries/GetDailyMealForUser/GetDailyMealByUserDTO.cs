@@ -30,6 +30,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
         public Guid mealId { get; set; }
         [JsonPropertyName("type")]
         public string MealType { get; set; } = string.Empty;
+        public int TotalFoods { get; set; }
         public float Calories { get; set; }
         public float Protein { get; set; }
         public float Carbs { get; set; }

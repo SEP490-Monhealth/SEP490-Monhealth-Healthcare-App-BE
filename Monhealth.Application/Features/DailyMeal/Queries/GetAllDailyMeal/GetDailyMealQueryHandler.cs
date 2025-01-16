@@ -63,11 +63,13 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                         }
                         // Lấy Portion từ repository
                     }
+                    int totalFoods = meal.MealFoods.Count(mealFood => mealFood.Food?.Nutrition != null && mealFood.PortionId != Guid.Empty);
 
                     meals.Add(new MealForDailyMeal
                     {
                         mealId = meal.MealId,
                         MealType = meal.MealType,
+                        TotalFoods = totalFoods,
                         Calories = totalCalories,
                         Protein = totalProtein,
                         Carbs = totalCarbs,
