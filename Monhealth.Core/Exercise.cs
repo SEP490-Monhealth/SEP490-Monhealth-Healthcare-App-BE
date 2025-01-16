@@ -15,7 +15,6 @@ namespace Monhealth.Domain
         [Key]
         public Guid ExerciseId { get; set; }
         public Guid TypeId { get; set; }
-        public string ExerciseType { get; set; } = string.Empty;
         public string ExerciseName { get; set; } = string.Empty;
         public string IntensityLevel { get; set; } = string.Empty;
         public int Duration { get; set; }
