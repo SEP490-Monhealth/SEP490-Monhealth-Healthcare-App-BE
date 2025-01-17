@@ -30,7 +30,7 @@ namespace Monhealth.Application.Automapper
 
             }
             : null));
-            
+
             //Get food by FoodType
             CreateMap<Food, FoodDetailByFoodTypeDTO>()
             .ForMember(dest => dest.Category,
@@ -48,7 +48,6 @@ namespace Monhealth.Application.Automapper
             ? new GetNutritionForGetTypeFoodDTO
             {
                 Calories = src.Nutrition.Calories,
-
             }
             : null));
 

@@ -12,7 +12,6 @@ namespace Monhealth.Application.Features.Category.Queries.GetAllCategories
         public string CategoryName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
         public string CategoryDescription { get; set; } = string.Empty;
-        [JsonPropertyName("image")]
         public string Image { get; set; } = string.Empty;
     }
 }

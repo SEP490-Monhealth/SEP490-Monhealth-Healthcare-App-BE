@@ -41,16 +41,17 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPost("reset")]
-        public async Task<IActionResult> ResetReminders()
-        {
-            int resetCount = await _resetService.ResetRemindersAsync();
-            return Ok(new
-            {
-                Message = $"Successfully reset {resetCount} reminders.",
-                ResetCount = resetCount
-            });
-        }
+        // [HttpPost("reset")]
+        // public async Task<IActionResult> ResetReminders()
+        // {
+        //     int resetCount = await _resetService.ResetRemindersAsync();
+        //     return Ok(new
+        //     {
+        //         Message = $"Successfully reset {resetCount} reminders.",
+        //         ResetCount = resetCount
+        //     });
+        // }
+
         [HttpGet("{waterReminderId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid waterReminderId)
         {
@@ -137,6 +138,29 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpDelete("{waterReminderId}")]
+        public async Task<ActionResult<ResultModel>> DeleteReminder(Guid waterReminderId)
+        {
+            var command = await _mediator.Send(new DeleteReminderCommand() { RemindId = waterReminderId });
+
+            if (command == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Xóa lời nhắc thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Xóa lời nhắc thành công"
+            };
+        }
+
+
         [HttpPatch("{waterReminderId}/status")]
         public async Task<ActionResult<ResultModel>> UpdateStatus(Guid waterReminderId)
         {
@@ -159,7 +183,8 @@ namespace Monhealth.Api.Controllers
             };
 
         }
-        [HttpPatch("{waterReminderId}/IsDrunk")]
+
+        [HttpPatch("{waterReminderId}/drunk")]
         public async Task<ActionResult<ResultModel>> UpdateStatusOfIsDrunk(Guid waterReminderId)
         {
             var command = await _mediator.Send(new ChangeStatusIsDrunkCommand() { WaterReminderId = waterReminderId });
@@ -180,27 +205,6 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật trạng thái thành công"
             };
 
-        }
-        [HttpDelete("{waterReminderId}")]
-        public async Task<ActionResult<ResultModel>> DeleteReminder(Guid waterReminderId)
-        {
-            var command = await _mediator.Send(new DeleteReminderCommand() { RemindId = waterReminderId });
-
-            if (command == null)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Xóa lời nhắc thất bại"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Xóa lời nhắc thành công"
-            };
         }
     }
 }
