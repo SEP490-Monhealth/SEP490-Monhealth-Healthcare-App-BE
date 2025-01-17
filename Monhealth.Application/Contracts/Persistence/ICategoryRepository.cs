@@ -9,5 +9,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<bool> AnyAsync(Expression<Func<Category, bool>> predicate);
         Task<int> SaveChangeAsync();
         Task<Category>GetCategoryByCategoryName(string Name);
+        Task<List<Category>>GetCategoriesByType(string type);
     }
 }
