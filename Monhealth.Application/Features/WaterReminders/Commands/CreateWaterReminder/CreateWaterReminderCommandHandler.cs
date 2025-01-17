@@ -19,6 +19,8 @@ namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
                 WaterReminderName = request.WaterReminderName,
                 Time = request.Time,
                 Volume = request.Volume,
+                IsRecurring = request.IsRecurring,
+                IsDrunk = false,
                 Status = true,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,

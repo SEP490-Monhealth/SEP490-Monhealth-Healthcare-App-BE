@@ -19,6 +19,7 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminder
             id.Volume = request.Volume;
             id.Time = request.Time;
             id.WaterReminderName = request.WaterReminderName;
+            id.IsRecurring = request.IsRecurring;
             _reminderRepository.Update(id);
             await _reminderRepository.SaveChangeAsync();
             return true;

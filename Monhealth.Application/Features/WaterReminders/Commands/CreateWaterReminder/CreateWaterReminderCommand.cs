@@ -10,5 +10,6 @@ namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
         public string WaterReminderName { get; set; } = string.Empty;
         public string Time { get; set; } = string.Empty;
         public int Volume { get; set; }
+        public bool IsRecurring { get; set; }
     }
 }

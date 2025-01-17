@@ -17,8 +17,6 @@ namespace Monhealth.Domain
         public Guid DailyWorkoutId { get; set; }
         public Guid UserId { get; set; }
         public string WorkoutName { get; set; } = string.Empty;
-        public int Duration { get; set; }
-        public float CaloriesBurned { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }

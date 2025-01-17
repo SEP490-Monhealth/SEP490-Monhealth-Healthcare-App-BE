@@ -12,7 +12,7 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250117054917_InitialDB")]
+    [Migration("20250117075633_InitialDB")]
     partial class InitialDB
     {
         /// <inheritdoc />
@@ -283,12 +283,7 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime>("NotifyTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ReminderId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("NotificationId");
-
-                    b.HasIndex("ReminderId");
 
                     b.ToTable("Notifications");
                 });
@@ -326,8 +321,8 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("GoalId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<bool>("IsDrunk")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsRecurring")
                         .HasColumnType("bit");
@@ -356,8 +351,6 @@ namespace Monhealth.Identity.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WaterReminderId");
-
-                    b.HasIndex("GoalId");
 
                     b.HasIndex("UserId");
 
@@ -7446,83 +7439,11 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("UserSubscriptions");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.WaterIntake", b =>
-                {
-                    b.Property<Guid>("WaterIntakeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DailyWaterIntakeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("WaterIntakeId");
-
-                    b.HasIndex("DailyWaterIntakeId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("WaterIntakes");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.WaterIntakeReminder", b =>
-                {
-                    b.Property<Guid>("WaterIntakeReminderId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("WaterIntakeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("WaterReminderId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("WaterIntakeReminderId");
-
-                    b.HasIndex("WaterIntakeId");
-
-                    b.HasIndex("WaterReminderId");
-
-                    b.ToTable("WaterIntakeReminders");
-                });
-
             modelBuilder.Entity("Monhealth.Domain.Workout", b =>
                 {
                     b.Property<Guid>("WorkoutId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<float>("CaloriesBurned")
-                        .HasColumnType("real");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -7532,9 +7453,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("DailyWorkoutId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -7750,7 +7668,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9a34af1e-9f1a-4e84-86b5-1ab2717715c0",
+                            ConcurrencyStamp = "63597bd7-68a0-4b96-bc84-86cba5f6f65b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -7758,10 +7676,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDIct/yG1JfVnwGTdMuXizaFuqhyLchYZ60OAlB0YhQBpwaQv0idphnnqgO/n8q7ig==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPrfX4uhVv3zsPv5TIEdKaceWQGjdONzr8TKipEG51pzvlp3Paeo7UVno9TctVoktg==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4830e7e3-a66b-4ef3-b0ba-4c46d53479fc",
+                            SecurityStamp = "f8f3c81d-4b73-4fe5-80a3-59251384bee0",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7771,7 +7689,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fd32d948-49fd-431e-96da-453f9379ba59",
+                            ConcurrencyStamp = "d9a9c683-4393-4cb2-a1a1-f269cc57f070",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -7779,10 +7697,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKpxb6HmTpDkh7dKpjdVmQS2hVar6GPDSdw4v/abomV1jIfoiQ3U5T44yL+nND9dDA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMmuFiSti2tCVuaW/S2ZL9yVqxmgzk800Fm+TP3TEjjVgPAsnvh0jJYk0QjDmHxWIA==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4bdc26c8-c61e-4719-a706-2cef8c3f0f49",
+                            SecurityStamp = "0ef89a05-b039-46d1-9bbc-ead8aa5fdf2e",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7792,7 +7710,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "71279e80-8c27-49ba-b9eb-333b48f5be1f",
+                            ConcurrencyStamp = "dd53d37c-601d-4271-8950-646b949db461",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -7800,10 +7718,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMmMhF/38a3iHwu0ltguSP9SJYFdnYgbyVUDOnmlSlS+Gm8ijH2bmKHH/7azWfdyng==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF9BkZFvtxiFuWxYr63yKoWtQNrd1xrqWxnvdMIPe+C6owXmzWoR2RNe7oOzdIF0yw==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5ada1ba7-7f90-4c31-aadb-8f60185324bc",
+                            SecurityStamp = "98bbd30c-5999-43c2-9ad3-01bee95b73d1",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7813,7 +7731,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e3a095c7-a2ea-438d-b59a-2f9b3f663de4",
+                            ConcurrencyStamp = "5ed0da5c-4e88-4f1b-bd40-4610fce39b57",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -7821,10 +7739,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMeLBTnQbcZ8Gcqo6vBiteiqK7O37bHln7ofxnWMNR6BCc46A3lciyDJWTm8FEPxxA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFDpqbGx39aXxJMeCsGlItoY3kLm6H+/XnbUjwmnAWsckMVN5sPGzzbhYtQPEHU9mA==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5e79d2bb-5cc5-4283-9b39-2d6594ec3c59",
+                            SecurityStamp = "1b1441cd-2667-4dae-911e-7c25ba1b8729",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7834,7 +7752,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b13bc2ef-faef-46e7-8f77-49d47f039b96",
+                            ConcurrencyStamp = "5001eed5-befe-4186-b62f-c0de1e20b8f9",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -7842,10 +7760,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAyW4m1rr3PdOs9xVq/R4u2KGXYaJvhgwJfJYMdSrvQZEwwSRkGoHlGAboKyH1fAkw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECpWNIvTtxU2BngHaSNY/oqG0q3wUngPO0oTLMTxhffBUQzi6cxhHHs6dFl7vZ40vg==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7c3e7597-4861-43b5-b6bf-aa6068bbc6ca",
+                            SecurityStamp = "6af3cd23-8e99-43be-8b2e-8570afaa2471",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7855,7 +7773,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "73b52791-9a97-4d80-9bd9-ce6641639c78",
+                            ConcurrencyStamp = "cb1c8917-78cc-46a8-bb5e-fd38ef1b6593",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -7863,10 +7781,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAELogXJqxcjUdHT9/3tf19gJKBGYm1XQDZ6djhQkO6m43dtxy8/qD1c0zJu6eOoVDBw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBS3P17LoORNsSnDr3W1oWE2PMS/lbaBx5uEa++S1xTRQIzIuePjX51Nn7l202dWVQ==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b89fce83-2299-4dd1-a722-f6d0e1767adf",
+                            SecurityStamp = "a16465b6-8c63-48d4-9bf9-5d899d121058",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7876,7 +7794,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3c7fcd96-d5f5-4d82-ba99-4a4084d64462",
+                            ConcurrencyStamp = "a3c7915d-5554-4718-9296-9bb965246e87",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -7884,10 +7802,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEG65N9JmEasy9AdfOVSQ6nAsD2eh79zyWn3xWjRfJCe9KxUri5esmcnRQjZBHQBH3w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO07m+ftx73YUYLHxDnxniKTIRrcZ/toM1VkobdpJkpLSSp1paED5OM6HxQfoUV2mQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "868ff2c8-f6b6-4267-a259-6129ed0ee72a",
+                            SecurityStamp = "122ffd2f-95e6-4dc2-a4ab-9382a027552b",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7965,17 +7883,6 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("Food");
                 });
 
-            modelBuilder.Entity("Monhealth.Core.Notification", b =>
-                {
-                    b.HasOne("Monhealth.Core.WaterReminder", "Reminder")
-                        .WithMany("Notifications")
-                        .HasForeignKey("ReminderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Reminder");
-                });
-
             modelBuilder.Entity("Monhealth.Core.UserAllergy", b =>
                 {
                     b.HasOne("Monhealth.Core.Allergy", "Allergy")
@@ -7997,10 +7904,6 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Core.WaterReminder", b =>
                 {
-                    b.HasOne("Monhealth.Domain.Goal", null)
-                        .WithMany("Reminders")
-                        .HasForeignKey("GoalId");
-
                     b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
                         .WithMany("WaterReminders")
                         .HasForeignKey("UserId");
@@ -8292,44 +8195,6 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.WaterIntake", b =>
-                {
-                    b.HasOne("Monhealth.Domain.DailyWaterIntake", "DailyWaterIntake")
-                        .WithMany("WaterIntakes")
-                        .HasForeignKey("DailyWaterIntakeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
-                        .WithMany("WaterIntakes")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-
-                    b.Navigation("DailyWaterIntake");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.WaterIntakeReminder", b =>
-                {
-                    b.HasOne("Monhealth.Domain.WaterIntake", "WaterIntake")
-                        .WithMany("WaterIntakeReminders")
-                        .HasForeignKey("WaterIntakeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Monhealth.Core.WaterReminder", "WaterReminder")
-                        .WithMany("WaterIntakeReminders")
-                        .HasForeignKey("WaterReminderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("WaterIntake");
-
-                    b.Navigation("WaterReminder");
-                });
-
             modelBuilder.Entity("Monhealth.Domain.Workout", b =>
                 {
                     b.HasOne("Monhealth.Domain.DailyWorkout", "DailyWorkout")
@@ -8375,13 +8240,6 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("userAllergies");
                 });
 
-            modelBuilder.Entity("Monhealth.Core.WaterReminder", b =>
-                {
-                    b.Navigation("Notifications");
-
-                    b.Navigation("WaterIntakeReminders");
-                });
-
             modelBuilder.Entity("Monhealth.Domain.Booking", b =>
                 {
                     b.Navigation("Payments");
@@ -8402,11 +8260,6 @@ namespace Monhealth.Identity.Migrations
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
                 {
                     b.Navigation("Meals");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.DailyWaterIntake", b =>
-                {
-                    b.Navigation("WaterIntakes");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.DailyWorkout", b =>
@@ -8438,8 +8291,6 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("DailyMeals");
 
                     b.Navigation("DailyWaterIntakes");
-
-                    b.Navigation("Reminders");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Meal", b =>
@@ -8460,11 +8311,6 @@ namespace Monhealth.Identity.Migrations
             modelBuilder.Entity("Monhealth.Domain.Subscription", b =>
                 {
                     b.Navigation("UserSubscriptions");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.WaterIntake", b =>
-                {
-                    b.Navigation("WaterIntakeReminders");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Workout", b =>
@@ -8502,8 +8348,6 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
 
                     b.Navigation("UserSubscriptions");
-
-                    b.Navigation("WaterIntakes");
 
                     b.Navigation("WaterReminders");
 

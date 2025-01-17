@@ -29,7 +29,6 @@ namespace Monhealth.Application.Features.Notificacation.Commands
                 // Tạo Notification mới
                 var notification = new Monhealth.Core.Notification
                 {
-                    ReminderId = reminder.WaterReminderId,
                     Message = $"{reminder.WaterReminderName}",
                     NotifyTime = DateTime.Now,
                     IsSent = false
