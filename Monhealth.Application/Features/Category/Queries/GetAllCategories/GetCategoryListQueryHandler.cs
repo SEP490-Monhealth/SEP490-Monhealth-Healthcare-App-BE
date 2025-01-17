@@ -16,7 +16,7 @@ namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
         }
         public async Task<List<CategoryDTO>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
         {
-            var categories = await _categoryRepository.GetAllCategoryAsync(request.CategoryType);
+            var categories = await _categoryRepository.GetAllCategoryAsync();
             return _mapper.Map<List<CategoryDTO>>(categories);
         }
     }
