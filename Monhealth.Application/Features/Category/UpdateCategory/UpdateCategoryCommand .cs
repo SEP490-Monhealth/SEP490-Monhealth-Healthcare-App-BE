@@ -5,6 +5,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
     public class UpdateCategoryCommand : IRequest<bool>
     {
         public Guid CategoryId { get; set; }
+        public string CategoryType { get; set; }
         public string CategoryName { get; set; }
         public string CategoryDescription { get; set; }
         public string CategoryImage { get; set; }
@@ -12,6 +13,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
         public UpdateCategoryCommand(Guid categoryId, UpdateCategoryRequest request)
         {
             CategoryId = categoryId;
+            CategoryName = request.CategoryType;
             CategoryName = request.CategoryName;
             CategoryDescription = request.CategoryDescription;
             CategoryImage = request.CategoryImage;

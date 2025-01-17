@@ -17,8 +17,12 @@ namespace Monhealth.Identity.Repositories
             return await _context.Set<Category>().AnyAsync(predicate);
         }
 
-        public async Task<List<Category>> GetAllCategoryAsync()
+        public async Task<List<Category>> GetAllCategoryAsync(string? type)
         {
+            if(!string.IsNullOrEmpty(type))
+            {
+                return await _context.Categories.Where(c => c.CategoryType.Equals(type)).ToListAsync();
+            }
             return await _context.Categories.ToListAsync();
         }
 

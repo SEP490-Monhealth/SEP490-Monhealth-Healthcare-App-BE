@@ -5,6 +5,8 @@ namespace Monhealth.Application.Features.Category.AddCategory
 {
     public class AddCategoryRequest : IRequest<CategoryRequest>
     {
+        [JsonPropertyName("type")]
+        public string CategoryType { get; set; } = string.Empty;
         [JsonPropertyName("name")]
         public string CategoryName { get; set; } = string.Empty;
         [JsonPropertyName("description")]

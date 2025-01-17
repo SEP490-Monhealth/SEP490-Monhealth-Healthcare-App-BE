@@ -23,6 +23,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
             {
                 throw new Exception("CategoryName already exists");
             }
+            category.CategoryType = request.CategoryType;
             category.CategoryName = request.CategoryName;
             category.CategoryDescription = request.CategoryDescription;
             category.Image = request.CategoryImage;

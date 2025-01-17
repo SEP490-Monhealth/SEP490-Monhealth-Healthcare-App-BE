@@ -26,6 +26,7 @@ namespace Monhealth.Application.Features.Category.AddCategory
             }
             var model = new Monhealth.Domain.Category
             {
+                CategoryType = request.CategoryType,
                 CategoryName = request.CategoryName,
                 CategoryDescription = request.CategoryDescription,
                 Image = request.CategoryImage,
@@ -37,6 +38,7 @@ namespace Monhealth.Application.Features.Category.AddCategory
             await _categoryRepository.SaveChangeAsync();
             return new CategoryRequest
             {
+                CategoryType = model.CategoryType,
                 CategoryName = model.CategoryName,
                 CategoryDescription = model.CategoryDescription
             };
