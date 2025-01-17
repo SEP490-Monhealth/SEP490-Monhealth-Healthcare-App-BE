@@ -2,21 +2,21 @@ using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
 {
-    public class CreateReminderCommandHandler : IRequestHandler<CreateReminderCommand, Unit>
+    public class CreateWaterReminderCommandHandler : IRequestHandler<CreateWaterReminderCommand, Unit>
     {
         private readonly IReminderRepository _reminderRepository;
 
-        public CreateReminderCommandHandler(IReminderRepository reminderRepository)
+        public CreateWaterReminderCommandHandler(IReminderRepository reminderRepository)
         {
             _reminderRepository = reminderRepository;
         }
 
-        public async Task<Unit> Handle(CreateReminderCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateWaterReminderCommand request, CancellationToken cancellationToken)
         {
             var model = new Monhealth.Core.WaterReminder
             {
                 UserId = request.UserId,
-                WaterReminderName = request.ReminderName,
+                WaterReminderName = request.WaterReminderName,
                 Time = request.Time,
                 Volume = request.Volume,
                 Status = true,

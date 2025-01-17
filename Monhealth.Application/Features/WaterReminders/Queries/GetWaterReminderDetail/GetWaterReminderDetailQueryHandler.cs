@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Reminders.Queries.GetReminderDetail
 
         public async Task<ReminderDetailDTO> Handle(GerReminderDetailQuery request, CancellationToken cancellationToken)
         {
-            var query = await _reminderRepository.GetReminderById(request.ReminderId);
+            var query = await _reminderRepository.GetReminderById(request.WaterReminderId);
             return _mapper.Map<ReminderDetailDTO>(query);
         }
     }

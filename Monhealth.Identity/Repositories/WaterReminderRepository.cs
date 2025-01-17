@@ -11,23 +11,25 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public Task<List<WaterReminder>> CreateReminders(float waterGoal , Guid? userId)
+        public Task<List<WaterReminder>> CreateReminders(float waterGoal, Guid? userId)
         {
             // Các khung giờ cố định và phần trăm tổng lượng nước
             var timeSlots = new List<(string Time, float Percentage)>
-    {
-        ("07:00", 0.15f),
-        ("09:00", 0.10f),
-        ("11:00", 0.10f),
-        ("13:00", 0.15f),
-        ("15:30", 0.15f),
-        ("17:00", 0.15f),
-        ("19:30", 0.10f),
-        ("21:30", 0.10f)
-    };
+            {
+                ("07:00", 0.15f),
+                ("09:00", 0.10f),
+                ("11:00", 0.10f),
+                ("13:00", 0.15f),
+                ("15:30", 0.15f),
+                ("17:00", 0.15f),
+                ("19:30", 0.10f),
+                ("21:30", 0.10f)
+            };
 
             // Danh sách Reminder
             var reminders = new List<WaterReminder>();
+
+            int index = 1;
 
             foreach (var slot in timeSlots)
             {
@@ -39,13 +41,15 @@ namespace Monhealth.Identity.Repositories
                 {
                     WaterReminderId = Guid.NewGuid(), // Tạo ID duy nhất
                     UserId = userId,// Liên kết với mục tiêu
+                    WaterReminderName = $"Nhắc nhở {index}", // Tên nhắc nhở
                     Time = slot.Time, // Thời gian nhắc nhở
                     Volume = volume, // Lượng nước cần uống
-                    WaterReminderName = $"Uống nước {volume}ml vào {slot.Time}", // Tên nhắc nhở
                     Status = true, // Trạng thái mặc định
                     CreatedAt = DateTime.Now, // Thời gian tạo
                     UpdatedAt = DateTime.Now // Thời gian cập nhật
                 });
+
+                index++;
             }
 
             // Trả về danh sách Reminder dưới dạng Task
@@ -66,9 +70,9 @@ namespace Monhealth.Identity.Repositories
             return await _context.WaterReminders.Include(r => r.AppUser).ToListAsync();
         }
 
-        public async Task<WaterReminder> GetReminderById(Guid reminderId)
+        public async Task<WaterReminder> GetReminderById(Guid waterReminderId)
         {
-            return await _context.WaterReminders.FirstOrDefaultAsync(r => r.WaterReminderId == reminderId);
+            return await _context.WaterReminders.FirstOrDefaultAsync(r => r.WaterReminderId == waterReminderId);
         }
 
         public async Task<List<WaterReminder>> GetReminderByUser(Guid userId)

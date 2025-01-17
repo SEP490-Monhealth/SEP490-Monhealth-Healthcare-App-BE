@@ -14,11 +14,11 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminder
 
         public async Task<bool> Handle(UpdateReminderCommand request, CancellationToken cancellationToken)
         {
-            var id = await _reminderRepository.GetByIdAsync(request.ReminderId);
+            var id = await _reminderRepository.GetByIdAsync(request.WaterReminderId);
             if (id == null) throw new Exception("Id không tồn tại");
             id.Volume = request.Volume;
             id.Time = request.Time;
-            id.WaterReminderName = request.ReminderName;
+            id.WaterReminderName = request.WaterReminderName;
             _reminderRepository.Update(id);
             await _reminderRepository.SaveChangeAsync();
             return true;

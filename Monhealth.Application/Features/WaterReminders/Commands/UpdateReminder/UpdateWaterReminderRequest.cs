@@ -6,7 +6,7 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminder
     {
         
         [JsonPropertyName("name")]
-        public string ReminderName { get; set; } =string.Empty;
+        public string WaterReminderName { get; set; } =string.Empty;
         public string Time { get; set; } = string.Empty;
         public int Volume { get; set; }
     }

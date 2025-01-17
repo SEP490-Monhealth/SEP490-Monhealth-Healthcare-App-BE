@@ -12,12 +12,12 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/reminders")]
+    [Route("api/v1/water-reminders")]
     [ApiController]
-    public class ReminderController : ControllerBase
+    public class WaterReminderController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public ReminderController(IMediator mediator)
+        public WaterReminderController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -32,14 +32,14 @@ namespace Monhealth.Api.Controllers
                 Data = result,
                 Status = 200,
                 Success = true,
-              
+
             };
         }
 
-        [HttpGet("{reminderId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetReminderById(Guid reminderId)
+        [HttpGet("{waterReminderId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetReminderById(Guid waterReminderId)
         {
-            var portion = await _mediator.Send(new GerReminderDetailQuery() { ReminderId = reminderId });
+            var portion = await _mediator.Send(new GerReminderDetailQuery() { WaterReminderId = waterReminderId });
             if (portion == null)
             {
                 return new ResultModel
@@ -78,7 +78,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResultModel>> CreateReminder([FromBody] CreateReminderCommand request)
+        public async Task<ActionResult<ResultModel>> CreateReminder([FromBody] CreateWaterReminderCommand request)
         {
 
             var result = await _mediator.Send(request);
@@ -100,10 +100,10 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPut("{reminderId}")]
-        public async Task<ActionResult<ResultModel>> Update(Guid reminderId, [FromBody] UpdateReminderRequest request)
+        [HttpPut("{waterReminderId}")]
+        public async Task<ActionResult<ResultModel>> Update(Guid waterReminderId, [FromBody] UpdateReminderRequest request)
         {
-            var command = new UpdateReminderCommand(reminderId, request);
+            var command = new UpdateReminderCommand(waterReminderId, request);
             var result = await _mediator.Send(command);
             if (!result)
             {
@@ -122,10 +122,10 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPatch("{reminderId}/status")]
-        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid reminderId)
+        [HttpPatch("{waterReminderId}/status")]
+        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid waterReminderId)
         {
-            var command = await _mediator.Send(new UpdateReminderStatusCommand() { ReminderId = reminderId });
+            var command = await _mediator.Send(new UpdateReminderStatusCommand() { WaterReminderId = waterReminderId });
 
             if (command == null)
             {
@@ -144,10 +144,10 @@ namespace Monhealth.Api.Controllers
             };
 
         }
-        [HttpDelete("{reminderId}")]
-        public async Task<ActionResult<ResultModel>> DeleteReminder(Guid reminderId)
+        [HttpDelete("{waterReminderId}")]
+        public async Task<ActionResult<ResultModel>> DeleteReminder(Guid waterReminderId)
         {
-            var command = await _mediator.Send(new DeleteReminderCommand() { RemindId = reminderId });
+            var command = await _mediator.Send(new DeleteReminderCommand() { RemindId = waterReminderId });
 
             if (command == null)
             {
