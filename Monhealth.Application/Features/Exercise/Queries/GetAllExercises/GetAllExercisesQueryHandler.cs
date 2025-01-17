@@ -1,5 +1,4 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models;

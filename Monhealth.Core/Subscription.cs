@@ -9,7 +9,6 @@ namespace Monhealth.Domain
         public Guid SubscriptionId { get; set; } // PK
         public string SubscriptionName { get; set; } = string.Empty;
         public int Price { get; set; }
-
         public ICollection<UserSubscription> UserSubscriptions { get; set; }
     }
 

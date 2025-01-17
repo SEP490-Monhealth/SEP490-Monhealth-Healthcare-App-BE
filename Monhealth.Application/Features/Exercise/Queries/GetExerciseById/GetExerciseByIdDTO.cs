@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseById
@@ -10,7 +6,9 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseById
     public class GetExerciseByIdDTO : BaseEntity
     {
         public Guid CategoryId { get; set; }
+        [JsonPropertyName("name")]
         public string ExerciseName { get; set; } = string.Empty;
+        [JsonPropertyName("description")]
         public string ExerciseDescription { get; set; } = string.Empty;
         public string Image { get; set; } = string.Empty;
         public int Duration { get; set; }

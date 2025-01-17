@@ -1,16 +1,13 @@
 ﻿using System.Net;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
-using Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition;
 using Monhealth.Application.Models;
-using Monhealth.Domain;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/exercises")]
+    [Route("api/v1/exercises")]
     [ApiController]
     public class ExerciseController : ControllerBase
     {
@@ -20,9 +17,9 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string search = null, bool? popular = null, string type = null)
+        public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string type = null, string search = null, bool? popular = null)
         {
-            var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, search, popular, type));
+            var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, type, search, popular));
 
             return new ResultModel
             {
@@ -34,7 +31,7 @@ namespace Monhealth.Api.Controllers
         [HttpGet("{exerciseId:guid}")]
         public async Task<ActionResult<ResultModel>> GetExerciseById(Guid exerciseId)
         {
-            var exercise = await _mediator.Send ( new GetExerciseByIdQuery {ExerciseId = exerciseId } );
+            var exercise = await _mediator.Send(new GetExerciseByIdQuery { ExerciseId = exerciseId });
             if (exercise == null)
             {
                 return NotFound(new ResultModel
