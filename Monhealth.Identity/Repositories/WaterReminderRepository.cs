@@ -37,8 +37,8 @@ namespace Monhealth.Identity.Repositories
                 // Tạo Reminder mới
                 reminders.Add(new WaterReminder
                 {
-                    WaterReminderId = Guid.NewGuid(), // Tạo ID duy nhất
-                    UserId = userId,// Liên kết với mục tiêu
+                    WaterReminderId = Guid.NewGuid(), 
+                    UserId = userId,
                     WaterReminderName = $"Nhắc nhở {index}",
                     Time = slot.Time.ToString(@"hh\:mm"), // Thời gian nhắc nhở
                     Volume = (float)Math.Round(volume), // Lượng nước cần uống
@@ -61,6 +61,12 @@ namespace Monhealth.Identity.Repositories
             .Where(r => r.Status && r.Time == currentTime)
             .ToListAsync();
 
+        }
+
+        public async Task<List<WaterReminder>> GetAllActiveWaterRemindersAsync()
+        {
+            return await _context.WaterReminders.
+            Where(water => water.IsDrunk == true).ToListAsync();
         }
 
         public async Task<List<WaterReminder>> GetAllReminderAsync()
@@ -86,6 +92,12 @@ namespace Monhealth.Identity.Repositories
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateWaterReminders(List<WaterReminder> reminders)
+        {
+            _context.WaterReminders.UpdateRange(reminders);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -11,6 +11,7 @@ using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Features.Notificacation.Commands;
 using Monhealth.Application.Models.Identity;
+using Monhealth.Identity.BackGroundServiceForWaterReminder;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
 using Monhealth.Identity.NotificationService;
@@ -79,8 +80,10 @@ namespace Monhealth.Identity
             services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
             services.AddScoped<IUserSubscriptionRepository, UserSubscriptionRepository>();
             services.AddScoped<IExerciseRepository, ExerciseRepository>();
+            services.AddHostedService<ResetIsDrunkService>();
             // Đăng ký MediatR
             services.AddMediatR(typeof(CreateNotificationCommandHandler).Assembly);
+            services.AddScoped<WaterReminderResetService>();
 
             // Đăng ký Background Service
             services.AddHostedService<ReminderBackgroundService>();

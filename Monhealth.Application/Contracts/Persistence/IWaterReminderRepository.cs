@@ -10,5 +10,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<WaterReminder>> GetReminderByUser(Guid userId);
         Task<List<WaterReminder>> GetActiveRemindersAsync(string currentTime);
         Task<List<WaterReminder>> CreateReminders(float waterGoal, Guid? userId);
+        Task<List<WaterReminder>>GetAllActiveWaterRemindersAsync();
+        Task UpdateWaterReminders(List<WaterReminder> reminders);
     }
 }
