@@ -30,7 +30,6 @@ namespace Monhealth.Domain
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         public ICollection<DailyMeal> DailyMeals { get; set; }
-        public ICollection<WaterReminder> Reminders { get; set; }
         public ICollection<DailyActivity> DailyActivities { get; set; }
         public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; }
     }

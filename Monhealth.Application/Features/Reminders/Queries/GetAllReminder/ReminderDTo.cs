@@ -4,7 +4,7 @@ namespace Monhealth.Application.Features.Reminders.Queries.GetAllReminder
 {
     public class ReminderDTo
     {
-        public Guid ReminderId { get; set; }
+        public Guid WaterReminderId { get; set; }
         public Guid UserId { get; set; }
         [JsonPropertyName("name")]
         public string ReminderName { get; set; } = string.Empty;

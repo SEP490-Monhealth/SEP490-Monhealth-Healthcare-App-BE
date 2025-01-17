@@ -12,14 +12,13 @@ namespace Monhealth.Core
         public Guid WaterReminderId { get; set; }
         public Guid? UserId { get; set; }
         public string WaterReminderName { get; set; } = string.Empty;
-        public string Time { get; set; } = string.Empty;
+        public TimeSpan Time { get; set; }
         public float Volume { get; set; }
         public bool IsRecurring { get; set; }
+        public bool IsDrunk { get; set; }
         public bool Status { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
-        public ICollection<Notification> Notifications { get; set; }
-        public ICollection<WaterIntakeReminder> WaterIntakeReminders { get; set; }
     }
 }

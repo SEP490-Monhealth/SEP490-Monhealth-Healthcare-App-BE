@@ -14,16 +14,16 @@ namespace Monhealth.Identity.Repositories
         public Task<List<WaterReminder>> CreateReminders(float waterGoal , Guid? userId)
         {
             // Các khung giờ cố định và phần trăm tổng lượng nước
-            var timeSlots = new List<(string Time, float Percentage)>
+            var timeSlots = new List<(TimeSpan Time, float Percentage)>
     {
-        ("07:00", 0.15f),
-        ("09:00", 0.10f),
-        ("11:00", 0.10f),
-        ("13:00", 0.15f),
-        ("15:30", 0.15f),
-        ("17:00", 0.15f),
-        ("19:30", 0.10f),
-        ("21:30", 0.10f)
+        (TimeSpan.Parse("07:00"), 0.15f),
+        (TimeSpan.Parse("09:00"), 0.10f),
+        (TimeSpan.Parse("11:00"), 0.10f),
+        (TimeSpan.Parse("13:00"), 0.15f),
+        (TimeSpan.Parse("15:30"), 0.15f),
+        (TimeSpan.Parse("17:00"), 0.15f),
+        (TimeSpan.Parse("19:30"), 0.10f),
+        (TimeSpan.Parse("21:30"), 0.10f)
     };
 
             // Danh sách Reminder
@@ -55,8 +55,9 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<WaterReminder>> GetActiveRemindersAsync(string currentTime)
         {
+            TimeSpan time = TimeSpan.Parse(currentTime);
             return await _context.WaterReminders
-            .Where(r => r.Status && r.Time == currentTime)
+            .Where(r => r.Status && r.Time == time)
             .ToListAsync();
 
         }

@@ -47,8 +47,6 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<DailyActivity> DailyActivities { get; set; }
         public DbSet<DailyWaterIntake> DailyWaterIntakes { get; set; }
-        public DbSet<WaterIntake> WaterIntakes { get; set; }
-        public DbSet<WaterIntakeReminder> WaterIntakeReminders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -85,11 +83,6 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(dwi => dwi.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<WaterIntake>()
-                .HasOne(wi => wi.DailyWaterIntake)
-                .WithMany(dwi => dwi.WaterIntakes)
-                .HasForeignKey(wi => wi.DailyWaterIntakeId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
