@@ -11,10 +11,10 @@ namespace Monhealth.Core
         [Key]
         public Guid WaterReminderId { get; set; }
         public Guid? UserId { get; set; }
-        public float Volume { get; set; }
-        public bool IsRecurring { get; set; }
         public string WaterReminderName { get; set; } = string.Empty;
         public string Time { get; set; } = string.Empty;
+        public float Volume { get; set; }
+        public bool IsRecurring { get; set; }
         public bool Status { get; set; }
 
         [ForeignKey(nameof(UserId))]

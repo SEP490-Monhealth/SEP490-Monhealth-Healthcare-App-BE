@@ -18,7 +18,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Các món ăn từ tôm, cá, cua, mực, hàu, sò và các loại hải sản khác. Thích hợp cho những ai yêu thích hương vị biển cả",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2"
                 },
             #endregion
 
@@ -31,7 +31,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Bao gồm các món ăn từ thịt bò, thịt gà, thịt lợn, thịt vịt và các loại thịt khác. Là lựa chọn phổ biến trong bữa ăn chính",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fsteak.png?alt=media&token=dfffb9c2-2964-40cc-8712-e83b4200e7af"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fsteak.png?alt=media&token=dfffb9c2-2964-40cc-8712-e83b4200e7af"
                 },
             #endregion
 
@@ -44,7 +44,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Món ăn từ rau xanh, củ quả và nấm. Phù hợp cho những ai yêu thích thực phẩm tươi sạch, giàu dinh dưỡng",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84"
                 },
             #endregion
 
@@ -57,7 +57,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Gạo, mì, bánh mì, yến mạch, và các loại hạt ngũ cốc. Là nguồn cung cấp năng lượng chính trong ngày",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Frice.png?alt=media&token=1ef6ca23-003f-4415-9ce4-3a3f5cd8e65e"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Frice.png?alt=media&token=1ef6ca23-003f-4415-9ce4-3a3f5cd8e65e"
                 },
             #endregion
 
@@ -70,7 +70,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Các loại hạt (hạnh nhân, hạt chia, hạt điều) và đậu (đậu nành, đậu xanh, đậu đen). Giàu protein và chất xơ",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fgrain.png?alt=media&token=e224b22a-925e-4aa4-ab50-d74309ba71f4"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fgrain.png?alt=media&token=e224b22a-925e-4aa4-ab50-d74309ba71f4"
                 },
 
             #endregion
@@ -84,7 +84,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Các món ăn từ thực vật, đậu phụ, và nguyên liệu không sử dụng thịt, phù hợp với người ăn chay hoặc muốn đổi vị thanh đạm",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fradish.png?alt=media&token=c27e26f3-3f39-42ec-bf40-94c9abb074d5"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fradish.png?alt=media&token=c27e26f3-3f39-42ec-bf40-94c9abb074d5"
                 },
 
             #endregion
@@ -98,7 +98,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Bánh ngọt, kẹo, kem, và các món tráng miệng ngọt ngào, lý tưởng cho những ai yêu thích đồ ngọt",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcupcake.png?alt=media&token=8721bd49-186f-4ccf-a85a-64008e4c8e38"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcupcake.png?alt=media&token=8721bd49-186f-4ccf-a85a-64008e4c8e38"
                 },
 
             #endregion
@@ -112,7 +112,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Bao gồm nước ép, sinh tố, trà, cà phê, và các loại đồ uống giải khát khác",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcoffee-cup.png?alt=media&token=14155321-cd44-422b-a49f-3e34636d7f85"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcoffee-cup.png?alt=media&token=14155321-cd44-422b-a49f-3e34636d7f85"
                 },
 
             #endregion
@@ -126,7 +126,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Kimchi, dưa chua, sữa chua, rượu vang và các món ăn lên men, tốt cho tiêu hóa và sức khỏe đường ruột",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpickles.png?alt=media&token=2a078ceb-40a9-403d-a68c-9682faf1b97f"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpickles.png?alt=media&token=2a078ceb-40a9-403d-a68c-9682faf1b97f"
                 },
 
             #endregion
@@ -140,7 +140,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Hoa quả tươi hoặc chế biến như salad trái cây, nước ép, sinh tố, cung cấp vitamin và khoáng chất",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fapple.png?alt=media&token=106a39ee-5c36-4c27-8bbe-c850ee19cb02"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fapple.png?alt=media&token=106a39ee-5c36-4c27-8bbe-c850ee19cb02"
                 },
 
             #endregion
@@ -154,7 +154,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Pizza, burger, khoai tây chiên, gà rán, và các món ăn tiện lợi, phù hợp cho những ai bận rộn",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fburger.png?alt=media&token=66dd457f-64d3-4b66-851c-10eba13fdc7d"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fburger.png?alt=media&token=66dd457f-64d3-4b66-851c-10eba13fdc7d"
                 },
 
             #endregion
@@ -168,7 +168,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Bánh mì, bánh ngọt, bánh mặn, bánh hấp, và các món bánh truyền thống hay hiện đại",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbread.png?alt=media&token=decd5d8c-994f-4a71-ab9e-2096209515fc"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbread.png?alt=media&token=decd5d8c-994f-4a71-ab9e-2096209515fc"
                 },
 
             #endregion
@@ -182,7 +182,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Snack, khô gà, khô bò, bim bim, và các món ăn nhẹ lý tưởng cho những lúc giải trí hay nghỉ ngơi",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpopcorn.png?alt=media&token=8aecf5e1-071f-4b0f-8e55-a2c47b289def"
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpopcorn.png?alt=media&token=8aecf5e1-071f-4b0f-8e55-a2c47b289def"
                 },
 
             #endregion
@@ -195,7 +195,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryName = "Yoga",
                     CategoryType = "Exercise",
                     CategoryDescription = "Các bài tập tập trung vào việc cải thiện sự linh hoạt, thăng bằng, và giảm căng thẳng thông qua các tư thế và kỹ thuật thở. Phù hợp cho mọi lứa tuổi và thể trạng",
-                    CategoryImage = "",
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fyoga.png?alt=media&token=f8293538-82e7-44a2-9765-ca6e75d2f443",
                     CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                 },
@@ -208,7 +208,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryName = "Stretching",
                     CategoryType = "Exercise",
                     CategoryDescription = "Bài tập kéo giãn cơ giúp cải thiện biên độ chuyển động, giảm đau nhức cơ bắp, và tăng cường sự linh hoạt. Thường được sử dụng như phần khởi động hoặc thư giãn sau buổi tập",
-                    CategoryImage = "",
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fstretching.png?alt=media&token=b24dc2e8-9fc5-45f9-8cab-e4608cf7d94b",
                     CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                 },
@@ -221,7 +221,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryName = "Cardio",
                     CategoryType = "Exercise",
                     CategoryDescription = "Các bài tập aerobic giúp tăng nhịp tim, cải thiện sức khỏe tim mạch, và đốt cháy calo nhanh. Thích hợp để giảm cân hoặc cải thiện thể lực tổng thể",
-                    CategoryImage = "",
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcardio.png?alt=media&token=48d97cab-feb1-4666-b230-fb0e46f85a52",
                     CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                 },
@@ -234,7 +234,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryName = "Core",
                     CategoryType = "Exercise",
                     CategoryDescription = "Các bài tập tăng cường sức mạnh cơ bụng, lưng dưới, và vùng thân trung tâm. Giúp cải thiện tư thế, thăng bằng, và giảm nguy cơ chấn thương",
-                    CategoryImage = "",
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcore.png?alt=media&token=90645290-b62c-4155-ab49-2100b60ef2c0",
                     CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                 },
@@ -247,7 +247,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryName = "Breathing Exercises",
                     CategoryType = "Exercise",
                     CategoryDescription = "Các bài tập tập trung vào kỹ thuật thở sâu và có kiểm soát. Giúp thư giãn, giảm stress, và cải thiện khả năng hấp thụ oxy",
-                    CategoryImage = "",
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbreathing-exercises.png?alt=media&token=db3537f3-fcb5-41ff-9624-5ae8e9a09300",
                     CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                 },
@@ -260,7 +260,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryName = "Balance Training",
                     CategoryType = "Exercise",
                     CategoryDescription = "Các bài tập giúp tăng cường khả năng thăng bằng và sự ổn định của cơ thể. Đặc biệt hữu ích cho người lớn tuổi hoặc những ai cần cải thiện khả năng giữ thăng bằng",
-                    CategoryImage = "",
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbalance-training.png?alt=media&token=c3075070-d247-4e7d-be94-434977695c67",
                     CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                 },
@@ -273,7 +273,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryName = "Pilates",
                     CategoryType = "Exercise",
                     CategoryDescription = "Bài tập kết hợp giữa các động tác chậm, có kiểm soát, tập trung vào sức mạnh cơ lõi, sự linh hoạt và tư thế. Phù hợp để cải thiện cơ bắp và giảm căng thẳng",
-                    CategoryImage = "",
+                    Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpilates.png?alt=media&token=f4119977-0873-4ee8-bba2-497f6f403fd2",
                     CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
                 }

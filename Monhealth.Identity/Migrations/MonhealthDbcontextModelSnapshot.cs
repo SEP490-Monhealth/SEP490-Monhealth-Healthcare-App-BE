@@ -423,10 +423,6 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CategoryImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -440,6 +436,10 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -456,200 +456,200 @@ namespace Monhealth.Identity.Migrations
                         {
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CategoryDescription = "Các món ăn từ tôm, cá, cua, mực, hàu, sò và các loại hải sản khác. Thích hợp cho những ai yêu thích hương vị biển cả",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2",
                             CategoryName = "Hải sản",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CategoryDescription = "Bao gồm các món ăn từ thịt bò, thịt gà, thịt lợn, thịt vịt và các loại thịt khác. Là lựa chọn phổ biến trong bữa ăn chính",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fsteak.png?alt=media&token=dfffb9c2-2964-40cc-8712-e83b4200e7af",
                             CategoryName = "Thịt",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fsteak.png?alt=media&token=dfffb9c2-2964-40cc-8712-e83b4200e7af",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CategoryDescription = "Món ăn từ rau xanh, củ quả và nấm. Phù hợp cho những ai yêu thích thực phẩm tươi sạch, giàu dinh dưỡng",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84",
                             CategoryName = "Rau củ",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CategoryDescription = "Gạo, mì, bánh mì, yến mạch, và các loại hạt ngũ cốc. Là nguồn cung cấp năng lượng chính trong ngày",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Frice.png?alt=media&token=1ef6ca23-003f-4415-9ce4-3a3f5cd8e65e",
                             CategoryName = "Ngũ cốc",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Frice.png?alt=media&token=1ef6ca23-003f-4415-9ce4-3a3f5cd8e65e",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CategoryDescription = "Các loại hạt (hạnh nhân, hạt chia, hạt điều) và đậu (đậu nành, đậu xanh, đậu đen). Giàu protein và chất xơ",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fgrain.png?alt=media&token=e224b22a-925e-4aa4-ab50-d74309ba71f4",
                             CategoryName = "Hạt và đậu",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fgrain.png?alt=media&token=e224b22a-925e-4aa4-ab50-d74309ba71f4",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
                             CategoryDescription = "Các món ăn từ thực vật, đậu phụ, và nguyên liệu không sử dụng thịt, phù hợp với người ăn chay hoặc muốn đổi vị thanh đạm",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fradish.png?alt=media&token=c27e26f3-3f39-42ec-bf40-94c9abb074d5",
                             CategoryName = "Món chay",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fradish.png?alt=media&token=c27e26f3-3f39-42ec-bf40-94c9abb074d5",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CategoryDescription = "Bánh ngọt, kẹo, kem, và các món tráng miệng ngọt ngào, lý tưởng cho những ai yêu thích đồ ngọt",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcupcake.png?alt=media&token=8721bd49-186f-4ccf-a85a-64008e4c8e38",
                             CategoryName = "Món ngọt",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcupcake.png?alt=media&token=8721bd49-186f-4ccf-a85a-64008e4c8e38",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CategoryDescription = "Bao gồm nước ép, sinh tố, trà, cà phê, và các loại đồ uống giải khát khác",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcoffee-cup.png?alt=media&token=14155321-cd44-422b-a49f-3e34636d7f85",
                             CategoryName = "Đồ uống",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcoffee-cup.png?alt=media&token=14155321-cd44-422b-a49f-3e34636d7f85",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CategoryDescription = "Kimchi, dưa chua, sữa chua, rượu vang và các món ăn lên men, tốt cho tiêu hóa và sức khỏe đường ruột",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpickles.png?alt=media&token=2a078ceb-40a9-403d-a68c-9682faf1b97f",
                             CategoryName = "Món lên men",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpickles.png?alt=media&token=2a078ceb-40a9-403d-a68c-9682faf1b97f",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CategoryDescription = "Hoa quả tươi hoặc chế biến như salad trái cây, nước ép, sinh tố, cung cấp vitamin và khoáng chất",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fapple.png?alt=media&token=106a39ee-5c36-4c27-8bbe-c850ee19cb02",
                             CategoryName = "Trái cây",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fapple.png?alt=media&token=106a39ee-5c36-4c27-8bbe-c850ee19cb02",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
                             CategoryDescription = "Pizza, burger, khoai tây chiên, gà rán, và các món ăn tiện lợi, phù hợp cho những ai bận rộn",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fburger.png?alt=media&token=66dd457f-64d3-4b66-851c-10eba13fdc7d",
                             CategoryName = "Đồ ăn nhanh",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fburger.png?alt=media&token=66dd457f-64d3-4b66-851c-10eba13fdc7d",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
                             CategoryDescription = "Bánh mì, bánh ngọt, bánh mặn, bánh hấp, và các món bánh truyền thống hay hiện đại",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbread.png?alt=media&token=decd5d8c-994f-4a71-ab9e-2096209515fc",
                             CategoryName = "Bánh các loại",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbread.png?alt=media&token=decd5d8c-994f-4a71-ab9e-2096209515fc",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
                             CategoryDescription = "Snack, khô gà, khô bò, bim bim, và các món ăn nhẹ lý tưởng cho những lúc giải trí hay nghỉ ngơi",
-                            CategoryImage = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpopcorn.png?alt=media&token=8aecf5e1-071f-4b0f-8e55-a2c47b289def",
                             CategoryName = "Đồ ăn vặt",
                             CategoryType = "Food",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpopcorn.png?alt=media&token=8aecf5e1-071f-4b0f-8e55-a2c47b289def",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("7780ccb5-aa16-4f88-a662-04971892dae0"),
                             CategoryDescription = "Các bài tập tập trung vào việc cải thiện sự linh hoạt, thăng bằng, và giảm căng thẳng thông qua các tư thế và kỹ thuật thở. Phù hợp cho mọi lứa tuổi và thể trạng",
-                            CategoryImage = "",
                             CategoryName = "Yoga",
                             CategoryType = "Exercise",
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fyoga.png?alt=media&token=f8293538-82e7-44a2-9765-ca6e75d2f443",
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
                             CategoryDescription = "Bài tập kéo giãn cơ giúp cải thiện biên độ chuyển động, giảm đau nhức cơ bắp, và tăng cường sự linh hoạt. Thường được sử dụng như phần khởi động hoặc thư giãn sau buổi tập",
-                            CategoryImage = "",
                             CategoryName = "Stretching",
                             CategoryType = "Exercise",
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fstretching.png?alt=media&token=b24dc2e8-9fc5-45f9-8cab-e4608cf7d94b",
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
                             CategoryDescription = "Các bài tập aerobic giúp tăng nhịp tim, cải thiện sức khỏe tim mạch, và đốt cháy calo nhanh. Thích hợp để giảm cân hoặc cải thiện thể lực tổng thể",
-                            CategoryImage = "",
                             CategoryName = "Cardio",
                             CategoryType = "Exercise",
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcardio.png?alt=media&token=48d97cab-feb1-4666-b230-fb0e46f85a52",
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("c440673d-c842-4aad-aa44-4a9b314529c4"),
                             CategoryDescription = "Các bài tập tăng cường sức mạnh cơ bụng, lưng dưới, và vùng thân trung tâm. Giúp cải thiện tư thế, thăng bằng, và giảm nguy cơ chấn thương",
-                            CategoryImage = "",
                             CategoryName = "Core",
                             CategoryType = "Exercise",
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcore.png?alt=media&token=90645290-b62c-4155-ab49-2100b60ef2c0",
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
                             CategoryDescription = "Các bài tập tập trung vào kỹ thuật thở sâu và có kiểm soát. Giúp thư giãn, giảm stress, và cải thiện khả năng hấp thụ oxy",
-                            CategoryImage = "",
                             CategoryName = "Breathing Exercises",
                             CategoryType = "Exercise",
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbreathing-exercises.png?alt=media&token=db3537f3-fcb5-41ff-9624-5ae8e9a09300",
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
                             CategoryDescription = "Các bài tập giúp tăng cường khả năng thăng bằng và sự ổn định của cơ thể. Đặc biệt hữu ích cho người lớn tuổi hoặc những ai cần cải thiện khả năng giữ thăng bằng",
-                            CategoryImage = "",
                             CategoryName = "Balance Training",
                             CategoryType = "Exercise",
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbalance-training.png?alt=media&token=c3075070-d247-4e7d-be94-434977695c67",
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("cb81e687-8e2f-4814-99a6-808777410e02"),
                             CategoryDescription = "Bài tập kết hợp giữa các động tác chậm, có kiểm soát, tập trung vào sức mạnh cơ lõi, sự linh hoạt và tư thế. Phù hợp để cải thiện cơ bắp và giảm căng thẳng",
-                            CategoryImage = "",
                             CategoryName = "Pilates",
                             CategoryType = "Exercise",
                             CreatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpilates.png?alt=media&token=f4119977-0873-4ee8-bba2-497f6f403fd2",
                             UpdatedAt = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -7747,7 +7747,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "595b338f-c5db-4e40-985d-efcf7fb3797d",
+                            ConcurrencyStamp = "9a34af1e-9f1a-4e84-86b5-1ab2717715c0",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -7755,10 +7755,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGIzPaT9jkNvo01isvMC6J0l9yZkYf/TsF9f7+gCt/4f0Hbi11Uijzzzdmve8pD5GA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDIct/yG1JfVnwGTdMuXizaFuqhyLchYZ60OAlB0YhQBpwaQv0idphnnqgO/n8q7ig==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "74c27e8f-bdeb-4c69-b4cc-7d6e9d435e21",
+                            SecurityStamp = "4830e7e3-a66b-4ef3-b0ba-4c46d53479fc",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7768,7 +7768,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f47c7217-13a5-4bd1-9527-557677272bda",
+                            ConcurrencyStamp = "fd32d948-49fd-431e-96da-453f9379ba59",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -7776,10 +7776,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEP9mUsVpOHHWx0woOH+ZCG06pyt/Ftvy+t27VDI0yG43OPkkmo6eJfPpetnh0o/y4w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKpxb6HmTpDkh7dKpjdVmQS2hVar6GPDSdw4v/abomV1jIfoiQ3U5T44yL+nND9dDA==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "072fb2c5-4749-4868-be87-596aa974f757",
+                            SecurityStamp = "4bdc26c8-c61e-4719-a706-2cef8c3f0f49",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7789,7 +7789,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e28506c4-8041-4b0f-8385-0a3dbffd8044",
+                            ConcurrencyStamp = "71279e80-8c27-49ba-b9eb-333b48f5be1f",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -7797,10 +7797,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDh2x34ptsOMeTUfklIqB0n27pKha+V7OgqSjn3Q7scyWgVDQiEPCFuPpbszFVT+Dg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMmMhF/38a3iHwu0ltguSP9SJYFdnYgbyVUDOnmlSlS+Gm8ijH2bmKHH/7azWfdyng==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8a76b572-4e5b-4614-b07d-24d89448a5db",
+                            SecurityStamp = "5ada1ba7-7f90-4c31-aadb-8f60185324bc",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7810,7 +7810,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "75877ee9-ab77-49f0-a67e-cd20574447f1",
+                            ConcurrencyStamp = "e3a095c7-a2ea-438d-b59a-2f9b3f663de4",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -7818,10 +7818,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKdz/6kRWn8lrUx32SOlp/SicIKPBpmYrl3CFrk1ypGLe970cbBSQ1lsKu7aYpHyJw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMeLBTnQbcZ8Gcqo6vBiteiqK7O37bHln7ofxnWMNR6BCc46A3lciyDJWTm8FEPxxA==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "23546acb-f4f4-4488-9b07-2d2b606fd594",
+                            SecurityStamp = "5e79d2bb-5cc5-4283-9b39-2d6594ec3c59",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7831,7 +7831,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "207fa33d-c89c-454f-abbd-678bd2597f6c",
+                            ConcurrencyStamp = "b13bc2ef-faef-46e7-8f77-49d47f039b96",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -7839,10 +7839,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEM7vDbVzCcoSrW8adCSkTol9N3Ek3GMJSTiqKXbjJlK+EE9u/zzHlQ1qI83E+UKJJA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAyW4m1rr3PdOs9xVq/R4u2KGXYaJvhgwJfJYMdSrvQZEwwSRkGoHlGAboKyH1fAkw==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "06fa3ee2-db1f-4e8c-b2a7-fc6c4f15cf71",
+                            SecurityStamp = "7c3e7597-4861-43b5-b6bf-aa6068bbc6ca",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7852,7 +7852,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "815e0896-738e-4036-9cb6-2303ee6cb1c8",
+                            ConcurrencyStamp = "73b52791-9a97-4d80-9bd9-ce6641639c78",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -7860,10 +7860,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAePC5njfgCYJ3jw2WzCMCWucbCIBJK0BVOvkDeUgx2XVr8KyScQK0PVIdIzybvWDg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELogXJqxcjUdHT9/3tf19gJKBGYm1XQDZ6djhQkO6m43dtxy8/qD1c0zJu6eOoVDBw==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "95fe693a-0dcb-4b82-b794-67e6ba8b0d97",
+                            SecurityStamp = "b89fce83-2299-4dd1-a722-f6d0e1767adf",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7873,7 +7873,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b07e9d21-01c2-4b74-9d7e-800abf10a180",
+                            ConcurrencyStamp = "3c7fcd96-d5f5-4d82-ba99-4a4084d64462",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -7881,10 +7881,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO3snTyHkzZotpQ21a/cQjOVaV6yVswkAjdWd8vfvDEQczVIuyfd992n7XmVCgl4NA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEG65N9JmEasy9AdfOVSQ6nAsD2eh79zyWn3xWjRfJCe9KxUri5esmcnRQjZBHQBH3w==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "939cdd09-7507-4c30-8f70-cc28b4b15080",
+                            SecurityStamp = "868ff2c8-f6b6-4267-a259-6129ed0ee72a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),

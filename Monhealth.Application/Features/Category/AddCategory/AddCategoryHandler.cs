@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Category.AddCategory
             {
                 CategoryName = request.CategoryName,
                 CategoryDescription = request.CategoryDescription,
-                CategoryImage = request.CategoryImage,
+                Image = request.CategoryImage,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };
