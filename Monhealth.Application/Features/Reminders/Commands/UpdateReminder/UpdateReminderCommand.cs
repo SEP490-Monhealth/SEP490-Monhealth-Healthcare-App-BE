@@ -5,8 +5,9 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminder
     {
         public Guid ReminderId { get; set; }
         public int Volume { get; set; }
-        public TimeSpan Time { get; set; }
+        public string Time { get; set; }
         public string ReminderName { get; set; }
+        public bool IsRecurring { get; set; }
         public UpdateReminderCommand(Guid remindId,
         UpdateReminderRequest request)
         {
@@ -14,6 +15,7 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminder
             ReminderName = request.ReminderName;
             Time = request.Time;
             Volume = request.Volume;
+            IsRecurring = request.IsRecurring;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Monhealth.Core
         public Guid WaterReminderId { get; set; }
         public Guid? UserId { get; set; }
         public string WaterReminderName { get; set; } = string.Empty;
-        public TimeSpan Time { get; set; }
+        public string Time { get; set; }
         public float Volume { get; set; }
         public bool IsRecurring { get; set; }
         public bool IsDrunk { get; set; }

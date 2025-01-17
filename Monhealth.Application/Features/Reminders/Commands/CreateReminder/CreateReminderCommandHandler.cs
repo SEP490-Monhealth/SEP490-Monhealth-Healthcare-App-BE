@@ -16,9 +16,11 @@ namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
             var model = new Monhealth.Core.WaterReminder
             {
                 UserId = request.UserId,
-                WaterReminderName = request.ReminderName,
+                WaterReminderName = request.WaterReminderName,
                 Time = request.Time,
                 Volume = request.Volume,
+                IsRecurring = request.IsRecurring,
+                IsDrunk = false,
                 Status = true,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
