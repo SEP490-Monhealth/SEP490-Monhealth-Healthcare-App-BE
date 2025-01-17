@@ -19,8 +19,8 @@ namespace Monhealth.Application.Automapper
         {
             CreateMap<Metric, MetricDto>().ReverseMap();
             CreateMap<Metric, MetricDetailDto>().ReverseMap();
-            CreateMap<Category, CategoryDto>().ReverseMap();
-            CreateMap<Category, CategoryDetailDto>().ReverseMap();
+            CreateMap<Category, CategoryDTO>().ReverseMap();
+            CreateMap<Category, CategoryDetailDTO>().ReverseMap();
             CreateMap<Nutrition, NutritionDto>().ReverseMap();
             CreateMap<Nutrition, NutritionDetailDto>().ForMember(dest => dest.FoodId,
             opt => opt.MapFrom(src => src.FoodId))

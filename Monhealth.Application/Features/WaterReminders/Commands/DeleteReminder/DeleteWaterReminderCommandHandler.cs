@@ -5,9 +5,9 @@ namespace Monhealth.Application.Features.Reminders.Commands.DeleteReminder
 {
     public class DeleteReminderCommandHandler : IRequestHandler<DeleteReminderCommand, bool>
     {
-        private readonly IReminderRepository _reminderRepository;
+        private readonly IWaterReminderRepository _reminderRepository;
 
-        public DeleteReminderCommandHandler(IReminderRepository reminderRepository)
+        public DeleteReminderCommandHandler(IWaterReminderRepository reminderRepository)
         {
             _reminderRepository = reminderRepository;
         }

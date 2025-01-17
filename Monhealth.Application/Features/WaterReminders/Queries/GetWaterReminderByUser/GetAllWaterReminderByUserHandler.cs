@@ -6,9 +6,9 @@ namespace Monhealth.Application.Features.Reminders.Queries.GetReminderByUser
 {
     public class GetAllReminderByUserHandler : IRequestHandler<GetAllReminderByUserQuery, List<GetAllReminderByUserDTO>>
     {
-        private readonly IReminderRepository _reminderRepository;
+        private readonly IWaterReminderRepository _reminderRepository;
         private readonly IMapper _mapper;
-        public GetAllReminderByUserHandler(IReminderRepository reminderRepository,
+        public GetAllReminderByUserHandler(IWaterReminderRepository reminderRepository,
         IMapper mapper)
         {
             _reminderRepository = reminderRepository;

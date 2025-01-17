@@ -4,9 +4,9 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminder
     public class UpdateReminderCommand : IRequest<bool>
     {
         public Guid WaterReminderId { get; set; }
-        public int Volume { get; set; }
-        public string Time { get; set; } = string.Empty;
         public string WaterReminderName { get; set; }
+        public string Time { get; set; } = string.Empty;
+        public int Volume { get; set; }
         public UpdateReminderCommand(Guid remindId,
         UpdateReminderRequest request)
         {

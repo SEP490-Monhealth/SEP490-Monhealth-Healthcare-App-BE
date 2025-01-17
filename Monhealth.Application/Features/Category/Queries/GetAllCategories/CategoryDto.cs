@@ -3,7 +3,7 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Category.Queries.GetAllCategories
 {
-    public class CategoryDto : BaseEntity
+    public class CategoryDTO : BaseEntity
     {
         public Guid CategoryId { get; set; }
         [JsonPropertyName("type")]

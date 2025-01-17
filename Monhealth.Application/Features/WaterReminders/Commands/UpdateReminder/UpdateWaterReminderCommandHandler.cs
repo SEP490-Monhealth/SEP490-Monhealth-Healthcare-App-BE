@@ -5,9 +5,9 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminder
 {
     public class UpdateReminderCommandHandler : IRequestHandler<UpdateReminderCommand, bool>
     {
-        private readonly IReminderRepository _reminderRepository;
+        private readonly IWaterReminderRepository _reminderRepository;
 
-        public UpdateReminderCommandHandler(IReminderRepository reminderRepository)
+        public UpdateReminderCommandHandler(IWaterReminderRepository reminderRepository)
         {
             _reminderRepository = reminderRepository;
         }

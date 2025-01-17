@@ -5,7 +5,7 @@ using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 
 namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
 {
-    public class GetCategoryDetailQueryHandler : IRequestHandler<GetCategoryDetailQuery, CategoryDetailDto>
+    public class GetCategoryDetailQueryHandler : IRequestHandler<GetCategoryDetailQuery, CategoryDetailDTO>
     {
         private readonly IMapper _mapper;
         private readonly ICategoryRepository _categoryRepository;
@@ -15,11 +15,11 @@ namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
             _categoryRepository = categoryRepository;
         }
 
-        public async Task<CategoryDetailDto> Handle(GetCategoryDetailQuery request, CancellationToken cancellationToken)
+        public async Task<CategoryDetailDTO> Handle(GetCategoryDetailQuery request, CancellationToken cancellationToken)
         {
             var query = await _categoryRepository.GetByIdAsync(request.CategoryId);
               if (query == null) { throw new Exception("Not found category"); }
-            return _mapper.Map<CategoryDetailDto>(query);
+            return _mapper.Map<CategoryDetailDTO>(query);
         }
     }
 }

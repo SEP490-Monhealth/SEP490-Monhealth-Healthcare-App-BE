@@ -4,9 +4,9 @@ namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
 {
     public class CreateWaterReminderCommandHandler : IRequestHandler<CreateWaterReminderCommand, Unit>
     {
-        private readonly IReminderRepository _reminderRepository;
+        private readonly IWaterReminderRepository _reminderRepository;
 
-        public CreateWaterReminderCommandHandler(IReminderRepository reminderRepository)
+        public CreateWaterReminderCommandHandler(IWaterReminderRepository reminderRepository)
         {
             _reminderRepository = reminderRepository;
         }

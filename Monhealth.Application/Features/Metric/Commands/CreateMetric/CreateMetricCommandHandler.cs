@@ -14,14 +14,14 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         private readonly IMetricRepository _metricRepository;
         private readonly IGoalRepository _goalRepository;
         private readonly IMapper _mapper;
-        private readonly IReminderRepository _reminderRepository;
+        private readonly IWaterReminderRepository _reminderRepository;
         public CreateMetricCommandHandler(
             IMetricRepository metricRepository,
             IMapper mapper,
             IMetricsCalculator metricCalculator,
             IGoalRepository goalRepository,
             IGoalsCalculator goalsCalculator,
-            IReminderRepository reminderRepository)
+            IWaterReminderRepository reminderRepository)
         {
             _metricCalculator = metricCalculator;
             _metricRepository = metricRepository;

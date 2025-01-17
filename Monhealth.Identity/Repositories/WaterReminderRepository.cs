@@ -5,7 +5,7 @@ using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
 {
-    public class ReminderRepository : GenericRepository<WaterReminder, Guid>, IReminderRepository
+    public class ReminderRepository : GenericRepository<WaterReminder, Guid>, IWaterReminderRepository
     {
         public ReminderRepository(MonhealthDbcontext context) : base(context)
         {
@@ -43,7 +43,7 @@ namespace Monhealth.Identity.Repositories
                     UserId = userId,// Liên kết với mục tiêu
                     WaterReminderName = $"Nhắc nhở {index}", // Tên nhắc nhở
                     Time = slot.Time, // Thời gian nhắc nhở
-                    Volume = volume, // Lượng nước cần uống
+                    Volume = (float)Math.Round(volume), // Lượng nước cần uống
                     Status = true, // Trạng thái mặc định
                     CreatedAt = DateTime.Now, // Thời gian tạo
                     UpdatedAt = DateTime.Now // Thời gian cập nhật

@@ -6,9 +6,9 @@ namespace Monhealth.Application.Features.Notificacation.Commands
     public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificationCommand, CreateNotificationResponse>
     {
         private readonly INotificationRepository _notificationRepository;
-        private readonly IReminderRepository _reminderRepository;
+        private readonly IWaterReminderRepository _reminderRepository;
         public CreateNotificationCommandHandler(INotificationRepository notificationRepository,
-        IReminderRepository reminderRepository)
+        IWaterReminderRepository reminderRepository)
         {
             _notificationRepository = notificationRepository;
             _reminderRepository = reminderRepository;

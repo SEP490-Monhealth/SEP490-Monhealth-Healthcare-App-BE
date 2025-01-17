@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Category.Queries.GetCategoryDetail
 {
-    public class CategoryDetailDto
+    public class CategoryDetailDTO
     {
         [JsonPropertyName("type")]
         public string CategoryType { get; set; } = string.Empty;
