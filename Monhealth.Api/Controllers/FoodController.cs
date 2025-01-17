@@ -5,7 +5,6 @@ using Monhealth.Application.Features.Food.AddFoodUser;
 using Monhealth.Application.Features.Food.ChangeStatus;
 using Monhealth.Application.Features.Food.DeleteFood;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
-using Monhealth.Application.Features.Food.Queries.GetAllFoodsByFoodType;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId;
 using Monhealth.Application.Features.Food.Queries.GetFoodById;
 using Monhealth.Application.Features.Food.Queries.GetFoodsByCategoryName;
@@ -27,11 +26,10 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? category = null, string? foodType = "Public", string? search = null, bool? popular = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? category = null, string? search = null, bool? popular = null, bool? status = null, bool? isPublic = null)
         {
-            var foods = await _mediator.Send(new GetFoodListQuery(page, limit, category, foodType, search, popular, status));
-            if (foodType != "Public" && foodType != "User")
-                throw new Exception("Type chỉ được nhập Public hoặc User");
+            var foods = await _mediator.Send(new GetFoodListQuery(page, limit, category, search, popular, status , isPublic));
+            
             return new ResultModel
             {
                 Data = foods,
@@ -40,30 +38,8 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet]
-        [Route("{foodType}")]
-        public async Task<ActionResult<ResultModel>> GetFoodsByFoodType(string foodType)
-        {
-            var foods = await _mediator.
-            Send(new GetFoodDetailByFoodTypeQuery() { foodType = foodType });
-
-            if (foods == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Món ăn không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = foods
-            });
-        }
+       
+        
 
         [HttpPatch]
         [Route("{foodId:Guid}/status")]

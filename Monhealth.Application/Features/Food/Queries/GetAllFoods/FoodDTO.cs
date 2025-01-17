@@ -7,7 +7,6 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
     {
         public Guid FoodId { get; set; }
         public Guid UserId { get; set; }
-        public string FoodType { get; set; } = string.Empty;
         public string Category { get; set; }
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
@@ -15,6 +14,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         public string FoodDescription { get; set; } = string.Empty;
         public GetPortionForGetAllFoodDTO Portion { get; set; }
         public GetNutritionForGetAllFoodDTO Nutrition { get; set; }
+        public bool IsPublic { get; set; }
         public bool Status { get; set; }
     }
     public class GetPortionForGetAllFoodDTO

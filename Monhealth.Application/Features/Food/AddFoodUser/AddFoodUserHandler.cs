@@ -26,21 +26,17 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
 
             var existingFood = await _foodRepository.GetFoodByNameAsync(request.FoodName);
             if (existingFood != null) throw new Exception("món ăn đã tồn tại");
-            if (request.FoodType != "Public" && request.FoodType != "User")
-            {
-                throw new Exception("FoodType chỉ được nhập Public hoặc User");
-            }
-
+           
             var food = new Monhealth.Domain.Food
             {
                 UserId = request.UserId,
                 FoodName = request.FoodName,
-                FoodType = request.FoodType,
                 FoodDescription = request.FoodDescription,
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,
                 CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                UpdatedAt = DateTime.Now,
+                IsPublic = request.IsPublic
             };
 
             _foodRepository.Add(food);

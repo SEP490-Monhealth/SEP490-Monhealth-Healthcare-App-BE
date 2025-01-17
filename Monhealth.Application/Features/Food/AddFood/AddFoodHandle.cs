@@ -33,13 +33,13 @@ namespace Monhealth.Application.Features.Food.AddFood
             {
                 UserId = request.UserId,
                 FoodName = request.FoodName,
-                FoodType = "Public",
                 FoodDescription = request.FoodDescription,
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                CategoryId = category.CategoryId
+                CategoryId = category.CategoryId,
+                IsPublic = request.IsPublic
             };
 
             _foodRepository.Add(food);

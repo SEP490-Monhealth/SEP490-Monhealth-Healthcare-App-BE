@@ -20,7 +20,6 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodsByCategoryName
                 FoodDescription = f.FoodDescription,
                 FoodId = f.FoodId,
                 FoodName = f.FoodName,
-                FoodType = f.FoodType,
                 UserId = f.UserId,
                 Status = f.Status,
                 Nutrition = new GetNutritionForGetAllFoodDTO1

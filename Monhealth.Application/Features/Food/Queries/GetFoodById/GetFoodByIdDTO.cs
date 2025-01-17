@@ -10,6 +10,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
         public string FoodName { get; set; }
         [JsonPropertyName("description")]
         public string FoodDescription { get; set; } = string.Empty;
+        public bool IsPublic { get; set; }
         public bool Status { get; set; }
     }
 }
