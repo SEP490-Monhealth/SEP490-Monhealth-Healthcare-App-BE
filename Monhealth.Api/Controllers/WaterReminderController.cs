@@ -10,6 +10,7 @@ using Monhealth.Application.Features.Reminders.Queries.GetReminderByUser;
 using Monhealth.Application.Features.Reminders.Queries.GetReminderDetail;
 using Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsDrunk;
 using Monhealth.Application.Models;
+using Monhealth.Identity.BackGroundServiceForWaterReminder;
 
 namespace Monhealth.Api.Controllers
 {
@@ -18,9 +19,12 @@ namespace Monhealth.Api.Controllers
     public class WaterReminderController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public WaterReminderController(IMediator mediator)
+        private readonly WaterReminderResetService _resetService;
+        public WaterReminderController(IMediator mediator,
+        WaterReminderResetService resetIsDrunkService)
         {
             _mediator = mediator;
+            _resetService = resetIsDrunkService;
         }
 
         [HttpGet]
@@ -37,6 +41,16 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpPost("reset")]
+        public async Task<IActionResult> ResetReminders()
+        {
+            int resetCount = await _resetService.ResetRemindersAsync();
+            return Ok(new
+            {
+                Message = $"Successfully reset {resetCount} reminders.",
+                ResetCount = resetCount
+            });
+        }
         [HttpGet("{waterReminderId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid waterReminderId)
         {
