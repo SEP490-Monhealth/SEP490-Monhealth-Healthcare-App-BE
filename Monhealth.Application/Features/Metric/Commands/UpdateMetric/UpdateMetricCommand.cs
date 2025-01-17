@@ -5,12 +5,12 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
     public class UpdateMetricCommand : IRequest<bool>
     {
         public Guid MetricId { get; set; }
-        public UpdateMetricDto UpdateMetricDto { get; set; }
+        public UpdateMetricDTO UpdateMetricDTO { get; set; }
 
-        public UpdateMetricCommand(Guid metricId, UpdateMetricDto updateMetricDto)
+        public UpdateMetricCommand(Guid metricId, UpdateMetricDTO updateMetricDto)
         {
             MetricId = metricId;
-            UpdateMetricDto = updateMetricDto;
+            UpdateMetricDTO = updateMetricDto;
         }
     }
 }

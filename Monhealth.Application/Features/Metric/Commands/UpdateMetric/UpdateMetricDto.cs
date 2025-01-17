@@ -1,6 +1,6 @@
 ﻿namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
 {
-    public class UpdateMetricDto
+    public class UpdateMetricDTO
     {
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }

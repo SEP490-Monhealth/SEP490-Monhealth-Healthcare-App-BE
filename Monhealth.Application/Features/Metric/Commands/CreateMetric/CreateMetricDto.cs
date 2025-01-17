@@ -1,6 +1,6 @@
 ﻿namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 {
-    public class CreateMetricDto
+    public class CreateMetricDTO
     {
         public Guid UserId { get; set; }
         public DateTime DateOfBirth { get; set; }

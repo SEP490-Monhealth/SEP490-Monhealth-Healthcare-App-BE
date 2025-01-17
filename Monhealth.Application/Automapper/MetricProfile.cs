@@ -19,7 +19,7 @@ namespace Monhealth.Application.Automapper
         public MetricProfile()
         {
             CreateMap<Metric, MetricDto>().ReverseMap();
-            CreateMap<Metric, MetricDetailDto>().ReverseMap();
+            CreateMap<Metric, MetricDetailDTO>().ReverseMap();
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<Category, CategoryDetailDTO>().ReverseMap();
             CreateMap<Category,CategoryByTypeDTO>().ReverseMap();
@@ -29,14 +29,14 @@ namespace Monhealth.Application.Automapper
             .ReverseMap();
             
             CreateMap<Nutrition, NutritionByFoodIdDto>().ReverseMap();
-            CreateMap<Metric, UpdateMetricDto>().ReverseMap();
-            CreateMap<CreateMetricDto, Metric>()
+            CreateMap<Metric, UpdateMetricDTO>().ReverseMap();
+            CreateMap<CreateMetricDTO, Metric>()
             .ForMember(
                 dest => dest.Gender,
                 opt => opt.MapFrom(
                     (src, dest) => Enum.TryParse(src.Gender ?? string.Empty, out Gender gender) ? gender : Gender.Male)
                 );
-            CreateMap<UpdateMetricDto, Metric>()
+            CreateMap<UpdateMetricDTO, Metric>()
             .ForMember(
                 dest => dest.Gender,
                 opt => opt.MapFrom(

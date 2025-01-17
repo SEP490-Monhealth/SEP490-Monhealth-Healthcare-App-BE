@@ -1,6 +1,6 @@
 ﻿namespace Monhealth.Application.Features.Goals.Queries.GetWaterByGoalId
 {
-    public class GetWaterByGoalIdDto
+    public class GetWaterByGoalIdDTO
     {
         public int WaterGoal { get; set; }
     }

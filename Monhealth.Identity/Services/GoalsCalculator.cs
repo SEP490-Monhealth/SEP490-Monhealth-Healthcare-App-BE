@@ -13,7 +13,7 @@ namespace Monhealth.Identity.Services
         {
             _metricRepository = metricRepository;
         }
-        public void CreateCalculateGoal(Goal goal, CreateMetricDto createMetricDto, float tdee)
+        public void CreateCalculateGoal(Goal goal, CreateMetricDTO createMetricDto, float tdee)
         {
             if (!Enum.TryParse<GoalType>(createMetricDto.GoalType, true, out var goalType))
             {

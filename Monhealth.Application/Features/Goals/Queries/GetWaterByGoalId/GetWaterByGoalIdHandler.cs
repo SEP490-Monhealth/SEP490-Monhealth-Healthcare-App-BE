@@ -4,13 +4,13 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.Goals.Queries.GetWaterByGoalId
 {
-    public class GetWaterByGoalIdHandler(IMapper mapper, IGoalRepository goalRepository) : IRequestHandler<GetWaterByGoalIdQuery, GetWaterByGoalIdDto>
+    public class GetWaterByGoalIdHandler(IMapper mapper, IGoalRepository goalRepository) : IRequestHandler<GetWaterByGoalIdQuery, GetWaterByGoalIdDTO>
     {
-        public async Task<GetWaterByGoalIdDto> Handle(GetWaterByGoalIdQuery request, CancellationToken cancellationToken)
+        public async Task<GetWaterByGoalIdDTO> Handle(GetWaterByGoalIdQuery request, CancellationToken cancellationToken)
         {
             var goals = await goalRepository.GetGoalsByUserIdAsync(request.UserId);
             var goal = goals.FirstOrDefault();
-            return mapper.Map<GetWaterByGoalIdDto>(goal);
+            return mapper.Map<GetWaterByGoalIdDTO>(goal);
 
 
         }

@@ -68,7 +68,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResultModel>> Create([FromBody]CreateMetricDto metricRequest)
+        public async Task<ActionResult<ResultModel>> Create([FromBody]CreateMetricDTO metricRequest)
         {
             var command = new CreateMetricCommand(metricRequest);
             var createMetric = await _mediator.Send(command);
@@ -90,7 +90,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{metricId}")]
-        public async Task<ActionResult<ResultModel>> Update(Guid metricId, [FromBody] UpdateMetricDto metricDto)
+        public async Task<ActionResult<ResultModel>> Update(Guid metricId, [FromBody] UpdateMetricDTO metricDto)
         {
             var command = new UpdateMetricCommand(metricId, metricDto);
             var result = await _mediator.Send(command);

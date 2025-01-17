@@ -33,16 +33,16 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         public async Task<Unit> Handle(CreateMetricCommand request, CancellationToken cancellationToken)
         {
             #region tinh toan Metric
-            var newMetric = _mapper.Map<Monhealth.Domain.Metric>(request.CreateMetricDto);
-            var age = DateTime.Now.Year - request.CreateMetricDto.DateOfBirth.Year;
-            if (DateTime.Now.DayOfYear < request.CreateMetricDto.DateOfBirth.DayOfYear)
+            var newMetric = _mapper.Map<Monhealth.Domain.Metric>(request.CreateMetricDTO);
+            var age = DateTime.Now.Year - request.CreateMetricDTO.DateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < request.CreateMetricDTO.DateOfBirth.DayOfYear)
             {
                 age--;
             }
-            newMetric.Bmi = (float)_metricCalculator.CalculateBMI(request.CreateMetricDto.Weight, request.CreateMetricDto.Height);
-            newMetric.Bmr = _metricCalculator.CalculateBMR(request.CreateMetricDto.Weight, request.CreateMetricDto.Height, age, request.CreateMetricDto.Gender);
-            newMetric.Tdee = _metricCalculator.CalculateTDEE(newMetric.Bmr, request.CreateMetricDto.ActivityLevel);
-            newMetric.Ibw = _metricCalculator.CalculateIBW(request.CreateMetricDto.Height, request.CreateMetricDto.Gender);
+            newMetric.Bmi = (float)_metricCalculator.CalculateBMI(request.CreateMetricDTO.Weight, request.CreateMetricDTO.Height);
+            newMetric.Bmr = _metricCalculator.CalculateBMR(request.CreateMetricDTO.Weight, request.CreateMetricDTO.Height, age, request.CreateMetricDTO.Gender);
+            newMetric.Tdee = _metricCalculator.CalculateTDEE(newMetric.Bmr, request.CreateMetricDTO.ActivityLevel);
+            newMetric.Ibw = _metricCalculator.CalculateIBW(request.CreateMetricDTO.Height, request.CreateMetricDTO.Gender);
 
             newMetric.MetricId = Guid.NewGuid();
             newMetric.CreatedAt = DateTime.Now;
@@ -51,8 +51,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             #endregion
 
             #region tinh toan Goal
-            var newGoal = _mapper.Map<Goal>(request.CreateMetricDto);
-            _goalCalculator.CreateCalculateGoal(newGoal, request.CreateMetricDto, newMetric.Tdee);
+            var newGoal = _mapper.Map<Goal>(request.CreateMetricDTO);
+            _goalCalculator.CreateCalculateGoal(newGoal, request.CreateMetricDTO, newMetric.Tdee);
             newGoal.GoalId = newMetric.MetricId;
             newGoal.Status = GoalStatus.Active;
             newGoal.CreatedAt = DateTime.Now;
@@ -63,7 +63,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             #endregion
 
             #region Tạo Reminder
-            Guid? userId = request.CreateMetricDto.UserId; 
+            Guid? userId = request.CreateMetricDTO.UserId; 
             var reminders = await _reminderRepository.CreateReminders(newGoal.WaterGoal, userId);
             foreach (var reminder in reminders)
             {

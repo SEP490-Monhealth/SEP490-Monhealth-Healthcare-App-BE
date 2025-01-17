@@ -37,8 +37,8 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             }
 
             // Tinh tuoi tu DateOfBirth
-            var age = DateTime.Now.Year - request.UpdateMetricDto.DateOfBirth.Year;
-            if (DateTime.Now.DayOfYear < request.UpdateMetricDto.DateOfBirth.DayOfYear)
+            var age = DateTime.Now.Year - request.UpdateMetricDTO.DateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < request.UpdateMetricDTO.DateOfBirth.DayOfYear)
             {
                 age--;
             }
@@ -47,41 +47,41 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             bool isUpdated = false;
 
             // Kiem tra và cap nhat BMI
-            if (request.UpdateMetricDto.Height != metricToUpdate.Height || request.UpdateMetricDto.Weight != metricToUpdate.Weight)
+            if (request.UpdateMetricDTO.Height != metricToUpdate.Height || request.UpdateMetricDTO.Weight != metricToUpdate.Weight)
             {
-                metricToUpdate.Bmi = (float)_metricCalculator.CalculateBMI(request.UpdateMetricDto.Weight, request.UpdateMetricDto.Height);
+                metricToUpdate.Bmi = (float)_metricCalculator.CalculateBMI(request.UpdateMetricDTO.Weight, request.UpdateMetricDTO.Height);
                 isUpdated = true;
             }
 
             // Kiem tra va cap nhat BMR
-            if (request.UpdateMetricDto.Height != metricToUpdate.Height ||
-                request.UpdateMetricDto.Weight != metricToUpdate.Weight ||
-                request.UpdateMetricDto.DateOfBirth != metricToUpdate.DateOfBirth ||
-                !string.Equals(request.UpdateMetricDto.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
+            if (request.UpdateMetricDTO.Height != metricToUpdate.Height ||
+                request.UpdateMetricDTO.Weight != metricToUpdate.Weight ||
+                request.UpdateMetricDTO.DateOfBirth != metricToUpdate.DateOfBirth ||
+                !string.Equals(request.UpdateMetricDTO.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
             {
-                metricToUpdate.Bmr = _metricCalculator.CalculateBMR(request.UpdateMetricDto.Weight, request.UpdateMetricDto.Height, age, request.UpdateMetricDto.Gender);
+                metricToUpdate.Bmr = _metricCalculator.CalculateBMR(request.UpdateMetricDTO.Weight, request.UpdateMetricDTO.Height, age, request.UpdateMetricDTO.Gender);
                 isUpdated = true;
             }
 
             // Kiem tra va cap nhat TDEE
-            if (request.UpdateMetricDto.ActivityLevel != metricToUpdate.ActivityLevel || isUpdated)
+            if (request.UpdateMetricDTO.ActivityLevel != metricToUpdate.ActivityLevel || isUpdated)
             {
-                metricToUpdate.Tdee = _metricCalculator.CalculateTDEE(metricToUpdate.Bmr, request.UpdateMetricDto.ActivityLevel);
+                metricToUpdate.Tdee = _metricCalculator.CalculateTDEE(metricToUpdate.Bmr, request.UpdateMetricDTO.ActivityLevel);
                 isUpdated = true;
             }
 
             // Kiem tra va cap nhat IBW
-            if (request.UpdateMetricDto.Height != metricToUpdate.Height ||
-                !string.Equals(request.UpdateMetricDto.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
+            if (request.UpdateMetricDTO.Height != metricToUpdate.Height ||
+                !string.Equals(request.UpdateMetricDTO.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
             {
-                metricToUpdate.Ibw = _metricCalculator.CalculateIBW(request.UpdateMetricDto.Height, request.UpdateMetricDto.Gender);
+                metricToUpdate.Ibw = _metricCalculator.CalculateIBW(request.UpdateMetricDTO.Height, request.UpdateMetricDTO.Gender);
                 isUpdated = true;
             }
             // Cap nhat neu co bat ky thay doi nao
             if (isUpdated)
             {
                 metricToUpdate.UpdatedAt = DateTime.Now;
-                _mapper.Map(request.UpdateMetricDto, metricToUpdate);
+                _mapper.Map(request.UpdateMetricDTO, metricToUpdate);
                 _metricRepository.Update(metricToUpdate);
                 await _metricRepository.SaveChangeAsync();
             }

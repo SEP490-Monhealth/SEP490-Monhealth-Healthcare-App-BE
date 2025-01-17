@@ -23,12 +23,12 @@ namespace Monhealth.Application.Automapper
             CreateMap<Goal, GetGoalByIdDTO>().ReverseMap();
             CreateMap<Goal, GetGoalByUserIdDTO>().ReverseMap();
             CreateMap<Goal, UpdateGoalDTO>().ReverseMap();
-            CreateMap<Goal, CreateMetricDto>().ReverseMap();
-            CreateMap<Goal, UpdateMetricDto>().ReverseMap();
-            CreateMap<Goal, GetWeightByGoalIdDto>().ReverseMap();
-            CreateMap<Goal, GetWaterByGoalIdDto>().ReverseMap();
-            CreateMap<Goal, GetNutritionByGoalIdDto>().ReverseMap();
-            CreateMap<Goal, GetExerciseByGoalIdDto>().ReverseMap();
+            CreateMap<Goal, CreateMetricDTO>().ReverseMap();
+            CreateMap<Goal, UpdateMetricDTO>().ReverseMap();
+            CreateMap<Goal, GetWeightByGoalIdDTO>().ReverseMap();
+            CreateMap<Goal, GetWaterByGoalIdDTO>().ReverseMap();
+            CreateMap<Goal, GetNutritionByGoalIdDTO>().ReverseMap();
+            CreateMap<Goal, GetExerciseByGoalIdDTO>().ReverseMap();
 
         }
     }

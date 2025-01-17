@@ -1,6 +1,6 @@
 ﻿namespace Monhealth.Application.Features.Goals.Queries.GetWeightByGoalId
 {
-    public class GetWeightByGoalIdDto
+    public class GetWeightByGoalIdDTO
     {
         public int WeightGoal { get; set; }
 

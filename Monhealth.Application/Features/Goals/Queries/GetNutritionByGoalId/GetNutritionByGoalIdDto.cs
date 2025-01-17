@@ -2,7 +2,7 @@
 
 namespace Monhealth.Application.Features.Goals.Queries.GetNutritionByGoalId
 {
-    public class GetNutritionByGoalIdDto
+    public class GetNutritionByGoalIdDTO
     {
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }

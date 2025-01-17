@@ -2,7 +2,7 @@
 
 namespace Monhealth.Application.Features.Goals.Queries.GetWeightByGoalId
 {
-    public class GetWeightByGoalIdQuery : IRequest<GetWeightByGoalIdDto>
+    public class GetWeightByGoalIdQuery : IRequest<GetWeightByGoalIdDTO>
     {
         public Guid UserId { get; set; }
     }

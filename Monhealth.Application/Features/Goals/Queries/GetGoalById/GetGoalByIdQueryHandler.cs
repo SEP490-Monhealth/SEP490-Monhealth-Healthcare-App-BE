@@ -1,12 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Application.Features.Goals.Queries.GetGoalById
 {
