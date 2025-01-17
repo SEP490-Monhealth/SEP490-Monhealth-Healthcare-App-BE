@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.AddCategory;
 using Monhealth.Application.Features.Category.DeleteCategory;
+using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType;
 using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 using Monhealth.Application.Features.Category.UpdateCategory;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
@@ -58,6 +59,30 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+        [HttpGet]
+        [Route("{Type}")]
+        public async Task<ActionResult<ResultModel>> GetCategoryByType(string Type)
+        {
+            var categories = await _mediator.
+            Send(new GetCategoriesByTypeQuery() { Type = Type });
+
+            if (categories == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Danh mục không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = categories
+            });
+        }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddCategory([FromBody] AddCategoryRequest request)
         {

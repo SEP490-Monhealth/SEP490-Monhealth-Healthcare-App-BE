@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Monhealth.Application.Features.Category.Queries.GetAllCategories;
+using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType;
 using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
@@ -21,6 +22,7 @@ namespace Monhealth.Application.Automapper
             CreateMap<Metric, MetricDetailDto>().ReverseMap();
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<Category, CategoryDetailDTO>().ReverseMap();
+            CreateMap<Category,CategoryByTypeDTO>().ReverseMap();
             CreateMap<Nutrition, NutritionDto>().ReverseMap();
             CreateMap<Nutrition, NutritionDetailDto>().ForMember(dest => dest.FoodId,
             opt => opt.MapFrom(src => src.FoodId))
