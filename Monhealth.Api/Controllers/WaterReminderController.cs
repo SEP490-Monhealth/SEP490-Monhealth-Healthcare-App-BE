@@ -8,6 +8,7 @@ using Monhealth.Application.Features.Reminders.Commands.UpdateReminderStatus;
 using Monhealth.Application.Features.Reminders.Queries.GetAllReminder;
 using Monhealth.Application.Features.Reminders.Queries.GetReminderByUser;
 using Monhealth.Application.Features.Reminders.Queries.GetReminderDetail;
+using Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsDrunk;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -126,6 +127,28 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> UpdateStatus(Guid waterReminderId)
         {
             var command = await _mediator.Send(new UpdateReminderStatusCommand() { WaterReminderId = waterReminderId });
+
+            if (command == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Cập nhật trạng thái thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật trạng thái thành công"
+            };
+
+        }
+        [HttpPatch("{waterReminderId}/IsDrunk")]
+        public async Task<ActionResult<ResultModel>> UpdateStatusOfIsDrunk(Guid waterReminderId)
+        {
+            var command = await _mediator.Send(new ChangeStatusIsDrunkCommand() { WaterReminderId = waterReminderId });
 
             if (command == null)
             {
