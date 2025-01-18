@@ -16,5 +16,10 @@ namespace Monhealth.Identity.Repositories
             return _context.UserSubscriptions.Where(us => us.UserId == user)
             .Select(us => us.Subscription).ToListAsync();
         }
+
+        public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }

@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Core
 {
-    public class Allergy
+    public class Allergy : TimeEntity
     {
         [Key]
         public Guid AllergyId { get; set; }

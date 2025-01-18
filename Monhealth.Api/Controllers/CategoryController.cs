@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.AddCategory;
 using Monhealth.Application.Features.Category.DeleteCategory;
+using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByExercise;
 using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType;
 using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 using Monhealth.Application.Features.Category.UpdateCategory;
@@ -60,11 +61,11 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{Type}")]
-        public async Task<ActionResult<ResultModel>> GetCategoryByType(string Type)
+        [Route("food")]
+        public async Task<ActionResult<ResultModel>> GetCategoryByType(bool IsFood = true)
         {
             var categories = await _mediator.
-            Send(new GetCategoriesByTypeQuery() { Type = Type });
+            Send(new GetCategoriesByTypeQuery());
 
             if (categories == null)
             {
@@ -82,6 +83,19 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = categories
             });
+        }
+        [HttpGet]
+        [Route("exercise")]
+        public async Task<ActionResult<ResultModel>> GetCategoryByExerciseType(bool IsExercise = true)
+        {
+            var categories = await _mediator.
+            Send(new GetCategoriesByExerciseQuery());
+
+            if (categories == null)
+            {
+                return NotFound(ResultModel.Fail("Danh mục không tồn tại"));
+            }
+            return Ok(ResultModel.Succeed(categories));
         }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddCategory([FromBody] AddCategoryRequest request)
@@ -146,12 +160,15 @@ namespace Monhealth.Api.Controllers
                     Success = false,
                     Data = null
                 };
-            return Ok(new ResultModel
-            {
-                Message = "Cập nhật danh mục thành công",
-                Success = true,
-                Status = 204,
-            });
+            return Ok(
+                new ResultModel
+                {
+                    Message = "Cập nhật danh mục thành công",
+                    Success = true,
+                    Status = 204,
+                }
+
+            );
         }
     }
 }

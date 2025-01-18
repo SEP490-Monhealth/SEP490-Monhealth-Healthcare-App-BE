@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Monhealth.Domain
 {
-    public class Category : BaseEntity
+    public class Category : TimeEntity
     {
         [Key]
         public Guid CategoryId { get; set; }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class Meal : BaseEntity
+    public class Meal : TimeEntity
     {
         [Key]
         public Guid MealId { get; set; }

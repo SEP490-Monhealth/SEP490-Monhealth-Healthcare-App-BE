@@ -12,7 +12,7 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250117150528_AddDatabase")]
+    [Migration("20250118082741_AddDatabase")]
     partial class AddDatabase
     {
         /// <inheritdoc />
@@ -179,6 +179,12 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("AllergyId");
 
                     b.ToTable("Allergies");
@@ -255,8 +261,14 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid>("AllergyId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("FoodAllergyId");
 
@@ -273,6 +285,9 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsSent")
                         .HasColumnType("bit");
 
@@ -281,6 +296,9 @@ namespace Monhealth.Identity.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("NotifyTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("NotificationId");
@@ -296,6 +314,12 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("AllergyId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -318,9 +342,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool>("IsDrunk")
                         .HasColumnType("bit");
 
@@ -336,9 +357,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -430,18 +448,12 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CategoryId");
 
@@ -663,9 +675,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime?>("ExpiryDate")
                         .HasColumnType("datetime2");
 
@@ -677,9 +686,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -699,6 +705,12 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("CertificateId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Url")
                         .IsRequired()
@@ -720,9 +732,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("GoalId")
                         .HasColumnType("uniqueidentifier");
 
@@ -734,9 +743,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -758,9 +764,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("GoalId")
                         .HasColumnType("uniqueidentifier");
@@ -789,9 +792,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -811,9 +811,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("GoalId")
                         .HasColumnType("uniqueidentifier");
 
@@ -822,9 +819,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -847,9 +841,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<float>("TotalCaloriesBurned")
                         .HasColumnType("real");
 
@@ -858,9 +849,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1845,7 +1833,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Gạo nấu chín, món ăn cơ bản trong bữa cơm hàng ngày của người Việt Nam",
                             FoodName = "Cơm",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1858,7 +1846,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh vỏ giòn, ruột mềm, dùng kèm nhiều loại nhân như thịt, trứng, rau",
                             FoodName = "Bánh mì",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1871,7 +1859,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trái cây ngọt, giàu năng lượng và chất dinh dưỡng, dễ dàng mang theo",
                             FoodName = "Chuối",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1884,7 +1872,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món ăn giàu protein, dễ chế biến, thường dùng trong bữa sáng hoặc ăn vặt",
                             FoodName = "Trứng gà luộc",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1897,7 +1885,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thức uống giàu dinh dưỡng, bổ sung canxi, tốt cho sức khỏe xương và răng",
                             FoodName = "Sữa tươi không đường",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1910,7 +1898,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bún nước đậm đà từ Huế, nổi bật với hương sả, ớt, thịt bò",
                             FoodName = "Bún bò huế",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1923,7 +1911,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trái cây giòn, ngọt, nhiều chất xơ và vitamin, tốt cho hệ tiêu hóa",
                             FoodName = "Táo",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1936,7 +1924,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Sợi bún mềm, thường dùng trong các món nước hoặc xào",
                             FoodName = "Bún",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1949,7 +1937,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Rau quả mát, nhiều nước, thường ăn sống hoặc làm gỏi",
                             FoodName = "Dưa chuột",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1962,7 +1950,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Chuối nhỏ, vị ngọt nhẹ, thường dùng làm món ăn nhẹ hoặc nấu chè",
                             FoodName = "Chuối tây",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1975,7 +1963,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại chuối phổ biến, vỏ vàng, thơm, ngọt, dùng làm món tráng miệng",
                             FoodName = "Chuối tiêu",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -1988,7 +1976,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trái cây nhiều vitamin C, giòn, ngọt hoặc chua nhẹ, ăn cả vỏ",
                             FoodName = "Ổi",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2001,7 +1989,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món cơm từ gạo tấm, ăn kèm sườn nướng, đồ chua, và nước mắm",
                             FoodName = "Cơm tấm sườn",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2014,7 +2002,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trái cây mọng nước, thịt trắng hoặc đỏ, vị ngọt thanh mát",
                             FoodName = "Thanh long",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2027,7 +2015,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bún với nước lèo cua đồng, ăn kèm rau sống và mắm tôm",
                             FoodName = "Bún riêu cua",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2040,7 +2028,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh hấp có nhân thịt, trứng, hoặc rau củ, mềm và thơm",
                             FoodName = "Bánh bao",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2053,7 +2041,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bún tươi kết hợp thịt nướng, rau sống, và nước mắm chua ngọt",
                             FoodName = "Bún thịt nướng",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2066,7 +2054,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại quả đỏ mọng, thường dùng làm nước sốt, canh, hoặc ăn sống",
                             FoodName = "Cà chua",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2079,7 +2067,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món xôi từ gạo nếp, ăn kèm thịt, trứng, chả, và hành phi",
                             FoodName = "Xôi mặn",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2092,7 +2080,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Chất ngọt tự nhiên từ ong, có lợi cho sức khỏe và làm đẹp",
                             FoodName = "Mật ong",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2105,7 +2093,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trái cây nhiều nước, vị ngọt mát, thích hợp trong ngày nóng",
                             FoodName = "Dưa hấu",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2118,7 +2106,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Giò heo hấp chín, mềm, thơm, thường dùng trong bánh mì, bánh cuốn",
                             FoodName = "Chả lụa",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2131,7 +2119,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Cơm từ gạo lức, giàu chất xơ, tốt cho sức khỏe tim mạch",
                             FoodName = "Cơm gạo lức",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2144,7 +2132,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món ăn nhanh từ thịt xay nhuyễn, thích hợp cho bữa ăn nhẹ",
                             FoodName = "Xúc xích",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2157,7 +2145,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Phần thịt gà trắng, giàu đạm, ít béo, tốt cho người tập gym",
                             FoodName = "Ức gà",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2170,7 +2158,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bắp nấu chín, ngọt tự nhiên, thích hợp ăn sáng hoặc ăn vặt",
                             FoodName = "Bắp luộc",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2183,7 +2171,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món ăn lên men từ sữa, giúp hỗ trợ tiêu hóa và làm đẹp da",
                             FoodName = "Sữa chua",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2196,7 +2184,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Sản phẩm từ đậu nành, giàu protein thực vật, dùng trong nhiều món chay",
                             FoodName = "Đậu hũ",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2209,7 +2197,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh bao không nhân thịt, nhân rau củ hoặc đậu xanh",
                             FoodName = "Bánh bao chay",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2222,7 +2210,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thức uống tươi mát từ cam, cung cấp vitamin C tăng sức đề kháng",
                             FoodName = "Nước cam",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2235,7 +2223,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Rau củ màu cam, giàu vitamin A, tốt cho mắt và sức khỏe da",
                             FoodName = "Cà rốt",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2248,7 +2236,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Cháo gạo nấu với lòng heo, thơm béo, ăn kèm rau thơm",
                             FoodName = "Cháo lòng",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2261,7 +2249,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh mì lát, dễ ăn, thích hợp cho bữa sáng nhanh",
                             FoodName = "Bánh mì sandwich",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2274,7 +2262,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thức uống giải khát tự nhiên, giàu khoáng chất",
                             FoodName = "Nước dừa",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2287,7 +2275,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trái cây nhiệt đới, thịt vàng, ngọt hoặc chua tùy giống",
                             FoodName = "Xoài",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2300,7 +2288,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Rau xanh thường luộc, xào hoặc làm gỏi, giàu chất xơ",
                             FoodName = "Rau muống",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2313,7 +2301,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bún ăn kèm thịt nướng, rau sống, và nước chấm chua ngọt",
                             FoodName = "Bún chả",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2326,7 +2314,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thức uống ca cao bổ dưỡng, thích hợp cho trẻ em",
                             FoodName = "Sữa hộp milo",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2339,7 +2327,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món ăn với sợi bánh dày, ăn cùng nước lèo đậm đà",
                             FoodName = "Bánh canh",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2352,7 +2340,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món ăn miền Nam với sợi hủ tíu mềm, nước lèo thanh ngọt",
                             FoodName = "Hủ tíu",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2365,7 +2353,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thức uống đậm đà, kích thích tinh thần, uống nóng hoặc đá",
                             FoodName = "Cà phê",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2378,7 +2366,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Cà phê kết hợp sữa đặc, vị ngọt béo hấp dẫn",
                             FoodName = "Cà phê sữa",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2391,7 +2379,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thức uống từ đậu nành, ít ngọt, tốt cho sức khỏe",
                             FoodName = "Sữa đậu nành (không đường)",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2404,7 +2392,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món thịt heo nấu tiêu, nước mắm, thơm nồng, đậm đà",
                             FoodName = "Thịt kho tiêu",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2417,7 +2405,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bún xào cùng rau củ và thịt, thơm ngon, dễ ăn",
                             FoodName = "Bún xào",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2430,7 +2418,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại rau xanh thường dùng trong món xào hoặc luộc",
                             FoodName = "Cải thìa",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2443,7 +2431,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Xôi gạo nếp kết hợp bắp vàng ngọt, ăn kèm hành phi thơm",
                             FoodName = "Xôi bắp",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2456,7 +2444,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món phở với nước dùng đậm đà, thịt bò tái mềm ngon",
                             FoodName = "Phở bò tái",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2469,7 +2457,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Phở nước lèo thanh ngọt, ăn kèm thịt gà và rau thơm",
                             FoodName = "Phở gà",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2482,7 +2470,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trứng vịt luộc, chứa phôi phát triển, ăn kèm rau răm và muối tiêu",
                             FoodName = "Trứng vịt lộn",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2495,7 +2483,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thức uống giải khát, làm từ chanh tươi, cung cấp nhiều vitamin C",
                             FoodName = "Nước chanh",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2508,7 +2496,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh mì giòn kẹp thịt, trứng và rau, ăn sáng nhanh tiện lợi",
                             FoodName = "Bánh mì thịt trứng",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2521,7 +2509,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bánh truyền thống từ gạo nếp, thịt mỡ, đậu xanh",
                             FoodName = "Bánh chưng",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2534,7 +2522,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trái cây nhỏ, vị ngọt thanh, dễ bóc vỏ, giàu vitamin C",
                             FoodName = "Quả quýt",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2547,7 +2535,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Sữa chua mịn kết hợp nha đam giòn, tốt cho tiêu hóa",
                             FoodName = "Sữa chua nha đam",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2560,7 +2548,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại bánh chiên phồng, thơm mùi mè, ngọt nhẹ",
                             FoodName = "Bánh tiêu",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2573,7 +2561,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bánh bột vàng giòn, nhân thịt, tôm, ăn kèm rau sống",
                             FoodName = "Bánh xèo",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2586,7 +2574,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Rau quả màu sắc, giòn ngọt, giàu vitamin, thường dùng làm salad",
                             FoodName = "Ớt chuông",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2599,7 +2587,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại nấm nhỏ dài, thơm ngon, thường dùng trong lẩu hoặc xào",
                             FoodName = "Nấm kim châm",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2612,7 +2600,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Phần trứng vàng, giàu dinh dưỡng và chất béo",
                             FoodName = "Lòng đỏ trứng gà",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2625,7 +2613,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Phần trứng trắng, ít béo, giàu protein, thích hợp cho người ăn kiêng",
                             FoodName = "Lòng trắng trứng gà",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2638,7 +2626,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bột mỏng nhân thịt, hấp hoặc chiên, thường ăn kèm nước lèo",
                             FoodName = "Hoành thánh",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2651,7 +2639,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Hải sản giàu đạm, chế biến đa dạng: hấp, chiên, xào, hoặc nướng",
                             FoodName = "Tôm",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2664,7 +2652,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Rau quả giòn, nhiều nhớt, thường dùng nấu canh hoặc luộc",
                             FoodName = "Đậu bắp",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2677,7 +2665,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bánh canh với thịt cua, nước lèo đậm đà",
                             FoodName = "Bánh canh cua",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2690,7 +2678,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món ăn vặt từ cá xay, chiên giòn, chấm kèm tương ớt",
                             FoodName = "Cá viên chiên",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2703,7 +2691,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh mì tròn kẹp thịt, phô mai, rau, và nước sốt",
                             FoodName = "Hamburger",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2716,7 +2704,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bánh bột gạo nhỏ, ăn kèm tôm cháy và nước mắm",
                             FoodName = "Bánh bèo",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2729,7 +2717,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bún với nước lèo mắm cá, đậm đà, ăn kèm hải sản và rau",
                             FoodName = "Bún mắm",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2742,7 +2730,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Rau xanh giòn, thường dùng làm kim chi hoặc xào",
                             FoodName = "Cải thảo",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2755,7 +2743,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại thịt mềm, ngọt, chế biến thành món quay, hấp, hoặc nấu cháo",
                             FoodName = "Thịt vịt",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2768,7 +2756,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thịt gia cầm phổ biến, dùng trong nhiều món nướng, luộc, hầm",
                             FoodName = "Thịt gà",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2781,7 +2769,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món thịt nấu cùng trứng và nước mắm, vị ngọt mặn hấp dẫn",
                             FoodName = "Thịt kho trứng",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2794,7 +2782,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Phần sườn heo mềm, ngon, thích hợp nấu canh hoặc kho",
                             FoodName = "Sườn non",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2807,7 +2795,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thịt heo xay nhuyễn, dùng nấu canh, xào, hoặc làm nhân",
                             FoodName = "Thịt heo bằm",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2820,7 +2808,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Cơm chiên vàng với trứng gà, thêm hành phi thơm ngon",
                             FoodName = "Cơm chiên trứng",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2833,7 +2821,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Nước tăng lực vị dâu, ngọt và kích thích tinh thần",
                             FoodName = "Sting",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2846,7 +2834,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Nước ngọt có ga, vị cola đặc trưng, dùng kèm bữa ăn nhanh",
                             FoodName = "Pepsi",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2859,7 +2847,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thức uống giải khát có ga, vị ngọt thanh",
                             FoodName = "Coca cola",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2872,7 +2860,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Cháo gạo trắng nấu nhuyễn, thêm sườn heo mềm ngọt",
                             FoodName = "Cháo sườn",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2885,7 +2873,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Rau cải thảo lên men, cay nồng, thường ăn kèm món nướng",
                             FoodName = "Kim chi",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2898,7 +2886,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh bột gạo mềm, ăn kèm mắm tôm, thịt bằm",
                             FoodName = "Bánh đúc",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2911,7 +2899,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bánh trong suốt, nhân tôm thịt, thường hấp hoặc luộc",
                             FoodName = "Bánh bột lọc",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2924,7 +2912,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh hấp nhân thịt xá xíu, mềm, thơm ngọt",
                             FoodName = "Bánh bao xá xíu",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2937,7 +2925,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại cá béo, giàu omega-3, thường ăn sống hoặc nướng",
                             FoodName = "Cá hồi",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2950,7 +2938,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại củ ngọt tự nhiên, dùng luộc, nướng hoặc chiên",
                             FoodName = "Khoai lang",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2963,7 +2951,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại củ mềm, dùng làm khoai chiên, nghiền hoặc hầm",
                             FoodName = "Khoai tây",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2976,7 +2964,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại rau củ thơm, thường dùng làm gia vị hoặc ăn sống",
                             FoodName = "Hành tây",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -2989,7 +2977,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại quả dài, xanh, dùng nấu canh hoặc xào",
                             FoodName = "Bầu",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3002,7 +2990,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh tròn chiên giòn, nhân đậu xanh, ngọt thanh",
                             FoodName = "Bánh cam",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3015,7 +3003,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Hải sản giòn, ngọt, chế biến nướng, hấp, hoặc chiên",
                             FoodName = "Mực",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3028,7 +3016,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Hải sản vỏ cứng, thịt ngọt, thường hấp hoặc nấu lẩu",
                             FoodName = "Cua",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3041,7 +3029,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Rau xanh giòn, thích hợp luộc, xào hoặc nấu canh",
                             FoodName = "Đậu que",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3054,7 +3042,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh bột gạo tráng mỏng, ăn kèm chả, nước mắm",
                             FoodName = "Bánh ướt",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3067,7 +3055,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh tráng mỏng cuộn nhân thịt, mộc nhĩ, ăn kèm nước mắm",
                             FoodName = "Bánh cuốn",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3080,7 +3068,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món bún nước dùng từ cua đồng, ăn kèm rau muống",
                             FoodName = "Canh bún",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3093,7 +3081,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trái cây nhỏ, ngọt, mọng nước, vỏ đỏ, hạt to",
                             FoodName = "Vải",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3106,7 +3094,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Cá phơi khô, dùng nướng, chiên hoặc làm gỏi",
                             FoodName = "Cá khô",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3119,7 +3107,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại nấm to, thơm ngon, thích hợp xào hoặc nấu canh",
                             FoodName = "Nấm đùi gà",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3132,7 +3120,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại quả xanh, mềm, thường nấu canh hoặc xào",
                             FoodName = "Mướp",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3145,7 +3133,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh hấp nhân thịt, trứng cút, ăn sáng tiện lợi",
                             FoodName = "Bánh bao trứng cút",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3158,7 +3146,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Nước trà kết hợp tắc, vị chua ngọt, giải khát",
                             FoodName = "Trà tắc",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3171,7 +3159,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Đậu hũ mềm mịn, thường dùng làm canh hoặc món tráng miệng",
                             FoodName = "Đậu hũ non",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3184,7 +3172,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Thịt chua lên men, thường ăn kèm lá ổi và tương ớt",
                             FoodName = "Nem chua",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3197,7 +3185,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Loại cá giàu dinh dưỡng, thường làm salad hoặc áp chảo",
                             FoodName = "Cá ngừ",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3210,7 +3198,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Cuốn bánh tráng với thịt, tôm, rau, chấm nước mắm chua ngọt",
                             FoodName = "Gỏi cuốn",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3223,7 +3211,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Bánh bông lan mềm, nhân trứng muối và chà bông",
                             FoodName = "Bông lan trứng muối",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3236,7 +3224,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Phở bò kết hợp bò viên dai ngon, nước lèo đậm đà",
                             FoodName = "Phở bò viên",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3249,7 +3237,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Khoai lang luộc chín, ngọt bùi, giàu chất xơ",
                             FoodName = "Khoai lang luộc",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3262,7 +3250,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Trái cây ngọt mềm, màu cam, giàu vitamin A và chất xơ",
                             FoodName = "Đu đủ",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3275,7 +3263,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Cháo từ đậu đỏ, ngọt dịu, bổ máu và mát gan",
                             FoodName = "Cháo đậu đỏ",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3288,7 +3276,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Món chè ngọt làm từ đậu đen nấu mềm, nước cốt dừa thơm",
                             FoodName = "Chè đậu đen",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3301,7 +3289,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Rau cải muối lên men, chua nhẹ, ăn kèm món kho",
                             FoodName = "Dưa cải chua",
-                            IsPublic = false,
+                            IsPublic = true,
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3315,11 +3303,17 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("PortionId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("FoodPortionId");
 
@@ -3587,9 +3581,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<float>("ExerciseCaloriesGoal")
                         .HasColumnType("real");
 
@@ -3623,9 +3614,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -3654,9 +3642,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("DailyMealId")
                         .HasColumnType("uniqueidentifier");
 
@@ -3666,9 +3651,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -3689,9 +3671,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
 
@@ -3709,9 +3688,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("MealFoodId");
 
@@ -3740,9 +3716,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -3760,9 +3733,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -6851,9 +6821,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("MeasurementUnit")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -6867,9 +6834,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("PortionId");
 
@@ -7291,9 +7255,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateOnly?>("Date")
                         .HasColumnType("date");
 
@@ -7306,9 +7267,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ScheduleId");
 
@@ -7329,9 +7287,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
@@ -7345,9 +7300,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ServiceId");
 
@@ -7400,6 +7352,12 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -7417,14 +7375,17 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime>("ExpiresAt")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("SubscriptionId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -7447,17 +7408,11 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("DailyWorkoutId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -7481,11 +7436,17 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("ExerciseId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("WorkoutId")
                         .HasColumnType("uniqueidentifier");
@@ -7667,7 +7628,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "76c91c2c-2538-4a72-97b7-e9ef0e1c6ca7",
+                            ConcurrencyStamp = "c5c70262-0a15-4f38-975b-369f1399888f",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -7675,10 +7636,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHBHPW0sQFTlnCNJhj1Se16k6niEwGHlYWaR1jR6ikxgJaAiBk0nh0CAUWYAgSkV2g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMDcXydR4I1LqWUt+rzQXB8Zz0T9nWV/mXVlIhZ2vGqo3RscXq9rWQlQuPOk/QMqVg==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "80d7fe91-a43d-4e13-a292-de9a4b10fdf4",
+                            SecurityStamp = "b15781a8-4189-42c8-bae5-0cac4a127837",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7688,7 +7649,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f70d8db8-5856-484c-a6ad-f842e4c9ce76",
+                            ConcurrencyStamp = "85719f1a-d1e8-4bf9-b83c-32620ebb3eff",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -7696,10 +7657,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMgArqwzh0n+Bhrm++pi6FdNW1slDu5h002ifjLuifsVgUmoS5NNPLT3NHKZHXCLSg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGGC/uB+2sgKYVyWlWHRsoO2MDqm5mRI5vk9+h9d91VeE5nuqgnmu+Vk+LX/hG80Eg==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "59001e0a-51b9-4587-b019-7ea928691b06",
+                            SecurityStamp = "9d0eaa15-55c9-4cf1-bd20-a820efbcda14",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7709,7 +7670,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f98492f2-d348-430d-a101-6d5fc8e06a62",
+                            ConcurrencyStamp = "bfee5c17-e929-4c57-8532-676bea16cce5",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -7717,10 +7678,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFg36ZNs10cDtTclXwmkgJyLZBmFCSPTqGlqBEX+c1S2CVmPBlGeUs4vjADhHcIyvQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENeJ/M3zvw46nJQDAk90aZx2alv4oI+kDT9aCsPKHR9UPydDu8jHQ26LViHY898Fig==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8d069706-8fe3-4ee9-9d84-8be223a0f671",
+                            SecurityStamp = "77240220-bbfe-4e8d-a073-e8549b039493",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7730,7 +7691,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7a0c0e58-c153-4f5c-bb27-184c05a50438",
+                            ConcurrencyStamp = "b881043e-0765-449d-9870-3b4d56b48bfe",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -7738,10 +7699,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAELf+fQ+4ihAPiHWcpBTDKd6IJ+4x2rPxvpfTK7pvBgjy0xSpj2ET1KB9Nif7yRIYgg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE7tvP+QdftN7bGh5Q6f+vvfwlNX5PvKT/PNN0PzSEze3lJcy77OPbFAjQ4g+ZM6dg==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ad858021-7b99-4e3b-a8f8-e26f018a6e3b",
+                            SecurityStamp = "c6c960c8-2095-4442-96ce-82582a08902d",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7751,7 +7712,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cf52c61c-42c9-4dca-b809-23967d4aff77",
+                            ConcurrencyStamp = "16711254-3804-4109-bf53-11558e6c33db",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -7759,10 +7720,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEbzaZj8zOGwbJp/Twc4BlfDlZtuxT+xJqUzKWpFXRaNJXqsWKo7nL5abIduLsfoOg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBiUN4m2MJGc0flrLsdHgNelLaLIL9AJst5F6z7N42fgkVVsFDpEF2CR3/aqg744Dg==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3f4f3fb2-98b4-4c3d-9311-78b516e72b0f",
+                            SecurityStamp = "104f4a22-9f17-4ed4-88c0-4b9987e20c91",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7772,7 +7733,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ca619188-20a3-4e52-b95c-0700e8b5a107",
+                            ConcurrencyStamp = "4bdc4fa0-ea0b-4319-9286-191056e1ec8a",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -7780,10 +7741,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFNmPD31ljZmcqIdpIchC27yk0zkRW626kJaP8c8vm/83asvYmRcIigt0StkXNmkmA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECrpSLD7S8020pH/fkGSk0VCDQNyB+hDAAEIWCITFHkr8pvbgLM7hlMyQ9kNTpmWeg==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "83b1b505-4637-4e8e-b104-b384c78e6672",
+                            SecurityStamp = "1adcb9df-e8de-4be4-a239-3fcaa8587831",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7793,7 +7754,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ae534f7b-7076-4828-afcf-365be878b1e0",
+                            ConcurrencyStamp = "a7f0b9fd-d4af-476d-91a1-620ede352f6b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -7801,10 +7762,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA71PjdYopZB0puy7NcDSvqOmPyZO8/y0pRs7RBonvfSbgLa8uJWCaFEHXCQ2bmm9A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIY3rMZxCUtu8gfLUuEmrB9MeRangh1Xnf19F5vJH2lreZmjDB84Uq2/BUeFYFKDPQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bbd7b232-466d-4a74-9489-bbc9a2866756",
+                            SecurityStamp = "8471ee76-93cc-4272-8d0d-a9e93b3d0897",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),

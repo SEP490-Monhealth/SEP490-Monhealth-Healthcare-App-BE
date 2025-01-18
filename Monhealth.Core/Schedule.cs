@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class Schedule : BaseEntity
+    public class Schedule : TimeEntity
     {
         [Key]
         public Guid ScheduleId { get; set; } // PK 

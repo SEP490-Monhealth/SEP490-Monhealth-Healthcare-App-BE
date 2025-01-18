@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class Metric : BaseEntity
+    public class Metric : TimeEntity
     {
         [Key]
         public Guid MetricId { get; set; }

@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Subscription.Commands.Create;
@@ -11,6 +7,7 @@ using Monhealth.Application.Features.Subscription.Commands.Update;
 using Monhealth.Application.Features.Subscription.Queries.GetAll;
 using Monhealth.Application.Features.Subscription.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetDetail;
+using Monhealth.Application.Features.UserSubscription.Commands.Create;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -46,6 +43,17 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo gói thành viên thất bại. ",
                 Status = 400,
             });
+
+        }
+        [HttpPost("subscriptions/upgrade")]
+        public async Task<ActionResult<ResultModel>> Add2([FromBody] CreateUserSubscriptionCommand request)
+        {
+
+            var result = await _mediator.Send(request);
+            if (result != null)
+                return ResultModel.Created(null, "Nâng cấp gói thành công. ");
+            return ResultModel.CreateFailed(null ,"Nâng cấp gói thất bại");
+
 
         }
         [HttpGet]

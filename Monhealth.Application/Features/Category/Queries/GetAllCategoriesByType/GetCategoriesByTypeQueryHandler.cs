@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType
 
         public async Task<List<CategoryByTypeDTO>> Handle(GetCategoriesByTypeQuery request, CancellationToken cancellationToken)
         {
-            var categoryType = await _categoryRepository.GetCategoriesByType(request.Type);
+            var categoryType = await _categoryRepository.GetCategoriesByType();
             return _mapper.Map<List<CategoryByTypeDTO>>(categoryType);
         }
     }

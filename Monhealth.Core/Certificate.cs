@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class Certificate : BaseEntity
+    public class Certificate : TimeEntity
     {
         [Key]
         public Guid CertificateId { get; set; } // PK 

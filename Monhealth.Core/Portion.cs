@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Monhealth.Domain
 {
-    public class Portion : BaseEntity
+    public class Portion : TimeEntity
     {
         [Key]
         public Guid PortionId { get; set; }
