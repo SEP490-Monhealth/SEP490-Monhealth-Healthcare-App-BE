@@ -26,10 +26,10 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? category = null, string? search = null, bool? popular = null, bool? status = null, bool? isPublic = null)
+        public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? category = null, string? search = null, bool? isPublic = null, bool? popular = null, bool? status = null)
         {
-            var foods = await _mediator.Send(new GetFoodListQuery(page, limit, category, search, popular, status , isPublic));
-            
+            var foods = await _mediator.Send(new GetFoodListQuery(page, limit, category, search, isPublic, popular, status));
+
             return new ResultModel
             {
                 Data = foods,
@@ -38,8 +38,8 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-       
-        
+
+
 
         [HttpPatch]
         [Route("{foodId:Guid}/status")]
