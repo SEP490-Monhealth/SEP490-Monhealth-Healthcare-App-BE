@@ -8,8 +8,7 @@ namespace Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
-        public GetCategoriesByTypeQueryHandler(ICategoryRepository categoryRepository,
-        IMapper mapper)
+        public GetCategoriesByTypeQueryHandler(ICategoryRepository categoryRepository, IMapper mapper)
         {
             _categoryRepository = categoryRepository;
             _mapper = mapper;
@@ -17,8 +16,8 @@ namespace Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType
 
         public async Task<List<CategoryByTypeDTO>> Handle(GetCategoriesByTypeQuery request, CancellationToken cancellationToken)
         {
-            var categoryType = await _categoryRepository.GetCategoriesByType();
-            return _mapper.Map<List<CategoryByTypeDTO>>(categoryType);
+            var categories = await _categoryRepository.GetCategoriesByType(request.CategoryType);
+            return _mapper.Map<List<CategoryByTypeDTO>>(categories);
         }
     }
 }

@@ -2,7 +2,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.AddCategory;
 using Monhealth.Application.Features.Category.DeleteCategory;
-using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByExercise;
 using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType;
 using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 using Monhealth.Application.Features.Category.UpdateCategory;
@@ -39,8 +38,7 @@ namespace Monhealth.Api.Controllers
         [Route("{categoryId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetCategoryDetail(Guid categoryId)
         {
-            var categories = await _mediator.
-            Send(new GetCategoryDetailQuery() { CategoryId = categoryId });
+            var categories = await _mediator.Send(new GetCategoryDetailQuery { CategoryId = categoryId });
 
             if (categories == null)
             {
@@ -61,18 +59,17 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("food")]
-        public async Task<ActionResult<ResultModel>> GetCategoryByType(bool IsFood = true)
+        [Route("{categoryType}")]
+        public async Task<ActionResult<ResultModel>> GetCategoriesByType(string categoryType)
         {
-            var categories = await _mediator.
-            Send(new GetCategoriesByTypeQuery());
+            var categories = await _mediator.Send(new GetCategoriesByTypeQuery { CategoryType = categoryType });
 
-            if (categories == null)
+            if (categories == null || !categories.Any())
             {
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Danh mục không tồn tại",
+                    Message = "Không tìm thấy danh mục phù hợp.",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -84,19 +81,7 @@ namespace Monhealth.Api.Controllers
                 Data = categories
             });
         }
-        [HttpGet]
-        [Route("exercise")]
-        public async Task<ActionResult<ResultModel>> GetCategoryByExerciseType(bool IsExercise = true)
-        {
-            var categories = await _mediator.
-            Send(new GetCategoriesByExerciseQuery());
 
-            if (categories == null)
-            {
-                return NotFound(ResultModel.Fail("Danh mục không tồn tại"));
-            }
-            return Ok(ResultModel.Succeed(categories));
-        }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddCategory([FromBody] AddCategoryRequest request)
         {
@@ -116,34 +101,6 @@ namespace Monhealth.Api.Controllers
                 Success = false,
                 Message = "Tạo danh mục thất bại",
                 Status = 400,
-            });
-        }
-
-        [HttpDelete]
-        [Route("{categoryId:Guid}")]
-        public async Task<ActionResult<ResultModel>> RemoveCategory(Guid categoryId)
-        {
-            var result = await _mediator.Send(new DeleteCategoryRequest(categoryId));
-
-            if (!result)
-            {
-                // Trả về lỗi nếu xóa không thành công
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Danh mục không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-
-            // Trả về kết quả thành công
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Xóa danh mục thành công",
-                Status = 204,
-                Data = null
             });
         }
 
@@ -167,8 +124,33 @@ namespace Monhealth.Api.Controllers
                     Success = true,
                     Status = 204,
                 }
-
             );
+        }
+
+        [HttpDelete]
+        [Route("{categoryId:Guid}")]
+        public async Task<ActionResult<ResultModel>> RemoveCategory(Guid categoryId)
+        {
+            var result = await _mediator.Send(new DeleteCategoryRequest(categoryId));
+
+            if (!result)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Danh mục không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa danh mục thành công",
+                Status = 204,
+                Data = null
+            });
         }
     }
 }

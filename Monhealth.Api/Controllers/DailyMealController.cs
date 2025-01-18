@@ -2,7 +2,6 @@ using System.ComponentModel.DataAnnotations;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal;
-using Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealByCreateAt;
 using Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser;
 using Monhealth.Application.Models;
 
