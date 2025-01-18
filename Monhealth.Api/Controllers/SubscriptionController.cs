@@ -45,17 +45,17 @@ namespace Monhealth.Api.Controllers
             });
 
         }
-        [HttpPost("subscriptions/upgrade")]
+
+        [HttpPost("upgrade")]
         public async Task<ActionResult<ResultModel>> Add2([FromBody] CreateUserSubscriptionCommand request)
         {
 
             var result = await _mediator.Send(request);
             if (result != null)
                 return ResultModel.Created(null, "Nâng cấp gói thành công. ");
-            return ResultModel.CreateFailed(null ,"Nâng cấp gói thất bại");
-
-
+            return ResultModel.CreateFailed(null, "Nâng cấp gói thất bại");
         }
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAll()
         {
@@ -68,6 +68,7 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
+
         [HttpGet("{subscriptionId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid subscriptionId)
         {
@@ -87,6 +88,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
         {
@@ -106,6 +108,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpPut]
         [Route("{subscriptionId:Guid}")]
         public async Task<ActionResult<ResultModel>> Update(Guid subscriptionId, [FromBody] UpdateSubscriptionRequest request)
@@ -126,6 +129,7 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
             });
         }
+
         [HttpDelete]
         [Route("{subscriptionId:Guid}")]
         public async Task<ActionResult<ResultModel>> Remove(Guid subscriptionId)
