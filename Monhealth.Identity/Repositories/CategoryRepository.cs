@@ -22,10 +22,16 @@ namespace Monhealth.Identity.Repositories
             return await _context.Categories.ToListAsync();
         }
 
-        public async Task<List<Category>> GetCategoriesByType(string type)
+        public async Task<List<Category>> GetCategoriesByExerciseType()
+        {
+            return await _context.Categories.Where(c => c.CategoryType == "Exercise")
+            .ToListAsync();
+        }
+
+        public async Task<List<Category>> GetCategoriesByType()
         {
             return await _context.Categories.
-            Where(c => c.CategoryType == type).ToListAsync();
+            Where(c => c.CategoryType == "Food").ToListAsync();
         }
 
         public async Task<Category> GetCategoryByCategoryName(string Name)

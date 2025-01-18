@@ -18,6 +18,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Các món ăn từ tôm, cá, cua, mực, hàu, sò và các loại hải sản khác. Thích hợp cho những ai yêu thích hương vị biển cả",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    
                     Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2"
                 },
             #endregion
@@ -44,6 +45,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryDescription = "Món ăn từ rau xanh, củ quả và nấm. Phù hợp cho những ai yêu thích thực phẩm tươi sạch, giàu dinh dưỡng",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    
                     Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84"
                 },
             #endregion
