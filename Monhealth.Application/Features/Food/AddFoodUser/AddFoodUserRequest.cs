@@ -10,10 +10,10 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
         public string FoodName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
         public string FoodDescription { get; set; } = string.Empty;
-        public bool IsPublic { get; set; }
         public PortionDTO1 Portion { get; set; }
         public NutritionDTO1 Nutrition { get; set; }
-        
+        public bool IsPublic { get; set; }
+
     }
     public class PortionDTO1
     {
