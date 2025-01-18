@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName, string foodType, bool? popular)
+        public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName, bool? popular, bool? isPublic)
         {
             search = search?.Trim();
             IQueryable<Food> query = _context.Foods.Include(f => f.Category).
@@ -29,10 +29,11 @@ namespace Monhealth.Identity.Repositories
             }
             if (!string.IsNullOrEmpty(categoryName))
                 query = query.Where(f => f.Category.CategoryName == categoryName);
-            //filter FoodType
-            if (!string.IsNullOrEmpty(foodType))
-                query = query.Where(f => f.FoodType == foodType);
-            // filter status
+
+            if (isPublic.HasValue)
+            {
+                query = query.Where(s => s.IsPublic == isPublic.Value);
+            }
             if (status.HasValue)
             {
                 query = query.Where(s => s.Status == status.Value);
@@ -128,13 +129,13 @@ namespace Monhealth.Identity.Repositories
         }
 
 
-        public async Task<List<Food>> GetFoodListByFoodType(string foodType)
-        {
-            return await _context.Foods.Where(f => f.FoodType == foodType)
-            .Include(f => f.Category).Include(f => f.Nutrition).
-            Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
+        // public async Task<List<Food>> GetFoodListByFoodType(string foodType)
+        // {
+        //     return await _context.Foods.Where(f => f.FoodType == foodType)
+        //     .Include(f => f.Category).Include(f => f.Nutrition).
+        //     Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
 
-        }
+        // }
 
         public async Task<List<Food>> GetFoodsByCategoryNameAsync(string[] categoryNames)
         {

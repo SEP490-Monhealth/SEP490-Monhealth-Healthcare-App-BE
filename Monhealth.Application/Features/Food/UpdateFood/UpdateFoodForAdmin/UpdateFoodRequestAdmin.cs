@@ -10,5 +10,6 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
         public string FoodName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
         public string FoodDescription { get; set; } = string.Empty;
+        public bool IsPublic { get; set; }
     }
 }

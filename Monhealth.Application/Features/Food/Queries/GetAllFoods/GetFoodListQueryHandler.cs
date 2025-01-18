@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
 
         public async Task<PageResult<FoodDTO>> Handle(GetFoodListQuery request, CancellationToken cancellationToken)
         {
-            var paginatedFood = await _foodRepository.GetAllFoodAsync(request.Page, request.Limit, request.Search, request.Status, request.CategoryName, request.FoodType , request.Popular);
+            var paginatedFood = await _foodRepository.GetAllFoodAsync(request.Page, request.Limit, request.Search, request.Status, request.CategoryName , request.Popular, request.IsPublic);
             var foodDtoList = _mapper.Map<List<FoodDTO>>(paginatedFood.Items);
             return new PageResult<FoodDTO>()
             {
