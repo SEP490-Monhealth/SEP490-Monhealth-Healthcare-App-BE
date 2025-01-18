@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class Goal : BaseEntity
+    public class Goal : TimeEntity
     {
         [Key]
         public Guid GoalId { get; set; }

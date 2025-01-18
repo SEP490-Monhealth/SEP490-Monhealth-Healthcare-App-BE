@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Core
 {
-    public class Notification
+    public class Notification : TimeEntity
     {
         [Key]
         public Guid NotificationId { get; set; }

@@ -1,10 +1,11 @@
-﻿using Monhealth.Identity.Models;
+﻿using Monhealth.Domain.Common;
+using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class UserFood
+    public class UserFood : TimeEntity
     {
         [Key]
 

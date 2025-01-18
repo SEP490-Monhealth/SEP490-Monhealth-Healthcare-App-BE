@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Domain
 {
-    public class FoodPortion
+    public class FoodPortion : TimeEntity
     {
         [Key]
         public Guid FoodPortionId { get; set; }

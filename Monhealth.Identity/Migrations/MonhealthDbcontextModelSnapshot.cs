@@ -176,6 +176,12 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("AllergyId");
 
                     b.ToTable("Allergies");
@@ -252,8 +258,14 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid>("AllergyId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("FoodAllergyId");
 
@@ -270,6 +282,9 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsSent")
                         .HasColumnType("bit");
 
@@ -278,6 +293,9 @@ namespace Monhealth.Identity.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("NotifyTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("NotificationId");
@@ -293,6 +311,12 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("AllergyId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -315,9 +339,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool>("IsDrunk")
                         .HasColumnType("bit");
 
@@ -333,9 +354,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -427,18 +445,12 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CategoryId");
 
@@ -660,9 +672,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime?>("ExpiryDate")
                         .HasColumnType("datetime2");
 
@@ -674,9 +683,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -696,6 +702,12 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("CertificateId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Url")
                         .IsRequired()
@@ -717,9 +729,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("GoalId")
                         .HasColumnType("uniqueidentifier");
 
@@ -731,9 +740,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -755,9 +761,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("GoalId")
                         .HasColumnType("uniqueidentifier");
@@ -786,9 +789,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -808,9 +808,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("GoalId")
                         .HasColumnType("uniqueidentifier");
 
@@ -819,9 +816,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -844,9 +838,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<float>("TotalCaloriesBurned")
                         .HasColumnType("real");
 
@@ -855,9 +846,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -3312,11 +3300,17 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("PortionId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("FoodPortionId");
 
@@ -3584,9 +3578,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<float>("ExerciseCaloriesGoal")
                         .HasColumnType("real");
 
@@ -3620,9 +3611,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -3651,9 +3639,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("DailyMealId")
                         .HasColumnType("uniqueidentifier");
 
@@ -3663,9 +3648,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -3686,9 +3668,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
 
@@ -3706,9 +3685,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("MealFoodId");
 
@@ -3737,9 +3713,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -3757,9 +3730,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -6848,9 +6818,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("MeasurementUnit")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -6864,9 +6831,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("PortionId");
 
@@ -7288,9 +7252,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateOnly?>("Date")
                         .HasColumnType("date");
 
@@ -7303,9 +7264,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ScheduleId");
 
@@ -7326,9 +7284,6 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
@@ -7342,9 +7297,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ServiceId");
 
@@ -7397,6 +7349,12 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -7447,17 +7405,11 @@ namespace Monhealth.Identity.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("DailyWorkoutId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -7481,11 +7433,17 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("ExerciseId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("WorkoutId")
                         .HasColumnType("uniqueidentifier");
@@ -7667,7 +7625,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a1cf2dc3-a6ec-42fc-8a09-e30ac5ecc82f",
+                            ConcurrencyStamp = "c5c70262-0a15-4f38-975b-369f1399888f",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -7675,10 +7633,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAN1gNEhzqHEw44M9Skr1kPnuWMQmxX6g2CHUl1RTVtsri5InYYTnALMCZPL6ykbxA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMDcXydR4I1LqWUt+rzQXB8Zz0T9nWV/mXVlIhZ2vGqo3RscXq9rWQlQuPOk/QMqVg==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "68f42387-dd29-4307-ba5c-66c5151d74d9",
+                            SecurityStamp = "b15781a8-4189-42c8-bae5-0cac4a127837",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7688,7 +7646,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6acdd3f7-f271-47be-a49f-b9457d8e8d77",
+                            ConcurrencyStamp = "85719f1a-d1e8-4bf9-b83c-32620ebb3eff",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -7696,10 +7654,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO6TiPrIPMeK0tNtVPWcZ8FuPs8Xkf5JGyi0jMMjVs9tJe/3ybh22Y2vURGXEkwhNA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGGC/uB+2sgKYVyWlWHRsoO2MDqm5mRI5vk9+h9d91VeE5nuqgnmu+Vk+LX/hG80Eg==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "80681630-6431-42a7-ae31-c198f30938c4",
+                            SecurityStamp = "9d0eaa15-55c9-4cf1-bd20-a820efbcda14",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7709,7 +7667,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d9711eec-bdd2-4259-a2de-678b4fcdefaf",
+                            ConcurrencyStamp = "bfee5c17-e929-4c57-8532-676bea16cce5",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -7717,10 +7675,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIM5c5WInzY3YUf5NSssoi4aVtpiZnx/tD7QaQ3Rzr6jFvxw6942RWMqqwkwhorMmg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENeJ/M3zvw46nJQDAk90aZx2alv4oI+kDT9aCsPKHR9UPydDu8jHQ26LViHY898Fig==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "edd50f4a-2cf3-47d5-ba0f-a87acd7c42ee",
+                            SecurityStamp = "77240220-bbfe-4e8d-a073-e8549b039493",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7730,7 +7688,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3efa9e1d-b451-4cb2-ac57-e36fbbc6386f",
+                            ConcurrencyStamp = "b881043e-0765-449d-9870-3b4d56b48bfe",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -7738,10 +7696,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIZqr+YjnoyLL9BxlMAU0u67WG+nvz6NtheghKio//2SZwfD7EM4kWVLZOpOtYn0gQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE7tvP+QdftN7bGh5Q6f+vvfwlNX5PvKT/PNN0PzSEze3lJcy77OPbFAjQ4g+ZM6dg==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2096e040-f136-4e4e-a38f-0b1fcf13a197",
+                            SecurityStamp = "c6c960c8-2095-4442-96ce-82582a08902d",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7751,7 +7709,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "865fadda-8994-4bfe-af8a-a05af89fc08a",
+                            ConcurrencyStamp = "16711254-3804-4109-bf53-11558e6c33db",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -7759,10 +7717,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFm988LtRomUzrFwOvG4VQP0LEK3eTbaKcvBZl0oqNyWZgYQU7e5kzW4zAImC1d+LA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBiUN4m2MJGc0flrLsdHgNelLaLIL9AJst5F6z7N42fgkVVsFDpEF2CR3/aqg744Dg==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "931ae7bd-0e57-43f6-a649-1172056c4cae",
+                            SecurityStamp = "104f4a22-9f17-4ed4-88c0-4b9987e20c91",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7772,7 +7730,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d1ef1a7f-210d-4553-9164-782f9c77347c",
+                            ConcurrencyStamp = "4bdc4fa0-ea0b-4319-9286-191056e1ec8a",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -7780,10 +7738,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFi2F9yNMy+H0ufWr8TsyuygnAqoWpATMP1Yp1aso5yMSGjxasUU+whoshfr6VU7/Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECrpSLD7S8020pH/fkGSk0VCDQNyB+hDAAEIWCITFHkr8pvbgLM7hlMyQ9kNTpmWeg==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "18fc9d55-a887-456a-ba1d-bf8f7b705d89",
+                            SecurityStamp = "1adcb9df-e8de-4be4-a239-3fcaa8587831",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7793,7 +7751,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2bda3106-9339-478a-8a95-b1ffff9ba819",
+                            ConcurrencyStamp = "a7f0b9fd-d4af-476d-91a1-620ede352f6b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -7801,10 +7759,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOcM/Mu++3m76fJzIUku6ge8YWfE9fVFBl6r+xqlzyu1DBfR6elXx5pySIbMshEA6A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIY3rMZxCUtu8gfLUuEmrB9MeRangh1Xnf19F5vJH2lreZmjDB84Uq2/BUeFYFKDPQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e4a9f905-8227-41fd-8ea8-6038be8dc967",
+                            SecurityStamp = "8471ee76-93cc-4272-8d0d-a9e93b3d0897",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),

@@ -9,7 +9,7 @@ using Monhealth.Identity.Models;
 
 namespace Monhealth.Domain
 {
-    public class DailyActivity : BaseEntity
+    public class DailyActivity : TimeEntity
     {
         public Guid DailyActivityId { get; set; }
         public Guid GoalId { get; set; }

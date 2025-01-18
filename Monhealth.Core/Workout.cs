@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
 
 namespace Monhealth.Domain
 {
-    public class Workout : BaseEntity
+    public class Workout : TimeEntity
     {
         [Key]
         public Guid WorkoutId { get; set; }

@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Domain
 {
-    public class CertificateImage
+    public class CertificateImage : TimeEntity
     {
         [Key]
         public Guid ImageId { get; set; } // PK

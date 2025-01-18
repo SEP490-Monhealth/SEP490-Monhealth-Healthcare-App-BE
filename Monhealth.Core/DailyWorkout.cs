@@ -10,7 +10,7 @@ using Monhealth.Identity.Models;
 
 namespace Monhealth.Domain
 {
-    public class DailyWorkout : BaseEntity
+    public class DailyWorkout : TimeEntity
     {
         [Key]
         public Guid DailyWorkoutId { get; set; }
