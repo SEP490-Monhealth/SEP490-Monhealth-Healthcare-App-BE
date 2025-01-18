@@ -127,7 +127,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("user/{userId:guid}/water")]
+        [HttpGet("user/{userId:guid}/water-intake")]
         public async Task<ActionResult<ResultModel>> GetWaterByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetWaterByGoalIdQuery() { UserId = userId });
