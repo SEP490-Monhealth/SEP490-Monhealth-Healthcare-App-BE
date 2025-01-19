@@ -37,7 +37,7 @@ namespace Monhealth.Identity.Repositories
                 // Tạo Reminder mới
                 reminders.Add(new WaterReminder
                 {
-                    WaterReminderId = Guid.NewGuid(), 
+                    WaterReminderId = Guid.NewGuid(),
                     UserId = userId,
                     WaterReminderName = $"Nhắc nhở {index}",
                     Time = slot.Time.ToString(@"hh\:mm"), // Thời gian nhắc nhở
@@ -87,6 +87,12 @@ namespace Monhealth.Identity.Repositories
                 .Where(r => r.UserId == userId)
                 .OrderBy(t => t.Time)
                 .ToListAsync();
+        }
+
+        public async Task<List<WaterReminder>> GetWaterRemindersByUser(Guid userId)
+        {
+            return await _context.WaterReminders.
+            Where(water => water.UserId == userId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

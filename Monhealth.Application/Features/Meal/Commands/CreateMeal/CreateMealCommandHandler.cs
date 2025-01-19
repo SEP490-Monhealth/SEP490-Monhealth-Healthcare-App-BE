@@ -140,7 +140,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             var goal = await _goalRepository.GetByUserIdAsync(userId);
             if (goal == null)
             {
-                throw new Exception($"Không tìm thấy Goal nào liên kết với UserId: {userId}");
+                throw new Exception($"Kong tìm thấy Goal nào liên kết với UserId: {userId}");
             }
             if (dailyMeal == null)
             {
