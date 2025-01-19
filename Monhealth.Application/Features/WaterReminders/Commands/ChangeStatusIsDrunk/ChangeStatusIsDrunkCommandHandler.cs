@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 namespace Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsDrunk
@@ -19,38 +20,72 @@ namespace Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsD
 
         public async Task<bool> Handle(ChangeStatusIsDrunkCommand request, CancellationToken cancellationToken)
         {
+            
             var waterRemind = await _waterReminderRepository.GetByIdAsync(request.WaterReminderId);
-            if (waterRemind.Status == true)
-            {
-                waterRemind.IsDrunk = !waterRemind.IsDrunk;
-                _waterReminderRepository.Update(waterRemind);
-                await _waterReminderRepository.SaveChangeAsync();
-            }
-            else
-            {
-                throw new BadRequestException("Status phải là true mới được đổi nha bé <3.");
-            }
-            if (waterRemind.UserId.HasValue)
-            {
-                var goal = await _goalRepository.GetByUserIdAsync(waterRemind.UserId.Value);
-                var water = await _waterReminderRepository.GetReminderByUser(waterRemind.UserId.Value);
+            if (waterRemind == null)
+                throw new NotFoundException("Water reminder không tồn tại.");
 
-                if (water != null && waterRemind.IsDrunk == true)
+            
+            if (waterRemind.Status != true)
+                throw new BadRequestException("Status phải là true mới được đổi nha bé <3.");
+
+            
+            bool wasDrunk = waterRemind.IsDrunk;
+            waterRemind.IsDrunk = !wasDrunk;
+
+            
+            _waterReminderRepository.Update(waterRemind);
+            await _waterReminderRepository.SaveChangeAsync();
+
+            // Kiểm tra UserId có tồn tại
+            if (!waterRemind.UserId.HasValue)
+                throw new BadRequestException("UserId không được phép null.");
+
+            var userId = waterRemind.UserId.Value;
+
+            // Lấy Goal của User
+            var goal = await _goalRepository.GetByUserIdAsync(userId);
+            if (goal == null)
+                throw new NotFoundException("Goal không tồn tại.");
+
+            // Lấy hoặc tạo bản ghi DailyWaterIntake
+            var today = DateTime.Now.Date;
+            var existingWater = await _dailyWaterIntakesRepository.GetDailyWaterIntakeByUserAndDate(today, userId);
+
+            if (existingWater == null)
+            {
+                existingWater = new Monhealth.Domain.DailyWaterIntake
                 {
-                    var totalVolume = water.Where(x => x.IsDrunk == true).Sum(x => x.Volume);
-                    var model1 = new Monhealth.Domain.DailyWaterIntake
-                    {
-                        GoalId = goal.GoalId,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now,
-                        TotalVolume = totalVolume,
-                        UserId = waterRemind.UserId.Value
-                    };
-                    _dailyWaterIntakesRepository.Add(model1);
-                    await _dailyWaterIntakesRepository.SaveChangeAsync();
-                }
+                    GoalId = goal.GoalId,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    TotalVolume = 0,
+                    UserId = userId
+                };
+                _dailyWaterIntakesRepository.Add(existingWater);
+                await _dailyWaterIntakesRepository.SaveChangeAsync();
             }
+
+            // Cập nhật TotalVolume trong DailyWaterIntake
+            if (waterRemind.IsDrunk)
+            {
+                existingWater.TotalVolume += waterRemind.Volume;
+            }
+            else if (wasDrunk)
+            {
+                existingWater.TotalVolume -= waterRemind.Volume;
+            }
+
+            existingWater.UpdatedAt = DateTime.Now;
+
+            // Cập nhật bản ghi DailyWaterIntake
+            _dailyWaterIntakesRepository.Update(existingWater);
+            await _dailyWaterIntakesRepository.SaveChangeAsync();
+
             return true;
         }
+
+
+
     }
 }
