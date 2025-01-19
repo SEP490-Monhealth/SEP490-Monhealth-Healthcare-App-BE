@@ -18,6 +18,11 @@ namespace Monhealth.Identity.Repositories
             && dl.UserId == userId);
         }
 
+        public async Task<List<DailyWaterIntake>> GetDaiLyWaterIntakesByUSer(Guid userId)
+        {
+            return await _context.DailyWaterIntakes.Where(dl => dl.UserId  == userId).ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

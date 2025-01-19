@@ -1,5 +1,4 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 namespace Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsDrunk
@@ -30,7 +29,7 @@ namespace Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsD
                 throw new BadRequestException("Status phải là true mới được đổi nha bé <3.");
 
             
-            bool wasDrunk = waterRemind.IsDrunk;
+            bool wasDrunk = waterRemind.IsDrunk ;
             waterRemind.IsDrunk = !wasDrunk;
 
             
@@ -67,11 +66,11 @@ namespace Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsD
             }
 
             // Cập nhật TotalVolume trong DailyWaterIntake
-            if (waterRemind.IsDrunk)
+            if (waterRemind.IsDrunk == true)
             {
                 existingWater.TotalVolume += waterRemind.Volume;
             }
-            else if (wasDrunk)
+            else if (waterRemind.IsDrunk == false)
             {
                 existingWater.TotalVolume -= waterRemind.Volume;
             }
