@@ -11,6 +11,7 @@ namespace Monhealth.Api.Controllers
     public class DaiLyWaterIntakeController : ControllerBase
     {
         private readonly IMediator _mediator;
+
         public DaiLyWaterIntakeController(IMediator mediator)
         {
             _mediator = mediator;
@@ -18,27 +19,28 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user")]
-        public async Task<ActionResult<ResultModel>> GetDailyWaterIntakeByUser([FromQuery][Required] Guid userId,
-         [FromQuery][Required] DateTime date)
+        public async Task<ActionResult<ResultModel>> GetDailyWaterIntakeByUser(
+            [FromQuery][Required] Guid userId,
+            [FromQuery][Required] DateTime date)
         {
-            var queries = await _mediator.
-            Send(new GetDailyWaterByUserQuery(userId, date));
+            var query = await _mediator.Send(new GetDailyWaterByUserQuery(userId, date));
 
-            if (queries == null)
+            if (query == null)
             {
                 return Ok(new ResultModel
                 {
                     Success = false,
-                    Message = "DailyWater không tồn tại",
+                    Message = "Nước uống hằng ngày không tồn tại",
                     Status = 200,
-                    Data = queries
+                    Data = null
                 });
             }
+
             return Ok(new ResultModel
             {
                 Success = true,
                 Status = 200,
-                Data = queries
+                Data = query
             });
         }
     }

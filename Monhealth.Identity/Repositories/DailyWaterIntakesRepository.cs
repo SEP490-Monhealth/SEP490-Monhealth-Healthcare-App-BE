@@ -13,14 +13,16 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<DailyWaterIntake> GetDailyWaterIntakeByUserAndDate(DateTime createAt, Guid userId)
         {
-            return await _context.DailyWaterIntakes.FirstOrDefaultAsync
-            (dl => dl.CreatedAt.Value.Date== createAt
-            && dl.UserId == userId);
+            return await _context.DailyWaterIntakes
+                .Where(dl => dl.UserId == userId && dl.CreatedAt.Value.Date == createAt.Date)
+                .FirstOrDefaultAsync();
         }
 
-        public async Task<List<DailyWaterIntake>> GetDaiLyWaterIntakesByUSer(Guid userId)
+        public async Task<DailyWaterIntake> GetDailyWaterIntakesByUser(Guid userId, DateTime date)
         {
-            return await _context.DailyWaterIntakes.Where(dl => dl.UserId  == userId).ToListAsync();
+            return await _context.DailyWaterIntakes
+                .Where(dl => dl.UserId == userId && dl.CreatedAt.Value.Date == date.Date)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<int> SaveChangeAsync()
