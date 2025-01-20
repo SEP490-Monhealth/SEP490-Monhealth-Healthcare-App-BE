@@ -1,5 +1,6 @@
 using AutoMapper;
 using Monhealth.Application.Features.Schedule.Queries.GetAll;
+using Monhealth.Application.Features.Subscription.Queries.GetById;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Automapper
@@ -9,6 +10,7 @@ namespace Monhealth.Application.Automapper
         public ScheduleProfile()
         {
             CreateMap<ScheduleDTO, Schedule>().ReverseMap();
+            CreateMap<ScheduleDetailDTO, Schedule>().ReverseMap();
         }
 
 

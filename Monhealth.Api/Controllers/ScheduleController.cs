@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Schedule.Commands.Create;
 using Monhealth.Application.Features.Schedule.Commands.Update;
 using Monhealth.Application.Features.Schedule.Queries.GetAll;
+using Monhealth.Application.Features.Subscription.Queries.GetById;
 using Monhealth.Application.Models;
 namespace Monhealth.Api.Controllers
 {
@@ -69,6 +70,30 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
+        }
+        [HttpGet]
+        [Route("{scheduleId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetNutritionDetail(Guid scheduleId)
+        {
+            var queries = await _mediator.
+            Send(new GetDetailScheduleQuery { ScheduleId = scheduleId });
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Lịch không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
         }
 
 
