@@ -61,6 +61,12 @@ namespace Monhealth.Identity.Repositories
             return exercise;
         }
 
+        public async Task<bool> GetExerciseByNameAsync(string exerciseName)
+        {
+            var checkExercise = await _context.Exercises.FirstOrDefaultAsync(n => n.ExerciseName.ToLower().Trim().Equals(exerciseName.ToLower().Trim()));
+            return checkExercise != null;
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

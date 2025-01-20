@@ -7,6 +7,7 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<PaginatedResult<Exercise>> GetAllExerciseAsync(int page, int limit, string? search, bool? popular, string? type);
         Task<Exercise> GetExerciseByIdAsync(Guid exerciseId);
+        Task<bool> GetExerciseByNameAsync(string exerciseName);
         Task<int> SaveChangeAsync();
     }
 }

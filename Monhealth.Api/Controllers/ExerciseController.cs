@@ -1,8 +1,10 @@
 ﻿using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Exercise.Commands.CreateExercise;
 using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
+using Monhealth.Application.Features.Goals.Commands.CreateCommand;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -48,6 +50,27 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = exercise
             });
+        }
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> CreateExercise(CreateExerciseDTO createExerciseDTO)
+        {
+            var command = new CreateExerciseCommand(createExerciseDTO);
+            var createExercise = await _mediator.Send(command);
+            if (createExercise == Unit.Value)
+            {
+                return new ResultModel
+                {
+                    Message = "Tạo bài tập thành công",
+                    Status = 201,
+                    Success = true
+                };
+            }
+            return new ResultModel
+            {
+                Message = "Tạo bài tập thất bại",
+                Status = (int)HttpStatusCode.BadRequest,
+                Success = false
+            };
         }
     }
 }
