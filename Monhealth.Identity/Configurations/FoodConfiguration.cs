@@ -17,10 +17,10 @@ namespace Monhealth.Identity.Configurations
                     UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
                     FoodName = "Cơm",
                     FoodDescription = "Gạo nấu chín, món ăn cơ bản trong bữa cơm hàng ngày của người Việt Nam",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -32,10 +32,10 @@ namespace Monhealth.Identity.Configurations
                     UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
                     FoodName = "Bánh mì",
                     FoodDescription = "Bánh vỏ giòn, ruột mềm, dùng kèm nhiều loại nhân như thịt, trứng, rau",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -47,10 +47,10 @@ namespace Monhealth.Identity.Configurations
                     UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
                     FoodName = "Chuối",
                     FoodDescription = "Trái cây ngọt, giàu năng lượng và chất dinh dưỡng, dễ dàng mang theo",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
 
                 },
             #endregion
@@ -63,10 +63,10 @@ namespace Monhealth.Identity.Configurations
                     UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
                     FoodName = "Trứng gà luộc",
                     FoodDescription = "Món ăn giàu protein, dễ chế biến, thường dùng trong bữa sáng hoặc ăn vặt",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
 
                 },
             #endregion
@@ -80,10 +80,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Sữa tươi không đường",
                     FoodDescription = "Thức uống giàu dinh dưỡng, bổ sung canxi, tốt cho sức khỏe xương và răng",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
 
                 },
             #endregion
@@ -97,10 +97,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Bún bò huế",
                     FoodDescription = "Món bún nước đậm đà từ Huế, nổi bật với hương sả, ớt, thịt bò",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -112,10 +112,10 @@ namespace Monhealth.Identity.Configurations
                     UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
                     FoodName = "Táo",
                     FoodDescription = "Trái cây giòn, ngọt, nhiều chất xơ và vitamin, tốt cho hệ tiêu hóa",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -128,10 +128,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Bún",
                     FoodDescription = "Sợi bún mềm, thường dùng trong các món nước hoặc xào",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -144,10 +144,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Dưa chuột",
                     FoodDescription = "Rau quả mát, nhiều nước, thường ăn sống hoặc làm gỏi",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -160,10 +160,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Chuối tây",
                     FoodDescription = "Chuối nhỏ, vị ngọt nhẹ, thường dùng làm món ăn nhẹ hoặc nấu chè",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -176,10 +176,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Chuối tiêu",
                     FoodDescription = "Loại chuối phổ biến, vỏ vàng, thơm, ngọt, dùng làm món tráng miệng",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -192,10 +192,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Ổi",
                     FoodDescription = "Trái cây nhiều vitamin C, giòn, ngọt hoặc chua nhẹ, ăn cả vỏ",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -208,10 +208,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Cơm tấm sườn",
                     FoodDescription = "Món cơm từ gạo tấm, ăn kèm sườn nướng, đồ chua, và nước mắm",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -224,10 +224,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Thanh long",
                     FoodDescription = "Trái cây mọng nước, thịt trắng hoặc đỏ, vị ngọt thanh mát",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -240,10 +240,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Bún riêu cua",
                     FoodDescription = "Món bún với nước lèo cua đồng, ăn kèm rau sống và mắm tôm",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -256,10 +256,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Bánh bao",
                     FoodDescription = "Bánh hấp có nhân thịt, trứng, hoặc rau củ, mềm và thơm",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -272,10 +272,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Bún thịt nướng",
                     FoodDescription = "Bún tươi kết hợp thịt nướng, rau sống, và nước mắm chua ngọt",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -288,10 +288,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Cà chua",
                     FoodDescription = "Loại quả đỏ mọng, thường dùng làm nước sốt, canh, hoặc ăn sống",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -304,10 +304,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Xôi mặn",
                     FoodDescription = "Món xôi từ gạo nếp, ăn kèm thịt, trứng, chả, và hành phi",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 
@@ -320,10 +320,10 @@ namespace Monhealth.Identity.Configurations
 
                     FoodName = "Mật ong",
                     FoodDescription = "Chất ngọt tự nhiên từ ong, có lợi cho sức khỏe và làm đẹp",
+                    IsPublic = true,
+                    Status = true,
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    IsPublic = true,
-                    Status = true
                 },
             #endregion
 

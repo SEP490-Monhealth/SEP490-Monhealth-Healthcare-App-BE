@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Allergy.Queries.GetAll
 {
-    public class AllergyDTO
+    public class AllergyDTO : TimeEntity
     {
         public Guid AllergyId { get; set; }
         [JsonPropertyName("name")]

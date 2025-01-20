@@ -3,7 +3,7 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
 {
-    public class GetDailyMealByUserDTO : BaseEntity
+    public class GetDailyMealByUserDTO : TimeEntity
     {
         public Guid DailyMealId { get; set; }
         // public GoalDailyMealDTO2 Goal { get; set; }

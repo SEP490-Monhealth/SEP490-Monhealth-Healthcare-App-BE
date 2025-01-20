@@ -20,8 +20,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5f,
                     Instructions = "1. Đứng thẳng 2. Đặt một chân lên đầu gối chân còn lại 3. Vươn hai tay lên cao và giữ tư thế trong vài giây",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -36,8 +36,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 4.0f,
                     Instructions = "1. Ngồi thẳng 2. Đưa tay phải qua vai trái 3. Kéo nhẹ tay bằng tay còn lại, giữ trong 10 giây và đổi bên",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -52,8 +52,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 8.0f,
                     Instructions = "1. Đứng thẳng 2. Nhảy chụm hai chân lại, tay đưa lên cao 3. Lặp lại động tác trong 10 phút",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -68,8 +68,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 2.0f,
                     Instructions = "1. Ngồi thoải mái 2. Đặt tay lên bụng 3. Hít sâu bằng mũi và thở ra bằng miệng, cảm nhận sự phồng lên của bụng",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -84,8 +84,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 10.0f,
                     Instructions = "1. Đứng thẳng 2. Nâng cao đùi một chân đến ngang hông, sau đó đổi chân 3. Lặp lại động tác với tốc độ tăng dần",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -100,8 +100,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.83f,
                     Instructions = "1. Đứng thẳng, hai chân mở rộng 2. Gập người sang bên, tay chạm vào gót chân 3. Giữ tư thế và lặp lại ở bên còn lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -116,8 +116,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 10.0f,
                     Instructions = "1. Nằm ngửa, đầu gối co lại 2. Đặt hai tay sau đầu, nâng người lên 3. Hạ xuống từ từ và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -132,8 +132,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 4.67f,
                     Instructions = "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng đùi nhẹ nhàng 3. Giữ tốc độ đều đặn",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -148,8 +148,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 3.75f,
                     Instructions = "1. Đứng thẳng 2. Gập người nhẹ về phía trước 3. Dùng tay chạm sàn, giữ vài giây rồi trở lại tư thế ban đầu",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -164,8 +164,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 10.0f,
                     Instructions = "1. Chống hai khuỷu tay xuống sàn 2. Giữ lưng thẳng và cơ bụng siết chặt 3. Giữ tư thế trong vòng 30 giây đến 1 phút",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -180,8 +180,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Đứng thẳng 2. Đưa hai tay lên cao 3. Cúi gập người và thực hiện các tư thế yoga liên tiếp",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -196,8 +196,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 4.0f,
                     Instructions = "1. Nằm ngửa 2. Duỗi thẳng hai tay qua đầu 3. Từ từ cuộn người lên",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -212,8 +212,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 3.75f,
                     Instructions = "1. Ngồi trên sàn 2. Duỗi một chân thẳng 3. Vươn tay về phía ngón chân của chân duỗi",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -228,8 +228,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 6.0f,
                     Instructions = "1. Đứng thẳng 2. Bắt đầu chạy bộ nhẹ nhàng 3. Duy trì tốc độ đều trong 20 phút",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -244,8 +244,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Đứng thẳng 2. Nâng một chân lên và giữ thăng bằng 3. Đổi bên sau 10 giây",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -260,8 +260,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 2.0f,
                     Instructions = "1. Ngồi thoải mái 2. Nhắm mắt và tập trung vào nhịp thở 3. Thở đều trong 10 phút",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -276,8 +276,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Bắt đầu ở tư thế bò 2. Nâng hông cao để tạo thành chữ V ngược 3. Giữ tư thế trong vài giây",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -292,8 +292,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 10.0f,
                     Instructions = "1. Đứng thẳng 2. Nhảy cao và đưa tay lên trời 3. Tiếp đất nhẹ nhàng",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -308,8 +308,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Đứng thẳng 2. Gập đầu gối nhẹ nhàng xuống 3. Trở về tư thế ban đầu và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -324,8 +324,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.83f,
                     Instructions = "1. Đứng thẳng 2. Cúi gập người, tay chạm sàn 3. Giữ tư thế vài giây và trở lại vị trí ban đầu",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -340,8 +340,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Đứng thẳng, chân chụm lại 2. Nâng gót chân lên cao 3. Giữ vài giây và hạ xuống",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -356,8 +356,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Đứng thẳng 2. Đưa một chân ra phía trước, gập nhẹ gối 3. Giữ tư thế và đổi bên",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -372,8 +372,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 8.33f,
                     Instructions = "1. Ngồi xuống, hai chân mở rộng 2. Gập gối và đưa thân người xuống gần gối 3. Trở lại tư thế ban đầu",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -388,8 +388,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 4.0f,
                     Instructions = "1. Ngồi quỳ, gập người về phía trước 2. Duỗi hai tay ra trước mặt 3. Giữ trong 10 giây",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -404,8 +404,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 8.67f,
                     Instructions = "1. Đứng thẳng, chân chụm lại 2. Nhảy sang bên trái và phải liên tục 3. Duy trì tốc độ đều",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -420,8 +420,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 2.0f,
                     Instructions = "1. Ngồi thẳng lưng 2. Hít vào chậm rãi qua mũi 3. Thở ra từ từ qua miệng",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -436,8 +436,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 7.5f,
                     Instructions = "1. Ngồi trên sàn, chân co gối lên 2. Nâng thân người và chân lên tạo hình chữ V 3. Giữ vài giây rồi hạ xuống",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -452,8 +452,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Nằm ngửa 2. Co gối và gập thân người về phía trước 3. Hạ xuống và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -468,8 +468,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Đứng thẳng, hai tay chống hông 2. Vặn mình sang trái, giữ vài giây 3. Đổi bên và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -484,8 +484,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.83f,
                     Instructions = "1. Bắt đầu ở tư thế bò 2. Chống hai khuỷu tay và nâng hông lên 3. Giữ tư thế và hít thở đều",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -500,8 +500,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 10.0f,
                     Instructions = "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng gối cao ngang hông 3. Lặp lại liên tục",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -516,8 +516,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Nằm úp 2. Chống hai tay và đầu gối xuống sàn 3. Nâng người lên và hạ xuống từ từ",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -532,8 +532,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 4.0f,
                     Instructions = "1. Đứng thẳng 2. Đưa tay phải sang vai trái 3. Kéo nhẹ tay và giữ vài giây, sau đó đổi bên",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -548,8 +548,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 4.38f,
                     Instructions = "1. Đứng thẳng 2. Cúi gập đầu và thân người xuống 3. Thư giãn cổ và giữ trong vài giây",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -564,8 +564,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 10.0f,
                     Instructions = "1. Đứng thẳng 2. Nhảy bật hai chân lên cao, tay chạm gối 3. Lặp lại liên tục",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -580,8 +580,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 3.0f,
                     Instructions = "1. Ngồi thoải mái 2. Hít vào sâu trong 5 giây 3. Thở ra chậm trong 7 giây",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -596,8 +596,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 3.75f,
                     Instructions = "1. Ngồi thẳng lưng, chân duỗi ra 2. Đưa hai tay lên cao 3. Nghiêng người sang bên trái và đổi bên",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -612,8 +612,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 9.0f,
                     Instructions = "1. Nằm ngửa 2. Nâng thân trên lên về phía đầu gối 3. Hạ xuống từ từ và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -628,8 +628,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 6.67f,
                     Instructions = "1. Đứng thẳng, chân mở rộng 2. Đưa hai tay sang ngang, gập một gối 3. Giữ tư thế trong vài giây",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -644,8 +644,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Ngồi thẳng lưng, chân duỗi thẳng 2. Xoay thân người sang trái, tay chạm đầu gối 3. Đổi bên và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -660,8 +660,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Đứng thẳng 2. Đá chân phải ra sau, giữ thăng bằng 3. Đổi chân và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -676,8 +676,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 6.67f,
                     Instructions = "1. Nằm ngửa 2. Co chân, nâng hông lên cao 3. Hạ xuống từ từ và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -692,8 +692,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 10.0f,
                     Instructions = "1. Đứng thẳng 2. Nhảy chéo chân và tay 3. Lặp lại với tốc độ tăng dần",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -708,8 +708,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Đứng thẳng 2. Đưa một tay lên cao và kéo dài 3. Đổi tay và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -724,8 +724,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 6.0f,
                     Instructions = "1. Bắt đầu ở tư thế bò 2. Cong lưng và nâng đầu lên 3. Cúi đầu và gập lưng xuống",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -740,8 +740,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 3.75f,
                     Instructions = "1. Đứng thẳng 2. Xoay người nhẹ sang bên trái, tay chạm eo 3. Đổi bên và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -756,8 +756,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 10.67f,
                     Instructions = "1. Đứng thẳng 2. Nhảy nâng đùi xen kẽ, tay đưa lên cao 3. Lặp lại liên tục",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -772,8 +772,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Nằm ngửa 2. Kéo gối phải lên chạm ngực 3. Đổi bên và lặp lại",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -788,8 +788,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 5.0f,
                     Instructions = "1. Nằm thẳng, tay và chân thả lỏng 2. Hít thở đều và thư giãn trong vài phút",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 },
             #endregion
 
@@ -804,8 +804,8 @@ namespace Monhealth.Identity.Configurations
                     CaloriesBurned = 9.0f,
                     Instructions = "1. Ngồi xổm, đặt hai tay xuống sàn 2. Nâng hai chân lên khỏi sàn, giữ thăng bằng 3. Giữ tư thế trong vài giây",
                     Status = true,
-                    CreatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("27-12-2024", "dd-MM-yyyy", null),
+                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                 }
                 #endregion
                 );

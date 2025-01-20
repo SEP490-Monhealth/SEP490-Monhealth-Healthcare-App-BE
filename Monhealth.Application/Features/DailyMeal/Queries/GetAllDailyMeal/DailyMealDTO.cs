@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 using Monhealth.Domain.Common;
 namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
 {
-    public class DailyMealDTO : BaseEntity
+    public class DailyMealDTO : TimeEntity
     {
         public Guid DailyMealId { get; set; }
         public Guid UserId { get; set; }

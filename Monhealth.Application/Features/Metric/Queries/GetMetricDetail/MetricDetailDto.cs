@@ -2,7 +2,7 @@
 
 namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
 {
-    public class MetricDetailDTO : BaseEntity
+    public class MetricDetailDTO : TimeEntity
     {
         public Guid UserId { get; set; }
         public DateTime DateOfBirth { get; set; }

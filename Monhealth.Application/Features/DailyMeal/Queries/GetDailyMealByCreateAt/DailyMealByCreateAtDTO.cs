@@ -1,8 +1,9 @@
 using System.Text.Json.Serialization;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealByCreateAt
 {
-    public class DailyMealByCreateAtDTO
+    public class DailyMealByCreateAtDTO : TimeEntity
     {
         public Guid DailyMealId { get; set; }
         public Guid UserId { get; set; }
@@ -32,8 +33,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealByCreateA
         public float Protein { get; set; }
         public float Carbs { get; set; }
         public float Fat { get; set; }
-        public float Fiber {get;set;}
-        public float Sugar {get ; set;}
+        public float Fiber { get; set; }
+        public float Sugar { get; set; }
 
     }
 }

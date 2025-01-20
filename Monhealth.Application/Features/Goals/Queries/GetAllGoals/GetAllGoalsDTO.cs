@@ -1,8 +1,9 @@
 ﻿using System.Text.Json.Serialization;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Goals.Queries.GetAllGoalQuery
 {
-    public class GetAllGoalsDTO
+    public class GetAllGoalsDTO : TimeEntity
     {
         public Guid GoalId { get; set; }
         public Guid UserId { get; set; }
@@ -18,9 +19,5 @@ namespace Monhealth.Application.Features.Goals.Queries.GetAllGoalQuery
         public int WaterGoal { get; set; }
         public float ExerciseGoal { get; set; }
         public string Status { get; set; }
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-        public Guid? CreatedBy { get; set; }
-        public Guid? UpdatedBy { get; set; }
     }
 }

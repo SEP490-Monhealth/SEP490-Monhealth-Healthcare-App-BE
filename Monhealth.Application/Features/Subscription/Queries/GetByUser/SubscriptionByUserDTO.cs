@@ -1,6 +1,8 @@
+using Monhealth.Domain.Common;
+
 namespace Monhealth.Application.Features.Subscription.Queries.GetByUser
 {
-    public class SubscriptionByUserDTO
+    public class SubscriptionByUserDTO : BaseEntity
     {
         public Guid SubscriptionId { get; set; }
         public string SubscriptionName { get; set; } = string.Empty;

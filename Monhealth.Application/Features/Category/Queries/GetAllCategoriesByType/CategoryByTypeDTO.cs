@@ -1,7 +1,8 @@
 using System.Text.Json.Serialization;
+using Monhealth.Domain.Common;
 namespace Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType
 {
-    public class CategoryByTypeDTO
+    public class CategoryByTypeDTO : TimeEntity
     {
         public Guid CategoryId { get; set; }
         [JsonPropertyName("name")]

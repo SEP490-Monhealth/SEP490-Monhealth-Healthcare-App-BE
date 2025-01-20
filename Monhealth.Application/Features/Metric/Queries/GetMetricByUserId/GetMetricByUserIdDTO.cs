@@ -1,13 +1,8 @@
 ﻿using Monhealth.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Application.Features.Metric.Queries.GetMetricByUserId
 {
-    public class GetMetricByUserIdDTO : BaseEntity
+    public class GetMetricByUserIdDTO : TimeEntity
     {
         public Guid MetricId { get; set; }
         public DateTime DateOfBirth { get; set; }

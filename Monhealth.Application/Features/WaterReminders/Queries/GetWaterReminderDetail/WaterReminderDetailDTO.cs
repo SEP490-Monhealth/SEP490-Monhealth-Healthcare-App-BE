@@ -1,8 +1,9 @@
 using System.Text.Json.Serialization;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Reminders.Queries.GetReminderDetail
 {
-    public class ReminderDetailDTO
+    public class ReminderDetailDTO : TimeEntity
     {
         public Guid UserId { get; set; }
         [JsonPropertyName("name")]
