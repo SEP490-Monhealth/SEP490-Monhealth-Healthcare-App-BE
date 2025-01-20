@@ -2,6 +2,7 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Schedule.Commands.Create;
+using Monhealth.Application.Features.Schedule.Commands.Update;
 using Monhealth.Application.Models;
 namespace Monhealth.Api.Controllers
 {
@@ -34,5 +35,28 @@ namespace Monhealth.Api.Controllers
                 Success = false
             };
         }
+        [HttpPut]
+        [Route("{scheduleId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateCategory(Guid scheduleId, [FromBody] UpdateScheduleRequest request)
+        {
+            var command = new UpdateScheduleCommand(scheduleId, request);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Cập nhật lịch thất bại",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(
+                new ResultModel
+                {
+                    Message = "Cập nhật lịch thành công",
+                    Success = true,
+                    Status = 204,
+                }
+            );
+        }
+
     }
 }
