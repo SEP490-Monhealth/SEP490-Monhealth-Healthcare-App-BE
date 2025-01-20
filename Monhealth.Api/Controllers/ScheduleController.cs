@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Schedule.Commands.Create;
 using Monhealth.Application.Features.Schedule.Commands.Update;
+using Monhealth.Application.Features.Schedule.Queries.GetAll;
 using Monhealth.Application.Models;
 namespace Monhealth.Api.Controllers
 {
@@ -57,6 +58,19 @@ namespace Monhealth.Api.Controllers
                 }
             );
         }
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllMetrics()
+        {
+            var scheduleList = await _mediator.Send(new GetAllScheduleQuery());
+
+            return new ResultModel
+            {
+                Data = scheduleList,
+                Status = 200,
+                Success = true
+            };
+        }
+
 
     }
 }

@@ -15,15 +15,15 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
         {
             var model = new Monhealth.Domain.Schedule
             {
-                  ConsultantId = request.ConsultantId,
-                  CreatedAt = DateTime.Now,
-                  UpdatedAt = DateTime.Now,
-                  Date = request.Date,
-                  Time = request.Time
+                ConsultantId = request.ConsultantId,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                Date = request.Date,
+                Time = request.Time,
             };
             _scheduleRepository.Add(model);
-         await _scheduleRepository.SaveChangeAsync();
-         return true;   
+            await _scheduleRepository.SaveChangeAsync();
+            return true;
         }
     }
 }
