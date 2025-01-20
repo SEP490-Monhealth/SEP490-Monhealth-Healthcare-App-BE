@@ -11,6 +11,5 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
             UseId = userId;
             date = dateTime;
         }
-
     }
 }

@@ -18,10 +18,11 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user")]
-        public async Task<ActionResult<ResultModel>> GetDailyMealByUser([FromQuery][Required] Guid userId)
+        public async Task<ActionResult<ResultModel>> GetDailyWaterIntakeByUser([FromQuery][Required] Guid userId,
+         [FromQuery][Required] DateTime date)
         {
             var queries = await _mediator.
-            Send(new GetDailywaterByUserQuery(userId));
+            Send(new GetDailyWaterByUserQuery(userId, date));
 
             if (queries == null)
             {

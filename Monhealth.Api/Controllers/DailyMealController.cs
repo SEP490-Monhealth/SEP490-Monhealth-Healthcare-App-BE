@@ -16,18 +16,19 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllDailyMeals()
-        {
-            var dailyMeals = await _mediator.Send(new GetDailyMealQuery());
 
-            return new ResultModel
-            {
-                Data = dailyMeals,
-                Status = 200,
-                Success = true
-            };
-        }
+        // [HttpGet]
+        // public async Task<ActionResult<ResultModel>> GetAllDailyMeals()
+        // {
+        //     var dailyMeals = await _mediator.Send(new GetDailyMealQuery());
+
+        //     return new ResultModel
+        //     {
+        //         Data = dailyMeals,
+        //         Status = 200,
+        //         Success = true
+        //     };
+        // }
 
         // [HttpGet]
         // [Route("{date:DateTime}")]
