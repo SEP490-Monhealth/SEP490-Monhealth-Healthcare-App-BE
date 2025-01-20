@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Schedule.Commands.Create;
 using Monhealth.Application.Features.Schedule.Commands.Update;
 using Monhealth.Application.Features.Schedule.Queries.GetAll;
+using Monhealth.Application.Features.Schedule.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetById;
 using Monhealth.Application.Models;
 namespace Monhealth.Api.Controllers
@@ -73,7 +74,7 @@ namespace Monhealth.Api.Controllers
         }
         [HttpGet]
         [Route("{scheduleId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetNutritionDetail(Guid scheduleId)
+        public async Task<ActionResult<ResultModel>> GetScheduleDetail(Guid scheduleId)
         {
             var queries = await _mediator.
             Send(new GetDetailScheduleQuery { ScheduleId = scheduleId });
@@ -95,7 +96,30 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+        [HttpGet]
+        [Route("consultant/{userId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid userId)
+        {
+            var queries = await _mediator.
+            Send(new GetScheduleByUserQuery { UserId = userId });
 
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Lịch không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
 
     }
 }
