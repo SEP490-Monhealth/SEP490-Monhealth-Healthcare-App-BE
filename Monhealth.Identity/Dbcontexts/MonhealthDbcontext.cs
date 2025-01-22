@@ -82,7 +82,20 @@ namespace Monhealth.Identity.Dbcontexts
                 .WithMany(g => g.DailyWaterIntakes)
                 .HasForeignKey(dwi => dwi.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<UserFood>(entity =>
+            {
+                entity.Property(e => e.Categories)
+                    .HasConversion(
+                      v => string.Join(',', v), // Chuyển từ List<string> thành chuỗi
+                      v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList() // Chuyển chuỗi thành List<string>
+                  );
 
+                entity.Property(e => e.Allergies)
+                    .HasConversion(
+                        v => string.Join(',', v),
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+                    );
+            });
 
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());

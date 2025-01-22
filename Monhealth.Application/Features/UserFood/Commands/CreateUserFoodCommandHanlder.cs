@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using System.Text.Json;
 
 namespace Monhealth.Application.Features.UserFood.Commands
 {
@@ -11,8 +10,8 @@ namespace Monhealth.Application.Features.UserFood.Commands
             var userFood = new Monhealth.Domain.UserFood
             {
                 UserId = request.UserId,
-                Categories = JsonSerializer.Serialize(request.CreateUserFoodDto.Categories),
-                Allergies = JsonSerializer.Serialize(request.CreateUserFoodDto.Allergies)
+                Allergies = request.CreateUserFoodDto.Allergies,
+                Categories = request.CreateUserFoodDto.Categories
             };
             userFoodRepository.Add(userFood);
             await userFoodRepository.SaveChangeAsync();

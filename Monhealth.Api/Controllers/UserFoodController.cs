@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.UserFood.Commands;
+using Monhealth.Application.Features.UserFood.Queries;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -18,6 +19,17 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Message = "Tạo thành công",
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+            };
+        }
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAll()
+        {
+            var result = await mediator.Send(new UserFoodQuery());
+            return new ResultModel
+            {
+                Data = result,
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
             };
