@@ -1,7 +1,10 @@
 ﻿using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Exercise.Commands.ChangeStatusExercise;
 using Monhealth.Application.Features.Exercise.Commands.CreateExercise;
+using Monhealth.Application.Features.Exercise.Commands.DeleteExercise;
+using Monhealth.Application.Features.Exercise.Commands.UpdateExercise;
 using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Application.Models;
@@ -52,7 +55,7 @@ namespace Monhealth.Api.Controllers
                 Data = exercise
             });
         }
-        
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateExercise(CreateExerciseDTO createExerciseDTO)
         {
@@ -72,6 +75,72 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo bài tập thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
+            };
+        }
+
+        [HttpPut("{exerciseId}")]
+        public async Task<ActionResult<ResultModel>> UpdateExercise(Guid exerciseId, [FromBody] UpdateExerciseDTO updateExerciseDTO)
+        {
+            var command = new UpdateExerciseCommand(exerciseId, updateExerciseDTO);
+            var result = await _mediator.Send(command);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Cập nhật bài tập thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật bài tập thành công"
+            };
+        }
+
+        [HttpDelete("{exerciseId}")]
+        public async Task<ActionResult<ResultModel>> DeleteExercise(Guid exerciseId)
+        {
+            var command = new DeleteExerciseCommand { ExerciseId = exerciseId };
+            var delete = await _mediator.Send(command);
+            if (!delete)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy bài tập"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Xóa bài tập thành công"
+            };
+        }
+
+        [HttpPatch("{exerciseId}/status")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusExercise(Guid exerciseId)
+        {
+            var command = new ChangeStatusExerciseCommand { ExerciseId = exerciseId };
+            var changeStatus = await _mediator.Send(command);
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy bài tập"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Thay đổi trạng thái thành công"
             };
         }
     }

@@ -23,7 +23,7 @@ namespace Monhealth.Application.Features.Exercise.Commands.CreateExercise
         public async Task<Unit> Handle(CreateExerciseCommand request, CancellationToken cancellationToken)
         {
             var checkExerciseExisted = await _exerciseRepository.GetExerciseByNameAsync(request.CreateExerciseDTO.ExerciseName);
-            if(checkExerciseExisted)
+            if(checkExerciseExisted != null)
             {
                 throw new Exception("Bài tập đã tồn tại.");
             }
