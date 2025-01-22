@@ -19,48 +19,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
-        [HttpPost]
-        public async Task<ResultModel> Create(ScheduleRequest request)
-        {
-            var create = await _mediator.Send(request);
-            if (create == true)
-            {
-                return new ResultModel
-                {
-                    Message = "Tạo lịch thành công",
-                    Status = 201,
-                    Success = true
-                };
-            }
-            return new ResultModel
-            {
-                Message = "Tạo lịch thất bại",
-                Status = (int)HttpStatusCode.BadRequest,
-                Success = false
-            };
-        }
-        [HttpPut]
-        [Route("{scheduleId:Guid}")]
-        public async Task<ActionResult<ResultModel>> UpdateCategory(Guid scheduleId, [FromBody] UpdateScheduleRequest request)
-        {
-            var command = new UpdateScheduleCommand(scheduleId, request);
-            var result = await _mediator.Send(command);
-            if (!result)
-                return new ResultModel
-                {
-                    Message = "Cập nhật lịch thất bại",
-                    Success = false,
-                    Data = null
-                };
-            return Ok(
-                new ResultModel
-                {
-                    Message = "Cập nhật lịch thành công",
-                    Success = true,
-                    Status = 204,
-                }
-            );
-        }
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllMetrics()
         {
@@ -73,6 +32,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet]
         [Route("{scheduleId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetScheduleDetail(Guid scheduleId)
@@ -97,6 +57,7 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
         [HttpGet]
         [Route("consultant/{userId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid userId)
@@ -121,12 +82,57 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
+        [HttpPost]
+        public async Task<ResultModel> Create(ScheduleRequest request)
+        {
+            var create = await _mediator.Send(request);
+            if (create == true)
+            {
+                return new ResultModel
+                {
+                    Message = "Tạo lịch thành công",
+                    Status = 201,
+                    Success = true
+                };
+            }
+            return new ResultModel
+            {
+                Message = "Tạo lịch thất bại",
+                Status = (int)HttpStatusCode.BadRequest,
+                Success = false
+            };
+        }
+
+        [HttpPut]
+        [Route("{scheduleId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateCategory(Guid scheduleId, [FromBody] UpdateScheduleRequest request)
+        {
+            var command = new UpdateScheduleCommand(scheduleId, request);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Cập nhật lịch thất bại",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(
+                new ResultModel
+                {
+                    Message = "Cập nhật lịch thành công",
+                    Success = true,
+                    Status = 204,
+                }
+            );
+        }
+
         [HttpDelete]
         [Route("{scheduleId:Guid}")]
         public async Task<ActionResult<ResultModel>> Delete(Guid scheduleId)
         {
             var queries = await _mediator.
-            Send(new DeleteScheduleRequest  (scheduleId));
+            Send(new DeleteScheduleRequest(scheduleId));
 
             if (queries == null)
             {
@@ -145,6 +151,5 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
-
     }
 }

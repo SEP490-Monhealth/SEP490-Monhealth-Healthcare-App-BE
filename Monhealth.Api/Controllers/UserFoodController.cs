@@ -11,18 +11,6 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class UserFoodController(IMediator mediator) : ControllerBase
     {
-        [HttpPost("{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> CreateUserFood([FromRoute] Guid userId, [FromBody] CreateUserFoodDto userFoodDto)
-        {
-            var result = await mediator.Send(new CreateUserFoodCommand(userId, userFoodDto));
-
-            return new ResultModel
-            {
-                Message = "Tạo thành công",
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-            };
-        }
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAll()
         {
@@ -30,6 +18,19 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Data = result,
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+            };
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> CreateUserFood([FromBody] CreateUserFoodDto request)
+        {
+            var result = await mediator.Send(new CreateUserFoodCommand(request));
+
+            return new ResultModel
+            {
+                Message = "Tạo thành công",
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
             };

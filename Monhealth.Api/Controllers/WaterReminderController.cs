@@ -160,7 +160,6 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-
         [HttpPatch("{waterReminderId}/status")]
         public async Task<ActionResult<ResultModel>> UpdateStatus(Guid waterReminderId)
         {
@@ -204,7 +203,6 @@ namespace Monhealth.Api.Controllers
                 Status = (int)HttpStatusCode.OK,
                 Message = "Cập nhật trạng thái thành công"
             };
-
         }
     }
 }

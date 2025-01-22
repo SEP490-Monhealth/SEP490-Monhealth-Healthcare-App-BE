@@ -22,40 +22,6 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> Add([FromBody] CreateSubscriptionCommand request)
-        {
-
-            var result = await _mediator.Send(request);
-            if (result != null)
-            {
-                return Ok(new ResultModel
-                {
-                    Success = true,
-                    Message = "Tạo gói thành viên thành công. ",
-                    Status = 201,
-                });
-            }
-
-            return BadRequest(new ResultModel
-            {
-                Success = false,
-                Message = "Tạo gói thành viên thất bại. ",
-                Status = 400,
-            });
-
-        }
-
-        [HttpPost("upgrade")]
-        public async Task<ActionResult<ResultModel>> Add2([FromBody] CreateUserSubscriptionCommand request)
-        {
-
-            var result = await _mediator.Send(request);
-            if (result != null)
-                return ResultModel.Created(null, "Nâng cấp gói thành công. ");
-            return ResultModel.CreateFailed(null, "Nâng cấp gói thất bại");
-        }
-
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAll()
         {
@@ -107,6 +73,40 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> Add([FromBody] CreateSubscriptionCommand request)
+        {
+
+            var result = await _mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo gói thành viên thành công. ",
+                    Status = 201,
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo gói thành viên thất bại. ",
+                Status = 400,
+            });
+
+        }
+
+        [HttpPost("upgrade")]
+        public async Task<ActionResult<ResultModel>> Add2([FromBody] CreateUserSubscriptionCommand request)
+        {
+
+            var result = await _mediator.Send(request);
+            if (result != null)
+                return ResultModel.Created(null, "Nâng cấp gói thành công. ");
+            return ResultModel.CreateFailed(null, "Nâng cấp gói thất bại");
         }
 
         [HttpPut]

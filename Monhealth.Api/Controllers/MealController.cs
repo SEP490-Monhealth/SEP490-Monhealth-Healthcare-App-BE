@@ -57,6 +57,7 @@ namespace Monhealth.Api.Controllers
                 Data = meal
             });
         }
+
         [HttpGet]
         [Route("user/{userId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetMealByUser(Guid userId)
@@ -81,6 +82,7 @@ namespace Monhealth.Api.Controllers
                 Data = meal
             });
         }
+        
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddMeal([FromBody] CreateMealDTO request)
         {

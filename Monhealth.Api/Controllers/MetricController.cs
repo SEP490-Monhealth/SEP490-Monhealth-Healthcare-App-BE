@@ -6,7 +6,6 @@ using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Features.Metric.Queries.GetMetricByUserId;
 using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
-using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -21,7 +20,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
-        
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllMetrics()
         {
@@ -55,6 +54,7 @@ namespace Monhealth.Api.Controllers
                 Data = metric
             };
         }
+
         [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetMetricByUserId(Guid userId)
         {
@@ -68,11 +68,11 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResultModel>> Create([FromBody]CreateMetricDTO metricRequest)
+        public async Task<ActionResult<ResultModel>> Create([FromBody] CreateMetricDTO metricRequest)
         {
             var command = new CreateMetricCommand(metricRequest);
             var createMetric = await _mediator.Send(command);
-            if(createMetric == Unit.Value)
+            if (createMetric == Unit.Value)
             {
                 return new ResultModel
                 {
@@ -110,7 +110,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật số liệu thành công"
             };
         }
-        
+
         [HttpDelete("{metricId}")]
         public async Task<ActionResult<ResultModel>> Delete(Guid metricId)
         {

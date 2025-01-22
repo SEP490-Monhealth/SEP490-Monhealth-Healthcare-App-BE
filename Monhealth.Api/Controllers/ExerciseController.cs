@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Exercise.Commands.CreateExercise;
 using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
-using Monhealth.Application.Features.Goals.Commands.CreateCommand;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -18,6 +17,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string type = null, string search = null, bool? popular = null)
         {
@@ -30,6 +30,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet("{exerciseId:guid}")]
         public async Task<ActionResult<ResultModel>> GetExerciseById(Guid exerciseId)
         {
@@ -51,6 +52,7 @@ namespace Monhealth.Api.Controllers
                 Data = exercise
             });
         }
+        
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateExercise(CreateExerciseDTO createExerciseDTO)
         {
