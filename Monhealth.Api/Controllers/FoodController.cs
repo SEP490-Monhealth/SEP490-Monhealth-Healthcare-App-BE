@@ -38,9 +38,6 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-
-
-
         [HttpPatch]
         [Route("{foodId:Guid}/status")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid foodId)

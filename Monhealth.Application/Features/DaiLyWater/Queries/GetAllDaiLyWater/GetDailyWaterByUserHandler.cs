@@ -18,6 +18,18 @@ namespace Monhealth.Application.Features.DaiLyWater.Queries.GetAllDaiLyWater
         public async Task<DailyWaterDTO> Handle(GetDailyWaterByUserQuery request, CancellationToken cancellationToken)
         {
             var query = await _dailyWaterIntakesRepository.GetDailyWaterIntakesByUser(request.userId, request.date);
+
+            if (query == null)
+            {
+                return new DailyWaterDTO
+                {
+                    DailyWaterIntakeId = Guid.Empty,
+                    TotalVolume = 0,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                };
+            }
+
             return _mapper.Map<DailyWaterDTO>(query);
         }
     }

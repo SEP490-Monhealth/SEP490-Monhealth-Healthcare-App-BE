@@ -8,11 +8,11 @@ namespace Monhealth.Api.Controllers
 {
     [Route("api/v1/daily-water-intakes")]
     [ApiController]
-    public class DaiLyWaterIntakeController : ControllerBase
+    public class DailyWaterIntakeController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public DaiLyWaterIntakeController(IMediator mediator)
+        public DailyWaterIntakeController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -30,9 +30,9 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = false,
-                    Message = "Nước uống hằng ngày không tồn tại",
+                    Message = "Lượng nước hằng ngày không tồn tại",
                     Status = 200,
-                    Data = null
+                    Data = query
                 });
             }
 

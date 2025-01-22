@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -29,10 +28,10 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                 return new GetDailyMealByUserDTO
                 {
                     DailyMealId = Guid.Empty,
+                    Nutrition = null,
+                    Items = null,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
-                    Items = null,
-                    Nutrition = null,
                 };
             }
 

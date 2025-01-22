@@ -21,7 +21,6 @@ namespace Monhealth.Application
             services.AddAutoMapper(typeof(GetFoodByUserIdProfile).Assembly);
             services.AddAutoMapper(typeof(GetFoodByFoodTypeProfile).Assembly);
 
-
             return services;
         }
     }

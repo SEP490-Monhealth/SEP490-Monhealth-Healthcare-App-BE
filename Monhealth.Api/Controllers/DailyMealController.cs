@@ -59,8 +59,7 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetDailyMealByUser([FromQuery][Required] Guid userId,
          [FromQuery][Required] DateTime date)
         {
-            var queries = await _mediator.
-            Send(new GetDailyMealByUserQuery(userId, date));
+            var queries = await _mediator.Send(new GetDailyMealByUserQuery(userId, date));
 
             if (queries == null)
             {
@@ -72,6 +71,7 @@ namespace Monhealth.Api.Controllers
                     Data = queries
                 });
             }
+
             return Ok(new ResultModel
             {
                 Success = true,

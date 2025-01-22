@@ -16,9 +16,6 @@ builder.Services.AddInfrastructureServices(configuration);
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddEndpointsApiExplorer();
 
-
-
-
 builder.Services.AddControllers();
 
 builder.Services.AddSwaggerGen(options =>
