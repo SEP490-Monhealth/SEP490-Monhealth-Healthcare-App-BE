@@ -27,6 +27,8 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
             food.UpdatedAt = DateTime.Now;
             food.CategoryId = null;
             food.IsPublic = request.RequestData.IsPublic;
+            food.DishType = String.Join(",", request.RequestData.DishType);
+            food.MealType = String.Join(",", request.RequestData.MealType);
             var categoryName = request.RequestData.Category;
             if (categoryName != null)
             {
