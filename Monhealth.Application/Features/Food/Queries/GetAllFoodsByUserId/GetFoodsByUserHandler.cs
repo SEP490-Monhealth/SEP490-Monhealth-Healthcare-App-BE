@@ -20,7 +20,33 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
         public async Task<PageResult<FoodsByUserIdDTO>> Handle(GetFoodListByUserIdQuery request, CancellationToken cancellationToken)
         {
             var paginatedFood = await _foodRepository.GetFoodByUserId(request.Page, request.Limit, request.UserId);
-            var foodDtoList = _mapper.Map<List<FoodsByUserIdDTO>>(paginatedFood.Items);
+            var foodDtoList = paginatedFood.Items.Select(food => new FoodsByUserIdDTO
+            {
+                FoodId = food.FoodId,
+                FoodName = food.FoodName,
+                MealType = food.MealType?.Split(',').ToList() ?? new List<string>(), // Chuyển từ chuỗi sang danh sách
+                DishType = food.DishType?.Split(',').ToList() ?? new List<string>(), // Chuyển từ chuỗi sang danh sách
+                FoodDescription = food.FoodDescription,
+                Category = food.Category?.CategoryName, // Nếu có quan hệ với Category
+                Portion = food.FoodPortions.Select(fp => new GetPortionForGetFoodByUserDTO
+                {
+                    PortionSize = fp.Portion.PortionSize,
+                    PortionWeight = fp.Portion.PortionWeight,
+                    MeasurementUnit = fp.Portion.MeasurementUnit
+                }).FirstOrDefault(),
+                Nutrition = food.Nutrition != null
+          ? new GetNutritionForGetFoodByUserDTO
+          {
+              Calories = food.Nutrition.Calories
+          }
+          : null,
+                Status = food.Status,
+                IsPublic = food.IsPublic,
+                CreatedAt = food.CreatedAt,
+                UpdatedAt = food.UpdatedAt
+            }).ToList();
+
+            // Tạo kết quả phân trang
             return new PageResult<FoodsByUserIdDTO>()
             {
                 CurrentPage = request.Page,
