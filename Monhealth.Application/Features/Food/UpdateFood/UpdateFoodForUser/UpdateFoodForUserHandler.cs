@@ -17,6 +17,8 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForUser
             if (food == null) throw new Exception("Món ăn không tồn tại");
             var existingFood = await _foodRepository.GetFoodByNameAsync(request.RequestData.FoodName);
             if (existingFood != null) throw new Exception("Món ăn đã tồn tại");
+            food.DishType = String.Join(",", request.RequestData.DishType);
+            food.MealType = String.Join(",", request.RequestData.MealType);
 
             food.FoodName = request.RequestData.FoodName;
             food.FoodDescription = request.RequestData.FoodDescription;
