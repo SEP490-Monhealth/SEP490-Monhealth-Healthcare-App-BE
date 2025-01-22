@@ -2,6 +2,7 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Schedule.Commands.Create;
+using Monhealth.Application.Features.Schedule.Commands.Delete;
 using Monhealth.Application.Features.Schedule.Commands.Update;
 using Monhealth.Application.Features.Schedule.Queries.GetAll;
 using Monhealth.Application.Features.Schedule.Queries.GetByUser;
@@ -117,6 +118,30 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 200,
+                Data = queries
+            });
+        }
+        [HttpDelete]
+        [Route("{scheduleId:Guid}")]
+        public async Task<ActionResult<ResultModel>> Delete(Guid scheduleId)
+        {
+            var queries = await _mediator.
+            Send(new DeleteScheduleRequest  (scheduleId));
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Lịch không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 204,
                 Data = queries
             });
         }
