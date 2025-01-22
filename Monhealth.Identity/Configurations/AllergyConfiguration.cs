@@ -68,7 +68,7 @@ namespace Monhealth.Identity.Configurations
                 new Allergy
                 {
                     AllergyId = Guid.Parse("10127b02-786f-462b-8ee6-3df465903645"),
-                    AllergyName = "Vừng(mè)",
+                    AllergyName = "Vừng (mè)",
                     AllergyDescription = "Dị ứng với hạt vừng(mè), thường gặp trong các món ăn châu Á và Trung Đông.",
                     CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
                     UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
