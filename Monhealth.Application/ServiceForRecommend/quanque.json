@@ -1,0 +1,3044 @@
+[
+    {
+      "foodId": "c5822776-96df-4208-82b2-02f22594063b",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "78651ea5-2013-4e50-a55f-714de91a712d",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Bánh cam",
+      "foodDescription": "Bánh tròn chiên giòn, nhân đậu xanh, ngọt thanh",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "f41484a3-c7df-4530-b7d2-060390103985",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Lòng trắng trứng gà",
+      "foodDescription": "Phần trứng trắng, ít béo, giàu protein, thích hợp cho người ăn kiêng",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "599cfc95-4108-4dcc-9c5a-077173251f8b",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cơm",
+      "foodDescription": "Gạo nấu chín, món ăn cơ bản trong bữa cơm hàng ngày của người Việt Nam",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "a41a3bc6-0f34-409f-9045-0807fbb4469b",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bún riêu cua",
+      "foodDescription": "Món bún với nước lèo cua đồng, ăn kèm rau sống và mắm tôm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "27d55123-45fd-491f-3db2-08dd3ab9a340",
+      "userId": "4565f47a-7239-4666-b9b4-0523b1d9ba3d",
+      "categoryId": null,
+      "mealType": [
+        "string",
+        "string1"
+      ],
+      "dishType": [
+        "string",
+        "string1"
+      ],
+      "foodName": "string12",
+      "foodDescription": "string",
+      "views": 0,
+      "status": false,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-22T14:51:53.8498265",
+      "updatedAt": "2025-01-22T14:51:53.8498359",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "1d0feb2f-0735-4333-87ce-09e22304ad0d",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Nấm kim châm",
+      "foodDescription": "Loại nấm nhỏ dài, thơm ngon, thường dùng trong lẩu hoặc xào",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "f77e03de-4ed3-41ca-8fa1-0a4947c67384",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Sữa hộp milo",
+      "foodDescription": "Thức uống ca cao bổ dưỡng, thích hợp cho trẻ em",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "da89578e-9470-4b18-af4f-0bdcc011882f",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Phở gà",
+      "foodDescription": "Phở nước lèo thanh ngọt, ăn kèm thịt gà và rau thơm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "dfa879e8-d77d-4199-b07b-16b37f1cbde1",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh canh cua",
+      "foodDescription": "Món bánh canh với thịt cua, nước lèo đậm đà",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "74181cd5-4b0b-48a9-9042-16d8789483d4",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cà rốt",
+      "foodDescription": "Rau củ màu cam, giàu vitamin A, tốt cho mắt và sức khỏe da",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "a782e478-d5c5-4da6-b809-180b48ad08c3",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Lòng đỏ trứng gà",
+      "foodDescription": "Phần trứng vàng, giàu dinh dưỡng và chất béo",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cháo lòng",
+      "foodDescription": "Cháo gạo nấu với lòng heo, thơm béo, ăn kèm rau thơm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "d9fa8f03-5825-4e83-88d3-1a7c49e39a7d",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh chưng",
+      "foodDescription": "Món bánh truyền thống từ gạo nếp, thịt mỡ, đậu xanh",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "51061170-597d-4289-a021-1e7dde88331f",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Thịt vịt",
+      "foodDescription": "Loại thịt mềm, ngọt, chế biến thành món quay, hấp, hoặc nấu cháo",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "da85064b-e528-4bfa-8a64-1fbe704f9af5",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "fc7f66aa-8c09-46db-a679-be440e3ed91f",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Dưa cải chua",
+      "foodDescription": "Rau cải muối lên men, chua nhẹ, ăn kèm món kho",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "85822a08-7189-4e08-8f55-25c73698af92",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "bd21fd3f-8b19-4756-9da8-8ea32fc646d6",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish",
+        "Snack"
+      ],
+      "foodName": "Xúc xích",
+      "foodDescription": "Món ăn nhanh từ thịt xay nhuyễn, thích hợp cho bữa ăn nhẹ",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "d4df84f2-2d79-41e6-b313-28e89e3785ba",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh canh",
+      "foodDescription": "Món ăn với sợi bánh dày, ăn cùng nước lèo đậm đà",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "3222413a-e385-4a0b-9d07-2af7b0cb4276",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Cải thìa",
+      "foodDescription": "Loại rau xanh thường dùng trong món xào hoặc luộc",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "455bb5ed-ed2c-4172-8831-2b8a08614198",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Snack"
+      ],
+      "dishType": [
+        "Side Dish",
+        "Snack"
+      ],
+      "foodName": "Dưa chuột",
+      "foodDescription": "Rau quả mát, nhiều nước, thường ăn sống hoặc làm gỏi",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "ab2117f7-9940-44cb-b191-2dfabefac8c8",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bún",
+      "foodDescription": "Sợi bún mềm, thường dùng trong các món nước hoặc xào",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "8893c58d-06fd-4c34-9e77-2f50779642dd",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Khoai tây",
+      "foodDescription": "Loại củ mềm, dùng làm khoai chiên, nghiền hoặc hầm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "22d1cbad-a884-400c-b681-30b17d98bf1c",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "fe3a3546-b294-4665-9c82-092d4ab5a187",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Đậu hũ non",
+      "foodDescription": "Đậu hũ mềm mịn, thường dùng làm canh hoặc món tráng miệng",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "a2c5c215-f105-42f9-8b68-3219b5bcc2a9",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cơm gạo lức",
+      "foodDescription": "Cơm từ gạo lức, giàu chất xơ, tốt cho sức khỏe tim mạch",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "ef8b0ee3-a4d5-4883-af63-33c83d102bea",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh bao trứng cút",
+      "foodDescription": "Bánh hấp nhân thịt, trứng cút, ăn sáng tiện lợi",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "d4e129d5-27c2-494f-8b9c-3485c3a8ea3c",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Bánh bột lọc",
+      "foodDescription": "Món bánh trong suốt, nhân tôm thịt, thường hấp hoặc luộc",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "021b651c-bb01-4965-95bc-3532fbacad3d",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Sữa tươi không đường",
+      "foodDescription": "Thức uống giàu dinh dưỡng, bổ sung canxi, tốt cho sức khỏe xương và răng",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "0455b535-2662-43aa-bca2-3e75595fb181",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Thịt heo bằm",
+      "foodDescription": "Thịt heo xay nhuyễn, dùng nấu canh, xào, hoặc làm nhân",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "37a66f5c-437f-4520-90ec-4376e0093061",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Nước chanh",
+      "foodDescription": "Thức uống giải khát, làm từ chanh tươi, cung cấp nhiều vitamin C",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "94097f31-9a0e-41a3-b44f-4bb7c6b7c756",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Phở bò tái",
+      "foodDescription": "Món phở với nước dùng đậm đà, thịt bò tái mềm ngon",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "a84ec8cd-f9d8-4723-8b9e-4ff4eee1685e",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "bd21fd3f-8b19-4756-9da8-8ea32fc646d6",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Cá viên chiên",
+      "foodDescription": "Món ăn vặt từ cá xay, chiên giòn, chấm kèm tương ớt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "7378ca5f-f1a8-4c23-a019-50af3012526f",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh bao",
+      "foodDescription": "Bánh hấp có nhân thịt, trứng, hoặc rau củ, mềm và thơm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "d30f804f-c59b-4a59-bf4c-5196b302d1ed",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cơm chiên trứng",
+      "foodDescription": "Cơm chiên vàng với trứng gà, thêm hành phi thơm ngon",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "dd1482e7-b3dd-4b17-80f6-5618a640c671",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "ee39be57-cf88-4420-8e19-606b2ed4dc6d",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Cá khô",
+      "foodDescription": "Cá phơi khô, dùng nướng, chiên hoặc làm gỏi",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "ede931f5-092e-4e41-8ce1-5a95bff2772a",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "ee39be57-cf88-4420-8e19-606b2ed4dc6d",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cua",
+      "foodDescription": "Hải sản vỏ cứng, thịt ngọt, thường hấp hoặc nấu lẩu",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "dca16637-cf90-402f-921f-5c60e99e4bfa",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Side Dish",
+        "Snack"
+      ],
+      "foodName": "Chả lụa",
+      "foodDescription": "Giò heo hấp chín, mềm, thơm, thường dùng trong bánh mì, bánh cuốn",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "23443efa-dc06-4e7a-949c-5c823ee6e575",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Khoai lang luộc",
+      "foodDescription": "Khoai lang luộc chín, ngọt bùi, giàu chất xơ",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "81c3c321-4d4d-4e56-93ca-5dac5e69adb4",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "ee39be57-cf88-4420-8e19-606b2ed4dc6d",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cá ngừ",
+      "foodDescription": "Loại cá giàu dinh dưỡng, thường làm salad hoặc áp chảo",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "e7468877-17ed-4bb9-9956-5e3cf6a58bde",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "ee39be57-cf88-4420-8e19-606b2ed4dc6d",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Tôm",
+      "foodDescription": "Hải sản giàu đạm, chế biến đa dạng: hấp, chiên, xào, hoặc nướng",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "628d87df-0bde-417d-b8b5-5f8f5536410b",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Nấm đùi gà",
+      "foodDescription": "Loại nấm to, thơm ngon, thích hợp xào hoặc nấu canh",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "dc49c7a4-cf6a-4b85-a5e0-5f923730464a",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Coca cola",
+      "foodDescription": "Thức uống giải khát có ga, vị ngọt thanh",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "7dba3127-1fd5-426f-ac21-5ffd5fa8cc42",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bún thịt nướng",
+      "foodDescription": "Bún tươi kết hợp thịt nướng, rau sống, và nước mắm chua ngọt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "c60b8720-2ced-426c-b39b-606757200893",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Pepsi",
+      "foodDescription": "Nước ngọt có ga, vị cola đặc trưng, dùng kèm bữa ăn nhanh",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "77243d82-a633-4fe8-84c9-61a4b6cd4428",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bún xào",
+      "foodDescription": "Món bún xào cùng rau củ và thịt, thơm ngon, dễ ăn",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "0a47589f-d177-46f9-8a10-63fd6da9b611",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Rau muống",
+      "foodDescription": "Rau xanh thường luộc, xào hoặc làm gỏi, giàu chất xơ",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "9122357a-179f-45f4-9106-67eea24d48ab",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Trà tắc",
+      "foodDescription": "Nước trà kết hợp tắc, vị chua ngọt, giải khát",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "48b3d9d3-1ea4-4c96-a3e0-68268d108d2b",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bún mắm",
+      "foodDescription": "Món bún với nước lèo mắm cá, đậm đà, ăn kèm hải sản và rau",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Bắp luộc",
+      "foodDescription": "Món bắp nấu chín, ngọt tự nhiên, thích hợp ăn sáng hoặc ăn vặt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "27dd8629-4564-478a-b049-6c4b81ee3cf1",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Trứng vịt lộn",
+      "foodDescription": "Trứng vịt luộc, chứa phôi phát triển, ăn kèm rau răm và muối tiêu",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "dc8adf68-02d5-4668-ab6e-74d7ce44bae1",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Hành tây",
+      "foodDescription": "Loại rau củ thơm, thường dùng làm gia vị hoặc ăn sống",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "f412d88d-ce7e-4006-bc11-75af61438491",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Bánh tiêu",
+      "foodDescription": "Loại bánh chiên phồng, thơm mùi mè, ngọt nhẹ",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "a47b1646-3576-46f0-a3b6-763a9c3f889b",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Nước dừa",
+      "foodDescription": "Thức uống giải khát tự nhiên, giàu khoáng chất",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "de097440-db5c-4d91-bd55-76618d70599d",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Nước cam",
+      "foodDescription": "Thức uống tươi mát từ cam, cung cấp vitamin C tăng sức đề kháng",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "a3074169-6441-49cc-9ea7-79e240f6dda3",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Xoài",
+      "foodDescription": "Trái cây nhiệt đới, thịt vàng, ngọt hoặc chua tùy giống",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "c137f014-34c2-4f0a-be52-7c2a5c64abae",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Thịt gà",
+      "foodDescription": "Thịt gia cầm phổ biến, dùng trong nhiều món nướng, luộc, hầm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "f0132626-5535-4f30-9af4-7e89e086aaaf",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh cuốn",
+      "foodDescription": "Bánh tráng mỏng cuộn nhân thịt, mộc nhĩ, ăn kèm nước mắm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "eac10b91-8509-4986-b689-7ee3a3757a18",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Dưa hấu",
+      "foodDescription": "Trái cây nhiều nước, vị ngọt mát, thích hợp trong ngày nóng",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "73016f70-ebb4-4583-aa12-7f3f4633ada4",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Sườn non",
+      "foodDescription": "Phần sườn heo mềm, ngon, thích hợp nấu canh hoặc kho",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "8fa26c41-16b2-49f8-a284-856024a5f947",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast",
+        "Lunch"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bún bò huế",
+      "foodDescription": "Món bún nước đậm đà từ Huế, nổi bật với hương sả, ớt, thịt bò",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "86d88717-df08-4de6-b86d-870210864b46",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Thanh long",
+      "foodDescription": "Trái cây mọng nước, thịt trắng hoặc đỏ, vị ngọt thanh mát",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "f6cf96c8-adc3-43e0-af5a-8b19623fed94",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Xôi mặn",
+      "foodDescription": "Món xôi từ gạo nếp, ăn kèm thịt, trứng, chả, và hành phi",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "ff1bc1f2-3515-4dfe-b271-8cabf205bbcf",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Chuối tiêu",
+      "foodDescription": "Loại chuối phổ biến, vỏ vàng, thơm, ngọt, dùng làm món tráng miệng",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "c42e7f00-ea31-430a-ac28-8d6e749b7eca",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Side Dish",
+        "Snack"
+      ],
+      "foodName": "Trứng gà luộc",
+      "foodDescription": "Món ăn giàu protein, dễ chế biến, thường dùng trong bữa sáng hoặc ăn vặt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "afe0a180-0077-4fdf-89e8-9513c6132f92",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Đu đủ",
+      "foodDescription": "Trái cây ngọt mềm, màu cam, giàu vitamin A và chất xơ",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "01708b02-6cc1-41f6-ae4a-95c4085e1839",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Gỏi cuốn",
+      "foodDescription": "Cuốn bánh tráng với thịt, tôm, rau, chấm nước mắm chua ngọt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "faf19891-525a-4308-9222-992e83de7ce7",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "ee39be57-cf88-4420-8e19-606b2ed4dc6d",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cá hồi",
+      "foodDescription": "Loại cá béo, giàu omega-3, thường ăn sống hoặc nướng",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "16bf44f2-711d-4b64-a409-995c6b0c13ce",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Quả quýt",
+      "foodDescription": "Trái cây nhỏ, vị ngọt thanh, dễ bóc vỏ, giàu vitamin C",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "83e6e455-3ae1-4f5c-8e44-9a5ae79ee31b",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Thịt kho tiêu",
+      "foodDescription": "Món thịt heo nấu tiêu, nước mắm, thơm nồng, đậm đà",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "1140212e-cdb4-4f25-92f6-9b9407a71163",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Chuối tây",
+      "foodDescription": "Chuối nhỏ, vị ngọt nhẹ, thường dùng làm món ăn nhẹ hoặc nấu chè",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "a53672e7-8593-4779-bd02-9f02ae81f915",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "ee39be57-cf88-4420-8e19-606b2ed4dc6d",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Mực",
+      "foodDescription": "Hải sản giòn, ngọt, chế biến nướng, hấp, hoặc chiên",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "46b9f487-dc6d-4c1d-9729-9f707ac28202",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "bd21fd3f-8b19-4756-9da8-8ea32fc646d6",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Hamburger",
+      "foodDescription": "Bánh mì tròn kẹp thịt, phô mai, rau, và nước sốt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "c16aac77-64ee-476d-a646-a3029da83e41",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh bèo",
+      "foodDescription": "Món bánh bột gạo nhỏ, ăn kèm tôm cháy và nước mắm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "87225215-43af-49f2-a40b-a5ebb087d27b",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Phở bò viên",
+      "foodDescription": "Phở bò kết hợp bò viên dai ngon, nước lèo đậm đà",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "0fba6ca5-e0a0-4b13-b265-aa37af1b055c",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Hoành thánh",
+      "foodDescription": "Món bột mỏng nhân thịt, hấp hoặc chiên, thường ăn kèm nước lèo",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "f44fd111-2744-406a-a706-abc9c0494502",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "78651ea5-2013-4e50-a55f-714de91a712d",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Mật ong",
+      "foodDescription": "Chất ngọt tự nhiên từ ong, có lợi cho sức khỏe và làm đẹp",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "a17722bf-899e-40e9-8e54-ae2fc8a34f44",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "78651ea5-2013-4e50-a55f-714de91a712d",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Sữa chua",
+      "foodDescription": "Món ăn lên men từ sữa, giúp hỗ trợ tiêu hóa và làm đẹp da",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "e0eec003-8384-412c-a307-b0185afdb0c7",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Xôi bắp",
+      "foodDescription": "Xôi gạo nếp kết hợp bắp vàng ngọt, ăn kèm hành phi thơm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "42883b21-4cbd-40ce-850f-b0723f1766fe",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Cà chua",
+      "foodDescription": "Loại quả đỏ mọng, thường dùng làm nước sốt, canh, hoặc ăn sống",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "df4de54d-ff6c-4db0-9169-b3a0f6eb0865",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Cà phê sữa",
+      "foodDescription": "Cà phê kết hợp sữa đặc, vị ngọt béo hấp dẫn",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "19bbab17-91c6-410f-b566-b509d067e76e",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "fe3a3546-b294-4665-9c82-092d4ab5a187",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish",
+        "Side Dish"
+      ],
+      "foodName": "Đậu hũ",
+      "foodDescription": "Sản phẩm từ đậu nành, giàu protein thực vật, dùng trong nhiều món chay",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "fb7d87aa-2bb8-4065-bd31-b54239057405",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh ướt",
+      "foodDescription": "Bánh bột gạo tráng mỏng, ăn kèm chả, nước mắm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "8ebd5a6e-b0af-42b6-af58-b681fceac1ef",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "78651ea5-2013-4e50-a55f-714de91a712d",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Chè đậu đen",
+      "foodDescription": "Món chè ngọt làm từ đậu đen nấu mềm, nước cốt dừa thơm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "58fe08ca-5c52-4847-800e-b9970c3782f0",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Ớt chuông",
+      "foodDescription": "Rau quả màu sắc, giòn ngọt, giàu vitamin, thường dùng làm salad",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh mì thịt trứng",
+      "foodDescription": "Bánh mì giòn kẹp thịt, trứng và rau, ăn sáng nhanh tiện lợi",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "48113ca0-a1e7-4181-85fa-be6538a70873",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bún chả",
+      "foodDescription": "Món bún ăn kèm thịt nướng, rau sống, và nước chấm chua ngọt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "30355638-a0e2-4126-93ae-beb7aa9b5758",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Khoai lang",
+      "foodDescription": "Loại củ ngọt tự nhiên, dùng luộc, nướng hoặc chiên",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "21a4b410-e26d-444b-8b99-bf8b490e5dcf",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "22ee062d-4904-4c64-a783-74b3e142aac7",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh bao chay",
+      "foodDescription": "Bánh bao không nhân thịt, nhân rau củ hoặc đậu xanh",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "77fe5e06-7fee-486d-a1a7-c031f2065490",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "4c35b262-4c08-4624-900b-e22ba8988c92",
+      "mealType": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cơm tấm sườn",
+      "foodDescription": "Món cơm từ gạo tấm, ăn kèm sườn nướng, đồ chua, và nước mắm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "05cfce09-72b4-482d-adcd-c0718015be3d",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh xèo",
+      "foodDescription": "Món bánh bột vàng giòn, nhân thịt, tôm, ăn kèm rau sống",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "436d8364-15fd-47a2-9b72-c3841db0da2e",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "78651ea5-2013-4e50-a55f-714de91a712d",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bông lan trứng muối",
+      "foodDescription": "Bánh bông lan mềm, nhân trứng muối và chà bông",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "65c7b876-87e2-4307-ab76-c72ca277b78c",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh mì sandwich",
+      "foodDescription": "Bánh mì lát, dễ ăn, thích hợp cho bữa sáng nhanh",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "7b8500af-d730-4138-9617-cba352faed4a",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Vải",
+      "foodDescription": "Trái cây nhỏ, ngọt, mọng nước, vỏ đỏ, hạt to",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "6e12f6cb-6695-4c7a-bfb0-cd4936ee1782",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cháo sườn",
+      "foodDescription": "Cháo gạo trắng nấu nhuyễn, thêm sườn heo mềm ngọt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "81af247b-f112-4b7c-981c-d1ba1c3a3644",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "fc7f66aa-8c09-46db-a679-be440e3ed91f",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Kim chi",
+      "foodDescription": "Rau cải thảo lên men, cay nồng, thường ăn kèm món nướng",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "80ba2672-d26a-4703-98f0-d246a50f92f1",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Bầu",
+      "foodDescription": "Loại quả dài, xanh, dùng nấu canh hoặc xào",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "98006e54-c44e-4a81-aa99-d4bb95bfb89d",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Đậu que",
+      "foodDescription": "Rau xanh giòn, thích hợp luộc, xào hoặc nấu canh",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "244e7e03-baaa-4dc4-aa10-d9d0dac410fe",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Cải thảo",
+      "foodDescription": "Rau xanh giòn, thường dùng làm kim chi hoặc xào",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "a989c8db-7506-467f-8aba-dce042f68eea",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Chuối",
+      "foodDescription": "Trái cây ngọt, giàu năng lượng và chất dinh dưỡng, dễ dàng mang theo",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "c81a404a-ec10-428e-acec-dd56ec1d3607",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "fc7f66aa-8c09-46db-a679-be440e3ed91f",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Nem chua",
+      "foodDescription": "Thịt chua lên men, thường ăn kèm lá ổi và tương ớt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "6a48ebe2-443c-4c78-9f96-de8ccfbd77db",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Cà phê",
+      "foodDescription": "Thức uống đậm đà, kích thích tinh thần, uống nóng hoặc đá",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "fc85f2de-9aae-4ff4-a829-e01662a42976",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Mướp",
+      "foodDescription": "Loại quả xanh, mềm, thường nấu canh hoặc xào",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "16066b9b-e61f-4354-803b-e2f9c9f5a5db",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "78651ea5-2013-4e50-a55f-714de91a712d",
+      "mealType": [
+        "Breakfast"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Cháo đậu đỏ",
+      "foodDescription": "Cháo từ đậu đỏ, ngọt dịu, bổ máu và mát gan",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "ddc8d8f2-261b-4c1d-9061-e482d3c8cef3",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Ức gà",
+      "foodDescription": "Phần thịt gà trắng, giàu đạm, ít béo, tốt cho người tập gym",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "fa0d83ce-d0d7-414f-bd85-e4bc6402c0db",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Ổi",
+      "foodDescription": "Trái cây nhiều vitamin C, giòn, ngọt hoặc chua nhẹ, ăn cả vỏ",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "2ebaa4b7-3477-46a8-a375-e7a80b1db5b0",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "22ee062d-4904-4c64-a783-74b3e142aac7",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Sữa đậu nành",
+      "foodDescription": "Thức uống từ đậu nành, ít ngọt, tốt cho sức khỏe",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "2600b6c1-8365-47ae-adc7-e7de2ccb18ad",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Bánh bao xá xíu",
+      "foodDescription": "Bánh hấp nhân thịt xá xíu, mềm, thơm ngọt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "5ff26461-880d-4b94-bfd0-e8badc77fe33",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "99052f16-54f5-4456-80f8-1691db7c90f2",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Thịt kho trứng",
+      "foodDescription": "Món thịt nấu cùng trứng và nước mắm, vị ngọt mặn hấp dẫn",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "3965d7c0-e550-497d-9b41-ea382c2bb83e",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "f63dd434-9796-46ab-95ad-759bfac51e26",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Drink"
+      ],
+      "foodName": "Sting",
+      "foodDescription": "Nước tăng lực vị dâu, ngọt và kích thích tinh thần",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "1387c20d-27a6-495b-a3a0-efbb715f6430",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "19fe32e8-9e15-486b-9398-f0116cd5019a",
+      "mealType": [
+        "Breakfast",
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Táo",
+      "foodDescription": "Trái cây giòn, ngọt, nhiều chất xơ và vitamin, tốt cho hệ tiêu hóa",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "7268b449-cb54-4f3d-9709-f42b9966d707",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast",
+        "Lunch"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Canh bún",
+      "foodDescription": "Món bún nước dùng từ cua đồng, ăn kèm rau muống",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "6c3f28ec-f25a-4471-ba9b-f46568e1ccee",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "5c899b0d-5d6a-4366-a4fd-797ab5b2168e",
+      "mealType": [
+        "Breakfast",
+        " Dinner"
+      ],
+      "dishType": [
+        "Main Dish"
+      ],
+      "foodName": "Hủ tíu",
+      "foodDescription": "Món ăn miền Nam với sợi hủ tíu mềm, nước lèo thanh ngọt",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "fa445aa4-7b0d-4d47-8ba7-f919dd123637",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "78651ea5-2013-4e50-a55f-714de91a712d",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Desert",
+        "Snack"
+      ],
+      "foodName": "Sữa chua nha đam",
+      "foodDescription": "Sữa chua mịn kết hợp nha đam giòn, tốt cho tiêu hóa",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "face3a50-e5e6-41e3-83e8-f96e7c8c98d4",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "cd017b8a-fbed-4399-99ed-b59eec9b9551",
+      "mealType": [
+        "Snack"
+      ],
+      "dishType": [
+        "Snack"
+      ],
+      "foodName": "Bánh đúc",
+      "foodDescription": "Bánh bột gạo mềm, ăn kèm mắm tôm, thịt bằm",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    },
+    {
+      "foodId": "40f03f23-9341-4343-9bf8-fdfdb3b9f236",
+      "userId": "3026595f-1414-4b74-be8f-11b7f6e7f4f6",
+      "categoryId": "6d3beea0-5f00-4a8a-ab52-d5774e3c5770",
+      "mealType": [
+        "Lunch",
+        "Dinner"
+      ],
+      "dishType": [
+        "Side Dish"
+      ],
+      "foodName": "Đậu bắp",
+      "foodDescription": "Rau quả giòn, nhiều nhớt, thường dùng nấu canh hoặc luộc",
+      "views": 0,
+      "status": true,
+      "isPublic": true,
+      "category": null,
+      "appUser": null,
+      "nutrition": null,
+      "foodPortions": null,
+      "mealFoods": null,
+      "foodAllergies": null,
+      "createdAt": "2025-01-06T00:00:00",
+      "updatedAt": "2025-01-06T00:00:00",
+      "createdBy": null,
+      "updatedBy": null
+    }
+  ]

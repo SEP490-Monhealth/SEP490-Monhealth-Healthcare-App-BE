@@ -8,6 +8,7 @@ using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
 {
+
     public class FoodRepository : GenericRepository<Food, Guid>, IFoodRepository
     {
         public FoodRepository(MonhealthDbcontext context) : base(context)
@@ -128,6 +129,17 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<List<Food>> GetFoodsAsync(int Skip, int take)
+        {
+            return await _context.Foods
+                .Include(f => f.Category)
+                .Include(f => f.Nutrition)
+                .Include(f => f.FoodPortions).ThenInclude(fp => fp.Portion)
+           .Skip(Skip)
+           .Take(take)
+           .ToListAsync();
+        }
+
 
         // public async Task<List<Food>> GetFoodListByFoodType(string foodType)
         // {
@@ -142,6 +154,27 @@ namespace Monhealth.Identity.Repositories
             return await _context.Foods.Where(f => categoryNames.Contains(f.Category.CategoryName)).
                Include(f => f.Nutrition).Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
 
+        }
+
+        public async Task<List<Food>> GetFoodsExcludingIdsAsync(List<Guid> excludedFoodIds, int skip, int take)
+        {
+            return await _context.Foods
+                .Where(food => !excludedFoodIds.Contains(food.FoodId))
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+        }
+
+        public Task<int> GetTotalFoodCountAsync()
+        {
+            return _context.Foods.CountAsync();
+        }
+
+        public async Task<int> GetTotalFoodCountExcludingIdsAsync(List<Guid> excludedFoodIds)
+        {
+            return await _context.Foods
+           .Where(food => !excludedFoodIds.Contains(food.FoodId))
+           .CountAsync();
         }
 
         // public void RemoveFoodCategories(Guid foodId)
