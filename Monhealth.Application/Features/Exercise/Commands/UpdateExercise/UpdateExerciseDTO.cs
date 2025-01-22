@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Monhealth.Application.Features.Exercise.Commands.CreateExercise
+namespace Monhealth.Application.Features.Exercise.Commands.UpdateExercise
 {
-    public class CreateExerciseDTO
+    public class UpdateExerciseDTO
     {
         public string Category { get; set; } = string.Empty;
         public string ExerciseName { get; set; } = string.Empty;

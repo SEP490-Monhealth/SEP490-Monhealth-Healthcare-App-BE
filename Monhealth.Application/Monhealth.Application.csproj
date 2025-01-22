@@ -16,8 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Exercise\Commands\DeleteExercise\" />
-    <Folder Include="Features\Exercise\Commands\UpdateExercise\" />
     <Folder Include="Features\UserFood\Queries\" />
   </ItemGroup>
 
