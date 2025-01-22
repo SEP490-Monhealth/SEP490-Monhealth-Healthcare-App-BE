@@ -24,8 +24,8 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
                 FoodId = food.FoodId,
                 UserId = food.UserId,
                 FoodName = food.FoodName,
-                MealType = food.MealType?.Split(", ").ToList() ?? new List<string>(), // Chuyển từ chuỗi sang danh sách
-                DishType = food.DishType?.Split(", ").ToList() ?? new List<string>(), // Chuyển từ chuỗi sang danh sách
+                MealType = food.MealType, // Chuyển từ chuỗi sang danh sách
+                DishType = food.DishType, // Chuyển từ chuỗi sang danh sách
                 FoodDescription = food.FoodDescription,
                 Category = food.Category?.CategoryName, // Nếu có quan hệ với Category
                 Portion = food.FoodPortions.Select(fp => new GetPortionForGetAllFoodDTO

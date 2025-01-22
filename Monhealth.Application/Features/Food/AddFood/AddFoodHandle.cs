@@ -33,8 +33,8 @@ namespace Monhealth.Application.Features.Food.AddFood
             {
                 UserId = request.UserId,
                 FoodName = request.FoodName,
-                MealType = String.Join(",",request.MealType),
-                DishType = String.Join(",",request.DishType),
+                MealType = request.MealType,
+                DishType = request.DishType,
                 FoodDescription = request.FoodDescription,
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,

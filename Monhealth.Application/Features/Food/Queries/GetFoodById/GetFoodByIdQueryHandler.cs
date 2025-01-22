@@ -23,8 +23,8 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
             {
                 Category = query.Category.CategoryName,
                 CreatedAt = query.CreatedAt,
-                MealType = query.MealType?.Split(',').ToList() ?? new List<string>(), 
-                DishType = query.DishType?.Split(',').ToList() ?? new List<string>(),
+                MealType = query.MealType, 
+                DishType = query.DishType,
                 FoodDescription = query.FoodDescription,
                 FoodName = query.FoodName,
                 IsPublic = query.IsPublic,

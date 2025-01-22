@@ -33,7 +33,7 @@ namespace Monhealth.Identity.Configurations
                     CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
                     UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
                     MealType = ["Breakfast", "Snack"],
-                    DishType = [["Main Dish"], "Snack"],
+                    DishType = ["Main Dish", "Snack"],
                     FoodName = "Bánh mì",
                     FoodDescription = "Bánh vỏ giòn, ruột mềm, dùng kèm nhiều loại nhân như thịt, trứng, rau",
                     IsPublic = true,

@@ -96,6 +96,20 @@ namespace Monhealth.Identity.Dbcontexts
                         v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
                     );
             });
+            builder.Entity<Food>(entity =>
+            {
+                entity.Property(e => e.MealType)
+                    .HasConversion(
+                      v => string.Join(',', v), // Chuyển từ List<string> thành chuỗi
+                      v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList() // Chuyển chuỗi thành List<string>
+                  );
+
+                entity.Property(e => e.DishType)
+                    .HasConversion(
+                        v => string.Join(',', v),
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+                    );
+            });
 
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
