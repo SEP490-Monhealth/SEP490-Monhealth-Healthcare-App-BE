@@ -1,4 +1,5 @@
-﻿using Monhealth.Application.Contracts.Persistence;
+﻿using Microsoft.Extensions.Logging;
+using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Domain;
@@ -11,12 +12,16 @@ namespace Monhealth.Application.Services
         private readonly IMealFoodRepository _mealFoodRepository;
         private readonly IPortionRepository _portionRepository;
         private readonly IFoodPortionRepository _foodPortionRepository;
-        public GenerateDailyMenuService(IFoodRepository foodRepository, IMealFoodRepository mealFoodRepository, IPortionRepository portionRepository, IFoodPortionRepository foodPortionRepository)
+        private readonly ILogger<GenerateDailyMenuService>_logger;
+        public GenerateDailyMenuService(IFoodRepository foodRepository, IMealFoodRepository mealFoodRepository,
+         IPortionRepository portionRepository, IFoodPortionRepository foodPortionRepository,
+         ILogger<GenerateDailyMenuService> logger)
         {
             _foodRepository = foodRepository;
             _mealFoodRepository = mealFoodRepository;
             _portionRepository = portionRepository;
             _foodPortionRepository = foodPortionRepository;
+            _logger = logger;
         }
 
         public async Task<DailyMeal> GenerateDailyMealAsync(Guid userId, double tdee, string goal)

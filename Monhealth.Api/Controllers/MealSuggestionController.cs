@@ -1,29 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Services;
+using Monhealth.Application.ServiceForRecommend;
+
 
 [ApiController]
 [Route("api/v1/meal-suggestion")]
 public class MealSuggestion : ControllerBase
 {
-    private readonly GenerateDailyMenuService _dailyMenuService;
+    private readonly FoodFilterService _foodFilterService;
 
     public MealSuggestion(
-        GenerateDailyMenuService dailyMenuService)
+        FoodFilterService foodFilterService)
     {
-        _dailyMenuService = dailyMenuService;
+        _foodFilterService = foodFilterService;
+    }
+    [HttpGet]
+    public async Task<IActionResult> GenerateDailyMenu(Guid userId, int pageNumber = 1, int pageSize = 10)
+    {
+        var foods = await _foodFilterService.GetFilterFoodAsync(userId, pageNumber, pageSize);
+        return Ok(foods);
+
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GenerateDailyMenu(Guid userId, double tdee, string goal)
-    {
-        try
-        {
-            var dailyMeal = await _dailyMenuService.GenerateDailyMealAsync(userId, tdee, goal);
-            return Ok(dailyMeal);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Error: {ex.Message}");
-        }
-    }
 }

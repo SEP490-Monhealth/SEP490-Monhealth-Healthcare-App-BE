@@ -85,8 +85,10 @@ namespace Monhealth.Identity
             services.AddMediatR(typeof(CreateNotificationCommandHandler).Assembly);
             services.AddScoped<WaterReminderResetService>();
             services.AddScoped<IDailyWaterIntakesRepository, DailyWaterIntakesRepository>();
-            services.AddScoped<IScheduleRepository , ScheduleRepository>();
-
+            services.AddScoped<IScheduleRepository, ScheduleRepository>();
+            services.AddScoped<IAllergyRepository, AllergyRepository>();
+            services.AddScoped<IFoodAllergyRepository, FoodAllergyRepository>();
+            services.AddScoped<IUserAllergyRepository , UserAllergyRepository>();
             // Đăng ký Background Service
             services.AddHostedService<ReminderBackgroundService>();
             // Add Authentication
