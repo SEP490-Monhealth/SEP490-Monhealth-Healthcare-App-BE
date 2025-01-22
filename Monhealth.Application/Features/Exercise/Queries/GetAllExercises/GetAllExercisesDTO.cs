@@ -6,7 +6,8 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetAllExercises
     public class GetAllExercisesDTO : BaseEntity
     {
         public Guid ExerciseId { get; set; }
-        public Guid CategoryId { get; set; }
+        [JsonPropertyName("category")]
+        public string CategoryName { get; set; } = string.Empty;
         [JsonPropertyName("name")]
         public string ExerciseName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
