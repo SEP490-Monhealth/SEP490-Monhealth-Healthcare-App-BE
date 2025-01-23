@@ -26,7 +26,6 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
             food.FoodDescription = request.RequestData.FoodDescription;
             food.UpdatedAt = DateTime.Now;
             food.CategoryId = null;
-            food.IsPublic = request.RequestData.IsPublic;
             food.DishType = request.RequestData.DishType;
             food.MealType = request.RequestData.MealType;
             var categoryName = request.RequestData.Category;

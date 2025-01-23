@@ -13,7 +13,6 @@ namespace Monhealth.Application.Features.Food.AddFood
         public List<string> DishType { get; set; } 
         [JsonPropertyName("description")]
         public string FoodDescription { get; set; } = string.Empty;
-        public bool IsPublic { get; set; }
         public PortionDTO Portion { get; set; }
         public NutritionDTO Nutrition { get; set; }
     }

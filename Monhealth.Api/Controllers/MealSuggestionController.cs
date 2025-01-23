@@ -19,12 +19,29 @@ public class MealSuggestion : ControllerBase
         _goalService = goalService;
     }
     [HttpGet]
-    public async Task<IActionResult> GenerateDailyMenu(Guid userId, int pageNumber = 1, int pageSize = 10)
+    public async Task<IActionResult> GenerateDailyMenu(
+    Guid userId,
+    int pageNumber = 1,
+    int pageSize = 10,
+    [FromQuery] string? mealType = null,
+    [FromQuery] string? dishType = null)
     {
-        var foods = await _foodFilterService.GetFilterFoodAsync(userId, pageNumber, pageSize);
-        return Ok(foods);
+        // Tách các giá trị từ chuỗi truyền vào (nếu có) thành danh sách
+        var mealTypeList = !string.IsNullOrWhiteSpace(mealType)
+            ? mealType.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim().ToLower()).ToList()
+            : null;
 
+        var dishTypeList = !string.IsNullOrWhiteSpace(dishType)
+            ? dishType.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim().ToLower()).ToList()
+            : null;
+
+        // Gọi FoodFilterService với danh sách đã xử lý
+        var foods = await _foodFilterService.GetFilterFoodAsync(userId, pageNumber, pageSize, mealTypeList, dishTypeList);
+
+        return Ok(foods);
     }
+
+
     [HttpGet("user/{userId}/goal")]
     public async Task<ActionResult<ResultModel>> GetGoal(Guid userId)
     {

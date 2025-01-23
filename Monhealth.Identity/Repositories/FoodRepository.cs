@@ -205,6 +205,51 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
+     List<Guid> categoryIds,
+     List<Guid> excludedFoodIds,
+     List<string>? mealTypeFilter,
+     List<string>? dishTypeFilter,
+     int skip,
+     int take)
+        {
+            var query = _context.Foods
+     .Where(f => !excludedFoodIds.Contains(f.FoodId) && categoryIds.Contains(f.CategoryId.Value));
+
+            var items = await query.ToListAsync();
+
+            if (mealTypeFilter != null && mealTypeFilter.Any())
+            {
+                var normalizedMealTypeFilter = mealTypeFilter.Select(mt => mt.ToLower()).ToList();
+                items = items.Where(f => f.MealType.Any(mt => normalizedMealTypeFilter.Contains(mt.ToLower()))).ToList();
+            }
+
+            if (dishTypeFilter != null && dishTypeFilter.Any())
+            {
+                var normalizedDishTypeFilter = dishTypeFilter.Select(dt => dt.ToLower()).ToList();
+                items = items.Where(f => f.DishType.Any(dt => normalizedDishTypeFilter.Contains(dt.ToLower()))).ToList();
+            }
+
+            var totalCount = items.Count;
+
+            items = items
+                .OrderBy(f => f.FoodName)
+                .Skip(skip)
+                .Take(take)
+                .ToList();
+
+            return new PaginatedResult<Food>
+            {
+                Items = items,
+                TotalCount = totalCount
+            };
+
+        }
+
+
+
+
+
         public async Task<PaginatedResult<Food>> GetPaginatedFoodsExcludingIdsAsync(IEnumerable<Guid> excludedFoodIds, int skip, int take)
         {
             var query = _context.Foods

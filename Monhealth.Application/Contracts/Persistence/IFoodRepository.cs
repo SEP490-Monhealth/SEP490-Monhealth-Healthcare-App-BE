@@ -28,7 +28,13 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Food>> GetPaginatedFoodsExcludingIdsAsync(IEnumerable<Guid> excludedFoodIds, int skip, int take);
         Task<PaginatedResult<Food>> GetPaginatedFoodsByCategoryIdsAsync(IEnumerable<Guid> categoryIds, int skip, int take);
 
-
+        Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
+            List<Guid> categoryIds,
+            List<Guid> excludedFoodIds,
+            List<string>? mealTypeFilter,
+            List<string>? dishTypeFilter,
+            int skip,
+            int take);
 
     }
 }

@@ -3,6 +3,10 @@ using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Monhealth.Application.ServiceForRecommend
 {
@@ -31,7 +35,12 @@ namespace Monhealth.Application.ServiceForRecommend
             _categoryRepository = categoryRepository;
         }
 
-        public async Task<PageResult<FoodFilterDTO>> GetFilterFoodAsync(Guid userId, int pageNumber, int pageSize)
+        public async Task<PageResult<FoodFilterDTO>> GetFilterFoodAsync(
+     Guid userId,
+     int pageNumber,
+     int pageSize,
+     List<string>? mealTypeFilter = null,
+     List<string>? dishTypeFilter = null)
         {
             // Kiểm tra và xử lý giá trị đầu vào
             if (pageNumber <= 0) pageNumber = 1;
@@ -76,13 +85,19 @@ namespace Monhealth.Application.ServiceForRecommend
                 ? await _foodAllergyRepository.GetFoodIdsByAllergyIdsAsync(allergyIds)
                 : new List<Guid>();
 
-            // Lọc danh sách thức ăn theo danh mục hợp lệ
-            var filteredFoodsPaginated = await _foodRepository.GetPaginatedFoodsByCategoryIdsAsync(
-                categoryIds, (pageNumber - 1) * pageSize, pageSize);
+            // Lọc danh sách thức ăn theo danh mục hợp lệ và thêm bộ lọc MealType, DishType
+            var filteredFoodsPaginated = await _foodRepository.GetPaginatedFoodsByFiltersAsync(
+                categoryIds,
+                excludedFoodIds,
+                mealTypeFilter,
+                dishTypeFilter,
+                (pageNumber - 1) * pageSize,
+                pageSize);
 
-            _logger.LogInformation($"Người dùng {userId} có {filteredFoodsPaginated.TotalCount} thức ăn sau khi đã lọc theo categories.");
+            _logger.LogInformation($"Người dùng {userId} có {filteredFoodsPaginated.TotalCount} thức ăn sau khi đã lọc.");
             return BuildPageResult(filteredFoodsPaginated, pageNumber, pageSize);
         }
+
 
         // Phương thức tiện ích để xây dựng PageResult từ PaginatedResult
         private PageResult<FoodFilterDTO> BuildPageResult(PaginatedResult<Food> paginatedFoods, int pageNumber, int pageSize)

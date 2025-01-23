@@ -41,7 +41,7 @@ namespace Monhealth.Application.Features.Food.AddFood
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 CategoryId = category.CategoryId,
-                IsPublic = request.IsPublic
+                IsPublic = true
             };
 
             _foodRepository.Add(food);
