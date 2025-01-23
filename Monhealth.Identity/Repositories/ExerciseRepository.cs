@@ -17,7 +17,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Exercise>> GetAllExerciseAsync(int page, int limit, string? search, bool? popular, string? exerciseType)
+        public async Task<PaginatedResult<Exercise>> GetAllExerciseAsync(int page, int limit, string? search, bool? popular, string? exerciseType, bool? status)
         {
             IQueryable<Exercise> query = _context.Exercises.Include(t => t.Category).AsQueryable();
             // filter search
@@ -31,6 +31,10 @@ namespace Monhealth.Identity.Repositories
             if (!string.IsNullOrEmpty(exerciseType))
             {
                 query = query.Where(f => f.Category.CategoryName == exerciseType && f.Category.CategoryType == "Exercise");
+            }
+            if (status.HasValue)
+            {
+                query = query.Where(s => s.Status == status.Value);
             }
             int totalItems = await query.CountAsync();
             // filter popular
@@ -64,6 +68,11 @@ namespace Monhealth.Identity.Repositories
         public async Task<Exercise> GetExerciseByNameAsync(string exerciseName)
         {
             return await _context.Exercises.FirstOrDefaultAsync(n => n.ExerciseName.ToLower().Trim().Equals(exerciseName.ToLower().Trim()));
+        }
+
+        public async Task<List<Exercise>> GetExerciseUserIdAsync(Guid userId)
+        {
+            return await _context.Exercises.Include(c => c.Category).Where(u => u.UserId == userId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

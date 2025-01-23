@@ -7,6 +7,7 @@ using Monhealth.Application.Features.Exercise.Commands.DeleteExercise;
 using Monhealth.Application.Features.Exercise.Commands.UpdateExercise;
 using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
+using Monhealth.Application.Features.Exercise.Queries.GetExerciseByUserId;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -22,9 +23,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string type = null, string search = null, bool? popular = null)
+        public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string type = null, string search = null, bool? popular = null, bool? status = null)
         {
-            var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, type, search, popular));
+            var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, type, search, popular, status));
 
             return new ResultModel
             {
@@ -38,6 +39,27 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetExerciseById(Guid exerciseId)
         {
             var exercise = await _mediator.Send(new GetExerciseByIdQuery { ExerciseId = exerciseId });
+            if (exercise == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Bài tập không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = exercise
+            });
+        }
+        [HttpGet("{userId:guid}/user")]
+        public async Task<ActionResult<ResultModel>> GetExerciseByUserId(Guid userId)
+        {
+            var exercise = await _mediator.Send(new GetExerciseByUserIdQuery { UserId = userId });
             if (exercise == null)
             {
                 return NotFound(new ResultModel

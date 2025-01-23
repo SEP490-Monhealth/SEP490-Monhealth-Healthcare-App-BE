@@ -33,6 +33,7 @@ namespace Monhealth.Identity.Models
         public ICollection<Workout> Workouts { get; set; }
         public ICollection<DailyActivity> DailyActivities { get; set; }
         public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; }
+        public ICollection<Exercise> Exercises { get; set; }
         public UserFood UserFood { get; set; }
     }
 }

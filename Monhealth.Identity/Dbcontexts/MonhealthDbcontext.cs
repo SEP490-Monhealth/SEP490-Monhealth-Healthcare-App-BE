@@ -82,6 +82,19 @@ namespace Monhealth.Identity.Dbcontexts
                 .WithMany(g => g.DailyWaterIntakes)
                 .HasForeignKey(dwi => dwi.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<WorkoutExercise>()
+                .HasOne(we => we.Workout)
+                .WithMany(w => w.WorkoutExercises)
+                .HasForeignKey(we => we.WorkoutId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<WorkoutExercise>()
+                .HasOne(we => we.Exercise)
+                .WithMany(e => e.WorkoutExercises)
+                .HasForeignKey(we => we.ExerciseId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.Entity<UserFood>(entity =>
             {
                 entity.Property(e => e.Categories)
