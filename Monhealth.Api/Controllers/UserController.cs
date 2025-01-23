@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.User.Commands.ChangeStatus;
 using Monhealth.Application.Features.User.Commands.CreateUser;
 using Monhealth.Application.Features.User.Commands.Delete;
 using Monhealth.Application.Features.User.Commands.UpdateAvatarForUser;
@@ -94,7 +95,7 @@ namespace Monhealth.Api.Controllers
             };
         }
         [HttpDelete("{userId}")]
-        public async Task<ActionResult<ResultModel>>Delete(Guid userId)
+        public async Task<ActionResult<ResultModel>> Delete(Guid userId)
         {
             var command = await _mediator.Send(new RemoveUserCommand(userId));
             return new ResultModel
@@ -103,6 +104,30 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
                 Success = true
             };
+        }
+        [HttpPatch]
+        [Route("{userId}/status")]
+        public async Task<ActionResult<ResultModel>> ChangeStatus(Guid userId)
+        {
+            var foods = await _mediator.
+            Send(new ChangeStatusUserCommand() { UserId = userId });
+
+            if (foods == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Người dùng không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Message = "Cập nhật trạng thái thành công"
+            });
         }
     }
 }
