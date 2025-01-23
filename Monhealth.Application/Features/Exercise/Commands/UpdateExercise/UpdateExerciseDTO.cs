@@ -11,7 +11,6 @@ namespace Monhealth.Application.Features.Exercise.Commands.UpdateExercise
         public string Category { get; set; } = string.Empty;
         public string ExerciseName { get; set; } = string.Empty;
         public string ExerciseDescription { get; set; } = string.Empty;
-        public string Image { get; set; } = string.Empty;
         public int Duration { get; set; }
         public float CaloriesBurned { get; set; }
         public string Instructions { get; set; } = string.Empty;

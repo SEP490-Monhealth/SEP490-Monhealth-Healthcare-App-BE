@@ -14,11 +14,13 @@ namespace Monhealth.Application.Features.Exercise.Commands.CreateExercise
         private readonly IMapper _mapper;
         private readonly IExerciseRepository _exerciseRepository;
         private readonly ICategoryRepository _categoryRepository;
-        public CreateExerciseCommandHandler(IMapper mapper, IExerciseRepository exerciseRepository, ICategoryRepository categoryRepository)
+        private readonly IUserRepository _userRepository;
+        public CreateExerciseCommandHandler(IMapper mapper, IExerciseRepository exerciseRepository, ICategoryRepository categoryRepository, IUserRepository userRepository)
         {
             _mapper = mapper;
             _exerciseRepository = exerciseRepository;
             _categoryRepository = categoryRepository;
+            _userRepository = userRepository;
         }
         public async Task<Unit> Handle(CreateExerciseCommand request, CancellationToken cancellationToken)
         {
@@ -26,6 +28,11 @@ namespace Monhealth.Application.Features.Exercise.Commands.CreateExercise
             if(checkExerciseExisted != null)
             {
                 throw new Exception("Bài tập đã tồn tại.");
+            }
+            var user = await _userRepository.GetByIdAsync(request.CreateExerciseDTO.UserId);
+            if (user == null)
+            {
+                throw new Exception("Người dùng không tồn tại");
             }
             var category = await _categoryRepository.GetCategoryByCategoryName(request.CreateExerciseDTO.Category);
             if(category == null)
