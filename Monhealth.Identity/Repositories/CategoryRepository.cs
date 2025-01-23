@@ -35,6 +35,14 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(c => c.CategoryName.ToLower() == name.ToLower());
         }
 
+        public async Task<List<Guid>> GetCategoryIdsByNamesAsync(IEnumerable<string> categoryNames)
+        {
+            return await _context.Categories
+                       .Where(c => categoryNames.Contains(c.CategoryName.ToLower()))
+                       .Select(c => c.CategoryId)
+                       .ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

@@ -22,6 +22,14 @@ namespace Monhealth.Identity.Repositories
            .AnyAsync(joined => joined.fa.FoodId == food);
         }
 
+        public async Task<List<Guid>> GetAllergyIdsByNamesAsync(IEnumerable<string> allergyNames)
+        {
+            return await _context.Allergies
+                        .Where(a => allergyNames.Contains(a.AllergyName.ToLower()))
+                        .Select(a => a.AllergyId)
+                        .ToListAsync();
+        }
+
         public async Task<List<Allergy>> GetByUserId(Guid userId)
         {
             var query = await _context.UserAllergies.

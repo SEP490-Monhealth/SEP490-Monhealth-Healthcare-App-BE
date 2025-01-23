@@ -12,7 +12,7 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250122074426_AddDatabase")]
+    [Migration("20250123050912_AddDatabase")]
     partial class AddDatabase
     {
         /// <inheritdoc />
@@ -250,7 +250,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             AllergyId = new Guid("10127b02-786f-462b-8ee6-3df465903645"),
                             AllergyDescription = "Dị ứng với hạt vừng(mè), thường gặp trong các món ăn châu Á và Trung Đông.",
-                            AllergyName = "Vừng(mè)",
+                            AllergyName = "Vừng (mè)",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -297,6 +297,182 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("FoodId");
 
                     b.ToTable("FoodAllergies");
+
+                    b.HasData(
+                        new
+                        {
+                            FoodAllergyId = new Guid("12536007-f0ee-4103-ac40-596416fbb64c"),
+                            AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
+                            FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("32bc349f-caa3-4f23-90d1-15e174b56dae"),
+                            AllergyId = new Guid("10127b02-786f-462b-8ee6-3df465903645"),
+                            FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("575bf09f-9d81-4931-a987-de015da6b6fa"),
+                            AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
+                            FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("83143049-d2ba-4a1c-939c-ccba2cc7dec4"),
+                            AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
+                            FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("ac7c4180-49d8-45c6-b12c-ec0b9f3cd37f"),
+                            AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
+                            FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("c5e7d22e-8b34-45de-bc87-020dcbeb307f"),
+                            AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
+                            FoodId = new Guid("19bbab17-91c6-410f-b566-b509d067e76e")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("045893e3-36f1-4fbd-bdf5-0d0f15b03742"),
+                            AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
+                            FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("b7ff2e39-8c5b-4198-bfeb-b2fa23745f67"),
+                            AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
+                            FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("1e61d22d-5a80-47a0-917c-c16b8df4b5b5"),
+                            AllergyId = new Guid("10127b02-786f-462b-8ee6-3df465903645"),
+                            FoodId = new Guid("f412d88d-ce7e-4006-bc11-75af61438491")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("eff52e10-2e5d-48ea-9c53-f276634379bc"),
+                            AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
+                            FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("dbf35b97-4316-4f1a-b897-6ae644ad01bc"),
+                            AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
+                            FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("ca49c0a5-53b7-47b4-8f12-6545b5098da4"),
+                            AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
+                            FoodId = new Guid("f41484a3-c7df-4530-b7d2-060390103985")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("06efb992-c2d6-4535-9c2d-1a0cb556df92"),
+                            AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
+                            FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("fa719ef6-9cb6-4292-92a8-e7a82d4b48d1"),
+                            AllergyId = new Guid("0d352b08-ada9-40f6-a23e-6f6f170a9cd4"),
+                            FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("847f29d6-b7d1-4b6b-9e77-2a477b982dd2"),
+                            AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
+                            FoodId = new Guid("46b9f487-dc6d-4c1d-9729-9f707ac28202")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("9fa8b5d3-d20b-4c7e-a2b8-6b163d3a9d7e"),
+                            AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
+                            FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("d3eaf6d0-073b-4385-9ff7-9c361f46a882"),
+                            AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
+                            FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("837dbd30-cb43-414b-b50f-cf5b32255681"),
+                            AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
+                            FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("7f5ae68b-7e60-44f4-bd13-d8b251cdfa3d"),
+                            AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
+                            FoodId = new Guid("a53672e7-8593-4779-bd02-9f02ae81f915")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("5d72b3a1-bcd8-4951-9f0a-6b73bca63aa3"),
+                            AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
+                            FoodId = new Guid("ede931f5-092e-4e41-8ce1-5a95bff2772a")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("bb419ec6-79f7-4bd7-aee7-5b3edcc29b42"),
+                            AllergyId = new Guid("0d352b08-ada9-40f6-a23e-6f6f170a9cd4"),
+                            FoodId = new Guid("ede931f5-092e-4e41-8ce1-5a95bff2772a")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("dcf2b60b-b08e-4c1b-96d0-0ae5af6202c3"),
+                            AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
+                            FoodId = new Guid("dd1482e7-b3dd-4b17-80f6-5618a640c671")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("2bd755e1-7ea6-47a8-8d29-dc9357a17063"),
+                            AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
+                            FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("1603c0e4-e0db-4b89-9f85-d120e87f4a6e"),
+                            AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
+                            FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("30192e2a-97ef-4398-87f2-5d4d31238e3a"),
+                            AllergyId = new Guid("b82f4697-2ad0-4777-a29b-094c99f46d10"),
+                            FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("dcb56844-ea6b-4e54-9898-5d9c9723844b"),
+                            AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
+                            FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("4251a67b-d828-46c1-a1e2-2795e6f63a8d"),
+                            AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
+                            FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("6b1f19c7-faa3-4926-bc45-d88bc44c99d5"),
+                            AllergyId = new Guid("13008773-dadd-4053-b64c-500b6050b2aa"),
+                            FoodId = new Guid("01708b02-6cc1-41f6-ae4a-95c4085e1839")
+                        },
+                        new
+                        {
+                            FoodAllergyId = new Guid("e8e22c46-7403-44a9-80f4-7c5d9af6da25"),
+                            AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
+                            FoodId = new Guid("436d8364-15fd-47a2-9b72-c3841db0da2e")
+                        });
                 });
 
             modelBuilder.Entity("Monhealth.Core.Notification", b =>
@@ -7941,7 +8117,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "62fed100-2284-4297-9b2a-8ab424a45089",
+                            ConcurrencyStamp = "cc0a9c03-aea9-481a-bf97-3b957543ddf9",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -7949,10 +8125,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOkq2U7gpcPnQSWvoPw/QgCvII7GCwHr8T3a01SNt+o0JzqocLPIuT1gy52aCb5U9Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKhNYvswK3/wwXIg3eDqVTZ1oihNtTIfHIaq1BSXLf4NWq0UBWX7JgqiZR9EKPHsQQ==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a90699a8-f6e7-4ffa-81b5-a664d0d0e0e9",
+                            SecurityStamp = "efa896d3-9878-4baf-920a-85749a3856bf",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7962,7 +8138,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4c3e203a-4564-4913-bc0c-7c018bcd5208",
+                            ConcurrencyStamp = "05e44cdb-8473-4699-8050-70666e25003f",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -7970,10 +8146,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEErH4ranwIVNkDCQY5C8aeHeYrH5kFub8jpcj7NsYHTUz3RzQgfjwWaD9vKXe7moRg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEG2g6P6A6G2k8qWdSGmVl2CtLDnh1Y3m2o4DRF3ANKgf5bNblFjMGaTNVUgSNaRtBw==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "765994f0-dba7-4e31-833c-3f672c36c004",
+                            SecurityStamp = "da0a974e-1532-4a2b-8596-723231459359",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7983,7 +8159,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9802b8d9-e028-4515-b9cf-2e8679509fa0",
+                            ConcurrencyStamp = "26ef34d0-0f42-4e8d-a378-96dd6d7535c5",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -7991,10 +8167,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIOOdL3WfSbjQbzJcfQ5lQEychNX/Uw2m6dtjkpgTfSj5wztlPfmDughKH5L5mYgTg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECm/LiRSfxGa+OCdNAE6b9gezbt2VQKh6yXZPj2ZMPOyN/ZlBFm233YYPn0fSoUxSg==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b0a6fa16-6ad1-4d6c-8e62-293e7d06f533",
+                            SecurityStamp = "6a6c632a-765e-459c-baed-6dce2c473098",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8004,7 +8180,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f45ae267-1e9e-4368-a7c9-0222e6e852b7",
+                            ConcurrencyStamp = "4f50532b-a194-41a6-b5f4-947b19f6cbba",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -8012,10 +8188,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEH5+HCwKCpKTqmeF9Zw2i0/ks0FJWHJ4OK12c7paAoU1tPmiVpWQPOpHxpLstldAoA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELd4Tk+mdbQ7SFhmZ+38NitI+u36skJC8e59UzwYjIQc9lb2YOdYNgsqJ078cnktUw==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1f273982-908a-40a8-a1db-5cc423ece29c",
+                            SecurityStamp = "70397bce-34b6-4c01-accb-a6855b84c043",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8025,7 +8201,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "326538d7-d721-4a83-bc3e-5b0f97d7b4fd",
+                            ConcurrencyStamp = "d80cd7be-5846-4b9d-bf44-6c6573fc6cf0",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -8033,10 +8209,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEG9V+vKG56Mbo2dExnP/FBcKVuX/d9xVnHwtUHS0SV7vehPp+jUxfr9fCccairTxHA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECkoryAe/waGiIIvmQQ9cfQP6DqwUeeTaSAnZjcIHjnyau4dba49HldiKo64IFluzA==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3bfc93af-c2f7-476b-bcc3-139a25f010e7",
+                            SecurityStamp = "1638d7f8-f6a3-49f0-90c8-16dee92b9b35",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8046,7 +8222,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "70041dca-df7d-4cec-b110-f073d30579be",
+                            ConcurrencyStamp = "a1a0c8ff-34ab-49d8-81a7-0ca0c0a26e89",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -8054,10 +8230,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGvEPZtQnRF1faU0E8SIf4yntDquGpTxLa/ocKv9347sdm6HExyDGl9puW1H2xB2Lw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMJM38+yXTTFIyE11jLMCFakIa+q9NhngFMmfG4jEX1q95OijcEe9jvdulaDEJSHrw==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9dda2b96-7f00-40fc-a094-ddabdd8248b3",
+                            SecurityStamp = "7d3c7da7-d41d-48e8-a642-67b81df17681",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8067,7 +8243,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1f3e6403-ba15-4b49-8b07-0f0a66a68e6f",
+                            ConcurrencyStamp = "e7581b0f-aab5-4c86-a04d-725dc03723e0",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -8075,10 +8251,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAENxfFurNZNWATtKPjH2wjwiAvFJHsvxL0HvcCbW15YJFASlLCFPwlgOi4ATQGl3A6A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAOMAn6VqU7b+QoFeY3GgwIPk4x/ri9C3ordQ0CEOeuMFseB7pfMSDuK6mc+WrqZnQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c2051323-ebcd-49a3-ab33-4c69777427e3",
+                            SecurityStamp = "e3dfcd62-2ce5-49a6-a02e-5e1c808dd20e",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),

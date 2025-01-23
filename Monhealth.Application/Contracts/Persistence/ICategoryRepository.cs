@@ -10,5 +10,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<int> SaveChangeAsync();
         Task<Category> GetCategoryByCategoryName(string Name);
         Task<List<Category>> GetCategoriesByType(string categoryType);
+        Task<List<Guid>> GetCategoryIdsByNamesAsync(IEnumerable<string> categoryNames);
     }
 }

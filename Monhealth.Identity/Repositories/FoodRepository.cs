@@ -140,15 +140,6 @@ namespace Monhealth.Identity.Repositories
            .ToListAsync();
         }
 
-
-        // public async Task<List<Food>> GetFoodListByFoodType(string foodType)
-        // {
-        //     return await _context.Foods.Where(f => f.FoodType == foodType)
-        //     .Include(f => f.Category).Include(f => f.Nutrition).
-        //     Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
-
-        // }
-
         public async Task<List<Food>> GetFoodsByCategoryNameAsync(string[] categoryNames)
         {
             return await _context.Foods.Where(f => categoryNames.Contains(f.Category.CategoryName)).
@@ -165,6 +156,74 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Food>> GetFoodsFilteredByAllergiesAsync(IEnumerable<string> allergies, int skip, int take)
+        {
+            return await _context.Foods
+                .Where(f => !allergies.Any(allergy => f.FoodDescription.Contains(allergy))) // Lọc các món không chứa dị ứng
+                .OrderBy(f => f.FoodName) // Sắp xếp (tuỳ chỉnh nếu cần)
+                .Skip(skip) // Bỏ qua số lượng bản ghi
+                .Take(take) // Lấy số lượng bản ghi
+                .ToListAsync();
+        }
+
+        public async Task<PaginatedResult<Food>> GetPaginatedFoodsAsync(int skip, int take)
+        {
+            var query = _context.Foods.Include(f => f.Category).AsQueryable();
+
+            var totalCount = await query.CountAsync();
+            var items = await query
+                .OrderBy(f => f.FoodName)
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+
+            return new PaginatedResult<Food>
+            {
+                Items = items,
+                TotalCount = totalCount
+            };
+        }
+
+        public async Task<PaginatedResult<Food>> GetPaginatedFoodsByCategoryIdsAsync(IEnumerable<Guid> categoryIds, int skip, int take)
+        {
+
+            var query = _context.Foods.Include(f => f.Category)
+     .Where(f => f.CategoryId != null && categoryIds.Contains(f.CategoryId.Value));
+
+
+            var totalCount = await query.CountAsync();
+            var items = await query
+                .OrderBy(f => f.FoodName) // Sắp xếp theo tên món ăn
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+
+            return new PaginatedResult<Food>
+            {
+                Items = items,
+                TotalCount = totalCount
+            };
+        }
+
+        public async Task<PaginatedResult<Food>> GetPaginatedFoodsExcludingIdsAsync(IEnumerable<Guid> excludedFoodIds, int skip, int take)
+        {
+            var query = _context.Foods
+        .Where(f => !excludedFoodIds.Contains(f.FoodId));
+
+            var totalCount = await query.CountAsync();
+            var items = await query
+                .OrderBy(f => f.FoodName)
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+
+            return new PaginatedResult<Food>
+            {
+                Items = items,
+                TotalCount = totalCount
+            };
+        }
+
         public Task<int> GetTotalFoodCountAsync()
         {
             return _context.Foods.CountAsync();
@@ -177,42 +236,18 @@ namespace Monhealth.Identity.Repositories
            .CountAsync();
         }
 
-        // public void RemoveFoodCategories(Guid foodId)
-        // {
-        //     var categoriesToRemove = _context.FoodCategories.Where(fc => fc.FoodId == foodId);
-        //     _context.FoodCategories.RemoveRange(categoriesToRemove);
-        // }
+        public async Task<int> GetTotalFoodCountFilteredByAllergiesAsync(IEnumerable<string> allergies)
+        {
+            return await _context.Foods
+                .CountAsync(f => !allergies.Any(allergy => f.FoodDescription.Contains(allergy)));
+        }
+
 
         public void RemoveFoodPortions(Guid foodId)
         {
             var portionsToRemove = _context.FoodPortions.Where(fp => fp.FoodId == foodId);
             _context.FoodPortions.RemoveRange(portionsToRemove);
         }
-
-
-
-        // public async Task<List<Food>> GetFoodListByUser(Guid userId)
-        // {
-        //     var isCustomer = await _context.Roles.Where(role => role.Name == "Customer")
-        //                         .Join(_context.UserRoles,
-        //                               role => role.Id,
-        //                               userRole => userRole.RoleId,
-        //                               (role, userRole) => userRole.UserId)
-        //                         .Distinct()
-        //                         .ToListAsync();
-        //     if (isCustomer == null)
-        //     {
-
-        //         return new List<Food>();
-        //     }
-
-
-        //     var foods = await _context.Foods
-        //         .Where(f => f.UserId == userId)
-        //         .ToListAsync();
-
-        //     return foods;
-        // }
 
         public async Task<int> SaveChangesAsync()
         {

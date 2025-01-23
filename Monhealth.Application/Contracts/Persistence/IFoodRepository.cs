@@ -17,8 +17,18 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Food>> GetFoodsByCategoryNameAsync(string[] categoryNames);
         //dung cho FoodFilter
         Task<List<Food>> GetFoodsAsync(int Skip, int take);
-        Task<List<Food>> GetFoodsExcludingIdsAsync(List<Guid> excludedFoodIds ,int skip , int take);
+        Task<List<Food>> GetFoodsExcludingIdsAsync(List<Guid> excludedFoodIds, int skip, int take);
         Task<int> GetTotalFoodCountAsync();
         Task<int> GetTotalFoodCountExcludingIdsAsync(List<Guid> excludedFoodIds);
+        //FilterFood
+        Task<IEnumerable<Food>> GetFoodsFilteredByAllergiesAsync(IEnumerable<string> allergies, int skip, int take);
+        Task<int> GetTotalFoodCountFilteredByAllergiesAsync(IEnumerable<string> allergies);
+        //phan trang cho FilerFood
+        Task<PaginatedResult<Food>> GetPaginatedFoodsAsync(int skip, int take);
+        Task<PaginatedResult<Food>> GetPaginatedFoodsExcludingIdsAsync(IEnumerable<Guid> excludedFoodIds, int skip, int take);
+        Task<PaginatedResult<Food>> GetPaginatedFoodsByCategoryIdsAsync(IEnumerable<Guid> categoryIds, int skip, int take);
+
+
+
     }
 }

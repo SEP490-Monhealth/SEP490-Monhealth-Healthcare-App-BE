@@ -10,6 +10,5 @@ namespace Monhealth.Application.ServiceForRecommend
         public List<string> DishType { get; set; }
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
-     
     }
 }

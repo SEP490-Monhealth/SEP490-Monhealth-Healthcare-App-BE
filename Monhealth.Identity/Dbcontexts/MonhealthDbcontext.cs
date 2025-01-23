@@ -122,7 +122,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new FoodPortionConfiguration());
             builder.ApplyConfiguration(new AllergyConfiguration());
             builder.ApplyConfiguration(new ExerciseConfiguration());
-
+            builder.ApplyConfiguration(new FoodAllergyConfiguration());
 
         }
 
