@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.User.Commands.CreateUser;
+using Monhealth.Application.Features.User.Commands.UpdateAvatarForUser;
 using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Features.User.Queries.GetAllUser;
 using Monhealth.Application.Features.User.Queries.GetUserDetail;
@@ -75,6 +76,18 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Message = "cập nhập người dùng thành công",
+                Status = 200,
+                Success = true
+            };
+        }
+        [HttpPut("users/{userId}/avatar")]
+        public async Task<ActionResult<ResultModel>> UpdateUserAvatar(Guid userId, [FromBody] UpdateAvatarRequest request)
+        {
+            var command = new UpdateAvatarCommand(userId, request);
+            var result = await _mediator.Send(command);
+            return new ResultModel
+            {
+                Message = "cập nhập avatar thành công",
                 Status = 200,
                 Success = true
             };
