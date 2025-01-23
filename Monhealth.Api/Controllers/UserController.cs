@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.User.Commands.CreateUser;
+using Monhealth.Application.Features.User.Commands.Delete;
 using Monhealth.Application.Features.User.Commands.UpdateAvatarForUser;
 using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Features.User.Queries.GetAllUser;
@@ -89,6 +90,17 @@ namespace Monhealth.Api.Controllers
             {
                 Message = "cập nhập avatar thành công",
                 Status = 200,
+                Success = true
+            };
+        }
+        [HttpDelete("{userId}")]
+        public async Task<ActionResult<ResultModel>>Delete(Guid userId)
+        {
+            var command = await _mediator.Send(new RemoveUserCommand(userId));
+            return new ResultModel
+            {
+                Message = "Xóa người dùng thành công",
+                Status = 204,
                 Success = true
             };
         }
