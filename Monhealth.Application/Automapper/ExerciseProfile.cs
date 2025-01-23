@@ -16,8 +16,11 @@ namespace Monhealth.Application.Automapper
     {
         public ExerciseProfile()
         {
-            CreateMap<Exercise, GetAllExercisesDTO>().ReverseMap();
-            CreateMap<Exercise, GetExerciseByIdDTO>().ReverseMap();
+            CreateMap<Exercise, GetAllExercisesDTO>()
+            .ForMember(dest => dest.CategoryName , opt => opt.MapFrom(src => src.Category.CategoryName)).ReverseMap();
+            CreateMap<Exercise, GetExerciseByIdDTO>()
+            .ForMember(dest => dest.CategoryName , opt => opt.MapFrom(src => src.Category.CategoryName)).ReverseMap();
+            
 
             CreateMap<CreateExerciseDTO, Exercise>()
             .ForMember(dest => dest.CategoryId, opt => opt.Ignore()) // Bỏ qua ánh xạ mặc định cho CategoryId
