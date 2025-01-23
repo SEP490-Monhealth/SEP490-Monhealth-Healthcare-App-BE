@@ -56,7 +56,7 @@ namespace Monhealth.Api.Controllers
                 Data = exercise
             });
         }
-        [HttpGet("{userId:guid}/user")]
+        [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetExerciseByUserId(Guid userId)
         {
             var exercise = await _mediator.Send(new GetExerciseByUserIdQuery { UserId = userId });
