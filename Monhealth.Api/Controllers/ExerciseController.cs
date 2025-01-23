@@ -23,9 +23,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string type = null, string search = null, bool? popular = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string category = null, string search = null, bool? popular = null, bool? status = null)
         {
-            var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, type, search, popular, status));
+            var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, category, search, popular, status));
 
             return new ResultModel
             {
