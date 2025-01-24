@@ -38,10 +38,10 @@ namespace Monhealth.Identity.Repositories
             }
             int totalItems = await query.CountAsync();
             // filter popular
-            if(popular == true)
-            {
-                query = query.OrderByDescending(v => v.Views);
-            }
+            // if(popular == true)
+            // {
+            //     query = query.OrderByDescending(v => v.Views);
+            // }
             if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
@@ -57,11 +57,11 @@ namespace Monhealth.Identity.Repositories
         {
             var exercise = _context.Exercises.Include(t => t.Category).FirstOrDefault(e => e.ExerciseId == exerciseId);
             // Neu exercise ton tai thi tang Views len 1
-            if (exercise != null)
-            {
-                exercise.Views += 1;
-                await _context.SaveChangesAsync();
-            }
+            // if (exercise != null)
+            // {
+            //     exercise.Views += 1;
+            //     await _context.SaveChangesAsync();
+            // }
             return exercise;
         }
 
