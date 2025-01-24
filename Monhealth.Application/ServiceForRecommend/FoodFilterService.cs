@@ -1,13 +1,7 @@
-using AutoMapper;
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Monhealth.Application.ServiceForRecommend
 {
     public class FoodFilterService
