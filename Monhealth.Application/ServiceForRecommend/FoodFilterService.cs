@@ -30,11 +30,11 @@ namespace Monhealth.Application.ServiceForRecommend
         }
 
         public async Task<PageResult<FoodFilterDTO>> GetFilterFoodAsync(
-     Guid userId,
-     int pageNumber,
-     int pageSize,
-     List<string>? mealTypeFilter = null,
-     List<string>? dishTypeFilter = null)
+        Guid userId,
+        int pageNumber,
+        int pageSize,
+        List<string>? mealTypeFilter = null,
+        List<string>? dishTypeFilter = null)
         {
             // Kiểm tra và xử lý giá trị đầu vào
             if (pageNumber <= 0) pageNumber = 1;
@@ -85,7 +85,7 @@ namespace Monhealth.Application.ServiceForRecommend
                 excludedFoodIds,
                 mealTypeFilter,
                 dishTypeFilter,
-                
+
                 (pageNumber - 1) * pageSize,
                 pageSize);
 
