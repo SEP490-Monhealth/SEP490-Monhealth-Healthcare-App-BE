@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Models;
 using Monhealth.Application.ServiceForRecommend;
@@ -19,8 +20,9 @@ public class MealSuggestion : ControllerBase
         _goalService = goalService;
     }
     [HttpGet]
+    [Route("{userId:guid}")]
     public async Task<IActionResult> GenerateDailyMenu(
-    Guid userId,
+    [Required]Guid userId,
     int pageNumber = 1,
     int pageSize = 10,
     [FromQuery] string? mealType = null,
