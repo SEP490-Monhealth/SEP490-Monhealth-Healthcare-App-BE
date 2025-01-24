@@ -177,7 +177,7 @@ namespace Monhealth.Identity.Repositories
                 .Take(take)
                 .ToListAsync();
 
-                
+
 
             return new PaginatedResult<Food>
             {
@@ -215,8 +215,9 @@ namespace Monhealth.Identity.Repositories
      int skip,
      int take)
         {
-            var query = _context.Foods
-     .Where(f => !excludedFoodIds.Contains(f.FoodId) && categoryIds.Contains(f.CategoryId.Value));
+            var query = _context.Foods.Include(f => f.Category)
+     .Where(f => !excludedFoodIds.Contains(f.FoodId) && categoryIds.Contains(f.CategoryId.Value)
+     && f.IsPublic == true && f.Status == true);
 
             var items = await query.ToListAsync();
 
