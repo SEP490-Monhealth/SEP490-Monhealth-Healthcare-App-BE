@@ -12,17 +12,20 @@ public class MealSuggestion : ControllerBase
 {
     private readonly FoodFilterService _foodFilterService;
     private readonly GoalService _goalService;
+    private readonly FoodRandomService _foodRandomService;
     public MealSuggestion(
         FoodFilterService foodFilterService,
-        GoalService goalService)
+        GoalService goalService,
+        FoodRandomService foodRandomService)
     {
         _foodFilterService = foodFilterService;
         _goalService = goalService;
+        _foodRandomService = foodRandomService;
     }
     [HttpGet]
     [Route("{userId:guid}")]
     public async Task<IActionResult> GenerateDailyMenu(
-    [Required]Guid userId,
+    [Required] Guid userId,
     int pageNumber = 1,
     int pageSize = 10,
     [FromQuery] string? mealType = null,
@@ -56,5 +59,17 @@ public class MealSuggestion : ControllerBase
             Status = 200,
             Success = true,
         };
+    }
+    [HttpGet("user/{userId}/random-meal")]
+    public async Task<ActionResult<MealPlanDTO>> GetRandomMealPlan(Guid userId)
+    {
+        var randomMealPlan = await _foodRandomService.GetMealPlanAsync(userId);
+
+        if (randomMealPlan == null)
+        {
+            return NotFound(new { Message = "Could not generate a random meal plan for the user." });
+        }
+
+        return Ok(randomMealPlan);
     }
 }

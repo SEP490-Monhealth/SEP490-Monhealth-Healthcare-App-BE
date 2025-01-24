@@ -47,6 +47,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 builder.Services.AddScoped<FoodFilterService>();
 builder.Services.AddScoped<GoalService>();
+builder.Services.AddScoped<FoodRandomService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 // Add Swagger services
