@@ -1930,9 +1930,1569 @@ namespace Monhealth.Identity.Configurations
         UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
         IsPublic = true,
         Status = true
-    }
-    #endregion
-                );
+    },
+            #endregion
+            #region Food 114
+    new Food
+    {
+        FoodId = Guid.Parse("86bcbac3-fc75-46ed-8d0e-18c8c4860692"),
+        FoodName = "Ức gà nướng",
+        FoodDescription = "Giàu protein, ít béo, phù hợp chế độ giảm cân.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+            #endregion
+
+            #region Food 115
+    new Food
+    {
+        FoodId = Guid.Parse("a6ce6816-c6e1-4512-aeb6-d5d647815c1d"),
+        FoodName = "Thịt bò nạc",
+        FoodDescription = "Thịt đỏ mềm, giàu dinh dưỡng, giúp phát triển cơ bắp.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+            #endregion
+
+            #region Food 116
+    new Food
+    {
+        FoodId = Guid.Parse("edb9d5d0-01f3-4607-a406-9e04bbff85fb"),
+        FoodName = "Cá hồi nướng",
+        FoodDescription = "Omega-3 dồi dào, tốt cho tim mạch và làn da khỏe mạnh.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+            #endregion
+
+            #region Food 117
+    new Food
+    {
+        FoodId = Guid.Parse("4d640470-857a-4765-905f-e49e98a281a1"),
+        FoodName = "Tôm hấp",
+        FoodDescription = "Món hải sản ít calo, bổ sung protein và khoáng chất.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+            #endregion
+
+            #region Food 118
+    new Food
+    {
+        FoodId = Guid.Parse("a7c3c838-acdb-4cce-b4c4-d46058b10ad1"),
+        FoodName = "Phô mai Parmesan",
+        FoodDescription = "Vị đậm đà, giàu canxi, dùng kèm salad hoặc pasta.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 119
+    new Food
+    {
+        FoodId = Guid.Parse("d3a1c73d-ca5a-45ea-a7fa-d582f1253b79"),
+        FoodName = "Thịt lợn nạc",
+        FoodDescription = "Thịt trắng mềm, nguồn cung cấp sắt và protein.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 120
+    new Food
+    {
+        FoodId = Guid.Parse("adeb902f-fb34-44eb-aa60-76eaeb0ed70b"),
+        FoodName = "Cá thu nướng",
+        FoodDescription = "Giàu omega-3, tốt cho trí não và sức khỏe tim mạch.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 121
+    new Food
+    {
+        FoodId = Guid.Parse("3fa8cf38-d835-4279-a113-a8f44cd013e6"),
+        FoodName = "Đậu nành luộc",
+        FoodDescription = "Thực phẩm chay bổ dưỡng, giàu protein thực vật.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 122
+    new Food
+    {
+        FoodId = Guid.Parse("d3392e5d-a48f-4b5a-968d-31b98bd47835"),
+        FoodName = "Sữa chua Hy Lạp",
+        FoodDescription = "Giàu lợi khuẩn, hỗ trợ tiêu hóa và làm đẹp da.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 123
+    new Food
+    {
+        FoodId = Guid.Parse("ad6a860f-4a4a-4cb7-90fa-21c8f36c91ce"),
+        FoodName = "Ức vịt nướng",
+        FoodDescription = "Món giàu sắt, thích hợp cho bữa tiệc thịnh soạn.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 124
+    new Food
+    {
+        FoodId = Guid.Parse("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
+        FoodName = "Cá ngừ đóng hộp",
+        FoodDescription = "Tiện lợi, giàu dinh dưỡng, dễ chế biến nhiều món.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 125
+    new Food
+    {
+        FoodId = Guid.Parse("d84bdf62-aeb1-4274-86ee-278c27cb175d"),
+        FoodName = "Phô mai Cottage",
+        FoodDescription = "Mềm nhẹ, ít béo, dùng trong bữa sáng hoặc nhẹ.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 126
+    new Food
+    {
+        FoodId = Guid.Parse("e5559d6e-baa1-44e2-82a6-188f50a81e1c"),
+        FoodName = "Lòng trắng trứng",
+        FoodDescription = "Giàu protein, ít calo, lý tưởng cho người tập gym.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 127
+    new Food
+    {
+        FoodId = Guid.Parse("2da12ed2-3082-4374-807e-795372dfd1de"),
+        FoodName = "Cá bơn nướng",
+        FoodDescription = "Thịt cá mềm, thơm, bổ sung dưỡng chất thiết yếu.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 128
+    new Food
+    {
+        FoodId = Guid.Parse("50c0adac-c878-4a21-8b5f-01478e7e4852"),
+        FoodName = "Đậu hũ chiên",
+        FoodDescription = "Món chay giàu protein, dễ chế biến với nhiều gia vị.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 129
+    new Food
+    {
+        FoodId = Guid.Parse("431b7ee6-7c63-43ac-ae7e-be93f7fb6647"),
+        FoodName = "Thịt nai nướng",
+        FoodDescription = "Món đặc sản, thịt ngọt, giàu sắt và năng lượng.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 130
+    new Food
+    {
+        FoodId = Guid.Parse("016d6e20-bf8b-4b0e-9e0c-a1d6199f73d4"),
+        FoodName = "Cua hấp",
+        FoodDescription = "Hải sản ngọt tự nhiên, cung cấp canxi và kẽm.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 131
+    new Food
+    {
+        FoodId = Guid.Parse("c027a073-e154-4c78-821e-3588fcb4df03"),
+        FoodName = "Hạt chia ngâm",
+        FoodDescription = "Siêu thực phẩm, giàu chất xơ và omega-3.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 132
+    new Food
+    {
+        FoodId = Guid.Parse("341c53c9-7894-410c-ab04-0dca11ff6a80"),
+        FoodName = "Cá tuyết hấp",
+        FoodDescription = "Thịt trắng thơm ngọt, giàu dinh dưỡng, dễ tiêu hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 133
+    new Food
+    {
+        FoodId = Guid.Parse("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
+        FoodName = "Bò bít tết",
+        FoodDescription = "Thịt bò mềm, hấp dẫn, thích hợp cho bữa tối cao cấp.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 134
+    new Food
+    {
+        FoodId = Guid.Parse("02aad946-ee2f-45f8-8ce5-8ebc476ba631"),
+        FoodName = "Ức gà tây",
+        FoodDescription = "Giàu protein, ít béo, giúp xây dựng cơ bắp hiệu quả.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 135
+    new Food
+    {
+        FoodId = Guid.Parse("a23f6c85-1a80-4255-a9a1-d08c1d60e753"),
+        FoodName = "Cá hồi hun khói",
+        FoodDescription = "Hương vị đậm đà, tiện lợi, tốt cho sức khỏe tim.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 136
+    new Food
+    {
+        FoodId = Guid.Parse("082a2d27-7116-4207-ac8f-3ab31ca6e6fa"),
+        FoodName = "Đậu đen luộc",
+        FoodDescription = "Giàu chất xơ, bổ máu, hỗ trợ tiêu hóa hiệu quả.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 137
+    new Food
+    {
+        FoodId = Guid.Parse("c7e5ccea-ca0e-4c25-be0b-509bb51b38a2"),
+        FoodName = "Cá basa chiên",
+        FoodDescription = "Món cá vàng giòn, giàu omega-3, dễ chế biến.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 138
+    new Food
+    {
+        FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),
+        FoodName = "Hạt hạnh nhân",
+        FoodDescription = "Thực phẩm nhẹ, cung cấp năng lượng và vitamin E.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 139
+    new Food
+    {
+        FoodId = Guid.Parse("a6b8e6e4-1e44-4626-a7d0-1cefefc4f613"),
+        FoodName = "Cá chình nướng",
+        FoodDescription = "Thịt ngọt, mềm, bổ dưỡng, tốt cho sức khỏe.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 140
+    new Food
+    {
+        FoodId = Guid.Parse("6dfafffc-d4f7-4402-b585-37a1c8994663"),
+        FoodName = "Cà ri gà",
+        FoodDescription = "Món cay hấp dẫn, giàu hương vị, hợp khẩu vị Việt.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 141
+    new Food
+    {
+        FoodId = Guid.Parse("55cb9711-56aa-4efb-b31f-d034134cb1b8"),
+        FoodName = "Cá trích muối",
+        FoodDescription = "Hải sản đậm đà, thích hợp ăn kèm bánh mì.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 142
+    new Food
+    {
+        FoodId = Guid.Parse("304376d6-f9c5-48f0-985c-06080347b173"),
+        FoodName = "Cá hồi sốt chanh",
+        FoodDescription = "Món thanh nhẹ, chua ngọt, giàu omega-3.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 143
+    new Food
+    {
+        FoodId = Guid.Parse("8da16f72-42a9-4da2-b217-811903e340c4"),
+        FoodName = "Đậu phụ sốt cà",
+        FoodDescription = "Món chay đơn giản, ngon miệng, giàu protein.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 144
+    new Food
+    {
+        FoodId = Guid.Parse("a5d484c6-9cc8-4d6e-a53c-5c8a2c20999b"),
+        FoodName = "Thịt lợn xông khói",
+        FoodDescription = "Vị mặn đậm, dùng làm topping hoặc ăn sáng.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 145
+    new Food
+    {
+        FoodId = Guid.Parse("56bb5be7-3a7f-4942-89c6-3c6af934adf3"),
+        FoodName = "Cá chim trắng nướng",
+        FoodDescription = "Cá biển thơm ngon, giàu dinh dưỡng tự nhiên.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 146
+    new Food
+    {
+        FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
+        FoodName = "Hạt bí ngô",
+        FoodDescription = "Giàu kẽm, ăn nhẹ tốt cho sức khỏe và làn da.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 147
+    new Food
+    {
+        FoodId = Guid.Parse("b29dc622-e8ae-4471-8e22-5676aa5fa909"),
+        FoodName = "Đậu hà lan luộc",
+        FoodDescription = "Rau củ giàu vitamin, hỗ trợ hệ miễn dịch.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 148
+    new Food
+    {
+        FoodId = Guid.Parse("6007962d-9bd0-43ce-8a83-6b5f9bed4156"),
+        FoodName = "Cua biển sốt me",
+        FoodDescription = "Món ăn đậm đà, chua ngọt, hợp khẩu vị mọi người.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 149
+    new Food
+    {
+        FoodId = Guid.Parse("189dadbe-caf2-4d83-bb01-5ffa8776fa20"),
+        FoodName = "Đậu phộng rang",
+        FoodDescription = "Món ăn nhẹ phổ biến, giàu năng lượng và chất béo.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 150
+    new Food
+    {
+        FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
+        FoodName = "Sò điệp hấp",
+        FoodDescription = "Hải sản cao cấp, thơm ngọt, giàu dinh dưỡng.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 151
+    new Food
+    {
+        FoodId = Guid.Parse("0f7f47a1-f122-4f58-9e24-40ece9323520"),
+        FoodName = "Thịt gà quay",
+        FoodDescription = "Thịt gà vàng giòn, hương vị hấp dẫn, dễ ăn.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 152
+    new Food
+    {
+        FoodId = Guid.Parse("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
+        FoodName = "Sữa bò tươi",
+        FoodDescription = "Nguồn canxi tự nhiên, tốt cho xương và cơ thể.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 153
+    new Food
+    {
+        FoodId = Guid.Parse("d675513e-3be1-4c47-b0d2-0718f02ae93b"),
+        FoodName = "Hạt mè",
+        FoodDescription = "Nhỏ gọn, giàu dưỡng chất, dùng trong món ăn châu Á.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 154
+    new Food
+    {
+        FoodId = Guid.Parse("8bcd1ea8-cf17-4457-bc32-65033e43e311"),
+        FoodName = "Cá mòi hộp dầu",
+        FoodDescription = "Tiện lợi, giàu omega-3, bổ sung bữa ăn nhanh.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 155
+    new Food
+    {
+        FoodId = Guid.Parse("7f55881d-f8f4-43aa-b4b6-5d56fd56cfde"),
+        FoodName = "Cá lóc hấp",
+        FoodDescription = "Cá đồng ngon ngọt, giàu chất dinh dưỡng.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 149
+    new Food
+    {
+        FoodId = Guid.Parse("189dadbe-caf2-4d83-bb01-5ffa8776fa20"),
+        FoodName = "Đậu phộng rang",
+        FoodDescription = "Món ăn nhẹ phổ biến, giàu năng lượng và chất béo.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 150
+    new Food
+    {
+        FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
+        FoodName = "Sò điệp hấp",
+        FoodDescription = "Hải sản cao cấp, thơm ngọt, giàu dinh dưỡng.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 151
+    new Food
+    {
+        FoodId = Guid.Parse("0f7f47a1-f122-4f58-9e24-40ece9323520"),
+        FoodName = "Thịt gà quay",
+        FoodDescription = "Thịt gà vàng giòn, hương vị hấp dẫn, dễ ăn.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 152
+    new Food
+    {
+        FoodId = Guid.Parse("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
+        FoodName = "Sữa bò tươi",
+        FoodDescription = "Nguồn canxi tự nhiên, tốt cho xương và cơ thể.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 153
+    new Food
+    {
+        FoodId = Guid.Parse("d675513e-3be1-4c47-b0d2-0718f02ae93b"),
+        FoodName = "Hạt mè",
+        FoodDescription = "Nhỏ gọn, giàu dưỡng chất, dùng trong món ăn châu Á.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 154
+    new Food
+    {
+        FoodId = Guid.Parse("8bcd1ea8-cf17-4457-bc32-65033e43e311"),
+        FoodName = "Cá mòi hộp dầu",
+        FoodDescription = "Tiện lợi, giàu omega-3, bổ sung bữa ăn nhanh.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 155
+    new Food
+    {
+        FoodId = Guid.Parse("7f55881d-f8f4-43aa-b4b6-5d56fd56cfde"),
+        FoodName = "Cá lóc hấp",
+        FoodDescription = "Cá đồng ngon ngọt, giàu chất dinh dưỡng.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 156
+    new Food
+    {
+        FoodId = Guid.Parse("bbd19c8e-c1b4-497f-aadb-ca584820c465"),
+        FoodName = "Hạt diêm mạch",
+        FoodDescription = "Siêu thực phẩm, giàu protein và chất xơ.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 157
+    new Food
+    {
+        FoodId = Guid.Parse("da3b2de7-bfd2-4c5e-9958-f8a8368b158a"),
+        FoodName = "Cá trắm hấp",
+        FoodDescription = "Món cá đồng thơm ngon, dễ chế biến cho mọi nhà.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 158
+    new Food
+    {
+        FoodId = Guid.Parse("c46676b3-cbcc-49e9-ad44-7d450a481a19"),
+        FoodName = "Yến mạch",
+        FoodDescription = "Giàu chất xơ, hỗ trợ tiêu hóa và tốt cho tim mạch.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 159
+    new Food
+    {
+        FoodId = Guid.Parse("0b45baa0-8fea-4923-be9d-8d25ba1f53be"),
+        FoodName = "Đậu xanh luộc",
+        FoodDescription = "Giàu protein thực vật, thích hợp cho chế độ ăn chay.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 160
+    new Food
+    {
+        FoodId = Guid.Parse("597a11b3-31a0-4e70-8d2f-95465ee03e8b"),
+        FoodName = "Cải bó xôi",
+        FoodDescription = "Rau lá xanh, chứa nhiều sắt và vitamin K.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 161
+    new Food
+    {
+        FoodId = Guid.Parse("628fe894-0d9c-416f-866b-eb77f763ee62"),
+        FoodName = "Bơ",
+        FoodDescription = "Giàu chất béo tốt, giúp nuôi dưỡng làn da và tóc.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 162
+    new Food
+    {
+        FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),
+        FoodName = "Hạt hướng dương",
+        FoodDescription = "Thực phẩm ăn nhẹ, giàu vitamin E và khoáng chất.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 163
+    new Food
+    {
+        FoodId = Guid.Parse("eb4c2f48-e8ff-4ef1-959b-144a57926238"),
+        FoodName = "Rau cải kale",
+        FoodDescription = "Rau xanh siêu thực phẩm, giàu chất chống oxy hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 164
+    new Food
+    {
+        FoodId = Guid.Parse("36a232af-41e1-4a9a-8b48-cd8b3e863a1d"),
+        FoodName = "Đậu phụ non",
+        FoodDescription = "Thực phẩm chay mềm mịn, dễ chế biến nhiều món.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 165
+    new Food
+    {
+        FoodId = Guid.Parse("43b57924-6a4a-43a2-96a2-d666af436738"),
+        FoodName = "Ngô ngọt luộc",
+        FoodDescription = "Ngọt tự nhiên, giàu chất xơ và vitamin B.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 166
+    new Food
+    {
+        FoodId = Guid.Parse("0d3e0ef5-afcc-418a-a3f6-f2a24cfd3166"),
+        FoodName = "Hạt óc chó",
+        FoodDescription = "Giàu omega-3, hỗ trợ trí não và sức khỏe tim mạch.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 167
+    new Food
+    {
+        FoodId = Guid.Parse("644f32b3-897e-45b1-b4d7-aa8b9585a262"),
+        FoodName = "Rau mồng tơi",
+        FoodDescription = "Rau xanh giúp bổ máu, hỗ trợ tiêu hóa tốt.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 168
+    new Food
+    {
+        FoodId = Guid.Parse("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
+        FoodName = "Lê",
+        FoodDescription = "Trái cây mọng nước, giàu chất xơ và vitamin C.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 169
+    new Food
+    {
+        FoodId = Guid.Parse("2e641c82-56f7-480d-b216-63723b5a5e7d"),
+        FoodName = "Dâu tây",
+        FoodDescription = "Quả ngọt mọng, giàu chất chống oxy hóa và tốt cho da.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 170
+    new Food
+    {
+        FoodId = Guid.Parse("a8de2767-4b0a-41db-b33b-2523f5be2e0c"),
+        FoodName = "Mâm xôi",
+        FoodDescription = "Siêu thực phẩm mọng nước, giàu chất xơ và vitamin.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 171
+    new Food
+    {
+        FoodId = Guid.Parse("d4fe036e-7603-4283-9fa7-f07a79445f14"),
+        FoodName = "Củ cải đỏ",
+        FoodDescription = "Giàu dưỡng chất, hỗ trợ hệ miễn dịch và máu.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 172
+    new Food
+    {
+        FoodId = Guid.Parse("00333cd3-f43b-40af-855e-95aa8a636e4a"),
+        FoodName = "Bí đỏ",
+        FoodDescription = "Nguồn cung cấp beta-carotene tốt cho mắt và da.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 173
+    new Food
+    {
+        FoodId = Guid.Parse("8d95f2a5-cdd0-4c79-8cd0-99ff05cad567"),
+        FoodName = "Khoai môn",
+        FoodDescription = "Thực phẩm bổ dưỡng, giàu tinh bột và khoáng chất.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 174
+    new Food
+    {
+        FoodId = Guid.Parse("37d1bd46-54c4-40ef-a1f0-7bd0883ad818"),
+        FoodName = "Hạt dẻ",
+        FoodDescription = "Thực phẩm ăn nhẹ, cung cấp năng lượng và dưỡng chất.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 175
+    new Food
+    {
+        FoodId = Guid.Parse("7afe5fe6-3bcb-4354-86ea-e8d6a81aa9a2"),
+        FoodName = "Măng tây",
+        FoodDescription = "Rau xanh giàu folate, tốt cho phụ nữ mang thai.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 176
+    new Food
+    {
+        FoodId = Guid.Parse("ff348fc8-cd36-41c4-984f-a5884171f367"),
+        FoodName = "Bắp cải tím",
+        FoodDescription = "Màu sắc hấp dẫn, giàu chất chống oxy hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 177
+    new Food
+    {
+        FoodId = Guid.Parse("3e50318b-a84d-4ade-825d-2330d72ebda3"),
+        FoodName = "Sung khô",
+        FoodDescription = "Trái cây sấy khô giàu chất xơ, hỗ trợ tiêu hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 178
+    new Food
+    {
+        FoodId = Guid.Parse("b2aa3d51-99ce-4ceb-8260-954c8b3ac6de"),
+        FoodName = "Hạt yến mạch cán",
+        FoodDescription = "Nguồn năng lượng bền vững, giàu chất xơ và dưỡng chất.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 179
+    new Food
+    {
+        FoodId = Guid.Parse("e8a16fb6-33a9-4a5a-85f8-ffa5a1465885"),
+        FoodName = "Đậu phộng",
+        FoodDescription = "Thực phẩm ăn nhẹ quen thuộc, giàu năng lượng.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 180
+    new Food
+    {
+        FoodId = Guid.Parse("42587b8d-5bdd-4d8d-8767-229d8e80cf18"),
+        FoodName = "Ngô lứt",
+        FoodDescription = "Giàu chất xơ và dinh dưỡng, phù hợp chế độ lành mạnh.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 181
+    new Food
+    {
+        FoodId = Guid.Parse("7b3216ff-858e-423e-b8db-a85571aa5488"),
+        FoodName = "Kiwi",
+        FoodDescription = "Trái cây chua ngọt, giàu vitamin C và chất chống oxy hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 182
+    new Food
+    {
+        FoodId = Guid.Parse("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
+        FoodName = "Hạt kê",
+        FoodDescription = "Thực phẩm giàu protein thực vật, hỗ trợ tiêu hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 183
+    new Food
+    {
+        FoodId = Guid.Parse("67f6b055-1abc-4a48-97ce-63aea2e5ef7b"),
+        FoodName = "Hạt lúa mì",
+        FoodDescription = "Nguồn năng lượng dồi dào, bổ sung nhiều vitamin.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 184
+    new Food
+    {
+        FoodId = Guid.Parse("35cad577-0748-469f-8909-7dc013cf1c55"),
+        FoodName = "Măng khô",
+        FoodDescription = "Rau củ khô giàu chất xơ, tiện lợi cho nhiều món ăn.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 185
+    new Food
+    {
+        FoodId = Guid.Parse("575e8bca-57e3-4d16-b380-545a046c9a4e"),
+        FoodName = "Rong biển khô",
+        FoodDescription = "Hải sản khô giàu iod, tốt cho chức năng tuyến giáp.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 186
+    new Food
+    {
+        FoodId = Guid.Parse("830df1fb-09f6-4e6e-95c3-e39051e3b2d8"),
+        FoodName = "Bông cải xanh",
+        FoodDescription = "Rau xanh giàu vitamin C và chất chống oxy hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 187
+    new Food
+    {
+        FoodId = Guid.Parse("9b98036c-2047-4700-bb13-b34a432bb999"),
+        FoodName = "Gạo lứt",
+        FoodDescription = "Giàu chất xơ và vitamin, tốt cho sức khỏe tim mạch.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 188
+    new Food
+    {
+        FoodId = Guid.Parse("f951d38d-05c3-4fdb-b472-0390c69551e4"),
+        FoodName = "Ngô ngọt",
+        FoodDescription = "Ngọt tự nhiên, bổ sung năng lượng và vitamin B.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 189
+    new Food
+    {
+        FoodId = Guid.Parse("992cd827-6cb1-48d6-957d-e79048b37824"),
+        FoodName = "Hạt quinoa",
+        FoodDescription = "Siêu thực phẩm giàu protein, tốt cho hệ tiêu hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 190
+    new Food
+    {
+        FoodId = Guid.Parse("0377dc30-165c-4d90-8995-c75ad70f1267"),
+        FoodName = "Lúa mì nguyên cám",
+        FoodDescription = "Giàu chất xơ, hỗ trợ kiểm soát đường huyết hiệu quả.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 191
+    new Food
+    {
+        FoodId = Guid.Parse("77b9e248-971c-4292-8cd7-fd7ec55cf643"),
+        FoodName = "Đậu lăng",
+        FoodDescription = "Nguồn protein thực vật, bổ sung năng lượng bền vững.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 192
+    new Food
+    {
+        FoodId = Guid.Parse("4d773186-20f8-42c2-839b-1ce1601280fa"),
+        FoodName = "Xoài",
+        FoodDescription = "Trái cây nhiệt đới ngọt, giàu vitamin C và chất xơ.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+
+#region Food 193
+    new Food
+    {
+        FoodId = Guid.Parse("1aa49363-ab95-4565-9e27-1855702197fd"),
+        FoodName = "Nho",
+        FoodDescription = "Trái cây mọng nước, giàu chất chống oxy hóa và kali.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 194
+    new Food
+    {
+        FoodId = Guid.Parse("98c908b5-dad8-4db4-8d60-c6157c53d2c0"),
+        FoodName = "Rau cải bó xôi",
+        FoodDescription = "Rau xanh chứa nhiều sắt, giúp bổ máu và tăng sức khỏe.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 195
+    new Food
+    {
+        FoodId = Guid.Parse("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
+        FoodName = "Đậu đen",
+        FoodDescription = "Nguồn protein thực vật, giàu chất xơ và khoáng chất.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 196
+    new Food
+    {
+        FoodId = Guid.Parse("857b3565-b170-4162-a97b-c0184c4258aa"),
+        FoodName = "Củ cải đường",
+        FoodDescription = "Củ đỏ giàu dưỡng chất, hỗ trợ chức năng gan và máu.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 197
+    new Food
+    {
+        FoodId = Guid.Parse("69af5df6-7efb-41e5-9ead-55520ad547a1"),
+        FoodName = "Mì nguyên cám",
+        FoodDescription = "Tinh bột nguyên cám giàu chất xơ, hỗ trợ tiêu hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 198
+    new Food
+    {
+        FoodId = Guid.Parse("7cd76708-7312-445e-a392-14f0e806a786"),
+        FoodName = "Đậu Hà Lan",
+        FoodDescription = "Rau củ ngọt tự nhiên, giàu vitamin và chất xơ.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 199
+    new Food
+    {
+        FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),
+        FoodName = "Lúa mạch",
+        FoodDescription = "Ngũ cốc giàu năng lượng, tốt cho tim mạch và tiêu hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 200
+    new Food
+    {
+        FoodId = Guid.Parse("4dcca1e9-a6f5-462a-acbe-27b761a4f029"),
+        FoodName = "Bông cải xanh",
+        FoodDescription = "Rau xanh siêu thực phẩm, giàu vitamin C và K.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 201
+    new Food
+    {
+        FoodId = Guid.Parse("10869d8c-14b9-4464-85ca-bf76fc4bf91d"),
+        FoodName = "Rau dền đỏ",
+        FoodDescription = "Rau củ màu đỏ, giàu sắt và hỗ trợ tuần hoàn máu.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 202
+    new Food
+    {
+        FoodId = Guid.Parse("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
+        FoodName = "Mì gạo lứt",
+        FoodDescription = "Mì giàu chất xơ, lựa chọn lành mạnh thay thế mì trắng.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+#region Food 203
+    new Food
+    {
+        FoodId = Guid.Parse("2d9ce4ea-d598-4534-aa47-13d9157a503a"),
+        FoodName = "Quả chà là khô",
+        FoodDescription = "Quả khô ngọt tự nhiên, cung cấp năng lượng nhanh chóng.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 204
+    new Food
+    {
+        FoodId = Guid.Parse("9979963d-5c37-4fa9-955c-d1ecb5814607"),
+        FoodName = "Rau chân vịt",
+        FoodDescription = "Rau xanh giàu folate, tốt cho hệ miễn dịch và máu.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 205
+    new Food
+    {
+        FoodId = Guid.Parse("cf0fce11-3569-435b-8942-9c0ceb23d6dc"),
+        FoodName = "Cá hồi áp chảo",
+        FoodDescription = "Cá biển giàu omega-3, hỗ trợ trí não và sức khỏe tim.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 206
+    new Food
+    {
+        FoodId = Guid.Parse("c3480e21-940b-4190-b07c-f3208ae96367"),
+        FoodName = "Ngũ cốc nguyên hạt",
+        FoodDescription = "Thực phẩm nguyên hạt, bổ sung dinh dưỡng toàn diện.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 207
+    new Food
+    {
+        FoodId = Guid.Parse("845454d0-967a-4e48-aef3-bd8458775500"),
+        FoodName = "Củ cải trắng",
+        FoodDescription = "Củ ngọt, ít calo, giúp làm mát cơ thể hiệu quả.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 208
+    new Food
+    {
+        FoodId = Guid.Parse("6a88b8cb-dc82-4751-a2e4-23e5516d850b"),
+        FoodName = "Rau má",
+        FoodDescription = "Rau xanh giàu chất chống oxy hóa, hỗ trợ thải độc.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 209
+    new Food
+    {
+        FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
+        FoodName = "Hạt lanh",
+        FoodDescription = "Giàu omega-3, tốt cho hệ tim mạch và não bộ.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 210
+    new Food
+    {
+        FoodId = Guid.Parse("40e10734-6a38-4162-99ca-361e4c1f3ea9"),
+        FoodName = "Dừa nạo sấy",
+        FoodDescription = "Thực phẩm giàu chất béo tốt, dùng làm topping món ăn.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 211
+    new Food
+    {
+        FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
+        FoodName = "Hạt dẻ cười",
+        FoodDescription = "Giàu chất xơ và vitamin, tốt cho hệ tiêu hóa.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+#region Food 212
+    new Food
+    {
+        FoodId = Guid.Parse("49601ef1-2131-478f-a1de-f2e444602be3"),
+        FoodName = "Dừa tươi",
+        FoodDescription = "Trái cây mọng nước, cung cấp hydrat và chất điện giải.",
+        CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+        IsPublic = true,
+        Status = true
+    },
+#endregion
+
+
+#region Food 213
+new Food
+{
+    FoodId = Guid.Parse("1100703a-e393-4082-887a-c090b3cc16fb"),
+    FoodName = "Hồ đào",
+    FoodDescription = "Hạt giàu chất béo tốt, hỗ trợ sức khỏe tim mạch.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+#region Food 214
+new Food
+{
+    FoodId = Guid.Parse("75a1690a-5907-48fd-b27b-2372cb1dbe63"),
+    FoodName = "Hạnh",
+    FoodDescription = "Nguồn vitamin E và omega-3, tốt cho não bộ.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 215
+new Food
+{
+    FoodId = Guid.Parse("d3c360a2-441e-4700-a6ec-4310b5976901"),
+    FoodName = "Cá thu",
+    FoodDescription = "Cá biển giàu omega-3, tăng cường sức khỏe tim mạch.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 216
+new Food
+{
+    FoodId = Guid.Parse("0dbbf1e0-031a-4342-bfde-c127644ebddf"),
+    FoodName = "Bơ đậu phộng",
+    FoodDescription = "Ngọt béo tự nhiên, giàu năng lượng cho bữa sáng.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 217
+new Food
+{
+    FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
+    FoodName = "Hạt mắc ca",
+    FoodDescription = "Hạt thơm ngon, bổ sung dinh dưỡng và năng lượng.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 218
+new Food
+{
+    FoodId = Guid.Parse("8b4a20aa-c1e5-4f66-abca-0404fdb45dcc"),
+    FoodName = "Dầu hạt cải",
+    FoodDescription = "Dầu thực vật nhẹ, thích hợp cho chế độ ăn lành mạnh.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 219
+new Food
+{
+    FoodId = Guid.Parse("cb693182-b5ff-4f2b-9a47-44ab84841843"),
+    FoodName = "Quả hồng xiêm",
+    FoodDescription = "Trái cây nhiệt đới ngọt, giàu chất xơ và vitamin A.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 220
+new Food
+{
+    FoodId = Guid.Parse("f70172ed-7784-47ec-8aa2-a862ee56a13a"),
+    FoodName = "Cá trích",
+    FoodDescription = "Cá biển thơm ngon, tốt cho trí não và tuần hoàn máu.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+#region Food 221
+new Food
+{
+    FoodId = Guid.Parse("d8216f25-d01e-48c6-a44f-0a1672862f53"),
+    FoodName = "Hạt hồ đào",
+    FoodDescription = "Hạt giàu chất béo không bão hòa, giúp kiểm soát cholesterol.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 222
+new Food
+{
+    FoodId = Guid.Parse("7aee65aa-860d-48c2-ad47-2614e5e04998"),
+    FoodName = "Cá chép",
+    FoodDescription = "Cá nước ngọt giàu protein và khoáng chất thiết yếu.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 223
+new Food
+{
+    FoodId = Guid.Parse("d21daa6f-4c8e-4246-bf8e-b7b4099ddf3d"),
+    FoodName = "Quả óc chó đen",
+    FoodDescription = "Hạt có vị đặc biệt, giàu omega-3 và chất chống oxy hóa.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 224
+new Food
+{
+    FoodId = Guid.Parse("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
+    FoodName = "Đào",
+    FoodDescription = "Trái cây ngọt, giàu vitamin C, thích hợp làm món tráng miệng.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 225
+new Food
+{
+    FoodId = Guid.Parse("d194ecbb-f1fb-4b29-a5e8-b56ee1cffb45"),
+    FoodName = "Hạt quả hạch",
+    FoodDescription = "Hạt bổ dưỡng, hỗ trợ sức khỏe xương và da.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 226
+new Food
+{
+    FoodId = Guid.Parse("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
+    FoodName = "Lựu",
+    FoodDescription = "Trái cây giàu chất chống oxy hóa, tốt cho tim mạch.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+},
+#endregion
+
+#region Food 227
+new Food
+{
+    FoodId = Guid.Parse("48fc96a8-548b-4cb8-93bc-dd17b09076d8"),
+    FoodName = "Hồ đào Mỹ",
+    FoodDescription = "Hạt béo ngậy, giàu dinh dưỡng và năng lượng tự nhiên.",
+    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+    IsPublic = true,
+    Status = true
+}
+#endregion
+);
         }
     }
 }
