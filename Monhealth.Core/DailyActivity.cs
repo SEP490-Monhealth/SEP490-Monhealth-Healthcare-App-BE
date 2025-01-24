@@ -16,5 +16,6 @@ namespace Monhealth.Domain
         public AppUser AppUser { get; set; }
         [ForeignKey(nameof(GoalId))]
         public Goal Goal { get; set; }
+        public ICollection<DailyActivityWorkout> DailyActivityWorkouts { get; set; }
     }
 }
