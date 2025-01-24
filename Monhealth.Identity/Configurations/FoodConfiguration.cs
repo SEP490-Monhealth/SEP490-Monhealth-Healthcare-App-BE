@@ -2163,7 +2163,7 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("86bcbac3-fc75-46ed-8d0e-18c8c4860692"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2182,7 +2182,7 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("a6ce6816-c6e1-4512-aeb6-d5d647815c1d"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2201,7 +2201,7 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("edb9d5d0-01f3-4607-a406-9e04bbff85fb"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2220,7 +2220,7 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("4d640470-857a-4765-905f-e49e98a281a1"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2238,27 +2238,8 @@ namespace Monhealth.Identity.Configurations
             #region Food 118
             new Food
             {
-                FoodId = Guid.Parse("a7c3c838-acdb-4cce-b4c4-d46058b10ad1"),
-                CategoryId = Guid.Parse(""),
-                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert, DishType.Snack],
-                FoodName = "Phô mai Parmesan",
-                FoodDescription = "Vị đậm đà, giàu canxi, dùng kèm salad hoặc pasta",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-            },
-            #endregion
-
-            #region Food 119
-            new Food
-            {
                 FoodId = Guid.Parse("d3a1c73d-ca5a-45ea-a7fa-d582f1253b79"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2273,11 +2254,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 120
+            #region Food 119
             new Food
             {
                 FoodId = Guid.Parse("adeb902f-fb34-44eb-aa60-76eaeb0ed70b"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2292,11 +2273,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 121
+            #region Food 120
             new Food
             {
                 FoodId = Guid.Parse("3fa8cf38-d835-4279-a113-a8f44cd013e6"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.SideDish, DishType.Snack],
@@ -2311,11 +2292,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 122
+            #region Food 121
             new Food
             {
                 FoodId = Guid.Parse("d3392e5d-a48f-4b5a-968d-31b98bd47835"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Dessert, DishType.Snack, DishType.Drink],
@@ -2330,11 +2311,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 123
+            #region Food 122
             new Food
             {
                 FoodId = Guid.Parse("ad6a860f-4a4a-4cb7-90fa-21c8f36c91ce"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2349,11 +2330,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 124
+            #region Food 123
             new Food
             {
                 FoodId = Guid.Parse("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner, MealType.Snack],
                 DishType = [DishType.MainDish, DishType.SideDish],
@@ -2368,11 +2349,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 125
+            #region Food 124
             new Food
             {
                 FoodId = Guid.Parse("2da12ed2-3082-4374-807e-795372dfd1de"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2387,11 +2368,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 126
+            #region Food 125
             new Food
             {
                 FoodId = Guid.Parse("50c0adac-c878-4a21-8b5f-01478e7e4852"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner, MealType.Snack],
                 DishType = [DishType.SideDish, DishType.Snack],
@@ -2406,11 +2387,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 127
+            #region Food 126
             new Food
             {
                 FoodId = Guid.Parse("431b7ee6-7c63-43ac-ae7e-be93f7fb6647"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2425,11 +2406,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 128
+            #region Food 127
             new Food
             {
                 FoodId = Guid.Parse("016d6e20-bf8b-4b0e-9e0c-a1d6199f73d4"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2444,11 +2425,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 129
+            #region Food 128
             new Food
             {
                 FoodId = Guid.Parse("c027a073-e154-4c78-821e-3588fcb4df03"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Snack, DishType.Dessert],
@@ -2463,11 +2444,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 130
+            #region Food 129
             new Food
             {
                 FoodId = Guid.Parse("341c53c9-7894-410c-ab04-0dca11ff6a80"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2482,11 +2463,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 131
+            #region Food 130
             new Food
             {
                 FoodId = Guid.Parse("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2501,11 +2482,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 132
+            #region Food 131
             new Food
             {
                 FoodId = Guid.Parse("02aad946-ee2f-45f8-8ce5-8ebc476ba631"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Ức gà tây",
                 FoodDescription = "Giàu protein, ít béo, giúp xây dựng cơ bắp hiệu quả",
@@ -2518,11 +2499,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 133
+            #region Food 132
             new Food
             {
                 FoodId = Guid.Parse("a23f6c85-1a80-4255-a9a1-d08c1d60e753"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Cá hồi hun khói",
                 FoodDescription = "Hương vị đậm đà, tiện lợi, tốt cho sức khỏe tim",
@@ -2535,11 +2516,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 134
+            #region Food 133
             new Food
             {
                 FoodId = Guid.Parse("c7e5ccea-ca0e-4c25-be0b-509bb51b38a2"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Cá basa chiên",
                 FoodDescription = "Món cá vàng giòn, giàu omega-3, dễ chế biến",
@@ -2552,11 +2533,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 135
+            #region Food 134
             new Food
             {
                 FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Hạt hạnh nhân",
                 FoodDescription = "Thực phẩm nhẹ, cung cấp năng lượng và vitamin E",
@@ -2569,11 +2550,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 136
+            #region Food 135
             new Food
             {
                 FoodId = Guid.Parse("a6b8e6e4-1e44-4626-a7d0-1cefefc4f613"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Cá chình nướng",
                 FoodDescription = "Thịt ngọt, mềm, bổ dưỡng, tốt cho sức khỏe",
@@ -2586,11 +2567,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 137
+            #region Food 136
             new Food
             {
                 FoodId = Guid.Parse("6dfafffc-d4f7-4402-b585-37a1c8994663"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Cà ri gà",
                 FoodDescription = "Món cay hấp dẫn, giàu hương vị, hợp khẩu vị Việt",
@@ -2603,11 +2584,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 138
+            #region Food 137
             new Food
             {
                 FoodId = Guid.Parse("55cb9711-56aa-4efb-b31f-d034134cb1b8"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Cá trích muối",
                 FoodDescription = "Hải sản đậm đà, thích hợp ăn kèm bánh mì",
@@ -2620,11 +2601,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 139
+            #region Food 138
             new Food
             {
                 FoodId = Guid.Parse("304376d6-f9c5-48f0-985c-06080347b173"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Cá hồi sốt chanh",
                 FoodDescription = "Món thanh nhẹ, chua ngọt, giàu omega-3",
@@ -2637,11 +2618,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 140
+            #region Food 139
             new Food
             {
                 FoodId = Guid.Parse("8da16f72-42a9-4da2-b217-811903e340c4"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Đậu hũ sốt cà",
                 FoodDescription = "Món chay đơn giản, ngon miệng, giàu protein",
@@ -2654,11 +2635,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 141
+            #region Food 140
             new Food
             {
                 FoodId = Guid.Parse("a5d484c6-9cc8-4d6e-a53c-5c8a2c20999b"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Thịt lợn xông khói",
                 FoodDescription = "Vị mặn đậm, dùng làm topping hoặc ăn sáng",
@@ -2671,11 +2652,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 142
+            #region Food 141
             new Food
             {
                 FoodId = Guid.Parse("56bb5be7-3a7f-4942-89c6-3c6af934adf3"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Cá chim trắng nướng",
                 FoodDescription = "Cá biển thơm ngon, giàu dinh dưỡng tự nhiên",
@@ -2688,11 +2669,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 143
+            #region Food 142
             new Food
             {
                 FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Hạt bí ngô",
                 FoodDescription = "Giàu kẽm, ăn nhẹ tốt cho sức khỏe và làn da",
@@ -2705,11 +2686,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 144
+            #region Food 143
             new Food
             {
                 FoodId = Guid.Parse("b29dc622-e8ae-4471-8e22-5676aa5fa909"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Đậu hà lan luộc",
                 FoodDescription = "Rau củ giàu vitamin, hỗ trợ hệ miễn dịch",
@@ -2722,11 +2703,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 145
+            #region Food 144
             new Food
             {
                 FoodId = Guid.Parse("6007962d-9bd0-43ce-8a83-6b5f9bed4156"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Cua biển sốt me",
                 FoodDescription = "Món ăn đậm đà, chua ngọt, hợp khẩu vị mọi người",
@@ -2739,11 +2720,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 146
+            #region Food 145
             new Food
             {
                 FoodId = Guid.Parse("189dadbe-caf2-4d83-bb01-5ffa8776fa20"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Đậu phộng rang",
                 FoodDescription = "Món ăn nhẹ phổ biến, giàu năng lượng và chất béo",
@@ -2756,11 +2737,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 147
+            #region Food 146
             new Food
             {
                 FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Sò điệp hấp",
                 FoodDescription = "Hải sản cao cấp, thơm ngọt, giàu dinh dưỡng",
@@ -2773,11 +2754,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 148
+            #region Food 147
             new Food
             {
                 FoodId = Guid.Parse("0f7f47a1-f122-4f58-9e24-40ece9323520"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -2792,11 +2773,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 149
+            #region Food 148
             new Food
             {
                 FoodId = Guid.Parse("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast],
                 DishType = [DishType.MainDish],
@@ -2811,11 +2792,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 150
+            #region Food 149
             new Food
             {
                 FoodId = Guid.Parse("d675513e-3be1-4c47-b0d2-0718f02ae93b"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -2830,11 +2811,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 151
+            #region Food 150
             new Food
             {
                 FoodId = Guid.Parse("8bcd1ea8-cf17-4457-bc32-65033e43e311"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -2849,16 +2830,33 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 152
+            #region Food 151
             new Food
             {
                 FoodId = Guid.Parse("7f55881d-f8f4-43aa-b4b6-5d56fd56cfde"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
                 FoodName = "Cá lóc hấp",
                 FoodDescription = "Cá đồng ngon ngọt, giàu chất dinh dưỡng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+            },
+            #endregion
+
+            #region Food 152
+            new Food
+            {
+                FoodId = Guid.Parse("bbd19c8e-c1b4-497f-aadb-ca584820c465"),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                FoodName = "Hạt diêm mạch",
+                FoodDescription = "Siêu thực phẩm, giàu protein và chất xơ.",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
@@ -2871,11 +2869,11 @@ namespace Monhealth.Identity.Configurations
             #region Food 153
             new Food
             {
-                FoodId = Guid.Parse("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
-                CategoryId = Guid.Parse(""),
+                FoodId = Guid.Parse("da3b2de7-bfd2-4c5e-9958-f8a8368b158a"),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                FoodName = "Sữa bò tươi",
-                FoodDescription = "Nguồn canxi tự nhiên, tốt cho xương và cơ thể",
+                FoodName = "Cá trắm hấp",
+                FoodDescription = "Nhỏ gọn, giàu dưỡng chất, dùng trong món ăn châu Á",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
@@ -2888,11 +2886,11 @@ namespace Monhealth.Identity.Configurations
             #region Food 154
             new Food
             {
-                FoodId = Guid.Parse("d675513e-3be1-4c47-b0d2-0718f02ae93b"),
-                CategoryId = Guid.Parse(""),
+                FoodId = Guid.Parse("c46676b3-cbcc-49e9-ad44-7d450a481a19"),
+                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                FoodName = "Hạt mè",
-                FoodDescription = "Nhỏ gọn, giàu dưỡng chất, dùng trong món ăn châu Á",
+                FoodName = "Yến mạch",
+                FoodDescription = "Giàu chất xơ, hỗ trợ tiêu hóa và tốt cho tim mạch.",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
@@ -2905,82 +2903,8 @@ namespace Monhealth.Identity.Configurations
             #region Food 155
             new Food
             {
-                FoodId = Guid.Parse("7f55881d-f8f4-43aa-b4b6-5d56fd56cfde"),
-                CategoryId = Guid.Parse(""),
-                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                FoodName = "Cá lóc hấp",
-                FoodDescription = "Cá đồng ngon ngọt, giàu chất dinh dưỡng",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-            },
-            #endregion
-
-            #region Food 156
-            new Food
-            {
-                FoodId = Guid.Parse("bbd19c8e-c1b4-497f-aadb-ca584820c465"),
-                CategoryId = Guid.Parse(""),
-                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                MealType = [MealType.Snack],
-                DishType = [DishType.Snack],
-                FoodName = "Hạt diêm mạch",
-                FoodDescription = "Siêu thực phẩm, giàu protein và chất xơ",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-            },
-            #endregion
-
-            #region Food 157
-            new Food
-            {
-                FoodId = Guid.Parse("da3b2de7-bfd2-4c5e-9958-f8a8368b158a"),
-                CategoryId = Guid.Parse(""),
-                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cá trắm hấp",
-                FoodDescription = "Món cá đồng thơm ngon, dễ chế biến cho mọi nhà",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-            },
-            #endregion
-
-            #region Food 158
-            new Food
-            {
-                FoodId = Guid.Parse("c46676b3-cbcc-49e9-ad44-7d450a481a19"),
-                CategoryId = Guid.Parse(""),
-                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                MealType = [MealType.Breakfast],
-                DishType = [DishType.Snack],
-                FoodName = "Yến mạch",
-                FoodDescription = "Giàu chất xơ, hỗ trợ tiêu hóa và tốt cho tim mạch",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-            },
-            #endregion
-
-            #region Food 159
-            new Food
-            {
                 FoodId = Guid.Parse("597a11b3-31a0-4e70-8d2f-95465ee03e8b"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
@@ -2995,11 +2919,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 160
+            #region Food 156
             new Food
             {
                 FoodId = Guid.Parse("628fe894-0d9c-416f-866b-eb77f763ee62"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3014,11 +2938,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 161
+            #region Food 157
             new Food
             {
                 FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3033,11 +2957,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 162
+            #region Food 158
             new Food
             {
                 FoodId = Guid.Parse("0d3e0ef5-afcc-418a-a3f6-f2a24cfd3166"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3052,11 +2976,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 163
+            #region Food 159
             new Food
             {
                 FoodId = Guid.Parse("644f32b3-897e-45b1-b4d7-aa8b9585a262"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
@@ -3071,11 +2995,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 164
+            #region Food 160
             new Food
             {
                 FoodId = Guid.Parse("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3090,11 +3014,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 165
+            #region Food 161
             new Food
             {
                 FoodId = Guid.Parse("2e641c82-56f7-480d-b216-63723b5a5e7d"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3109,11 +3033,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 166
+            #region Food 162
             new Food
             {
                 FoodId = Guid.Parse("a8de2767-4b0a-41db-b33b-2523f5be2e0c"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3128,11 +3052,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 167
+            #region Food 163
             new Food
             {
                 FoodId = Guid.Parse("00333cd3-f43b-40af-855e-95aa8a636e4a"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3147,11 +3071,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 168
+            #region Food 164
             new Food
             {
                 FoodId = Guid.Parse("8d95f2a5-cdd0-4c79-8cd0-99ff05cad567"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast],
                 DishType = [DishType.Snack],
@@ -3166,11 +3090,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 169
+            #region Food 165
             new Food
             {
                 FoodId = Guid.Parse("37d1bd46-54c4-40ef-a1f0-7bd0883ad818"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3185,11 +3109,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 170
+            #region Food 166
             new Food
             {
                 FoodId = Guid.Parse("7afe5fe6-3bcb-4354-86ea-e8d6a81aa9a2"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
@@ -3204,11 +3128,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 171
+            #region Food 167
             new Food
             {
                 FoodId = Guid.Parse("ff348fc8-cd36-41c4-984f-a5884171f367"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
@@ -3223,11 +3147,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 172
+            #region Food 168
             new Food
             {
                 FoodId = Guid.Parse("e8a16fb6-33a9-4a5a-85f8-ffa5a1465885"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3242,11 +3166,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 173
+            #region Food 169
             new Food
             {
                 FoodId = Guid.Parse("7b3216ff-858e-423e-b8db-a85571aa5488"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3261,11 +3185,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 174
+            #region Food 170
             new Food
             {
                 FoodId = Guid.Parse("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3280,11 +3204,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 175
+            #region Food 171
             new Food
             {
                 FoodId = Guid.Parse("67f6b055-1abc-4a48-97ce-63aea2e5ef7b"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3299,11 +3223,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 176
+            #region Food 172
             new Food
             {
                 FoodId = Guid.Parse("35cad577-0748-469f-8909-7dc013cf1c55"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 FoodName = "Măng khô",
                 FoodDescription = "Rau củ khô giàu chất xơ, tiện lợi cho nhiều món ăn",
@@ -3316,11 +3240,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 177
+            #region Food 173
             new Food
             {
                 FoodId = Guid.Parse("575e8bca-57e3-4d16-b380-545a046c9a4e"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3335,11 +3259,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 178
+            #region Food 174
             new Food
             {
                 FoodId = Guid.Parse("830df1fb-09f6-4e6e-95c3-e39051e3b2d8"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
@@ -3354,11 +3278,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 179
+            #region Food 175
             new Food
             {
                 FoodId = Guid.Parse("9b98036c-2047-4700-bb13-b34a432bb999"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3373,11 +3297,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 180
+            #region Food 176
             new Food
             {
                 FoodId = Guid.Parse("77b9e248-971c-4292-8cd7-fd7ec55cf643"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3392,11 +3316,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 181
+            #region Food 177
             new Food
             {
                 FoodId = Guid.Parse("4d773186-20f8-42c2-839b-1ce1601280fa"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3411,11 +3335,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 182
+            #region Food 178
             new Food
             {
                 FoodId = Guid.Parse("1aa49363-ab95-4565-9e27-1855702197fd"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3430,11 +3354,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 183
+            #region Food 179
             new Food
             {
                 FoodId = Guid.Parse("98c908b5-dad8-4db4-8d60-c6157c53d2c0"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3449,11 +3373,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 184
+            #region Food 180
             new Food
             {
                 FoodId = Guid.Parse("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3468,11 +3392,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 185
+            #region Food 181
             new Food
             {
                 FoodId = Guid.Parse("857b3565-b170-4162-a97b-c0184c4258aa"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3487,11 +3411,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 186
+            #region Food 182
             new Food
             {
                 FoodId = Guid.Parse("7cd76708-7312-445e-a392-14f0e806a786"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3506,11 +3430,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 187
+            #region Food 183
             new Food
             {
                 FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3525,11 +3449,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 188
+            #region Food 184
             new Food
             {
                 FoodId = Guid.Parse("10869d8c-14b9-4464-85ca-bf76fc4bf91d"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
@@ -3544,11 +3468,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 189
+            #region Food 185
             new Food
             {
                 FoodId = Guid.Parse("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -3563,11 +3487,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 190
+            #region Food 186
             new Food
             {
                 FoodId = Guid.Parse("9979963d-5c37-4fa9-955c-d1ecb5814607"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
@@ -3582,11 +3506,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 191
+            #region Food 187
             new Food
             {
                 FoodId = Guid.Parse("cf0fce11-3569-435b-8942-9c0ceb23d6dc"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -3601,11 +3525,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 192
+            #region Food 188
             new Food
             {
                 FoodId = Guid.Parse("c3480e21-940b-4190-b07c-f3208ae96367"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.MainDish, DishType.SideDish],
@@ -3620,11 +3544,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 193
+            #region Food 189
             new Food
             {
                 FoodId = Guid.Parse("845454d0-967a-4e48-aef3-bd8458775500"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
@@ -3639,11 +3563,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 194
+            #region Food 190
             new Food
             {
                 FoodId = Guid.Parse("6a88b8cb-dc82-4751-a2e4-23e5516d850b"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish, DishType.Drink],
@@ -3658,11 +3582,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 195
+            #region Food 191
             new Food
             {
                 FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3677,11 +3601,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 196
+            #region Food 192
             new Food
             {
                 FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3696,11 +3620,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 197
+            #region Food 193
             new Food
             {
                 FoodId = Guid.Parse("49601ef1-2131-478f-a1de-f2e444602be3"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Drink],
@@ -3715,30 +3639,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 198
-            new Food
-            {
-                FoodId = Guid.Parse("1100703a-e393-4082-887a-c090b3cc16fb"),
-                CategoryId = Guid.Parse(""),
-                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert, DishType.Snack],
-                FoodName = "Hồ đào",
-                FoodDescription = "Hạt giàu chất béo tốt, hỗ trợ sức khỏe tim mạch",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-            },
-            #endregion
-
-            #region Food 199
+            #region Food 194
             new Food
             {
                 FoodId = Guid.Parse("d3c360a2-441e-4700-a6ec-4310b5976901"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -3753,11 +3658,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 200
+            #region Food 195
             new Food
             {
                 FoodId = Guid.Parse("0dbbf1e0-031a-4342-bfde-c127644ebddf"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3772,11 +3677,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 201
+            #region Food 196
             new Food
             {
                 FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3791,11 +3696,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 202
+            #region Food 197
             new Food
             {
                 FoodId = Guid.Parse("cb693182-b5ff-4f2b-9a47-44ab84841843"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.Dessert],
@@ -3810,11 +3715,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 203 
+            #region Food 198 
             new Food
             {
                 FoodId = Guid.Parse("f70172ed-7784-47ec-8aa2-a862ee56a13a"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish, DishType.Snack],
@@ -3829,11 +3734,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 204
+            #region Food 199
             new Food
             {
                 FoodId = Guid.Parse("d8216f25-d01e-48c6-a44f-0a1672862f53"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Snack],
@@ -3848,11 +3753,11 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 205
+            #region Food 200
             new Food
             {
                 FoodId = Guid.Parse("7aee65aa-860d-48c2-ad47-2614e5e04998"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
@@ -3867,11 +3772,30 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 206
+            #region Food 203
             new Food
             {
                 FoodId = Guid.Parse("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
-                CategoryId = Guid.Parse(""),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Đào",
+                FoodDescription = "Trái cây ngọt, giàu vitamin C, thích hợp làm món tráng miệng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+            },
+            #endregion
+
+            #region Food 202
+            new Food
+            {
+                FoodId = Guid.Parse("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf1212"),
+                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                 UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                 MealType = [MealType.Snack],
                 DishType = [DishType.Dessert],
