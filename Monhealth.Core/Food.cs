@@ -1,4 +1,5 @@
 ﻿using Monhealth.Core;
+using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
@@ -12,8 +13,8 @@ namespace Monhealth.Domain
                 public Guid FoodId { get; set; }
                 public Guid UserId { get; set; }
                 public Guid? CategoryId { get; set; }
-                public List<string> MealType { get; set; }
-                public List<string> DishType { get; set; }
+                public List<MealType> MealType { get; set; }
+                public List<DishType> DishType { get; set; }
                 public string FoodName { get; set; } = string.Empty;
                 public string FoodDescription { get; set; } = string.Empty;
                 public int Views { get; set; } = 0;

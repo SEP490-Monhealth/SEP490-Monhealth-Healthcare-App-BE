@@ -9,6 +9,7 @@ namespace Monhealth.Identity.Configurations
         public void Configure(EntityTypeBuilder<Exercise> builder)
         {
             builder.HasData(
+
             #region Exercise 1
                 new Exercise
                 {
