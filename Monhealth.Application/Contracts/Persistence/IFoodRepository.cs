@@ -33,6 +33,7 @@ namespace Monhealth.Application.Contracts.Persistence
             List<Guid> excludedFoodIds,
             List<string>? mealTypeFilter,
             List<string>? dishTypeFilter,
+            
             int skip,
             int take);
 
