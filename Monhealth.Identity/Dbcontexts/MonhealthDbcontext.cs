@@ -27,7 +27,6 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Nutrition> Nutritions { get; set; }
         public DbSet<WaterReminder> WaterReminders { get; set; }
         public DbSet<FoodPortion> FoodPortions { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
         public DbSet<Allergy> Allergies { get; set; }
         public DbSet<UserAllergy> UserAllergies { get; set; }
         public DbSet<FoodAllergy> FoodAllergies { get; set; }
@@ -42,7 +41,6 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Payment> Payments { get; set; }
         public DbSet<UserFood> UserFoods { get; set; }
         public DbSet<Workout> Workouts { get; set; }
-        public DbSet<DailyWorkout> DailyWorkouts { get; set; }
         public DbSet<WorkoutExercise> WorkoutExercises { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<DailyActivity> DailyActivities { get; set; }
@@ -56,20 +54,12 @@ namespace Monhealth.Identity.Dbcontexts
             builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
          .HasKey(x => new { x.RoleId, x.UserId });
 
-
-
             // One-to-One relationship between Foods and Nutrition
             builder.Entity<Food>()
                 .HasOne(f => f.Nutrition)
                 .WithOne(n => n.Food)
                 .HasForeignKey<Nutrition>(n => n.FoodId) // Nutrition.FoodId references Food.FoodId
                 .OnDelete(DeleteBehavior.Restrict); // Avoid cascading delete
-
-            builder.Entity<Workout>()
-                .HasOne(w => w.DailyWorkout)
-                .WithMany(dw => dw.Workouts)
-                .HasForeignKey(w => w.DailyWorkoutId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<DailyActivity>()
                 .HasOne(d => d.Goal)

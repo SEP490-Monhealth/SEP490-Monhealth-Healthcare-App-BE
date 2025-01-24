@@ -29,7 +29,6 @@ namespace Monhealth.Identity.Models
         public ICollection<Booking> UserBookings { get; set; }
         [InverseProperty(nameof(Booking.Consultant))]
         public ICollection<Booking> ConsultantBookings { get; set; }
-        public ICollection<DailyWorkout> DailyWorkouts { get; set; }
         public ICollection<Workout> Workouts { get; set; }
         public ICollection<DailyActivity> DailyActivities { get; set; }
         public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; }

@@ -472,33 +472,6 @@ namespace Monhealth.Identity.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Monhealth.Core.Notification", b =>
-                {
-                    b.Property<Guid>("NotificationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsSent")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("NotifyTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("NotificationId");
-
-                    b.ToTable("Notifications");
-                });
-
             modelBuilder.Entity("Monhealth.Core.UserAllergy", b =>
                 {
                     b.Property<Guid>("UserAllergyId")
@@ -1023,34 +996,6 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("DailyWaterIntakes");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.DailyWorkout", b =>
-                {
-                    b.Property<Guid>("DailyWorkoutId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<float>("TotalCaloriesBurned")
-                        .HasColumnType("real");
-
-                    b.Property<int>("TotalDuration")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("DailyWorkoutId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("DailyWorkouts");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Exercise", b =>
@@ -7839,10 +7784,13 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("AppUserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DailyWorkoutId")
+                    b.Property<Guid>("DailyActivityId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -7857,9 +7805,9 @@ namespace Monhealth.Identity.Migrations
 
                     b.HasKey("WorkoutId");
 
-                    b.HasIndex("DailyWorkoutId");
+                    b.HasIndex("AppUserId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("DailyActivityId");
 
                     b.ToTable("Workouts");
                 });
@@ -8062,7 +8010,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "afcedfee-1df9-4fa3-b900-141ea678489d",
+                            ConcurrencyStamp = "a4f552da-f443-4688-86c2-6173904dffa8",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -8070,10 +8018,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEByzCkDzZdFlWr+AVkTk4rBo752Tb1B9iX3J5r6VMbkAtk4FBMOAb1QEaBfXj+ltJQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOiWzOg58Wmnw6FxEiov1qJmp+83DxoRlBD8gnK8XHc6xKW2zs5lZxktNXqKCURShw==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0ffdefc7-7ad9-40ab-a5b1-cc5e20687976",
+                            SecurityStamp = "dc3e14a0-2d67-41a0-ab41-4b27a2892000",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8083,7 +8031,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8d1957c5-7149-49db-a056-40a6f37f5088",
+                            ConcurrencyStamp = "778a1488-230a-435c-9ddb-2fdbc22cf59b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -8091,10 +8039,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAED55bzs4i2n0gOdyP+DqD/SkXTVwZ2ubDQnyMH5FruLPTnwLj53m9kX2ZHybE2ZvDA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELJNPEbDQgyM9oGO2cp3vjqwEJ+JRE8cLAjCtgd6ENHymwE+8ir1pak8St8CfGq73A==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8ef43069-5547-4994-bbe2-a9934e1512df",
+                            SecurityStamp = "42d160c6-08f6-4024-a1d9-5a981c72f1e4",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8104,7 +8052,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2a82bc49-7ad1-45e2-a467-7805fb3fbc75",
+                            ConcurrencyStamp = "1800d4fe-83db-429c-9a25-e1cd331b4a0e",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -8112,10 +8060,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJomajazD13vi71te1JN13epYzXeo9TeiJCzp2Gjotju3OX5x1LLYjyNINwS2zyzrw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFIlgfv7EqdXV903Auj6LC8nTKWpKwPy9wLnYUx5bBkxfhvXtM9aRaeqLiJmyUAOMw==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c3844c80-2b29-4611-8f46-5d482a213ad1",
+                            SecurityStamp = "5833038e-49bb-46d2-b698-9dcb4f4c08d2",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8125,7 +8073,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "23072b60-5d82-4294-9204-9fde6724a0a7",
+                            ConcurrencyStamp = "e4533a43-eed1-43cc-80d4-b835c05ca57f",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -8133,10 +8081,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMuQmLF5Xy4T9B/KKyZj3r6EAsPtc0xyGki0o2gCgnsct10uHjLVEwrJsmmSytXkVw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENTnSaWe+SwdaGLiYAM8x7xPnkGWGYsGV/GPdFT7O5Uz9srL6XuDHF/vhwL7jd7Yiw==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1c28a7c3-639e-4b34-aa22-4656a4c4f909",
+                            SecurityStamp = "c869fc32-e900-4b0b-86cf-9adceb016222",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8146,7 +8094,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "339ce991-eb9f-494b-839c-f8d16f977090",
+                            ConcurrencyStamp = "72501a0f-c13a-4af6-9fde-0ded8603d285",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -8154,10 +8102,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKa+7lCwKdMPIoF/Q79Zj1gXnAyelF6L5pnPYBypuns12fsApcnNLEj1POMz8tPQWg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP5OJqs/4nOgC4LGxm91KIXZUbz1cKb1wnGTz8EfkqF/vQXcvjWPkHksG++9R+5Fgg==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b22d44fa-c2e1-4010-a6ac-bdf241ac7c14",
+                            SecurityStamp = "28696ff8-b357-4e26-9832-262dcc7fa41a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8167,7 +8115,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3f928386-3534-4fc7-9003-b4097b377f66",
+                            ConcurrencyStamp = "1a75d69e-b820-42ab-8b5a-47f2da0a5206",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -8175,10 +8123,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFdVUVvUxyZlj0jeOfJfBbbWvki2gpUfrYWuTt2n74qUNs6iw6e3HmJTpHLKMGXrpw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDxTHuGMf9mHF14/VJmqSGeb275Rs+rDx8jFV93aFhvTjiqfOKaJ+ez3iEH5aeROpQ==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "336b2bdc-8349-431a-bd78-9dc3a6a9c3b4",
+                            SecurityStamp = "dd722d74-c9b0-456a-869b-f52775539c70",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8188,7 +8136,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8805d8fd-13f6-42f8-a3f2-3cb0aeb316e7",
+                            ConcurrencyStamp = "da15ce56-2091-44e5-aba4-ab01c482b8ae",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -8196,10 +8144,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEmDNnpAKdoHj/GetkIrMOahS1URpb4WcwI4siHTd3yHhtjp461J9uvLebGVQeAs1A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPmO249gBaaqLoKvUlrhcoyy8Yoa+4DKeBEHDIcR+IuzYtwbk/qD1jqcQWdefU32Jw==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d21925ee-d3eb-41d1-b10d-835d31471c87",
+                            SecurityStamp = "d08cdfa7-1bec-4ca5-9764-4d142109795d",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8397,17 +8345,6 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("Goal");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.DailyWorkout", b =>
-                {
-                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
-                        .WithMany("DailyWorkouts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("Monhealth.Domain.Exercise", b =>
                 {
                     b.HasOne("Monhealth.Domain.Category", "Category")
@@ -8599,21 +8536,17 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Workout", b =>
                 {
-                    b.HasOne("Monhealth.Domain.DailyWorkout", "DailyWorkout")
+                    b.HasOne("Monhealth.Identity.Models.AppUser", null)
                         .WithMany("Workouts")
-                        .HasForeignKey("DailyWorkoutId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
-                    b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
-                        .WithMany("Workouts")
-                        .HasForeignKey("UserId")
+                    b.HasOne("Monhealth.Domain.DailyActivity", "DailyActivity")
+                        .WithMany()
+                        .HasForeignKey("DailyActivityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
-
-                    b.Navigation("DailyWorkout");
+                    b.Navigation("DailyActivity");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.WorkoutExercise", b =>
@@ -8662,11 +8595,6 @@ namespace Monhealth.Identity.Migrations
             modelBuilder.Entity("Monhealth.Domain.DailyMeal", b =>
                 {
                     b.Navigation("Meals");
-                });
-
-            modelBuilder.Entity("Monhealth.Domain.DailyWorkout", b =>
-                {
-                    b.Navigation("Workouts");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Exercise", b =>
@@ -8729,8 +8657,6 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("DailyActivities");
 
                     b.Navigation("DailyWaterIntakes");
-
-                    b.Navigation("DailyWorkouts");
 
                     b.Navigation("Exercises");
 

@@ -14,6 +14,5 @@ namespace Monhealth.Domain
         [ForeignKey(nameof(DailyMealId))]
         public DailyMeal DailyMeal { get; set; }
         public ICollection<MealFood> MealFoods { get; set; }
-
     }
 }

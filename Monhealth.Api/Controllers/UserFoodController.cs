@@ -24,7 +24,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResultModel>> CreateUserFood([FromBody] CreateUserFoodDto request)
+        public async Task<ActionResult<ResultModel>> CreateUserFood(CreateUserFoodDto request)
         {
             var result = await mediator.Send(new CreateUserFoodCommand(request));
 
