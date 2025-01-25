@@ -166,6 +166,25 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
+        public async Task<Nutrition?> GetNutritionByFoodIdAsync(Guid foodId)
+        {
+            return await _context.Nutritions
+          .Where(n => n.FoodId == foodId)
+          .FirstOrDefaultAsync();
+        }
+        public async Task<List<Nutrition>> GetNutritionByFoodIdsAsync(List<Guid> foodIds)
+        {
+            if (foodIds == null || !foodIds.Any())
+            {
+                return new List<Nutrition>();
+            }
+            return await _context.Nutritions
+                .Where(n => n.FoodId.HasValue && foodIds.Contains(n.FoodId.Value))
+                .ToListAsync();
+
+        }
+
+
         public async Task<PaginatedResult<Food>> GetPaginatedFoodsAsync(int skip, int take)
         {
             var query = _context.Foods.Include(f => f.Category).AsQueryable();

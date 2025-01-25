@@ -33,9 +33,12 @@ namespace Monhealth.Application.Contracts.Persistence
             List<Guid> excludedFoodIds,
             List<string>? mealTypeFilter,
             List<string>? dishTypeFilter,
-            
+
             int skip,
             int take);
+        //dung cho randomFood
+        Task<Nutrition?> GetNutritionByFoodIdAsync(Guid foodId);
+        Task<List<Nutrition>> GetNutritionByFoodIdsAsync(List<Guid> foodIds);
 
     }
 }

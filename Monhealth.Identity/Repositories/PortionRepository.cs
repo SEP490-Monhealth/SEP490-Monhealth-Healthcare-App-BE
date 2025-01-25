@@ -1,15 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion;
-using Monhealth.Application.Models;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 using System.Linq.Dynamic.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -27,8 +20,8 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Portion> CheckPortion(string portionSize, float portionWeight, string measurementUnit)
         {
-            var existingPortion = await _context.Portions.FirstOrDefaultAsync(p => 
-            p.PortionSize == portionSize && 
+            var existingPortion = await _context.Portions.FirstOrDefaultAsync(p =>
+            p.PortionSize == portionSize &&
             p.PortionWeight == portionWeight &&
             p.MeasurementUnit == measurementUnit);
             return existingPortion;
@@ -49,6 +42,14 @@ namespace Monhealth.Identity.Repositories
             return portions;
         }
 
+        public async Task<List<FoodPortion>> GetFoodPortionsByFoodIdsAsync(List<Guid> foodPortions)
+        {
+            return await _context.FoodPortions
+      .Include(fp => fp.Portion) // Bao gồm Portion để lấy liên kết
+      .Where(fp => foodPortions.Contains(fp.FoodId))
+      .ToListAsync();
+        }
+
         public async Task<Portion> GetPortionAsync(string measurementUnit, string portionSize, float portionWeight)
         {
             return await _context.Portions.FirstOrDefaultAsync(p =>
@@ -63,6 +64,19 @@ namespace Monhealth.Identity.Repositories
                 .Where(f => f.FoodPortions.Any(fp => fp.FoodId == foodId))
                 .ToListAsync();
             return listPortions;
+        }
+
+        public async Task<List<Portion>> GetPortionsByFoodIdsAsync(List<Guid> foodIds)
+        {
+            if (foodIds == null || !foodIds.Any())
+            {
+                return new List<Portion>();
+            }
+
+            return await _context.Set<Portion>()
+                .Include(p => p.FoodPortions) // Include liên kết tới FoodPortions nếu cần.
+                .Where(p => p.FoodPortions.Any(fp => foodIds.Contains(fp.FoodId)))
+                .ToListAsync();
         }
 
         public async Task<int> SaveChangesAsync()

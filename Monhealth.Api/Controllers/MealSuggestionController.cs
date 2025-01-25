@@ -61,15 +61,20 @@ public class MealSuggestion : ControllerBase
         };
     }
     [HttpGet("user/{userId}/random-meal")]
-    public async Task<ActionResult<MealPlanDTO>> GetRandomMealPlan(Guid userId)
+    public async Task<ActionResult<ResultModel>> GetRandomMealPlan(Guid userId)
     {
-        var randomMealPlan = await _foodRandomService.GetMealPlanAsync(userId);
+        var randomMealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId);
 
         if (randomMealPlan == null)
         {
             return NotFound(new { Message = "Could not generate a random meal plan for the user." });
         }
 
-        return Ok(randomMealPlan);
+        return new ResultModel
+        {
+               Data  = randomMealPlan,
+               Status = 200,
+               Success = true
+        };
     }
 }
