@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Features.Food.AddFood;
 using Monhealth.Application.ServiceForRecommend.DTO;
 using Monhealth.Application.Services;
 using Monhealth.Core.Enum;
@@ -12,20 +13,17 @@ namespace Monhealth.Application.ServiceForRecommend
         private readonly FoodFilterService _foodFilterService;
         private readonly GoalService _goalService;
         private readonly ILogger<FoodRandomService> _logger;
-        private readonly IPortionRepository _portionRepository;
 
         public FoodRandomService(
             IFoodRepository foodRepository,
             FoodFilterService foodFilterService,
             GoalService goalService,
-            ILogger<FoodRandomService> logger,
-            IPortionRepository portionRepository)
+            ILogger<FoodRandomService> logger)
         {
             _foodRepository = foodRepository;
             _foodFilterService = foodFilterService;
             _goalService = goalService;
             _logger = logger;
-            _portionRepository = portionRepository;
         }
 
         public async Task<MealPlanWithAllocationDTO> GetMealPlanWithAllocationAsync(Guid userId)
@@ -101,47 +99,34 @@ namespace Monhealth.Application.ServiceForRecommend
                 return null;
             }
 
-            var portions = await _portionRepository.GetPortionsByFoodIdsAsync(foodIds);
-            if (portions == null || !portions.Any())
-            {
-                _logger.LogWarning("No portions found for the given FoodIds.");
-                return null;
-            }
-            var foodPortionList = await _portionRepository.GetFoodPortionsByFoodIdsAsync(foodIds);
-
-            var foodPortions = foodPortionList // Đây là danh sách chứa FoodPortion
-                .Select(fp => new
-                {
-                    FoodId = fp.FoodId, // Lấy FoodId từ FoodPortion
-                    Portion = fp.Portion // Lấy Portion từ FoodPortion
-                })
-                .ToList();
-
-
             var scoredFoods = nutritionData
-     .Join(
-         foodPortions,
-         n => n.FoodId,
-         fp => fp.FoodId,
-         (n, fp) => new
-         {
-             Nutrition = n,
-             Portion = fp.Portion, // Gọi đúng thuộc tính Portion
-             Score = Math.Sqrt(
-                 new[]
-                 {
-                    n.Calories * fp.Portion.PortionWeight / 100 - allocation.Calories * ratio,
-                    n.Protein * fp.Portion.PortionWeight / 100 - allocation.Protein * ratio,
-                    n.Carbs * fp.Portion.PortionWeight / 100 - allocation.Carbs * ratio,
-                    n.Fat * fp.Portion.PortionWeight / 100 - allocation.Fat * ratio,
-                    n.Fiber * fp.Portion.PortionWeight / 100 - allocation.Fiber * ratio,
-                    n.Sugar * fp.Portion.PortionWeight / 100 - allocation.Sugar * ratio
-                 }.Sum(x => Math.Pow(x, 2))
-             )
-         }
-     )
-     .OrderBy(x => x.Score)
-     .ToList();
+           .Select(n => new
+           {
+           Nutrition = n,
+           Portion = CalculateNewPortion(
+              new NutritionDTO
+              {
+                  Calories = n.Calories,
+                  Protein = n.Protein,
+                  Carbs = n.Carbs,
+                  Fat = n.Fat,
+                  Fiber = n.Fiber,
+                  Sugar = n.Sugar
+              },
+              allocation,
+              ratio
+          ),
+          Score = Math.Sqrt(
+              Math.Pow(n.Calories - allocation.Calories * ratio, 2) +
+              Math.Pow(n.Protein - allocation.Protein * ratio, 2) +
+              Math.Pow(n.Carbs - allocation.Carbs * ratio, 2) +
+              Math.Pow(n.Fat - allocation.Fat * ratio, 2) +
+              Math.Pow(n.Fiber - allocation.Fiber * ratio, 2) +
+              Math.Pow(n.Sugar - allocation.Sugar * ratio, 2)
+          )
+      })
+      .OrderBy(x => x.Score)
+      .ToList();
 
 
             if (!scoredFoods.Any())
@@ -162,12 +147,12 @@ namespace Monhealth.Application.ServiceForRecommend
                 },
                 Allocation = new MealAllocationDTO
                 {
-                    Calories = Math.Min(bestFood.Nutrition.Calories * bestFood.Portion.PortionWeight / 100, allocation.Calories * ratio),
-                    Protein = Math.Min(bestFood.Nutrition.Protein * bestFood.Portion.PortionWeight / 100, allocation.Protein * ratio),
-                    Carbs = Math.Min(bestFood.Nutrition.Carbs * bestFood.Portion.PortionWeight / 100, allocation.Carbs * ratio),
-                    Fat = Math.Min(bestFood.Nutrition.Fat * bestFood.Portion.PortionWeight / 100, allocation.Fat * ratio),
-                    Fiber = Math.Min(bestFood.Nutrition.Fiber * bestFood.Portion.PortionWeight / 100, allocation.Fiber * ratio),
-                    Sugar = Math.Min(bestFood.Nutrition.Sugar * bestFood.Portion.PortionWeight / 100, allocation.Sugar * ratio)
+                    Calories = bestFood.Nutrition.Calories,
+                    Protein = bestFood.Nutrition.Protein,
+                    Carbs = bestFood.Nutrition.Carbs,
+                    Fat = bestFood.Nutrition.Fat,
+                    Fiber = bestFood.Nutrition.Fiber,
+                    Sugar = bestFood.Nutrition.Sugar
                 },
                 GoalAllocation = new MealAllocationDTO
                 {
@@ -178,13 +163,18 @@ namespace Monhealth.Application.ServiceForRecommend
                     Fiber = allocation.Fiber * ratio,
                     Sugar = allocation.Sugar * ratio
                 },
-                Portion = new PortionDTO
-                {
-                    PortionId = bestFood.Portion.PortionId,
-                    PortionSize = bestFood.Portion.PortionSize,
-                    PortionWeight = bestFood.Portion.PortionWeight,
-                    MeasurementUnit = bestFood.Portion.MeasurementUnit
-                }
+                Portion = bestFood.Portion
+            };
+        }
+
+        private PortionDTO CalculateNewPortion(NutritionDTO nutrition, MealAllocationDTO allocation, float ratio)
+        {
+            var portionWeight = 100 * (allocation.Calories * ratio / nutrition.Calories);
+
+            return new PortionDTO
+            {
+                PortionWeight = portionWeight,
+                MeasurementUnit = "g" // Đơn vị cố định là gram
             };
         }
     }
@@ -219,9 +209,7 @@ namespace Monhealth.Application.ServiceForRecommend
 
     public class PortionDTO
     {
-        public Guid PortionId { get; set; }
-        public string PortionSize { get; set; } = string.Empty;
         public float PortionWeight { get; set; }
-        public string MeasurementUnit { get; set; } = string.Empty;
+        public string MeasurementUnit { get; set; } = "g";
     }
 }
