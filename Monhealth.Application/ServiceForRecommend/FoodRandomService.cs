@@ -1,5 +1,7 @@
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Core.Enum;
+
 namespace Monhealth.Application.ServiceForRecommend
 {
     public class FoodRandomService
@@ -22,27 +24,32 @@ namespace Monhealth.Application.ServiceForRecommend
         {
             var mealPlan = new MealPlanDTO
             {
-                Breakfast = new MealDTO { MainDish = await GetRandomDishAsync("breakfast", "Main Dish", userId) },
+                Breakfast = new MealDTO { MainDish = await GetRandomDishAsync(MealType.Breakfast, DishType.MainDish, userId) },
                 Lunch = new MealDTO
                 {
-                    MainDish = await GetRandomDishAsync("lunch", "Main Dish", userId),
-                    SideDish = await GetRandomDishAsync("lunch", "Side Dish", userId),
-                    Dessert = await GetRandomDishAsync("lunch", "Dessert", userId)
+                    MainDish = await GetRandomDishAsync(MealType.Lunch, DishType.MainDish, userId),
+                    SideDish = await GetRandomDishAsync(MealType.Lunch, DishType.SideDish, userId),
+                    Dessert = await GetRandomDishAsync(MealType.Lunch, DishType.Dessert, userId)
                 },
                 Dinner = new MealDTO
                 {
-                    MainDish = await GetRandomDishAsync("dinner", "Main Dish", userId),
-                    SideDish = await GetRandomDishAsync("dinner", "Side Dish", userId),
-                    Dessert = await GetRandomDishAsync("dinner", "Dessert", userId)
+                    MainDish = await GetRandomDishAsync(MealType.Dinner, DishType.MainDish, userId),
+                    SideDish = await GetRandomDishAsync(MealType.Dinner, DishType.SideDish, userId),
+                    Dessert = await GetRandomDishAsync(MealType.Dinner, DishType.Dessert, userId)
                 }
             };
 
             return mealPlan;
         }
 
-        private async Task<FoodDTO?> GetRandomDishAsync(string mealType, string dishType, Guid userId)
+        private async Task<FoodDTO?> GetRandomDishAsync(MealType mealType, DishType dishType, Guid userId)
         {
-            var filteredFoods = await _foodFilterService.GetFilterFoodAsync(userId, 1, 100, new List<string> { mealType }, new List<string> { dishType });
+            var filteredFoods = await _foodFilterService.GetFilterFoodAsync(
+                userId,
+                1,
+                100,
+                new List<string> { mealType.ToString() },
+                new List<string> { dishType.ToString() });
 
             if (filteredFoods == null || filteredFoods.Items == null || !filteredFoods.Items.Any())
             {
