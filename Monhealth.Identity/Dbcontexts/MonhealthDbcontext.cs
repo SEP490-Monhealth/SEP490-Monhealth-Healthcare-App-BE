@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Core;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Configurations;
 using Monhealth.Identity.Models;
@@ -100,19 +101,24 @@ namespace Monhealth.Identity.Dbcontexts
                     );
             });
             builder.Entity<Food>(entity =>
-            {
-                entity.Property(e => e.MealType)
-                    .HasConversion(
-                      v => string.Join(',', v), // Chuyển từ List<string> thành chuỗi
-                      v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList() // Chuyển chuỗi thành List<string>
-                  );
+  {
+      entity.Property(e => e.MealType)
+          .HasConversion(
+              v => string.Join(',', v.Select(x => x.ToString())), // Từ List<MealType> -> string
+              v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => Enum.Parse<MealType>(x)) // Từ string -> List<MealType>
+                    .ToList()
+          );
 
-                entity.Property(e => e.DishType)
-                    .HasConversion(
-                        v => string.Join(',', v),
-                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-                    );
-            });
+      entity.Property(e => e.DishType)
+          .HasConversion(
+              v => string.Join(',', v.Select(x => x.ToString())), // Từ List<DishType> -> string
+              v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => Enum.Parse<DishType>(x)) // Từ string -> List<DishType>
+                    .ToList()
+          );
+  });
+
 
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());

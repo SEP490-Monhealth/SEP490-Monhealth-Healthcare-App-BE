@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Food.Queries.GetFoodById
@@ -6,8 +7,8 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
     public class GetFoodByIdDTO : BaseEntity
     {
         public string Category { get; set; }
-        public List<string> MealType { get; set; }
-        public List<string> DishType { get; set; }
+        public List<MealType> MealType { get; set; }
+        public List<DishType> DishType { get; set; }
         [JsonPropertyName("name")]
         public string FoodName { get; set; }
         [JsonPropertyName("description")]

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Monhealth.Core.Enum;
 
 namespace Monhealth.Application.ServiceForRecommend
 {
@@ -6,8 +7,8 @@ namespace Monhealth.Application.ServiceForRecommend
     {
         public Guid FoodId { get; set; }
         public string Category { get; set; } = string.Empty;
-        public List<string> MealType { get; set; }
-        public List<string> DishType { get; set; }
+        public List<MealType> MealType { get; set; }
+        public List<DishType> DishType { get; set; }
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
     }

@@ -16,7 +16,7 @@ namespace Monhealth.Domain
         public string Instructions { get; set; } = string.Empty;
         public int Duration { get; set; }
         public float CaloriesBurned { get; set; }
-        public Difficulty Difficulty { get; set; }
+        public DifficultyLevel Difficulty { get; set; }
         public bool Status { get; set; }
 
         [ForeignKey(nameof(CategoryId))]

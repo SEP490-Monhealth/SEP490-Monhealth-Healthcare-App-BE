@@ -4273,7 +4273,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 147
+            #region Nutrition 148
             new Nutrition
             {
                 NutritionId = Guid.Parse("642b5a68-9e92-4e95-a273-35ff6791d0ab"),
@@ -4302,35 +4302,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 148
-            new Nutrition
-            {
-                NutritionId = Guid.Parse("5eb394bc-76f5-4764-99de-2ac516d9103a"),
-                FoodId = Guid.Parse("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
-                Calories = 42,
-                Protein = 3.4f,
-                Carbs = 5f,
-                Fiber = 0.0f,
-                Sugar = 5.0f,
-                Fat = 1.0f,
-                SaturatedFat = 0.6f,
-                UnsaturatedFat = 0.4f,
-                Cholesterol = 5,
-                Sodium = 44,
-                Potassium = 150,
-                Calcium = 125,
-                Iron = 0.0f,
-                VitaminA = 0.04f,
-                VitaminB1 = 0.04f,
-                VitaminB2 = 0.18f,
-                VitaminC = 0.0f,
-                VitaminD = 0.02f,
-                VitaminE = 0.03f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-            },
-            #endregion
-
+          
             #region Nutrition 149
             new Nutrition
             {
@@ -5871,7 +5843,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 202
             new Nutrition
             {
-                NutritionId = Guid.Parse("d4835dd1-0a29-4a71-baec-4ef0c3351aac"),
+                NutritionId = Guid.Parse("f10ffe60-7e1b-4e49-a238-521c8b8c0005"),
                 FoodId = Guid.Parse("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                 Calories = 83,
                 Protein = 1.7f,

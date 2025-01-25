@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
@@ -8,8 +9,8 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         public Guid FoodId { get; set; }
         public Guid UserId { get; set; }
         public string Category { get; set; } = string.Empty;
-        public List<string> MealType { get; set; } 
-        public List<string> DishType { get; set; } 
+        public List<MealType> MealType { get; set; } 
+        public List<DishType> DishType { get; set; } 
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
