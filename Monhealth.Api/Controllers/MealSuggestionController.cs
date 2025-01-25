@@ -4,10 +4,8 @@ using Monhealth.Application.Models;
 using Monhealth.Application.ServiceForRecommend;
 using Monhealth.Application.Services;
 
-
-
 [ApiController]
-[Route("api/v1/meal-suggestion")]
+[Route("api/v1/meal-suggestions")]
 public class MealSuggestion : ControllerBase
 {
     private readonly FoodFilterService _foodFilterService;
@@ -46,7 +44,6 @@ public class MealSuggestion : ControllerBase
         return Ok(foods);
     }
 
-
     [HttpGet("user/{userId}/goal")]
     public async Task<ActionResult<ResultModel>> GetGoal(Guid userId)
     {
@@ -72,9 +69,9 @@ public class MealSuggestion : ControllerBase
 
         return new ResultModel
         {
-               Data  = randomMealPlan,
-               Status = 200,
-               Success = true
+            Data = randomMealPlan,
+            Status = 200,
+            Success = true
         };
     }
 }

@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Features.UserFood.Commands;
 using Monhealth.Application.Features.UserFood.Commands.Update;
 using Monhealth.Application.Features.UserFood.Queries;
@@ -32,11 +31,12 @@ namespace Monhealth.Api.Controllers
 
             return new ResultModel
             {
-                Message = "Tạo thành công",
+                Message = "Tạo thức ăn người dùng thành công",
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
             };
         }
+
         [HttpPut]
         [Route("{userId:Guid}")]
         public async Task<ActionResult<ResultModel>> Update(Guid userId, [FromBody] UpdateUserFoodRequest request)
@@ -62,7 +62,5 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
             });
         }
-
     }
-
 }

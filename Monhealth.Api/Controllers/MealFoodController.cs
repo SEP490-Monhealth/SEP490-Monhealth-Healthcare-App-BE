@@ -71,7 +71,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("foods/{mealFoodId:Guid}/quantity")]
+        [Route("food/{mealFoodId:Guid}/quantity")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid mealFoodId, int quantity)
         {
             var command = new MealFoodCommand(mealFoodId, quantity);
@@ -92,7 +92,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("{mealFoodId:Guid}/status")]
+        [Route("food/{mealFoodId:Guid}/status")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid mealFoodId)
         {
             var mealFoods = await _mediator.

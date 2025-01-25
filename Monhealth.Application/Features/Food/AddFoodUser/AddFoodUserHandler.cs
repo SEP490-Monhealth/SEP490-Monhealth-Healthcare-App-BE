@@ -7,16 +7,13 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
     public class AddFoodUserHandler : IRequestHandler<AddFoodUserRequest, bool>
     {
         private readonly IFoodRepository _foodRepository;
-        private readonly ICategoryRepository _categoryRepository;
         private readonly IPortionRepository _portionRepository;
         private readonly INutritionRepository _nutritionRepository;
         public AddFoodUserHandler(IFoodRepository foodRepository,
-        ICategoryRepository categoryRepository,
         IPortionRepository portionRepository,
         INutritionRepository nutritionRepository)
         {
             _foodRepository = foodRepository;
-            _categoryRepository = categoryRepository;
             _portionRepository = portionRepository;
             _nutritionRepository = nutritionRepository;
         }

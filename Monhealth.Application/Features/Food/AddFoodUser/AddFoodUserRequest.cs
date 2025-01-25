@@ -9,7 +9,6 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
         public Guid UserId { get; set; }
         public List<MealType> MealType { get; set; }
         public List<DishType> DishType { get; set; }
-        public string Category { get; set; } = string.Empty;
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
