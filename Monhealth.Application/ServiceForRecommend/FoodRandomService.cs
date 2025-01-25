@@ -19,7 +19,7 @@ namespace Monhealth.Application.ServiceForRecommend
             FoodFilterService foodFilterService,
             GoalService goalService,
             ILogger<FoodRandomService> logger)
-        {
+        {   
             _foodRepository = foodRepository;
             _foodFilterService = foodFilterService;
             _goalService = goalService;

@@ -2,6 +2,7 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
+using Monhealth.Application.ServiceForRecommend;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 
@@ -15,13 +16,15 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         private readonly IGoalRepository _goalRepository;
         private readonly IMapper _mapper;
         private readonly IWaterReminderRepository _reminderRepository;
+        private readonly FoodRandomService _foodRandomService;
         public CreateMetricCommandHandler(
             IMetricRepository metricRepository,
             IMapper mapper,
             IMetricsCalculator metricCalculator,
             IGoalRepository goalRepository,
             IGoalsCalculator goalsCalculator,
-            IWaterReminderRepository reminderRepository)
+            IWaterReminderRepository reminderRepository,
+            FoodRandomService foodRandomService)
         {
             _metricCalculator = metricCalculator;
             _metricRepository = metricRepository;
@@ -29,6 +32,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             _goalRepository = goalRepository;
             _goalCalculator = goalsCalculator;
             _reminderRepository = reminderRepository;
+            _foodRandomService = foodRandomService;
         }
         public async Task<Unit> Handle(CreateMetricCommand request, CancellationToken cancellationToken)
         {
@@ -73,6 +77,12 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
             #endregion
             return Unit.Value;
+
+            #region Tao List Meal
+            
+
+
+            #endregion
         }
 
     }
