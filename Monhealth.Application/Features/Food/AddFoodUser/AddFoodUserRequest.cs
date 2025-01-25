@@ -1,13 +1,14 @@
 using System.Text.Json.Serialization;
 using MediatR;
+using Monhealth.Core.Enum;
 
 namespace Monhealth.Application.Features.Food.AddFoodUser
 {
     public class AddFoodUserRequest : IRequest<bool>
     {
         public Guid UserId { get; set; }
-        public List<string> MealType { get; set; }
-        public List<string> DishType { get; set; }
+        public List<MealType> MealType { get; set; }
+        public List<DishType> DishType { get; set; }
         public string Category { get; set; } = string.Empty;
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;

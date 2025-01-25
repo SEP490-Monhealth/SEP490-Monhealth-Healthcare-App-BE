@@ -18,7 +18,9 @@ namespace Monhealth.Application.Features.UserFood.Commands
             {
                 UserId = request.UserId,
                 Categories = request.Categories,
-                Allergies = request.Allergies
+                Allergies = request.Allergies,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
 
             _userFoodRepository.Add(userFood);

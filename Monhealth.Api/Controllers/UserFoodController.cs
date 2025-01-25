@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Features.UserFood.Commands;
+using Monhealth.Application.Features.UserFood.Commands.Update;
 using Monhealth.Application.Features.UserFood.Queries;
 using Monhealth.Application.Models;
 using System.Net;
@@ -35,5 +37,32 @@ namespace Monhealth.Api.Controllers
                 Status = (int)HttpStatusCode.OK,
             };
         }
+        [HttpPut]
+        [Route("{userId:Guid}")]
+        public async Task<ActionResult<ResultModel>> Update(Guid userId, [FromBody] UpdateUserFoodRequest request)
+        {
+
+            var command = new UpdateUserFoodCommand(userId, request);
+            var result = await mediator.Send(command);
+
+            if (result != Unit.Value)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Message = "Cập nhật món ăn cho người dùng không thành công",
+                    Success = false,
+                    Data = null
+                });
+            }
+
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật món ăn cho người dùng thành công",
+                Success = true,
+                Status = 204,
+            });
+        }
+
     }
+
 }

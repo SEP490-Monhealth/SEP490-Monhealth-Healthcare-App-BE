@@ -224,13 +224,13 @@ namespace Monhealth.Identity.Repositories
             if (mealTypeFilter != null && mealTypeFilter.Any())
             {
                 var normalizedMealTypeFilter = mealTypeFilter.Select(mt => mt.ToLower()).ToList();
-                items = items.Where(f => f.MealType.Any(mt => normalizedMealTypeFilter.Contains(mt.ToLower()))).ToList();
+                items = items.Where(f => f.MealType.Any(mt => normalizedMealTypeFilter.Contains(mt.ToString().ToLower()))).ToList();
             }
 
             if (dishTypeFilter != null && dishTypeFilter.Any())
             {
                 var normalizedDishTypeFilter = dishTypeFilter.Select(dt => dt.ToLower()).ToList();
-                items = items.Where(f => f.DishType.Any(dt => normalizedDishTypeFilter.Contains(dt.ToLower()))).ToList();
+                items = items.Where(f => f.DishType.Any(dt => normalizedDishTypeFilter.Contains(dt.ToString().ToLower()))).ToList();
             }
 
             var totalCount = items.Count;

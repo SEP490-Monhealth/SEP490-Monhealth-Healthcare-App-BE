@@ -6,6 +6,6 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<int> SaveChangeAsync();
         Task<UserFood> GetUserFoodByUserIdAsync(Guid userId);
-
+        
     }
 }
