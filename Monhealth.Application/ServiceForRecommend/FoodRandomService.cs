@@ -211,5 +211,6 @@ namespace Monhealth.Application.ServiceForRecommend
     {
         public float PortionWeight { get; set; }
         public string MeasurementUnit { get; set; } = "g";
+          public string PortionSize { get; set; } = "default"; // Thêm property PortionSize
     }
 }
