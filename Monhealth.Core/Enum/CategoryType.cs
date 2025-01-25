@@ -1,6 +1,6 @@
 namespace Monhealth.Core.Enum
 {
-    public enum Category
+    public enum CategoryType
     {
         Food,
         Exercise

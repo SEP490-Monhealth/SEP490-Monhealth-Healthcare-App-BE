@@ -1,6 +1,6 @@
 namespace Monhealth.Core.Enum
 {
-    public enum Difficulty
+    public enum DifficultyLevel
     {
         Easy,
         Medium,

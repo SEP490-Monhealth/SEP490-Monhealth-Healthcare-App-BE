@@ -1,6 +1,6 @@
 namespace Monhealth.Core.Enum
 {
-    public enum Intensity
+    public enum IntensityLevel
     {
         Low,
         Medium,
