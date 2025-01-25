@@ -12,6 +12,7 @@ namespace Monhealth.Domain
         public int TotalDuration { get; set; }
         public float TotalCaloriesBurned { get; set; }
 
+
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         [ForeignKey(nameof(GoalId))]

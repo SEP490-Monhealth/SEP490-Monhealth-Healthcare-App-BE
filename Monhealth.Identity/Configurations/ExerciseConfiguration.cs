@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 
 namespace Monhealth.Identity.Configurations
@@ -11,854 +12,1695 @@ namespace Monhealth.Identity.Configurations
             builder.HasData(
 
             #region Exercise 1
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("c6717b09-eea8-4452-8900-2abd68494661"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Cây",
-
-                    Duration = 10,
-                    CaloriesBurned = 5f,
-                    Instructions = "1. Đứng thẳng 2. Đặt một chân lên đầu gối chân còn lại 3. Vươn hai tay lên cao và giữ tư thế trong vài giây",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("aac12e14-eb0e-4921-9fee-8a72cc46f13e"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Sit-Ups",
+                Instructions = "Nằm ngửa, co gối, đặt tay sau đầu. Nâng thân lên hướng về gối, sau đó trở về. Lặp lại.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 2
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("1a8257c0-db6f-4a6b-ac06-dd88f98cd10b"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Kéo Giãn Vai",
-
-                    Duration = 5,
-                    CaloriesBurned = 4.0f,
-                    Instructions = "1. Ngồi thẳng 2. Đưa tay phải qua vai trái 3. Kéo nhẹ tay bằng tay còn lại, giữ trong 10 giây và đổi bên",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("2f4c14b8-3207-40dc-8233-1ec310a47dd5"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Plank",
+                Instructions = "Nằm úp, nâng cơ thể bằng khuỷu tay và ngón chân. Giữ cơ thể thẳng. Giữ tư thế này.",
+                Duration = 60,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 3
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("4fca9170-932f-4985-8f6f-04f34c4ed80a"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Nhảy Chụm Chân",
-
-                    Duration = 10,
-                    CaloriesBurned = 8.0f,
-                    Instructions = "1. Đứng thẳng 2. Nhảy chụm hai chân lại, tay đưa lên cao 3. Lặp lại động tác trong 10 phút",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("d409a2a7-e695-4696-94c3-41013d590887"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Dynamic Rollup",
+                Instructions = "Nằm phẳng, duỗi tay qua đầu. Cuộn lên tư thế ngồi, sau đó cuộn trở lại.",
+                Duration = 45,
+                CaloriesBurned = 7f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 4
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("7f51e931-9f04-4ff6-a383-51cfce5398e9"),
-                    CategoryId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Thở Bụng",
-
-                    Duration = 5,
-                    CaloriesBurned = 2.0f,
-                    Instructions = "1. Ngồi thoải mái 2. Đặt tay lên bụng 3. Hít sâu bằng mũi và thở ra bằng miệng, cảm nhận sự phồng lên của bụng",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("b45baf25-682a-4de3-b5aa-15f4ea6e590d"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Side Crunches",
+                Instructions = "Nằm nghiêng, co chân. Nâng thân lên nghiêng về phía gối.",
+                Duration = 30,
+                CaloriesBurned = 6f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 5
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("f4c8fd3c-fc3e-45cb-b468-4acf0ae87266"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Chạy Nâng High Đùi",
-
-                    Duration = 15,
-                    CaloriesBurned = 10.0f,
-                    Instructions = "1. Đứng thẳng 2. Nâng cao đùi một chân đến ngang hông, sau đó đổi chân 3. Lặp lại động tác với tốc độ tăng dần",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("6ee8f18c-d1de-4899-8af9-8bc7341cb225"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Mason Twist",
+                Instructions = "Ngồi, co gối, nhấc chân khỏi sàn. Xoay thân từ bên này qua bên kia.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 6
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("ccd35e18-4679-4bfb-b9df-2eaaa3f4d9a8"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Tam Giác",
-
-                    Duration = 12,
-                    CaloriesBurned = 5.83f,
-                    Instructions = "1. Đứng thẳng, hai chân mở rộng 2. Gập người sang bên, tay chạm vào gót chân 3. Giữ tư thế và lặp lại ở bên còn lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("f2e4e45f-9514-452c-91ff-d5486243fb0d"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Reaching Crunch",
+                Instructions = "Nằm ngửa, co gối. Đưa tay về phía gối khi nâng thân lên.",
+                Duration = 30,
+                CaloriesBurned = 6f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 7
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("f05d362a-3b43-4451-9857-025a170ec0e2"),
-                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Gập Bụng",
-
-                    Duration = 10,
-                    CaloriesBurned = 10.0f,
-                    Instructions = "1. Nằm ngửa, đầu gối co lại 2. Đặt hai tay sau đầu, nâng người lên 3. Hạ xuống từ từ và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("ab679a82-97a1-4772-a824-69de7a8626d5"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Corkscrew",
+                Instructions = "Nằm ngửa, chân duỗi thẳng lên. Xoay chân theo vòng tròn.",
+                Duration = 45,
+                CaloriesBurned = 9f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 8
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("e3eeb6c5-aa62-4f2e-8ab1-b856c208d448"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Đi Bộ Tại Chỗ",
-
-                    Duration = 15,
-                    CaloriesBurned = 4.67f,
-                    Instructions = "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng đùi nhẹ nhàng 3. Giữ tốc độ đều đặn",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("c37426f7-6e98-4dcd-85b5-49e9e75aa380"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Bicycle Crunches",
+                Instructions = "Nằm ngửa, luân phiên chạm khuỷu tay đối diện vào gối theo động tác đạp xe.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 9
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("104ed03c-0460-48d2-890e-7acd517e129b"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Kéo Giãn Cột Sống",
-                    Duration = 8,
-                    CaloriesBurned = 3.75f,
-                    Instructions = "1. Đứng thẳng 2. Gập người nhẹ về phía trước 3. Dùng tay chạm sàn, giữ vài giây rồi trở lại tư thế ban đầu",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("8f7b3eaf-288e-47bd-8a37-94133fe25e62"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Elevated Crunches",
+                Instructions = "Đặt chân trên bề mặt nâng cao, thực hiện động tác gập bụng.",
+                Duration = 30,
+                CaloriesBurned = 7f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 10
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("6ca587eb-e1f3-4266-be80-af02b42a8545"),
-                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Plank",
-
-                    Duration = 5,
-                    CaloriesBurned = 10.0f,
-                    Instructions = "1. Chống hai khuỷu tay xuống sàn 2. Giữ lưng thẳng và cơ bụng siết chặt 3. Giữ tư thế trong vòng 30 giây đến 1 phút",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("78e05e91-0d2a-4418-a363-281cfa7ced50"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Hundred Pike",
+                Instructions = "Nằm phẳng, nhấc chân thẳng lên, bơm tay hướng xuống đất.",
+                Duration = 60,
+                CaloriesBurned = 10f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 11
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("6e2ffe73-18da-42e6-ab89-0d3ecf254a52"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Chào Mặt Trời",
-
-                    Duration = 15,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Đứng thẳng 2. Đưa hai tay lên cao 3. Cúi gập người và thực hiện các tư thế yoga liên tiếp",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("67c5180f-978d-4cd7-ae1e-57fa80ac5e27"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Seated Core Twist",
+                Instructions = "Ngồi thẳng, xoay thân qua lại hai bên.",
+                Duration = 30,
+                CaloriesBurned = 6f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 12
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("2d8dd512-b871-4e4e-955c-cf15a50a8ef7"),
-                    CategoryId = Guid.Parse("cb81e687-8e2f-4814-99a6-808777410e02"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Cuộn Người",
-
-                    Duration = 10,
-                    CaloriesBurned = 4.0f,
-                    Instructions = "1. Nằm ngửa 2. Duỗi thẳng hai tay qua đầu 3. Từ từ cuộn người lên",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("8482d5db-ee6e-473e-b156-500de0619dfc"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Abdominal Hip Raises",
+                Instructions = "Nằm ngửa, nâng hông lên trần nhà.",
+                Duration = 45,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 13
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("97dd1375-9217-43b9-9c9d-c14128158ef0"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Kéo Giãn Đùi Sau",
-
-                    Duration = 8,
-                    CaloriesBurned = 3.75f,
-                    Instructions = "1. Ngồi trên sàn 2. Duỗi một chân thẳng 3. Vươn tay về phía ngón chân của chân duỗi",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("ae68fd8e-0226-4368-824a-abe06fed86b3"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Russian Twist",
+                Instructions = "Ngồi, co gối, xoay thân qua lại hai bên.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 14
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("8c6e4c94-b58e-4d9c-8698-98c7db4021cc"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Chạy Bộ Nhẹ",
-
-                    Duration = 20,
-                    CaloriesBurned = 6.0f,
-                    Instructions = "1. Đứng thẳng 2. Bắt đầu chạy bộ nhẹ nhàng 3. Duy trì tốc độ đều trong 20 phút",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("c0d1b74c-521b-428b-9776-0f9e95bd0ef0"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Leg Lifts",
+                Instructions = "Nằm phẳng, nâng cả hai chân lên trần nhà, sau đó hạ xuống.",
+                Duration = 30,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 15
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("222df2e6-90a1-4a5b-8b63-cd7b73f012bb"),
-                    CategoryId = Guid.Parse("d7c2a84c-2136-4f62-8d8e-4d70ec123f4f"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Đứng Một Chân",
-
-                    Duration = 10,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Đứng thẳng 2. Nâng một chân lên và giữ thăng bằng 3. Đổi bên sau 10 giây",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Jump Squats",
+                Instructions = "Thực hiện động tác squat, sau đó nhảy lên mạnh mẽ.",
+                Duration = 30,
+                CaloriesBurned = 10f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 16
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("3b17291f-8c4c-494c-bcbe-3adde745cbca"),
-                    CategoryId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Ngồi Thiền",
-
-                    Duration = 10,
-                    CaloriesBurned = 2.0f,
-                    Instructions = "1. Ngồi thoải mái 2. Nhắm mắt và tập trung vào nhịp thở 3. Thở đều trong 10 phút",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("4c2f77bb-3bb2-4348-b6cd-a5325f3b2214"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Outer Thigh Raises",
+                Instructions = "Nằm nghiêng, nâng chân trên lên xuống.",
+                Duration = 30,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 17
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("c54c743d-4956-4b88-94ff-c4467f463a41"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Chó Úp Mặt",
-
-                    Duration = 12,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Bắt đầu ở tư thế bò 2. Nâng hông cao để tạo thành chữ V ngược 3. Giữ tư thế trong vài giây",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("09d79e39-bbd9-4405-9fa6-8d5cd4fc8c7f"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Ski Sit",
+                Instructions = "Dựa lưng vào tường trong tư thế ngồi, đùi song song với mặt đất.",
+                Duration = 45,
+                CaloriesBurned = 7f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 18
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("8918e071-56ca-4212-bd09-c338d2b0db8a"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Bật Nhảy Tại Chỗ",
-
-                    Duration = 15,
-                    CaloriesBurned = 10.0f,
-                    Instructions = "1. Đứng thẳng 2. Nhảy cao và đưa tay lên trời 3. Tiếp đất nhẹ nhàng",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("9cadb2bc-6ae3-49a1-a094-c89039795ca3"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Straight Leg Donkey Kick",
+                Instructions = "Đứng bốn chân, đá một chân thẳng ra sau và quay lại.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 19
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("fcbc0f6c-bfda-430d-a7b0-ad48391327b4"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Nhún Gối",
-
-                    Duration = 8,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Đứng thẳng 2. Gập đầu gối nhẹ nhàng xuống 3. Trở về tư thế ban đầu và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("7213c6ec-d1ea-4e7e-97b7-5f4cd675f7ba"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Bridge Kicker",
+                Instructions = "Thực hiện động tác nâng hông, đá từng chân một.",
+                Duration = 45,
+                CaloriesBurned = 9f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 20
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("c8c75216-1952-41c7-88d1-2e21e50a4bf7"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Đứng Gập Người",
-
-                    Duration = 12,
-                    CaloriesBurned = 5.83f,
-                    Instructions = "1. Đứng thẳng 2. Cúi gập người, tay chạm sàn 3. Giữ tư thế vài giây và trở lại vị trí ban đầu",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("b39f7142-3d9b-4e80-9304-342de4ebe8d0"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Sumo Chair Squats",
+                Instructions = "Đứng tư thế rộng, squat giữ lưng thẳng.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 21
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("e3f3c590-fb64-4187-9375-db45a3bc5f26"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Đứng Kiễng Chân",
-
-                    Duration = 8,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Đứng thẳng, chân chụm lại 2. Nâng gót chân lên cao 3. Giữ vài giây và hạ xuống",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("c09b0b4e-dfad-4d62-b620-e3a348849393"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Side Lunge March",
+                Instructions = "Bước sang bên thành tư thế lunge, sau đó trở lại.",
+                Duration = 30,
+                CaloriesBurned = 6f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 22
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("a98a4e19-3ccf-4e3f-90fa-a9f866230bd2"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Kéo Giãn Hông",
-
-                    Duration = 10,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Đứng thẳng 2. Đưa một chân ra phía trước, gập nhẹ gối 3. Giữ tư thế và đổi bên",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("2ec9ee3b-2768-4ae4-9246-05cdac76a8a6"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Single Calf Raises",
+                Instructions = "Đứng một chân, nâng gót chân lên xuống.",
+                Duration = 30,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 23
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("cb7a4531-62f7-4209-9489-2ef6e3a8571a"),
-                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Gập Gối Ngồi",
-
-                    Duration = 12,
-                    CaloriesBurned = 8.33f,
-                    Instructions = "1. Ngồi xuống, hai chân mở rộng 2. Gập gối và đưa thân người xuống gần gối 3. Trở lại tư thế ban đầu",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("a2be65b5-8135-4a29-a44c-b8f34418c537"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Rear Lunges",
+                Instructions = "Bước một chân ra sau thành tư thế lunge, sau đó trở lại.",
+                Duration = 30,
+                CaloriesBurned = 7f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 24
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("642766b0-99d6-45b8-a1ad-e2d3c1ad8c51"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Em Bé",
-
-                    Duration = 10,
-                    CaloriesBurned = 4.0f,
-                    Instructions = "1. Ngồi quỳ, gập người về phía trước 2. Duỗi hai tay ra trước mặt 3. Giữ trong 10 giây",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("c48fb04a-0b63-4d5b-ad72-6c23a7b8267c"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Side to Side Jump Squat",
+                Instructions = "Thực hiện jump squats trong khi di chuyển từ bên này qua bên kia.",
+                Duration = 45,
+                CaloriesBurned = 10f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 25
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("3a737328-37a9-415f-b52c-71480118d431"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Nhảy Sang Ngang",
-
-                    Duration = 15,
-                    CaloriesBurned = 8.67f,
-                    Instructions = "1. Đứng thẳng, chân chụm lại 2. Nhảy sang bên trái và phải liên tục 3. Duy trì tốc độ đều",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("7910e21a-a190-4a6f-bd87-54b6f54cf5e3"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Prisoner's Squat",
+                Instructions = "Squat với hai tay đặt sau đầu.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 26
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("e051611d-806d-4d70-81da-da1277c404a1"),
-                    CategoryId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Thở Sâu",
-
-                    Duration = 5,
-                    CaloriesBurned = 2.0f,
-                    Instructions = "1. Ngồi thẳng lưng 2. Hít vào chậm rãi qua mũi 3. Thở ra từ từ qua miệng",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("dfa2b796-d12d-4e7c-93bf-89f412b0d551"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Squat & Reach",
+                Instructions = "Squat xuống, sau đó với tay lên trên.",
+                Duration = 30,
+                CaloriesBurned = 6f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 27
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("b25e6da5-a48d-414d-9d94-34fc08421eb5"),
-                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Thuyền",
-
-                    Duration = 12,
-                    CaloriesBurned = 7.5f,
-                    Instructions = "1. Ngồi trên sàn, chân co gối lên 2. Nâng thân người và chân lên tạo hình chữ V 3. Giữ vài giây rồi hạ xuống",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("55fe0528-86d5-49ab-bb6e-a2345418b5de"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Jump Squats with Pulse",
+                Instructions = "Thực hiện jump squat, giữ ở vị trí thấp trước khi nhảy.",
+                Duration = 45,
+                CaloriesBurned = 10f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 28
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("8c34f630-f594-48ad-8db9-1e0c90439da7"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Gập Lưng Dưới",
-
-                    Duration = 8,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Nằm ngửa 2. Co gối và gập thân người về phía trước 3. Hạ xuống và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("04424053-69cc-4342-afcf-2b1a62a6dbf1"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Pulse Rows",
+                Instructions = "Ngồi thẳng lưng, gập tay về phía sau như chèo thuyền, giữ nhịp đều.",
+                Duration = 30,
+                CaloriesBurned = 6f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 29
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("8bf642c5-edd8-4998-9385-c7b753f8eb16"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Đứng Vặn Mình",
-
-                    Duration = 10,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Đứng thẳng, hai tay chống hông 2. Vặn mình sang trái, giữ vài giây 3. Đổi bên và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("15f6c0bf-f983-48c9-b030-863200a7d4eb"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "T Raise",
+                Instructions = "Đứng thẳng, nâng tay ngang vai thành hình chữ T, sau đó hạ xuống.",
+                Duration = 30,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 30
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("a97fb729-878b-413e-af0f-086e524874bb"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Cá Heo",
-
-                    Duration = 12,
-                    CaloriesBurned = 5.83f,
-                    Instructions = "1. Bắt đầu ở tư thế bò 2. Chống hai khuỷu tay và nâng hông lên 3. Giữ tư thế và hít thở đều",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("befbdedd-8795-4f9a-842a-00ea9b770f55"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Roof Kickback",
+                Instructions = "Đứng gập người về trước, đẩy tay ra sau, giữ thẳng.",
+                Duration = 45,
+                CaloriesBurned = 7f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 31
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("2f862941-2b92-4210-bf02-efb91feed6e4"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Đi Bộ Nâng Cao Gối",
-
-                    Duration = 15,
-                    CaloriesBurned = 10.0f,
-                    Instructions = "1. Đứng thẳng 2. Bắt đầu đi bộ tại chỗ, nâng gối cao ngang hông 3. Lặp lại liên tục",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("b3ba3cfc-34a3-4b31-9e1c-78df5bd7910a"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Tricep Press",
+                Instructions = "Ngồi, đặt tay sau lưng, nhấc thân lên bằng cơ tay sau, sau đó hạ xuống.",
+                Duration = 30,
+                CaloriesBurned = 6f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 32
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("afbf282b-5a75-4b98-94a1-c1d3dece6b25"),
-                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Chống Đẩy Đầu Gối",
-
-                    Duration = 10,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Nằm úp 2. Chống hai tay và đầu gối xuống sàn 3. Nâng người lên và hạ xuống từ từ",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("9ba0c68f-426b-4459-8b12-7eafc4b43f2b"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Push-Up & Rotation",
+                Instructions = "Thực hiện chống đẩy, sau đó xoay người và nâng một tay lên cao.",
+                Duration = 45,
+                CaloriesBurned = 9f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 33
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("cdb6b8b0-e24d-488a-b2ac-6e38c7269b08"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Kéo Cánh Tay",
-
-                    Duration = 5,
-                    CaloriesBurned = 4.0f,
-                    Instructions = "1. Đứng thẳng 2. Đưa tay phải sang vai trái 3. Kéo nhẹ tay và giữ vài giây, sau đó đổi bên",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("2f3358f6-6e47-4a7e-8ab1-998a4f58386f"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Y Raise",
+                Instructions = "Đứng thẳng, nâng tay chéo ra trước thành hình chữ Y, sau đó hạ xuống.",
+                Duration = 30,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 34
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("165cfd11-a6ee-420f-b18e-821768917488"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Đứng Gập Đầu",
-
-                    Duration = 8,
-                    CaloriesBurned = 4.38f,
-                    Instructions = "1. Đứng thẳng 2. Cúi gập đầu và thân người xuống 3. Thư giãn cổ và giữ trong vài giây",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("e0176052-1ea9-4af4-8724-6b3b956acdf5"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Kneeled Narrow Push-Ups",
+                Instructions = "Chống đẩy gối xuống sàn, hai tay gần nhau.",
+                Duration = 30,
+                CaloriesBurned = 6f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 35
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("1cf971f5-5c43-44de-baec-782a473fc49e"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Bật Nhảy Hai Chân",
-
-                    Duration = 12,
-                    CaloriesBurned = 10.0f,
-                    Instructions = "1. Đứng thẳng 2. Nhảy bật hai chân lên cao, tay chạm gối 3. Lặp lại liên tục",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("d2efc4c7-fa6e-45d8-a571-61d919650713"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Spiderman Push-Ups",
+                Instructions = "Chống đẩy, mỗi lần hạ xuống, đưa một gối lên gần cùi chỏ.",
+                Duration = 45,
+                CaloriesBurned = 9f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 36
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("d622220c-af21-47bb-8540-90e01c5b63be"),
-                    CategoryId = Guid.Parse("a1c1ef2d-6697-49d3-857b-882b288ffeef"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Thở Hít Lâu",
-
-                    Duration = 5,
-                    CaloriesBurned = 3.0f,
-                    Instructions = "1. Ngồi thoải mái 2. Hít vào sâu trong 5 giây 3. Thở ra chậm trong 7 giây",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("4da7a997-6d33-4034-912b-6f1dd1fdab3d"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Clap Push-Ups",
+                Instructions = "Chống đẩy, khi nâng lên vỗ tay trước ngực rồi trở về vị trí cũ.",
+                Duration = 30,
+                CaloriesBurned = 10f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 37
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("4a9ca2b5-78d0-42ea-870e-b0bc76c72d9e"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Ngồi Mở Rộng Eo",
-
-                    Duration = 8,
-                    CaloriesBurned = 3.75f,
-                    Instructions = "1. Ngồi thẳng lưng, chân duỗi ra 2. Đưa hai tay lên cao 3. Nghiêng người sang bên trái và đổi bên",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("e37feb90-ad70-4da1-b274-809412dd808a"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Burpees",
+                Instructions = "Nhảy lên, sau đó hạ xuống tư thế chống đẩy, lặp lại.",
+                Duration = 60,
+                CaloriesBurned = 12f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 38
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("507ca0f0-4d34-4e62-9a6a-48c12341a4d1"),
-                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Gập Lưng Trên",
-
-                    Duration = 10,
-                    CaloriesBurned = 9.0f,
-                    Instructions = "1. Nằm ngửa 2. Nâng thân trên lên về phía đầu gối 3. Hạ xuống từ từ và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("92c92e7d-5eab-491c-8d31-6721158eb1a9"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Running in Place",
+                Instructions = "Chạy tại chỗ, nâng cao gối một cách nhẹ nhàng.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 39
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("7717a4d8-d310-466f-afeb-0fb7272dcf0b"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Chiến Binh II",
-
-                    Duration = 12,
-                    CaloriesBurned = 6.67f,
-                    Instructions = "1. Đứng thẳng, chân mở rộng 2. Đưa hai tay sang ngang, gập một gối 3. Giữ tư thế trong vài giây",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("5ca4aa32-a164-4e51-b6d5-89db5c8fcc46"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Push-Up & Burpees",
+                Instructions = "Kết hợp chống đẩy và động tác burpee hoàn chỉnh.",
+                Duration = 45,
+                CaloriesBurned = 12f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 40
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("92319d32-4758-49d2-bdd1-360f0b119a05"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Ngồi Vặn Mình",
-
-                    Duration = 10,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Ngồi thẳng lưng, chân duỗi thẳng 2. Xoay thân người sang trái, tay chạm đầu gối 3. Đổi bên và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("fc719720-6259-4e21-bec9-82b2949e35e2"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Mountain Climbers",
+                Instructions = "Tư thế plank, kéo gối xen kẽ về phía ngực như leo núi.",
+                Duration = 30,
+                CaloriesBurned = 10f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 41
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("523a65a8-53ac-4577-b318-0dbd370ceedf"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Đá Chân Ra Sau",
-
-                    Duration = 10,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Đứng thẳng 2. Đá chân phải ra sau, giữ thăng bằng 3. Đổi chân và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("f344b5e8-c338-4da7-a99c-78952ba2db9b"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "High Knees",
+                Instructions = "Chạy tại chỗ, nâng cao gối ngang hông.",
+                Duration = 30,
+                CaloriesBurned = 9f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 42
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("769af12c-7398-4803-9a78-7a1ad54047b1"),
-                    CategoryId = Guid.Parse("c440673d-c842-4aad-aa44-4a9b314529c4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Cây Cầu",
-
-                    Duration = 12,
-                    CaloriesBurned = 6.67f,
-                    Instructions = "1. Nằm ngửa 2. Co chân, nâng hông lên cao 3. Hạ xuống từ từ và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("b8d89172-aa14-4315-a7d9-49a44a7b06ca"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Butt Kickers",
+                Instructions = "Chạy tại chỗ, gót chân chạm vào mông.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 43
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("486237f0-a55b-495e-b09a-65bf36260a1e"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Bật Nhảy Chéo",
-
-                    Duration = 15,
-                    CaloriesBurned = 10.0f,
-                    Instructions = "1. Đứng thẳng 2. Nhảy chéo chân và tay 3. Lặp lại với tốc độ tăng dần",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("c26a95d0-b7b6-4654-b05a-768d078258bd"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "One Leg Side Hops",
+                Instructions = "Nhảy ngang qua lại bằng một chân, đổi chân xen kẽ.",
+                Duration = 30,
+                CaloriesBurned = 10f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 44
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("9fbbaf75-bece-48ff-975f-28ab6204516b"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Nâng Tay Kéo Dài",
-
-                    Duration = 8,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Đứng thẳng 2. Đưa một tay lên cao và kéo dài 3. Đổi tay và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("32989028-4533-4700-b454-a4df1cfa08a9"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Jumping Jacks",
+                Instructions = "Nhảy dang tay và chân, sau đó thu lại.",
+                Duration = 30,
+                CaloriesBurned = 7f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 45
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("c05e4fd1-6546-4283-bace-4cbf8affd86a"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Mèo - Bò",
-
-                    Duration = 10,
-                    CaloriesBurned = 6.0f,
-                    Instructions = "1. Bắt đầu ở tư thế bò 2. Cong lưng và nâng đầu lên 3. Cúi đầu và gập lưng xuống",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("86365264-7f1c-4bc2-8886-92a8523624b4"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Tuck Jumps",
+                Instructions = "Nhảy lên cao, kéo gối sát ngực, sau đó hạ xuống.",
+                Duration = 45,
+                CaloriesBurned = 12f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 46
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("7a102c6e-b15c-4260-a846-203b090603a5"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Vặn Người Đứng",
-
-                    Duration = 8,
-                    CaloriesBurned = 3.75f,
-                    Instructions = "1. Đứng thẳng 2. Xoay người nhẹ sang bên trái, tay chạm eo 3. Đổi bên và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("4520be3b-5b4f-43e1-8e09-e10a2d3b3e3a"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Lunge Jumps",
+                Instructions = "Nhảy đổi chân trong tư thế lunge.",
+                Duration = 30,
+                CaloriesBurned = 12f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 47
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("2fdafe44-34cb-40bf-8b68-1e9f79a3aa38"),
-                    CategoryId = Guid.Parse("045d39cf-5865-4e2a-9cd1-fd76628bdab4"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Nhảy Nâng Đùi Xen Kẽ",
-
-                    Duration = 15,
-                    CaloriesBurned = 10.67f,
-                    Instructions = "1. Đứng thẳng 2. Nhảy nâng đùi xen kẽ, tay đưa lên cao 3. Lặp lại liên tục",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("deee2611-a087-4d0d-80f0-53e085a06a82"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Plank to Frogger",
+                Instructions = "Từ tư thế plank, nhảy chân lên gần tay, sau đó trở lại plank.",
+                Duration = 45,
+                CaloriesBurned = 11f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 48
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("e400f9d2-1f60-4494-b5bc-73085d215043"),
-                    CategoryId = Guid.Parse("8d95160a-e5c0-49b7-b016-b97e3479c54b"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Kéo Gối Chạm Ngực",
-
-                    Duration = 10,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Nằm ngửa 2. Kéo gối phải lên chạm ngực 3. Đổi bên và lặp lại",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("bd5485ee-c420-4af7-888f-5022127f4a42"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Star Jumps",
+                Instructions = "Nhảy lên, dang tay chân ra tạo hình ngôi sao, sau đó trở lại.",
+                Duration = 30,
+                CaloriesBurned = 10f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 49
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("6330da83-d0d8-4031-9459-ceccd41a3ac1"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Thư Giãn",
-
-                    Duration = 12,
-                    CaloriesBurned = 5.0f,
-                    Instructions = "1. Nằm thẳng, tay và chân thả lỏng 2. Hít thở đều và thư giãn trong vài phút",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                },
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("7bc46c3f-a8df-499e-a6dc-fd1ed244592f"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Box Jumps",
+                Instructions = "Nhảy lên hộp hoặc bục cao, sau đó nhảy xuống.",
+                Duration = 45,
+                CaloriesBurned = 12f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
             #endregion
 
             #region Exercise 50
-                new Exercise
-                {
-                    ExerciseId = Guid.Parse("af983757-d7a8-412c-87e1-9f8a3a09e92f"),
-                    CategoryId = Guid.Parse("7780ccb5-aa16-4f88-a662-04971892dae0"),
-                    UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6"),
-                    ExerciseName = "Tư Thế Con Quạ",
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("31550981-bdb4-4f14-b209-dc1e9b9a568c"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Broad Kicks",
+                Instructions = "Đá chân rộng ra trước, xen kẽ hai bên.",
+                Duration = 30,
+                CaloriesBurned = 9f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
 
-                    Duration = 10,
-                    CaloriesBurned = 9.0f,
-                    Instructions = "1. Ngồi xổm, đặt hai tay xuống sàn 2. Nâng hai chân lên khỏi sàn, giữ thăng bằng 3. Giữ tư thế trong vài giây",
-                    Status = true,
-                    CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                    UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                }
-                #endregion
-                );
+            #region Exercise 51
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("53493645-f027-43ff-8d95-c8baff2fb02e"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Toe Taps",
+                Instructions = "Chạm mũi chân vào bậc thang hoặc bề mặt cao, đổi bên liên tục.",
+                Duration = 30,
+                CaloriesBurned = 7f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 52
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("05ece9e8-b50d-4269-acb5-023e839d1c42"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Pop Squats",
+                Instructions = "Nhảy sang tư thế squat, sau đó nhảy trở về.",
+                Duration = 30,
+                CaloriesBurned = 9f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 53
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("53fabb8c-d213-4050-9c00-3d5cf4103635"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Side Shuffle Touch",
+                Instructions = "Chạy ngang qua lại, chạm tay xuống sàn mỗi lần.",
+                Duration = 30,
+                CaloriesBurned = 8f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 54
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("e2afc25d-44b9-49da-93cd-ed028acd3581"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Bow Pose",
+                Instructions = "Nằm sấp, nắm hai cổ chân, kéo chân lên phía đầu để uốn cong cơ thể.",
+                Duration = 60,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 55
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("30515dc2-1295-4401-b204-2a27f00b7fd1"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Seated Spinal Twist",
+                Instructions = "Ngồi, xoay thân sang một bên, tay đặt lên đầu gối đối diện.",
+                Duration = 45,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 56
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("af2b9f55-ec76-4e40-8fb6-8854f101ee58"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Yoga Squat",
+                Instructions = "Ngồi xuống thấp, hai tay chắp trước ngực, giữ tư thế yoga.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 57
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("5e7c79b5-bbaa-4e8d-bace-3b36fc13960f"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "High Lunge",
+                Instructions = "Bước một chân về phía trước, chân sau duỗi thẳng, giữ tư thế lunge cao.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 58
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("ea43be6e-ed4f-47f2-a4fa-60e34e95f410"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Pyramid",
+                Instructions = "Đứng, bước một chân ra sau, cúi người xuống chân trước, giữ lưng thẳng.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 59
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("34c98139-7bb7-44ad-94d9-0aedb473acb5"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Standing Backbend",
+                Instructions = "Đứng, uốn cong người ra sau, giữ thăng bằng.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 60
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("3195ac62-c7a7-41f4-8208-c1e5f7fecc47"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Goddess",
+                Instructions = "Đứng, chân rộng, squat nhẹ, tay giơ lên ngang vai.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 61
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("712662bf-3def-4bad-83a7-58bd3c4e4f9e"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Humble Warrior",
+                Instructions = "Từ tư thế lunge, hạ thấp thân, tay chắp ra sau.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 62
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("14fe699e-4652-4250-968d-696223001cc9"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Chair Twist",
+                Instructions = "Ngồi xổm, xoay thân sang một bên, tay chắp trước ngực.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 63
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("00355a5e-e30b-4770-a4e5-abf20671a049"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Pigeon Base",
+                Instructions = "Ngồi, một chân duỗi ra sau, một chân gập phía trước.",
+                Duration = 45,
+                CaloriesBurned = 4f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 64
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("73ca30ef-84cf-4e3f-b360-ac33038cb597"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Half Frog",
+                Instructions = "Nằm sấp, co một chân, dùng tay kéo chân gần đầu.",
+                Duration = 45,
+                CaloriesBurned = 4f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 65
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("59514612-923b-46b5-85bb-96ead6cbe61f"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Shoulder Stand",
+                Instructions = "Nằm ngửa, nâng chân lên cao, hỗ trợ hông bằng tay.",
+                Duration = 60,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 66
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("1766c620-0c7f-4673-8767-bb5702d9e1f0"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Revolved Triangle",
+                Instructions = "Từ tư thế tam giác, xoay thân và tay hướng xuống chân trước.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 67
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("fb102f19-2bf9-4ca1-8222-ea1c35b55f0e"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Peaceful Warrior",
+                Instructions = "Từ tư thế lunge, đưa tay sau về phía chân sau, tay trước hướng lên.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 68
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("6d976edf-2f6a-4d74-bbde-434385f55ced"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Seated Side Bend",
+                Instructions = "Ngồi, duỗi một tay qua đầu, cúi người sang một bên.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 69
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("c56d1ee0-3ea3-4128-9a35-7f97287e11af"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Tiger with Bow",
+                Instructions = "Từ tư thế bò, nắm một chân kéo lên gần đầu.",
+                Duration = 60,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 70
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("f53ac445-0d94-46a0-ba3a-fbabf2eaa811"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Locust Pose",
+                Instructions = "Nằm sấp, nâng chân và tay lên khỏi mặt đất, giữ tư thế.",
+                Duration = 45,
+                CaloriesBurned = 4f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 71
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("233892f9-f283-4084-a005-7b7121ecc4a1"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Accomplished Eagle",
+                Instructions = "Đứng, quấn tay và chân lại với nhau, giữ thăng bằng.",
+                Duration = 45,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Hard,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 72
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("45049ee3-e43a-4395-ab5e-ada8b7bfbb3a"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Extended Arm Circles",
+                Instructions = "Đứng thẳng, xoay hai tay theo vòng tròn lớn.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 73
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("fba9adfd-be77-4cf4-81b0-aeb21506cbbf"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Ankle Twist",
+                Instructions = "Ngồi, xoay cổ chân theo vòng tròn.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 74
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("14399a61-ccab-4af5-91fb-04fdc1f92c20"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Bridges",
+                Instructions = "Nằm ngửa, nâng hông lên cao, giữ lưng thẳng.",
+                Duration = 45,
+                CaloriesBurned = 4f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 75
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("15fe99fe-0ae1-4727-a104-5ce133c0c5e2"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Slow Box",
+                Instructions = "Di chuyển chậm trong tư thế squat, bước qua lại như hộp vuông.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 76
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("e1092fc5-3c26-441c-9c3d-f281f17a5bc1"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Knee Circles",
+                Instructions = "Đứng, đặt tay lên gối, xoay gối theo vòng tròn.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 77
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("6b331c4b-71ad-4e2b-930f-64cff22abaf6"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Hip Circles",
+                Instructions = "Đứng, xoay hông theo vòng tròn lớn.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 78
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("90aa224f-411a-4a5d-abbe-e6ed94b209c2"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Single Leg Runner",
+                Instructions = "Đứng một chân, nghiêng người về trước, đá chân sau ra sau.",
+                Duration = 30,
+                CaloriesBurned = 4f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 79
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("21e53e39-de13-43c1-ad22-f69ac024677a"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Step Touch",
+                Instructions = "Bước sang hai bên, chạm tay xuống chân mỗi lần bước.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 80
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("4ea81029-ce2f-4c13-928d-b2b576446283"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Windmill",
+                Instructions = "Đứng, cúi người, tay chạm ngón chân đối diện, luân phiên hai bên.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 81
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("29336dc7-f70f-4ced-a225-dacc6007f912"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Inchworms",
+                Instructions = "Đứng, cúi người, đi tay ra phía trước thành tư thế plank, sau đó quay lại.",
+                Duration = 30,
+                CaloriesBurned = 4f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 82
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("466c1a67-f7bb-4203-affb-1fd19faf2e72"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Heel Touches",
+                Instructions = "Nằm ngửa, gập gối, chạm tay vào gót chân hai bên.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 83
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("c7c451d2-c4ee-47b5-8caf-f09d0836ae78"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Toe Touch Walk",
+                Instructions = "Đi bộ, gập người chạm ngón tay vào ngón chân mỗi bước.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 84
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("eb69be55-8aa5-47b0-b633-12770fe6ac5a"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Jogging",
+                Instructions = "Chạy bộ nhẹ tại chỗ hoặc ngoài trời.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 85
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("fe68c0ac-1b8e-4712-a0d1-a41ca15833e9"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Jump Rope",
+                Instructions = "Nhảy dây với nhịp độ ổn định.",
+                Duration = 30,
+                CaloriesBurned = 5f,
+                Difficulty = DifficultyLevel.Medium,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 86
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("ec2cfe0e-3949-4572-9c02-2c2f5dcc2f1d"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Supine Marching",
+                Instructions = "Nằm ngửa, gập gối, nâng từng chân lên xuống như đi bộ.",
+                Duration = 30,
+                CaloriesBurned = 3f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 87
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("b0d4c89e-5ced-4782-b76a-0be207aa4725"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Shoulder Roll",
+                Instructions = "Đứng, xoay vai theo vòng tròn.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 88
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("f8c6b372-1b43-45c3-93ca-99e6e9ab734b"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Teres Roll",
+                Instructions = "Xoay nhẹ cánh tay trên để khởi động cơ vai.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            },
+            #endregion
+
+            #region Exercise 89
+            new Exercise
+            {
+                ExerciseId = Guid.Parse("9ac85a51-9155-40ef-a7eb-d5561c238c4f"),
+                CategoryId = Guid.Parse(""),
+                UserId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                ExerciseName = "Triceps Roll",
+                Instructions = "Xoay nhẹ cánh tay để làm nóng cơ tam đầu.",
+                Duration = 30,
+                CaloriesBurned = 2f,
+                Difficulty = DifficultyLevel.Easy,
+                Status = true,
+                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                UpdatedBy = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+            });
+            #endregion
         }
     }
 }

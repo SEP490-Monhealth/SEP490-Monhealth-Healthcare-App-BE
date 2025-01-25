@@ -12,7 +12,7 @@ namespace Monhealth.Domain
         public Guid UserId { get; set; }
         public string WorkoutName { get; set; } = string.Empty;
         public string WorkoutDescription { get; set; } = string.Empty;
-        public Intensity Intensity { get; set; }
+        public IntensityLevel Intensity { get; set; }
         public int Views { get; set; }
 
         public ICollection<WorkoutExercise> WorkoutExercises { get; set; }

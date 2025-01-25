@@ -5,12 +5,13 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Domain
 {
-    public class WorkoutExercise  : TimeEntity
+    public class WorkoutExercise : TimeEntity
     {
         [Key]
         public Guid WorkoutExerciseId { get; set; }
         public Guid WorkoutId { get; set; }
         public Guid ExerciseId { get; set; }
+        public int Duration { get; set; }
         public bool Status { get; set; }
 
         [ForeignKey(nameof(WorkoutId))]
