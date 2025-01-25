@@ -51,7 +51,6 @@ namespace Monhealth.Application.Services
                         Fat = breakfastRatio * goal.FatGoal ,
                         Fiber = breakfastRatio * goal.FiberGoal,
                         Sugar = breakfastRatio * goal.SugarGoal,
-
                     }
                 },
                 {
@@ -108,7 +107,4 @@ namespace Monhealth.Application.Services
             return CalculateMealAllocation(goal);
         }
     }
-
-
-
 }

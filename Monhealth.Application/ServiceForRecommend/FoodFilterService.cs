@@ -116,7 +116,7 @@ namespace Monhealth.Application.ServiceForRecommend
                 FoodName = food.FoodName ?? string.Empty,
                 Category = food.Category?.CategoryName ?? string.Empty,
                 MealType = food.MealType,
-                DishType = food.DishType 
+                DishType = food.DishType
             }).ToList();
 
             return new PageResult<FoodFilterDTO>
