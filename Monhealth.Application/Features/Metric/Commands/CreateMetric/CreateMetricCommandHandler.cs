@@ -16,11 +16,13 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         private readonly IGoalRepository _goalRepository;
         private readonly IMapper _mapper;
         private readonly IWaterReminderRepository _reminderRepository;
-        private readonly FoodRandomService _foodRandomService; // Inject thêm FoodRandomService
+        private readonly FoodRandomService _foodRandomService;
         private readonly IMealRepository _mealRepository;
         private readonly IMealFoodRepository _mealFoodRepository;
         private readonly IPortionRepository _portionRepository;
         private readonly IFoodPortionRepository _foodPortionRepository;
+        private readonly IDailyMealRepository _dailyMealRepository;
+        private readonly IFoodRepository _foodRepository;
 
         public CreateMetricCommandHandler(
             IMetricRepository metricRepository,
@@ -29,11 +31,13 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             IGoalRepository goalRepository,
             IGoalsCalculator goalsCalculator,
             IWaterReminderRepository reminderRepository,
-            FoodRandomService foodRandomService, // Inject FoodRandomService
+            FoodRandomService foodRandomService,
             IMealRepository mealRepository,
             IMealFoodRepository mealFoodRepository,
             IPortionRepository portionRepository,
-            IFoodPortionRepository foodPortionRepository)
+            IFoodPortionRepository foodPortionRepository,
+            IDailyMealRepository dailyMealRepository,
+            IFoodRepository foodRepository)
         {
             _metricCalculator = metricCalculator;
             _metricRepository = metricRepository;
@@ -46,6 +50,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             _mealFoodRepository = mealFoodRepository;
             _portionRepository = portionRepository;
             _foodPortionRepository = foodPortionRepository;
+            _dailyMealRepository = dailyMealRepository;
+            _foodRepository = foodRepository;
         }
 
         public async Task<Unit> Handle(CreateMetricCommand request, CancellationToken cancellationToken)
@@ -94,9 +100,9 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
             // **Tạo Meal cho 7 ngày**
             #region Generate Meals for 7 Days
-            for (int i = 0; i < 7; i++) // Lặp 7 ngày
+            for (int i = 0; i < 7; i++)
             {
-                var currentDate = DateTime.Now.Date.AddDays(i); // Ngày hiện tại + i ngày
+                var currentDate = DateTime.Now.Date.AddDays(i);
                 var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value);
 
                 // Tạo từng loại meal (Breakfast, Lunch, Dinner)
@@ -111,9 +117,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
         private async Task CreateMealAsync(string mealType, MealDTO meal, Guid userId, DateTime date)
         {
-            if (meal.MainDish == null) return; // Nếu meal rỗng thì bỏ qua
+            if (meal.MainDish == null) return;
 
-            // Check nếu meal đã tồn tại
             var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, mealType, date.Day);
             Monhealth.Domain.Meal model;
 
@@ -128,63 +133,57 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 {
                     UserId = userId,
                     MealType = mealType,
-                    CreatedAt = DateTime.Now,
+                    CreatedAt = date,
                     UpdatedAt = DateTime.Now
                 };
                 _mealRepository.Add(model);
                 await _mealRepository.SaveChangeAsync();
             }
 
-            // Tạo từng dish trong meal
             await AddDishToMealAsync(meal.MainDish, model.MealId);
             if (meal.SideDish != null) await AddDishToMealAsync(meal.SideDish, model.MealId);
             if (meal.Dessert != null) await AddDishToMealAsync(meal.Dessert, model.MealId);
+
+            await AddMealToDailyMeal(userId, date);
         }
 
         private async Task AddDishToMealAsync(DishDTO dish, Guid mealId)
         {
-            // Check nếu portion đã tồn tại trong DB với MeasurementUnit, PortionSize, và PortionWeight
+            if (dish == null) return;
+
             var existingPortion = await _portionRepository.GetPortionAsync(
-                dish.Portion?.MeasurementUnit ?? "g", // MeasurementUnit
-                dish.Portion?.PortionSize ?? "default", // PortionSize là string
-                dish.Portion?.PortionWeight ?? 100 // PortionWeight từ random DishDTO
+                dish.Portion?.MeasurementUnit ?? "g",
+                dish.Portion?.PortionSize ?? "",
+                dish.Portion?.PortionWeight ?? 100
             );
 
-            Portion portion;
-            if (existingPortion != null)
+            Portion portion = existingPortion ?? new Portion
             {
-                // Nếu portion đã tồn tại
-                portion = existingPortion;
-            }
-            else
+                MeasurementUnit = dish.Portion?.MeasurementUnit ?? "g",
+                PortionSize = dish.Portion?.PortionSize ?? "",
+                PortionWeight = dish.Portion?.PortionWeight ?? 100,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
+
+            if (existingPortion == null)
             {
-                // Nếu portion chưa tồn tại, tạo mới
-                portion = new Portion
-                {
-                    MeasurementUnit = dish.Portion?.MeasurementUnit ?? "g", // MeasurementUnit
-                    PortionSize = dish.Portion?.PortionSize ?? "", // PortionSize từ DishDTO
-                    PortionWeight = dish.Portion?.PortionWeight ?? 100, // PortionWeight từ DishDTO
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
-                };
                 _portionRepository.Add(portion);
                 await _portionRepository.SaveChangesAsync();
             }
 
-            // Map portion vào foodPortion
             _foodPortionRepository.Add(new FoodPortion
             {
                 FoodId = dish.Food.FoodId,
                 PortionId = portion.PortionId
             });
 
-            // Thêm dish vào MealFood
             _mealFoodRepository.Add(new Monhealth.Domain.MealFood
             {
                 MealId = mealId,
                 FoodId = dish.Food.FoodId,
-                PortionId = portion.PortionId, // Gắn PortionId đã lấy hoặc tạo mới
-                Quantity = 1, // Số lượng mặc định là 1
+                PortionId = portion.PortionId,
+                Quantity = 1,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             });
@@ -192,5 +191,55 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             await _mealRepository.SaveChangeAsync();
         }
 
+        private async Task AddMealToDailyMeal(Guid userId, DateTime date)
+        {
+            var mealsForDay = await _mealRepository.GetMealByUserAndDate(date, userId);
+            var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(date, userId);
+            var goal = await _goalRepository.GetByUserIdAsync(userId);
+
+            if (goal == null) throw new Exception($"Không tìm thấy Goal nào liên kết với UserId: {userId}");
+
+            if (dailyMeal == null)
+            {
+                dailyMeal = new Monhealth.Domain.DailyMeal
+                {
+                    GoalId = goal.GoalId,
+                    UserId = userId,
+                    CreatedAt = date,
+                    UpdatedAt = DateTime.Now,
+                    TotalCalories = 0,
+                    TotalProteins = 0,
+                    TotalCarbs = 0,
+                    TotalFats = 0,
+                    TotalFibers = 0,
+                    TotalSugars = 0
+                };
+                _dailyMealRepository.Add(dailyMeal);
+                await _dailyMealRepository.SaveChangeAsync();
+            }
+
+            foreach (var meal in mealsForDay)
+            {
+                meal.DailyMealId = dailyMeal.DailyMealId;
+                _mealRepository.Update(meal);
+
+                var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
+                foreach (var mealFood in mealFoods)
+                {
+                    var food = await _foodRepository.GetByIdAsync(mealFood.FoodId);
+                    if (food == null) throw new Exception($"Không tìm thấy Food với FoodId: {mealFood.FoodId}");
+
+                    dailyMeal.TotalCalories += food.Nutrition.Calories;
+                    dailyMeal.TotalProteins += food.Nutrition.Protein;
+                    dailyMeal.TotalCarbs += food.Nutrition.Carbs;
+                    dailyMeal.TotalFats += food.Nutrition.Fat;
+                    dailyMeal.TotalFibers += food.Nutrition.Fiber;
+                    dailyMeal.TotalSugars += food.Nutrition.Sugar;
+                }
+            }
+
+            dailyMeal.UpdatedAt = DateTime.Now;
+            await _dailyMealRepository.SaveChangeAsync();
+        }
     }
 }
