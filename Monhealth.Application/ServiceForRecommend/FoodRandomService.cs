@@ -19,7 +19,7 @@ namespace Monhealth.Application.ServiceForRecommend
             FoodFilterService foodFilterService,
             GoalService goalService,
             ILogger<FoodRandomService> logger)
-        {   
+        {
             _foodRepository = foodRepository;
             _foodFilterService = foodFilterService;
             _goalService = goalService;
@@ -102,8 +102,8 @@ namespace Monhealth.Application.ServiceForRecommend
             var scoredFoods = nutritionData
            .Select(n => new
            {
-           Nutrition = n,
-           Portion = CalculateNewPortion(
+               Nutrition = n,
+               Portion = CalculateNewPortion(
               new NutritionDTO
               {
                   Calories = n.Calories,
@@ -116,7 +116,7 @@ namespace Monhealth.Application.ServiceForRecommend
               allocation,
               ratio
           ),
-          Score = Math.Sqrt(
+               Score = Math.Sqrt(
               Math.Pow(n.Calories - allocation.Calories * ratio, 2) +
               Math.Pow(n.Protein - allocation.Protein * ratio, 2) +
               Math.Pow(n.Carbs - allocation.Carbs * ratio, 2) +
@@ -124,7 +124,7 @@ namespace Monhealth.Application.ServiceForRecommend
               Math.Pow(n.Fiber - allocation.Fiber * ratio, 2) +
               Math.Pow(n.Sugar - allocation.Sugar * ratio, 2)
           )
-      })
+           })
       .OrderBy(x => x.Score)
       .ToList();
 
@@ -209,8 +209,8 @@ namespace Monhealth.Application.ServiceForRecommend
 
     public class PortionDTO
     {
+        public string PortionSize { get; set; } = "";
         public float PortionWeight { get; set; }
         public string MeasurementUnit { get; set; } = "g";
-          public string PortionSize { get; set; } = "default"; // Thêm property PortionSize
     }
 }

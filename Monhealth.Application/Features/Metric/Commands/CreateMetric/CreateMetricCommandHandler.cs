@@ -98,9 +98,9 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             await _reminderRepository.SaveChangeAsync();
             #endregion
 
-            // **Tạo Meal cho 7 ngày**
-            #region Generate Meals for 7 Days
-            for (int i = 0; i < 7; i++)
+            // **Tạo Meal cho 3 ngày**
+            #region Generate Meals for 3 Days
+            for (int i = 0; i < 3; i++)
             {
                 var currentDate = DateTime.Now.Date.AddDays(i);
                 var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value);
