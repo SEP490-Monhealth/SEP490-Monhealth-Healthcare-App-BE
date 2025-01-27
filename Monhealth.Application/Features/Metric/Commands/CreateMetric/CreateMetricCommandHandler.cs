@@ -197,7 +197,10 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(date, userId);
             var goal = await _goalRepository.GetByUserIdAsync(userId);
 
-            if (goal == null) throw new Exception($"Không tìm thấy Goal nào liên kết với UserId: {userId}");
+            if (goal == null)
+            {
+                throw new Exception($"Không tìm thấy Goal nào liên kết với UserId: {userId}");
+            }
 
             if (dailyMeal == null)
             {
@@ -214,32 +217,63 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                     TotalFibers = 0,
                     TotalSugars = 0
                 };
+
                 _dailyMealRepository.Add(dailyMeal);
+
+                // Lưu DailyMeal để lấy DailyMealID
                 await _dailyMealRepository.SaveChangeAsync();
             }
+            else
+            {
+                // Reset lại tổng giá trị nếu đã tồn tại DailyMeal
+                dailyMeal.TotalCalories = 0;
+                dailyMeal.TotalProteins = 0;
+                dailyMeal.TotalCarbs = 0;
+                dailyMeal.TotalFats = 0;
+                dailyMeal.TotalFibers = 0;
+                dailyMeal.TotalSugars = 0;
+            }
 
+            // Gán DailyMealID cho từng Meal
             foreach (var meal in mealsForDay)
             {
-                meal.DailyMealId = dailyMeal.DailyMealId;
+                meal.DailyMealId = dailyMeal.DailyMealId; // Gán DailyMealID cho Meal
                 _mealRepository.Update(meal);
 
                 var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
+
                 foreach (var mealFood in mealFoods)
                 {
-                    var food = await _foodRepository.GetByIdAsync(mealFood.FoodId);
-                    if (food == null) throw new Exception($"Không tìm thấy Food với FoodId: {mealFood.FoodId}");
+                    var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
+                    if (portion == null)
+                    {
+                        throw new Exception($"Không tìm thấy Portion với PortionId: {mealFood.PortionId}");
+                    }
 
-                    dailyMeal.TotalCalories += food.Nutrition.Calories;
-                    dailyMeal.TotalProteins += food.Nutrition.Protein;
-                    dailyMeal.TotalCarbs += food.Nutrition.Carbs;
-                    dailyMeal.TotalFats += food.Nutrition.Fat;
-                    dailyMeal.TotalFibers += food.Nutrition.Fiber;
-                    dailyMeal.TotalSugars += food.Nutrition.Sugar;
+                    // Tính toán giá trị dinh dưỡng nếu trạng thái MealFood là `true`
+                    if (mealFood.Status)
+                    {
+                        var food = await _foodRepository.GetByIdAsync(mealFood.FoodId);
+                        if (food == null)
+                        {
+                            throw new Exception($"Không tìm thấy Food với FoodId: {mealFood.FoodId}");
+                        }
+
+                        var portionWeight = portion.PortionWeight;
+
+                        dailyMeal.TotalCalories += (food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalProteins += (food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalCarbs += (food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalFats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalFibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalSugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+                    }
                 }
             }
 
             dailyMeal.UpdatedAt = DateTime.Now;
             await _dailyMealRepository.SaveChangeAsync();
         }
+
     }
 }
