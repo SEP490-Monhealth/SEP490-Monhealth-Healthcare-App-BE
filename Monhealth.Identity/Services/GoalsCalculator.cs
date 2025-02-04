@@ -25,7 +25,7 @@ namespace Monhealth.Identity.Services
             var (calories, protein, carbs, fats) = CreateCalculateMacros(tdee, createMetricDto.GoalType, createMetricDto.Weight, goal.WeightGoal);
             goal.CaloriesGoal = calories;
             goal.ProteinGoal = protein;
-            goal.CarbGoal = carbs;
+            goal.CarbsGoal = carbs;
             goal.FatGoal = fats;
 
             // Tinh FiberGoal và SugarGoal tu carbs
@@ -33,7 +33,7 @@ namespace Monhealth.Identity.Services
             goal.SugarGoal = carbs * 0.25f;
 
             // Tinh toan water
-            goal.WaterGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel == 1.2f || createMetricDto.ActivityLevel == 1.375f ? 30 : 40));
+            goal.WaterIntakesGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel == 1.2f || createMetricDto.ActivityLevel == 1.375f ? 30 : 40));
         }
 
         private (float calories, float protein, float carbs, float fats) CreateCalculateMacros(float tdee, string goalType, float currentWeight, float targetWeight)
@@ -83,7 +83,7 @@ namespace Monhealth.Identity.Services
             var (calories, protein, carbs, fats) = UpdateCalculateMacros(tdee, goalType);
             goalToUpdate.CaloriesGoal = calories;
             goalToUpdate.ProteinGoal = protein;
-            goalToUpdate.CarbGoal = carbs;
+            goalToUpdate.CarbsGoal = carbs;
             goalToUpdate.FatGoal = fats;
 
             // Tinh FiberGoal và SugarGoal tu carbs
@@ -91,7 +91,7 @@ namespace Monhealth.Identity.Services
             goalToUpdate.SugarGoal = carbs * 0.25f;
 
             // Tinh toan water
-            goalToUpdate.WaterGoal = (int)(weight * (activityLevel == 1.2f || activityLevel == 1.375f ? 30 : 40));
+            goalToUpdate.WaterIntakesGoal = (int)(weight * (activityLevel == 1.2f || activityLevel == 1.375f ? 30 : 40));
         }
         private (float calories, float protein, float carbs, float fats) UpdateCalculateMacros(float tdee, string goalType)
         {

@@ -12,7 +12,7 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250204165505_AddDatabase")]
+    [Migration("20250204170728_AddDatabase")]
     partial class AddDatabase
     {
         /// <inheritdoc />
@@ -6564,22 +6564,19 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<float>("CaloriesBurnedGoal")
+                        .HasColumnType("real");
+
                     b.Property<float>("CaloriesGoal")
                         .HasColumnType("real");
 
-                    b.Property<float>("CarbGoal")
+                    b.Property<float>("CarbsGoal")
                         .HasColumnType("real");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<float>("ExerciseCaloriesGoal")
-                        .HasColumnType("real");
-
-                    b.Property<float>("ExerciseDurationGoal")
-                        .HasColumnType("real");
-
-                    b.Property<float>("ExerciseGoal")
+                    b.Property<float>("DurationGoal")
                         .HasColumnType("real");
 
                     b.Property<float>("FatGoal")
@@ -6608,9 +6605,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("WaterGoal")
-                        .HasColumnType("int");
 
                     b.Property<float>("WaterIntakesGoal")
                         .HasColumnType("real");
@@ -12864,7 +12858,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            WorkoutExerciseId = new Guid("fd78b448-b0b8-4be2-a9b0-04e8830eeb88"),
+                            WorkoutExerciseId = new Guid("1a35f95b-a0ca-4bbd-884f-2f616d43b12d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"),
@@ -12874,7 +12868,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fdfd3a09-953b-4947-be21-5732a63ecf06"),
+                            WorkoutExerciseId = new Guid("5cd6081c-40a2-4d49-8d2f-8a4f230de0e9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("9ba0c68f-426b-4459-8b12-7eafc4b43f2b"),
@@ -12884,7 +12878,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1df42a5d-bf80-485e-ab9b-5d9c2687bcf9"),
+                            WorkoutExerciseId = new Guid("403f8e3b-d1ed-4972-be41-9cbc6c451d9e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"),
@@ -12894,7 +12888,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2654faf5-2283-479c-86d4-341ab530e311"),
+                            WorkoutExerciseId = new Guid("a49caf6d-57de-4ecb-be6b-abbfd71e5c40"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"),
@@ -12904,7 +12898,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c946a0a0-256a-49ca-b61a-ea7006dc05db"),
+                            WorkoutExerciseId = new Guid("9a0a8754-9f50-4cb5-8721-bab8a24e11aa"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("e37feb90-ad70-4da1-b274-809412dd808a"),
@@ -12914,7 +12908,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2519875c-1c3d-4a61-8c08-90eaddc2216e"),
+                            WorkoutExerciseId = new Guid("b11c828b-5986-481f-8b58-f840f973b04d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"),
@@ -12924,7 +12918,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d40deb37-6de5-4e2f-9068-d8b23bf064ce"),
+                            WorkoutExerciseId = new Guid("8bb7266a-f063-45d1-ad5e-bf841d909d15"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("f344b5e8-c338-4da7-a99c-78952ba2db9b"),
@@ -12934,7 +12928,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5d692e1e-5338-47c2-bafb-f311b60da072"),
+                            WorkoutExerciseId = new Guid("9287dd0c-2617-4c34-83dc-2c3d9ede36c5"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("e37feb90-ad70-4da1-b274-809412dd808a"),
@@ -12944,7 +12938,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("86c0781b-1bab-41ab-a731-1b1d824db1d8"),
+                            WorkoutExerciseId = new Guid("91e2e373-c592-4b32-a652-e392918d788d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"),
@@ -12954,7 +12948,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6a3ef16c-edd9-4778-96bd-a7d2603b886b"),
+                            WorkoutExerciseId = new Guid("2f4e1c9a-2f2b-4fdf-803a-e5234fd920cb"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("32989028-4533-4700-b454-a4df1cfa08a9"),
@@ -12964,7 +12958,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("12997848-0ad2-4ccd-955c-e955c0ed6dee"),
+                            WorkoutExerciseId = new Guid("159b76dc-c939-4cee-a92c-759635c4b114"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("86365264-7f1c-4bc2-8886-92a8523624b4"),
@@ -12974,7 +12968,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("146c89dc-1adb-4fb3-8fa5-abd636986185"),
+                            WorkoutExerciseId = new Guid("adccb9b2-7586-4ace-9add-704637e88414"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"),
@@ -12984,7 +12978,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f63f6ecd-3e87-401c-a383-148e548e2a5a"),
+                            WorkoutExerciseId = new Guid("a2ac4453-98fd-419e-ac48-4e4a1db7a644"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("2f4c14b8-3207-40dc-8233-1ec310a47dd5"),
@@ -12994,7 +12988,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("76b5966a-0c26-47d6-82f9-5809eddff589"),
+                            WorkoutExerciseId = new Guid("dff6ef61-51f9-44cd-8b3b-37ad6598058b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"),
@@ -13004,7 +12998,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0e0ce76d-4184-4da4-8a2c-a036ee07fb09"),
+                            WorkoutExerciseId = new Guid("dd21449d-361a-47ce-99e4-eaa9987a2fa2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("c0d1b74c-521b-428b-9776-0f9e95bd0ef0"),
@@ -13014,7 +13008,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("64e09c16-1648-4720-8401-6959e8984d89"),
+                            WorkoutExerciseId = new Guid("819caa91-40e6-4371-ba52-c2698520655b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("c37426f7-6e98-4dcd-85b5-49e9e75aa380"),
@@ -13024,7 +13018,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ef351df1-b679-4bd0-b3cd-860f0c73c233"),
+                            WorkoutExerciseId = new Guid("d6c0a4a9-a794-4f22-950a-2f76ef8f0fde"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("67c5180f-978d-4cd7-ae1e-57fa80ac5e27"),
@@ -13034,7 +13028,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4b9dbd4e-448e-4254-9fe6-df2d9487d12a"),
+                            WorkoutExerciseId = new Guid("3aaa4838-04b3-4969-b041-e2f866b143bf"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"),
@@ -13044,7 +13038,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a9e8d4a4-7c03-4699-8a63-507e6285ab5d"),
+                            WorkoutExerciseId = new Guid("81629717-b937-46b6-b9e8-63b824e4f6d4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("c09b0b4e-dfad-4d62-b620-e3a348849393"),
@@ -13054,7 +13048,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5853dcd7-1858-451c-b17f-6506a23f45b2"),
+                            WorkoutExerciseId = new Guid("41d0bf82-6ee4-431b-bd5b-a327427e0494"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("7213c6ec-d1ea-4e7e-97b7-5f4cd675f7ba"),
@@ -13064,7 +13058,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fe175014-4371-4b9f-baed-46a82890a121"),
+                            WorkoutExerciseId = new Guid("851f5c2a-1a18-4ec4-a6c5-16496a75e27e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 80,
                             ExerciseId = new Guid("9cadb2bc-6ae3-49a1-a094-c89039795ca3"),
@@ -13074,7 +13068,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("01629fc6-6f23-4e23-81c5-9b209c7de626"),
+                            WorkoutExerciseId = new Guid("5dc469ba-08fa-436a-bf3b-a781bbb76980"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 50,
                             ExerciseId = new Guid("b39f7142-3d9b-4e80-9304-342de4ebe8d0"),
@@ -13084,7 +13078,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9b41a067-1530-4067-a9d4-2101de9b354c"),
+                            WorkoutExerciseId = new Guid("74524abc-9734-436b-a768-692e07322a37"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("00355a5e-e30b-4770-a4e5-abf20671a049"),
@@ -13262,7 +13256,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "abff11c2-9944-466b-9ba6-4511aece36d4",
+                            ConcurrencyStamp = "70ea577f-5e6b-40e0-be6a-5f73e57da64f",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -13270,10 +13264,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE/cz63HuIAzD6q0DmZLI52oirCnv01LFqVyYTOSGnUqH9DoGrPRjMoszUgPp3NrNQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJi58vCxY68Fc4IVqsuvVcirC0rmXFWhkatk6+kMYRjvMosGnJezWheABbIzECOmVA==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "353c96d5-cca8-4e31-8e20-e4c8712d22f1",
+                            SecurityStamp = "dc7ca479-fe12-4400-95df-f0647c39f010",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13283,7 +13277,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ec032af8-c4a6-4620-943b-d4a54f21806b",
+                            ConcurrencyStamp = "19c6b75b-d98f-44d2-87fa-2b480b713ab5",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -13291,10 +13285,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEF6F7KB8CrvMVfy1KyrRZgBoBmAq8PD5dcKjhp0tlSN6mRkni2LxbaJuP1LqIAE4Ew==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM4ESLP46Ag+0a6igSdbp3Ir11inq47QIsEHEDGmHKsn8etIkA3tuX5YHe6yGNjq5Q==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "862915de-bdef-4dc2-bc3b-4c7f329288f1",
+                            SecurityStamp = "1466934f-ba43-4e1a-85f8-0a09cf15977a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13304,7 +13298,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f0d9883b-a94c-4130-a84d-48dceffeb412",
+                            ConcurrencyStamp = "821a8fd2-0c21-435e-b91a-ff274238035d",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -13312,10 +13306,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA5+NN+ya4wvmUlKK1Gy4mALa0nYx+QeMC8LROK9zs4+MjkdpCCa3l6+vC6uAWY6mw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECyR9iIlLHzehA4SG1b9S3bBuzXjEaRFbbLOHKhTehr3ATI6FvNvEGfSR3TMCnVOkw==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4c87e726-3000-4da3-96c5-b25fdad3df73",
+                            SecurityStamp = "1f4453c5-429c-48fc-b362-ffcfd57ddad9",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13325,7 +13319,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2b52122a-52cd-4e40-b9b9-d61752037b5a",
+                            ConcurrencyStamp = "c56bbd3d-5f0f-4330-b166-1c296a573f5b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -13333,10 +13327,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE/p1Ngt5QioZJl3mk2GuD5VBE9GgMKPO/hT+9IKZGDNrlUIFd4OAsuHpScfww1e2Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJbb7ObeYeuOKoCx24+ofQxu9DhwWeg34JAI2t6Onbm+IHIVSAEpcDc1meQ9Jv/JAg==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0ea61384-79b9-4449-ba9d-0e8eb4a436da",
+                            SecurityStamp = "f5e7da6e-3a73-468d-9a1a-a477fbd13779",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13346,7 +13340,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "62750aad-2a3b-4638-a816-3d02bd544fe6",
+                            ConcurrencyStamp = "9b89d860-ddc8-4937-bbde-2a2fd48fb13b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -13354,10 +13348,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKOgKVMX/de58/8A2GrI4CT5JaQ61+sIqoVSJi3rSVYbPJCcaj7tyBMJiaVYBhftkQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJwySQgDZDZ/XCHaK0mGUs2+aeRZOMonQnzo3ov5uUnhpql9pDi1T4pIL/gvQPL6iQ==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a74c88b6-9242-4119-a860-2374540ccc1d",
+                            SecurityStamp = "b565b76b-c227-418c-a3cd-d49c7aecf3a3",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13367,7 +13361,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4f70d800-3d15-4fcc-bf78-f4cf3a42f2d8",
+                            ConcurrencyStamp = "2d6b16a8-da52-4e61-ae3c-38d370af95cd",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -13375,10 +13369,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEpRTvZ3poTq0/JTOJg+WAZqoevc+Ofwxx6IONA6fQ1EAsU0yzB+6aHTtHrI6cYB8A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA1o0SnWs9wnzfy2CcioAHJ0yS1fPsRcT63PwEH1511jj52MmhsZm+f7lPqtP5BGzg==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d383ffc-bc7f-473b-9b96-ebe3746c67ca",
+                            SecurityStamp = "edf17b09-4730-402f-aa67-0b40c6fce473",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13388,7 +13382,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7f3f2110-8c35-4b7e-b499-ee18d35967bd",
+                            ConcurrencyStamp = "b350f0ea-9312-4f5f-9282-e48b79d40890",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -13396,10 +13390,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEP+8NGxqu4Q85YK5+HC+69MkPyL/BXhCxAm7p5rrsyKVu2e9gMapCwmAzE33BxHglg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP5q6cyO1GNkCgZENoGja8+zycvQIp/8rt9Z76pXtQu1RZrTwyS1/dHClPzgYBsJSg==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "97ef132c-2c78-45ec-8ec3-d62834043106",
+                            SecurityStamp = "a63fdd1b-474b-4c72-a857-48ee31cc8ed9",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),

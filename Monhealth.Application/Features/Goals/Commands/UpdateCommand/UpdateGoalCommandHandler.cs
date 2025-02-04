@@ -31,7 +31,7 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
             {
                 throw new Exception("Không tìm thấy thông tin TDEE cho người dùng");
             }
-            
+
             // Chuyen tu string sang enum
             if (!Enum.TryParse<GoalType>(request.UpdateGoalDTO.GoalType, true, out var parsedGoalType))
             {
@@ -54,13 +54,13 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
                     existingGoal.CaloriesGoal = caloriesWeightLoss;
                     existingGoal.ProteinGoal = (caloriesWeightLoss * 0.4f);
 
-                    var carbGoalWeightLoss = caloriesWeightLoss * 0.35f;
-                    existingGoal.CarbGoal = carbGoalWeightLoss;
+                    var carbsGoalWeightLoss = caloriesWeightLoss * 0.35f;
+                    existingGoal.CarbsGoal = carbsGoalWeightLoss;
 
                     existingGoal.FatGoal = (caloriesWeightLoss * 0.25f);
 
-                    existingGoal.FiberGoal = carbGoalWeightLoss * 0.1f;
-                    existingGoal.SugarGoal = carbGoalWeightLoss * 0.25f;
+                    existingGoal.FiberGoal = carbsGoalWeightLoss * 0.1f;
+                    existingGoal.SugarGoal = carbsGoalWeightLoss * 0.25f;
                     break;
                 case "MaintainWeight":
                     if (existingGoal.WeightGoal < infoMetricOfUser.Weight)
@@ -71,38 +71,38 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
                     existingGoal.CaloriesGoal = caloriesMaintainWeight;
                     existingGoal.ProteinGoal = (caloriesMaintainWeight * 0.3f);
 
-                    var carbGoalMaintainWeight = caloriesMaintainWeight * 0.5f;
-                    existingGoal.CarbGoal = carbGoalMaintainWeight;
+                    var carbsGoalMaintainWeight = caloriesMaintainWeight * 0.5f;
+                    existingGoal.CarbsGoal = carbsGoalMaintainWeight;
 
                     existingGoal.FatGoal = (caloriesMaintainWeight * 0.2f);
 
-                    existingGoal.FiberGoal = carbGoalMaintainWeight * 0.1f;
-                    existingGoal.SugarGoal = carbGoalMaintainWeight * 0.25f;
+                    existingGoal.FiberGoal = carbsGoalMaintainWeight * 0.1f;
+                    existingGoal.SugarGoal = carbsGoalMaintainWeight * 0.25f;
                     break;
                 case "WeightGain":
                     var caloriesWeightGain = infoMetricOfUser.Tdee; // Giữ nguyên TDEE
                     existingGoal.CaloriesGoal = caloriesWeightGain;
                     existingGoal.ProteinGoal = (caloriesWeightGain * 0.3f);
 
-                    var carbGoalWeightGain = caloriesWeightGain * 0.4f;
-                    existingGoal.CarbGoal = carbGoalWeightGain;
+                    var carbsGoalWeightGain = caloriesWeightGain * 0.4f;
+                    existingGoal.CarbsGoal = carbsGoalWeightGain;
 
                     existingGoal.FatGoal = (caloriesWeightGain * 0.3f);
 
-                    existingGoal.FiberGoal = carbGoalWeightGain * 0.1f;
-                    existingGoal.SugarGoal = carbGoalWeightGain * 0.25f;
+                    existingGoal.FiberGoal = carbsGoalWeightGain * 0.1f;
+                    existingGoal.SugarGoal = carbsGoalWeightGain * 0.25f;
                     break;
                 default:
                     throw new Exception("Loại mục tiêu không hợp lệ");
             }
-            // tinh WaterGoal
+            // tinh WaterIntakesGoal
             if (infoMetricOfUser.ActivityLevel == 1.2f || infoMetricOfUser.ActivityLevel == 1.375f)
             {
-                existingGoal.WaterGoal = (int)infoMetricOfUser.Weight * 30;
+                existingGoal.WaterIntakesGoal = (int)infoMetricOfUser.Weight * 30;
             }
             else
             {
-                existingGoal.WaterGoal = (int)infoMetricOfUser.Weight * 40;
+                existingGoal.WaterIntakesGoal = (int)infoMetricOfUser.Weight * 40;
             }
             _goalRepository.Update(existingGoal);
             await _goalRepository.SaveChangeAsync();

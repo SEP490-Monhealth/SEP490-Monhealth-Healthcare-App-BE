@@ -103,7 +103,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
             // var goal = new GoalDailyMealDTO2
             // {
             //     CaloriesGoal = query.Goal?.CaloriesGoal ?? 0, // Gán giá trị 0 nếu Goal hoặc CaloriesGoal là null
-            //     CarbsGoal = query.Goal?.CarbGoal ?? 0,
+            //     CarbsGoal = query.Goal?.CarbsGoal ?? 0,
             //     FatGoal = query.Goal?.FatGoal ?? 0,
             //     FiberGoal = query.Goal?.FiberGoal ?? 0,
             //     GoalType = query.Goal?.GoalType.ToString() ?? string.Empty, // Gán chuỗi rỗng nếu GoalType null

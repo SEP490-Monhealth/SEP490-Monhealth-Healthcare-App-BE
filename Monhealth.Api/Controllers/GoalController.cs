@@ -171,27 +171,27 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> Create([FromBody] CreateGoalDTO createGoalDTO)
-        {
-            var command = new CreateGoalCommand(createGoalDTO);
-            var createMetric = await _mediator.Send(command);
-            if (createMetric == Unit.Value)
-            {
-                return new ResultModel
-                {
-                    Message = "Tạo mục tiêu thành công",
-                    Status = 201,
-                    Success = true
-                };
-            }
-            return new ResultModel
-            {
-                Message = "Tạo mục tiêu thất bại",
-                Status = (int)HttpStatusCode.BadRequest,
-                Success = false
-            };
-        }
+        // [HttpPost]
+        // public async Task<ActionResult<ResultModel>> Create([FromBody] CreateGoalDTO createGoalDTO)
+        // {
+        //     var command = new CreateGoalCommand(createGoalDTO);
+        //     var createMetric = await _mediator.Send(command);
+        //     if (createMetric == Unit.Value)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Message = "Tạo mục tiêu thành công",
+        //             Status = 201,
+        //             Success = true
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Message = "Tạo mục tiêu thất bại",
+        //         Status = (int)HttpStatusCode.BadRequest,
+        //         Success = false
+        //     };
+        // }
 
         [HttpPut("{goalId}")]
         public async Task<ActionResult<ResultModel>> Update(Guid goalId, [FromBody] UpdateGoalDTO updateGoalDTO)

@@ -90,7 +90,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             // Tạo Reminder
             #region Reminder Creation
             Guid? userId = request.CreateMetricDTO.UserId;
-            var reminders = await _reminderRepository.CreateReminders(newGoal.WaterGoal, userId);
+            var reminders = await _reminderRepository.CreateReminders(newGoal.WaterIntakesGoal, userId);
             foreach (var reminder in reminders)
             {
                 _reminderRepository.Add(reminder);

@@ -16,15 +16,13 @@ namespace Monhealth.Domain
         public int WeightGoal { get; set; }
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }
-        public float CarbGoal { get; set; }
+        public float CarbsGoal { get; set; }
         public float FatGoal { get; set; }
         public float FiberGoal { get; set; }
         public float SugarGoal { get; set; }
-        public int WaterGoal { get; set; }
-        public float ExerciseGoal { get; set; }
         public float WaterIntakesGoal { get; set; }
-        public float ExerciseDurationGoal { get; set; }
-        public float ExerciseCaloriesGoal { get; set; }
+        public float CaloriesBurnedGoal { get; set; }
+        public float DurationGoal { get; set; }
         public float StepsGoal { get; set; }
         public GoalStatus Status { get; set; }
         [ForeignKey(nameof(UserId))]

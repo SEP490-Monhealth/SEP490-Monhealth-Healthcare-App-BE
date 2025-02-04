@@ -37,13 +37,13 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
             //        newGoal.CaloriesGoal = caloriesWeightLoss; 
             //        newGoal.ProteinGoal = (caloriesWeightLoss * 0.4f);
 
-            //        var carbGoalWeightLoss = caloriesWeightLoss * 0.35f;
-            //        newGoal.CarbGoal = carbGoalWeightLoss;
+            //        var carbsGoalWeightLoss = caloriesWeightLoss * 0.35f;
+            //        newGoal.CarbsGoal = carbsGoalWeightLoss;
 
             //        newGoal.FatGoal = (caloriesWeightLoss * 0.25f);
 
-            //        newGoal.FiberGoal = carbGoalWeightLoss * 0.1f;
-            //        newGoal.SugarGoal = carbGoalWeightLoss * 0.25f;
+            //        newGoal.FiberGoal = carbsGoalWeightLoss * 0.1f;
+            //        newGoal.SugarGoal = carbsGoalWeightLoss * 0.25f;
             //        break;
             //    case "MaintainWeight":
             //        if (newGoal.WeightGoal < infoUser.Weight)
@@ -54,37 +54,37 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
             //        newGoal.CaloriesGoal = caloriesMaintainWeight; 
             //        newGoal.ProteinGoal = (caloriesMaintainWeight * 0.3f);
 
-            //        var carbGoalMaintainWeight = caloriesMaintainWeight * 0.5f;
-            //        newGoal.CarbGoal = carbGoalMaintainWeight;
+            //        var carbsGoalMaintainWeight = caloriesMaintainWeight * 0.5f;
+            //        newGoal.CarbsGoal = carbsGoalMaintainWeight;
 
             //        newGoal.FatGoal = (caloriesMaintainWeight * 0.2f);
 
-            //        newGoal.FiberGoal = carbGoalMaintainWeight * 0.1f;
-            //        newGoal.SugarGoal = carbGoalMaintainWeight * 0.25f;
+            //        newGoal.FiberGoal = carbsGoalMaintainWeight * 0.1f;
+            //        newGoal.SugarGoal = carbsGoalMaintainWeight * 0.25f;
             //        break;
             //    case "WeightGain":
             //        var caloriesWeightGain = infoUser.Tdee; // Giữ nguyên TDEE
             //        newGoal.CaloriesGoal = caloriesWeightGain; 
             //        newGoal.ProteinGoal = (caloriesWeightGain * 0.3f);
 
-            //        var carbGoalWeightGain = caloriesWeightGain * 0.4f;
-            //        newGoal.CarbGoal = carbGoalWeightGain;
+            //        var carbsGoalWeightGain = caloriesWeightGain * 0.4f;
+            //        newGoal.CarbsGoal = carbsGoalWeightGain;
 
             //        newGoal.FatGoal = (caloriesWeightGain * 0.3f);
 
-            //        newGoal.FiberGoal = carbGoalWeightGain * 0.1f;
-            //        newGoal.SugarGoal = carbGoalWeightGain * 0.25f;
+            //        newGoal.FiberGoal = carbsGoalWeightGain * 0.1f;
+            //        newGoal.SugarGoal = carbsGoalWeightGain * 0.25f;
             //        break;
             //    default:
             //        throw new Exception("Loại mục tiêu không hợp lệ");
             //}
-            //// tinh WaterGoal
+            //// tinh WaterIntakesGoal
             //if(infoUser.ActivityLevel == 1.2f || infoUser.ActivityLevel == 1.375f)
             //{
-            //    newGoal.WaterGoal = (int)infoUser.Weight * 30;
+            //    newGoal.WaterIntakesGoal = (int)infoUser.Weight * 30;
             //} else
             //{
-            //    newGoal.WaterGoal = (int)infoUser.Weight * 40;
+            //    newGoal.WaterIntakesGoal = (int)infoUser.Weight * 40;
             //}
 
             newGoal.GoalId = Guid.NewGuid();

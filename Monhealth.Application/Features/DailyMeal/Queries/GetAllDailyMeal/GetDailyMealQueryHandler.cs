@@ -97,7 +97,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                     // Goal = new GoalDailyMealDTO
                     // {
                     //    CaloriesGoal = dailyMeal.Goal.CaloriesGoal,
-                    //    CarbsGoal = dailyMeal.Goal.CarbGoal,
+                    //    CarbsGoal = dailyMeal.Goal.CarbsGoal,
                     //    FatGoal = dailyMeal.Goal.FatGoal,
                     //    FiberGoal = dailyMeal.Goal.FiberGoal,
                     //    GoalType = dailyMeal.Goal.GoalType.ToString(),

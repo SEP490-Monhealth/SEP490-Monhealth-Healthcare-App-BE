@@ -47,7 +47,7 @@ namespace Monhealth.Application.Services
                     {
                         Calories = breakfastRatio * goal.CaloriesGoal,
                         Protein = breakfastRatio * goal.ProteinGoal,
-                        Carbs = breakfastRatio * goal.CarbGoal,
+                        Carbs = breakfastRatio * goal.CarbsGoal,
                         Fat = breakfastRatio * goal.FatGoal ,
                         Fiber = breakfastRatio * goal.FiberGoal,
                         Sugar = breakfastRatio * goal.SugarGoal,
@@ -59,7 +59,7 @@ namespace Monhealth.Application.Services
                     {
                         Calories = lunchRatio * goal.CaloriesGoal,
                         Protein = lunchRatio * goal.ProteinGoal,
-                        Carbs = lunchRatio * goal.CarbGoal ,
+                        Carbs = lunchRatio * goal.CarbsGoal ,
                         Fat = lunchRatio * goal.FatGoal ,
                         Fiber = lunchRatio* goal.FiberGoal,
                         Sugar = lunchRatio * goal.SugarGoal,
@@ -71,7 +71,7 @@ namespace Monhealth.Application.Services
                     {
                         Calories = dinnerRatio * goal.CaloriesGoal,
                         Protein = dinnerRatio * goal.ProteinGoal ,
-                        Carbs = dinnerRatio * goal.CarbGoal,
+                        Carbs = dinnerRatio * goal.CarbsGoal,
                         Fat = dinnerRatio * goal.FatGoal ,
                         Fiber = dinnerRatio * goal.FiberGoal,
                         Sugar = dinnerRatio * goal.SugarGoal,

@@ -11,11 +11,11 @@ namespace Monhealth.Application.Features.Goals.Queries.GetGoalByUserId
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }
         [JsonPropertyName("carbsGoal")]
-        public float CarbGoal { get; set; }
+        public float CarbsGoal { get; set; }
         public float FatGoal { get; set; }
         public float FiberGoal { get; set; }
         public float SugarGoal { get; set; }
-        public int WaterGoal { get; set; }
+        public int WaterIntakesGoal { get; set; }
         public float ExerciseGoal { get; set; }
         public string Status { get; set; }
     }
