@@ -93,7 +93,6 @@ namespace Monhealth.Application.ServiceForRecommend
             return BuildPageResult(filteredFoodsPaginated, pageNumber, pageSize);
         }
 
-
         // Phương thức tiện ích để xây dựng PageResult từ PaginatedResult
         private PageResult<FoodFilterDTO> BuildPageResult(PaginatedResult<Food> paginatedFoods, int pageNumber, int pageSize)
         {

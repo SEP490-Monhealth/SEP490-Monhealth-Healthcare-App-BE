@@ -4,8 +4,8 @@ namespace Monhealth.Core.Enum
     {
         MainDish,
         SideDish,
+        Soup,
         Dessert,
-        Drink,
-        Snack
+        Drink
     }
 }

@@ -20,6 +20,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         public bool IsPublic { get; set; }
         public bool Status { get; set; }
     }
+
     public class GetPortionForGetAllFoodDTO
     {
         [JsonPropertyName("size")]
@@ -29,6 +30,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         [JsonPropertyName("unit")]
         public string MeasurementUnit { get; set; } = string.Empty;
     }
+    
     public class GetNutritionForGetAllFoodDTO
     {
         public float Calories { get; set; }

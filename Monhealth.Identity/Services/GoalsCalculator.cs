@@ -19,7 +19,7 @@ namespace Monhealth.Identity.Services
             {
                 throw new Exception("Loại mục tiêu không hợp lệ.");
             }
-            
+
             goal.GoalType = goalType;
             // tinh toan cac chi so Macros
             var (calories, protein, carbs, fats) = CreateCalculateMacros(tdee, createMetricDto.GoalType, createMetricDto.Weight, goal.WeightGoal);
@@ -45,8 +45,8 @@ namespace Monhealth.Identity.Services
                     if (targetWeight >= currentWeight)
                         throw new Exception($"Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại ({currentWeight}).");
                     calories = tdee * 0.8f; // Giảm 20%
-                    proteinPercentage = 0.4f; // 40% Protein
-                    carbPercentage = 0.35f;  // 35% Carb
+                    proteinPercentage = 0.35f; // 40% Protein
+                    carbPercentage = 0.4f;  // 35% Carb
                     fatPercentage = 0.25f;   // 25% Fat
                     break;
 
@@ -54,16 +54,16 @@ namespace Monhealth.Identity.Services
                     if (targetWeight <= currentWeight)
                         throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight}).");
                     calories = tdee * 1.1f; // Tăng 10-15%
-                    proteinPercentage = 0.3f; // 30% Protein
-                    carbPercentage = 0.5f;   // 50% Carb
-                    fatPercentage = 0.2f;    // 20% Fat
+                    proteinPercentage = 0.35f; // 30% Protein
+                    carbPercentage = 0.4f;   // 50% Carb
+                    fatPercentage = 0.25f;    // 20% Fat
                     break;
 
                 case "MaintainWeight":
                     calories = tdee; // Giữ nguyên TDEE
-                    proteinPercentage = 0.3f; // 30% Protein
-                    carbPercentage = 0.4f;   // 40% Carb
-                    fatPercentage = 0.3f;    // 30% Fat
+                    proteinPercentage = 0.25f; // 30% Protein
+                    carbPercentage = 0.5f;   // 40% Carb
+                    fatPercentage = 0.25f;    // 30% Fat
                     break;
 
                 default:
@@ -100,23 +100,23 @@ namespace Monhealth.Identity.Services
             {
                 case "WeightLoss":
                     calories = tdee * 0.8f; // Giảm 20%
-                    proteinPercentage = 0.4f; // 40% Protein
-                    carbPercentage = 0.35f;  // 35% Carb
+                    proteinPercentage = 0.35f; // 40% Protein
+                    carbPercentage = 0.4f;  // 35% Carb
                     fatPercentage = 0.25f;   // 25% Fat
                     break;
 
                 case "WeightGain":
                     calories = tdee * 1.1f; // Tăng 10-15%
-                    proteinPercentage = 0.3f; // 30% Protein
-                    carbPercentage = 0.5f;   // 50% Carb
-                    fatPercentage = 0.2f;    // 20% Fat
+                    proteinPercentage = 0.35f; // 30% Protein
+                    carbPercentage = 0.4f;   // 50% Carb
+                    fatPercentage = 0.25f;    // 20% Fat
                     break;
 
                 case "MaintainWeight":
                     calories = tdee; // Giữ nguyên TDEE
-                    proteinPercentage = 0.3f; // 30% Protein
-                    carbPercentage = 0.4f;   // 40% Carb
-                    fatPercentage = 0.3f;    // 30% Fat
+                    proteinPercentage = 0.25f; // 30% Protein
+                    carbPercentage = 0.5f;   // 40% Carb
+                    fatPercentage = 0.25f;    // 30% Fat
                     break;
 
                 default:
