@@ -313,7 +313,6 @@ namespace Monhealth.Identity.Configurations
                 FoodName = "Bún riêu cua",
                 FoodDescription = "Món bún với nước lèo cua đồng, ăn kèm rau sống và mắm tôm",
                 Views = 100,
-                Views = 100,
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
