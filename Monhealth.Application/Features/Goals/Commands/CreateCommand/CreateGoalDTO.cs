@@ -1,11 +1,12 @@
 ﻿using System.Text.Json.Serialization;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
 {
     public class CreateGoalDTO
     {
         public Guid UserId { get; set; }
-        public string GoalType { get; set; }
+        public GoalType GoalType { get; set; }
         public int WeightGoal { get; set; }
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }

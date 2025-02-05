@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Category.Queries.GetAllCategories
@@ -7,7 +8,7 @@ namespace Monhealth.Application.Features.Category.Queries.GetAllCategories
     {
         public Guid CategoryId { get; set; }
         [JsonPropertyName("type")]
-        public string CategoryType { get; set; } = string.Empty;
+        public CategoryType CategoryType { get; set; }
         [JsonPropertyName("name")]
         public string CategoryName { get; set; } = string.Empty;
         [JsonPropertyName("description")]

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Category.Queries.GetCategoryDetail
@@ -6,7 +7,7 @@ namespace Monhealth.Application.Features.Category.Queries.GetCategoryDetail
     public class CategoryDetailDTO : TimeEntity
     {
         [JsonPropertyName("type")]
-        public string CategoryType { get; set; } = string.Empty;
+        public CategoryType CategoryType { get; set; }
         [JsonPropertyName("name")]
         public string CategoryName { get; set; } = string.Empty;
         [JsonPropertyName("description")]

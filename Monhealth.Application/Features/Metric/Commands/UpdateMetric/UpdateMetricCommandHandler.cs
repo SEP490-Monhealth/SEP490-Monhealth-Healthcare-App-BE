@@ -57,9 +57,9 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
             if (request.UpdateMetricDTO.Height != metricToUpdate.Height ||
                 request.UpdateMetricDTO.Weight != metricToUpdate.Weight ||
                 request.UpdateMetricDTO.DateOfBirth != metricToUpdate.DateOfBirth ||
-                !string.Equals(request.UpdateMetricDTO.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
+                !string.Equals(request.UpdateMetricDTO.Gender.ToString(), metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
             {
-                metricToUpdate.Bmr = _metricCalculator.CalculateBMR(request.UpdateMetricDTO.Weight, request.UpdateMetricDTO.Height, age, request.UpdateMetricDTO.Gender);
+                metricToUpdate.Bmr = _metricCalculator.CalculateBMR(request.UpdateMetricDTO.Weight, request.UpdateMetricDTO.Height, age, request.UpdateMetricDTO.Gender.ToString());
                 isUpdated = true;
             }
 
@@ -72,9 +72,9 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
 
             // Kiem tra va cap nhat IBW
             if (request.UpdateMetricDTO.Height != metricToUpdate.Height ||
-                !string.Equals(request.UpdateMetricDTO.Gender, metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
+                !string.Equals(request.UpdateMetricDTO.Gender.ToString(), metricToUpdate.Gender.ToString(), StringComparison.OrdinalIgnoreCase))
             {
-                metricToUpdate.Ibw = _metricCalculator.CalculateIBW(request.UpdateMetricDTO.Height, request.UpdateMetricDTO.Gender);
+                metricToUpdate.Ibw = _metricCalculator.CalculateIBW(request.UpdateMetricDTO.Height, request.UpdateMetricDTO.Gender.ToString());
                 isUpdated = true;
             }
             // Cap nhat neu co bat ky thay doi nao

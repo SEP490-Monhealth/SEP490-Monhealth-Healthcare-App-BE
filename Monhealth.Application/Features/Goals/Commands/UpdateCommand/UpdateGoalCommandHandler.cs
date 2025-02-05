@@ -32,20 +32,14 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
                 throw new Exception("Không tìm thấy thông tin TDEE cho người dùng");
             }
 
-            // Chuyen tu string sang enum
-            if (!Enum.TryParse<GoalType>(request.UpdateGoalDTO.GoalType, true, out var parsedGoalType))
-            {
-                throw new Exception("Loại mục tiêu không hợp lệ");
-            }
-
-            existingGoal.GoalType = parsedGoalType;
+            existingGoal.GoalType = request.UpdateGoalDTO.GoalType;
             existingGoal.WeightGoal = request.UpdateGoalDTO.WeightGoal;
             existingGoal.UpdatedAt = DateTime.Now;
 
             // Tính CaloriesGoal dựa trên GoalType
             switch (request.UpdateGoalDTO.GoalType)
             {
-                case "WeightLoss":
+                case (GoalType)0:
                     if (existingGoal.WeightGoal > infoMetricOfUser.Weight)
                     {
                         throw new Exception($"Cân nặng hiện tại là {infoMetricOfUser.Weight}. Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại");
@@ -62,7 +56,7 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
                     existingGoal.FiberGoal = carbsGoalWeightLoss * 0.1f;
                     existingGoal.SugarGoal = carbsGoalWeightLoss * 0.25f;
                     break;
-                case "MaintainWeight":
+                case (GoalType)1:
                     if (existingGoal.WeightGoal < infoMetricOfUser.Weight)
                     {
                         throw new Exception($"Cân nặng hiện tại là {infoMetricOfUser.Weight}. Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại");
@@ -79,7 +73,7 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
                     existingGoal.FiberGoal = carbsGoalMaintainWeight * 0.1f;
                     existingGoal.SugarGoal = carbsGoalMaintainWeight * 0.25f;
                     break;
-                case "WeightGain":
+                case (GoalType)2:
                     var caloriesWeightGain = infoMetricOfUser.Tdee; // Giữ nguyên TDEE
                     existingGoal.CaloriesGoal = caloriesWeightGain;
                     existingGoal.ProteinGoal = (caloriesWeightGain * 0.3f);

@@ -1,12 +1,13 @@
 ﻿using System.Text.Json.Serialization;
 using Monhealth.Domain.Common;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Goals.Queries.GetGoalByUserId
 {
     public class GetGoalByUserIdDTO : TimeEntity
     {
         public Guid GoalId { get; set; }
-        public string GoalType { get; set; }
+        public GoalType GoalType { get; set; }
         public int WeightGoal { get; set; }
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }
@@ -17,6 +18,6 @@ namespace Monhealth.Application.Features.Goals.Queries.GetGoalByUserId
         public float SugarGoal { get; set; }
         public int WaterIntakesGoal { get; set; }
         public float ExerciseGoal { get; set; }
-        public string Status { get; set; }
+        public GoalStatus Status { get; set; }
     }
 }

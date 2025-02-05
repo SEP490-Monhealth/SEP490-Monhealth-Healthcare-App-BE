@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -30,7 +31,7 @@ namespace Monhealth.Identity.Repositories
             // filter exerciseType
             if (!string.IsNullOrEmpty(exerciseType))
             {
-                query = query.Where(f => f.Category.CategoryName == exerciseType && f.Category.CategoryType == "Exercise");
+                query = query.Where(f => f.Category.CategoryName == exerciseType && f.Category.CategoryType == (CategoryType)1);
             }
             if (status.HasValue)
             {

@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -22,10 +23,10 @@ namespace Monhealth.Identity.Repositories
             return await _context.Categories.ToListAsync();
         }
 
-        public async Task<List<Category>> GetCategoriesByType(string categoryType)
+        public async Task<List<Category>> GetCategoriesByType(CategoryType categoryType)
         {
             return await _context.Categories
-                .Where(c => c.CategoryType.ToLower() == categoryType.ToLower())
+                .Where(c => c.CategoryType == categoryType)
                 .ToListAsync();
         }
 

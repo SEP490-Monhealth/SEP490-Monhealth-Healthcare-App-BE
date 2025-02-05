@@ -1,12 +1,13 @@
 using System.Text.Json.Serialization;
 using MediatR;
+using Monhealth.Core.Enum;
 
 namespace Monhealth.Application.Features.Category.UpdateCategory
 {
     public class UpdateCategoryRequest : IRequest<bool>
     {
         [JsonPropertyName("type")]
-        public string CategoryType { get; set; } = string.Empty;
+        public CategoryType CategoryType { get; set; }
         [JsonPropertyName("name")]        
         public string CategoryName { get; set; } = string.Empty;
         [JsonPropertyName("description")]

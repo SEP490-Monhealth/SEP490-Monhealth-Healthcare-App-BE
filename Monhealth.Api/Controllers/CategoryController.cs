@@ -7,6 +7,7 @@ using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 using Monhealth.Application.Features.Category.UpdateCategory;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Models;
+using Monhealth.Core.Enum;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -60,7 +61,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{categoryType}")]
-        public async Task<ActionResult<ResultModel>> GetCategoriesByType(string categoryType)
+        public async Task<ActionResult<ResultModel>> GetCategoriesByType(CategoryType categoryType)
         {
             var categories = await _mediator.Send(new GetCategoriesByTypeQuery { CategoryType = categoryType });
 

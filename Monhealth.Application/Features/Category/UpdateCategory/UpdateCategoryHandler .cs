@@ -27,7 +27,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
             category.CategoryName = request.CategoryName;
             category.CategoryDescription = request.CategoryDescription;
             category.Image = request.CategoryImage;
-            category.UpdatedAt = DateTime.UtcNow;
+            category.UpdatedAt = DateTime.Now;
             _categoryRepository.Update(category);
             await _categoryRepository.SaveChangeAsync();
             return true;

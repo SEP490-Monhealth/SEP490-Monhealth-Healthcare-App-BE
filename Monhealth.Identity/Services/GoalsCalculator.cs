@@ -15,14 +15,9 @@ namespace Monhealth.Identity.Services
         }
         public void CreateCalculateGoal(Goal goal, CreateMetricDTO createMetricDto, float tdee)
         {
-            if (!Enum.TryParse<GoalType>(createMetricDto.GoalType, true, out var goalType))
-            {
-                throw new Exception("Loại mục tiêu không hợp lệ.");
-            }
-
-            goal.GoalType = goalType;
+            goal.GoalType = createMetricDto.GoalType;
             // tinh toan cac chi so Macros
-            var (calories, protein, carbs, fats) = CreateCalculateMacros(tdee, createMetricDto.GoalType, createMetricDto.Weight, goal.WeightGoal);
+            var (calories, protein, carbs, fats) = CreateCalculateMacros(tdee, createMetricDto.GoalType.ToString(), createMetricDto.Weight, goal.WeightGoal);
             goal.CaloriesGoal = calories;
             goal.ProteinGoal = protein;
             goal.CarbsGoal = carbs;

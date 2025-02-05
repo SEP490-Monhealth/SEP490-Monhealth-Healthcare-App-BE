@@ -1,4 +1,5 @@
 ﻿
+using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,7 +9,7 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid CategoryId { get; set; }
-        public string CategoryType { get; set; } = string.Empty;
+        public CategoryType CategoryType { get; set; }
         public string CategoryName { get; set; } = string.Empty;
         public string CategoryDescription { get; set; } = string.Empty;
         public string Image { get; set; } = string.Empty;

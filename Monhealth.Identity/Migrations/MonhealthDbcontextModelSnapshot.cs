@@ -607,9 +607,8 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CategoryType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CategoryType")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -631,7 +630,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CategoryDescription = "Các món ăn từ tôm, cá, cua, mực, hàu, sò và các loại hải sản khác. Thích hợp cho những ai yêu thích hương vị biển cả",
                             CategoryName = "Hải sản",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -641,7 +640,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CategoryDescription = "Bao gồm các món ăn từ thịt bò, thịt gà, thịt lợn, thịt vịt và các loại thịt khác. Là lựa chọn phổ biến trong bữa ăn chính",
                             CategoryName = "Thịt",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fsteak.png?alt=media&token=dfffb9c2-2964-40cc-8712-e83b4200e7af",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -651,7 +650,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CategoryDescription = "Món ăn từ rau xanh, củ quả và nấm. Phù hợp cho những ai yêu thích thực phẩm tươi sạch, giàu dinh dưỡng",
                             CategoryName = "Rau củ",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -661,7 +660,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CategoryDescription = "Gạo, mì, bánh mì, yến mạch, và các loại hạt ngũ cốc. Là nguồn cung cấp năng lượng chính trong ngày",
                             CategoryName = "Ngũ cốc",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Frice.png?alt=media&token=1ef6ca23-003f-4415-9ce4-3a3f5cd8e65e",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -671,7 +670,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CategoryDescription = "Các loại hạt (hạnh nhân, hạt chia, hạt điều) và đậu (đậu nành, đậu xanh, đậu đen). Giàu protein và chất xơ",
                             CategoryName = "Hạt và đậu",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fgrain.png?alt=media&token=e224b22a-925e-4aa4-ab50-d74309ba71f4",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -681,7 +680,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
                             CategoryDescription = "Các món ăn từ thực vật, đậu phụ, và nguyên liệu không sử dụng thịt, phù hợp với người ăn chay hoặc muốn đổi vị thanh đạm",
                             CategoryName = "Món chay",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fradish.png?alt=media&token=c27e26f3-3f39-42ec-bf40-94c9abb074d5",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -691,7 +690,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CategoryDescription = "Bánh ngọt, kẹo, kem, và các món tráng miệng ngọt ngào, lý tưởng cho những ai yêu thích đồ ngọt",
                             CategoryName = "Món ngọt",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcupcake.png?alt=media&token=8721bd49-186f-4ccf-a85a-64008e4c8e38",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -701,7 +700,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CategoryDescription = "Bao gồm nước ép, sinh tố, trà, cà phê, và các loại đồ uống giải khát khác",
                             CategoryName = "Đồ uống",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcoffee-cup.png?alt=media&token=14155321-cd44-422b-a49f-3e34636d7f85",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -711,7 +710,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CategoryDescription = "Kimchi, dưa chua, sữa chua, rượu vang và các món ăn lên men, tốt cho tiêu hóa và sức khỏe đường ruột",
                             CategoryName = "Món lên men",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpickles.png?alt=media&token=2a078ceb-40a9-403d-a68c-9682faf1b97f",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -721,7 +720,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CategoryDescription = "Hoa quả tươi hoặc chế biến như salad trái cây, nước ép, sinh tố, cung cấp vitamin và khoáng chất",
                             CategoryName = "Trái cây",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fapple.png?alt=media&token=106a39ee-5c36-4c27-8bbe-c850ee19cb02",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -731,7 +730,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
                             CategoryDescription = "Pizza, burger, khoai tây chiên, gà rán, và các món ăn tiện lợi, phù hợp cho những ai bận rộn",
                             CategoryName = "Đồ ăn nhanh",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fburger.png?alt=media&token=66dd457f-64d3-4b66-851c-10eba13fdc7d",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -741,7 +740,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
                             CategoryDescription = "Bánh mì, bánh ngọt, bánh mặn, bánh hấp, và các món bánh truyền thống hay hiện đại",
                             CategoryName = "Bánh các loại",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbread.png?alt=media&token=decd5d8c-994f-4a71-ab9e-2096209515fc",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -751,7 +750,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
                             CategoryDescription = "Snack, khô gà, khô bò, bim bim, và các món ăn nhẹ lý tưởng cho những lúc giải trí hay nghỉ ngơi",
                             CategoryName = "Đồ ăn vặt",
-                            CategoryType = "Food",
+                            CategoryType = 0,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpopcorn.png?alt=media&token=8aecf5e1-071f-4b0f-8e55-a2c47b289def",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -761,7 +760,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
                             CategoryDescription = "Tập trung vào cơ vùng bụng và lưng dưới, giúp cải thiện sức mạnh và sự ổn định.",
                             CategoryName = "Core",
-                            CategoryType = "Exercise",
+                            CategoryType = 1,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcore.png?alt=media&token=b3152e12-16dd-4ec4-944f-bf2c3434954b",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -771,7 +770,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
                             CategoryDescription = "Tăng cường sức mạnh cho chân, đùi và mông, cải thiện khả năng di chuyển và sự bền bỉ.",
                             CategoryName = "Lower Body",
-                            CategoryType = "Exercise",
+                            CategoryType = 1,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Flower-body.png?alt=media&token=c5a737bf-767e-4db9-8c80-0c04812e11dd",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -781,7 +780,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
                             CategoryDescription = "Cải thiện sức mạnh và hình dáng cơ tay, vai và lưng trên.",
                             CategoryName = "Upper Body",
-                            CategoryType = "Exercise",
+                            CategoryType = 1,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fupper-body.png?alt=media&token=4010483d-fb22-4613-9070-0a2b2d57ce6a",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -791,7 +790,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
                             CategoryDescription = "Cải thiện hệ tim mạch, đốt cháy calo và tăng cường sức bền.",
                             CategoryName = "Cardio",
-                            CategoryType = "Exercise",
+                            CategoryType = 1,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcardio.png?alt=media&token=6c6c115c-db1f-4af2-96e0-188f38944f36",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -801,7 +800,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"),
                             CategoryDescription = "Cải thiện khả năng thăng bằng và tăng cường sự ổn định của cơ thể.",
                             CategoryName = "Balance",
-                            CategoryType = "Exercise",
+                            CategoryType = 1,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbalance.png?alt=media&token=58094819-44bf-4d32-8075-5bccfd957201",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -811,7 +810,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
                             CategoryDescription = "Kết hợp thăng bằng và sự dẻo dai, hỗ trợ kiểm soát cơ thể và giảm nguy cơ chấn thương.",
                             CategoryName = "Flexibility",
-                            CategoryType = "Exercise",
+                            CategoryType = 1,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fflexibility.png?alt=media&token=1850a9fe-7412-49b3-8660-81ef76194685",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -821,7 +820,7 @@ namespace Monhealth.Identity.Migrations
                             CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
                             CategoryDescription = "Tăng cường khả năng di chuyển của khớp và cơ, giúp cơ thể linh hoạt hơn.",
                             CategoryName = "Mobility",
-                            CategoryType = "Exercise",
+                            CategoryType = 1,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fmobility.png?alt=media&token=27e9733a-292e-4f15-9bfc-a37d9b7ea575",
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -12855,7 +12854,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            WorkoutExerciseId = new Guid("1a35f95b-a0ca-4bbd-884f-2f616d43b12d"),
+                            WorkoutExerciseId = new Guid("f8cd6576-1372-42b2-89c0-738a12cf95c5"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"),
@@ -12865,7 +12864,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5cd6081c-40a2-4d49-8d2f-8a4f230de0e9"),
+                            WorkoutExerciseId = new Guid("d182dd3d-3fec-4046-9a9a-d3db446e4ced"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("9ba0c68f-426b-4459-8b12-7eafc4b43f2b"),
@@ -12875,7 +12874,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("403f8e3b-d1ed-4972-be41-9cbc6c451d9e"),
+                            WorkoutExerciseId = new Guid("ec139b71-eb13-40e7-ae1f-5704d2e8f4e3"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"),
@@ -12885,7 +12884,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a49caf6d-57de-4ecb-be6b-abbfd71e5c40"),
+                            WorkoutExerciseId = new Guid("92bdca29-d7de-4e39-bda6-7b67e8e1bcc5"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"),
@@ -12895,7 +12894,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9a0a8754-9f50-4cb5-8721-bab8a24e11aa"),
+                            WorkoutExerciseId = new Guid("845dbed7-948e-4ed0-b07f-8393ba87905b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("e37feb90-ad70-4da1-b274-809412dd808a"),
@@ -12905,7 +12904,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b11c828b-5986-481f-8b58-f840f973b04d"),
+                            WorkoutExerciseId = new Guid("4ae8cc46-9fcd-434a-8595-2e11d56162a8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"),
@@ -12915,7 +12914,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8bb7266a-f063-45d1-ad5e-bf841d909d15"),
+                            WorkoutExerciseId = new Guid("efba2a94-bc09-41bc-943f-2160a477fc4b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("f344b5e8-c338-4da7-a99c-78952ba2db9b"),
@@ -12925,7 +12924,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9287dd0c-2617-4c34-83dc-2c3d9ede36c5"),
+                            WorkoutExerciseId = new Guid("4c9c8403-178a-4be4-83e6-8f59b61e0c11"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("e37feb90-ad70-4da1-b274-809412dd808a"),
@@ -12935,7 +12934,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("91e2e373-c592-4b32-a652-e392918d788d"),
+                            WorkoutExerciseId = new Guid("d7912d99-02d4-4a1c-9cfe-cf5ac8ca136b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"),
@@ -12945,7 +12944,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2f4e1c9a-2f2b-4fdf-803a-e5234fd920cb"),
+                            WorkoutExerciseId = new Guid("066da3f1-8989-474a-bbec-81a76f9b3921"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("32989028-4533-4700-b454-a4df1cfa08a9"),
@@ -12955,7 +12954,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("159b76dc-c939-4cee-a92c-759635c4b114"),
+                            WorkoutExerciseId = new Guid("2903676d-fe08-4424-bd16-6a981ebbd225"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("86365264-7f1c-4bc2-8886-92a8523624b4"),
@@ -12965,7 +12964,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("adccb9b2-7586-4ace-9add-704637e88414"),
+                            WorkoutExerciseId = new Guid("cbea305f-27d3-48a8-b02c-69d66d5096c7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"),
@@ -12975,7 +12974,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a2ac4453-98fd-419e-ac48-4e4a1db7a644"),
+                            WorkoutExerciseId = new Guid("ead3de5c-c533-4624-9f83-5aabc264e8aa"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("2f4c14b8-3207-40dc-8233-1ec310a47dd5"),
@@ -12985,7 +12984,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("dff6ef61-51f9-44cd-8b3b-37ad6598058b"),
+                            WorkoutExerciseId = new Guid("573fd41a-3e81-4b32-a545-42c4faa5fa68"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"),
@@ -12995,7 +12994,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("dd21449d-361a-47ce-99e4-eaa9987a2fa2"),
+                            WorkoutExerciseId = new Guid("8ad1b60b-651b-4ef2-9916-2bcb9964e107"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("c0d1b74c-521b-428b-9776-0f9e95bd0ef0"),
@@ -13005,7 +13004,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("819caa91-40e6-4371-ba52-c2698520655b"),
+                            WorkoutExerciseId = new Guid("50b87236-14ec-431a-8cc3-0ddf1973f5d6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("c37426f7-6e98-4dcd-85b5-49e9e75aa380"),
@@ -13015,7 +13014,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d6c0a4a9-a794-4f22-950a-2f76ef8f0fde"),
+                            WorkoutExerciseId = new Guid("8a84d793-c4e1-4759-9d21-766f163fc3a8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("67c5180f-978d-4cd7-ae1e-57fa80ac5e27"),
@@ -13025,7 +13024,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3aaa4838-04b3-4969-b041-e2f866b143bf"),
+                            WorkoutExerciseId = new Guid("b5937d48-7076-417c-8ca1-ca1ed3844fe0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"),
@@ -13035,7 +13034,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("81629717-b937-46b6-b9e8-63b824e4f6d4"),
+                            WorkoutExerciseId = new Guid("8195fb3f-b66b-4f9a-8fbc-e58ef7911293"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("c09b0b4e-dfad-4d62-b620-e3a348849393"),
@@ -13045,7 +13044,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("41d0bf82-6ee4-431b-bd5b-a327427e0494"),
+                            WorkoutExerciseId = new Guid("76d5ab01-6c19-43cb-acdd-e6bf79cb06ba"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("7213c6ec-d1ea-4e7e-97b7-5f4cd675f7ba"),
@@ -13055,7 +13054,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("851f5c2a-1a18-4ec4-a6c5-16496a75e27e"),
+                            WorkoutExerciseId = new Guid("ab94807c-00e2-498c-a38b-194d613ad9c5"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 80,
                             ExerciseId = new Guid("9cadb2bc-6ae3-49a1-a094-c89039795ca3"),
@@ -13065,7 +13064,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5dc469ba-08fa-436a-bf3b-a781bbb76980"),
+                            WorkoutExerciseId = new Guid("79df4db4-379f-4e6d-8c09-896e69d52ae9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 50,
                             ExerciseId = new Guid("b39f7142-3d9b-4e80-9304-342de4ebe8d0"),
@@ -13075,7 +13074,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("74524abc-9734-436b-a768-692e07322a37"),
+                            WorkoutExerciseId = new Guid("a46e7807-8d3f-44bc-85c3-619036fec9e8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("00355a5e-e30b-4770-a4e5-abf20671a049"),
@@ -13253,7 +13252,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "70ea577f-5e6b-40e0-be6a-5f73e57da64f",
+                            ConcurrencyStamp = "6819decc-0ae1-45e2-a1ce-50c2ef408345",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quocdai@gmail.com",
                             EmailConfirmed = true,
@@ -13261,10 +13260,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJi58vCxY68Fc4IVqsuvVcirC0rmXFWhkatk6+kMYRjvMosGnJezWheABbIzECOmVA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJlVQLq0k+0WQQDh+fXe7MTfrVtZMv3uFZhAVZPPsxC1Lt+MXfpQg3cmfh664ucZ6w==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dc7ca479-fe12-4400-95df-f0647c39f010",
+                            SecurityStamp = "b3863513-66cc-4822-ad5c-253122407af5",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13274,7 +13273,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "19c6b75b-d98f-44d2-87fa-2b480b713ab5",
+                            ConcurrencyStamp = "5c91be1f-5bde-4f8b-9ecf-dc0ec78c0bf0",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "toanvan@gmail.com",
                             EmailConfirmed = true,
@@ -13282,10 +13281,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEM4ESLP46Ag+0a6igSdbp3Ir11inq47QIsEHEDGmHKsn8etIkA3tuX5YHe6yGNjq5Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBha9bmaMM31mQHJG+UQMfBXmEX9xo4mSsr2HBH9/0ruZX0DJ5beEOnfq0KBl3Vzew==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1466934f-ba43-4e1a-85f8-0a09cf15977a",
+                            SecurityStamp = "454dba7e-88d0-41a2-a157-14a8a1787bb5",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13295,7 +13294,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "821a8fd2-0c21-435e-b91a-ff274238035d",
+                            ConcurrencyStamp = "c8e53b22-15d0-415b-b4c3-1af65ddabf67",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khanhpham@gmail.com",
                             EmailConfirmed = true,
@@ -13303,10 +13302,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAECyR9iIlLHzehA4SG1b9S3bBuzXjEaRFbbLOHKhTehr3ATI6FvNvEGfSR3TMCnVOkw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBtvIalqkGuu7KXanB+6FeQgLMGUUNc1IyP1BmNHrZ+hZugXVTywn+97Jf17LznTtA==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1f4453c5-429c-48fc-b362-ffcfd57ddad9",
+                            SecurityStamp = "c7213f32-0589-4f51-8cee-4d3e20fe4990",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13316,7 +13315,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c56bbd3d-5f0f-4330-b166-1c296a573f5b",
+                            ConcurrencyStamp = "f66e0584-42e8-428c-bd74-bedc26ab74eb",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "khaitoi@gmail.com",
                             EmailConfirmed = true,
@@ -13324,10 +13323,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJbb7ObeYeuOKoCx24+ofQxu9DhwWeg34JAI2t6Onbm+IHIVSAEpcDc1meQ9Jv/JAg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGtAocMFtYsf/vbFRynhLlG8fcOQGpDZQpNTGswMIQvnXp86IwPuDEsEHWgkXioo0Q==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f5e7da6e-3a73-468d-9a1a-a477fbd13779",
+                            SecurityStamp = "734181b8-e12c-4431-9f12-eac89c2ee370",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13337,7 +13336,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9b89d860-ddc8-4937-bbde-2a2fd48fb13b",
+                            ConcurrencyStamp = "dc56f099-40d7-4e85-a1bc-9869bb46a111",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "quangdalat@gmail.com",
                             EmailConfirmed = true,
@@ -13345,10 +13344,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJwySQgDZDZ/XCHaK0mGUs2+aeRZOMonQnzo3ov5uUnhpql9pDi1T4pIL/gvQPL6iQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE3izCZ3iw8bBg19c9+5TjyrkP/HAE1ih1K0tbsSij0V2owjKwJVp2DQh9fODLlGMg==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b565b76b-c227-418c-a3cd-d49c7aecf3a3",
+                            SecurityStamp = "85c3e0e1-2f17-4dff-81a7-eaf8ed3c4999",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13358,7 +13357,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2d6b16a8-da52-4e61-ae3c-38d370af95cd",
+                            ConcurrencyStamp = "b0fce513-88f6-4051-b981-2fdeb7198bba",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duythunglungtinhiu@gmail.com",
                             EmailConfirmed = true,
@@ -13366,10 +13365,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA1o0SnWs9wnzfy2CcioAHJ0yS1fPsRcT63PwEH1511jj52MmhsZm+f7lPqtP5BGzg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP7NvDgGhmsULE8B1GORvRYqU6nCpDe6mSxvFosJ4qqIK0UPyGNVQDUDVzav3irhoA==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "edf17b09-4730-402f-aa67-0b40c6fce473",
+                            SecurityStamp = "3bed59d9-b0e1-4fca-b474-d6eb71bd9b9f",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13379,7 +13378,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b350f0ea-9312-4f5f-9282-e48b79d40890",
+                            ConcurrencyStamp = "27b65c11-8a61-439a-993a-4b43d62ea492",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "asd@gmail.com",
                             EmailConfirmed = true,
@@ -13387,10 +13386,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEP5q6cyO1GNkCgZENoGja8+zycvQIp/8rt9Z76pXtQu1RZrTwyS1/dHClPzgYBsJSg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHrnnGfWLVUHBLuZitzfOedenZRJlbsmKvdbcWLbQbOgFvmkeq6c8xFV14hwfQTi7g==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a63fdd1b-474b-4c72-a857-48ee31cc8ed9",
+                            SecurityStamp = "6df30208-750e-40ce-9aba-ec4680233ec7",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),

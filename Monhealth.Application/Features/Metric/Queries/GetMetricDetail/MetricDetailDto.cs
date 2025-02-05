@@ -1,4 +1,5 @@
 ﻿using Monhealth.Domain.Common;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
 {
@@ -6,7 +7,7 @@ namespace Monhealth.Application.Features.Metric.Queries.GetMetricDetail
     {
         public Guid UserId { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string Gender { get; set; }
+        public Gender Gender { get; set; }
         public float Height { get; set; }
         public float Weight { get; set; }
         public float ActivityLevel { get; set; }
