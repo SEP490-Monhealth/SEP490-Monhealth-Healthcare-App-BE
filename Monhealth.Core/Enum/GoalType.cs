@@ -3,7 +3,7 @@
     public enum GoalType
     {
         WeightLoss,
-        MaintainWeight,
+        Maintenance,
         WeightGain
     }
 }

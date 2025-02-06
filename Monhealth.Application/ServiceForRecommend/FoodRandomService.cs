@@ -127,8 +127,6 @@ namespace Monhealth.Application.ServiceForRecommend
            })
       .OrderBy(x => x.Score)
       .ToList();
-
-
             if (!scoredFoods.Any())
             {
                 _logger.LogInformation("No suitable food found after scoring.");

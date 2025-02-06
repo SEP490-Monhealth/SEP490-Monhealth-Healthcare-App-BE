@@ -8,6 +8,8 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<Nutrition> builder)
         {
+            var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
+
             builder.HasData(
 
             #region Nutrition 1
@@ -34,8 +36,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -63,8 +65,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -92,8 +94,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 8.7f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -121,8 +123,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 1.1f,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -150,8 +152,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.02f,
                 VitaminE = 0.03f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -179,8 +181,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -208,8 +210,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 4.6f,
                 VitaminD = 0.0f,
                 VitaminE = 0.18f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -237,8 +239,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -266,8 +268,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.8f,
                 VitaminD = 0.0f,
                 VitaminE = 0.03f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -295,8 +297,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 8.7f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -324,8 +326,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 8.7f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -353,8 +355,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 228.3f,
                 VitaminD = 0.0f,
                 VitaminE = 0.73f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -382,8 +384,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -411,8 +413,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -440,8 +442,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 4.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -469,8 +471,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -498,8 +500,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -527,8 +529,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 13.7f,
                 VitaminD = 0.0f,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -556,39 +558,39 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
-            #region Nutrition 20
-            new Nutrition
-            {
-                NutritionId = Guid.Parse("ba3d6c03-e3e5-41f5-afa9-d2d918339049"),
-                FoodId = Guid.Parse("f44fd111-2744-406a-a706-abc9c0494502"),
-                Calories = 304,
-                Protein = 0.3f,
-                Carbs = 82.4f,
-                Fiber = 0.0f,
-                Sugar = 82.1f,
-                Fat = 0.0f,
-                SaturatedFat = 0.0f,
-                UnsaturatedFat = 0.0f,
-                Cholesterol = 0,
-                Sodium = 4,
-                Potassium = 52,
-                Calcium = 6,
-                Iron = 0.4f,
-                VitaminA = 0.0f,
-                VitaminB1 = 0.01f,
-                VitaminB2 = 0.02f,
-                VitaminC = 0.5f,
-                VitaminD = 0.0f,
-                VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-            },
-            #endregion
+            // #region Nutrition 20
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.Parse("ba3d6c03-e3e5-41f5-afa9-d2d918339049"),
+            //     FoodId = Guid.Parse("f44fd111-2744-406a-a706-abc9c0494502"),
+            //     Calories = 304,
+            //     Protein = 0.3f,
+            //     Carbs = 82.4f,
+            //     Fiber = 0.0f,
+            //     Sugar = 82.1f,
+            //     Fat = 0.0f,
+            //     SaturatedFat = 0.0f,
+            //     UnsaturatedFat = 0.0f,
+            //     Cholesterol = 0,
+            //     Sodium = 4,
+            //     Potassium = 52,
+            //     Calcium = 6,
+            //     Iron = 0.4f,
+            //     VitaminA = 0.0f,
+            //     VitaminB1 = 0.01f,
+            //     VitaminB2 = 0.02f,
+            //     VitaminC = 0.5f,
+            //     VitaminD = 0.0f,
+            //     VitaminE = 0.0f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 21
             new Nutrition
@@ -614,8 +616,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 8.1f,
                 VitaminD = 0.0f,
                 VitaminE = 0.05f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -643,8 +645,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -672,8 +674,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -701,8 +703,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -730,8 +732,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -759,8 +761,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 6.8f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -788,8 +790,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.02f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -817,8 +819,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.02f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -846,8 +848,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -875,8 +877,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 50.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.02f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -904,8 +906,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 5.9f,
                 VitaminD = 0.0f,
                 VitaminE = 0.66f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -933,8 +935,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -962,8 +964,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -991,8 +993,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.4f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1020,8 +1022,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 36.4f,
                 VitaminD = 0.0f,
                 VitaminE = 0.9f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1049,8 +1051,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 55.0f,
                 VitaminD = 0.0f,
                 VitaminE = 1.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1078,8 +1080,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1107,8 +1109,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.0f,
                 VitaminD = 0.1f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1136,8 +1138,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1165,8 +1167,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1194,8 +1196,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1223,8 +1225,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1252,8 +1254,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1281,8 +1283,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1310,8 +1312,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1339,8 +1341,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 45.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.15f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1368,8 +1370,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1397,8 +1399,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1426,8 +1428,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1455,8 +1457,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1484,8 +1486,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 20.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1513,8 +1515,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1542,8 +1544,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1571,8 +1573,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 26.7f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1600,8 +1602,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.02f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1629,8 +1631,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1658,8 +1660,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1687,8 +1689,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 80.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.37f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1716,8 +1718,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.1f,
                 VitaminD = 0.0f,
                 VitaminE = 0.01f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1745,8 +1747,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 2.0f,
                 VitaminE = 2.7f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1774,8 +1776,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1803,8 +1805,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1832,8 +1834,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1861,8 +1863,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 21.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.27f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1890,8 +1892,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1919,8 +1921,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1948,8 +1950,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -1977,8 +1979,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.05f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2006,8 +2008,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 4.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2035,8 +2037,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 36.6f,
                 VitaminD = 0.0f,
                 VitaminE = 0.12f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2064,8 +2066,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.02f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2093,8 +2095,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.02f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2122,8 +2124,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2151,8 +2153,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2180,8 +2182,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2209,8 +2211,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2238,8 +2240,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2267,8 +2269,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2296,8 +2298,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2325,8 +2327,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2354,8 +2356,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 20.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2383,8 +2385,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2412,8 +2414,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2441,8 +2443,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2470,8 +2472,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.38f,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2499,8 +2501,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.4f,
                 VitaminD = 0.0f,
                 VitaminE = 0.26f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2528,8 +2530,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 19.7f,
                 VitaminD = 0.0f,
                 VitaminE = 0.01f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2557,8 +2559,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 7.4f,
                 VitaminD = 0.0f,
                 VitaminE = 0.02f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2586,8 +2588,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 10.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.01f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2615,8 +2617,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2644,8 +2646,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.01f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2673,8 +2675,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2702,8 +2704,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 12.2f,
                 VitaminD = 0.0f,
                 VitaminE = 0.41f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2731,8 +2733,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2760,8 +2762,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2789,8 +2791,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2818,8 +2820,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 71.5f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2847,8 +2849,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.6f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2876,8 +2878,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.5f,
                 VitaminD = 0.02f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2905,8 +2907,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 10.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2934,8 +2936,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2963,8 +2965,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 20.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -2992,8 +2994,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3021,8 +3023,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3050,8 +3052,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.8f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3079,8 +3081,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 5.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3108,8 +3110,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3137,8 +3139,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3166,8 +3168,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 2.4f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3195,8 +3197,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 61.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3224,8 +3226,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.0f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3253,8 +3255,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3282,11 +3284,11 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 15.0f,
                 VitaminD = 0.0f,
                 VitaminE = 0.02f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
-            
+
             #region Nutrition 114
             new Nutrition
             {
@@ -3311,8 +3313,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3340,8 +3342,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 7f,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3369,8 +3371,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 570f,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3398,8 +3400,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 1.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3427,8 +3429,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3456,8 +3458,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 440f,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3485,8 +3487,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 6f,
                 VitaminD = 0,
                 VitaminE = 0.9f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3514,8 +3516,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3543,8 +3545,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.7f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3572,8 +3574,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 200f,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3601,8 +3603,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 180f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3630,8 +3632,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.5f,
                 VitaminD = 0,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3659,8 +3661,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3688,8 +3690,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3.5f,
                 VitaminD = 0,
                 VitaminE = 1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3717,8 +3719,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3746,8 +3748,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 144f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3775,8 +3777,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 8f,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3804,8 +3806,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3833,8 +3835,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 200f,
                 VitaminE = 0.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3862,8 +3864,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3891,8 +3893,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 25.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3920,8 +3922,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3949,8 +3951,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 5f,
                 VitaminD = 0,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -3978,8 +3980,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 600f,
                 VitaminE = 1.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4007,8 +4009,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 5f,
                 VitaminD = 570f,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4036,8 +4038,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 5f,
                 VitaminD = 0,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4065,8 +4067,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4094,8 +4096,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 180f,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4123,8 +4125,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 2.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4152,8 +4154,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 40f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4181,8 +4183,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 4f,
                 VitaminD = 0,
                 VitaminE = 1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4210,8 +4212,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 6.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4239,8 +4241,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3f,
                 VitaminD = 0,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4268,8 +4270,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 2f,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4297,12 +4299,12 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
-          
+
             #region Nutrition 149
             new Nutrition
             {
@@ -4327,8 +4329,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4356,8 +4358,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 177f,
                 VitaminE = 2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4385,8 +4387,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4414,8 +4416,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4443,8 +4445,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4472,8 +4474,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.42f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4501,8 +4503,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 28.1f,
                 VitaminD = 0,
                 VitaminE = 2.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4530,8 +4532,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 10f,
                 VitaminD = 0,
                 VitaminE = 2.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4559,8 +4561,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.4f,
                 VitaminD = 0,
                 VitaminE = 35.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4588,8 +4590,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.3f,
                 VitaminD = 0,
                 VitaminE = 0.7f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4617,8 +4619,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 51.9f,
                 VitaminD = 0,
                 VitaminE = 1.9f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4646,8 +4648,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 4.3f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4675,8 +4677,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 58.8f,
                 VitaminD = 0,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4704,8 +4706,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 26.2f,
                 VitaminD = 0,
                 VitaminE = 0.9f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4733,8 +4735,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 9f,
                 VitaminD = 0,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4762,8 +4764,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 4.5f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4791,8 +4793,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 26f,
                 VitaminD = 0,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4820,8 +4822,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 5.6f,
                 VitaminD = 0,
                 VitaminE = 1.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4849,8 +4851,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 36.6f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4878,8 +4880,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 6.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4907,8 +4909,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 92.7f,
                 VitaminD = 0,
                 VitaminE = 1.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4936,8 +4938,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4965,8 +4967,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -4994,8 +4996,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5023,8 +5025,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 6f,
                 VitaminD = 0,
                 VitaminE = 1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5052,8 +5054,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 89.2f,
                 VitaminD = 0,
                 VitaminE = 0.8f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5081,8 +5083,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5110,39 +5112,39 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.5f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
-            #region Nutrition 177
-            new Nutrition
-            {
-                NutritionId = Guid.Parse("f9bc8847-6168-402d-a1e0-c45d6166b817"),
-                FoodId = Guid.Parse("4d773186-20f8-42c2-839b-1ce1601280fa"),
-                Calories = 60,
-                Protein = 0.8f,
-                Carbs = 14.9f,
-                Fiber = 1.6f,
-                Sugar = 13.7f,
-                Fat = 0.4f,
-                SaturatedFat = 0.1f,
-                UnsaturatedFat = 0.3f,
-                Cholesterol = 0,
-                Sodium = 1,
-                Potassium = 168,
-                Calcium = 11,
-                Iron = 0.2f,
-                VitaminA = 54f,
-                VitaminB1 = 0.03f,
-                VitaminB2 = 0.04f,
-                VitaminC = 36.4f,
-                VitaminD = 0,
-                VitaminE = 0.9f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-            },
-            #endregion
+            // #region Nutrition 177
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.Parse("f9bc8847-6168-402d-a1e0-c45d6166b817"),
+            //     FoodId = Guid.Parse("4d773186-20f8-42c2-839b-1ce1601280fa"),
+            //     Calories = 60,
+            //     Protein = 0.8f,
+            //     Carbs = 14.9f,
+            //     Fiber = 1.6f,
+            //     Sugar = 13.7f,
+            //     Fat = 0.4f,
+            //     SaturatedFat = 0.1f,
+            //     UnsaturatedFat = 0.3f,
+            //     Cholesterol = 0,
+            //     Sodium = 1,
+            //     Potassium = 168,
+            //     Calcium = 11,
+            //     Iron = 0.2f,
+            //     VitaminA = 54f,
+            //     VitaminB1 = 0.03f,
+            //     VitaminB2 = 0.04f,
+            //     VitaminC = 36.4f,
+            //     VitaminD = 0,
+            //     VitaminE = 0.9f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 178
             new Nutrition
@@ -5168,8 +5170,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 10.8f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5197,8 +5199,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 28.1f,
                 VitaminD = 0,
                 VitaminE = 2.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5226,8 +5228,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5255,8 +5257,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 4.9f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5284,8 +5286,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 40f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5313,8 +5315,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5342,8 +5344,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 37.5f,
                 VitaminD = 0,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5371,8 +5373,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5400,8 +5402,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 28.1f,
                 VitaminD = 0,
                 VitaminE = 2.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5429,8 +5431,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 570f,
                 VitaminE = 0.4f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5458,8 +5460,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5487,8 +5489,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 14.8f,
                 VitaminD = 0,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5516,8 +5518,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 48.5f,
                 VitaminD = 0,
                 VitaminE = 0.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5545,8 +5547,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0.6f,
                 VitaminD = 0,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5574,8 +5576,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 5.4f,
                 VitaminD = 0,
                 VitaminE = 2.9f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5603,8 +5605,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 3.3f,
                 VitaminD = 0,
                 VitaminE = 0.3f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5632,8 +5634,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 440f,
                 VitaminE = 0.5f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5661,8 +5663,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 0,
                 VitaminE = 8f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5690,8 +5692,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.1f,
                 VitaminD = 0,
                 VitaminE = 0.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5719,8 +5721,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 14.7f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5748,8 +5750,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 600f,
                 VitaminE = 1.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5777,8 +5779,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 1.1f,
                 VitaminD = 0,
                 VitaminE = 0.7f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5806,8 +5808,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 0,
                 VitaminD = 24f,
                 VitaminE = 0.2f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5835,8 +5837,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 6.6f,
                 VitaminD = 0,
                 VitaminE = 0.1f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             },
             #endregion
 
@@ -5864,8 +5866,8 @@ namespace Monhealth.Identity.Configurations
                 VitaminC = 10.2f,
                 VitaminD = 0,
                 VitaminE = 0.6f,
-                CreatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
-                UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = today,
+                UpdatedAt = today,
             });
             #endregion
         }
