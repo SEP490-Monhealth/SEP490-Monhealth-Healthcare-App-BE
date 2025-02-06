@@ -2,6 +2,8 @@ using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.ServiceForRecommend.DTO;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
+
 
 namespace Monhealth.Application.Services
 {
@@ -17,10 +19,38 @@ namespace Monhealth.Application.Services
         }
 
         /// <summary>
+        /// Lấy GoalType của người dùng
+        /// </summary>
+        public async Task<GoalType?> GetGoalTypeByUserIdAsync(Guid userId)
+        {
+            var goal = await _goalRepository.GetByUserIdAsync(userId);
+            if (goal == null)
+            {
+                _logger.LogWarning($"Không tìm thấy Goal cho user {userId}.");
+                return null;
+            }
+
+            return goal.GoalType;
+        }
+
+        /// <summary>
+        /// Lấy Activity Level của người dùng
+        /// </summary>
+        public async Task<float> GetActivityLevelByUserIdAsync(Guid userId)
+        {
+            var metric = await _goalRepository.GetUserMetricByUserIdAsync(userId); // 🛠 Lấy dữ liệu từ Metric
+            if (metric == null)
+            {
+                _logger.LogWarning($"Không tìm thấy Metric cho user {userId}. Mặc định dùng ActivityLevel = 1.2");
+                return 1.2f; // 🛠 Mặc định là "sedentary"
+            }
+
+            return metric.ActivityLevel;
+        }
+
+        /// <summary>
         /// Tính toán phân bổ bữa ăn (calories, protein, carbs, fat).
         /// </summary>
-        /// <param name="goal">Goal của người dùng</param>
-        /// <returns>Phân bổ bữa ăn</returns>
         public Dictionary<string, MealAllocationDTO> CalculateMealAllocation(Goal goal)
         {
             if (goal == null || goal.CaloriesGoal <= 0)
@@ -30,7 +60,8 @@ namespace Monhealth.Application.Services
                 {
                     { "breakfast", new MealAllocationDTO() },
                     { "lunch", new MealAllocationDTO() },
-                    { "dinner", new MealAllocationDTO() }
+                    { "dinner", new MealAllocationDTO() },
+                    { "snack", new MealAllocationDTO() }
                 };
             }
 
@@ -38,6 +69,7 @@ namespace Monhealth.Application.Services
             var breakfastRatio = 0.3f;
             var lunchRatio = 0.35f;
             var dinnerRatio = 0.25f;
+            var snackRatio = 0.1f;
 
             var mealAllocations = new Dictionary<string, MealAllocationDTO>
             {
@@ -48,7 +80,7 @@ namespace Monhealth.Application.Services
                         Calories = breakfastRatio * goal.CaloriesGoal,
                         Protein = breakfastRatio * goal.ProteinGoal,
                         Carbs = breakfastRatio * goal.CarbsGoal,
-                        Fat = breakfastRatio * goal.FatGoal ,
+                        Fat = breakfastRatio * goal.FatGoal,
                         Fiber = breakfastRatio * goal.FiberGoal,
                         Sugar = breakfastRatio * goal.SugarGoal,
                     }
@@ -59,9 +91,9 @@ namespace Monhealth.Application.Services
                     {
                         Calories = lunchRatio * goal.CaloriesGoal,
                         Protein = lunchRatio * goal.ProteinGoal,
-                        Carbs = lunchRatio * goal.CarbsGoal ,
-                        Fat = lunchRatio * goal.FatGoal ,
-                        Fiber = lunchRatio* goal.FiberGoal,
+                        Carbs = lunchRatio * goal.CarbsGoal,
+                        Fat = lunchRatio * goal.FatGoal,
+                        Fiber = lunchRatio * goal.FiberGoal,
                         Sugar = lunchRatio * goal.SugarGoal,
                     }
                 },
@@ -70,11 +102,23 @@ namespace Monhealth.Application.Services
                     new MealAllocationDTO
                     {
                         Calories = dinnerRatio * goal.CaloriesGoal,
-                        Protein = dinnerRatio * goal.ProteinGoal ,
+                        Protein = dinnerRatio * goal.ProteinGoal,
                         Carbs = dinnerRatio * goal.CarbsGoal,
-                        Fat = dinnerRatio * goal.FatGoal ,
+                        Fat = dinnerRatio * goal.FatGoal,
                         Fiber = dinnerRatio * goal.FiberGoal,
                         Sugar = dinnerRatio * goal.SugarGoal,
+                    }
+                },
+                {
+                    "snack",
+                    new MealAllocationDTO
+                    {
+                        Calories = snackRatio * goal.CaloriesGoal,
+                        Protein = snackRatio * goal.ProteinGoal,
+                        Carbs = snackRatio * goal.CarbsGoal,
+                        Fat = snackRatio * goal.FatGoal,
+                        Fiber = snackRatio * goal.FiberGoal,
+                        Sugar = snackRatio * goal.SugarGoal,
                     }
                 }
             };
@@ -86,10 +130,8 @@ namespace Monhealth.Application.Services
         }
 
         /// <summary>
-        /// Lấy và tính toán phân bổ bữa ăn cho người dùng.
+        /// Lấy phân bổ bữa ăn dựa trên userId
         /// </summary>
-        /// <param name="userId">Id của người dùng</param>
-        /// <returns>Phân bổ bữa ăn</returns>
         public async Task<Dictionary<string, MealAllocationDTO>> GetMealAllocationByUserIdAsync(Guid userId)
         {
             var goal = await _goalRepository.GetByUserIdAsync(userId);
@@ -100,7 +142,8 @@ namespace Monhealth.Application.Services
                 {
                     { "breakfast", new MealAllocationDTO() },
                     { "lunch", new MealAllocationDTO() },
-                    { "dinner", new MealAllocationDTO() }
+                    { "dinner", new MealAllocationDTO() },
+                    { "snack", new MealAllocationDTO() }
                 };
             }
 

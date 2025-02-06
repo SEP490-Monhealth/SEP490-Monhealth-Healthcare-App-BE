@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Models;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
-using System.Collections.Generic;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -16,6 +14,11 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<Metric>> GetAllMetricAsync()
         {
             return await _context.Metrics.ToListAsync();
+        }
+
+        public async Task<Metric> GetByUserIdAsync(Guid userId)
+        {
+            return await _context.Metrics.FirstOrDefaultAsync(m => m.UserId == userId);
         }
 
         public async Task<Metric> GetMetricByMetricIdUserIdAsync(Guid metricId, Guid userId)
