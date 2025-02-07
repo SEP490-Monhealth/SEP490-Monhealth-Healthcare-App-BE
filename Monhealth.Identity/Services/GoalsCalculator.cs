@@ -2,7 +2,6 @@
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Domain;
-using Monhealth.Domain.Enum;
 
 namespace Monhealth.Identity.Services
 {
@@ -17,29 +16,31 @@ namespace Monhealth.Identity.Services
         {
             goal.GoalType = createMetricDto.GoalType;
             // tinh toan cac chi so Macros
-            var (calories, protein, carbs, fats) = CreateCalculateMacros(tdee, createMetricDto.GoalType.ToString(), createMetricDto.Weight, goal.WeightGoal);
+            var (calories, protein, carbs, fats, fiberGoal, sugarGoal) = CreateCalculateMacros(tdee, createMetricDto.GoalType.ToString(), createMetricDto.CaloriesRatio, createMetricDto.Weight, goal.WeightGoal);
             goal.CaloriesGoal = calories;
             goal.ProteinGoal = protein;
             goal.CarbsGoal = carbs;
             goal.FatGoal = fats;
 
             // Tinh FiberGoal và SugarGoal tu carbs
-            goal.FiberGoal = carbs * 0.1f;
-            goal.SugarGoal = carbs * 0.25f;
+            goal.FiberGoal = fiberGoal;
+            goal.SugarGoal = sugarGoal;
 
             // Tinh toan water
             goal.WaterIntakesGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel == 1.2f || createMetricDto.ActivityLevel == 1.375f ? 30 : 40));
         }
 
-        private (float calories, float protein, float carbs, float fats) CreateCalculateMacros(float tdee, string goalType, float currentWeight, float targetWeight)
+        private (float calories, float protein, float carbs, float fats, float fiberGoal, float sugarGoal) CreateCalculateMacros(float tdee, string goalType, float caloriesRatio, float currentWeight, float targetWeight)
         {
-            float calories, proteinPercentage, carbPercentage, fatPercentage;
+            float calories, proteinPercentage, carbPercentage, fatPercentage, fiberGoal, sugarGoal;
             switch (goalType)
             {
                 case "WeightLoss":
                     if (targetWeight >= currentWeight)
                         throw new Exception($"Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại ({currentWeight}).");
-                    calories = tdee * 0.8f; // Giảm 20%
+                    calories = tdee * caloriesRatio; // Giảm 20%
+                    fiberGoal = (calories * 1.1f) / 4;
+                    sugarGoal = (calories * 0.05f) / 4;
                     proteinPercentage = 0.35f; // 40% Protein
                     carbPercentage = 0.4f;  // 35% Carb
                     fatPercentage = 0.25f;   // 25% Fat
@@ -48,14 +49,18 @@ namespace Monhealth.Identity.Services
                 case "WeightGain":
                     if (targetWeight <= currentWeight)
                         throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight}).");
-                    calories = tdee * 1.1f; // Tăng 10-15%
+                    calories = tdee * caloriesRatio; // Tăng 10-15%
+                    fiberGoal = (calories * 0.9f) / 4;
+                    sugarGoal = (calories * 0.15f) / 4;
                     proteinPercentage = 0.35f; // 30% Protein
                     carbPercentage = 0.4f;   // 50% Carb
                     fatPercentage = 0.25f;    // 20% Fat
                     break;
 
                 case "MaintainWeight":
-                    calories = tdee; // Giữ nguyên TDEE
+                    calories = tdee * caloriesRatio; // Giữ nguyên TDEE
+                    fiberGoal = (calories * 1.2f) / 4;
+                    sugarGoal = (calories * 0.1f) / 4;
                     proteinPercentage = 0.25f; // 30% Protein
                     carbPercentage = 0.5f;   // 40% Carb
                     fatPercentage = 0.25f;    // 30% Fat
@@ -69,7 +74,7 @@ namespace Monhealth.Identity.Services
             float carbs = calories * carbPercentage / 4;
             float fats = calories * fatPercentage / 9;
 
-            return (calories, protein, carbs, fats);
+            return (calories, protein, carbs, fats, fiberGoal, sugarGoal);
         }
 
         public void UpdateMetricCalculateGoal(Goal goalToUpdate, string goalType, float tdee, float weight, float activityLevel)

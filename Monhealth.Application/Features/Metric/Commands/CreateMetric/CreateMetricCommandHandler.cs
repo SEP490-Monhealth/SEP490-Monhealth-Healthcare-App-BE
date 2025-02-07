@@ -79,12 +79,11 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             #region Goal Calculation
             var newGoal = _mapper.Map<Goal>(request.CreateMetricDTO);
             _goalCalculator.CreateCalculateGoal(newGoal, request.CreateMetricDTO, newMetric.Tdee);
-            newGoal.GoalId = newMetric.MetricId;
+            newGoal.GoalId = Guid.NewGuid();
             newGoal.Status = GoalStatus.Active;
             newGoal.CreatedAt = DateTime.Now;
             newGoal.UpdatedAt = DateTime.Now;
             _goalRepository.Add(newGoal);
-            await _goalRepository.SaveChangeAsync();
             #endregion
 
             // Tạo Reminder
@@ -95,22 +94,22 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             {
                 _reminderRepository.Add(reminder);
             }
-            await _reminderRepository.SaveChangeAsync();
             #endregion
 
             // **Tạo Meal cho 3 ngày**
-            #region Generate Meals for 3 Days
-            for (int i = 0; i < 3; i++)
-            {
-                var currentDate = DateTime.Now.Date.AddDays(i);
-                var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value);
+            //#region Generate Meals for 3 Days
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    var currentDate = DateTime.Now.Date.AddDays(i);
+            //    var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value);
 
-                // Tạo từng loại meal (Breakfast, Lunch, Dinner)
-                await CreateMealAsync("Breakfast", mealPlan.Breakfast, userId.Value, currentDate);
-                await CreateMealAsync("Lunch", mealPlan.Lunch, userId.Value, currentDate);
-                await CreateMealAsync("Dinner", mealPlan.Dinner, userId.Value, currentDate);
-            }
-            #endregion
+            //    // Tạo từng loại meal (Breakfast, Lunch, Dinner)
+            //    await CreateMealAsync("Breakfast", mealPlan.Breakfast, userId.Value, currentDate);
+            //    await CreateMealAsync("Lunch", mealPlan.Lunch, userId.Value, currentDate);
+            //    await CreateMealAsync("Dinner", mealPlan.Dinner, userId.Value, currentDate);
+            //}
+            //#endregion
+            await _reminderRepository.SaveChangeAsync();
 
             return Unit.Value;
         }

@@ -1,5 +1,4 @@
-﻿using Monhealth.Core;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
@@ -13,6 +12,7 @@ namespace Monhealth.Domain
         public Guid GoalId { get; set; }
         public Guid UserId { get; set; }
         public GoalType GoalType { get; set; }
+        public float CaloriesRatio { get; set; }
         public int WeightGoal { get; set; }
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }

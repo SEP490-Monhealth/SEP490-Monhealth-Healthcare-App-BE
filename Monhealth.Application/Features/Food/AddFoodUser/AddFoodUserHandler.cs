@@ -28,8 +28,6 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
             {
                 UserId = request.UserId,
                 FoodName = request.FoodName,
-                MealType = request.MealType,
-                DishType = request.DishType,
                 FoodDescription = request.FoodDescription,
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,

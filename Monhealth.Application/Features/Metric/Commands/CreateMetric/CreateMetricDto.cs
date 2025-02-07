@@ -12,5 +12,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         public float ActivityLevel { get; set; }
         public GoalType GoalType { get; set; }
         public int WeightGoal { get; set; }
+        public float CaloriesRatio { get; set; }
     }
 }
