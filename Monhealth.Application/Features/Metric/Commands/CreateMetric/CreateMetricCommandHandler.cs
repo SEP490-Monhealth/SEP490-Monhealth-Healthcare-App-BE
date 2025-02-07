@@ -97,18 +97,18 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             #endregion
 
             // **Tạo Meal cho 3 ngày**
-            //#region Generate Meals for 3 Days
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    var currentDate = DateTime.Now.Date.AddDays(i);
-            //    var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value);
+            #region Generate Meals for 3 Days
+            for (int i = 0; i < 3; i++)
+            {
+                var currentDate = DateTime.Now.Date.AddDays(i);
+                var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value);
 
-            //    // Tạo từng loại meal (Breakfast, Lunch, Dinner)
-            //    await CreateMealAsync("Breakfast", mealPlan.Breakfast, userId.Value, currentDate);
-            //    await CreateMealAsync("Lunch", mealPlan.Lunch, userId.Value, currentDate);
-            //    await CreateMealAsync("Dinner", mealPlan.Dinner, userId.Value, currentDate);
-            //}
-            //#endregion
+                // Tạo từng loại meal (Breakfast, Lunch, Dinner)
+                await CreateMealAsync("Breakfast", mealPlan.Breakfast, userId.Value, currentDate);
+                await CreateMealAsync("Lunch", mealPlan.Lunch, userId.Value, currentDate);
+                await CreateMealAsync("Dinner", mealPlan.Dinner, userId.Value, currentDate);
+            }
+            #endregion
             await _reminderRepository.SaveChangeAsync();
 
             return Unit.Value;
