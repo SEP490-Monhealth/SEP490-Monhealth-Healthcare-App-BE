@@ -5,7 +5,6 @@ using Monhealth.Application.Features.Subscription.Commands.Create;
 using Monhealth.Application.Features.Subscription.Commands.Delete;
 using Monhealth.Application.Features.Subscription.Commands.Update;
 using Monhealth.Application.Features.Subscription.Queries.GetAll;
-using Monhealth.Application.Features.Subscription.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetDetail;
 using Monhealth.Application.Features.UserSubscription.Commands.Create;
 using Monhealth.Application.Models;
@@ -55,25 +54,25 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet("user/{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
-        {
-            var portion = await _mediator.Send(new GetSubscriptionByUserQuery() { Userid = userId });
-            if (portion == null)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                };
-            }
-            return new ResultModel
-            {
-                Data = portion,
-                Status = 200,
-                Success = true
-            };
-        }
+        // [HttpGet("user/{userId:guid}")]
+        // public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
+        // {
+        //     var portion = await _mediator.Send(new GetSubscriptionByUserQuery() { Userid = userId });
+        //     if (portion == null)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Data = portion,
+        //         Status = 200,
+        //         Success = true
+        //     };
+        // }
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Add([FromBody] CreateSubscriptionCommand request)
@@ -85,7 +84,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo gói thành viên thành công. ",
+                    Message = "Tạo gói thành viên thành công",
                     Status = 201,
                 });
             }
@@ -93,7 +92,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo gói thành viên thất bại. ",
+                Message = "Tạo gói thành viên thất bại",
                 Status = 400,
             });
 
@@ -105,8 +104,8 @@ namespace Monhealth.Api.Controllers
 
             var result = await _mediator.Send(request);
             if (result != null)
-                return ResultModel.Created(null, "Nâng cấp gói thành công. ");
-            return ResultModel.CreateFailed(null, "Nâng cấp gói thất bại");
+                return ResultModel.Created(null, "Nâng cấp gói thành viên thành công");
+            return ResultModel.CreateFailed(null, "Nâng cấp gói thành viên thất bại");
         }
 
         [HttpPut]
@@ -118,13 +117,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật chứng chỉ thất bại",
+                    Message = "Cập nhật gói thành viên thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật chứng chỉ thành công",
+                Message = "Cập nhật gói thành viên thành công",
                 Success = true,
                 Status = 204,
             });
@@ -142,7 +141,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Xóa chứng chỉ không thành công",
+                    Message = "Xóa gói thành viên không thành công",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -150,11 +149,10 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Xóa chứng chỉ thành công",
+                Message = "Xóa gói thành viên thành công",
                 Status = 204,
                 Data = null
             });
         }
-
     }
 }

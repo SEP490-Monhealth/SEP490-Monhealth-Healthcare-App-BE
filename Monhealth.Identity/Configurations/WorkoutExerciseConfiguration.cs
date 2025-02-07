@@ -300,7 +300,6 @@ namespace Monhealth.Identity.Configurations
                 UpdatedAt = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null),
             });
             #endregion
-
         }
     }
 }
