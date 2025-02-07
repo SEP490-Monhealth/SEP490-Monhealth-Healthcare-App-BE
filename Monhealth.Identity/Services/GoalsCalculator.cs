@@ -16,7 +16,7 @@ namespace Monhealth.Identity.Services
         {
             goal.GoalType = createMetricDto.GoalType;
             // tinh toan cac chi so Macros
-            var (calories, protein, carbs, fats, fiberGoal, sugarGoal) = CreateCalculateMacros(tdee, createMetricDto.GoalType.ToString(), createMetricDto.CaloriesRatio, createMetricDto.Weight, goal.WeightGoal);
+            var (calories, protein, carbs, fats, fiberGoal, sugarGoal) = CreateCalculateMacros(tdee, createMetricDto.GoalType.ToString(), createMetricDto.CaloriesRatio, createMetricDto.Weight, goal.WeightGoal, createMetricDto.ActivityLevel);
             goal.CaloriesGoal = calories;
             goal.ProteinGoal = protein;
             goal.CarbsGoal = carbs;
@@ -30,48 +30,93 @@ namespace Monhealth.Identity.Services
             goal.WaterIntakesGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel == 1.2f || createMetricDto.ActivityLevel == 1.375f ? 30 : 40));
         }
 
-        private (float calories, float protein, float carbs, float fats, float fiberGoal, float sugarGoal) CreateCalculateMacros(float tdee, string goalType, float caloriesRatio, float currentWeight, float targetWeight)
+        private (float calories, float protein, float carbs, float fats, float fiberGoal, float sugarGoal) CreateCalculateMacros(float tdee, string goalType, float caloriesRatio, float currentWeight, float targetWeight, float activityLevel)
         {
-            float calories, proteinPercentage, carbPercentage, fatPercentage, fiberGoal, sugarGoal;
-            switch (goalType)
+            float calories = 0, proteinPercentage = 0, carbPercentage = 0, fatPercentage = 0, fiberGoal = 0, sugarGoal = 0;
+            if (activityLevel < 1.725)
             {
-                case "WeightLoss":
-                    if (targetWeight >= currentWeight)
-                        throw new Exception($"Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại ({currentWeight}).");
-                    calories = tdee * caloriesRatio; // Giảm 20%
-                    fiberGoal = (calories * 1.1f) / 4;
-                    sugarGoal = (calories * 0.05f) / 4;
-                    proteinPercentage = 0.35f; // 40% Protein
-                    carbPercentage = 0.4f;  // 35% Carb
-                    fatPercentage = 0.25f;   // 25% Fat
-                    break;
+                switch (goalType)
+                {
+                    case "WeightLoss":
+                        if (targetWeight >= currentWeight)
+                            throw new Exception($"Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại ({currentWeight}).");
+                        calories = tdee * caloriesRatio; // Giảm 20%
+                        fiberGoal = (calories * 1.1f) / 4;
+                        sugarGoal = (calories * 0.05f) / 4;
+                        proteinPercentage = 0.3f;
+                        carbPercentage = 0.45f;
+                        fatPercentage = 0.25f;
+                        break;
 
-                case "WeightGain":
-                    if (targetWeight <= currentWeight)
-                        throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight}).");
-                    calories = tdee * caloriesRatio; // Tăng 10-15%
-                    fiberGoal = (calories * 0.9f) / 4;
-                    sugarGoal = (calories * 0.15f) / 4;
-                    proteinPercentage = 0.35f; // 30% Protein
-                    carbPercentage = 0.4f;   // 50% Carb
-                    fatPercentage = 0.25f;    // 20% Fat
-                    break;
+                    case "WeightGain":
+                        if (targetWeight <= currentWeight)
+                            throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight}).");
+                        calories = tdee * caloriesRatio; // Tăng 10-15%
+                        fiberGoal = (calories * 0.9f) / 4;
+                        sugarGoal = (calories * 0.15f) / 4;
+                        proteinPercentage = 0.25f; // 30% Protein
+                        carbPercentage = 0.55f;   // 50% Carb
+                        fatPercentage = 0.2f;    // 20% Fat
+                        break;
 
-                case "MaintainWeight":
-                    calories = tdee * caloriesRatio; // Giữ nguyên TDEE
-                    fiberGoal = (calories * 1.2f) / 4;
-                    sugarGoal = (calories * 0.1f) / 4;
-                    proteinPercentage = 0.25f; // 30% Protein
-                    carbPercentage = 0.5f;   // 40% Carb
-                    fatPercentage = 0.25f;    // 30% Fat
-                    break;
+                    case "MaintainWeight":
+                        calories = tdee * caloriesRatio; // Giữ nguyên TDEE
+                        fiberGoal = (calories * 1.2f) / 4;
+                        sugarGoal = (calories * 0.1f) / 4;
+                        proteinPercentage = 0.25f; // 30% Protein
+                        carbPercentage = 0.5f;   // 40% Carb
+                        fatPercentage = 0.25f;    // 30% Fat
+                        break;
 
-                default:
-                    throw new Exception("Loại mục tiêu không hợp lệ.");
+                    default:
+                        throw new Exception("Loại mục tiêu không hợp lệ.");
+                }
             }
+            else if (activityLevel >= 1.725)
+            {
+                switch (goalType)
+                {
+                    case "WeightLoss":
+                        if (targetWeight >= currentWeight)
+                            throw new Exception($"Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại ({currentWeight}).");
+                        calories = tdee * caloriesRatio;
+                        fiberGoal = (calories * 1.1f) / 4;
+                        sugarGoal = (calories * 0.05f) / 4;
+                        proteinPercentage = 0.35f;
+                        carbPercentage = 0.4f;
+                        fatPercentage = 0.25f;
+                        break;
 
+                    case "WeightGain":
+                        if (targetWeight <= currentWeight)
+                            throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight}).");
+                        calories = tdee * caloriesRatio;
+                        fiberGoal = (calories * 0.9f) / 4;
+                        sugarGoal = (calories * 0.15f) / 4;
+                        proteinPercentage = 0.3f;
+                        carbPercentage = 0.5f;
+                        fatPercentage = 0.2f;
+                        break;
+
+                    case "MaintainWeight":
+                        calories = tdee * caloriesRatio;
+                        fiberGoal = (calories * 1.2f) / 4;
+                        sugarGoal = (calories * 0.1f) / 4;
+                        proteinPercentage = 0.3f;
+                        carbPercentage = 0.5f;
+                        fatPercentage = 0.2f;
+                        break;
+
+                    default:
+                        throw new Exception("Loại mục tiêu không hợp lệ.");
+                }
+            }
+            else
+            {
+                throw new Exception("Chỉ số hoạt động không hợp lệ");
+            }
             float protein = calories * proteinPercentage / 4;
-            float carbs = calories * carbPercentage / 4;
+            float carbs = (calories * carbPercentage) / 4;
             float fats = calories * fatPercentage / 9;
 
             return (calories, protein, carbs, fats, fiberGoal, sugarGoal);
@@ -130,4 +175,6 @@ namespace Monhealth.Identity.Services
             return (calories, protein, carbs, fats);
         }
     }
+
 }
+
