@@ -163,18 +163,15 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
         private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
         {
-            return mealType.ToString() switch
+            return mealType switch
             {
-                "Breakfast" => (1f, 0f, 0f),
-                "Lunch" => (0.55f, 0.3f, 0.15f),
-                "Dinner" => (goalType == GoalType.WeightLoss || activityLevel < 1.725) ? (0.65f, 0.35f, 0f) : (0.6f, 0.3f, 0.1f),
-                "Snack" => (0.8f, 0.2f, 0f),
+                MealType.Breakfast => (1f, 0f, 0f),
+                MealType.Lunch => (0.55f, 0.3f, 0.15f),
+                MealType.Dinner => (goalType == GoalType.WeightLoss || activityLevel < 1.725) ? (0.65f, 0.35f, 0f) : (0.6f, 0.3f, 0.1f),
+                MealType.Snack => (0.8f, 0.2f, 0f),
                 _ => (1f, 0f, 0f)
             };
         }
-
-
-
 
         private async Task AddDishToMealAsync(DishDTO dish, Guid mealId)
         {
@@ -248,25 +245,12 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 };
 
                 _dailyMealRepository.Add(dailyMeal);
-
-                // Lưu DailyMeal để lấy DailyMealID
                 await _dailyMealRepository.SaveChangeAsync();
             }
-            else
-            {
-                // Reset lại tổng giá trị nếu đã tồn tại DailyMeal
-                dailyMeal.TotalCalories = 0;
-                dailyMeal.TotalProteins = 0;
-                dailyMeal.TotalCarbs = 0;
-                dailyMeal.TotalFats = 0;
-                dailyMeal.TotalFibers = 0;
-                dailyMeal.TotalSugars = 0;
-            }
 
-            // Gán DailyMealID cho từng Meal
             foreach (var meal in mealsForDay)
             {
-                meal.DailyMealId = dailyMeal.DailyMealId; // Gán DailyMealID cho Meal
+                meal.DailyMealId = dailyMeal.DailyMealId;
                 _mealRepository.Update(meal);
 
                 var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
@@ -279,7 +263,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                         throw new Exception($"Không tìm thấy Portion với PortionId: {mealFood.PortionId}");
                     }
 
-                    // Tính toán giá trị dinh dưỡng nếu trạng thái MealFood là `true`
                     if (mealFood.Status)
                     {
                         var food = await _foodRepository.GetByIdAsync(mealFood.FoodId);
@@ -303,6 +286,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             dailyMeal.UpdatedAt = DateTime.Now;
             await _dailyMealRepository.SaveChangeAsync();
         }
+
 
     }
 }
