@@ -108,12 +108,28 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
                 var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, goalType, activityLevel);
 
-                await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, userId.Value, currentDate, goalType, activityLevel);
-                await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, userId.Value, currentDate, goalType, activityLevel);
-                await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, userId.Value, currentDate, goalType, activityLevel);
+                if (mealPlan == null)
+                {
+                    throw new Exception($"Không tìm thấy meal plan cho UserId: {request.CreateMetricDTO.UserId}");
+                }
 
+                if (mealPlan.Breakfast != null)
+                {
+                    await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, userId.Value, currentDate, goalType, activityLevel);
+                }
+                if (mealPlan.Lunch != null)
+                {
+                    await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, userId.Value, currentDate, goalType, activityLevel);
+                }
+                if (mealPlan.Dinner != null)
+                {
+                    await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, userId.Value, currentDate, goalType, activityLevel);
+                }
+                if (mealPlan.Snack != null)
+                {
+                    await CreateMealAsync(MealType.Snack, mealPlan.Snack, userId.Value, currentDate, goalType, activityLevel);
+                }
             }
-
             #endregion
             await _reminderRepository.SaveChangeAsync();
 
@@ -122,7 +138,10 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
         private async Task CreateMealAsync(MealType mealType, MealDTO meal, Guid userId, DateTime date, GoalType goalType, float activityLevel)
         {
-            if (meal.MainDish == null) return;
+            if (meal == null)
+            {
+                throw new Exception($"meal bị null cho MealType: {mealType}, UserId: {userId}, Date: {date}");
+            }
 
             var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, mealType, date.Day);
             Monhealth.Domain.Meal model;
@@ -286,7 +305,5 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             dailyMeal.UpdatedAt = DateTime.Now;
             await _dailyMealRepository.SaveChangeAsync();
         }
-
-
     }
 }
