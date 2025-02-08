@@ -4,6 +4,7 @@ using Monhealth.Application.Features.Food.AddFood;
 using Monhealth.Application.ServiceForRecommend.DTO;
 using Monhealth.Application.Services;
 using Monhealth.Core.Enum;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.ServiceForRecommend
 {
@@ -26,7 +27,7 @@ namespace Monhealth.Application.ServiceForRecommend
             _logger = logger;
         }
 
-        public async Task<MealPlanWithAllocationDTO> GetMealPlanWithAllocationAsync(Guid userId)
+        public async Task<MealPlanWithAllocationDTO> GetMealPlanWithAllocationAsync(Guid userId, GoalType goalType, float activityLevel)
         {
             var mealAllocations = await _goalService.GetMealAllocationByUserIdAsync(userId);
 
@@ -38,39 +39,46 @@ namespace Monhealth.Application.ServiceForRecommend
 
             return new MealPlanWithAllocationDTO
             {
-                Breakfast = await GenerateMealAsync(MealType.Breakfast, mealAllocations["breakfast"], userId),
-                Lunch = await GenerateMealAsync(MealType.Lunch, mealAllocations["lunch"], userId),
-                Dinner = await GenerateMealAsync(MealType.Dinner, mealAllocations["dinner"], userId)
+                Breakfast = await GenerateMealAsync(MealType.Breakfast, mealAllocations["breakfast"], userId, goalType, activityLevel),
+                Lunch = await GenerateMealAsync(MealType.Lunch, mealAllocations["lunch"], userId, goalType, activityLevel),
+                Dinner = await GenerateMealAsync(MealType.Dinner, mealAllocations["dinner"], userId, goalType, activityLevel),
+                Snack = await GenerateMealAsync(MealType.Snack, mealAllocations["snack"], userId, goalType, activityLevel)
             };
         }
 
-        private async Task<MealDTO> GenerateMealAsync(MealType mealType, MealAllocationDTO allocation, Guid userId)
-        {
-            if (mealType == MealType.Breakfast)
-            {
-                var mainDishRatio = 0.8f;
-                return new MealDTO
-                {
-                    MainDish = await GetRandomDishWithPortionAsync(mealType.ToString(), DishType.MainDish, userId, allocation, mainDishRatio)
-                };
-            }
-            else
-            {
-                var mainDishRatio = 0.5f;
-                var sideDishRatio = 0.3f;
-                var dessertRatio = 0.1f;
 
-                return new MealDTO
-                {
-                    MainDish = await GetRandomDishWithPortionAsync(mealType.ToString(), DishType.MainDish, userId, allocation, mainDishRatio),
-                    SideDish = await GetRandomDishWithPortionAsync(mealType.ToString(), DishType.SideDish, userId, allocation, sideDishRatio),
-                    Dessert = await GetRandomDishWithPortionAsync(mealType.ToString(), DishType.Dessert, userId, allocation, dessertRatio)
-                };
+
+        private async Task<MealDTO> GenerateMealAsync(MealType mealType, MealAllocationDTO allocation, Guid userId, GoalType goalType, float activityLevel)
+        {
+            var (mainDishRatio, sideDishRatio, dessertRatio) = GetMealRatios(mealType, goalType, activityLevel);
+
+            var mainDish = await GetRandomDishWithPortionAsync(mealType.ToString(), DishType.MainDish, userId, allocation, mainDishRatio);
+            DishDTO? sideDish = null;
+            DishDTO? dessert = null;
+
+            if (sideDishRatio > 0)
+            {
+                sideDish = await GetRandomDishWithPortionAsync(mealType.ToString(), DishType.SideDish, userId, allocation, sideDishRatio, mainDish);
             }
+
+            if (dessertRatio > 0)
+            {
+                dessert = await GetRandomDishWithPortionAsync(mealType.ToString(), DishType.Dessert, userId, allocation, dessertRatio);
+            }
+
+            return new MealDTO
+            {
+                MainDish = mainDish,
+                SideDish = sideDish,
+                Dessert = dessert
+            };
         }
 
-        private async Task<DishDTO?> GetRandomDishWithPortionAsync(string mealType, DishType dishType, Guid userId, MealAllocationDTO allocation, float ratio)
+
+        private async Task<DishDTO?> GetRandomDishWithPortionAsync(string mealType, DishType dishType, Guid userId, MealAllocationDTO allocation, float ratio, DishDTO? mainDish = null)
         {
+            var allowedSideDishes = GetAllowedSideDishTypes(mainDish?.Food?.FoodType);
+
             var filteredFoods = await _foodFilterService.GetFilterFoodAsync(
                 userId,
                 1,
@@ -79,80 +87,29 @@ namespace Monhealth.Application.ServiceForRecommend
                 new List<string> { dishType.ToString() }
             );
 
-            if (filteredFoods == null || !filteredFoods.Items.Any())
-            {
-                _logger.LogInformation($"No foods found for MealType {mealType} with DishType {dishType} for user {userId}.");
-                return null;
-            }
+            var validFoods = filteredFoods.Items
+     .Where(f => mainDish == null || allowedSideDishes.Contains(f.FoodType)) // 🛠 Lỗi xảy ra ở đây
+     .ToList();
 
-            var foodIds = filteredFoods.Items.Select(f => f.FoodId).ToList();
-            if (foodIds == null || !foodIds.Any())
-            {
-                _logger.LogInformation($"No valid food IDs for MealType {mealType} with DishType {dishType}.");
-                return null;
-            }
 
-            var nutritionData = await _foodRepository.GetNutritionByFoodIdsAsync(foodIds);
-            if (nutritionData == null || !nutritionData.Any())
+            if (!validFoods.Any())
             {
-                _logger.LogInformation($"No nutrition data found for foods in MealType {mealType} and DishType {dishType} for user {userId}.");
-                return null;
-            }
-
-            var scoredFoods = nutritionData
-           .Select(n => new
-           {
-               Nutrition = n,
-               Portion = CalculateNewPortion(
-              new NutritionDTO
-              {
-                  Calories = n.Calories,
-                  Protein = n.Protein,
-                  Carbs = n.Carbs,
-                  Fat = n.Fat,
-                  Fiber = n.Fiber,
-                  Sugar = n.Sugar
-              },
-              allocation,
-              ratio
-          ),
-               Score = Math.Sqrt(
-              Math.Pow(n.Calories - allocation.Calories * ratio, 2) +
-              Math.Pow(n.Protein - allocation.Protein * ratio, 2) +
-              Math.Pow(n.Carbs - allocation.Carbs * ratio, 2) +
-              Math.Pow(n.Fat - allocation.Fat * ratio, 2) +
-              Math.Pow(n.Fiber - allocation.Fiber * ratio, 2) +
-              Math.Pow(n.Sugar - allocation.Sugar * ratio, 2)
-          )
-           })
-      .OrderBy(x => x.Score)
-      .ToList();
-            if (!scoredFoods.Any())
-            {
-                _logger.LogInformation("No suitable food found after scoring.");
+                _logger.LogInformation($"No suitable {dishType} found for {mealType} and user {userId}.");
                 return null;
             }
 
             var random = new Random();
-            var bestFood = scoredFoods.Take(Math.Min(5, scoredFoods.Count)).OrderBy(x => random.Next()).First();
+            var selectedFood = validFoods.OrderBy(x => random.Next()).First();
 
             return new DishDTO
             {
                 Food = new FoodDTO
                 {
-                    FoodId = bestFood.Nutrition.FoodId ?? Guid.Empty,
-                    FoodName = filteredFoods.Items.FirstOrDefault(f => f.FoodId == bestFood.Nutrition.FoodId)?.FoodName ?? "Unknown Food"
+                    FoodId = selectedFood.FoodId,
+                    FoodName = selectedFood.FoodName,
+                    FoodType = selectedFood.FoodType // 🛠 Thêm FoodType vào DTO
                 },
                 Allocation = new MealAllocationDTO
-                {
-                    Calories = bestFood.Nutrition.Calories,
-                    Protein = bestFood.Nutrition.Protein,
-                    Carbs = bestFood.Nutrition.Carbs,
-                    Fat = bestFood.Nutrition.Fat,
-                    Fiber = bestFood.Nutrition.Fiber,
-                    Sugar = bestFood.Nutrition.Sugar
-                },
-                GoalAllocation = new MealAllocationDTO
                 {
                     Calories = allocation.Calories * ratio,
                     Protein = allocation.Protein * ratio,
@@ -161,9 +118,15 @@ namespace Monhealth.Application.ServiceForRecommend
                     Fiber = allocation.Fiber * ratio,
                     Sugar = allocation.Sugar * ratio
                 },
-                Portion = bestFood.Portion
+                Portion = new PortionDTO
+                {
+                    PortionWeight = 100 * (allocation.Calories * ratio / (selectedFood.Calories > 0 ? selectedFood.Calories : 1)),
+                    MeasurementUnit = "g"
+                }
             };
+
         }
+
 
         private PortionDTO CalculateNewPortion(NutritionDTO nutrition, MealAllocationDTO allocation, float ratio)
         {
@@ -175,6 +138,29 @@ namespace Monhealth.Application.ServiceForRecommend
                 MeasurementUnit = "g" // Đơn vị cố định là gram
             };
         }
+        private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
+        {
+            return mealType switch
+            {
+                MealType.Breakfast => (1f, 0f, 0f),
+                MealType.Lunch => (0.55f, 0.3f, 0.15f),
+                MealType.Dinner => (goalType == GoalType.WeightLoss || activityLevel < 1.725) ? (0.65f, 0.35f, 0f) : (0.6f, 0.3f, 0.1f),
+                MealType.Snack => (0.8f, 0.2f, 0f),
+                _ => (1f, 0f, 0f)
+            };
+        }
+        public List<FoodType> GetAllowedSideDishTypes(FoodType? mainDishType)
+        {
+            return mainDishType switch
+            {
+                FoodType.Carbs => new List<FoodType> { FoodType.Protein, FoodType.Vegetables },
+                FoodType.Protein => new List<FoodType> { FoodType.Vegetables },
+                FoodType.Vegetables => new List<FoodType> { FoodType.Protein, FoodType.Carbs },
+                _ => new List<FoodType> { FoodType.Vegetables }
+            };
+        }
+
+
     }
 
     public class MealPlanWithAllocationDTO
@@ -182,6 +168,7 @@ namespace Monhealth.Application.ServiceForRecommend
         public MealDTO Breakfast { get; set; } = new MealDTO();
         public MealDTO Lunch { get; set; } = new MealDTO();
         public MealDTO Dinner { get; set; } = new MealDTO();
+        public MealDTO Snack { get; set; } = new MealDTO();
     }
 
     public class MealDTO
@@ -203,6 +190,8 @@ namespace Monhealth.Application.ServiceForRecommend
     {
         public Guid FoodId { get; set; }
         public string FoodName { get; set; } = string.Empty;
+        public FoodType FoodType { get; set; }
+
     }
 
     public class PortionDTO

@@ -1,4 +1,5 @@
 ﻿using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
@@ -7,5 +8,8 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Goal>> GetGoalsByUserIdAsync(Guid userId);
         Task<int> SaveChangeAsync();
         Task<Goal> GetByUserIdAsync(Guid userId);
+        Task<Metric?> GetUserMetricByUserIdAsync(Guid userId);
+        Task<GoalType?> GetGoalTypeByUserIdAsync(Guid userId);
+        Task<float> GetActivityLevelByUserIdAsync(Guid userId);
     }
 }

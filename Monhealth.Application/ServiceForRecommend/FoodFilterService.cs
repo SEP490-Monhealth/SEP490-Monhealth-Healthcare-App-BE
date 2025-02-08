@@ -108,14 +108,14 @@ namespace Monhealth.Application.ServiceForRecommend
                 };
             }
 
-            // Ánh xạ từ Food sang FoodFilterDTO
             var foodDTOs = paginatedFoods.Items.Select(food => new FoodFilterDTO
             {
                 FoodId = food.FoodId,
                 FoodName = food.FoodName ?? string.Empty,
                 Category = food.Category?.CategoryName ?? string.Empty,
                 MealType = food.MealType,
-                DishType = food.DishType
+                DishType = food.DishType,
+                FoodType = food.FoodType // 🛠 Đảm bảo ánh xạ từ Food -> FoodFilterDTO
             }).ToList();
 
             return new PageResult<FoodFilterDTO>
@@ -126,5 +126,6 @@ namespace Monhealth.Application.ServiceForRecommend
                 Items = foodDTOs
             };
         }
+
     }
 }

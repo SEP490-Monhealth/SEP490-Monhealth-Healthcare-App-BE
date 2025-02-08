@@ -101,13 +101,17 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             for (int i = 0; i < 3; i++)
             {
                 var currentDate = DateTime.Now.Date.AddDays(i);
-                var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value);
 
-                // Tạo từng loại meal (Breakfast, Lunch, Dinner)
+                var goalType = await _goalRepository.GetGoalTypeByUserIdAsync(userId.Value) ?? GoalType.Maintenance;
+                var activityLevel = await _goalRepository.GetActivityLevelByUserIdAsync(userId.Value);
+
+                var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, goalType, activityLevel);
+
                 await CreateMealAsync("Breakfast", mealPlan.Breakfast, userId.Value, currentDate);
                 await CreateMealAsync("Lunch", mealPlan.Lunch, userId.Value, currentDate);
                 await CreateMealAsync("Dinner", mealPlan.Dinner, userId.Value, currentDate);
             }
+
             #endregion
             await _reminderRepository.SaveChangeAsync();
 
@@ -139,12 +143,19 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 await _mealRepository.SaveChangeAsync();
             }
 
+            // 🛠 Chỉ chọn SideDish nếu hợp lệ với MainDish
+            var allowedSideDishes = _foodRandomService.GetAllowedSideDishTypes(meal.MainDish.Food.FoodType);
+            var sideDish = meal.SideDish != null && allowedSideDishes.Contains(meal.SideDish.Food.FoodType)
+                ? meal.SideDish
+                : null;
+
             await AddDishToMealAsync(meal.MainDish, model.MealId);
-            if (meal.SideDish != null) await AddDishToMealAsync(meal.SideDish, model.MealId);
+            if (sideDish != null) await AddDishToMealAsync(sideDish, model.MealId);
             if (meal.Dessert != null) await AddDishToMealAsync(meal.Dessert, model.MealId);
 
             await AddMealToDailyMeal(userId, date);
         }
+
 
         private async Task AddDishToMealAsync(DishDTO dish, Guid mealId)
         {
