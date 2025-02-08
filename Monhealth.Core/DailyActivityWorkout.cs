@@ -9,13 +9,14 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid DailyActivityWorkoutId { get; set; }
-        public Guid DailyActivityId { get; set; }
-        public Guid WorkoutId { get; set; }
+        public Guid? DailyActivityId { get; set; }
+        public Guid? WorkoutId { get; set; }
         public bool Status { get; set; }
 
         [ForeignKey(nameof(DailyActivityId))]
-        public DailyActivity DailyActivity { get; set; }
+        public DailyActivity? DailyActivity { get; set; }
+
         [ForeignKey(nameof(WorkoutId))]
-        public Workout Workout { get; set; }
+        public Workout? Workout { get; set; }
     }
 }
