@@ -27,7 +27,8 @@ namespace Monhealth.Identity.Services
             goal.SugarGoal = sugarGoal;
 
             // Tinh toan water
-            goal.WaterIntakesGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel == 1.2f || createMetricDto.ActivityLevel == 1.375f ? 30 : 40));
+
+            goal.WaterIntakesGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel < 1.725f ? 35 : 40));
         }
 
         private (float calories, float protein, float carbs, float fats, float fiberGoal, float sugarGoal) CreateCalculateMacros(float tdee, string goalType, float caloriesRatio, float currentWeight, float targetWeight, float activityLevel)

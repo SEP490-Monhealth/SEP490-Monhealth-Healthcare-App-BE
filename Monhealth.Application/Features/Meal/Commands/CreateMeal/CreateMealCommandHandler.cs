@@ -37,11 +37,11 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
         public async Task<Guid> Handle(CreateMealCommand request, CancellationToken cancellationToken)
         {
-        
+
             var userId = request.CreateMeal.UserId;
             var mealType = request.CreateMeal.MealType;
             var currentDate1 = DateTime.Now.Date.Day;
-            
+
 
             // Kiểm tra loại bữa ăn hợp lệ
             var validMealTypes = new HashSet<string> { "Breakfast", "Lunch", "Dinner", "Snack" };
@@ -181,7 +181,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
 
                 foreach (var mealFood in mealFoods)
-
                 {
                     var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
                     if (portion == null)
