@@ -216,7 +216,6 @@ namespace Monhealth.Identity.Configurations
             }
             #endregion
 
-
             // #region Category Exercise 1
             // new Category
             // {

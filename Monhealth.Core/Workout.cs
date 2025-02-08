@@ -1,11 +1,12 @@
 ﻿using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
+using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class Workout : TimeEntity
+    public class Workout : BaseEntity
     {
         [Key]
         public Guid WorkoutId { get; set; }
@@ -15,7 +16,6 @@ namespace Monhealth.Domain
         public string WorkoutDescription { get; set; } = string.Empty;
         public DifficultyLevel DifficultyLevel { get; set; }
         public int Views { get; set; }
-        public int Rounds { get; set; }
 
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }

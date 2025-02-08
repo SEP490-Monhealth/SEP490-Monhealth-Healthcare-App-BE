@@ -100,25 +100,23 @@ namespace Monhealth.Identity.Dbcontexts
                     );
             });
             builder.Entity<Food>(entity =>
-  {
-      entity.Property(e => e.MealType)
-          .HasConversion(
-              v => string.Join(',', v.Select(x => x.ToString())), // Từ List<MealType> -> string
-              v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                    .Select(x => Enum.Parse<MealType>(x)) // Từ string -> List<MealType>
-                    .ToList()
-          );
+            {
+                entity.Property(e => e.MealType)
+                    .HasConversion(
+                        v => string.Join(',', v.Select(x => x.ToString())), // Từ List<MealType> -> string
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                              .Select(x => Enum.Parse<MealType>(x)) // Từ string -> List<MealType>
+                              .ToList()
+                    );
 
-      entity.Property(e => e.DishType)
-          .HasConversion(
-              v => string.Join(',', v.Select(x => x.ToString())), // Từ List<DishType> -> string
-              v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                    .Select(x => Enum.Parse<DishType>(x)) // Từ string -> List<DishType>
-                    .ToList()
-          );
-  });
-
-
+                entity.Property(e => e.DishType)
+                    .HasConversion(
+                        v => string.Join(',', v.Select(x => x.ToString())), // Từ List<DishType> -> string
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                              .Select(x => Enum.Parse<DishType>(x)) // Từ string -> List<DishType>
+                              .ToList()
+                    );
+            });
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());
@@ -133,8 +131,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new FoodAllergyConfiguration());
             //builder.ApplyConfiguration(new WorkoutConfiguration());
             //builder.ApplyConfiguration(new WorkoutExerciseConfiguration());
-
+            builder.ApplyConfiguration(new SubscriptionConfiguration());
         }
-
     }
 }

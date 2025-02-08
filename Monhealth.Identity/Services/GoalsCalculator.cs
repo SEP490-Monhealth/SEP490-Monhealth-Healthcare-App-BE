@@ -60,7 +60,7 @@ namespace Monhealth.Identity.Services
                         fatPercentage = 0.2f;    // 20% Fat
                         break;
 
-                    case "MaintainWeight":
+                    case "Maintenance":
                         calories = tdee * caloriesRatio; // Giữ nguyên TDEE
                         fiberGoal = (calories * 1.2f) / 4;
                         sugarGoal = (calories * 0.1f) / 4;
@@ -99,7 +99,7 @@ namespace Monhealth.Identity.Services
                         fatPercentage = 0.2f;
                         break;
 
-                    case "MaintainWeight":
+                    case "Maintenance":
                         calories = tdee * caloriesRatio;
                         fiberGoal = (calories * 1.2f) / 4;
                         sugarGoal = (calories * 0.1f) / 4;
@@ -139,6 +139,7 @@ namespace Monhealth.Identity.Services
             // Tinh toan water
             goalToUpdate.WaterIntakesGoal = (int)(weight * (activityLevel == 1.2f || activityLevel == 1.375f ? 30 : 40));
         }
+
         private (float calories, float protein, float carbs, float fats) UpdateCalculateMacros(float tdee, string goalType)
         {
             float calories, proteinPercentage, carbPercentage, fatPercentage;
@@ -158,7 +159,7 @@ namespace Monhealth.Identity.Services
                     fatPercentage = 0.25f;    // 20% Fat
                     break;
 
-                case "MaintainWeight":
+                case "Maintenance":
                     calories = tdee; // Giữ nguyên TDEE
                     proteinPercentage = 0.25f; // 30% Protein
                     carbPercentage = 0.5f;   // 40% Carb
@@ -176,6 +177,5 @@ namespace Monhealth.Identity.Services
             return (calories, protein, carbs, fats);
         }
     }
-
 }
 

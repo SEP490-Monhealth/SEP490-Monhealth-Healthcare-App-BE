@@ -46,8 +46,6 @@ namespace Monhealth.Application.ServiceForRecommend
             };
         }
 
-
-
         private async Task<MealDTO> GenerateMealAsync(MealType mealType, MealAllocationDTO allocation, Guid userId, GoalType goalType, float activityLevel)
         {
             var (mainDishRatio, sideDishRatio, dessertRatio) = GetMealRatios(mealType, goalType, activityLevel);
@@ -73,7 +71,6 @@ namespace Monhealth.Application.ServiceForRecommend
                 Dessert = dessert
             };
         }
-
 
         private async Task<DishDTO?> GetRandomDishWithPortionAsync(string mealType, DishType dishType, Guid userId, MealAllocationDTO allocation, float ratio, DishDTO? mainDish = null)
         {
@@ -124,9 +121,7 @@ namespace Monhealth.Application.ServiceForRecommend
                     MeasurementUnit = "g"
                 }
             };
-
         }
-
 
         private PortionDTO CalculateNewPortion(NutritionDTO nutrition, MealAllocationDTO allocation, float ratio)
         {
@@ -138,6 +133,7 @@ namespace Monhealth.Application.ServiceForRecommend
                 MeasurementUnit = "g" // Đơn vị cố định là gram
             };
         }
+
         private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
         {
             return mealType switch
@@ -149,6 +145,7 @@ namespace Monhealth.Application.ServiceForRecommend
                 _ => (1f, 0f, 0f)
             };
         }
+
         public List<FoodType> GetAllowedSideDishTypes(FoodType? mainDishType)
         {
             return mainDishType switch
@@ -159,8 +156,6 @@ namespace Monhealth.Application.ServiceForRecommend
                 _ => new List<FoodType> { FoodType.Vegetables }
             };
         }
-
-
     }
 
     public class MealPlanWithAllocationDTO
@@ -191,7 +186,6 @@ namespace Monhealth.Application.ServiceForRecommend
         public Guid FoodId { get; set; }
         public string FoodName { get; set; } = string.Empty;
         public FoodType FoodType { get; set; }
-
     }
 
     public class PortionDTO
