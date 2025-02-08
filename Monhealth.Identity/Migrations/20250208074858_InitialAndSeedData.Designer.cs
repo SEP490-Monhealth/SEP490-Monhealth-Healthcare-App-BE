@@ -12,8 +12,8 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250207145508_InitialDbAndSeedData")]
-    partial class InitialDbAndSeedData
+    [Migration("20250208074858_InitialAndSeedData")]
+    partial class InitialAndSeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1036,11 +1036,8 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<float>("CaloriesBurned")
+                    b.Property<float>("CalriesPerMinute")
                         .HasColumnType("real");
-
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -1048,15 +1045,12 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Difficulty")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
-
                     b.Property<string>("ExerciseName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExerciseType")
+                        .HasColumnType("int");
 
                     b.Property<string>("Instructions")
                         .IsRequired()
@@ -1076,1517 +1070,9 @@ namespace Monhealth.Identity.Migrations
 
                     b.HasKey("ExerciseId");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Exercises");
-
-                    b.HasData(
-                        new
-                        {
-                            ExerciseId = new Guid("aac12e14-eb0e-4921-9fee-8a72cc46f13e"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Sit-Ups",
-                            Instructions = "Nằm ngửa, co gối, đặt tay sau đầu. Nâng thân lên hướng về gối, sau đó trở về. Lặp lại",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("2f4c14b8-3207-40dc-8233-1ec310a47dd5"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 60,
-                            ExerciseName = "Plank",
-                            Instructions = "Nằm úp, nâng cơ thể bằng khuỷu tay và ngón chân. Giữ cơ thể thẳng. Giữ tư thế này",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("d409a2a7-e695-4696-94c3-41013d590887"),
-                            CaloriesBurned = 7f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Dynamic Rollup",
-                            Instructions = "Nằm phẳng, duỗi tay qua đầu. Cuộn lên tư thế ngồi, sau đó cuộn trở lại",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("b45baf25-682a-4de3-b5aa-15f4ea6e590d"),
-                            CaloriesBurned = 6f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Side Crunches",
-                            Instructions = "Nằm nghiêng, co chân. Nâng thân lên nghiêng về phía gối",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("6ee8f18c-d1de-4899-8af9-8bc7341cb225"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Mason Twist",
-                            Instructions = "Ngồi, co gối, nhấc chân khỏi sàn. Xoay thân từ bên này qua bên kia",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("f2e4e45f-9514-452c-91ff-d5486243fb0d"),
-                            CaloriesBurned = 6f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Reaching Crunch",
-                            Instructions = "Nằm ngửa, co gối. Đưa tay về phía gối khi nâng thân lên",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("ab679a82-97a1-4772-a824-69de7a8626d5"),
-                            CaloriesBurned = 9f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Corkscrew",
-                            Instructions = "Nằm ngửa, chân duỗi thẳng lên. Xoay chân theo vòng tròn",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("c37426f7-6e98-4dcd-85b5-49e9e75aa380"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Bicycle Crunches",
-                            Instructions = "Nằm ngửa, luân phiên chạm khuỷu tay đối diện vào gối theo động tác đạp xe",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("8f7b3eaf-288e-47bd-8a37-94133fe25e62"),
-                            CaloriesBurned = 7f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Elevated Crunches",
-                            Instructions = "Đặt chân trên bề mặt nâng cao, thực hiện động tác gập bụng",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("78e05e91-0d2a-4418-a363-281cfa7ced50"),
-                            CaloriesBurned = 10f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 60,
-                            ExerciseName = "Hundred Pike",
-                            Instructions = "Nằm phẳng, nhấc chân thẳng lên, bơm tay hướng xuống đất",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("67c5180f-978d-4cd7-ae1e-57fa80ac5e27"),
-                            CaloriesBurned = 6f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Seated Core Twist",
-                            Instructions = "Ngồi thẳng, xoay thân qua lại hai bên",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("8482d5db-ee6e-473e-b156-500de0619dfc"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 45,
-                            ExerciseName = "Abdominal Hip Raises",
-                            Instructions = "Nằm ngửa, nâng hông lên trần nhà",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Russian Twist",
-                            Instructions = "Ngồi, co gối, xoay thân qua lại hai bên",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("c0d1b74c-521b-428b-9776-0f9e95bd0ef0"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Leg Lifts",
-                            Instructions = "Nằm phẳng, nâng cả hai chân lên trần nhà, sau đó hạ xuống",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"),
-                            CaloriesBurned = 10f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Jump Squats",
-                            Instructions = "Thực hiện động tác squat, sau đó nhảy lên mạnh mẽ",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("4c2f77bb-3bb2-4348-b6cd-a5325f3b2214"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Outer Thigh Raises",
-                            Instructions = "Nằm nghiêng, nâng chân trên lên xuống",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("09d79e39-bbd9-4405-9fa6-8d5cd4fc8c7f"),
-                            CaloriesBurned = 7f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Ski Sit",
-                            Instructions = "Dựa lưng vào tường trong tư thế ngồi, đùi song song với mặt đất",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("9cadb2bc-6ae3-49a1-a094-c89039795ca3"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Straight Leg Donkey Kick",
-                            Instructions = "Đứng bốn chân, đá một chân thẳng ra sau và quay lại",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("7213c6ec-d1ea-4e7e-97b7-5f4cd675f7ba"),
-                            CaloriesBurned = 9f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Bridge Kicker",
-                            Instructions = "Thực hiện động tác nâng hông, đá từng chân một",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("b39f7142-3d9b-4e80-9304-342de4ebe8d0"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Sumo Chair Squats",
-                            Instructions = "Đứng tư thế rộng, squat giữ lưng thẳng",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("c09b0b4e-dfad-4d62-b620-e3a348849393"),
-                            CaloriesBurned = 6f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Side Lunge March",
-                            Instructions = "Bước sang bên thành tư thế lunge, sau đó trở lại",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("2ec9ee3b-2768-4ae4-9246-05cdac76a8a6"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Single Calf Raises",
-                            Instructions = "Đứng một chân, nâng gót chân lên xuống",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("a2be65b5-8135-4a29-a44c-b8f34418c537"),
-                            CaloriesBurned = 7f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Rear Lunges",
-                            Instructions = "Bước một chân ra sau thành tư thế lunge, sau đó trở lại",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("c48fb04a-0b63-4d5b-ad72-6c23a7b8267c"),
-                            CaloriesBurned = 10f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Side to Side Jump Squat",
-                            Instructions = "Thực hiện jump squats trong khi di chuyển từ bên này qua bên kia",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("7910e21a-a190-4a6f-bd87-54b6f54cf5e3"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Prisoner's Squat",
-                            Instructions = "Squat với hai tay đặt sau đầu",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("dfa2b796-d12d-4e7c-93bf-89f412b0d551"),
-                            CaloriesBurned = 6f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Squat & Reach",
-                            Instructions = "Squat xuống, sau đó với tay lên trên",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("55fe0528-86d5-49ab-bb6e-a2345418b5de"),
-                            CaloriesBurned = 10f,
-                            CategoryId = new Guid("7d730669-e718-4c17-ae6e-529636932e62"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Jump Squats with Pulse",
-                            Instructions = "Thực hiện jump squat, giữ ở vị trí thấp trước khi nhảy",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("04424053-69cc-4342-afcf-2b1a62a6dbf1"),
-                            CaloriesBurned = 6f,
-                            CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Pulse Rows",
-                            Instructions = "Ngồi thẳng lưng, gập tay về phía sau như chèo thuyền, giữ nhịp đều",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("15f6c0bf-f983-48c9-b030-863200a7d4eb"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "T Raise",
-                            Instructions = "Đứng thẳng, nâng tay ngang vai thành hình chữ T, sau đó hạ xuống",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("befbdedd-8795-4f9a-842a-00ea9b770f55"),
-                            CaloriesBurned = 7f,
-                            CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Roof Kickback",
-                            Instructions = "Đứng gập người về trước, đẩy tay ra sau, giữ thẳng",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("b3ba3cfc-34a3-4b31-9e1c-78df5bd7910a"),
-                            CaloriesBurned = 6f,
-                            CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Tricep Press",
-                            Instructions = "Ngồi, đặt tay sau lưng, nhấc thân lên bằng cơ tay sau, sau đó hạ xuống",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("9ba0c68f-426b-4459-8b12-7eafc4b43f2b"),
-                            CaloriesBurned = 9f,
-                            CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Push-Up & Rotation",
-                            Instructions = "Thực hiện chống đẩy, sau đó xoay người và nâng một tay lên cao",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("2f3358f6-6e47-4a7e-8ab1-998a4f58386f"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Y Raise",
-                            Instructions = "Đứng thẳng, nâng tay chéo ra trước thành hình chữ Y, sau đó hạ xuống",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("e0176052-1ea9-4af4-8724-6b3b956acdf5"),
-                            CaloriesBurned = 6f,
-                            CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Kneeled Narrow Push-Ups",
-                            Instructions = "Chống đẩy gối xuống sàn, hai tay gần nhau",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("d2efc4c7-fa6e-45d8-a571-61d919650713"),
-                            CaloriesBurned = 9f,
-                            CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Spiderman Push-Ups",
-                            Instructions = "Chống đẩy, mỗi lần hạ xuống, đưa một gối lên gần cùi chỏ",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("4da7a997-6d33-4034-912b-6f1dd1fdab3d"),
-                            CaloriesBurned = 10f,
-                            CategoryId = new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 30,
-                            ExerciseName = "Clap Push-Ups",
-                            Instructions = "Chống đẩy, khi nâng lên vỗ tay trước ngực rồi trở về vị trí cũ",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("e37feb90-ad70-4da1-b274-809412dd808a"),
-                            CaloriesBurned = 12f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 60,
-                            ExerciseName = "Burpees",
-                            Instructions = "Nhảy lên, sau đó hạ xuống tư thế chống đẩy, lặp lại",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("92c92e7d-5eab-491c-8d31-6721158eb1a9"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Running in Place",
-                            Instructions = "Chạy tại chỗ, nâng cao gối một cách nhẹ nhàng",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("5ca4aa32-a164-4e51-b6d5-89db5c8fcc46"),
-                            CaloriesBurned = 12f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Push-Up & Burpees",
-                            Instructions = "Kết hợp chống đẩy và động tác burpee hoàn chỉnh",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"),
-                            CaloriesBurned = 10f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Mountain Climbers",
-                            Instructions = "Tư thế plank, kéo gối xen kẽ về phía ngực như leo núi",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("f344b5e8-c338-4da7-a99c-78952ba2db9b"),
-                            CaloriesBurned = 9f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "High Knees",
-                            Instructions = "Chạy tại chỗ, nâng cao gối ngang hông",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("b8d89172-aa14-4315-a7d9-49a44a7b06ca"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Butt Kickers",
-                            Instructions = "Chạy tại chỗ, gót chân chạm vào mông",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("c26a95d0-b7b6-4654-b05a-768d078258bd"),
-                            CaloriesBurned = 10f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 30,
-                            ExerciseName = "One Leg Side Hops",
-                            Instructions = "Nhảy ngang qua lại bằng một chân, đổi chân xen kẽ",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("32989028-4533-4700-b454-a4df1cfa08a9"),
-                            CaloriesBurned = 7f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Jumping Jacks",
-                            Instructions = "Nhảy dang tay và chân, sau đó thu lại",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("86365264-7f1c-4bc2-8886-92a8523624b4"),
-                            CaloriesBurned = 12f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Tuck Jumps",
-                            Instructions = "Nhảy lên cao, kéo gối sát ngực, sau đó hạ xuống",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("4520be3b-5b4f-43e1-8e09-e10a2d3b3e3a"),
-                            CaloriesBurned = 12f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 30,
-                            ExerciseName = "Lunge Jumps",
-                            Instructions = "Nhảy đổi chân trong tư thế lunge",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("deee2611-a087-4d0d-80f0-53e085a06a82"),
-                            CaloriesBurned = 11f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Plank to Frogger",
-                            Instructions = "Từ tư thế plank, nhảy chân lên gần tay, sau đó trở lại plank",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("bd5485ee-c420-4af7-888f-5022127f4a42"),
-                            CaloriesBurned = 10f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Star Jumps",
-                            Instructions = "Nhảy lên, dang tay chân ra tạo hình ngôi sao, sau đó trở lại",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("7bc46c3f-a8df-499e-a6dc-fd1ed244592f"),
-                            CaloriesBurned = 12f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Box Jumps",
-                            Instructions = "Nhảy lên hộp hoặc bục cao, sau đó nhảy xuống",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("31550981-bdb4-4f14-b209-dc1e9b9a568c"),
-                            CaloriesBurned = 9f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Broad Kicks",
-                            Instructions = "Đá chân rộng ra trước, xen kẽ hai bên",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("53493645-f027-43ff-8d95-c8baff2fb02e"),
-                            CaloriesBurned = 7f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Toe Taps",
-                            Instructions = "Chạm mũi chân vào bậc thang hoặc bề mặt cao, đổi bên liên tục",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("05ece9e8-b50d-4269-acb5-023e839d1c42"),
-                            CaloriesBurned = 9f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Pop Squats",
-                            Instructions = "Nhảy sang tư thế squat, sau đó nhảy trở về",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("53fabb8c-d213-4050-9c00-3d5cf4103635"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Side Shuffle Touch",
-                            Instructions = "Chạy ngang qua lại, chạm tay xuống sàn mỗi lần",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("1945eebf-2077-4c8c-b5ab-42736e5a2b4e"),
-                            CaloriesBurned = 6f,
-                            CategoryId = new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 20,
-                            ExerciseName = "Standing Crawl Stroke",
-                            Instructions = "Bơi sải nhưng đứng tại chỗ, di chuyển tay luân phiên.",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("e202a749-5631-4436-aaec-95dc51b41201"),
-                            CaloriesBurned = 7f,
-                            CategoryId = new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 20,
-                            ExerciseName = "Standing Butterfly Stroke",
-                            Instructions = "Bơi bướm khi đứng tại chỗ, di chuyển cả hai tay đồng thời.",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("44f7957f-4a06-420c-9c37-67251eac8688"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 15,
-                            ExerciseName = "Standing Side Bend",
-                            Instructions = "Đứng thẳng, nghiêng người sang hai bên luân phiên, giữ thẳng lưng.",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("29cffa47-f89b-43c9-ab0a-0eaded59a58d"),
-                            CaloriesBurned = 8f,
-                            CategoryId = new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Modified Side Plank",
-                            Instructions = "Nằm nghiêng, chống tay và gập đầu gối dưới, giữ cơ thể thẳng trong tư thế plank nghiêng.",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("297bf196-67ad-485f-a1a4-a15895074cce"),
-                            CaloriesBurned = 10f,
-                            CategoryId = new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 25,
-                            ExerciseName = "One Leg Side Hops",
-                            Instructions = "Đứng trên một chân, nhảy sang hai bên với khoảng cách ngắn, giữ thăng bằng.",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("e2afc25d-44b9-49da-93cd-ed028acd3581"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 60,
-                            ExerciseName = "Bow Pose",
-                            Instructions = "Nằm sấp, nắm hai cổ chân, kéo chân lên phía đầu để uốn cong cơ thể",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("30515dc2-1295-4401-b204-2a27f00b7fd1"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 45,
-                            ExerciseName = "Seated Spinal Twist",
-                            Instructions = "Ngồi, xoay thân sang một bên, tay đặt lên đầu gối đối diện",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("af2b9f55-ec76-4e40-8fb6-8854f101ee58"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Yoga Squat",
-                            Instructions = "Ngồi xuống thấp, hai tay chắp trước ngực, giữ tư thế yoga",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("5e7c79b5-bbaa-4e8d-bace-3b36fc13960f"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "High Lunge",
-                            Instructions = "Bước một chân về phía trước, chân sau duỗi thẳng, giữ tư thế lunge cao",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("ea43be6e-ed4f-47f2-a4fa-60e34e95f410"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Pyramid",
-                            Instructions = "Đứng, bước một chân ra sau, cúi người xuống chân trước, giữ lưng thẳng",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("34c98139-7bb7-44ad-94d9-0aedb473acb5"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Standing Backbend",
-                            Instructions = "Đứng, uốn cong người ra sau, giữ thăng bằng",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("3195ac62-c7a7-41f4-8208-c1e5f7fecc47"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Goddess",
-                            Instructions = "Đứng, chân rộng, squat nhẹ, tay giơ lên ngang vai",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("712662bf-3def-4bad-83a7-58bd3c4e4f9e"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Humble Warrior",
-                            Instructions = "Từ tư thế lunge, hạ thấp thân, tay chắp ra sau",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("14fe699e-4652-4250-968d-696223001cc9"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Chair Twist",
-                            Instructions = "Ngồi xổm, xoay thân sang một bên, tay chắp trước ngực",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("00355a5e-e30b-4770-a4e5-abf20671a049"),
-                            CaloriesBurned = 4f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 45,
-                            ExerciseName = "Pigeon Base",
-                            Instructions = "Ngồi, một chân duỗi ra sau, một chân gập phía trước",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("73ca30ef-84cf-4e3f-b360-ac33038cb597"),
-                            CaloriesBurned = 4f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Half Frog",
-                            Instructions = "Nằm sấp, co một chân, dùng tay kéo chân gần đầu",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("59514612-923b-46b5-85bb-96ead6cbe61f"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 60,
-                            ExerciseName = "Shoulder Stand",
-                            Instructions = "Nằm ngửa, nâng chân lên cao, hỗ trợ hông bằng tay",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("1766c620-0c7f-4673-8767-bb5702d9e1f0"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Revolved Triangle",
-                            Instructions = "Từ tư thế tam giác, xoay thân và tay hướng xuống chân trước",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("fb102f19-2bf9-4ca1-8222-ea1c35b55f0e"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Peaceful Warrior",
-                            Instructions = "Từ tư thế lunge, đưa tay sau về phía chân sau, tay trước hướng lên",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("6d976edf-2f6a-4d74-bbde-434385f55ced"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Seated Side Bend",
-                            Instructions = "Ngồi, duỗi một tay qua đầu, cúi người sang một bên",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("c56d1ee0-3ea3-4128-9a35-7f97287e11af"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 60,
-                            ExerciseName = "Tiger with Bow",
-                            Instructions = "Từ tư thế bò, nắm một chân kéo lên gần đầu",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("f53ac445-0d94-46a0-ba3a-fbabf2eaa811"),
-                            CaloriesBurned = 4f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 45,
-                            ExerciseName = "Locust Pose",
-                            Instructions = "Nằm sấp, nâng chân và tay lên khỏi mặt đất, giữ tư thế",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("233892f9-f283-4084-a005-7b7121ecc4a1"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 2,
-                            Duration = 45,
-                            ExerciseName = "Accomplished Eagle",
-                            Instructions = "Đứng, quấn tay và chân lại với nhau, giữ thăng bằng",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("45049ee3-e43a-4395-ab5e-ada8b7bfbb3a"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Extended Arm Circles",
-                            Instructions = "Đứng thẳng, xoay hai tay theo vòng tròn lớn",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("fba9adfd-be77-4cf4-81b0-aeb21506cbbf"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Ankle Twist",
-                            Instructions = "Ngồi, xoay cổ chân theo vòng tròn",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("14399a61-ccab-4af5-91fb-04fdc1f92c20"),
-                            CaloriesBurned = 4f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 45,
-                            ExerciseName = "Bridges",
-                            Instructions = "Nằm ngửa, nâng hông lên cao, giữ lưng thẳng",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("15fe99fe-0ae1-4727-a104-5ce133c0c5e2"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Slow Box",
-                            Instructions = "Di chuyển chậm trong tư thế squat, bước qua lại như hộp vuông",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("e1092fc5-3c26-441c-9c3d-f281f17a5bc1"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Knee Circles",
-                            Instructions = "Đứng, đặt tay lên gối, xoay gối theo vòng tròn",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("6b331c4b-71ad-4e2b-930f-64cff22abaf6"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Hip Circles",
-                            Instructions = "Đứng, xoay hông theo vòng tròn lớn",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("90aa224f-411a-4a5d-abbe-e6ed94b209c2"),
-                            CaloriesBurned = 4f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Single Leg Runner",
-                            Instructions = "Đứng một chân, nghiêng người về trước, đá chân sau ra sau",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Step Touch",
-                            Instructions = "Bước sang hai bên, chạm tay xuống chân mỗi lần bước",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("4ea81029-ce2f-4c13-928d-b2b576446283"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Windmill",
-                            Instructions = "Đứng, cúi người, tay chạm ngón chân đối diện, luân phiên hai bên",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("29336dc7-f70f-4ced-a225-dacc6007f912"),
-                            CaloriesBurned = 4f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Inchworms",
-                            Instructions = "Đứng, cúi người, đi tay ra phía trước thành tư thế plank, sau đó quay lại",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("466c1a67-f7bb-4203-affb-1fd19faf2e72"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Heel Touches",
-                            Instructions = "Nằm ngửa, gập gối, chạm tay vào gót chân hai bên",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("c7c451d2-c4ee-47b5-8caf-f09d0836ae78"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Toe Touch Walk",
-                            Instructions = "Đi bộ, gập người chạm ngón tay vào ngón chân mỗi bước",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("eb69be55-8aa5-47b0-b633-12770fe6ac5a"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Jogging",
-                            Instructions = "Chạy bộ nhẹ tại chỗ hoặc ngoài trời",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("fe68c0ac-1b8e-4712-a0d1-a41ca15833e9"),
-                            CaloriesBurned = 5f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 1,
-                            Duration = 30,
-                            ExerciseName = "Jump Rope",
-                            Instructions = "Nhảy dây với nhịp độ ổn định",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("ec2cfe0e-3949-4572-9c02-2c2f5dcc2f1d"),
-                            CaloriesBurned = 3f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Supine Marching",
-                            Instructions = "Nằm ngửa, gập gối, nâng từng chân lên xuống như đi bộ",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("b0d4c89e-5ced-4782-b76a-0be207aa4725"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Shoulder Roll",
-                            Instructions = "Đứng, xoay vai theo vòng tròn",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("f8c6b372-1b43-45c3-93ca-99e6e9ab734b"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Teres Roll",
-                            Instructions = "Xoay nhẹ cánh tay trên để khởi động cơ vai",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        },
-                        new
-                        {
-                            ExerciseId = new Guid("9ac85a51-9155-40ef-a7eb-d5561c238c4f"),
-                            CaloriesBurned = 2f,
-                            CategoryId = new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Difficulty = 0,
-                            Duration = 30,
-                            ExerciseName = "Triceps Roll",
-                            Instructions = "Xoay nhẹ cánh tay để làm nóng cơ tam đầu",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
-                        });
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
@@ -13903,10 +12389,16 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("AppUserId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Intensity")
+                    b.Property<int>("DifficultyLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rounds")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -13930,86 +12422,9 @@ namespace Monhealth.Identity.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Workouts");
+                    b.HasIndex("CategoryId");
 
-                    b.HasData(
-                        new
-                        {
-                            WorkoutId = new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Intensity = 1,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Views = 0,
-                            WorkoutDescription = "Kết hợp toàn thân để tăng cường năng lượng và khởi động ngày mới hiệu quả",
-                            WorkoutName = "Toàn thân năng động"
-                        },
-                        new
-                        {
-                            WorkoutId = new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Intensity = 2,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Views = 0,
-                            WorkoutDescription = "Đốt cháy calo và tăng sức bền với các bài tập cardio cường độ cao",
-                            WorkoutName = "Tăng nhịp tim"
-                        },
-                        new
-                        {
-                            WorkoutId = new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Intensity = 1,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Views = 0,
-                            WorkoutDescription = "Tăng cường sức mạnh cơ bụng và vùng core để cải thiện tư thế và độ bền",
-                            WorkoutName = "Cơ bụng vững chắc"
-                        },
-                        new
-                        {
-                            WorkoutId = new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Intensity = 1,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Views = 0,
-                            WorkoutDescription = "Phát triển cơ chân và mông, giúp tăng cường sức mạnh và sự linh hoạt",
-                            WorkoutName = "Chân & mông khỏe mạnh"
-                        },
-                        new
-                        {
-                            WorkoutId = new Guid("784c8491-28cd-478c-8101-63472dfda717"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Intensity = 2,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Views = 0,
-                            WorkoutDescription = "Tăng cường sức mạnh thân trên với các bài tập tay, vai và ngực cường độ cao",
-                            WorkoutName = "Cơ tay và ngực săn chắc"
-                        },
-                        new
-                        {
-                            WorkoutId = new Guid("0b56cd61-ca2c-4bac-9127-2211cceecf80"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Intensity = 1,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Views = 0,
-                            WorkoutDescription = "Nhẹ nhàng và dễ tiếp cận, phù hợp với người mới bắt đầu hoặc cần buổi tập nhẹ nhàng",
-                            WorkoutName = "Người mới bắt đầu"
-                        },
-                        new
-                        {
-                            WorkoutId = new Guid("234104de-c069-401d-8b01-01fb47e2c03b"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Intensity = 0,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Views = 0,
-                            WorkoutDescription = "Thư giãn cơ bắp và cải thiện sự linh hoạt với các bài tập giãn cơ nhẹ nhàng",
-                            WorkoutName = "Linh hoạt và thư giãn"
-                        });
+                    b.ToTable("Workouts");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.WorkoutExercise", b =>
@@ -14027,6 +12442,12 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid>("ExerciseId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Reps")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -14043,238 +12464,6 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("WorkoutId");
 
                     b.ToTable("WorkoutExercises");
-
-                    b.HasData(
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("440e1f46-0361-495f-b9b6-03bd99be6dd6"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 30,
-                            ExerciseId = new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("53f28cf0-bfb7-4822-b498-98030242d684"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 40,
-                            ExerciseId = new Guid("9ba0c68f-426b-4459-8b12-7eafc4b43f2b"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("b54a6273-c852-4f9f-ad9a-ef2ab342be4f"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 30,
-                            ExerciseId = new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("ad2baedb-70e4-45cc-9dae-8f94a4e564fc"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 40,
-                            ExerciseId = new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("f14e551c-e858-4201-8619-c5feb33ad5d7"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 30,
-                            ExerciseId = new Guid("e37feb90-ad70-4da1-b274-809412dd808a"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("d96655a8-a3a1-47dc-918c-f1703a54006c"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 60,
-                            ExerciseId = new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("5f02ecd3-3c8f-4319-822b-8911c3d0dfc0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 40,
-                            ExerciseId = new Guid("f344b5e8-c338-4da7-a99c-78952ba2db9b"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("7a4da432-0269-4a32-8d30-488b4d174ab0"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 40,
-                            ExerciseId = new Guid("e37feb90-ad70-4da1-b274-809412dd808a"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("d605d7e2-6197-45f0-9208-0509fbb44288"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 30,
-                            ExerciseId = new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("9e3f31ec-1057-46c5-816d-507df552212a"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 60,
-                            ExerciseId = new Guid("32989028-4533-4700-b454-a4df1cfa08a9"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("4f4d2978-7d82-40b0-a6ae-3914c5f54ca5"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 30,
-                            ExerciseId = new Guid("86365264-7f1c-4bc2-8886-92a8523624b4"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("9953ed04-47b6-40f3-8140-00aee886df55"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 60,
-                            ExerciseId = new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("a7789457-d825-4e0a-a9f8-9eedf52a98e5"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 60,
-                            ExerciseId = new Guid("2f4c14b8-3207-40dc-8233-1ec310a47dd5"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("8d6846eb-2674-4e2a-8b89-cc2667c6b97d"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 40,
-                            ExerciseId = new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("a708f5b6-2558-45eb-ba2f-ca83b303f0c2"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 40,
-                            ExerciseId = new Guid("c0d1b74c-521b-428b-9776-0f9e95bd0ef0"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("886ccc23-701c-4d7e-afa2-40ee329aa2ec"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 30,
-                            ExerciseId = new Guid("c37426f7-6e98-4dcd-85b5-49e9e75aa380"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("8fc55282-5df6-4de8-9d78-3507c8a5cbbe"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 30,
-                            ExerciseId = new Guid("67c5180f-978d-4cd7-ae1e-57fa80ac5e27"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("248cd183-900d-4e67-b342-42104a3802be"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 40,
-                            ExerciseId = new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("d6d226d2-e61a-43e8-bba6-9080626abc71"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 30,
-                            ExerciseId = new Guid("c09b0b4e-dfad-4d62-b620-e3a348849393"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("1ed0e8da-bf42-48dd-8e76-b42af3ebc4f4"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 60,
-                            ExerciseId = new Guid("7213c6ec-d1ea-4e7e-97b7-5f4cd675f7ba"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("630acd33-1a48-44a4-b16d-89064db798df"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 80,
-                            ExerciseId = new Guid("9cadb2bc-6ae3-49a1-a094-c89039795ca3"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("731f3de2-8e37-4de9-bbfd-c4edaad2dce3"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 50,
-                            ExerciseId = new Guid("b39f7142-3d9b-4e80-9304-342de4ebe8d0"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c")
-                        },
-                        new
-                        {
-                            WorkoutExerciseId = new Guid("e3fd5d0b-16e3-4edd-be05-5a52962dc8a2"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Duration = 60,
-                            ExerciseId = new Guid("00355a5e-e30b-4770-a4e5-abf20671a049"),
-                            Status = false,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            WorkoutId = new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c")
-                        });
                 });
 
             modelBuilder.Entity("Monhealth.Identity.Models.AppRole", b =>
@@ -14445,7 +12634,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7e975e5a-3bbf-42eb-a15b-7ebf3334457e",
+                            ConcurrencyStamp = "45a6d447-1043-4ad3-91ff-941c5565253a",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quocdai@gmail.com",
@@ -14454,10 +12643,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAELzz6tBnxg4G1anYxV0XpXmJC3dxKR2gOcx3NqdMwnAAKah5UCFJ0p+W7vDwZqvx/g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO0CJryBoomLUL0X69FdApay6fKegZVUycrncJBsy6V9WVcOhKxXZNqTLzFz6OFpQA==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "899453e9-97da-4058-afb4-878265e50e6e",
+                            SecurityStamp = "da942a6c-3900-4552-b8a1-da93fe6cca2f",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -14468,7 +12657,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "05848809-ebfb-431c-b9f6-2ffce21a2cd3",
+                            ConcurrencyStamp = "8a41354d-8288-4f57-8655-7d855066d999",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "toanvan@gmail.com",
@@ -14477,10 +12666,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPRYMXXUvIF0hFsHmkiaThTgRJEHmxFt0lDPPKn6c5Tv9HgMhrQQosNKGEGcolEU1w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGyfnTp+x7HlPBLCHh/PqNA7I4LOcYSRp7OGNBoXl2jSdzzr2XNqggH9NtIsNGzJfQ==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2e008968-d637-4d1e-9341-f5c4a9f6c0cc",
+                            SecurityStamp = "8c63c780-315f-4873-893a-2ab2e3e559b2",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -14491,7 +12680,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d03e8629-b4b5-42a7-804d-94c3f47c173f",
+                            ConcurrencyStamp = "d10d5ef0-53a4-495a-809b-7ce0e794eaa3",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khanhpham@gmail.com",
@@ -14500,10 +12689,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDvx/LGJuVNpd6jW/a/FF+E39OC7z/ujOEysA5XWBDo33Koz5pXfA5H/o577ViiS/w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJGsqKRhNjuLeGkJnRaB7urTL9yxThSIJ2hxod03wIv0aKjHVg3FJxeEBx17BQRHXg==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4ac5063a-c078-460f-97cf-6b9fed070762",
+                            SecurityStamp = "0fdca797-0e47-408f-8229-a695d0ae92e6",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -14514,7 +12703,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4dd740c9-deb9-4a10-a2fe-b55acf43803a",
+                            ConcurrencyStamp = "e1c8df65-f244-40b1-b263-fefed48d01a8",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khaitoi@gmail.com",
@@ -14523,10 +12712,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBHfreMwT2wG8KQmwbQdU9B94QKVAyxU8j0DmEpt1gPSiITNhExU4KiHsjt3dsRF0g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPh7f1knAmBx9Ej0PfmWflQ9Tnx/w3GPO/Q3spESHRCpFg7CIsqbv3upNawBDLhAQA==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4c52bca3-e45a-4643-89a1-d8f09e3787eb",
+                            SecurityStamp = "62768619-7ce0-4b2d-b949-db9e35e98de5",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -14537,7 +12726,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "64c173df-4595-4bbf-a016-3e5fd09181a4",
+                            ConcurrencyStamp = "108a8359-9243-420b-a0ba-c5d2b307d45a",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quangdalat@gmail.com",
@@ -14546,10 +12735,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDqlMm/bOtcJ62XTcQxInBsVLzYfkei18X3ciVffhmHxsBUShG2svJm3nsH3dpGA7g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENGZaDe1WDEkWxxlpVuFFLzU+dwY9RJ5cIh+O7U5ax1wR+Uao6lRMymmDBdBRTG2Tw==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d5602152-e2a6-41ff-89c4-f14e58a1a004",
+                            SecurityStamp = "9801f951-4dd6-44c3-b760-260a84b5c787",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -14560,7 +12749,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7ffa9ed1-0a31-4f09-ab0a-40ca7cd1f2ef",
+                            ConcurrencyStamp = "674b4a95-c23b-43cc-b239-2039afb87243",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "duythunglungtinhiu@gmail.com",
@@ -14569,10 +12758,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDqzSds1vWSMXhx+uNPwzGc52w2s/zvIlL+/W6FuQGPBug4ylOcaZ6Myu7OmgeSCcg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHh9L/4xnJl9NQDYFjOa0wM733/gMbMh6gR5CLE2Z6Q71GmxmgqaW++++aheGii0Rw==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "764b02e3-c2ea-40de-ac1b-f36233068407",
+                            SecurityStamp = "9bf85667-7aa4-4546-983c-6bea7e5b434b",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -14583,7 +12772,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b1a2742f-9eac-44a2-9c0c-d123b85a4b5c",
+                            ConcurrencyStamp = "a910dc59-315b-45e8-984c-0ff8b6682c7b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "asd@gmail.com",
@@ -14592,10 +12781,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOBycrKqtOgVGRfZDLkW01k516m8Wc/hezB/cLTxheZT++g/TYk2Ya0PVAfaAB+K/A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELjaM0mnkgtrNnn/Ib6hiMyNPIoTPk6EVcB0WUuIjaLteghXGheW6jVxcCHxHJQSUQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b39e446a-1a55-4f3b-83c9-e2bfb43ce734",
+                            SecurityStamp = "97080b67-9b98-4c1f-92a2-8bebaf3c2cab",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -14815,12 +13004,6 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Exercise", b =>
                 {
-                    b.HasOne("Monhealth.Domain.Category", "Category")
-                        .WithMany("Exercises")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
                         .WithMany("Exercises")
                         .HasForeignKey("UserId")
@@ -14828,8 +13011,6 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
 
                     b.Navigation("AppUser");
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
@@ -15007,6 +13188,14 @@ namespace Monhealth.Identity.Migrations
                     b.HasOne("Monhealth.Identity.Models.AppUser", null)
                         .WithMany("Workouts")
                         .HasForeignKey("AppUserId");
+
+                    b.HasOne("Monhealth.Domain.Category", "Category")
+                        .WithMany("Workouts")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.WorkoutExercise", b =>
@@ -15042,9 +13231,9 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Category", b =>
                 {
-                    b.Navigation("Exercises");
-
                     b.Navigation("Foods");
+
+                    b.Navigation("Workouts");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Certificate", b =>

@@ -1,5 +1,4 @@
-﻿using Monhealth.Domain;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -34,7 +33,6 @@ namespace Monhealth.Application.Features.Exercise.Commands.UpdateExercise
                 throw new Exception("Bài tập không tồn tại.");
             }
             var updateExercise = _mapper.Map(request.UpdateExerciseDTO, existingExercise);
-            updateExercise.CategoryId = category.CategoryId;
             updateExercise.UpdatedAt = DateTime.Now;
             _exerciseRepository.Update(updateExercise);
             await _exerciseRepository.SaveChangeAsync();

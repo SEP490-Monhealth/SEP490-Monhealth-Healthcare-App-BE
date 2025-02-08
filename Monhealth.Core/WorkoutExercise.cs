@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Monhealth.Domain.Common;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Monhealth.Domain.Common;
 
 
 namespace Monhealth.Domain
@@ -11,7 +11,9 @@ namespace Monhealth.Domain
         public Guid WorkoutExerciseId { get; set; }
         public Guid WorkoutId { get; set; }
         public Guid ExerciseId { get; set; }
+        public int Order { get; set; }
         public int Duration { get; set; }
+        public int Reps { get; set; }
         public bool Status { get; set; }
 
         [ForeignKey(nameof(WorkoutId))]

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Monhealth.Identity.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDbAndSeedData : Migration
+    public partial class InitialAndSeedData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -260,6 +260,33 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Exercises",
+                columns: table => new
+                {
+                    ExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ExerciseType = table.Column<int>(type: "int", nullable: false),
+                    ExerciseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Instructions = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CalriesPerMinute = table.Column<float>(type: "real", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exercises", x => x.ExerciseId);
+                    table.ForeignKey(
+                        name: "FK_Exercises_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Goals",
                 columns: table => new
                 {
@@ -443,65 +470,6 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Workouts",
-                columns: table => new
-                {
-                    WorkoutId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    WorkoutName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WorkoutDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Intensity = table.Column<int>(type: "int", nullable: false),
-                    Views = table.Column<int>(type: "int", nullable: false),
-                    AppUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Workouts", x => x.WorkoutId);
-                    table.ForeignKey(
-                        name: "FK_Workouts_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Exercises",
-                columns: table => new
-                {
-                    ExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExerciseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Instructions = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Duration = table.Column<int>(type: "int", nullable: false),
-                    CaloriesBurned = table.Column<float>(type: "real", nullable: false),
-                    Difficulty = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Exercises", x => x.ExerciseId);
-                    table.ForeignKey(
-                        name: "FK_Exercises_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Exercises_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Foods",
                 columns: table => new
                 {
@@ -535,6 +503,38 @@ namespace Monhealth.Identity.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Workouts",
+                columns: table => new
+                {
+                    WorkoutId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WorkoutName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WorkoutDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DifficultyLevel = table.Column<int>(type: "int", nullable: false),
+                    Views = table.Column<int>(type: "int", nullable: false),
+                    Rounds = table.Column<int>(type: "int", nullable: false),
+                    AppUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Workouts", x => x.WorkoutId);
+                    table.ForeignKey(
+                        name: "FK_Workouts_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Workouts_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -709,35 +709,6 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "WorkoutExercises",
-                columns: table => new
-                {
-                    WorkoutExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    WorkoutId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Duration = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_WorkoutExercises", x => x.WorkoutExerciseId);
-                    table.ForeignKey(
-                        name: "FK_WorkoutExercises_Exercises_ExerciseId",
-                        column: x => x.ExerciseId,
-                        principalTable: "Exercises",
-                        principalColumn: "ExerciseId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_WorkoutExercises_Workouts_WorkoutId",
-                        column: x => x.WorkoutId,
-                        principalTable: "Workouts",
-                        principalColumn: "WorkoutId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "FoodAllergies",
                 columns: table => new
                 {
@@ -829,6 +800,37 @@ namespace Monhealth.Identity.Migrations
                         column: x => x.FoodId,
                         principalTable: "Foods",
                         principalColumn: "FoodId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WorkoutExercises",
+                columns: table => new
+                {
+                    WorkoutExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WorkoutId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ExerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Order = table.Column<int>(type: "int", nullable: false),
+                    Duration = table.Column<int>(type: "int", nullable: false),
+                    Reps = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkoutExercises", x => x.WorkoutExerciseId);
+                    table.ForeignKey(
+                        name: "FK_WorkoutExercises_Exercises_ExerciseId",
+                        column: x => x.ExerciseId,
+                        principalTable: "Exercises",
+                        principalColumn: "ExerciseId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_WorkoutExercises_Workouts_WorkoutId",
+                        column: x => x.WorkoutId,
+                        principalTable: "Workouts",
+                        principalColumn: "WorkoutId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -996,13 +998,13 @@ namespace Monhealth.Identity.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Avatar", "ConcurrencyStamp", "CreatedAt", "CreatedBy", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RefreshToken", "RefreshTokenExpiryTime", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedAt", "UpdatedBy", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, "d03e8629-b4b5-42a7-804d-94c3f47c173f", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "khanhpham@gmail.com", true, "Nguyen Pham Khanh", false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAEDvx/LGJuVNpd6jW/a/FF+E39OC7z/ujOEysA5XWBDo33Koz5pXfA5H/o577ViiS/w==", "0969998878", false, null, null, "4ac5063a-c078-460f-97cf-6b9fed070762", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "kuem113" },
-                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, "7ffa9ed1-0a31-4f09-ab0a-40ca7cd1f2ef", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEDqzSds1vWSMXhx+uNPwzGc52w2s/zvIlL+/W6FuQGPBug4ylOcaZ6Myu7OmgeSCcg==", "0555666612", false, null, null, "764b02e3-c2ea-40de-ac1b-f36233068407", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "duypro113" },
-                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, "7e975e5a-3bbf-42eb-a15b-7ebf3334457e", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "quocdai@gmail.com", true, "Nguyen Quoc Dai", false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAELzz6tBnxg4G1anYxV0XpXmJC3dxKR2gOcx3NqdMwnAAKah5UCFJ0p+W7vDwZqvx/g==", "0932748924", false, null, null, "899453e9-97da-4058-afb4-878265e50e6e", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "dainq115" },
-                    { new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, null, "b1a2742f-9eac-44a2-9c0c-d123b85a4b5c", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "asd@gmail.com", true, "asd", false, null, "ASD@GMAIL.COM", "ASD", "AQAAAAIAAYagAAAAEOBycrKqtOgVGRfZDLkW01k516m8Wc/hezB/cLTxheZT++g/TYk2Ya0PVAfaAB+K/A==", "0123456789", false, null, null, "b39e446a-1a55-4f3b-83c9-e2bfb43ce734", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "asd" },
-                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, "4dd740c9-deb9-4a10-a2fe-b55acf43803a", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "khaitoi@gmail.com", true, "Phan Van Khai", false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEBHfreMwT2wG8KQmwbQdU9B94QKVAyxU8j0DmEpt1gPSiITNhExU4KiHsjt3dsRF0g==", "0963122758", false, null, null, "4c52bca3-e45a-4643-89a1-d8f09e3787eb", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "xautrai123" },
-                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, "64c173df-4595-4bbf-a016-3e5fd09181a4", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "quangdalat@gmail.com", true, "Quang La Tui", false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAEDqlMm/bOtcJ62XTcQxInBsVLzYfkei18X3ciVffhmHxsBUShG2svJm3nsH3dpGA7g==", "0999777712", false, null, null, "d5602152-e2a6-41ff-89c4-f14e58a1a004", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "quangspa09" },
-                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, "05848809-ebfb-431c-b9f6-2ffce21a2cd3", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "toanvan@gmail.com", true, "Van Huu Toan", false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEPRYMXXUvIF0hFsHmkiaThTgRJEHmxFt0lDPPKn6c5Tv9HgMhrQQosNKGEGcolEU1w==", "0792766979", false, null, null, "2e008968-d637-4d1e-9341-f5c4a9f6c0cc", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "vipro123" }
+                    { new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"), 0, null, "d10d5ef0-53a4-495a-809b-7ce0e794eaa3", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "khanhpham@gmail.com", true, "Nguyen Pham Khanh", false, null, "KHANHPHAM@GMAIL.COM", "KUEM113", "AQAAAAIAAYagAAAAEJGsqKRhNjuLeGkJnRaB7urTL9yxThSIJ2hxod03wIv0aKjHVg3FJxeEBx17BQRHXg==", "0969998878", false, null, null, "0fdca797-0e47-408f-8229-a695d0ae92e6", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "kuem113" },
+                    { new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"), 0, null, "674b4a95-c23b-43cc-b239-2039afb87243", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "duythunglungtinhiu@gmail.com", true, "Pham Hoai Duy", false, null, "DUYTHUNGLUNGTINHIU", "DUYPRO113", "AQAAAAIAAYagAAAAEHh9L/4xnJl9NQDYFjOa0wM733/gMbMh6gR5CLE2Z6Q71GmxmgqaW++++aheGii0Rw==", "0555666612", false, null, null, "9bf85667-7aa4-4546-983c-6bea7e5b434b", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "duypro113" },
+                    { new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"), 0, null, "45a6d447-1043-4ad3-91ff-941c5565253a", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "quocdai@gmail.com", true, "Nguyen Quoc Dai", false, null, "QUOCDAI@GMAIL.COM", "DAINQ115", "AQAAAAIAAYagAAAAEO0CJryBoomLUL0X69FdApay6fKegZVUycrncJBsy6V9WVcOhKxXZNqTLzFz6OFpQA==", "0932748924", false, null, null, "da942a6c-3900-4552-b8a1-da93fe6cca2f", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "dainq115" },
+                    { new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, null, "a910dc59-315b-45e8-984c-0ff8b6682c7b", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "asd@gmail.com", true, "asd", false, null, "ASD@GMAIL.COM", "ASD", "AQAAAAIAAYagAAAAELjaM0mnkgtrNnn/Ib6hiMyNPIoTPk6EVcB0WUuIjaLteghXGheW6jVxcCHxHJQSUQ==", "0123456789", false, null, null, "97080b67-9b98-4c1f-92a2-8bebaf3c2cab", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "asd" },
+                    { new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"), 0, null, "e1c8df65-f244-40b1-b263-fefed48d01a8", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "khaitoi@gmail.com", true, "Phan Van Khai", false, null, "KHAITOI@GMAIL.COM", "XAUTRAI123", "AQAAAAIAAYagAAAAEPh7f1knAmBx9Ej0PfmWflQ9Tnx/w3GPO/Q3spESHRCpFg7CIsqbv3upNawBDLhAQA==", "0963122758", false, null, null, "62768619-7ce0-4b2d-b949-db9e35e98de5", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "xautrai123" },
+                    { new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"), 0, null, "108a8359-9243-420b-a0ba-c5d2b307d45a", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "quangdalat@gmail.com", true, "Quang La Tui", false, null, "QUANGDALAT@GMAIL.COM", "QUANGSPA009", "AQAAAAIAAYagAAAAENGZaDe1WDEkWxxlpVuFFLzU+dwY9RJ5cIh+O7U5ax1wR+Uao6lRMymmDBdBRTG2Tw==", "0999777712", false, null, null, "9801f951-4dd6-44c3-b760-260a84b5c787", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "quangspa09" },
+                    { new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"), 0, null, "8a41354d-8288-4f57-8655-7d855066d999", new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "toanvan@gmail.com", true, "Van Huu Toan", false, null, "TOANVAN@GMAIL.COM", "VIPRO123", "AQAAAAIAAYagAAAAEGyfnTp+x7HlPBLCHh/PqNA7I4LOcYSRp7OGNBoXl2jSdzzr2XNqggH9NtIsNGzJfQ==", "0792766979", false, null, null, "8c63c780-315f-4873-893a-2ab2e3e559b2", true, false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), "vipro123" }
                 });
 
             migrationBuilder.InsertData(
@@ -1165,20 +1167,6 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Workouts",
-                columns: new[] { "WorkoutId", "AppUserId", "CreatedAt", "Intensity", "UpdatedAt", "UserId", "Views", "WorkoutDescription", "WorkoutName" },
-                values: new object[,]
-                {
-                    { new Guid("0b56cd61-ca2c-4bac-9127-2211cceecf80"), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, "Nhẹ nhàng và dễ tiếp cận, phù hợp với người mới bắt đầu hoặc cần buổi tập nhẹ nhàng", "Người mới bắt đầu" },
-                    { new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c"), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, "Phát triển cơ chân và mông, giúp tăng cường sức mạnh và sự linh hoạt", "Chân & mông khỏe mạnh" },
-                    { new Guid("234104de-c069-401d-8b01-01fb47e2c03b"), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, "Thư giãn cơ bắp và cải thiện sự linh hoạt với các bài tập giãn cơ nhẹ nhàng", "Linh hoạt và thư giãn" },
-                    { new Guid("784c8491-28cd-478c-8101-63472dfda717"), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, "Tăng cường sức mạnh thân trên với các bài tập tay, vai và ngực cường độ cao", "Cơ tay và ngực săn chắc" },
-                    { new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7"), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, "Kết hợp toàn thân để tăng cường năng lượng và khởi động ngày mới hiệu quả", "Toàn thân năng động" },
-                    { new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8"), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, "Đốt cháy calo và tăng sức bền với các bài tập cardio cường độ cao", "Tăng nhịp tim" },
-                    { new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c"), null, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, "Tăng cường sức mạnh cơ bụng và vùng core để cải thiện tư thế và độ bền", "Cơ bụng vững chắc" }
-                });
-
-            migrationBuilder.InsertData(
                 table: "AppUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
@@ -1190,107 +1178,6 @@ namespace Monhealth.Identity.Migrations
                     { new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"), new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d") },
                     { new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"), new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
                     { new Guid("c0278115-8549-4fad-890a-44f8e8fcc022"), new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87") }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Exercises",
-                columns: new[] { "ExerciseId", "CaloriesBurned", "CategoryId", "CreatedAt", "CreatedBy", "Difficulty", "Duration", "ExerciseName", "Instructions", "Status", "UpdatedAt", "UpdatedBy", "UserId" },
-                values: new object[,]
-                {
-                    { new Guid("00355a5e-e30b-4770-a4e5-abf20671a049"), 4f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 45, "Pigeon Base", "Ngồi, một chân duỗi ra sau, một chân gập phía trước", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("04424053-69cc-4342-afcf-2b1a62a6dbf1"), 6f, new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Pulse Rows", "Ngồi thẳng lưng, gập tay về phía sau như chèo thuyền, giữ nhịp đều", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("05ece9e8-b50d-4269-acb5-023e839d1c42"), 9f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Pop Squats", "Nhảy sang tư thế squat, sau đó nhảy trở về", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("09d79e39-bbd9-4405-9fa6-8d5cd4fc8c7f"), 7f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Ski Sit", "Dựa lưng vào tường trong tư thế ngồi, đùi song song với mặt đất", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("14399a61-ccab-4af5-91fb-04fdc1f92c20"), 4f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 45, "Bridges", "Nằm ngửa, nâng hông lên cao, giữ lưng thẳng", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("14fe699e-4652-4250-968d-696223001cc9"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Chair Twist", "Ngồi xổm, xoay thân sang một bên, tay chắp trước ngực", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("15f6c0bf-f983-48c9-b030-863200a7d4eb"), 5f, new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "T Raise", "Đứng thẳng, nâng tay ngang vai thành hình chữ T, sau đó hạ xuống", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("15fe99fe-0ae1-4727-a104-5ce133c0c5e2"), 3f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Slow Box", "Di chuyển chậm trong tư thế squat, bước qua lại như hộp vuông", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("1766c620-0c7f-4673-8767-bb5702d9e1f0"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Revolved Triangle", "Từ tư thế tam giác, xoay thân và tay hướng xuống chân trước", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("1945eebf-2077-4c8c-b5ab-42736e5a2b4e"), 6f, new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 20, "Standing Crawl Stroke", "Bơi sải nhưng đứng tại chỗ, di chuyển tay luân phiên.", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"), 10f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Jump Squats", "Thực hiện động tác squat, sau đó nhảy lên mạnh mẽ", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Step Touch", "Bước sang hai bên, chạm tay xuống chân mỗi lần bước", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("233892f9-f283-4084-a005-7b7121ecc4a1"), 5f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Accomplished Eagle", "Đứng, quấn tay và chân lại với nhau, giữ thăng bằng", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("29336dc7-f70f-4ced-a225-dacc6007f912"), 4f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Inchworms", "Đứng, cúi người, đi tay ra phía trước thành tư thế plank, sau đó quay lại", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("297bf196-67ad-485f-a1a4-a15895074cce"), 10f, new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 25, "One Leg Side Hops", "Đứng trên một chân, nhảy sang hai bên với khoảng cách ngắn, giữ thăng bằng.", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("29cffa47-f89b-43c9-ab0a-0eaded59a58d"), 8f, new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Modified Side Plank", "Nằm nghiêng, chống tay và gập đầu gối dưới, giữ cơ thể thẳng trong tư thế plank nghiêng.", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("2ec9ee3b-2768-4ae4-9246-05cdac76a8a6"), 5f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Single Calf Raises", "Đứng một chân, nâng gót chân lên xuống", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("2f3358f6-6e47-4a7e-8ab1-998a4f58386f"), 5f, new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Y Raise", "Đứng thẳng, nâng tay chéo ra trước thành hình chữ Y, sau đó hạ xuống", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("2f4c14b8-3207-40dc-8233-1ec310a47dd5"), 5f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 60, "Plank", "Nằm úp, nâng cơ thể bằng khuỷu tay và ngón chân. Giữ cơ thể thẳng. Giữ tư thế này", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("30515dc2-1295-4401-b204-2a27f00b7fd1"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 45, "Seated Spinal Twist", "Ngồi, xoay thân sang một bên, tay đặt lên đầu gối đối diện", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("31550981-bdb4-4f14-b209-dc1e9b9a568c"), 9f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Broad Kicks", "Đá chân rộng ra trước, xen kẽ hai bên", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("3195ac62-c7a7-41f4-8208-c1e5f7fecc47"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Goddess", "Đứng, chân rộng, squat nhẹ, tay giơ lên ngang vai", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("32989028-4533-4700-b454-a4df1cfa08a9"), 7f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Jumping Jacks", "Nhảy dang tay và chân, sau đó thu lại", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("34c98139-7bb7-44ad-94d9-0aedb473acb5"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Standing Backbend", "Đứng, uốn cong người ra sau, giữ thăng bằng", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("44f7957f-4a06-420c-9c37-67251eac8688"), 5f, new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 15, "Standing Side Bend", "Đứng thẳng, nghiêng người sang hai bên luân phiên, giữ thẳng lưng.", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("45049ee3-e43a-4395-ab5e-ada8b7bfbb3a"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Extended Arm Circles", "Đứng thẳng, xoay hai tay theo vòng tròn lớn", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("4520be3b-5b4f-43e1-8e09-e10a2d3b3e3a"), 12f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 30, "Lunge Jumps", "Nhảy đổi chân trong tư thế lunge", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("466c1a67-f7bb-4203-affb-1fd19faf2e72"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Heel Touches", "Nằm ngửa, gập gối, chạm tay vào gót chân hai bên", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("4c2f77bb-3bb2-4348-b6cd-a5325f3b2214"), 5f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Outer Thigh Raises", "Nằm nghiêng, nâng chân trên lên xuống", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("4da7a997-6d33-4034-912b-6f1dd1fdab3d"), 10f, new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 30, "Clap Push-Ups", "Chống đẩy, khi nâng lên vỗ tay trước ngực rồi trở về vị trí cũ", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("4ea81029-ce2f-4c13-928d-b2b576446283"), 3f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Windmill", "Đứng, cúi người, tay chạm ngón chân đối diện, luân phiên hai bên", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("53493645-f027-43ff-8d95-c8baff2fb02e"), 7f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Toe Taps", "Chạm mũi chân vào bậc thang hoặc bề mặt cao, đổi bên liên tục", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("53fabb8c-d213-4050-9c00-3d5cf4103635"), 8f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Side Shuffle Touch", "Chạy ngang qua lại, chạm tay xuống sàn mỗi lần", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("55fe0528-86d5-49ab-bb6e-a2345418b5de"), 10f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Jump Squats with Pulse", "Thực hiện jump squat, giữ ở vị trí thấp trước khi nhảy", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("59514612-923b-46b5-85bb-96ead6cbe61f"), 5f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 60, "Shoulder Stand", "Nằm ngửa, nâng chân lên cao, hỗ trợ hông bằng tay", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("5ca4aa32-a164-4e51-b6d5-89db5c8fcc46"), 12f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Push-Up & Burpees", "Kết hợp chống đẩy và động tác burpee hoàn chỉnh", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("5e7c79b5-bbaa-4e8d-bace-3b36fc13960f"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "High Lunge", "Bước một chân về phía trước, chân sau duỗi thẳng, giữ tư thế lunge cao", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("67c5180f-978d-4cd7-ae1e-57fa80ac5e27"), 6f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Seated Core Twist", "Ngồi thẳng, xoay thân qua lại hai bên", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("6b331c4b-71ad-4e2b-930f-64cff22abaf6"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Hip Circles", "Đứng, xoay hông theo vòng tròn lớn", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("6d976edf-2f6a-4d74-bbde-434385f55ced"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Seated Side Bend", "Ngồi, duỗi một tay qua đầu, cúi người sang một bên", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("6ee8f18c-d1de-4899-8af9-8bc7341cb225"), 8f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Mason Twist", "Ngồi, co gối, nhấc chân khỏi sàn. Xoay thân từ bên này qua bên kia", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("712662bf-3def-4bad-83a7-58bd3c4e4f9e"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Humble Warrior", "Từ tư thế lunge, hạ thấp thân, tay chắp ra sau", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("7213c6ec-d1ea-4e7e-97b7-5f4cd675f7ba"), 9f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Bridge Kicker", "Thực hiện động tác nâng hông, đá từng chân một", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("73ca30ef-84cf-4e3f-b360-ac33038cb597"), 4f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Half Frog", "Nằm sấp, co một chân, dùng tay kéo chân gần đầu", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("78e05e91-0d2a-4418-a363-281cfa7ced50"), 10f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 60, "Hundred Pike", "Nằm phẳng, nhấc chân thẳng lên, bơm tay hướng xuống đất", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("7910e21a-a190-4a6f-bd87-54b6f54cf5e3"), 8f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Prisoner's Squat", "Squat với hai tay đặt sau đầu", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("7bc46c3f-a8df-499e-a6dc-fd1ed244592f"), 12f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Box Jumps", "Nhảy lên hộp hoặc bục cao, sau đó nhảy xuống", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("8482d5db-ee6e-473e-b156-500de0619dfc"), 8f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 45, "Abdominal Hip Raises", "Nằm ngửa, nâng hông lên trần nhà", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("86365264-7f1c-4bc2-8886-92a8523624b4"), 12f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Tuck Jumps", "Nhảy lên cao, kéo gối sát ngực, sau đó hạ xuống", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("8f7b3eaf-288e-47bd-8a37-94133fe25e62"), 7f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Elevated Crunches", "Đặt chân trên bề mặt nâng cao, thực hiện động tác gập bụng", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("90aa224f-411a-4a5d-abbe-e6ed94b209c2"), 4f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Single Leg Runner", "Đứng một chân, nghiêng người về trước, đá chân sau ra sau", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("92c92e7d-5eab-491c-8d31-6721158eb1a9"), 8f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Running in Place", "Chạy tại chỗ, nâng cao gối một cách nhẹ nhàng", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("9ac85a51-9155-40ef-a7eb-d5561c238c4f"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Triceps Roll", "Xoay nhẹ cánh tay để làm nóng cơ tam đầu", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("9ba0c68f-426b-4459-8b12-7eafc4b43f2b"), 9f, new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Push-Up & Rotation", "Thực hiện chống đẩy, sau đó xoay người và nâng một tay lên cao", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("9cadb2bc-6ae3-49a1-a094-c89039795ca3"), 8f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Straight Leg Donkey Kick", "Đứng bốn chân, đá một chân thẳng ra sau và quay lại", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("a2be65b5-8135-4a29-a44c-b8f34418c537"), 7f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Rear Lunges", "Bước một chân ra sau thành tư thế lunge, sau đó trở lại", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("aac12e14-eb0e-4921-9fee-8a72cc46f13e"), 8f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Sit-Ups", "Nằm ngửa, co gối, đặt tay sau đầu. Nâng thân lên hướng về gối, sau đó trở về. Lặp lại", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("ab679a82-97a1-4772-a824-69de7a8626d5"), 9f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Corkscrew", "Nằm ngửa, chân duỗi thẳng lên. Xoay chân theo vòng tròn", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"), 8f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Russian Twist", "Ngồi, co gối, xoay thân qua lại hai bên", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("af2b9f55-ec76-4e40-8fb6-8854f101ee58"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Yoga Squat", "Ngồi xuống thấp, hai tay chắp trước ngực, giữ tư thế yoga", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("b0d4c89e-5ced-4782-b76a-0be207aa4725"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Shoulder Roll", "Đứng, xoay vai theo vòng tròn", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("b39f7142-3d9b-4e80-9304-342de4ebe8d0"), 8f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Sumo Chair Squats", "Đứng tư thế rộng, squat giữ lưng thẳng", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("b3ba3cfc-34a3-4b31-9e1c-78df5bd7910a"), 6f, new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Tricep Press", "Ngồi, đặt tay sau lưng, nhấc thân lên bằng cơ tay sau, sau đó hạ xuống", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("b45baf25-682a-4de3-b5aa-15f4ea6e590d"), 6f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Side Crunches", "Nằm nghiêng, co chân. Nâng thân lên nghiêng về phía gối", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("b8d89172-aa14-4315-a7d9-49a44a7b06ca"), 8f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Butt Kickers", "Chạy tại chỗ, gót chân chạm vào mông", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("bd5485ee-c420-4af7-888f-5022127f4a42"), 10f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Star Jumps", "Nhảy lên, dang tay chân ra tạo hình ngôi sao, sau đó trở lại", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("befbdedd-8795-4f9a-842a-00ea9b770f55"), 7f, new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Roof Kickback", "Đứng gập người về trước, đẩy tay ra sau, giữ thẳng", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("c09b0b4e-dfad-4d62-b620-e3a348849393"), 6f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Side Lunge March", "Bước sang bên thành tư thế lunge, sau đó trở lại", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("c0d1b74c-521b-428b-9776-0f9e95bd0ef0"), 5f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Leg Lifts", "Nằm phẳng, nâng cả hai chân lên trần nhà, sau đó hạ xuống", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("c26a95d0-b7b6-4654-b05a-768d078258bd"), 10f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 30, "One Leg Side Hops", "Nhảy ngang qua lại bằng một chân, đổi chân xen kẽ", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("c37426f7-6e98-4dcd-85b5-49e9e75aa380"), 8f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Bicycle Crunches", "Nằm ngửa, luân phiên chạm khuỷu tay đối diện vào gối theo động tác đạp xe", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("c48fb04a-0b63-4d5b-ad72-6c23a7b8267c"), 10f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Side to Side Jump Squat", "Thực hiện jump squats trong khi di chuyển từ bên này qua bên kia", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("c56d1ee0-3ea3-4128-9a35-7f97287e11af"), 5f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 60, "Tiger with Bow", "Từ tư thế bò, nắm một chân kéo lên gần đầu", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("c7c451d2-c4ee-47b5-8caf-f09d0836ae78"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Toe Touch Walk", "Đi bộ, gập người chạm ngón tay vào ngón chân mỗi bước", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("d2efc4c7-fa6e-45d8-a571-61d919650713"), 9f, new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Spiderman Push-Ups", "Chống đẩy, mỗi lần hạ xuống, đưa một gối lên gần cùi chỏ", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("d409a2a7-e695-4696-94c3-41013d590887"), 7f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Dynamic Rollup", "Nằm phẳng, duỗi tay qua đầu. Cuộn lên tư thế ngồi, sau đó cuộn trở lại", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("deee2611-a087-4d0d-80f0-53e085a06a82"), 11f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 45, "Plank to Frogger", "Từ tư thế plank, nhảy chân lên gần tay, sau đó trở lại plank", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("dfa2b796-d12d-4e7c-93bf-89f412b0d551"), 6f, new Guid("7d730669-e718-4c17-ae6e-529636932e62"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Squat & Reach", "Squat xuống, sau đó với tay lên trên", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("e0176052-1ea9-4af4-8724-6b3b956acdf5"), 6f, new Guid("462eddbb-989c-4c39-8904-d9a54950f81b"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Kneeled Narrow Push-Ups", "Chống đẩy gối xuống sàn, hai tay gần nhau", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("e1092fc5-3c26-441c-9c3d-f281f17a5bc1"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Knee Circles", "Đứng, đặt tay lên gối, xoay gối theo vòng tròn", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("e202a749-5631-4436-aaec-95dc51b41201"), 7f, new Guid("aa7ac7df-8edb-431a-9fae-5b8520d7630d"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 20, "Standing Butterfly Stroke", "Bơi bướm khi đứng tại chỗ, di chuyển cả hai tay đồng thời.", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("e2afc25d-44b9-49da-93cd-ed028acd3581"), 5f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 60, "Bow Pose", "Nằm sấp, nắm hai cổ chân, kéo chân lên phía đầu để uốn cong cơ thể", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("e37feb90-ad70-4da1-b274-809412dd808a"), 12f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 2, 60, "Burpees", "Nhảy lên, sau đó hạ xuống tư thế chống đẩy, lặp lại", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("ea43be6e-ed4f-47f2-a4fa-60e34e95f410"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Pyramid", "Đứng, bước một chân ra sau, cúi người xuống chân trước, giữ lưng thẳng", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("eb69be55-8aa5-47b0-b633-12770fe6ac5a"), 3f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Jogging", "Chạy bộ nhẹ tại chỗ hoặc ngoài trời", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("ec2cfe0e-3949-4572-9c02-2c2f5dcc2f1d"), 3f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Supine Marching", "Nằm ngửa, gập gối, nâng từng chân lên xuống như đi bộ", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("f2e4e45f-9514-452c-91ff-d5486243fb0d"), 6f, new Guid("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Reaching Crunch", "Nằm ngửa, co gối. Đưa tay về phía gối khi nâng thân lên", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("f344b5e8-c338-4da7-a99c-78952ba2db9b"), 9f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "High Knees", "Chạy tại chỗ, nâng cao gối ngang hông", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("f53ac445-0d94-46a0-ba3a-fbabf2eaa811"), 4f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 45, "Locust Pose", "Nằm sấp, nâng chân và tay lên khỏi mặt đất, giữ tư thế", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("f8c6b372-1b43-45c3-93ca-99e6e9ab734b"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Teres Roll", "Xoay nhẹ cánh tay trên để khởi động cơ vai", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("fb102f19-2bf9-4ca1-8222-ea1c35b55f0e"), 3f, new Guid("80b51d77-fb33-4294-9903-7a151f12bcf0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Peaceful Warrior", "Từ tư thế lunge, đưa tay sau về phía chân sau, tay trước hướng lên", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("fba9adfd-be77-4cf4-81b0-aeb21506cbbf"), 2f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 0, 30, "Ankle Twist", "Ngồi, xoay cổ chân theo vòng tròn", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"), 10f, new Guid("983aabc5-29c7-48a9-9623-4cd37b9a5828"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Mountain Climbers", "Tư thế plank, kéo gối xen kẽ về phía ngực như leo núi", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") },
-                    { new Guid("fe68c0ac-1b8e-4712-a0d1-a41ca15833e9"), 5f, new Guid("c3bff830-dad0-4489-95df-1d6ac52d5b3e"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), 1, 30, "Jump Rope", "Nhảy dây với nhịp độ ổn định", true, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"), new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6") }
                 });
 
             migrationBuilder.InsertData(
@@ -1875,36 +1762,6 @@ namespace Monhealth.Identity.Migrations
                     { new Guid("ff22f28d-22f4-4964-91ea-50619e603acd"), 33f, 41f, 9.6f, 0f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.2f, 2.8f, new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"), 0.3f, 320f, 0.9f, 0f, 69f, 4.7f, 0.2f, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1.69f, 0.04f, 0.03f, 5.9f, 0f, 0.66f }
                 });
 
-            migrationBuilder.InsertData(
-                table: "WorkoutExercises",
-                columns: new[] { "WorkoutExerciseId", "CreatedAt", "Duration", "ExerciseId", "Status", "UpdatedAt", "WorkoutId" },
-                values: new object[,]
-                {
-                    { new Guid("1ed0e8da-bf42-48dd-8e76-b42af3ebc4f4"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 60, new Guid("7213c6ec-d1ea-4e7e-97b7-5f4cd675f7ba"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c") },
-                    { new Guid("248cd183-900d-4e67-b342-42104a3802be"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 40, new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c") },
-                    { new Guid("440e1f46-0361-495f-b9b6-03bd99be6dd6"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 30, new Guid("1d7e129b-30e5-4ca7-ade1-0ac2c2534332"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7") },
-                    { new Guid("4f4d2978-7d82-40b0-a6ae-3914c5f54ca5"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 30, new Guid("86365264-7f1c-4bc2-8886-92a8523624b4"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8") },
-                    { new Guid("53f28cf0-bfb7-4822-b498-98030242d684"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 40, new Guid("9ba0c68f-426b-4459-8b12-7eafc4b43f2b"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7") },
-                    { new Guid("5f02ecd3-3c8f-4319-822b-8911c3d0dfc0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 40, new Guid("f344b5e8-c338-4da7-a99c-78952ba2db9b"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8") },
-                    { new Guid("630acd33-1a48-44a4-b16d-89064db798df"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 80, new Guid("9cadb2bc-6ae3-49a1-a094-c89039795ca3"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c") },
-                    { new Guid("731f3de2-8e37-4de9-bbfd-c4edaad2dce3"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 50, new Guid("b39f7142-3d9b-4e80-9304-342de4ebe8d0"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c") },
-                    { new Guid("7a4da432-0269-4a32-8d30-488b4d174ab0"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 40, new Guid("e37feb90-ad70-4da1-b274-809412dd808a"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8") },
-                    { new Guid("886ccc23-701c-4d7e-afa2-40ee329aa2ec"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 30, new Guid("c37426f7-6e98-4dcd-85b5-49e9e75aa380"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c") },
-                    { new Guid("8d6846eb-2674-4e2a-8b89-cc2667c6b97d"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 40, new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c") },
-                    { new Guid("8fc55282-5df6-4de8-9d78-3507c8a5cbbe"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 30, new Guid("67c5180f-978d-4cd7-ae1e-57fa80ac5e27"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c") },
-                    { new Guid("9953ed04-47b6-40f3-8140-00aee886df55"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 60, new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8") },
-                    { new Guid("9e3f31ec-1057-46c5-816d-507df552212a"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 60, new Guid("32989028-4533-4700-b454-a4df1cfa08a9"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8") },
-                    { new Guid("a708f5b6-2558-45eb-ba2f-ca83b303f0c2"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 40, new Guid("c0d1b74c-521b-428b-9776-0f9e95bd0ef0"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c") },
-                    { new Guid("a7789457-d825-4e0a-a9f8-9eedf52a98e5"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 60, new Guid("2f4c14b8-3207-40dc-8233-1ec310a47dd5"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("d20af37b-9fc3-47fb-bc1f-bc82df3d9e9c") },
-                    { new Guid("ad2baedb-70e4-45cc-9dae-8f94a4e564fc"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 40, new Guid("ae68fd8e-0226-4368-824a-abe06fed86b3"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7") },
-                    { new Guid("b54a6273-c852-4f9f-ad9a-ef2ab342be4f"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 30, new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7") },
-                    { new Guid("d605d7e2-6197-45f0-9208-0509fbb44288"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 30, new Guid("fc719720-6259-4e21-bec9-82b2949e35e2"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("b2f2926b-bc30-4db5-a2ff-4aeadbc469f8") },
-                    { new Guid("d6d226d2-e61a-43e8-bba6-9080626abc71"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 30, new Guid("c09b0b4e-dfad-4d62-b620-e3a348849393"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c") },
-                    { new Guid("d96655a8-a3a1-47dc-918c-f1703a54006c"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 60, new Guid("21e53e39-de13-43c1-ad22-f69ac024677a"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7") },
-                    { new Guid("e3fd5d0b-16e3-4edd-be05-5a52962dc8a2"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 60, new Guid("00355a5e-e30b-4770-a4e5-abf20671a049"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("1c7ded15-2d6e-45f3-8854-f9f12f84493c") },
-                    { new Guid("f14e551c-e858-4201-8619-c5feb33ad5d7"), new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 30, new Guid("e37feb90-ad70-4da1-b274-809412dd808a"), false, new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("9572b6fe-c61d-40b2-a0f5-c9d9f7c7eed7") }
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AppUserRoles_UserId",
                 table: "AppUserRoles",
@@ -2003,11 +1860,6 @@ namespace Monhealth.Identity.Migrations
                 name: "IX_DailyWaterIntakes_UserId",
                 table: "DailyWaterIntakes",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Exercises_CategoryId",
-                table: "Exercises",
-                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exercises_UserId",
@@ -2141,6 +1993,11 @@ namespace Monhealth.Identity.Migrations
                 name: "IX_Workouts_AppUserId",
                 table: "Workouts",
                 column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Workouts_CategoryId",
+                table: "Workouts",
+                column: "CategoryId");
         }
 
         /// <inheritdoc />

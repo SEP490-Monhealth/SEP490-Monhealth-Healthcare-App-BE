@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
-using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -20,7 +14,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Exercise>> GetAllExerciseAsync(int page, int limit, string? search, bool? popular, string? exerciseType, bool? status)
         {
-            IQueryable<Exercise> query = _context.Exercises.Include(t => t.Category).AsQueryable();
+            IQueryable<Exercise> query = _context.Exercises.AsQueryable();
             // filter search
             if (!string.IsNullOrEmpty(search))
             {
@@ -29,10 +23,10 @@ namespace Monhealth.Identity.Repositories
                     s.ExerciseId.ToString().ToLower().Contains(search.ToLower()));
             }
             // filter exerciseType
-            if (!string.IsNullOrEmpty(exerciseType))
-            {
-                query = query.Where(f => f.Category.CategoryName == exerciseType && f.Category.CategoryType == (CategoryType)1);
-            }
+            //if (!string.IsNullOrEmpty(exerciseType))
+            //{
+            //    query = query.Where(f => f.Category.CategoryName == exerciseType && f.Category.CategoryType == (CategoryType)1);
+            //}
             if (status.HasValue)
             {
                 query = query.Where(s => s.Status == status.Value);
@@ -56,7 +50,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Exercise> GetExerciseByIdAsync(Guid exerciseId)
         {
-            var exercise = _context.Exercises.Include(t => t.Category).FirstOrDefault(e => e.ExerciseId == exerciseId);
+            var exercise = _context.Exercises.FirstOrDefault(e => e.ExerciseId == exerciseId);
             // Neu exercise ton tai thi tang Views len 1
             // if (exercise != null)
             // {
@@ -73,7 +67,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Exercise>> GetExerciseUserIdAsync(Guid userId)
         {
-            return await _context.Exercises.Include(c => c.Category).Where(u => u.UserId == userId).ToListAsync();
+            return await _context.Exercises.Where(u => u.UserId == userId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -25,7 +20,7 @@ namespace Monhealth.Application.Features.Exercise.Commands.CreateExercise
         public async Task<Unit> Handle(CreateExerciseCommand request, CancellationToken cancellationToken)
         {
             var checkExerciseExisted = await _exerciseRepository.GetExerciseByNameAsync(request.CreateExerciseDTO.ExerciseName);
-            if(checkExerciseExisted != null)
+            if (checkExerciseExisted != null)
             {
                 throw new Exception("Bài tập đã tồn tại.");
             }
@@ -35,13 +30,12 @@ namespace Monhealth.Application.Features.Exercise.Commands.CreateExercise
                 throw new Exception("Người dùng không tồn tại");
             }
             var category = await _categoryRepository.GetCategoryByCategoryName(request.CreateExerciseDTO.Category);
-            if(category == null)
+            if (category == null)
             {
                 throw new Exception("Danh mục không tồn tại");
             }
             var newExercise = _mapper.Map<Domain.Exercise>(request.CreateExerciseDTO);
             newExercise.ExerciseId = Guid.NewGuid();
-            newExercise.CategoryId = category.CategoryId;
             newExercise.Status = false;
             newExercise.CreatedAt = DateTime.Now;
             newExercise.UpdatedAt = DateTime.Now;
