@@ -1,4 +1,4 @@
-﻿namespace Monhealth.Domain.Enum
+namespace Monhealth.Domain.Enum
 {
     public enum ExerciseType
     {

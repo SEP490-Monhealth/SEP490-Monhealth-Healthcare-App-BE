@@ -14,9 +14,8 @@ namespace Monhealth.Domain
         public ExerciseType ExerciseType { get; set; }
         public string ExerciseName { get; set; } = string.Empty;
         public string Instructions { get; set; } = string.Empty;
-        public float CalriesPerMinute { get; set; }
+        public float CaloriesPerMinute { get; set; }
         public bool Status { get; set; }
-
 
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }

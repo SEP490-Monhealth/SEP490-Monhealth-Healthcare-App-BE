@@ -18,7 +18,9 @@ namespace Monhealth.Domain
         public int Rounds { get; set; }
 
         [ForeignKey(nameof(CategoryId))]
-        public Category? Category { get; set; }
+        public Category Category { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public AppUser AppUser { get; set; }
         public ICollection<WorkoutExercise> WorkoutExercises { get; set; }
         public ICollection<DailyActivityWorkout> DailyActivityWorkouts { get; set; }
     }

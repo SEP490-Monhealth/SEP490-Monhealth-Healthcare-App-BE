@@ -190,96 +190,123 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Category Exercise 1
+            #region Category Workout 1
             new Category
             {
-                CategoryId = Guid.Parse("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
+                CategoryId = Guid.Parse("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                CategoryName = "Warm up",
                 CategoryType = (CategoryType)1,
-                CategoryName = "Core",
-                CategoryDescription = "Tập trung vào cơ vùng bụng và lưng dưới, giúp cải thiện sức mạnh và sự ổn định.",
-                Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcore.png?alt=media&token=b3152e12-16dd-4ec4-944f-bf2c3434954b",
+                CategoryDescription = "Bài tập khởi động nhẹ giúp làm nóng cơ bắp, tăng lưu thông máu và chuẩn bị cơ thể trước khi bước vào tập luyện.",
+                Image = "",
                 CreatedAt = today,
                 UpdatedAt = today,
             },
             #endregion
 
-            #region Category Exercise 2
+            #region Category Workout 2
             new Category
             {
-                CategoryId = Guid.Parse("7d730669-e718-4c17-ae6e-529636932e62"),
+                CategoryId = Guid.Parse("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                CategoryName = "Workout",
                 CategoryType = (CategoryType)1,
-                CategoryName = "Lower Body",
-                CategoryDescription = "Tăng cường sức mạnh cho chân, đùi và mông, cải thiện khả năng di chuyển và sự bền bỉ.",
-                Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Flower-body.png?alt=media&token=c5a737bf-767e-4db9-8c80-0c04812e11dd",
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
-            #region Category Exercise 3
-            new Category
-            {
-                CategoryId = Guid.Parse("462eddbb-989c-4c39-8904-d9a54950f81b"),
-                CategoryType = (CategoryType)1,
-                CategoryName = "Upper Body",
-                CategoryDescription = "Cải thiện sức mạnh và hình dáng cơ tay, vai và lưng trên.",
-                Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fupper-body.png?alt=media&token=4010483d-fb22-4613-9070-0a2b2d57ce6a",
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
-            #region Category Exercise 4
-            new Category
-            {
-                CategoryId = Guid.Parse("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
-                CategoryType = (CategoryType)1,
-                CategoryName = "Cardio",
-                CategoryDescription = "Cải thiện hệ tim mạch, đốt cháy calo và tăng cường sức bền.",
-                Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcardio.png?alt=media&token=6c6c115c-db1f-4af2-96e0-188f38944f36",
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
-            #region Category Exercise 5
-            new Category
-            {
-                CategoryId = Guid.Parse("aa7ac7df-8edb-431a-9fae-5b8520d7630d"),
-                CategoryType = (CategoryType)1,
-                CategoryName = "Balance",
-                CategoryDescription = "Cải thiện khả năng thăng bằng và tăng cường sự ổn định của cơ thể.",
-                Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbalance.png?alt=media&token=58094819-44bf-4d32-8075-5bccfd957201",
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
-            #region Category Exercise 6
-            new Category
-            {
-                CategoryId = Guid.Parse("80b51d77-fb33-4294-9903-7a151f12bcf0"),
-                CategoryType = (CategoryType)1,
-                CategoryName = "Flexibility",
-                CategoryDescription = "Kết hợp thăng bằng và sự dẻo dai, hỗ trợ kiểm soát cơ thể và giảm nguy cơ chấn thương.",
-                Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fflexibility.png?alt=media&token=1850a9fe-7412-49b3-8660-81ef76194685",
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
-            #region Category Exercise 7
-            new Category
-            {
-                CategoryId = Guid.Parse("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
-                CategoryType = (CategoryType)1,
-                CategoryName = "Mobility",
-                CategoryDescription = "Tăng cường khả năng di chuyển của khớp và cơ, giúp cơ thể linh hoạt hơn.",
-                Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fmobility.png?alt=media&token=27e9733a-292e-4f15-9bfc-a37d9b7ea575",
+                CategoryDescription = "Bài tập chính với các động tác cường độ cao hoặc tập trung vào nhóm cơ nhất định, giúp phát triển sức mạnh và cải thiện thể lực.",
+                Image = "",
                 CreatedAt = today,
                 UpdatedAt = today,
             }
             #endregion
+
+
+            // #region Category Exercise 1
+            // new Category
+            // {
+            //     CategoryId = Guid.Parse("fb5f24c1-cadf-4b21-88a7-f12d5dfc4720"),
+            //     CategoryType = (CategoryType)1,
+            //     CategoryName = "Core",
+            //     CategoryDescription = "Tập trung vào cơ vùng bụng và lưng dưới, giúp cải thiện sức mạnh và sự ổn định.",
+            //     Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcore.png?alt=media&token=b3152e12-16dd-4ec4-944f-bf2c3434954b",
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
+
+            // #region Category Exercise 2
+            // new Category
+            // {
+            //     CategoryId = Guid.Parse("7d730669-e718-4c17-ae6e-529636932e62"),
+            //     CategoryType = (CategoryType)1,
+            //     CategoryName = "Lower Body",
+            //     CategoryDescription = "Tăng cường sức mạnh cho chân, đùi và mông, cải thiện khả năng di chuyển và sự bền bỉ.",
+            //     Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Flower-body.png?alt=media&token=c5a737bf-767e-4db9-8c80-0c04812e11dd",
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
+
+            // #region Category Exercise 3
+            // new Category
+            // {
+            //     CategoryId = Guid.Parse("462eddbb-989c-4c39-8904-d9a54950f81b"),
+            //     CategoryType = (CategoryType)1,
+            //     CategoryName = "Upper Body",
+            //     CategoryDescription = "Cải thiện sức mạnh và hình dáng cơ tay, vai và lưng trên.",
+            //     Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fupper-body.png?alt=media&token=4010483d-fb22-4613-9070-0a2b2d57ce6a",
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
+
+            // #region Category Exercise 4
+            // new Category
+            // {
+            //     CategoryId = Guid.Parse("983aabc5-29c7-48a9-9623-4cd37b9a5828"),
+            //     CategoryType = (CategoryType)1,
+            //     CategoryName = "Cardio",
+            //     CategoryDescription = "Cải thiện hệ tim mạch, đốt cháy calo và tăng cường sức bền.",
+            //     Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcardio.png?alt=media&token=6c6c115c-db1f-4af2-96e0-188f38944f36",
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
+
+            // #region Category Exercise 5
+            // new Category
+            // {
+            //     CategoryId = Guid.Parse("aa7ac7df-8edb-431a-9fae-5b8520d7630d"),
+            //     CategoryType = (CategoryType)1,
+            //     CategoryName = "Balance",
+            //     CategoryDescription = "Cải thiện khả năng thăng bằng và tăng cường sự ổn định của cơ thể.",
+            //     Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbalance.png?alt=media&token=58094819-44bf-4d32-8075-5bccfd957201",
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
+
+            // #region Category Exercise 6
+            // new Category
+            // {
+            //     CategoryId = Guid.Parse("80b51d77-fb33-4294-9903-7a151f12bcf0"),
+            //     CategoryType = (CategoryType)1,
+            //     CategoryName = "Flexibility",
+            //     CategoryDescription = "Kết hợp thăng bằng và sự dẻo dai, hỗ trợ kiểm soát cơ thể và giảm nguy cơ chấn thương.",
+            //     Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fflexibility.png?alt=media&token=1850a9fe-7412-49b3-8660-81ef76194685",
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
+
+            // #region Category Exercise 7
+            // new Category
+            // {
+            //     CategoryId = Guid.Parse("c3bff830-dad0-4489-95df-1d6ac52d5b3e"),
+            //     CategoryType = (CategoryType)1,
+            //     CategoryName = "Mobility",
+            //     CategoryDescription = "Tăng cường khả năng di chuyển của khớp và cơ, giúp cơ thể linh hoạt hơn.",
+            //     Image = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fmobility.png?alt=media&token=27e9733a-292e-4f15-9bfc-a37d9b7ea575",
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // }
+            // #endregion
             );
         }
     }
