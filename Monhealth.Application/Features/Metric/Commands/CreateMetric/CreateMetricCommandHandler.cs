@@ -3,6 +3,7 @@ using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.ServiceForRecommend;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 
@@ -107,9 +108,10 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
                 var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, goalType, activityLevel);
 
-                await CreateMealAsync("Breakfast", mealPlan.Breakfast, userId.Value, currentDate);
-                await CreateMealAsync("Lunch", mealPlan.Lunch, userId.Value, currentDate);
-                await CreateMealAsync("Dinner", mealPlan.Dinner, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, userId.Value, currentDate, goalType, activityLevel);
+                await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, userId.Value, currentDate, goalType, activityLevel);
+                await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, userId.Value, currentDate, goalType, activityLevel);
+
             }
 
             #endregion
@@ -118,7 +120,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             return Unit.Value;
         }
 
-        private async Task CreateMealAsync(string mealType, MealDTO meal, Guid userId, DateTime date)
+        private async Task CreateMealAsync(MealType mealType, MealDTO meal, Guid userId, DateTime date, GoalType goalType, float activityLevel)
         {
             if (meal.MainDish == null) return;
 
@@ -135,7 +137,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 model = new Monhealth.Domain.Meal
                 {
                     UserId = userId,
-                    MealType = mealType,
+                    MealType = mealType.ToString(),
                     CreatedAt = date,
                     UpdatedAt = DateTime.Now
                 };
@@ -143,7 +145,10 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 await _mealRepository.SaveChangeAsync();
             }
 
-            // 🛠 Chỉ chọn SideDish nếu hợp lệ với MainDish
+            // Xác định tỷ lệ thành phần của bữa ăn
+            var (mainRatio, sideRatio, dessertRatio) = GetMealRatios(mealType, goalType, activityLevel);
+
+            // Xác định món ăn phụ hợp lệ
             var allowedSideDishes = _foodRandomService.GetAllowedSideDishTypes(meal.MainDish.Food.FoodType);
             var sideDish = meal.SideDish != null && allowedSideDishes.Contains(meal.SideDish.Food.FoodType)
                 ? meal.SideDish
@@ -155,6 +160,20 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
             await AddMealToDailyMeal(userId, date);
         }
+
+        private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
+        {
+            return mealType.ToString() switch
+            {
+                "Breakfast" => (1f, 0f, 0f),
+                "Lunch" => (0.55f, 0.3f, 0.15f),
+                "Dinner" => (goalType == GoalType.WeightLoss || activityLevel < 1.725) ? (0.65f, 0.35f, 0f) : (0.6f, 0.3f, 0.1f),
+                "Snack" => (0.8f, 0.2f, 0f),
+                _ => (1f, 0f, 0f)
+            };
+        }
+
+
 
 
         private async Task AddDishToMealAsync(DishDTO dish, Guid mealId)

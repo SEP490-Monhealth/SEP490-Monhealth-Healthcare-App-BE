@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -48,10 +49,10 @@ namespace Monhealth.Identity.Repositories
         }
 
 
-        public async Task<Meal> GetByUserIdAndMealType(Guid userId, string mealType , int date)
+        public async Task<Meal> GetByUserIdAndMealType(Guid userId, MealType mealType, int date)
         {
             return await _context.Meals.FirstOrDefaultAsync
-            (m => m.UserId == userId && m.MealType == mealType
+            (m => m.UserId == userId && m.MealType.Equals(mealType.ToString())
             && m.CreatedAt.Value.Date.Day == date);
         }
 
