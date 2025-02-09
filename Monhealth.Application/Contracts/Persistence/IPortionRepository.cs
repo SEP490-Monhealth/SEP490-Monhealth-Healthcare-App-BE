@@ -12,7 +12,9 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<Portion> GetPortionAsync(string measurementUnit, string portionSize, float portionWeight);
 
         //FoodRandom
-         Task<List<Portion>> GetPortionsByFoodIdsAsync(List<Guid> foodIds);
-         Task<List<FoodPortion>>GetFoodPortionsByFoodIdsAsync(List<Guid>foodPortions);
+        Task<List<Portion>> GetPortionsByFoodIdsAsync(List<Guid> foodIds);
+        Task<List<FoodPortion>> GetFoodPortionsByFoodIdsAsync(List<Guid> foodPortions);
+        Task<Portion> GetOrCreatePortionAsync(string measurementUnit, string portionSize, float portionWeight);
+
     }
 }

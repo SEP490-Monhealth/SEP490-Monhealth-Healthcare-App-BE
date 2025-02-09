@@ -3,6 +3,7 @@ using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.ServiceForRecommend;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 
@@ -107,54 +108,66 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
                 var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, goalType, activityLevel);
 
-                await CreateMealAsync("Breakfast", mealPlan.Breakfast, userId.Value, currentDate);
-                await CreateMealAsync("Lunch", mealPlan.Lunch, userId.Value, currentDate);
-                await CreateMealAsync("Dinner", mealPlan.Dinner, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Snack, mealPlan.Snack, userId.Value, currentDate);
             }
-
             #endregion
             await _reminderRepository.SaveChangeAsync();
 
             return Unit.Value;
         }
 
-        private async Task CreateMealAsync(string mealType, MealDTO meal, Guid userId, DateTime date)
+
+        private async Task CreateMealAsync(MealType mealType, MealDTO meal, Guid userId, DateTime date)
         {
-            if (meal.MainDish == null) return;
+            if (meal?.MainDish?.Food == null)
+            {
+                return;
+            }
 
             var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, mealType, date.Day);
-            Monhealth.Domain.Meal model;
+            var model = existingMeal ?? new Monhealth.Domain.Meal
+            {
+                UserId = userId,
+                MealType = mealType.ToString(),
+                CreatedAt = date,
+                UpdatedAt = DateTime.Now
+            };
 
-            if (existingMeal != null)
+            if (existingMeal == null)
             {
-                model = existingMeal;
-                model.UpdatedAt = DateTime.Now;
-            }
-            else
-            {
-                model = new Monhealth.Domain.Meal
-                {
-                    UserId = userId,
-                    MealType = mealType,
-                    CreatedAt = date,
-                    UpdatedAt = DateTime.Now
-                };
                 _mealRepository.Add(model);
                 await _mealRepository.SaveChangeAsync();
             }
+            else
+            {
+                model.UpdatedAt = DateTime.Now;
+            }
 
-            // 🛠 Chỉ chọn SideDish nếu hợp lệ với MainDish
-            var allowedSideDishes = _foodRandomService.GetAllowedSideDishTypes(meal.MainDish.Food.FoodType);
-            var sideDish = meal.SideDish != null && allowedSideDishes.Contains(meal.SideDish.Food.FoodType)
-                ? meal.SideDish
-                : null;
-
+            // Đảm bảo từng món có portion riêng
             await AddDishToMealAsync(meal.MainDish, model.MealId);
-            if (sideDish != null) await AddDishToMealAsync(sideDish, model.MealId);
-            if (meal.Dessert != null) await AddDishToMealAsync(meal.Dessert, model.MealId);
+            if (meal.SideDish?.Food != null) await AddDishToMealAsync(meal.SideDish, model.MealId);
+            if (meal.Dessert?.Food != null) await AddDishToMealAsync(meal.Dessert, model.MealId);
 
             await AddMealToDailyMeal(userId, date);
         }
+
+
+
+
+        // private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
+        // {
+        //     return mealType switch
+        //     {
+        //         MealType.Breakfast => (1f, 0f, 0f),
+        //         MealType.Lunch => (0.55f, 0.3f, 0.15f),
+        //         MealType.Dinner => (goalType == GoalType.WeightLoss || activityLevel < 1.725) ? (0.65f, 0.35f, 0f) : (0.6f, 0.3f, 0.1f),
+        //         MealType.Snack => (0.8f, 0.2f, 0f),
+        //         _ => throw new Exception($"MealType không hợp lệ: {mealType}")
+        //     };
+        // }
 
 
         private async Task AddDishToMealAsync(DishDTO dish, Guid mealId)
@@ -201,6 +214,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             await _mealRepository.SaveChangeAsync();
         }
 
+
         private async Task AddMealToDailyMeal(Guid userId, DateTime date)
         {
             var mealsForDay = await _mealRepository.GetMealByUserAndDate(date, userId);
@@ -229,25 +243,12 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 };
 
                 _dailyMealRepository.Add(dailyMeal);
-
-                // Lưu DailyMeal để lấy DailyMealID
                 await _dailyMealRepository.SaveChangeAsync();
             }
-            else
-            {
-                // Reset lại tổng giá trị nếu đã tồn tại DailyMeal
-                dailyMeal.TotalCalories = 0;
-                dailyMeal.TotalProteins = 0;
-                dailyMeal.TotalCarbs = 0;
-                dailyMeal.TotalFats = 0;
-                dailyMeal.TotalFibers = 0;
-                dailyMeal.TotalSugars = 0;
-            }
 
-            // Gán DailyMealID cho từng Meal
             foreach (var meal in mealsForDay)
             {
-                meal.DailyMealId = dailyMeal.DailyMealId; // Gán DailyMealID cho Meal
+                meal.DailyMealId = dailyMeal.DailyMealId;
                 _mealRepository.Update(meal);
 
                 var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
@@ -260,13 +261,12 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                         throw new Exception($"Không tìm thấy Portion với PortionId: {mealFood.PortionId}");
                     }
 
-                    // Tính toán giá trị dinh dưỡng nếu trạng thái MealFood là `true`
                     if (mealFood.Status)
                     {
                         var food = await _foodRepository.GetByIdAsync(mealFood.FoodId);
-                        if (food == null)
+                        if (food == null || food.Nutrition == null)
                         {
-                            throw new Exception($"Không tìm thấy Food với FoodId: {mealFood.FoodId}");
+                            throw new Exception($"Không tìm thấy Food hoặc Nutrition với FoodId: {mealFood.FoodId}");
                         }
 
                         var portionWeight = portion.PortionWeight;

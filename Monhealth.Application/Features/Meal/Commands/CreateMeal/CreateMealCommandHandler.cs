@@ -1,5 +1,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
@@ -49,7 +50,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 throw new ArgumentException("MealType phải là một trong các giá trị: Breakfast, Lunch, Dinner, Snack");
 
             // Kiểm tra bữa ăn đã tồn tại trong ngày hiện tại
-            var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, mealType, currentDate1);
+            var mealTypeEnum = Enum.Parse<MealType>(mealType);
+            var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, mealTypeEnum, currentDate1);
             Monhealth.Domain.Meal model;
 
             if (existingMeal != null)
