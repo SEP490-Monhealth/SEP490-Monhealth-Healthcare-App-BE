@@ -50,6 +50,29 @@ namespace Monhealth.Identity.Repositories
       .ToListAsync();
         }
 
+        public async Task<Portion> GetOrCreatePortionAsync(string measurementUnit, string portionSize, float portionWeight)
+        {
+            var portion = await _context.Portions
+                .FirstOrDefaultAsync(p => p.MeasurementUnit == measurementUnit && p.PortionSize == portionSize && p.PortionWeight == portionWeight);
+
+            if (portion == null)
+            {
+                portion = new Portion
+                {
+                    MeasurementUnit = measurementUnit,
+                    PortionSize = portionSize,
+                    PortionWeight = portionWeight,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                };
+
+                _context.Portions.Add(portion);
+                await _context.SaveChangesAsync();
+            }
+
+            return portion;
+        }
+
         public async Task<Portion> GetPortionAsync(string measurementUnit, string portionSize, float portionWeight)
         {
             return await _context.Portions.FirstOrDefaultAsync(p =>
