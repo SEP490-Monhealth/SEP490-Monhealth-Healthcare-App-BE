@@ -33,7 +33,7 @@ namespace Monhealth.Identity.Services
 
         private (float calories, float protein, float carbs, float fats, float fiberGoal, float sugarGoal) CreateCalculateMacros(float tdee, string goalType, float caloriesRatio, float currentWeight, float targetWeight, float activityLevel)
         {
-            float calories = 0, proteinPercentage = 0, carbPercentage = 0, fatPercentage = 0, fiberGoal = 0, sugarGoal = 0;
+            float calories, proteinPercentage, carbPercentage, fatPercentage, fiberGoal, sugarGoal;
             if (activityLevel < 1.725)
             {
                 switch (goalType)
