@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Goals.Queries.GetAllGoalQuery
 {
@@ -9,6 +9,7 @@ namespace Monhealth.Application.Features.Goals.Queries.GetAllGoalQuery
         public Guid GoalId { get; set; }
         public Guid UserId { get; set; }
         public GoalType GoalType { get; set; }
+        public float CaloriesRatio { get; set; }
         public int WeightGoal { get; set; }
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }
@@ -19,6 +20,9 @@ namespace Monhealth.Application.Features.Goals.Queries.GetAllGoalQuery
         public float SugarGoal { get; set; }
         public int WaterIntakesGoal { get; set; }
         public float ExerciseGoal { get; set; }
+        public float CaloriesBurnedGoal { get; set; }
+        public float DurationGoal { get; set; }
+        public float StepsGoal { get; set; }
         public GoalStatus Status { get; set; }
     }
 }
