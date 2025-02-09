@@ -5,11 +5,17 @@ using Monhealth.Application.ServiceForRecommend;
 using Monhealth.Application.Services;
 using Monhealth.Identity;
 using Monhealth.Infrastructure;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var twilioSettings = builder.Configuration.GetSection("Twilio").Get<TwilioSettings>();
 builder.Services.AddSingleton(twilioSettings);
+
+//add serilog
+builder.Host.UseSerilog((context, configuration) =>
+    configuration.ReadFrom.Configuration(context.Configuration));
+
 
 // Add services to the container.
 builder.Services.AddApplicationServices();
@@ -60,6 +66,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseSerilogRequestLogging();
 app.UseCors("all");
 app.UseExceptionHandler(opt => { });
 
