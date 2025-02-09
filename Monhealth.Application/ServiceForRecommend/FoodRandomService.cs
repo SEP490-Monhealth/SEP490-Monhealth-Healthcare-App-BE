@@ -75,7 +75,6 @@ namespace Monhealth.Application.ServiceForRecommend
 
         private async Task<DishDTO?> GetRandomDishWithPortionAsync(MealType mealType, DishType dishType, Guid userId, MealAllocationDTO allocation, float ratio, DishDTO? mainDish = null)
         {
-            // Lọc danh sách món ăn phù hợp với bữa ăn và loại món ăn
             var filteredFoods = await _foodFilterService.GetFilterFoodAsync(
                 userId, 1, 100,
                 new List<string> { mealType.ToString() },
@@ -87,17 +86,14 @@ namespace Monhealth.Application.ServiceForRecommend
                 _logger.LogWarning($"No available foods found for {mealType} - {dishType}.");
                 return null;
             }
-
             var foodList = filteredFoods.Items
-   .Select(f => new FoodDTO123
-   {
-       FoodId = f.FoodId,
-       FoodName = f.FoodName,
-       FoodType = f.FoodType
-   })
-   .ToList();
-
-            // Chọn món ăn ngẫu nhiên từ danh sách lọc
+                .Select(f => new FoodDTO123
+                {
+                    FoodId = f.FoodId,
+                    FoodName = f.FoodName,
+                    FoodType = f.FoodType
+                })
+                .ToList();
             var selectedFood = SelectWeightedRandom(foodList, mealType, dishType, mainDish);
             if (selectedFood == null)
             {
@@ -105,18 +101,23 @@ namespace Monhealth.Application.ServiceForRecommend
                 return null;
             }
 
-            // Lấy thông tin dinh dưỡng từ DB
             var foodNutrition = await _foodRepository.GetFoodByIdAsync(selectedFood.FoodId);
             if (foodNutrition?.Nutrition == null)
             {
                 _logger.LogWarning($"No nutrition data found for foodId {selectedFood.FoodId}.");
                 return null;
             }
+            var mappedNutrition = new Monhealth.Application.Features.Food.AddFood.NutritionDTO
+            {
+                Calories = foodNutrition.Nutrition.Calories,
+                Protein = foodNutrition.Nutrition.Protein,
+                Carbs = foodNutrition.Nutrition.Carbs,
+                Fat = foodNutrition.Nutrition.Fat,
+                Fiber = foodNutrition.Nutrition.Fiber,
+                Sugar = foodNutrition.Nutrition.Sugar
+            };
 
-            // Tính toán khẩu phần dựa trên Goal
-            var portion = CalculateNewPortion(foodNutrition.Nutrition, allocation, ratio);
-
-            // Trả về DishDTO có chứa thông tin món ăn và thành phần dinh dưỡng
+            var portion = CalculateNewPortion(mappedNutrition, allocation, ratio);
             return new DishDTO
             {
                 Food = selectedFood,
@@ -131,7 +132,9 @@ namespace Monhealth.Application.ServiceForRecommend
                 },
                 Portion = portion
             };
+
         }
+
 
 
 
@@ -156,27 +159,19 @@ namespace Monhealth.Application.ServiceForRecommend
 
 
 
-        private PortionDTO CalculateNewPortion(Nutrition nutrition, MealAllocationDTO allocation, float ratio)
+        private PortionDTO CalculateNewPortion(NutritionDTO nutrition, MealAllocationDTO allocation, float ratio)
         {
-            if (nutrition == null)
-            {
-                _logger.LogWarning("Nutrition data is missing, using default portion.");
-                return new PortionDTO
-                {
-                    PortionWeight = 100,
-                    MeasurementUnit = "g"
-                };
-            }
-
-            // Tính trọng lượng mới dựa trên tỷ lệ Goal
-            float newWeight = 100 * (allocation.Calories * ratio / (nutrition.Calories > 0 ? nutrition.Calories : 1));
+            var portionWeight = 100 * (allocation.Calories * ratio / Math.Max(nutrition.Calories, 1));
 
             return new PortionDTO
             {
-                PortionWeight = newWeight,
-                MeasurementUnit = "g"
+                PortionWeight = portionWeight,
+                MeasurementUnit = "g",
+                PortionSize = "default"
             };
         }
+
+
 
 
 
