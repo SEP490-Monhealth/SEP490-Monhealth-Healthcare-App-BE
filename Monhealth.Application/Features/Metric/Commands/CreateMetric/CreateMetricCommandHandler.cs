@@ -195,8 +195,26 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             float mealCaloriesTarget = goal.CaloriesGoal * mealRatio;
 
             // 🔹 Tính portionWeight dựa trên Goal
+            // ✅ Tính portionWeight dựa trên CaloriesGoal mà không bị giới hạn cứng
             float portionWeight = (mealCaloriesTarget / food.Nutrition.Calories) * 100;
-            portionWeight = Math.Clamp(portionWeight, 30, 150); // 🔥 Giới hạn 30g - 150g
+
+            // 🔹 Nếu portionWeight quá thấp, tăng tỷ lệ calories của bữa ăn (Snack có thể cần điều chỉnh)
+            if (portionWeight < 30 && mealType != MealType.Snack)
+            {
+                portionWeight = (mealCaloriesTarget * 1.2f / food.Nutrition.Calories) * 100; // Tăng 20% nếu quá thấp
+            }
+
+            // 🔹 Nếu portionWeight quá cao, giảm tỷ lệ (Dinner có thể cần giảm lại)
+            if (portionWeight > 150 && mealType == MealType.Dinner)
+            {
+                portionWeight = (mealCaloriesTarget * 0.8f / food.Nutrition.Calories) * 100; // Giảm 20% nếu quá cao
+            }
+
+            // Làm tròn số để tránh sai số tính toán
+            portionWeight = MathF.Round(portionWeight, 2);
+
+            // 🔥 Debug log để kiểm tra kết quả
+            Console.WriteLine($"MealType: {mealType}, Calories Target: {mealCaloriesTarget}, Portion Weight: {portionWeight}, Food Calories: {food.Nutrition.Calories}");
 
             // 🔹 Debug thông tin
             Console.WriteLine($"MealType: {mealType}, Calories Target: {mealCaloriesTarget}, Portion Weight: {portionWeight}, Food Calories: {food.Nutrition.Calories}");
