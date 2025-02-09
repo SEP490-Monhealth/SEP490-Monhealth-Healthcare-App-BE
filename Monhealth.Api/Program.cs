@@ -16,7 +16,6 @@ builder.Services.AddSingleton(twilioSettings);
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
-
 // Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddIdentityServices(configuration);
@@ -59,6 +58,8 @@ builder.Services.AddEndpointsApiExplorer();
 // Add Swagger services
 var app = builder.Build();
 
+var urls = app.Urls.Any() ? string.Join(", ", app.Urls) : "http://localhost:8081";
+Log.Information("Now listening on: {Urls}", urls);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
