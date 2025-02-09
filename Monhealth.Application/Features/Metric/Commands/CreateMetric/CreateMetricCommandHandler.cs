@@ -192,11 +192,14 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 MealType.Snack => 0.1f,
                 _ => throw new Exception($"MealType không hợp lệ: {mealType}")
             };
-            float mealCaloriesTarget = goal.CaloriesGoal * mealRatio;  // 🔥 Lấy từ Goal thay vì TDEE
+            float mealCaloriesTarget = goal.CaloriesGoal * mealRatio;
 
             // 🔹 Tính portionWeight dựa trên Goal
             float portionWeight = (mealCaloriesTarget / food.Nutrition.Calories) * 100;
-            portionWeight = MathF.Round(portionWeight, 2);
+            portionWeight = Math.Clamp(portionWeight, 30, 150); // 🔥 Giới hạn 30g - 150g
+
+            // 🔹 Debug thông tin
+            Console.WriteLine($"MealType: {mealType}, Calories Target: {mealCaloriesTarget}, Portion Weight: {portionWeight}, Food Calories: {food.Nutrition.Calories}");
 
             // 🔹 Tạo portion mới hoặc lấy portion cũ
             var existingPortion = await _portionRepository.GetPortionAsync(
@@ -232,13 +235,14 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 MealId = mealId,
                 FoodId = dish.Food.FoodId,
                 PortionId = portion.PortionId,
-                Quantity = 1,
+                Quantity = 1, // 🔥 Không nhân đôi
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             });
 
             await _mealRepository.SaveChangeAsync();
         }
+
 
 
 
