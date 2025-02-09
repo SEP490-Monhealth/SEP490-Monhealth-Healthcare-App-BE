@@ -108,10 +108,11 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
                 var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, goalType, activityLevel);
 
-                await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, newMetric, userId.Value, currentDate);
-                await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, newMetric, userId.Value, currentDate);
-                await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, newMetric, userId.Value, currentDate);
-                await CreateMealAsync(MealType.Snack, mealPlan.Snack, newMetric, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, newGoal, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, newGoal, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, newGoal, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Snack, mealPlan.Snack, newGoal, userId.Value, currentDate);
+
             }
 
             #endregion
@@ -121,7 +122,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         }
 
 
-        private async Task CreateMealAsync(MealType mealType, MealDTO meal, Monhealth.Domain.Metric metric, Guid userId, DateTime date)
+        private async Task CreateMealAsync(MealType mealType, MealDTO meal, Goal goal, Guid userId, DateTime date)
         {
             if (meal?.MainDish?.Food == null)
             {
@@ -147,14 +148,14 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 model.UpdatedAt = DateTime.Now;
             }
 
-            // Đảm bảo từng món có portion riêng
-            await AddDishToMealAsync(meal.MainDish, model.MealId, metric, mealType);
-            if (meal.SideDish?.Food != null) await AddDishToMealAsync(meal.SideDish, model.MealId, metric, mealType);
-            if (meal.Dessert?.Food != null) await AddDishToMealAsync(meal.Dessert, model.MealId, metric, mealType);
-
+            // 🔹 Truyền Goal thay vì Metric
+            await AddDishToMealAsync(meal.MainDish, model.MealId, goal, mealType);
+            if (meal.SideDish?.Food != null) await AddDishToMealAsync(meal.SideDish, model.MealId, goal, mealType);
+            if (meal.Dessert?.Food != null) await AddDishToMealAsync(meal.Dessert, model.MealId, goal, mealType);
 
             await AddMealToDailyMeal(userId, date);
         }
+
 
 
 
@@ -172,7 +173,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         // }
 
 
-        private async Task AddDishToMealAsync(DishDTO dish, Guid mealId, Monhealth.Domain.Metric metric, MealType mealType)
+        private async Task AddDishToMealAsync(DishDTO dish, Guid mealId, Goal goal, MealType mealType)
         {
             if (dish == null) return;
 
@@ -182,22 +183,22 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 throw new Exception($"Không tìm thấy Food hoặc Nutrition với FoodId: {dish.Food.FoodId}");
             }
 
-            // 🔹 1️⃣ Xác định lượng calories mục tiêu cho bữa ăn (theo tỷ lệ TDEE)
+            // 🔹 Xác định lượng calories mục tiêu dựa trên Goal
             var mealRatio = mealType switch
             {
-                MealType.Breakfast => 0.3f,  // Bữa sáng chiếm 30% TDEE
-                MealType.Lunch => 0.35f,     // Bữa trưa chiếm 35% TDEE
-                MealType.Dinner => 0.25f,    // Bữa tối chiếm 25% TDEE
-                MealType.Snack => 0.1f,      // Bữa phụ chiếm 10% TDEE
+                MealType.Breakfast => 0.3f,
+                MealType.Lunch => 0.35f,
+                MealType.Dinner => 0.25f,
+                MealType.Snack => 0.1f,
                 _ => throw new Exception($"MealType không hợp lệ: {mealType}")
             };
-            float mealCaloriesTarget = metric.Tdee * mealRatio;
+            float mealCaloriesTarget = goal.CaloriesGoal * mealRatio;  // 🔥 Lấy từ Goal thay vì TDEE
 
-            // 🔹 2️⃣ Tính portionWeight theo công thức dinh dưỡng (giống 12 records sau)
+            // 🔹 Tính portionWeight dựa trên Goal
             float portionWeight = (mealCaloriesTarget / food.Nutrition.Calories) * 100;
-            portionWeight = MathF.Round(portionWeight, 2); // Làm tròn 2 chữ số thập phân
+            portionWeight = MathF.Round(portionWeight, 2);
 
-            // 🔹 3️⃣ Tạo portion mới hoặc lấy portion cũ
+            // 🔹 Tạo portion mới hoặc lấy portion cũ
             var existingPortion = await _portionRepository.GetPortionAsync(
                 dish.Portion?.MeasurementUnit ?? "g",
                 dish.Portion?.PortionSize ?? "",
@@ -219,7 +220,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 await _portionRepository.SaveChangesAsync();
             }
 
-            // 🔹 4️⃣ Cập nhật vào FoodPortion và MealFood
+            // 🔹 Cập nhật vào FoodPortion và MealFood
             _foodPortionRepository.Add(new FoodPortion
             {
                 FoodId = dish.Food.FoodId,
@@ -238,6 +239,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
             await _mealRepository.SaveChangeAsync();
         }
+
+
 
 
 
