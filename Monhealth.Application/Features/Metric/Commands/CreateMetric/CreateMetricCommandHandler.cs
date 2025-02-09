@@ -156,6 +156,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
 
 
+
         // private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
         // {
         //     return mealType switch
@@ -171,21 +172,34 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
         private async Task AddDishToMealAsync(DishDTO dish, Guid mealId)
         {
-            if (dish == null || dish.Food == null)
-            {
-                return;
-            }
+            if (dish == null) return;
 
-            // Đảm bảo portionWeight hợp lệ
-            float portionWeight = dish.Portion?.PortionWeight ?? 100;
-
-            var portion = await _portionRepository.GetOrCreatePortionAsync(
+            var existingPortion = await _portionRepository.GetPortionAsync(
                 dish.Portion?.MeasurementUnit ?? "g",
                 dish.Portion?.PortionSize ?? "",
-                portionWeight
+                dish.Portion?.PortionWeight ?? 100
             );
 
-            _foodPortionRepository.Add(new FoodPortion { FoodId = dish.Food.FoodId, PortionId = portion.PortionId });
+            Portion portion = existingPortion ?? new Portion
+            {
+                MeasurementUnit = dish.Portion?.MeasurementUnit ?? "g",
+                PortionSize = dish.Portion?.PortionSize ?? "",
+                PortionWeight = dish.Portion?.PortionWeight ?? 100,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
+
+            if (existingPortion == null)
+            {
+                _portionRepository.Add(portion);
+                await _portionRepository.SaveChangesAsync();
+            }
+
+            _foodPortionRepository.Add(new FoodPortion
+            {
+                FoodId = dish.Food.FoodId,
+                PortionId = portion.PortionId
+            });
 
             _mealFoodRepository.Add(new Monhealth.Domain.MealFood
             {
@@ -199,7 +213,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
             await _mealRepository.SaveChangeAsync();
         }
-
 
 
         private async Task AddMealToDailyMeal(Guid userId, DateTime date)

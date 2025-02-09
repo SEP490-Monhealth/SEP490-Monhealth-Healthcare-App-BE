@@ -86,6 +86,7 @@ namespace Monhealth.Application.ServiceForRecommend
                 _logger.LogWarning($"No available foods found for {mealType} - {dishType}.");
                 return null;
             }
+
             var foodList = filteredFoods.Items
                 .Select(f => new FoodDTO123
                 {
@@ -94,6 +95,7 @@ namespace Monhealth.Application.ServiceForRecommend
                     FoodType = f.FoodType
                 })
                 .ToList();
+
             var selectedFood = SelectWeightedRandom(foodList, mealType, dishType, mainDish);
             if (selectedFood == null)
             {
@@ -118,6 +120,8 @@ namespace Monhealth.Application.ServiceForRecommend
             };
 
             var portion = CalculateNewPortion(mappedNutrition, allocation, ratio);
+
+
             return new DishDTO
             {
                 Food = selectedFood,
@@ -132,11 +136,31 @@ namespace Monhealth.Application.ServiceForRecommend
                 },
                 Portion = portion
             };
-
         }
 
+        private PortionDTO CalculateNewPortion(NutritionDTO nutrition, MealAllocationDTO allocation, float ratio)
+        {
+            float portionWeight = 100 * (allocation.Calories * ratio / Math.Max(nutrition.Calories, 1));
 
+            return new PortionDTO
+            {
+                PortionWeight = portionWeight,
+                MeasurementUnit = "g",
+                PortionSize = "default"
+            };
+        }
 
+        private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
+        {
+            return mealType switch
+            {
+                MealType.Breakfast => (1f, 0f, 0f),
+                MealType.Lunch => (0.55f, 0.3f, 0.15f),
+                MealType.Dinner => (goalType == GoalType.WeightLoss || activityLevel < 1.725) ? (0.65f, 0.35f, 0f) : (0.6f, 0.3f, 0.1f),
+                MealType.Snack => (0.8f, 0.2f, 0f),
+                _ => (1f, 0f, 0f)
+            };
+        }
 
         private FoodDTO123? SelectWeightedRandom(List<FoodDTO123> foodList, MealType mealType, DishType dishType, DishDTO? mainDish = null)
         {
@@ -157,36 +181,6 @@ namespace Monhealth.Application.ServiceForRecommend
             return validFoods.OrderBy(_ => Guid.NewGuid()).FirstOrDefault();
         }
 
-
-
-        private PortionDTO CalculateNewPortion(NutritionDTO nutrition, MealAllocationDTO allocation, float ratio)
-        {
-            var portionWeight = 100 * (allocation.Calories * ratio / Math.Max(nutrition.Calories, 1));
-
-            return new PortionDTO
-            {
-                PortionWeight = portionWeight,
-                MeasurementUnit = "g",
-                PortionSize = "default"
-            };
-        }
-
-
-
-
-
-        private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
-        {
-            return mealType switch
-            {
-                MealType.Breakfast => (1f, 0f, 0f),
-                MealType.Lunch => (0.55f, 0.3f, 0.15f),
-                MealType.Dinner => (goalType == GoalType.WeightLoss || activityLevel < 1.725) ? (0.65f, 0.35f, 0f) : (0.6f, 0.3f, 0.1f),
-                MealType.Snack => (0.8f, 0.2f, 0f),
-                _ => (1f, 0f, 0f)
-            };
-        }
-
         public List<FoodType> GetAllowedSideDishTypes(FoodType? mainDishType)
         {
             return mainDishType switch
@@ -199,6 +193,7 @@ namespace Monhealth.Application.ServiceForRecommend
         }
     }
 }
+
 
 
 public class MealPlanWithAllocationDTO
