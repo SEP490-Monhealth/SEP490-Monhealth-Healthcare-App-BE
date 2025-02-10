@@ -8,174 +8,191 @@ namespace Monhealth.Identity.Services
     public class GoalsCalculator : IGoalsCalculator
     {
         private readonly IMetricRepository _metricRepository;
+
         public GoalsCalculator(IMetricRepository metricRepository)
         {
             _metricRepository = metricRepository;
         }
+
         public void CreateCalculateGoal(Goal goal, CreateMetricDTO createMetricDto, float tdee)
         {
             goal.GoalType = createMetricDto.GoalType;
-            // tinh toan cac chi so Macros
-            var (calories, protein, carbs, fats, fiberGoal, sugarGoal) = CreateCalculateMacros(tdee, createMetricDto.GoalType.ToString(), createMetricDto.CaloriesRatio, createMetricDto.Weight, goal.WeightGoal, createMetricDto.ActivityLevel);
+
+            // Tính toán các chỉ số Macros
+            var (calories, protein, carbs, fats) = CreateCalculateMacros(
+                tdee, createMetricDto.GoalType.ToString(), createMetricDto.CaloriesRatio,
+                createMetricDto.Weight, goal.WeightGoal, createMetricDto.ActivityLevel);
+
             goal.CaloriesGoal = calories;
             goal.ProteinGoal = protein;
             goal.CarbsGoal = carbs;
             goal.FatGoal = fats;
 
-            // Tinh FiberGoal và SugarGoal tu carbs
-            goal.FiberGoal = fiberGoal;
-            goal.SugarGoal = sugarGoal;
+            // Tính FiberGoal và SugarGoal từ Carbs
+            (goal.FiberGoal, goal.SugarGoal) = CalculateFiberAndSugar(carbs, createMetricDto.GoalType.ToString());
 
-            // Tinh toan water
-
+            // Tính toán lượng nước cần uống
             goal.WaterIntakesGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel < 1.725f ? 35 : 40));
         }
 
-        private (float calories, float protein, float carbs, float fats, float fiberGoal, float sugarGoal) CreateCalculateMacros(float tdee, string goalType, float caloriesRatio, float currentWeight, float targetWeight, float activityLevel)
+        private (float calories, float protein, float carbs, float fats) CreateCalculateMacros(
+            float tdee, string goalType, float caloriesRatio, float currentWeight, float targetWeight, float activityLevel)
         {
-            float calories, proteinPercentage, carbPercentage, fatPercentage, fiberGoal, sugarGoal;
-            if (activityLevel < 1.725)
+            // Kiểm tra hợp lệ Calories Ratio
+            if (caloriesRatio < 0.7f || caloriesRatio > 1.3f)
+                throw new Exception("Calories Ratio không hợp lệ (phải từ 0.7 đến 1.3)");
+
+            // Kiểm tra hợp lệ mục tiêu giảm cân/tăng cân
+            if ((goalType == "WeightLoss" && targetWeight >= currentWeight) ||
+                (goalType == "WeightGain" && targetWeight <= currentWeight))
+                throw new Exception("Mục tiêu cân nặng không hợp lệ");
+
+            float calories = tdee * caloriesRatio;
+            float proteinPercentage, carbsPercentage, fatPercentage;
+
+            if (activityLevel < 1.725f)
             {
                 switch (goalType)
                 {
                     case "WeightLoss":
-                        if (targetWeight >= currentWeight)
-                            throw new Exception($"Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại ({currentWeight}).");
-                        calories = tdee * caloriesRatio; // Giảm 20%
-                        fiberGoal = (calories * 1.1f) / 4;
-                        sugarGoal = (calories * 0.05f) / 4;
                         proteinPercentage = 0.3f;
-                        carbPercentage = 0.45f;
+                        carbsPercentage = 0.45f;
                         fatPercentage = 0.25f;
                         break;
 
                     case "WeightGain":
-                        if (targetWeight <= currentWeight)
-                            throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight}).");
-                        calories = tdee * caloriesRatio; // Tăng 10-15%
-                        fiberGoal = (calories * 0.9f) / 4;
-                        sugarGoal = (calories * 0.15f) / 4;
-                        proteinPercentage = 0.25f; // 30% Protein
-                        carbPercentage = 0.55f;   // 50% Carb
-                        fatPercentage = 0.2f;    // 20% Fat
+                        proteinPercentage = 0.25f;
+                        carbsPercentage = 0.55f;
+                        fatPercentage = 0.2f;
                         break;
 
                     case "Maintenance":
-                        calories = tdee * caloriesRatio; // Giữ nguyên TDEE
-                        fiberGoal = (calories * 1.2f) / 4;
-                        sugarGoal = (calories * 0.1f) / 4;
-                        proteinPercentage = 0.25f; // 30% Protein
-                        carbPercentage = 0.5f;   // 40% Carb
-                        fatPercentage = 0.25f;    // 30% Fat
-                        break;
-
-                    default:
-                        throw new Exception("Loại mục tiêu không hợp lệ.");
-                }
-            }
-            else if (activityLevel >= 1.725)
-            {
-                switch (goalType)
-                {
-                    case "WeightLoss":
-                        if (targetWeight >= currentWeight)
-                            throw new Exception($"Mục tiêu giảm cân phải nhỏ hơn cân nặng hiện tại ({currentWeight}).");
-                        calories = tdee * caloriesRatio;
-                        fiberGoal = (calories * 1.1f) / 4;
-                        sugarGoal = (calories * 0.05f) / 4;
-                        proteinPercentage = 0.35f;
-                        carbPercentage = 0.4f;
+                        proteinPercentage = 0.25f;
+                        carbsPercentage = 0.5f;
                         fatPercentage = 0.25f;
                         break;
 
-                    case "WeightGain":
-                        if (targetWeight <= currentWeight)
-                            throw new Exception($"Mục tiêu tăng cân phải lớn hơn cân nặng hiện tại ({currentWeight}).");
-                        calories = tdee * caloriesRatio;
-                        fiberGoal = (calories * 0.9f) / 4;
-                        sugarGoal = (calories * 0.15f) / 4;
-                        proteinPercentage = 0.3f;
-                        carbPercentage = 0.5f;
-                        fatPercentage = 0.2f;
-                        break;
-
-                    case "Maintenance":
-                        calories = tdee * caloriesRatio;
-                        fiberGoal = (calories * 1.2f) / 4;
-                        sugarGoal = (calories * 0.1f) / 4;
-                        proteinPercentage = 0.3f;
-                        carbPercentage = 0.5f;
-                        fatPercentage = 0.2f;
-                        break;
-
                     default:
-                        throw new Exception("Loại mục tiêu không hợp lệ.");
+                        throw new Exception("Loại mục tiêu không hợp lệ");
                 }
             }
             else
             {
-                throw new Exception("Chỉ số hoạt động không hợp lệ");
+                switch (goalType)
+                {
+                    case "WeightLoss":
+                        proteinPercentage = 0.35f; //35%
+                        carbsPercentage = 0.4f; //40%
+                        fatPercentage = 0.25f; //25%
+                        break;
+
+                    case "WeightGain":
+                        proteinPercentage = 0.3f; //30%
+                        carbsPercentage = 0.5f; //50%
+                        fatPercentage = 0.2f; //20%
+                        break;
+
+                    case "Maintenance":
+                        proteinPercentage = 0.3f; //30%
+                        carbsPercentage = 0.5f; //50%
+                        fatPercentage = 0.2f; //20%
+                        break;
+
+                    default:
+                        throw new Exception("Loại mục tiêu không hợp lệ");
+                }
             }
+
+            // Tính Macro từ Calories
             float protein = calories * proteinPercentage / 4;
-            float carbs = (calories * carbPercentage) / 4;
+            float carbs = calories * carbsPercentage / 4;
             float fats = calories * fatPercentage / 9;
 
-            return (calories, protein, carbs, fats, fiberGoal, sugarGoal);
+            return (calories, protein, carbs, fats);
+        }
+
+        private (float fiberGoal, float sugarGoal) CalculateFiberAndSugar(float carbs, string goalType)
+        {
+            float fiberPercentage, sugarPercentage;
+
+            switch (goalType)
+            {
+                case "WeightLoss":
+                    fiberPercentage = 0.12f; // 12% từ Carbs
+                    sugarPercentage = 0.2f;  // 20% từ Carbs
+                    break;
+
+                case "Maintenance":
+                    fiberPercentage = 0.1f;  // 10% từ Carbs
+                    sugarPercentage = 0.25f; // 25% từ Carbs
+                    break;
+
+                case "WeightGain":
+                    fiberPercentage = 0.08f; // 8% từ Carbs
+                    sugarPercentage = 0.3f;  // 30% từ Carbs
+                    break;
+
+                default:
+                    throw new Exception("Loại mục tiêu không hợp lệ");
+            }
+
+            float fiberGoal = carbs * fiberPercentage;
+            float sugarGoal = carbs * sugarPercentage;
+
+            return (fiberGoal, sugarGoal);
         }
 
         public void UpdateMetricCalculateGoal(Goal goalToUpdate, string goalType, float tdee, float weight, float activityLevel)
         {
-            // tinh toan cac chi so Macros
             var (calories, protein, carbs, fats) = UpdateCalculateMacros(tdee, goalType);
             goalToUpdate.CaloriesGoal = calories;
             goalToUpdate.ProteinGoal = protein;
             goalToUpdate.CarbsGoal = carbs;
             goalToUpdate.FatGoal = fats;
 
-            // Tinh FiberGoal và SugarGoal tu carbs
-            goalToUpdate.FiberGoal = carbs * 0.1f;
-            goalToUpdate.SugarGoal = carbs * 0.25f;
+            // Sử dụng công thức mới cho Fiber và Sugar từ Carbs
+            (goalToUpdate.FiberGoal, goalToUpdate.SugarGoal) = CalculateFiberAndSugar(carbs, goalType);
 
-            // Tinh toan water
-            goalToUpdate.WaterIntakesGoal = (int)(weight * (activityLevel == 1.2f || activityLevel == 1.375f ? 30 : 40));
+            // Tính toán lượng nước cần uống
+            goalToUpdate.WaterIntakesGoal = (int)(weight * (activityLevel < 1.725f ? 35 : 40));
         }
 
         private (float calories, float protein, float carbs, float fats) UpdateCalculateMacros(float tdee, string goalType)
         {
-            float calories, proteinPercentage, carbPercentage, fatPercentage;
+            float calories, proteinPercentage, carbsPercentage, fatPercentage;
+
             switch (goalType)
             {
                 case "WeightLoss":
-                    calories = tdee * 0.8f; // Giảm 20%
-                    proteinPercentage = 0.35f; // 40% Protein
-                    carbPercentage = 0.4f;  // 35% Carb
-                    fatPercentage = 0.25f;   // 25% Fat
+                    calories = tdee * 0.8f;
+                    proteinPercentage = 0.35f; //35%
+                    carbsPercentage = 0.4f; //40%
+                    fatPercentage = 0.25f; //25%
                     break;
 
                 case "WeightGain":
-                    calories = tdee * 1.1f; // Tăng 10-15%
-                    proteinPercentage = 0.35f; // 30% Protein
-                    carbPercentage = 0.4f;   // 50% Carb
-                    fatPercentage = 0.25f;    // 20% Fat
+                    calories = tdee * 1.1f;
+                    proteinPercentage = 0.35f; //35%
+                    carbsPercentage = 0.4f; //40%
+                    fatPercentage = 0.25f; //25%
                     break;
 
                 case "Maintenance":
-                    calories = tdee; // Giữ nguyên TDEE
-                    proteinPercentage = 0.25f; // 30% Protein
-                    carbPercentage = 0.5f;   // 40% Carb
-                    fatPercentage = 0.25f;    // 30% Fat
+                    calories = tdee;
+                    proteinPercentage = 0.25f; //25%
+                    carbsPercentage = 0.5f; //50%
+                    fatPercentage = 0.25f; //25%
                     break;
 
                 default:
-                    throw new Exception("Loại mục tiêu không hợp lệ.");
+                    throw new Exception("Loại mục tiêu không hợp lệ");
             }
 
             float protein = calories * proteinPercentage / 4;
-            float carbs = calories * carbPercentage / 4;
+            float carbs = calories * carbsPercentage / 4;
             float fats = calories * fatPercentage / 9;
 
             return (calories, protein, carbs, fats);
         }
     }
 }
-

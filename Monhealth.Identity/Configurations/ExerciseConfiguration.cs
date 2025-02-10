@@ -796,7 +796,7 @@ namespace Monhealth.Identity.Configurations
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Đá chân sau với dây kháng lực bên trái",
                 Instructions =
-                    "1. Stand up and wrap a resistance band around your legs\n 2. Straighten your back and engage your abs, then lift your leg backwards\n 3. Do a full set with one leg, then do a set with the other\n 4. Be careful not to arch your back",
+                    "Đứng thẳng và quấn dây kháng lực quanh chân của bạn.\n Giữ thẳng lưng và siết chặt cơ bụng, sau đó nâng chân ra phía sau.\n Thực hiện một hiệp đầy đủ với một chân, sau đó thực hiện một hiệp với chân kia.\n Cẩn thận không cong lưng",
                 CaloriesPerMinute = 4.5f,
                 Status = true,
                 CreatedAt = today,

@@ -121,7 +121,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             return Unit.Value;
         }
 
-
         private async Task CreateMealAsync(MealType mealType, MealDTO meal, Goal goal, Guid userId, DateTime date)
         {
             if (meal?.MainDish?.Food == null) return;
@@ -157,11 +156,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             await AddMealToDailyMeal(userId, date);
         }
 
-
-
-
-
-
         // private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
         // {
         //     return mealType switch
@@ -173,7 +167,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //         _ => throw new Exception($"MealType không hợp lệ: {mealType}")
         //     };
         // }
-
 
         private async Task AddDishToMealAsync(DishDTO dish, Guid mealId, Goal goal, MealType mealType)
         {
@@ -189,15 +182,16 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 MealType.Snack => 0.1f,
                 _ => throw new Exception($"MealType không hợp lệ: {mealType}")
             };
+
             float mealCaloriesTarget = goal.CaloriesGoal * mealRatio;
 
-            float portionWeight = (mealCaloriesTarget / food.Nutrition.Calories) * 100;
+            float portionWeight = mealCaloriesTarget / food.Nutrition.Calories * 100;
             portionWeight = Math.Clamp(portionWeight, 30, 500);
 
             var portion = new Portion
             {
                 MeasurementUnit = "g",
-                PortionSize = "default",
+                PortionSize = "",
                 PortionWeight = portionWeight,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
@@ -218,11 +212,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
             await _mealRepository.SaveChangeAsync();
         }
-
-
-
-
-
 
         private async Task AddMealToDailyMeal(Guid userId, DateTime date)
         {
@@ -326,12 +315,5 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
             Console.WriteLine($"✅ DailyMeal saved for User {userId} on {date}: {dailyMeal.TotalCalories} calories");
         }
-
-
-
-
-
-
-
     }
 }

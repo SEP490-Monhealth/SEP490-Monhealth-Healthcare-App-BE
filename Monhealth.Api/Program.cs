@@ -58,8 +58,8 @@ builder.Services.AddEndpointsApiExplorer();
 // Add Swagger services
 var app = builder.Build();
 
-var urls = app.Urls.Any() ? string.Join(", ", app.Urls) : "http://localhost:8081";
-Log.Information("Now listening on: {Urls}", urls);
+// var urls = app.Urls.Any() ? string.Join(", ", app.Urls) : "http://localhost:8081";
+// Log.Information("Now listening on: {Urls}", urls);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

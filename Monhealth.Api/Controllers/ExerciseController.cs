@@ -56,7 +56,7 @@ namespace Monhealth.Api.Controllers
                 Data = exercise
             });
         }
-        
+
         [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetExerciseByUserId(Guid userId)
         {
