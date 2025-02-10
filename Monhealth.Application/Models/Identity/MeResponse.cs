@@ -12,5 +12,6 @@ namespace Monhealth.Application.Models.Identity
         [JsonPropertyName("avatarUrl")]
         public string Avatar { get; set; }
         public string Role { get; set; }
+        public string Subscription { get; set; }
     }
 }
