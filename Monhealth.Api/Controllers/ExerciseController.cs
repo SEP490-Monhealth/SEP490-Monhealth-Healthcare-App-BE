@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseByUserId;
 using Monhealth.Application.Models;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Api.Controllers
 {
@@ -23,9 +24,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string category = null, string search = null, bool? popular = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllExercise(ExerciseType type, int page = 1, int limit = 10, string? search = null, bool? status = null)
         {
-            var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, category, search, popular, status));
+            var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, type, search, status));
 
             return new ResultModel
             {

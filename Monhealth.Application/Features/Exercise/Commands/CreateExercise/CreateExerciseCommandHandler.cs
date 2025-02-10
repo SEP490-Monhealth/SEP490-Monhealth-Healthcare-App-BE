@@ -29,11 +29,6 @@ namespace Monhealth.Application.Features.Exercise.Commands.CreateExercise
             {
                 throw new Exception("Người dùng không tồn tại");
             }
-            var category = await _categoryRepository.GetCategoryByCategoryName(request.CreateExerciseDTO.Category);
-            if (category == null)
-            {
-                throw new Exception("Danh mục không tồn tại");
-            }
             var newExercise = _mapper.Map<Domain.Exercise>(request.CreateExerciseDTO);
             newExercise.ExerciseId = Guid.NewGuid();
             newExercise.Status = false;

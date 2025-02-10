@@ -2,6 +2,7 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
@@ -12,7 +13,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Exercise>> GetAllExerciseAsync(int page, int limit, string? search, bool? popular, string? exerciseType, bool? status)
+        public async Task<PaginatedResult<Exercise>> GetAllExerciseAsync(int page, int limit, string? search, ExerciseType exerciseType, bool? status)
         {
             IQueryable<Exercise> query = _context.Exercises.AsQueryable();
             // filter search
@@ -27,6 +28,7 @@ namespace Monhealth.Identity.Repositories
             //{
             //    query = query.Where(f => f.Category.CategoryName == exerciseType && f.Category.CategoryType == (CategoryType)1);
             //}
+            query = query.Where(t => t.ExerciseType == exerciseType);
             if (status.HasValue)
             {
                 query = query.Where(s => s.Status == status.Value);

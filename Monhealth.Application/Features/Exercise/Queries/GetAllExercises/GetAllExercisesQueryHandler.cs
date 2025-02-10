@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetAllExercises
 
         public async Task<PageResult<GetAllExercisesDTO>> Handle(GetAllExercisesQuery request, CancellationToken cancellationToken)
         {
-            var listExercise = await _exerciseRepository.GetAllExerciseAsync(request.Page, request.Limit, request.Search, request.Popular, request.ExerciseType, request.Status);
+            var listExercise = await _exerciseRepository.GetAllExerciseAsync(request.Page, request.Limit, request.Search, request.ExerciseType, request.Status);
             var listExerciseDto = _mapper.Map<List<GetAllExercisesDTO>>(listExercise.Items);
             return new PageResult<GetAllExercisesDTO>()
             {
