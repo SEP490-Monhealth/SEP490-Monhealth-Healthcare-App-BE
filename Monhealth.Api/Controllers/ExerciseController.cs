@@ -1,5 +1,4 @@
-﻿using System.Net;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Exercise.Commands.ChangeStatusExercise;
 using Monhealth.Application.Features.Exercise.Commands.CreateExercise;
@@ -10,6 +9,7 @@ using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseByUserId;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -24,7 +24,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllExercise(ExerciseType type, int page = 1, int limit = 10, string? search = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string? search = null, ExerciseType? type = default, bool? status = null)
         {
             var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, type, search, status));
 

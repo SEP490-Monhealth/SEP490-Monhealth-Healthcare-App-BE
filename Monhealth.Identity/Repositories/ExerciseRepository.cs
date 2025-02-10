@@ -13,7 +13,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Exercise>> GetAllExerciseAsync(int page, int limit, string? search, ExerciseType exerciseType, bool? status)
+        public async Task<PaginatedResult<Exercise>> GetAllExerciseAsync(int page, int limit, string? search, ExerciseType? exerciseType, bool? status)
         {
             IQueryable<Exercise> query = _context.Exercises.AsQueryable();
             // filter search
