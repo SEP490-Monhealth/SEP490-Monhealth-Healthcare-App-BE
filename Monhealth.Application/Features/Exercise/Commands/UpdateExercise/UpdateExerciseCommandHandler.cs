@@ -17,11 +17,6 @@ namespace Monhealth.Application.Features.Exercise.Commands.UpdateExercise
         }
         public async Task<bool> Handle(UpdateExerciseCommand request, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetCategoryByCategoryName(request.UpdateExerciseDTO.Category);
-            if (category == null)
-            {
-                throw new Exception("Danh mục không tồn tại");
-            }
             var checkExerciseExisted = await _exerciseRepository.GetExerciseByNameAsync(request.UpdateExerciseDTO.ExerciseName);
             if (checkExerciseExisted != null)
             {

@@ -8,7 +8,7 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetAllExercises
     {
         public Guid ExerciseId { get; set; }
         public Guid UserId { get; set; }
-        [JsonPropertyName("category")]
+        [JsonPropertyName("type")]
         public ExerciseType ExerciseType { get; set; }
         [JsonPropertyName("name")]
         public string ExerciseName { get; set; } = string.Empty;
