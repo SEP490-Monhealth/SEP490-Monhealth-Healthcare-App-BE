@@ -323,6 +323,24 @@ namespace Monhealth.Identity.Configurations
             #region Exercise 18
             new Exercise
             {
+                ExerciseId = Guid.Parse("90ce2a9f-d0be-4ca0-b3ca-8b6947a6b266"),
+                UserId = userId,
+                ExerciseType = ExerciseType.Time,
+                ExerciseName = "Siêu nhân",
+                Instructions =
+                    "Nằm sấp trên thảm. Giữ chân thẳng và khép lại.\n Duỗi thẳng tay lên trên đầu, tạo thành một đường thẳng với cơ thể.\n Hít vào và nâng tay, ngực và chân lên. Cơ thể tạo thành hình vòng cung.\n Giữ tư thế trong khoảng 4 giây, sau đó thở ra và trở về vị trí bắt đầu. Lặp lại bài tập",
+                CaloriesPerMinute = 5f,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
+            },
+            #endregion
+
+            #region Exercise 19
+            new Exercise
+            {
                 ExerciseId = Guid.Parse("c076c867-b379-4889-9428-5bc1ae76cbc7"),
                 UserId = userId,
                 ExerciseType = ExerciseType.Reps,
@@ -338,7 +356,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 19
+            #region Exercise 20
             new Exercise
             {
                 ExerciseId = Guid.Parse("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -356,7 +374,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 20
+            #region Exercise 21
             new Exercise
             {
                 ExerciseId = Guid.Parse("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -374,7 +392,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 21
+            #region Exercise 22
             new Exercise
             {
                 ExerciseId = Guid.Parse("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -392,7 +410,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 22
+            #region Exercise 23
             new Exercise
             {
                 ExerciseId = Guid.Parse("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -410,7 +428,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 23
+            #region Exercise 24
             new Exercise
             {
                 ExerciseId = Guid.Parse("1ff0ef05-4387-4483-8de3-0ef6d7724afd"),
@@ -428,7 +446,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 24
+            #region Exercise 25
             new Exercise
             {
                 ExerciseId = Guid.Parse("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -446,7 +464,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 25
+            #region Exercise 26
             new Exercise
             {
                 ExerciseId = Guid.Parse("7c38fc8f-8fd2-450e-8fa6-c4557f0e6e02"),
@@ -464,7 +482,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 26
+            #region Exercise 27
             new Exercise
             {
                 ExerciseId = Guid.Parse("58878826-775e-4d4c-8e1b-d5c95afc214d"),
@@ -482,7 +500,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 27
+            #region Exercise 28
             new Exercise
             {
                 ExerciseId = Guid.Parse("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -500,7 +518,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 28
+            #region Exercise 29
             new Exercise
             {
                 ExerciseId = Guid.Parse("9ba29558-e51b-4a1a-a1c4-b747967e32fb"),
@@ -518,7 +536,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 29
+            #region Exercise 30
             new Exercise
             {
                 ExerciseId = Guid.Parse("407ff857-d218-44a8-8d0f-0bfa5d53bf03"),
@@ -536,7 +554,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 30
+            #region Exercise 31
             new Exercise
             {
                 ExerciseId = Guid.Parse("0a9e1fb3-9abf-4775-a75e-2bb13009a29d"),
@@ -554,7 +572,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 31
+            #region Exercise 32
             new Exercise
             {
                 ExerciseId = Guid.Parse("b2e62599-1f8c-4fc2-9ca7-8ab7aa571d4e"),
@@ -572,7 +590,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 32
+            #region Exercise 33
             new Exercise
             {
                 ExerciseId = Guid.Parse("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -590,7 +608,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 33
+            #region Exercise 34
             new Exercise
             {
                 ExerciseId = Guid.Parse("07a4dbcd-635a-4a76-92d4-8127de619e6d"),
@@ -608,7 +626,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 34
+            #region Exercise 35
             new Exercise
             {
                 ExerciseId = Guid.Parse("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -626,7 +644,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 35
+            #region Exercise 36
             new Exercise
             {
                 ExerciseId = Guid.Parse("01dc4c46-e1ef-44bc-9f19-ecb283bf27ce"),
@@ -644,7 +662,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 36
+            #region Exercise 37
             new Exercise
             {
                 ExerciseId = Guid.Parse("6badb5b5-ad99-4b89-80c6-e52d0f7cd7ba"),
@@ -662,7 +680,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 37
+            #region Exercise 38
             new Exercise
             {
                 ExerciseId = Guid.Parse("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -680,7 +698,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 38
+            #region Exercise 39
             new Exercise
             {
                 ExerciseId = Guid.Parse("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -698,7 +716,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 39
+            #region Exercise 40
             new Exercise
             {
                 ExerciseId = Guid.Parse("93e22c77-001f-4825-8983-4ec5b643b7bb"),
@@ -716,7 +734,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 40
+            #region Exercise 41
             new Exercise
             {
                 ExerciseId = Guid.Parse("439db970-c7c8-4b3b-9a35-127d31d920dc"),
@@ -734,7 +752,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 41
+            #region Exercise 42
             new Exercise
             {
                 ExerciseId = Guid.Parse("0a280d32-de67-4a38-8f21-923243489eef"),
@@ -752,7 +770,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 42
+            #region Exercise 43
             new Exercise
             {
                 ExerciseId = Guid.Parse("235f7494-3e7d-45a5-a31a-6d5449b1322d"),
@@ -770,7 +788,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 43
+            #region Exercise 44
             new Exercise
             {
                 ExerciseId = Guid.Parse("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -788,7 +806,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 44
+            #region Exercise 45
             new Exercise
             {
                 ExerciseId = Guid.Parse("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -806,7 +824,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 45
+            #region Exercise 46
             new Exercise
             {
                 ExerciseId = Guid.Parse("9fb83332-a8fc-4fcc-a015-2e784e2ab33b"),
@@ -824,7 +842,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 46
+            #region Exercise 47
             new Exercise
             {
                 ExerciseId = Guid.Parse("8b93dbb2-fc2b-4627-b79a-3ec45a7c6238"),
@@ -842,7 +860,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 47
+            #region Exercise 48
             new Exercise
             {
                 ExerciseId = Guid.Parse("8619916d-a296-48a5-af89-f82a6a1cb26f"),
@@ -860,7 +878,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 48
+            #region Exercise 49
             new Exercise
             {
                 ExerciseId = Guid.Parse("d4ebca3a-83ef-485b-9178-83d4eab9694c"),
@@ -878,7 +896,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 49
+            #region Exercise 50
             new Exercise
             {
                 ExerciseId = Guid.Parse("6749cbc6-0e28-4163-95e8-7fb2a27c54cf"),
@@ -896,7 +914,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 50
+            #region Exercise 51
             new Exercise
             {
                 ExerciseId = Guid.Parse("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -914,7 +932,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 51
+            #region Exercise 52
             new Exercise
             {
                 ExerciseId = Guid.Parse("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -932,7 +950,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 52
+            #region Exercise 53
             new Exercise
             {
                 ExerciseId = Guid.Parse("3f674891-2d75-42bf-af35-a89dff24ab22"),
@@ -950,7 +968,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 53
+            #region Exercise 54
             new Exercise
             {
                 ExerciseId = Guid.Parse("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -968,7 +986,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 54
+            #region Exercise 55
             new Exercise
             {
                 ExerciseId = Guid.Parse("0c011f92-425a-477c-84d4-3d6dc883119b"),
@@ -986,7 +1004,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 55
+            #region Exercise 56
             new Exercise
             {
                 ExerciseId = Guid.Parse("f06a6d9b-ed14-46cd-9e56-145cd1fd3d7c"),
@@ -1004,7 +1022,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 56
+            #region Exercise 57
             new Exercise
             {
                 ExerciseId = Guid.Parse("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -1022,7 +1040,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 57
+            #region Exercise 58
             new Exercise
             {
                 ExerciseId = Guid.Parse("6ef8ed78-0d00-4271-bf9b-edf27a55ecab"),
@@ -1040,7 +1058,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 58
+            #region Exercise 59
             new Exercise
             {
                 ExerciseId = Guid.Parse("0d816828-8a94-4dcb-a87c-b70b295a39b6"),
@@ -1058,7 +1076,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 59
+            #region Exercise 60
             new Exercise
             {
                 ExerciseId = Guid.Parse("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -1076,7 +1094,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 60
+            #region Exercise 61
             new Exercise
             {
                 ExerciseId = Guid.Parse("256e23fa-03b1-4328-a325-512f0860d9b0"),
@@ -1094,7 +1112,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 61
+            #region Exercise 62
             new Exercise
             {
                 ExerciseId = Guid.Parse("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -1112,7 +1130,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 62
+            #region Exercise 63
             new Exercise
             {
                 ExerciseId = Guid.Parse("1c5d2078-a923-4953-9677-ff890977ffcd"),
@@ -1130,7 +1148,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 63
+            #region Exercise 64
             new Exercise
             {
                 ExerciseId = Guid.Parse("01e6141a-930e-4126-a2c6-7c32a2ccdd43"),
@@ -1148,7 +1166,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 64
+            #region Exercise 65
             new Exercise
             {
                 ExerciseId = Guid.Parse("ac074f67-d4bf-4a7f-b7e3-d8d03bbb6704"),
@@ -1166,7 +1184,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 65
+            #region Exercise 66
             new Exercise
             {
                 ExerciseId = Guid.Parse("4834f1ce-41dc-4161-ac51-e03ca78b62b8"),
@@ -1184,7 +1202,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 66
+            #region Exercise 67
             new Exercise
             {
                 ExerciseId = Guid.Parse("3a5a57a3-3495-45ae-9ebe-708e4d513d0c"),
@@ -1202,7 +1220,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 67
+            #region Exercise 68
             new Exercise
             {
                 ExerciseId = Guid.Parse("d6b2c0d5-110f-4dff-9aa7-91da10a29dca"),
@@ -1220,7 +1238,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 68
+            #region Exercise 69
             new Exercise
             {
                 ExerciseId = Guid.Parse("13ca014d-8b75-414f-afe3-3d378ef7fa97"),
@@ -1238,7 +1256,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 69
+            #region Exercise 70
             new Exercise
             {
                 ExerciseId = Guid.Parse("05c931df-c828-442e-aee1-56432cb772c7"),
@@ -1256,7 +1274,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 70
+            #region Exercise 71
             new Exercise
             {
                 ExerciseId = Guid.Parse("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -1274,7 +1292,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 71
+            #region Exercise 72
             new Exercise
             {
                 ExerciseId = Guid.Parse("22af0171-257b-43bc-9013-8985472a8c84"),
@@ -1292,7 +1310,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 72
+            #region Exercise 73
             new Exercise
             {
                 ExerciseId = Guid.Parse("6ffea500-ca35-4483-b049-d8593b2c8680"),
@@ -1310,7 +1328,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 73
+            #region Exercise 74
             new Exercise
             {
                 ExerciseId = Guid.Parse("6d6b06e1-5ade-4dae-b442-7aa200661760"),
@@ -1328,7 +1346,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 74
+            #region Exercise 75
             new Exercise
             {
                 ExerciseId = Guid.Parse("0d1e54fe-7a5f-4e0a-a59f-ee9f443718e0"),
@@ -1346,7 +1364,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 75
+            #region Exercise 76
             new Exercise
             {
                 ExerciseId = Guid.Parse("d3d944c4-947d-4910-bb6e-636390e5b8d5"),
@@ -1364,7 +1382,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 76
+            #region Exercise 77
             new Exercise
             {
                 ExerciseId = Guid.Parse("f93d73ba-d1d6-4037-b51b-1fd005accff3"),
@@ -1382,7 +1400,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 77
+            #region Exercise 78
             new Exercise
             {
                 ExerciseId = Guid.Parse("385f13f7-79bf-437b-acac-745b50485b9f"),
@@ -1400,7 +1418,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 78
+            #region Exercise 79
             new Exercise
             {
                 ExerciseId = Guid.Parse("2e787245-7612-41bc-9b75-7a4857282350"),
@@ -1418,7 +1436,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Exercise 79
+            #region Exercise 80
             new Exercise
             {
                 ExerciseId = Guid.Parse("2696db05-e815-4c8b-870d-23c338479e95"),
