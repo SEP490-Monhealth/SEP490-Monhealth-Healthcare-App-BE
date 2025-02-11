@@ -12,7 +12,7 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250208154219_InitialAndSeedData")]
+    [Migration("20250211171622_InitialAndSeedData")]
     partial class InitialAndSeedData
     {
         /// <inheritdoc />
@@ -192,7 +192,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
+                            AllergyId = new Guid("6c115fb6-202b-4047-b653-6a296c67d3ce"),
                             AllergyDescription = "Dị ứng với hải sản như tôm, cua, sò, ốc, và các loại động vật biển khác.",
                             AllergyName = "Hải sản",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -200,7 +200,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
+                            AllergyId = new Guid("fc1ff32d-849d-4a00-90ff-fb7dde63b007"),
                             AllergyDescription = "Dị ứng với lúa mì, thường gặp ở những người không dung nạp gluten.",
                             AllergyName = "Lúa mì",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -208,7 +208,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            AllergyId = new Guid("b82f4697-2ad0-4777-a29b-094c99f46d10"),
+                            AllergyId = new Guid("5226c5f8-d806-4583-bf9d-3f4af0104e33"),
                             AllergyDescription = "Dị ứng với đậu phộng, một trong những nguyên nhân phổ biến nhất gây phản ứng dị ứng nghiêm trọng.",
                             AllergyName = "Đậu phộng",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -216,7 +216,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
+                            AllergyId = new Guid("aa5378a3-5c3f-4bb4-9bab-01a4a4cd674f"),
                             AllergyDescription = "Dị ứng với protein trong sữa bò, khác với không dung nạp lactose.",
                             AllergyName = "Sữa bò",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -224,7 +224,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
+                            AllergyId = new Guid("0203eca6-9f90-4ba3-a323-e3a0222c7ab9"),
                             AllergyDescription = "Dị ứng với trứng gà hoặc trứng của các loài gia cầm khác.",
                             AllergyName = "Trứng",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -232,7 +232,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            AllergyId = new Guid("13008773-dadd-4053-b64c-500b6050b2aa"),
+                            AllergyId = new Guid("47facdeb-05ac-42d7-8f47-60bc628bead8"),
                             AllergyDescription = "Dị ứng với các loại hạt cây như hạt óc chó, hạt hạnh nhân, và hạt điều.",
                             AllergyName = "Hạt cây",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -240,7 +240,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
+                            AllergyId = new Guid("f8b08b27-ebf6-49b1-a159-ccd14480813b"),
                             AllergyDescription = "Dị ứng với đậu nành, thường gặp ở trẻ em nhưng cũng có thể xảy ra ở người lớn.",
                             AllergyName = "Đậu nành",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -248,7 +248,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            AllergyId = new Guid("10127b02-786f-462b-8ee6-3df465903645"),
+                            AllergyId = new Guid("b92dd68e-492d-4d91-b63e-f4433528b668"),
                             AllergyDescription = "Dị ứng với hạt vừng(mè), thường gặp trong các món ăn châu Á và Trung Đông.",
                             AllergyName = "Vừng (mè)",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -256,7 +256,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
+                            AllergyId = new Guid("3069f189-8aa9-4d9d-9717-7b550c57ceb9"),
                             AllergyDescription = "Dị ứng với cá, bao gồm cả cá biển và cá nước ngọt.",
                             AllergyName = "Cá",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -264,7 +264,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            AllergyId = new Guid("0d352b08-ada9-40f6-a23e-6f6f170a9cd4"),
+                            AllergyId = new Guid("8d69ce67-9cad-44ce-909b-ad755b334f2c"),
                             AllergyDescription = "Dị ứng với các loại động vật có vỏ như tôm, cua, và sò.",
                             AllergyName = "Động vật có vỏ",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -301,175 +301,175 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            FoodAllergyId = new Guid("12536007-f0ee-4103-ac40-596416fbb64c"),
+                            FoodAllergyId = new Guid("60cdd328-9f06-41c8-9c1f-2d9e48113064"),
                             AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("32bc349f-caa3-4f23-90d1-15e174b56dae"),
+                            FoodAllergyId = new Guid("9f4e2d2c-a877-4251-8703-68a27d9cdf10"),
                             AllergyId = new Guid("10127b02-786f-462b-8ee6-3df465903645"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("575bf09f-9d81-4931-a987-de015da6b6fa"),
+                            FoodAllergyId = new Guid("6bc997e6-a9d3-4fef-b70e-0d0ed19d0a7a"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("83143049-d2ba-4a1c-939c-ccba2cc7dec4"),
+                            FoodAllergyId = new Guid("2b3a51d9-d8f0-492f-a243-8e05596315d7"),
                             AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("ac7c4180-49d8-45c6-b12c-ec0b9f3cd37f"),
+                            FoodAllergyId = new Guid("eab5ca9c-de18-474b-914b-db9c37b82104"),
                             AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("c5e7d22e-8b34-45de-bc87-020dcbeb307f"),
+                            FoodAllergyId = new Guid("1505bb6d-161b-4d63-abce-5fff355b9410"),
                             AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
                             FoodId = new Guid("19bbab17-91c6-410f-b566-b509d067e76e")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("045893e3-36f1-4fbd-bdf5-0d0f15b03742"),
+                            FoodAllergyId = new Guid("d228a122-568b-484a-b62a-58c14470d0ee"),
                             AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("b7ff2e39-8c5b-4198-bfeb-b2fa23745f67"),
+                            FoodAllergyId = new Guid("d6fee8f8-6a8c-46f2-b19c-d315063e5736"),
                             AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("1e61d22d-5a80-47a0-917c-c16b8df4b5b5"),
+                            FoodAllergyId = new Guid("159d6a10-4cfd-4ee3-a860-4559636fff08"),
                             AllergyId = new Guid("10127b02-786f-462b-8ee6-3df465903645"),
                             FoodId = new Guid("f412d88d-ce7e-4006-bc11-75af61438491")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("eff52e10-2e5d-48ea-9c53-f276634379bc"),
+                            FoodAllergyId = new Guid("5f1e061f-3e5d-4a58-a1be-1191e64904ee"),
                             AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("dbf35b97-4316-4f1a-b897-6ae644ad01bc"),
+                            FoodAllergyId = new Guid("869553e2-63de-4b9b-843e-a1f39bd151f5"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("ca49c0a5-53b7-47b4-8f12-6545b5098da4"),
+                            FoodAllergyId = new Guid("edc13b6d-9acb-43fa-bace-756eaa72877b"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("f41484a3-c7df-4530-b7d2-060390103985")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("06efb992-c2d6-4535-9c2d-1a0cb556df92"),
+                            FoodAllergyId = new Guid("089f5fb9-5027-4f0a-a83c-b72ec05d32fc"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("fa719ef6-9cb6-4292-92a8-e7a82d4b48d1"),
+                            FoodAllergyId = new Guid("8f0712c4-3fdd-4f16-9a17-3d621c526b74"),
                             AllergyId = new Guid("0d352b08-ada9-40f6-a23e-6f6f170a9cd4"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("847f29d6-b7d1-4b6b-9e77-2a477b982dd2"),
+                            FoodAllergyId = new Guid("afe82171-1654-4dc5-969f-5185c20b98a2"),
                             AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
                             FoodId = new Guid("46b9f487-dc6d-4c1d-9729-9f707ac28202")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("9fa8b5d3-d20b-4c7e-a2b8-6b163d3a9d7e"),
+                            FoodAllergyId = new Guid("9571158b-a9be-4680-940d-eed94b6721a2"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("d3eaf6d0-073b-4385-9ff7-9c361f46a882"),
+                            FoodAllergyId = new Guid("2489a182-56fa-4e91-8873-0af986873504"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("837dbd30-cb43-414b-b50f-cf5b32255681"),
+                            FoodAllergyId = new Guid("cd4c426e-afd5-4844-ac30-6cfba99d2b87"),
                             AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
                             FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("7f5ae68b-7e60-44f4-bd13-d8b251cdfa3d"),
+                            FoodAllergyId = new Guid("a1f71088-5da7-4a3c-8db5-31aa2938206f"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("a53672e7-8593-4779-bd02-9f02ae81f915")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("5d72b3a1-bcd8-4951-9f0a-6b73bca63aa3"),
+                            FoodAllergyId = new Guid("197ddb9a-1550-4bf8-a3df-8e3173c78558"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("ede931f5-092e-4e41-8ce1-5a95bff2772a")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("bb419ec6-79f7-4bd7-aee7-5b3edcc29b42"),
+                            FoodAllergyId = new Guid("a8a17c9a-e725-4c73-82e1-4138fb749945"),
                             AllergyId = new Guid("0d352b08-ada9-40f6-a23e-6f6f170a9cd4"),
                             FoodId = new Guid("ede931f5-092e-4e41-8ce1-5a95bff2772a")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("dcf2b60b-b08e-4c1b-96d0-0ae5af6202c3"),
+                            FoodAllergyId = new Guid("c3583593-696a-48c0-bdfc-d248c7997619"),
                             AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
                             FoodId = new Guid("dd1482e7-b3dd-4b17-80f6-5618a640c671")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("2bd755e1-7ea6-47a8-8d29-dc9357a17063"),
+                            FoodAllergyId = new Guid("e9d72419-4f60-441d-be41-3082e644891b"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("1603c0e4-e0db-4b89-9f85-d120e87f4a6e"),
+                            FoodAllergyId = new Guid("2107715d-1977-4486-a98e-33ed3142f086"),
                             AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("30192e2a-97ef-4398-87f2-5d4d31238e3a"),
+                            FoodAllergyId = new Guid("4be68a6e-0fd9-4770-97a9-67b035cf277c"),
                             AllergyId = new Guid("b82f4697-2ad0-4777-a29b-094c99f46d10"),
                             FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("dcb56844-ea6b-4e54-9898-5d9c9723844b"),
+                            FoodAllergyId = new Guid("be78e28d-a535-48b1-b298-04570d9793f1"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("4251a67b-d828-46c1-a1e2-2795e6f63a8d"),
+                            FoodAllergyId = new Guid("2e1adbc2-2bd3-4184-adb8-6b1e099f8dab"),
                             AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("6b1f19c7-faa3-4926-bc45-d88bc44c99d5"),
+                            FoodAllergyId = new Guid("14649e32-f5bb-4821-a710-24a6c13427e2"),
                             AllergyId = new Guid("13008773-dadd-4053-b64c-500b6050b2aa"),
                             FoodId = new Guid("01708b02-6cc1-41f6-ae4a-95c4085e1839")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("e8e22c46-7403-44a9-80f4-7c5d9af6da25"),
+                            FoodAllergyId = new Guid("d3ca764f-936f-4ddc-99a8-a8febcd3d93f"),
                             AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
                             FoodId = new Guid("436d8364-15fd-47a2-9b72-c3841db0da2e")
                         });
@@ -1265,6 +1265,20 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+                            ExerciseId = new Guid("90ce2a9f-d0be-4ca0-b3ca-8b6947a6b266"),
+                            CaloriesPerMinute = 5f,
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            ExerciseName = "Siêu nhân",
+                            ExerciseType = 0,
+                            Instructions = "Nằm sấp trên thảm. Giữ chân thẳng và khép lại.\n Duỗi thẳng tay lên trên đầu, tạo thành một đường thẳng với cơ thể.\n Hít vào và nâng tay, ngực và chân lên. Cơ thể tạo thành hình vòng cung.\n Giữ tư thế trong khoảng 4 giây, sau đó thở ra và trở về vị trí bắt đầu. Lặp lại bài tập",
+                            Status = true,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6")
+                        },
+                        new
+                        {
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
                             CaloriesPerMinute = 6.2f,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1635,7 +1649,7 @@ namespace Monhealth.Identity.Migrations
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             ExerciseName = "Đá chân sau với dây kháng lực bên trái",
                             ExerciseType = 1,
-                            Instructions = "1. Stand up and wrap a resistance band around your legs\n 2. Straighten your back and engage your abs, then lift your leg backwards\n 3. Do a full set with one leg, then do a set with the other\n 4. Be careful not to arch your back",
+                            Instructions = "Đứng thẳng và quấn dây kháng lực quanh chân của bạn.\n Giữ thẳng lưng và siết chặt cơ bụng, sau đó nâng chân ra phía sau.\n Thực hiện một hiệp đầy đủ với một chân, sau đó thực hiện một hiệp với chân kia.\n Cẩn thận không cong lưng",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -3348,24 +3362,6 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            FoodId = new Guid("a84ec8cd-f9d8-4723-8b9e-4ff4eee1685e"),
-                            CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            DishType = "MainDish",
-                            FoodDescription = "Món ăn vặt từ cá xay, chiên giòn, chấm kèm tương ớt",
-                            FoodName = "Cá viên chiên",
-                            FoodType = 1,
-                            IsPublic = true,
-                            MealType = "Snack",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Views = 0
-                        },
-                        new
-                        {
                             FoodId = new Guid("46b9f487-dc6d-4c1d-9729-9f707ac28202"),
                             CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -3628,24 +3624,6 @@ namespace Monhealth.Identity.Migrations
                             FoodType = 2,
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
-                            Status = true,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            Views = 0
-                        },
-                        new
-                        {
-                            FoodId = new Guid("face3a50-e5e6-41e3-83e8-f96e7c8c98d4"),
-                            CategoryId = new Guid("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
-                            DishType = "MainDish",
-                            FoodDescription = "Bánh bột gạo mềm, ăn kèm mắm tôm, thịt bằm",
-                            FoodName = "Bánh đúc",
-                            FoodType = 0,
-                            IsPublic = true,
-                            MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
@@ -5825,751 +5803,751 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            FoodPortionId = new Guid("6956e07b-da21-481e-ac76-65255fd9587f"),
+                            FoodPortionId = new Guid("d19d8274-c525-4940-9ec1-b9cf8e9fa672"),
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("1808de3e-ae43-41a6-b9ce-bfe89131be5a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8c85d7a4-bace-4691-ab0f-e1628f24bfd3"),
+                            FoodPortionId = new Guid("05294ea9-3546-4588-8a63-bceb7c5e60e3"),
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("40991196-f258-43f1-ac84-0381afa83477")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c15e4bd1-ddaa-4330-8ae5-dbf1549a8f9c"),
+                            FoodPortionId = new Guid("5b8a5dd7-05b5-4b40-a09e-564d69672dc6"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("28b06cf6-6367-4786-bccb-89c43dd3ce3a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9fcf8d40-47b2-45fb-8197-e77bf2071542"),
+                            FoodPortionId = new Guid("53a7729a-d8b1-4be0-b366-4ce5f6178175"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("91524cc2-db22-4cab-abb7-700725232f1f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("db166416-f2d4-4e69-98b2-4b14ac28f725"),
+                            FoodPortionId = new Guid("83ad1d83-2d71-42a3-bc73-72530da5f8bb"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("1b56833b-1ff5-4a90-aea9-074de2d0dd67")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("00b508dc-fd72-46b5-8fd0-71caa552cf8d"),
+                            FoodPortionId = new Guid("dbf828ea-8a19-4bb9-b789-a4fb69e69a54"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("c605aa91-495e-4977-9876-b2a198ce356e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("aac2bdea-12f2-4a18-970b-53f31238c765"),
+                            FoodPortionId = new Guid("338068aa-dea3-496a-a02b-1a2f708e0a6e"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("7be0e4d3-1e50-4de1-931d-08adb85f628b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("99a56d5b-3a27-437b-b2dd-9ed46689be76"),
+                            FoodPortionId = new Guid("16654f99-d175-4442-996a-48ced71d0f78"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("698c67ad-a726-435b-b9d2-c5690a79eb5a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b915f9fe-df4f-4b9a-aeee-746a7206a297"),
+                            FoodPortionId = new Guid("7a716c81-7110-4693-83ce-f7f3436738e5"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("399eee61-90b5-464f-b3f7-7ddc1077ab0d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6dfc62b1-fc62-4aea-a8f4-aa93dcfb10fe"),
+                            FoodPortionId = new Guid("03f9ad98-6879-4cfc-ae0f-4b5f445168b5"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("6f34350b-8f99-446e-9de9-e0c6277b10f3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b38e1bf5-f34c-422f-bc6a-456eb9f1439f"),
+                            FoodPortionId = new Guid("bbff080a-b99a-4d46-823a-0b5d6271fa8f"),
                             FoodId = new Guid("8fa26c41-16b2-49f8-a284-856024a5f947"),
                             PortionId = new Guid("41ae956e-14fc-44af-bc6a-e5ba77661cee")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("63c7b97d-ad3e-47c0-a294-fc74ae5c312e"),
+                            FoodPortionId = new Guid("3da70473-a077-4ff1-b4d7-89e4cd717f1a"),
                             FoodId = new Guid("1387c20d-27a6-495b-a3a0-efbb715f6430"),
                             PortionId = new Guid("a1589990-affa-4805-a1e0-73de1ffa8516")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7a61797f-8c44-44f2-87d7-9d14946e91e0"),
+                            FoodPortionId = new Guid("591ed2a3-0a67-4d6b-badf-bda0b56da1fb"),
                             FoodId = new Guid("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
                             PortionId = new Guid("4e9013c8-d6f7-4740-80d5-e95d318873b9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e07e4ccc-de61-4564-a047-d5f29395e765"),
+                            FoodPortionId = new Guid("ccc11ffa-bf32-46a6-92d2-09e7b65f97a5"),
                             FoodId = new Guid("eac10b91-8509-4986-b689-7ee3a3757a18"),
                             PortionId = new Guid("1bf9c3e0-7a2c-46f5-8187-82e5ad1af649")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("77ff6660-2d5b-45db-bd7b-524a3eac0a98"),
+                            FoodPortionId = new Guid("e1ffb7e4-f497-4d67-b396-ecbb2f39d76e"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("faec7c41-2e11-4092-8ab9-cc9c152d858f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cf27a947-cc8c-4f06-84fd-c23c1e30943a"),
+                            FoodPortionId = new Guid("756315ec-25fd-45eb-a0b3-178a47685ff8"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("36398f6d-0668-4d37-8850-9f9ee89b8b92")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e0fca313-7a99-4dd0-8ffa-983e764fd49f"),
+                            FoodPortionId = new Guid("b87b8721-e92b-4680-95a3-5cf46ec20a12"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("c6e853f0-06bd-4cda-8b43-cbe66fea98c8")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ea36ca31-4756-426f-8f30-116a401871ff"),
+                            FoodPortionId = new Guid("f0c80a30-204a-4f12-811a-bd5c86d215d8"),
                             FoodId = new Guid("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
                             PortionId = new Guid("268e00a0-2da3-4e5c-8ea7-5ad8923cfd52")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("da959267-1066-4a30-84a6-c5975af7c398"),
+                            FoodPortionId = new Guid("7f51f8e3-4047-423b-a9d6-b17787734e4f"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("40bbc8c4-f383-4ae6-979a-3ac83c275881")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("71375e7f-e71f-450d-b766-038740b6e0d9"),
+                            FoodPortionId = new Guid("3a453bf2-2d08-469b-b0e4-7e539e4afe12"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("26096793-894d-47c1-a06f-cf9133f8089d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("49e440ff-31d5-49a0-8f8b-98c9a9d95cf9"),
+                            FoodPortionId = new Guid("344fe499-81d1-433d-8a13-dcd445767839"),
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
                             PortionId = new Guid("de5d78a3-c5b1-4e2a-b9eb-f3757c999024")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8d47ad59-d162-4777-81dc-c2bec9e72f22"),
+                            FoodPortionId = new Guid("a8ea93bc-7b00-4075-99ef-cdd258a523fd"),
                             FoodId = new Guid("de097440-db5c-4d91-bd55-76618d70599d"),
                             PortionId = new Guid("92e149ff-8491-48cf-a4e8-8106b1e95c4c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bdfe0d61-37a3-4062-bff8-b1ab5d7959cc"),
+                            FoodPortionId = new Guid("32f211a4-3aa0-42ef-b084-141020d7863a"),
                             FoodId = new Guid("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
                             PortionId = new Guid("3f77fd90-591c-45f3-8bbc-87d0bb49e461")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d5d5889a-bbc4-408c-9884-d194e1f48346"),
+                            FoodPortionId = new Guid("01d81ca6-ba4a-4432-94a5-075c8c2f716a"),
                             FoodId = new Guid("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
                             PortionId = new Guid("6792c392-3c86-4162-be91-4fc8646f861d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cfab2fdb-5a1a-4b4c-8e85-5247c64e3492"),
+                            FoodPortionId = new Guid("50ccd576-3d79-4e8c-a870-29215477ad05"),
                             FoodId = new Guid("48113ca0-a1e7-4181-85fa-be6538a70873"),
                             PortionId = new Guid("c4fc900f-5a92-4228-ac03-57285fff159e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3dcc2c21-c974-4827-b8bf-224881a2af24"),
+                            FoodPortionId = new Guid("14fdfed9-943f-47aa-b44a-9e0c0023d2a4"),
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
                             PortionId = new Guid("cd0a9e6f-bf5b-40b3-bb6c-22ccb8e6ab6a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("55ed9075-67ec-4a5e-8d67-71b778fb480f"),
+                            FoodPortionId = new Guid("37dcbaad-fdb2-4d09-90f0-b44a1c9513a3"),
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
                             PortionId = new Guid("a33065fe-80ad-4879-9333-424aadc6734f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("50cd88da-4abe-448a-bf7f-4c50bd4d1bc3"),
+                            FoodPortionId = new Guid("26056270-caa1-42a1-b69a-4ccd43ef34b8"),
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
                             PortionId = new Guid("eceaaa32-4023-4eab-abb6-9172c908f77c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("29be3e7f-31f6-459d-bcb5-2342e7e0a250"),
+                            FoodPortionId = new Guid("55424362-f1c3-4e19-9272-cd2892b0189b"),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
                             PortionId = new Guid("31e9bda5-8ec3-4444-a23a-908e84da6a14")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3cea29a7-afbb-4d5d-9755-6f514ae1a0a2"),
+                            FoodPortionId = new Guid("c91ce74a-65f2-4d4f-a2bd-4b7af8f1ef97"),
                             FoodId = new Guid("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
                             PortionId = new Guid("93984b54-2044-4ea9-8364-a03c6568e358")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("eef1a8f0-25f1-4695-b6ff-c57662e845cd"),
+                            FoodPortionId = new Guid("6f0b6300-1fb9-4421-8bbb-1c6a70448d02"),
                             FoodId = new Guid("da89578e-9470-4b18-af4f-0bdcc011882f"),
                             PortionId = new Guid("749b288c-112b-4b7b-8750-0daff63d9ab3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e428756d-f4a5-4ea2-a168-409faa856d57"),
+                            FoodPortionId = new Guid("ce109555-a466-4b2e-9a5e-a53de6f2d9f4"),
                             FoodId = new Guid("37a66f5c-437f-4520-90ec-4376e0093061"),
                             PortionId = new Guid("1500876f-ef20-40de-baae-de0336bdc47b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("034c5f36-35f5-4fb4-b567-4631a20c99b6"),
+                            FoodPortionId = new Guid("c64fb473-d796-4b8e-b347-4346dd2bb0c4"),
                             FoodId = new Guid("d9fa8f03-5825-4e83-88d3-1a7c49e39a7d"),
                             PortionId = new Guid("e4e4252f-ad38-4190-aba5-8989e3cca994")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("689236b2-c41a-4581-97f4-9943a8bf619f"),
+                            FoodPortionId = new Guid("acd1bdd6-04e4-4014-b3a4-1df21a530fa6"),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d"),
                             PortionId = new Guid("24a4ed15-69e4-4fb5-8dd2-1695de52c264")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("79f8e00a-8627-4c17-ad1b-1f2e30152cf7"),
+                            FoodPortionId = new Guid("f55d566b-a767-4000-9ff6-8c12238cc744"),
                             FoodId = new Guid("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
                             PortionId = new Guid("bfc705ab-d7e9-44c9-9447-c0b39bc76ca1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ff83c895-9e7c-497d-ba90-48a0b27ac753"),
+                            FoodPortionId = new Guid("a7db2e7b-ffe9-4032-a1ce-6062425bb870"),
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
                             PortionId = new Guid("b6623163-4c27-4d0c-99ef-12a67b87635f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("05d20084-3157-48d2-bbdf-59bd4be2d7f9"),
+                            FoodPortionId = new Guid("2364b7c8-0a2d-437e-a8c1-9fe6f1b99d29"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("a88faa7c-6eab-4ecb-8a75-b078a9cf7834")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e1b56dde-ba49-437e-970c-b6d343930999"),
+                            FoodPortionId = new Guid("da2e1f1b-2f32-4f44-b515-0223502eab7a"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("218b9709-852d-4a1f-ad8b-c9410b49fea6")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("89d0e2ba-ac38-4abb-960e-0fbf1063d1c8"),
+                            FoodPortionId = new Guid("4ca9fe96-65b2-4b9c-ae6b-0266ba5ff0b4"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("e5cc2785-6d62-4b5f-8fc1-e6ab45babd76")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6488aed8-d811-4054-aa55-1419362b89f6"),
+                            FoodPortionId = new Guid("356fff66-d46f-46c5-aa76-09fcc05866eb"),
                             FoodId = new Guid("c5822776-96df-4208-82b2-02f22594063b"),
                             PortionId = new Guid("3d7eafa9-9fcc-4f49-b8fb-2a5c629ae6eb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ef7605fb-2047-4fd6-b9eb-bcaa4265dcfa"),
+                            FoodPortionId = new Guid("23d8256a-6e12-4ade-be08-5095e4629da7"),
                             FoodId = new Guid("fb7d87aa-2bb8-4065-bd31-b54239057405"),
                             PortionId = new Guid("22f0a09e-6816-410e-a5a2-c802103b089b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c5c017a3-f52c-4e61-b3f5-d36fc3da9438"),
+                            FoodPortionId = new Guid("add7aa21-6a59-4094-8e7c-d8993822908a"),
                             FoodId = new Guid("9122357a-179f-45f4-9106-67eea24d48ab"),
                             PortionId = new Guid("5feca670-1f15-430d-9b04-7ac86a329a6c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("166bdafd-3440-45db-af3c-9f254f75381d"),
+                            FoodPortionId = new Guid("18cdc73e-26f4-4678-bff2-468829409d26"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("f483bb75-84f0-4ecc-8a06-f366a488c6bf")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7e4397e3-572e-4872-a249-8fcb8e669c88"),
+                            FoodPortionId = new Guid("7e1734df-c684-4fec-936b-2a693183361c"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("17c9d30f-bd85-4e58-bfc0-6b6d70b2e5fe")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("17c387d3-588d-4970-a650-ef1a9add690e"),
+                            FoodPortionId = new Guid("fc2b1c82-431c-44db-b008-3681644e8d65"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("52c86d57-0909-41c3-b513-e770e6f6d104")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("624eeb3d-b90c-41de-aaac-82aac1278366"),
+                            FoodPortionId = new Guid("980f8dfd-b59a-41da-9709-97a8f703d033"),
                             FoodId = new Guid("87225215-43af-49f2-a40b-a5ebb087d27b"),
                             PortionId = new Guid("a9385e8a-e9b9-484f-beeb-bc35529cf91a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4601ad5c-3b27-4b7b-a4c1-4e2c0acbd844"),
+                            FoodPortionId = new Guid("dfc5d367-c418-4140-b685-4bee360dd91f"),
                             FoodId = new Guid("23443efa-dc06-4e7a-949c-5c823ee6e575"),
                             PortionId = new Guid("8a81e20e-ea16-4073-957e-29508a8f7419")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a1fe27ee-286d-4f5b-ad37-2124d2f6c926"),
+                            FoodPortionId = new Guid("972fa91d-de72-4885-9dd4-c4251d414042"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
                             PortionId = new Guid("84793ef9-fcd0-42df-ab0d-9380dfa18630")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("35b58290-445c-4eea-9c0d-cee0e92caf88"),
+                            FoodPortionId = new Guid("2644389a-a01d-40a0-945f-8a8f16787ffd"),
                             FoodId = new Guid("77fe5e06-7fee-486d-a1a7-c031f2065490"),
                             PortionId = new Guid("255ba0f6-14cc-4049-add8-138f27055b49")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4fbfe84b-d423-401e-85f5-a4dccd2819ed"),
+                            FoodPortionId = new Guid("52999d5b-65ab-4a07-8c7a-1be6305663dc"),
                             FoodId = new Guid("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
                             PortionId = new Guid("f7b36043-9ca9-42c3-8a00-e9e235b56bb3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f3f0bed8-5736-404b-9ae7-993056059e1d"),
+                            FoodPortionId = new Guid("b5385375-39e3-4f3c-b0cb-63d286a51a77"),
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
                             PortionId = new Guid("18809fb3-b78a-4f67-b9f9-8bb6ab95ab00")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f21035e3-cf25-44ff-bf69-84f4d0e4ff9d"),
+                            FoodPortionId = new Guid("022c8f94-dd0c-408b-8d2f-a96c2e9c1320"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("cd0b1476-44a8-4350-a6a1-3de8747a5ebc")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b801748f-3eec-4050-b429-514dc5b7d101"),
+                            FoodPortionId = new Guid("742597b8-60f3-4197-9a01-6575c099548f"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("5afaa147-398e-4be8-b0d1-8dcabe6ed18c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("af3a161e-6647-427a-9967-129ced946879"),
+                            FoodPortionId = new Guid("d5f2e007-6dc0-4a4d-8912-716bcd3dd61a"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("d3850e1b-4780-490d-8c0c-ced1a9aa323b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("31f70472-6693-4692-8979-677bdb71f46f"),
+                            FoodPortionId = new Guid("0d99a06b-c63c-4e1b-a770-ea31c7f562bc"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("e09c493c-5806-4b14-bbef-e26e19e1d8d5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8897379d-a342-46f7-a77e-8f2e8e1654d0"),
+                            FoodPortionId = new Guid("a68a2e25-ccd8-49b1-9587-4c87ab4917d8"),
                             FoodId = new Guid("7b3216ff-858e-423e-b8db-a85571aa5488"),
                             PortionId = new Guid("5f7f859a-f20a-4f6c-8b8c-ecfbb1ff522e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("61b7d6a2-099c-486b-94ed-b2818043c7b6"),
+                            FoodPortionId = new Guid("77f841ba-4c02-406b-ad58-5ae56ad83d35"),
                             FoodId = new Guid("f70172ed-7784-47ec-8aa2-a862ee56a13a"),
                             PortionId = new Guid("2c7ac6ee-f7fe-4ec8-974f-11f62a5f60b9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("335b93b4-b155-4b2b-8e0b-41dc11c04162"),
+                            FoodPortionId = new Guid("8148445d-ab90-434a-8b9c-c0d009c20902"),
                             FoodId = new Guid("42883b21-4cbd-40ce-850f-b0723f1766fe"),
                             PortionId = new Guid("f0e8f9cd-d133-49cf-be7d-d427b630e05a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d637efa0-1d8e-4f89-bc44-6ebdee228090"),
+                            FoodPortionId = new Guid("e4d2e1fb-3cb4-4750-b0c4-edb051186bdd"),
                             FoodId = new Guid("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
                             PortionId = new Guid("ef6b8c43-9ab5-497c-a9a8-e31f0a349527")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("28ee1595-f12f-44c2-93df-848163aa66e7"),
+                            FoodPortionId = new Guid("ca9e01e9-3ad4-4477-b52c-482ad20d40c7"),
                             FoodId = new Guid("845454d0-967a-4e48-aef3-bd8458775500"),
                             PortionId = new Guid("1cddc91d-209a-4948-8e9f-9017252d5423")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cf7be974-d99e-48fb-8e44-fcd61c9177af"),
+                            FoodPortionId = new Guid("e703689d-909b-4815-86d3-8450d310d5c8"),
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
                             PortionId = new Guid("d09266d3-9e7d-46a6-ad3a-7c608ec802d1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d62ed49e-fb7c-4899-a580-d818b0f4e1fe"),
+                            FoodPortionId = new Guid("24525d0f-5c53-4d85-bdd9-be57514f358f"),
                             FoodId = new Guid("f0132626-5535-4f30-9af4-7e89e086aaaf"),
                             PortionId = new Guid("5384aebd-4eab-4a44-8cbb-7ec2c04f1401")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("939c61e8-2d9c-4005-8fea-02751d2ab2f6"),
+                            FoodPortionId = new Guid("6a6aafd2-0530-493d-8500-d37c33382d25"),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c"),
                             PortionId = new Guid("222e1fa2-3910-42ac-9a5c-f371dded16eb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c67b8e6a-9bf1-4d42-b921-4cbe3a0ac9f1"),
+                            FoodPortionId = new Guid("df47d1bd-3702-4f2f-92eb-5b4b4e172014"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("eff728af-c8f0-4bb5-a985-d079cbadb6b5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3f2e7e37-8cba-406a-8518-998b64987757"),
+                            FoodPortionId = new Guid("05c665e3-9bb2-4298-b053-f801ae7b7646"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a5dbb27a-4856-44be-a239-76eb073c3e41")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d8f4e8f7-64d6-4917-84f8-6e56898d2c69"),
+                            FoodPortionId = new Guid("47b48432-0d00-4f30-8940-689f1a1a7784"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a7936b9f-b6f8-4295-8b6e-6fe1b096f437")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2f24657d-5b84-42a5-b305-ee0753fba634"),
+                            FoodPortionId = new Guid("f032feb9-211a-47f9-887f-b32342e65591"),
                             FoodId = new Guid("a3074169-6441-49cc-9ea7-79e240f6dda3"),
                             PortionId = new Guid("e23d4491-73d1-45b5-8010-0385d7185c98")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("96b61f24-8c91-4705-a800-86c95802eee1"),
+                            FoodPortionId = new Guid("dcb7b980-5f5f-4ba7-8aa1-ef0787497b3e"),
                             FoodId = new Guid("ede931f5-092e-4e41-8ce1-5a95bff2772a"),
                             PortionId = new Guid("0336a88f-f5cd-4cc2-8478-980467aa91aa")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("dcc64111-3a3d-4efa-9ada-0b2472770f84"),
+                            FoodPortionId = new Guid("347794e1-f0e3-48da-85c8-83b4f33f085e"),
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
                             PortionId = new Guid("bdd1ee1e-3a93-421f-855e-0993c7e6f767")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4ad497d7-22f4-48bc-9d85-e3f70c32715c"),
+                            FoodPortionId = new Guid("33b9a6f3-a81a-4f35-9ae2-84ab39f3f4ce"),
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707"),
                             PortionId = new Guid("c4993d6a-a2e0-4ddd-821a-0629541e019c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4c527620-61f4-44e7-a067-677b23939dc8"),
+                            FoodPortionId = new Guid("a69691a7-1512-4af3-886e-b53f070f4014"),
                             FoodId = new Guid("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
                             PortionId = new Guid("5a1bc1cb-ed0b-49bf-9c1a-5494db962d27")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6780b9c3-7a64-4ef8-8a4d-d93023179a79"),
+                            FoodPortionId = new Guid("544e3905-e0bf-43ce-9f27-527560dfdb3b"),
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
                             PortionId = new Guid("8ecbc063-8d6e-450d-af39-0ba28bc572bf")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ae86840b-60e7-4255-8d6a-8c7225fcac12"),
+                            FoodPortionId = new Guid("4606a534-9f11-4afe-a112-3c48587dc1a6"),
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
                             PortionId = new Guid("16dc894a-746e-497e-a2c5-2d58f7f83c4d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c2737e64-4d98-4136-aea2-aa36169ff030"),
+                            FoodPortionId = new Guid("db3e1ae5-e75b-4899-8575-b4f16403ad2c"),
                             FoodId = new Guid("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
                             PortionId = new Guid("30f41ca6-c420-4f7d-9602-bf80735d5691")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("81ffab22-498f-4917-84cb-ac1e8379f8d5"),
+                            FoodPortionId = new Guid("8bef8802-3815-45ac-9bc0-4000467b5856"),
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("1cf439ce-a31b-4b95-b092-b7f6edf8d40f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("02305a06-2831-455b-9c98-5422f094ae52"),
+                            FoodPortionId = new Guid("cea150bc-881f-4609-8ff4-857daa634aca"),
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("ad9ecd1e-40ec-414a-be69-b16e7013b377")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1bcef824-3071-4576-b285-1c85ad7b8554"),
+                            FoodPortionId = new Guid("51db42e9-720c-4b4e-b34b-4d986ceba0ad"),
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("1802caa2-cfe0-48e7-8580-29165f84387d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("651d4816-67f2-459e-8bcf-e3174d47523a"),
+                            FoodPortionId = new Guid("e9888a2d-9918-4e37-a906-92b4b01dacf9"),
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("21e32570-7d64-4cec-b711-873185c76523")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ec887b90-1704-4cda-9e80-532d69fcb2fe"),
+                            FoodPortionId = new Guid("d714654b-b4c3-4dfb-aa41-f00a2ea802a5"),
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
                             PortionId = new Guid("9c276c0b-84b6-4216-8dbb-ae2034ac2176")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ea16fa79-7ba9-4d9d-ac34-c25f6db50d8d"),
+                            FoodPortionId = new Guid("3b5e979c-b688-4390-b077-3a0a2768fdb9"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("d9dad801-145a-419d-bbe2-408acf97a273")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ed33ef86-d0e3-45c6-b4a5-b74c269bfd1a"),
+                            FoodPortionId = new Guid("b25476a7-970e-4cc8-81e9-447f04772da6"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("bf0f7ca4-9089-4800-95d7-8d037d98b7fc")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3b341334-8645-4f8b-806d-8028c88cec33"),
+                            FoodPortionId = new Guid("cc60a20b-dbba-429b-aeed-80e3f0cca21f"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("56681171-ccbd-4700-90bc-2233c1e661bb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7d04362c-9f19-4354-828d-d2978348bbc6"),
+                            FoodPortionId = new Guid("14f0dbc2-dec3-4858-a356-77fec25ac92c"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("709578ca-672f-461e-995d-dc78aeda8c4c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c9037a5e-cd76-421f-8419-cfe3de02acdf"),
+                            FoodPortionId = new Guid("ccc88302-bbd1-4f0a-8422-4b09f5daba51"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("f928b7a6-2558-478a-bc22-515516f4dc74")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9721487b-9818-4b43-a67a-c0fe098e5775"),
+                            FoodPortionId = new Guid("3e3dbfd1-4416-4441-a452-0d1e86822193"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("23ce32a0-6597-4b60-b35c-98073ff595c6")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7c146891-27d5-49c2-aa3b-9bcf39383cb2"),
+                            FoodPortionId = new Guid("2c08e1d9-1270-4d56-bf5f-dd7b4daa5d40"),
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
                             PortionId = new Guid("bad70aff-4237-4c83-b412-460020a5ee44")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bed12e2e-9d68-4555-815b-c83810b4f311"),
+                            FoodPortionId = new Guid("8e1cbb6c-7962-483b-bbdf-7846620dec1c"),
                             FoodId = new Guid("857b3565-b170-4162-a97b-c0184c4258aa"),
                             PortionId = new Guid("8c141b0b-f09b-486e-b75a-04fa194d412c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("0b75525b-2290-4802-9da0-dd76dbac91c3"),
+                            FoodPortionId = new Guid("dc668d92-7cf8-4cb8-9328-5544028f7726"),
                             FoodId = new Guid("857b3565-b170-4162-a97b-c0184c4258aa"),
                             PortionId = new Guid("f359ba3c-6597-40ad-9dbd-6719ff302994")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d60720b1-ae58-4021-9c26-ef51b743f871"),
+                            FoodPortionId = new Guid("bad88b28-8e9b-4c17-9bd5-754ddc38b9ec"),
                             FoodId = new Guid("857b3565-b170-4162-a97b-c0184c4258aa"),
                             PortionId = new Guid("b6b0faee-84e8-4a16-a8f7-4b8719787e8a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fbdc0863-33fc-44e6-900e-f8835e48306a"),
+                            FoodPortionId = new Guid("455586ba-313c-405f-97e2-681b8abc78be"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
                             PortionId = new Guid("59589114-7d6a-4c80-8681-db5c554ab38f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fa25052a-499e-4998-95c9-49b969bbe4e4"),
+                            FoodPortionId = new Guid("07afc26e-c014-4c5f-a554-bc6f54f3ca9a"),
                             FoodId = new Guid("27dd8629-4564-478a-b049-6c4b81ee3cf1"),
                             PortionId = new Guid("13672611-5453-40a0-9b58-33c2e552bf57")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1823b12a-7991-449d-8853-66612effff06"),
+                            FoodPortionId = new Guid("6aacbb6b-8cf0-4f69-836d-e64b2fcc06fe"),
                             FoodId = new Guid("27dd8629-4564-478a-b049-6c4b81ee3cf1"),
                             PortionId = new Guid("f01f8da7-9d7b-4893-999f-cf30e719e010")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9efb6a2f-4386-4b3f-82d5-3890b3b4ce7e"),
+                            FoodPortionId = new Guid("1ba218c7-1c06-48ea-9ded-c7dea549a7dc"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("c65d34ee-8c0c-43bb-9d4e-aa39955a4768")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("df076e79-2b07-45bb-8ba2-8437d112487e"),
+                            FoodPortionId = new Guid("b158316b-fad1-4773-abc9-3b4d411fd876"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("f9bc9ae8-e42e-4e8b-84d3-f2bc36037552")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2eed7a50-616f-47ef-8978-4850c9426f14"),
+                            FoodPortionId = new Guid("17549fa2-ff37-4b89-96ec-8a9e650b92dc"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("bd16f0ec-5ae1-42f4-a302-b4bce8f0db28")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("39fbfb62-8c77-43f7-bec6-0fd3cf1f7700"),
+                            FoodPortionId = new Guid("99f82995-0996-48b0-948c-a4c008069558"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("549d664a-eb1c-4b9a-8ad7-fab9e1482e5b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2ce77bcf-81a2-4f36-8147-a6f65b6333d0"),
+                            FoodPortionId = new Guid("c9431581-0486-45ed-a6c1-c102a15027eb"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("e45c2156-a98c-4121-90b4-25097e8a5cd1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("674aec7c-6167-421b-b5c6-1bc41ab199fc"),
+                            FoodPortionId = new Guid("179e9f78-1ee7-463c-a249-19b866af1032"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("7b138bd4-4d3a-426c-9ab0-d66699b762d2")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("505487d0-66e3-4a45-8262-794b7f44bd3c"),
+                            FoodPortionId = new Guid("16482d09-47b2-48c0-aec5-cea0206f544c"),
                             FoodId = new Guid("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
                             PortionId = new Guid("2892c25f-bd50-4bb4-a845-997395ef6693")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fc1d0f7a-bdd0-4413-8699-17da44b700bf"),
+                            FoodPortionId = new Guid("6d592d6f-de2e-4ce2-a123-53ac9e2c946a"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("03a92c0b-b7f6-4283-8109-a35898d5d3c5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bfc0928f-d435-40ca-a2e1-5ad3df9a4b01"),
+                            FoodPortionId = new Guid("ede6ba76-7230-46e8-a4ab-2a3b2345341f"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("fc245902-ef53-4363-b4ce-0e598e1dd4a4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("722f6fec-ca85-41df-ac5f-5bffb125bf04"),
+                            FoodPortionId = new Guid("5bda37d2-4461-4487-94aa-a1e0ed50a4b3"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("da254ee7-d229-4769-bad5-a617d09676d4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ea1bacb9-cf3a-4191-84f0-ecb858f0b12b"),
+                            FoodPortionId = new Guid("e11ea6f6-fe50-4a5b-ba7c-40a4a56c39c6"),
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41"),
                             PortionId = new Guid("3d6d946f-8d9f-479a-b27e-3d78dc354db0")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9b91dbb7-6feb-4311-8456-917572f3948b"),
+                            FoodPortionId = new Guid("5e440f62-c9c4-4bb8-86e6-7b96bb621c5b"),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
                             PortionId = new Guid("424ebe64-6570-4d88-9052-08c06dc0a2c8")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("08c7bd27-e901-4f52-b692-49b1ed039826"),
+                            FoodPortionId = new Guid("4bdf43ed-199c-4836-963f-f0700366b07e"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5adcb96d-70ef-403d-89c6-cc3aa807b6a7")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("29904af6-9d1a-473b-a549-36b1299f61d5"),
+                            FoodPortionId = new Guid("ada15b04-a7da-4d2c-8cee-f33f20c9f401"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5a9ac478-aa65-48ea-9387-1ad92f6c76b1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("62a49227-f2f5-430b-86de-5507aaf291d4"),
+                            FoodPortionId = new Guid("ad8b3448-8586-42de-bd8b-347bee663654"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("113f6a04-87c4-43c6-8263-920bd099c8e0")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a6b43b8a-16b1-403a-9d92-c798312ca556"),
+                            FoodPortionId = new Guid("e98fe704-fbf7-46cb-8f85-26a7ebb237e7"),
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("d2e88505-bbd6-4af6-9a88-535896c5d587")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d10ad154-60e0-4c0c-921a-4188b18d55cf"),
+                            FoodPortionId = new Guid("ff3c5025-6819-4181-9d41-4e246ec58a87"),
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("3f19ef5c-3c60-4a11-b1b3-5158859f1286")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e6b0e738-1aef-4e58-a928-e3996559f43d"),
+                            FoodPortionId = new Guid("7cc85a5f-e2d8-4cb5-9ea3-b65bfb3eb827"),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c"),
                             PortionId = new Guid("7e071bd6-6afa-483d-8688-28b31b9a8bef")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bfb28fd9-7594-4451-a1c5-95c27f42ef82"),
+                            FoodPortionId = new Guid("c6aa3617-af20-41bf-af1d-bb64f7dd38d1"),
                             FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607"),
                             PortionId = new Guid("d6c41cdb-4735-4b9e-85ae-1f48f33b7d6c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4cbce31e-4547-4289-9f2f-78bbf1f1a65a"),
+                            FoodPortionId = new Guid("7c1b7919-87bd-4229-98d1-0ec4a9736739"),
                             FoodId = new Guid("01708b02-6cc1-41f6-ae4a-95c4085e1839"),
                             PortionId = new Guid("b9423874-3290-4fda-9996-7c13d7c61d96")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2963105c-203d-4512-a9c5-20699d7266c1"),
+                            FoodPortionId = new Guid("8a48424e-c6e2-4aac-92ce-de7adc95e301"),
                             FoodId = new Guid("436d8364-15fd-47a2-9b72-c3841db0da2e"),
                             PortionId = new Guid("2b7a3473-9f67-4938-b419-7cafa8f72a41")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6fd378a7-4099-449a-b6b2-332d5d47b340"),
+                            FoodPortionId = new Guid("ec290af7-30d5-4c17-9c39-7b27294f1093"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("a43d7637-6fc7-421b-86f1-f83e691431a4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a0bf47bc-90ca-43eb-b3cd-4e3b5efcb5d0"),
+                            FoodPortionId = new Guid("2bb803a7-1f70-4d52-9156-a9a8ca11cc2e"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("6e98f2be-9196-4c4e-8279-b02010f853f1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f1015633-a5e4-4978-baf0-9a0c1da9d503"),
+                            FoodPortionId = new Guid("0c0db105-6f41-42cd-8ced-f78ba0ead3a1"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("e00ed683-11ff-4c21-8b1c-576b448726c9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ce601024-00ee-4977-b151-700a3efb31d7"),
+                            FoodPortionId = new Guid("aa27700c-34ba-44b5-9d96-e542a1af695d"),
                             FoodId = new Guid("db3cd633-2350-4143-ae1f-ccc853583755"),
                             PortionId = new Guid("509da3d8-ed0f-4cd0-be26-3a896b9500b3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cda8ff07-dd44-46d6-87c7-cefe87c736d0"),
+                            FoodPortionId = new Guid("8eec6eb4-4bae-4a63-9bd9-d1744b351d4f"),
                             FoodId = new Guid("db3cd633-2350-4143-ae1f-ccc853583755"),
                             PortionId = new Guid("8bffc4ad-afcc-436b-953c-444f1e8ce533")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1cad7fd0-4083-4696-b3c5-9dbc05ce247a"),
+                            FoodPortionId = new Guid("537f2f81-9e07-4e70-ba44-c01513e2f504"),
                             FoodId = new Guid("db3cd633-2350-4143-ae1f-ccc853583755"),
                             PortionId = new Guid("28f6a369-f694-437d-82eb-944b09d5e369")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("39dab6ca-de70-4a84-ad66-b4c4ad41add1"),
+                            FoodPortionId = new Guid("85a7b079-cdf9-4f9d-93f2-71b8caa958b9"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("63d10d95-7983-455e-b920-29c1f0c88d85")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("538e37bc-90bb-47f6-a10d-33004c91fc70"),
+                            FoodPortionId = new Guid("e390c140-2db2-4e23-af35-376bc3899840"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("919c7f66-53e5-46bd-b181-558f6052b953")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("5349ec03-d844-4e84-b038-2beed7c71618"),
+                            FoodPortionId = new Guid("028249b4-9a45-4839-b65d-2353a8ea1b8f"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("87409e4f-4bea-4bba-855d-a3bfbc2f9c20")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("08322dbe-df51-413d-a9d2-89c3bed9d164"),
+                            FoodPortionId = new Guid("533c3edd-447c-40ef-a5de-1fc31d09510f"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("26dcc6e0-67aa-40ed-b3d1-8a009c60a62c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("0e43d909-ea2e-4ea2-ba4d-c1b9cc1209f6"),
+                            FoodPortionId = new Guid("1472b4f1-8996-4d94-9941-e0e6dcd821a8"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("3c7d60d4-60da-4f51-9448-30877b126572")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4bd6074d-9f66-4118-ab55-fcad9c2b94fd"),
+                            FoodPortionId = new Guid("d14078d4-a70e-42aa-9721-790d7563cf89"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("9c3399d1-72db-4e86-a518-2575033bb6a8")
                         });
@@ -8506,32 +8484,6 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7603131c-28dd-4e9a-8a8b-e8d24a30e6a3"),
-                            Calcium = 30f,
-                            Calories = 250f,
-                            Carbs = 15f,
-                            Cholesterol = 45f,
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Fat = 15f,
-                            Fiber = 1f,
-                            FoodId = new Guid("a84ec8cd-f9d8-4723-8b9e-4ff4eee1685e"),
-                            Iron = 0.5f,
-                            Potassium = 150f,
-                            Protein = 10f,
-                            SaturatedFat = 5f,
-                            Sodium = 700f,
-                            Sugar = 0.5f,
-                            UnsaturatedFat = 8f,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            VitaminA = 0.02f,
-                            VitaminB1 = 0.02f,
-                            VitaminB2 = 0.03f,
-                            VitaminC = 0f,
-                            VitaminD = 0f,
-                            VitaminE = 0.1f
-                        },
-                        new
-                        {
                             NutritionId = new Guid("ca821e05-cfcc-4ea5-a544-734a88606c98"),
                             Calcium = 80f,
                             Calories = 250f,
@@ -8919,32 +8871,6 @@ namespace Monhealth.Identity.Migrations
                             VitaminC = 20f,
                             VitaminD = 0f,
                             VitaminE = 0.1f
-                        },
-                        new
-                        {
-                            NutritionId = new Guid("8b8db2ca-66f8-4e7d-b69d-5ab31bc24475"),
-                            Calcium = 10f,
-                            Calories = 120f,
-                            Carbs = 25f,
-                            Cholesterol = 0f,
-                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Fat = 2f,
-                            Fiber = 0.5f,
-                            FoodId = new Guid("face3a50-e5e6-41e3-83e8-f96e7c8c98d4"),
-                            Iron = 0.2f,
-                            Potassium = 20f,
-                            Protein = 2f,
-                            SaturatedFat = 0.5f,
-                            Sodium = 200f,
-                            Sugar = 1f,
-                            UnsaturatedFat = 1f,
-                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            VitaminA = 0f,
-                            VitaminB1 = 0.01f,
-                            VitaminB2 = 0.02f,
-                            VitaminC = 0f,
-                            VitaminD = 0f,
-                            VitaminE = 0f
                         },
                         new
                         {
@@ -13710,7 +13636,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "be0e4f25-3212-40ed-aaaa-e34248f62213",
+                            ConcurrencyStamp = "a39b3c7d-2c44-440b-9e24-22352ea06025",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quocdai@gmail.com",
@@ -13719,10 +13645,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAWpvImiO9m9C5nFPGVFjVqUy3DJJZSC91KqtJvnlt01OAVHO+L2A+eCtV1glc4oGQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC5JnfbcAYpvbHLANsaWPWB40+PG6bAZcfaMS/97kakj5qlpWtyQ8FPSsDsM4pFfJw==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "17a3b01c-b31c-43ff-8cea-49c51054d539",
+                            SecurityStamp = "4a181e7a-83a4-4542-80b8-fbe8a4592f8a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13733,7 +13659,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "26741cf9-045e-41ca-a973-e56477f27029",
+                            ConcurrencyStamp = "fea12c2e-97ef-47b2-b9a2-fa22250ab862",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "toanvan@gmail.com",
@@ -13742,10 +13668,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGoTQK1IZXvPTX18XL8y2tWWBi9neru3HPrRu/TYvZed8lSDn//fYgNnj/3Z5VdZYA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHnyJtxMkHadQh1EWvNyvqiH4ltpw/w/wMoGgRE8Wqla6CH78MreQxedRbI5xRdK1Q==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fe643337-37c1-48ef-b1a8-f1ed9a6d3b51",
+                            SecurityStamp = "fce6cbd6-0364-43e7-91f7-276c6544c12f",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13756,7 +13682,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4bdb4cb0-655d-4fe8-9b58-baef399ad1c7",
+                            ConcurrencyStamp = "4af2f287-29a1-49a8-9263-28877685d5aa",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khanhpham@gmail.com",
@@ -13765,10 +13691,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC+R43EdiqAft6n0lirk/I5uYmnfI5UXEVcXpBkcLzSR+4KO4Z1olvilsjByEgewCw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGaGHjZ6dmx/Gv6POUu6QqqLQzqFLaP2ZjBdCbQQAXkZFCErgsVJlV9sAgPu0XFtcg==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "55d67a1b-7444-4b30-9a21-cdeb725bb88b",
+                            SecurityStamp = "5fe4a92b-ac66-43c3-9110-63d655f31323",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13779,7 +13705,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0d4385cd-817a-490c-9b83-ebc311699c62",
+                            ConcurrencyStamp = "46de960e-5779-412f-9ecf-2ff5052aa34b",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khaitoi@gmail.com",
@@ -13788,10 +13714,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMsOXPi8M3h9SAKR9/k3eE0mOyVfYRcWp8sHGGVIP7Y5Gd+I/DF305JARbtmEO65Tw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ0cfGkS1iI4Eifkjw5r8pTJAOBy7WAxrKbLMLT3/XZLPxuIx4INV/1vVJDtU/fHHQ==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "beb663db-5e63-4a0d-8c58-8fb4fc590783",
+                            SecurityStamp = "99c751c8-bcfa-4495-a2dd-07056d2338cf",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13802,7 +13728,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "210356da-5b95-474c-9ca5-fe04c786c948",
+                            ConcurrencyStamp = "c21e7ae0-1978-473f-b965-582e54828ee1",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quangdalat@gmail.com",
@@ -13811,10 +13737,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAENHfcW45omW5hlFt5YJcBibBwTZWqc+Ilw/tArBBm4VluKSiRA8rJiYMLEx1hK3MTg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIc7aDcZ9eH56u/bootcOzkqBO3F4KFUokyxzqsC2QCHnwn4L0i8JpBVTHqkMWlYBA==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "92b9d573-ac96-4a0b-9a36-00554e7a4fcd",
+                            SecurityStamp = "eea95eaf-764c-43c0-bf99-5f97bc660380",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13825,7 +13751,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d6841ab2-96db-4dd3-ba1e-f3c3920a48ed",
+                            ConcurrencyStamp = "fdfda0ac-6902-4fb2-8efa-daa2fcd16315",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "duythunglungtinhiu@gmail.com",
@@ -13834,10 +13760,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE1gzq4//XgxooRELN9Qw8X2jwfGU+yQCj6xjmpBwtij3Za1vHCKeBRx5dxctP4n2g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEK35tTxCte2AeweZQOEL2vIptcHgPAm4hhdONufLAVCgC42KlagD3xq64ZCwFm/tTQ==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "75a82832-eb49-4e07-b15c-f0ffdc399a64",
+                            SecurityStamp = "7ff82fbf-8d87-4388-a04a-a5a367e013d2",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13848,7 +13774,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9355b02d-0481-4c0b-8bd8-89eaeef82978",
+                            ConcurrencyStamp = "15b066af-6121-412b-a8b3-73b6ffee0ad7",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "asd@gmail.com",
@@ -13857,10 +13783,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGBKHTc8jo3ytErr7oIIxg2qQkSyEu+dQcJ7L7GjuUAlUgpuRQj8NleP7Z26rFJUrQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFU6/T1hvVnvZUhxafoft4VOiV33kANfCEZe/orUmd9qoo+1p9BwO7n9TPZspChv3Q==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5869fe8e-dabd-4732-94ea-9998ca79caff",
+                            SecurityStamp = "cef24555-a3fa-4614-a1f8-cb7f3d71e49a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
