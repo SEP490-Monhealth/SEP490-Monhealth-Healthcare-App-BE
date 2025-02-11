@@ -15,7 +15,7 @@ namespace Monhealth.Domain
         public string WorkoutName { get; set; } = string.Empty;
         public string WorkoutDescription { get; set; } = string.Empty;
         public DifficultyLevel DifficultyLevel { get; set; }
-        public int Views { get; set; }
+        public int Views { get; set; } = default!;
 
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
