@@ -12,6 +12,18 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class WorkoutController(IMediator mediator) : ControllerBase
     {
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllWorkouts(int page = 1, int limit = 10, string? category = null, WorkoutType? type = null, string? search = null, DifficultyLevel? difficulty = null, bool? popular = null, bool? status = null)
+        {
+            var workouts = await mediator.Send(new GetAllWorkoutQuery(page, limit, category, type, search, difficulty, popular, status));
+
+            return new ResultModel
+            {
+                Data = workouts,
+                Status = 200,
+                Success = true,
+            };
+        }
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateWorkout([FromBody] CreateWorkoutCommand command)
@@ -33,19 +45,6 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo bài tập thất bại",
                 Status = 400,
             });
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllWorkouts(int page = 1, int limit = 10, string? category = null, string? search = null, DifficultyLevel? difficulty = null, WorkoutType? type = null, bool? popular = null, bool? status = null)
-        {
-            var workouts = await mediator.Send(new GetAllWorkoutQuery(page, limit, category, search, difficulty, type, popular, status));
-
-            return new ResultModel
-            {
-                Data = workouts,
-                Status = 200,
-                Success = true,
-            };
         }
 
         [HttpGet("{workoutId:guid}")]
