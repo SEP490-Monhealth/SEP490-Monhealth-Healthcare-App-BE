@@ -12,8 +12,8 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250212005100_AddDatabase")]
-    partial class AddDatabase
+    [Migration("20250212043013_InitialAndSeedData")]
+    partial class InitialAndSeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -301,175 +301,175 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            FoodAllergyId = new Guid("5606c7e9-13e4-4374-bba2-03ed8ed720e8"),
+                            FoodAllergyId = new Guid("a99daa33-6d05-4ae0-8683-e7dc4f28a14b"),
                             AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("2cf5fcb5-2c33-43bd-892b-d82739309423"),
+                            FoodAllergyId = new Guid("45989599-d4c9-431c-9485-7d2a644a3891"),
                             AllergyId = new Guid("10127b02-786f-462b-8ee6-3df465903645"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("71c2ca40-6202-4b5e-b4c3-967646be521f"),
+                            FoodAllergyId = new Guid("9d88542e-8f9b-4925-aeec-4742dfb72d2a"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("625d689f-91ab-4006-8134-1cdf7c721d38"),
+                            FoodAllergyId = new Guid("cf9cce73-7684-4838-9b04-8047079ec7c3"),
                             AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("472efbed-1a5e-44d7-ae15-60674f40266d"),
+                            FoodAllergyId = new Guid("1a07d57f-b6b8-42e7-9ff8-a8411dc4269b"),
                             AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a6363654-767d-4bd8-8d9f-ce0108c45640"),
+                            FoodAllergyId = new Guid("961d445a-7674-4b83-841d-b8722320cbd5"),
                             AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
                             FoodId = new Guid("19bbab17-91c6-410f-b566-b509d067e76e")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("089e9016-be6a-4706-9318-1479ecbf5932"),
+                            FoodAllergyId = new Guid("68cf1d7c-471d-464d-a2da-57bc605c615a"),
                             AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("2da6c6e2-b0c7-4308-b302-234b2dce6663"),
+                            FoodAllergyId = new Guid("732dbdb9-db0d-49e3-8aff-5bb8e34feac2"),
                             AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("0b4c244e-675c-4db9-bcd9-c31b809c6638"),
+                            FoodAllergyId = new Guid("7ea989c8-c582-40d7-84d2-771524a6c1b9"),
                             AllergyId = new Guid("10127b02-786f-462b-8ee6-3df465903645"),
                             FoodId = new Guid("f412d88d-ce7e-4006-bc11-75af61438491")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("9a5127a6-26ea-4eed-8a4b-37da13a8cf97"),
+                            FoodAllergyId = new Guid("957d9daf-007e-4e3e-9e55-8fe0710ccded"),
                             AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("28fae30a-10be-43ea-bc3a-e12e2b9b11b7"),
+                            FoodAllergyId = new Guid("c9169282-3517-4d71-affb-258a880821ed"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("4c255acb-e6da-4324-beb6-6859da4d3996"),
+                            FoodAllergyId = new Guid("f65d9445-fa6c-41fd-b505-78b4e827695f"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("f41484a3-c7df-4530-b7d2-060390103985")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("73cddbc9-fae7-4f69-b046-d9cf15476d3d"),
+                            FoodAllergyId = new Guid("54fb0374-75ed-4b52-9191-c86a78d1872c"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("fa922531-6d69-484d-a320-5935806984bc"),
+                            FoodAllergyId = new Guid("a8ca0c5a-ab72-4535-816c-4133b21444b6"),
                             AllergyId = new Guid("0d352b08-ada9-40f6-a23e-6f6f170a9cd4"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("2337c718-ea11-4944-b557-fd2b0ac7518c"),
+                            FoodAllergyId = new Guid("26c3ce07-4952-4b86-b073-ebd4cec69e36"),
                             AllergyId = new Guid("16acfb07-feee-4bb9-ad2b-05e5b93d18e6"),
                             FoodId = new Guid("46b9f487-dc6d-4c1d-9729-9f707ac28202")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("0595a0e9-4e9f-43b0-b165-8683885554b7"),
+                            FoodAllergyId = new Guid("351235ad-979b-4b85-acb6-f995c9f3d35c"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("b597fa73-b65d-4f8b-a9e8-c9f95be6102b"),
+                            FoodAllergyId = new Guid("5deac72e-ec2d-4f86-ad00-f2515352efe5"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("0ea93308-c282-42f2-a59b-22e3b457fd9c"),
+                            FoodAllergyId = new Guid("94d8e7e2-8cf6-4077-99c3-48348045748f"),
                             AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
                             FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("82da8c60-536c-4629-ae9e-0b6dff2ad6ab"),
+                            FoodAllergyId = new Guid("91117916-f1e8-427e-9c7f-4d00cd40ae1e"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("a53672e7-8593-4779-bd02-9f02ae81f915")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("cc1dfbd3-2693-4c7f-8476-03080ab64a26"),
+                            FoodAllergyId = new Guid("488bb26e-0481-4749-99bb-7c924a7ef596"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("ede931f5-092e-4e41-8ce1-5a95bff2772a")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("41efc3a5-4e37-45d6-9f75-03fbd1f42288"),
+                            FoodAllergyId = new Guid("8f2990f0-92a8-473d-abbe-9908fe44629b"),
                             AllergyId = new Guid("0d352b08-ada9-40f6-a23e-6f6f170a9cd4"),
                             FoodId = new Guid("ede931f5-092e-4e41-8ce1-5a95bff2772a")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("360551d4-bae4-45ed-b9d8-fd98dd0c20a7"),
+                            FoodAllergyId = new Guid("01ba0b2e-56ac-4f85-b2a0-3e5f174541fd"),
                             AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
                             FoodId = new Guid("dd1482e7-b3dd-4b17-80f6-5618a640c671")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("f5f6b8db-4a69-4e25-8b97-2ce04a022c21"),
+                            FoodAllergyId = new Guid("8dc53a58-c302-4ffa-9204-c6ce8bb92701"),
                             AllergyId = new Guid("70fef89b-5b02-4d6c-81e0-40592eefcb2a"),
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("934c31a6-2ec3-4c59-8fd7-6d7dc710912a"),
+                            FoodAllergyId = new Guid("481c1ea5-65a5-4849-b0f0-c7b1422b52bd"),
                             AllergyId = new Guid("3cd5347e-d38d-425c-af19-e9c4ba2646c6"),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a412dd85-3468-4965-be4b-d51f974b16c3"),
+                            FoodAllergyId = new Guid("e5cab476-3722-4f64-9f0f-7c358b0d6186"),
                             AllergyId = new Guid("b82f4697-2ad0-4777-a29b-094c99f46d10"),
                             FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("4cf3ac22-8c91-4bc8-ae12-1a74684f3747"),
+                            FoodAllergyId = new Guid("c7ddc6c3-79a0-47ac-ab23-b0776fd9ed28"),
                             AllergyId = new Guid("b8f6417e-2aac-442e-aac4-de4d809c572c"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("1402b6ef-a0db-408b-a7da-e97004a4e646"),
+                            FoodAllergyId = new Guid("221c4c83-61ac-4da5-b67b-7604c3703990"),
                             AllergyId = new Guid("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("34406ba3-977c-438b-aceb-55d8b70693dd"),
+                            FoodAllergyId = new Guid("e17b6c53-7c07-4f27-891d-e9b3d29aec3c"),
                             AllergyId = new Guid("13008773-dadd-4053-b64c-500b6050b2aa"),
                             FoodId = new Guid("01708b02-6cc1-41f6-ae4a-95c4085e1839")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("f92d8c98-2366-4384-9555-949c00941ba7"),
+                            FoodAllergyId = new Guid("c062c27b-a53c-46ce-ad54-603987038859"),
                             AllergyId = new Guid("d0127ea2-7f55-4515-b5ea-3db55af5774e"),
                             FoodId = new Guid("436d8364-15fd-47a2-9b72-c3841db0da2e")
                         });
@@ -5803,751 +5803,751 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            FoodPortionId = new Guid("d172cdc7-6995-4d40-bb71-7ccb2a8769b4"),
+                            FoodPortionId = new Guid("c23df650-cb14-444f-bb48-860f32b88b3b"),
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("1808de3e-ae43-41a6-b9ce-bfe89131be5a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6a616aba-8d96-41c4-b26c-99ad94000d3e"),
+                            FoodPortionId = new Guid("e83f9656-434d-49d2-8553-1b1a0d97abf7"),
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("40991196-f258-43f1-ac84-0381afa83477")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("569ee1e8-b407-49ee-b887-a9355d733e6a"),
+                            FoodPortionId = new Guid("414b012d-7e52-4b3a-aa5c-6f6508812526"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("28b06cf6-6367-4786-bccb-89c43dd3ce3a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("24a47e43-46f1-4c89-9097-596f90358625"),
+                            FoodPortionId = new Guid("b19a930a-7256-4c96-93fd-0b71fbc90ef7"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("91524cc2-db22-4cab-abb7-700725232f1f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("58d662ea-891b-448e-8f5b-def048cd69fc"),
+                            FoodPortionId = new Guid("7fe4d08b-44bc-444f-85a5-1d9a79fee627"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("1b56833b-1ff5-4a90-aea9-074de2d0dd67")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("71c4829d-4cba-4cf0-99c1-bcdcd0567f89"),
+                            FoodPortionId = new Guid("d27ed60b-b8a4-4a0b-9d54-893da0f71fb2"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("c605aa91-495e-4977-9876-b2a198ce356e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d58679cf-ca10-41d7-92e2-f7dacc83f6de"),
+                            FoodPortionId = new Guid("e0b135d6-c2bb-4d70-9a1d-5ba6d9ad5556"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("7be0e4d3-1e50-4de1-931d-08adb85f628b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9093b5e7-be2f-4902-9fe0-264eb760a8c7"),
+                            FoodPortionId = new Guid("48ceb841-91a1-49fc-b314-7968de97bd9d"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("698c67ad-a726-435b-b9d2-c5690a79eb5a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d80bc330-5778-4c13-a925-682c587f5d87"),
+                            FoodPortionId = new Guid("13ffcbe9-7538-46dc-a357-410f8dd7ad67"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("399eee61-90b5-464f-b3f7-7ddc1077ab0d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("18646e4d-c9d9-41f7-8944-cc5639aa51b2"),
+                            FoodPortionId = new Guid("04f47d18-1388-4f45-8fc5-f4d2cf1753b0"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("6f34350b-8f99-446e-9de9-e0c6277b10f3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3ff8a27d-23d5-4f2f-8d83-c4c0713576da"),
+                            FoodPortionId = new Guid("330cf43d-edfc-4a74-89a9-93d612e140fc"),
                             FoodId = new Guid("8fa26c41-16b2-49f8-a284-856024a5f947"),
                             PortionId = new Guid("41ae956e-14fc-44af-bc6a-e5ba77661cee")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7b63e3e0-48b1-48cd-8d7f-7196bbb6a89f"),
+                            FoodPortionId = new Guid("78680a41-3ad0-48af-9b17-6de235a101d9"),
                             FoodId = new Guid("1387c20d-27a6-495b-a3a0-efbb715f6430"),
                             PortionId = new Guid("a1589990-affa-4805-a1e0-73de1ffa8516")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3513ceff-fb51-4b94-a07f-00defa272e46"),
+                            FoodPortionId = new Guid("6953baa6-d57d-4363-9dd6-4e102c0d21c1"),
                             FoodId = new Guid("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
                             PortionId = new Guid("4e9013c8-d6f7-4740-80d5-e95d318873b9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d629f3f4-5b46-441d-901d-ed77c169f5f1"),
+                            FoodPortionId = new Guid("725517fc-95e8-421f-a77b-f8b0c94c7dd3"),
                             FoodId = new Guid("eac10b91-8509-4986-b689-7ee3a3757a18"),
                             PortionId = new Guid("1bf9c3e0-7a2c-46f5-8187-82e5ad1af649")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("eee2e88f-66dd-4bc3-83df-77c3cf445b2d"),
+                            FoodPortionId = new Guid("661dffd3-41b5-4dcf-afca-14e95f59bd47"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("faec7c41-2e11-4092-8ab9-cc9c152d858f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("da1ef15c-b34d-40fe-93fd-1bf835dad3f0"),
+                            FoodPortionId = new Guid("61c4dd64-31f4-4325-a8e4-7709464a6c7e"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("36398f6d-0668-4d37-8850-9f9ee89b8b92")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d18086d8-e4e0-43db-9213-1fa9c90c7167"),
+                            FoodPortionId = new Guid("d7b19dea-bce8-4cd1-8938-8595ad712724"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("c6e853f0-06bd-4cda-8b43-cbe66fea98c8")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("931866b7-10ba-4986-b69c-d6dc7cf675c3"),
+                            FoodPortionId = new Guid("4f7c662a-4f17-43b3-8c61-94d8cb5f4fa2"),
                             FoodId = new Guid("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
                             PortionId = new Guid("268e00a0-2da3-4e5c-8ea7-5ad8923cfd52")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("5a46ce57-7a6e-4e9b-833b-2e8061ba01ce"),
+                            FoodPortionId = new Guid("1d2a7d1c-1e6b-4787-8bf6-73ab78d8d059"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("40bbc8c4-f383-4ae6-979a-3ac83c275881")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("460d0d1d-92a6-4ef7-9085-108e7a5e69e7"),
+                            FoodPortionId = new Guid("007b5ee6-d356-4471-874e-53841645e014"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("26096793-894d-47c1-a06f-cf9133f8089d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("589caec9-a9a9-4a6a-94bb-c275cf9a5a85"),
+                            FoodPortionId = new Guid("66428bc1-8fc0-4469-a119-07ac9c711a5f"),
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
                             PortionId = new Guid("de5d78a3-c5b1-4e2a-b9eb-f3757c999024")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("79a29d40-d1c3-434a-ae3b-013b0675d455"),
+                            FoodPortionId = new Guid("b7a58f01-ac96-4abc-ad17-e5f7c4aeaf59"),
                             FoodId = new Guid("de097440-db5c-4d91-bd55-76618d70599d"),
                             PortionId = new Guid("92e149ff-8491-48cf-a4e8-8106b1e95c4c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f779960a-6a26-4326-9e0b-e4f523fb1f65"),
+                            FoodPortionId = new Guid("536b42dc-0b52-46a6-b82e-7ca7cd94d9d6"),
                             FoodId = new Guid("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
                             PortionId = new Guid("3f77fd90-591c-45f3-8bbc-87d0bb49e461")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fd512cf5-c46e-4df0-a337-268714ae2d86"),
+                            FoodPortionId = new Guid("abc6e775-bc33-43f2-bc32-39e7722caa9f"),
                             FoodId = new Guid("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
                             PortionId = new Guid("6792c392-3c86-4162-be91-4fc8646f861d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c8e89ed0-1daa-42dc-b240-24683b7c2c22"),
+                            FoodPortionId = new Guid("9de73c81-b143-464a-ac12-3dd37be38d0c"),
                             FoodId = new Guid("48113ca0-a1e7-4181-85fa-be6538a70873"),
                             PortionId = new Guid("c4fc900f-5a92-4228-ac03-57285fff159e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e590000d-d211-454f-bf38-b4e437e4a5ba"),
+                            FoodPortionId = new Guid("31842ff6-149b-4942-9846-9810ce0b8f5c"),
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
                             PortionId = new Guid("cd0a9e6f-bf5b-40b3-bb6c-22ccb8e6ab6a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("347b9309-5026-4b71-a3b9-e97365517717"),
+                            FoodPortionId = new Guid("193798f1-e354-4a2b-ac8e-7422ec3c7656"),
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
                             PortionId = new Guid("a33065fe-80ad-4879-9333-424aadc6734f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("81da7bf3-d4c3-4cc5-8fd0-1b39557ec674"),
+                            FoodPortionId = new Guid("1dffd835-025e-4952-a61f-89a3ad4fd8d2"),
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
                             PortionId = new Guid("eceaaa32-4023-4eab-abb6-9172c908f77c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("52822215-270d-4af2-bdd6-4f6e73ba4b1c"),
+                            FoodPortionId = new Guid("77d8b0f6-ea24-4ef9-9913-260e53b863be"),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
                             PortionId = new Guid("31e9bda5-8ec3-4444-a23a-908e84da6a14")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4d374200-8273-4a54-bfdc-78d59acca9ca"),
+                            FoodPortionId = new Guid("6af872c8-c736-4c2f-867a-0e843052dea5"),
                             FoodId = new Guid("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
                             PortionId = new Guid("93984b54-2044-4ea9-8364-a03c6568e358")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2c6617e1-ab81-432c-aa96-94117b142b4b"),
+                            FoodPortionId = new Guid("f04c4008-3edb-458d-9ad4-f7916267562d"),
                             FoodId = new Guid("da89578e-9470-4b18-af4f-0bdcc011882f"),
                             PortionId = new Guid("749b288c-112b-4b7b-8750-0daff63d9ab3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b7798922-3c18-49b6-84ca-f8df3f19cfa5"),
+                            FoodPortionId = new Guid("f70ed34c-074e-456f-a9cd-bd0f1d55054b"),
                             FoodId = new Guid("37a66f5c-437f-4520-90ec-4376e0093061"),
                             PortionId = new Guid("1500876f-ef20-40de-baae-de0336bdc47b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9b0d98a5-3c40-4253-b2fb-94df2dc30c44"),
+                            FoodPortionId = new Guid("2aa653c9-3ebc-451e-92c0-6d5418f3b2fc"),
                             FoodId = new Guid("d9fa8f03-5825-4e83-88d3-1a7c49e39a7d"),
                             PortionId = new Guid("e4e4252f-ad38-4190-aba5-8989e3cca994")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cb95cd94-36db-4a81-911b-a5a9bbe929d2"),
+                            FoodPortionId = new Guid("bdc38bee-95b8-47e4-996d-694d4eab7f0e"),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d"),
                             PortionId = new Guid("24a4ed15-69e4-4fb5-8dd2-1695de52c264")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("25475120-fd11-4f71-a3b5-89bf56b5dd2d"),
+                            FoodPortionId = new Guid("db4339da-4000-430f-a2af-24e0477d35ee"),
                             FoodId = new Guid("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
                             PortionId = new Guid("bfc705ab-d7e9-44c9-9447-c0b39bc76ca1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bfd95641-8a2e-4eb0-83d1-f1b868fb12fe"),
+                            FoodPortionId = new Guid("8729921d-589c-4fc5-bfc6-d08862ee214b"),
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
                             PortionId = new Guid("b6623163-4c27-4d0c-99ef-12a67b87635f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a6e574ac-ba44-47b7-8dfe-de267fe623cb"),
+                            FoodPortionId = new Guid("4a750b9f-f077-4257-98f3-48e5c64c6b33"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("a88faa7c-6eab-4ecb-8a75-b078a9cf7834")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1a6e7f6f-e277-4585-b42b-30be37375296"),
+                            FoodPortionId = new Guid("22674b97-6c23-4f4e-818e-5de9b7fd7824"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("218b9709-852d-4a1f-ad8b-c9410b49fea6")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("5806461f-237f-4483-998d-5f5ed30c723d"),
+                            FoodPortionId = new Guid("6ba6f37d-6e02-4b01-885a-15ce561dba35"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("e5cc2785-6d62-4b5f-8fc1-e6ab45babd76")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d44e2b8e-548a-45af-9130-beb11761d2e1"),
+                            FoodPortionId = new Guid("75f3e487-c7b5-493d-beed-213db8b2abc1"),
                             FoodId = new Guid("c5822776-96df-4208-82b2-02f22594063b"),
                             PortionId = new Guid("3d7eafa9-9fcc-4f49-b8fb-2a5c629ae6eb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8d9e4373-82b9-4e72-856d-5acfab92a0c1"),
+                            FoodPortionId = new Guid("81341889-81e8-4bf6-a31a-b279ad915cad"),
                             FoodId = new Guid("fb7d87aa-2bb8-4065-bd31-b54239057405"),
                             PortionId = new Guid("22f0a09e-6816-410e-a5a2-c802103b089b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7d02a1b0-19c6-45ea-bd29-4a6253073a8b"),
+                            FoodPortionId = new Guid("d0c1040b-c1f6-4e16-8e49-172b445f98ff"),
                             FoodId = new Guid("9122357a-179f-45f4-9106-67eea24d48ab"),
                             PortionId = new Guid("5feca670-1f15-430d-9b04-7ac86a329a6c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7ecc16a8-2be2-4ddf-9d04-1677315bad07"),
+                            FoodPortionId = new Guid("37340c7d-1811-4662-8a18-e37052072564"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("f483bb75-84f0-4ecc-8a06-f366a488c6bf")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d0c1a68f-4f51-478f-b056-b5bba93fdfa7"),
+                            FoodPortionId = new Guid("09165b0c-e348-49bf-a6dd-336bfb47cfc9"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("17c9d30f-bd85-4e58-bfc0-6b6d70b2e5fe")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("964773c3-36f4-4474-892d-cb575cdcada1"),
+                            FoodPortionId = new Guid("e8f15df8-ea67-441b-add9-4d77f01ca3d3"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("52c86d57-0909-41c3-b513-e770e6f6d104")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b7c7c00d-92ce-441b-a949-6b2d135dc888"),
+                            FoodPortionId = new Guid("fc1fb4da-5ae0-45ca-9697-613be403c547"),
                             FoodId = new Guid("87225215-43af-49f2-a40b-a5ebb087d27b"),
                             PortionId = new Guid("a9385e8a-e9b9-484f-beeb-bc35529cf91a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a910ee6f-d464-4fae-8ed7-6e60de24b2e9"),
+                            FoodPortionId = new Guid("0603a92a-8750-4e25-afab-44dedd960736"),
                             FoodId = new Guid("23443efa-dc06-4e7a-949c-5c823ee6e575"),
                             PortionId = new Guid("8a81e20e-ea16-4073-957e-29508a8f7419")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("0cc398f9-c5b9-4835-8677-5c85ab37f697"),
+                            FoodPortionId = new Guid("5c38d7c9-496b-464a-864d-4461706f051c"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
                             PortionId = new Guid("84793ef9-fcd0-42df-ab0d-9380dfa18630")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("48040f91-233d-45f2-86e7-042a7c25b223"),
+                            FoodPortionId = new Guid("f71e3394-16fb-4cac-8ad9-355dc8e20fbd"),
                             FoodId = new Guid("77fe5e06-7fee-486d-a1a7-c031f2065490"),
                             PortionId = new Guid("255ba0f6-14cc-4049-add8-138f27055b49")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4d1b10d5-eff9-400c-adfd-42a475ca4a79"),
+                            FoodPortionId = new Guid("1128f912-3aca-48b4-ace4-e4aa678815a9"),
                             FoodId = new Guid("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
                             PortionId = new Guid("f7b36043-9ca9-42c3-8a00-e9e235b56bb3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a1d83011-8bfb-499c-89e5-8f8c2dd815fa"),
+                            FoodPortionId = new Guid("f44e9ce1-d2a2-4fb0-8cfb-0e04883529e5"),
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
                             PortionId = new Guid("18809fb3-b78a-4f67-b9f9-8bb6ab95ab00")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d0b7486a-8b7c-44d7-8b9a-7e157f3e8ed2"),
+                            FoodPortionId = new Guid("b2c0dc1c-a345-4190-a002-d82d70db14a2"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("cd0b1476-44a8-4350-a6a1-3de8747a5ebc")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8742c862-7af8-4ef6-aeff-9a061fbd85f3"),
+                            FoodPortionId = new Guid("97a2c64d-82a5-4725-a93a-5d1f227bc73a"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("5afaa147-398e-4be8-b0d1-8dcabe6ed18c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("dd381f48-5eb4-41ac-98a0-74bfd3568387"),
+                            FoodPortionId = new Guid("c736502a-ed6d-43e5-a684-05bdd319b670"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("d3850e1b-4780-490d-8c0c-ced1a9aa323b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e6564cb6-0838-43b0-ab2a-08f8d26b7473"),
+                            FoodPortionId = new Guid("66c93c06-9886-4db1-ba15-1097faca9e4c"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("e09c493c-5806-4b14-bbef-e26e19e1d8d5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e44b2e93-bc2b-4720-a98d-9d1f282a98c8"),
+                            FoodPortionId = new Guid("30ceb3c1-695d-4e8e-8f3a-0b2bdb82db9d"),
                             FoodId = new Guid("7b3216ff-858e-423e-b8db-a85571aa5488"),
                             PortionId = new Guid("5f7f859a-f20a-4f6c-8b8c-ecfbb1ff522e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b2438a05-35c9-438f-a426-ebe49ce602ee"),
+                            FoodPortionId = new Guid("86eefb43-9666-4ea6-96dc-3ffac1d9a415"),
                             FoodId = new Guid("f70172ed-7784-47ec-8aa2-a862ee56a13a"),
                             PortionId = new Guid("2c7ac6ee-f7fe-4ec8-974f-11f62a5f60b9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1dd88386-8e65-4259-a08c-dd42c3a8527f"),
+                            FoodPortionId = new Guid("4b8a62dc-9979-4c59-b81a-8c401d2be9a5"),
                             FoodId = new Guid("42883b21-4cbd-40ce-850f-b0723f1766fe"),
                             PortionId = new Guid("f0e8f9cd-d133-49cf-be7d-d427b630e05a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("68929301-d1c2-4bf4-b674-3cb033369d02"),
+                            FoodPortionId = new Guid("4a6fe29b-2564-4f6f-8bbc-658a9a27aa4e"),
                             FoodId = new Guid("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
                             PortionId = new Guid("ef6b8c43-9ab5-497c-a9a8-e31f0a349527")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("416d8e00-7de4-43d0-9d80-a6f5dbdf58e3"),
+                            FoodPortionId = new Guid("b5b3c47a-f9c7-42b8-afe6-60b86581f94e"),
                             FoodId = new Guid("845454d0-967a-4e48-aef3-bd8458775500"),
                             PortionId = new Guid("1cddc91d-209a-4948-8e9f-9017252d5423")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fc52584f-379a-4ad1-ac6f-9b04839b54a6"),
+                            FoodPortionId = new Guid("d4f4aea0-23e6-4488-9f1e-cdacc0101367"),
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
                             PortionId = new Guid("d09266d3-9e7d-46a6-ad3a-7c608ec802d1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("35589325-6377-4758-b263-729176a630fe"),
+                            FoodPortionId = new Guid("774c5993-c762-4884-b93a-529087ca9325"),
                             FoodId = new Guid("f0132626-5535-4f30-9af4-7e89e086aaaf"),
                             PortionId = new Guid("5384aebd-4eab-4a44-8cbb-7ec2c04f1401")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3e57914a-b2e9-4959-b469-283d3895a651"),
+                            FoodPortionId = new Guid("3dd3ff38-6093-4913-86cc-873da79db73f"),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c"),
                             PortionId = new Guid("222e1fa2-3910-42ac-9a5c-f371dded16eb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("5ddfea9b-b5bb-46fa-a8ce-1c6fac44dd74"),
+                            FoodPortionId = new Guid("5d1b5ab4-8094-4387-97ac-3bcdd0d9cac4"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("eff728af-c8f0-4bb5-a985-d079cbadb6b5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bd72e7f0-e7d9-468d-abe7-3c50325a3823"),
+                            FoodPortionId = new Guid("114ac7cc-22e6-4829-8d78-319b48470615"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a5dbb27a-4856-44be-a239-76eb073c3e41")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1a7c573a-ff46-4004-8051-53a7cc301067"),
+                            FoodPortionId = new Guid("c3b8f731-846c-44b4-9ff1-e370dfb595b2"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a7936b9f-b6f8-4295-8b6e-6fe1b096f437")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b0e5905f-a553-4699-a61b-7ef9c7277f76"),
+                            FoodPortionId = new Guid("93b99b10-d41e-450f-98f2-f2c7f8f54463"),
                             FoodId = new Guid("a3074169-6441-49cc-9ea7-79e240f6dda3"),
                             PortionId = new Guid("e23d4491-73d1-45b5-8010-0385d7185c98")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6e1a7b5e-e4b2-478d-8fbe-7773fa2a1d2d"),
+                            FoodPortionId = new Guid("998a6b55-5a28-4da9-aead-07563f346c4c"),
                             FoodId = new Guid("ede931f5-092e-4e41-8ce1-5a95bff2772a"),
                             PortionId = new Guid("0336a88f-f5cd-4cc2-8478-980467aa91aa")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("38d60b5e-f734-4afe-a99d-4e0b9ca2941d"),
+                            FoodPortionId = new Guid("c554d3eb-4152-49ee-bc55-43f9770a9770"),
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
                             PortionId = new Guid("bdd1ee1e-3a93-421f-855e-0993c7e6f767")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c2755d5a-7a7e-4dff-8463-77a1fe915176"),
+                            FoodPortionId = new Guid("c9608695-a3ca-4816-83b0-c22ee60db28e"),
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707"),
                             PortionId = new Guid("c4993d6a-a2e0-4ddd-821a-0629541e019c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6855087d-5e51-456d-b85f-d63b76fad9f2"),
+                            FoodPortionId = new Guid("e32fe6bc-262a-47d1-8a2b-c900fa6bee65"),
                             FoodId = new Guid("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
                             PortionId = new Guid("5a1bc1cb-ed0b-49bf-9c1a-5494db962d27")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1871bca5-021b-4a05-b3a5-0e1ca9bd3d81"),
+                            FoodPortionId = new Guid("c7cb9f1c-6cf0-43bb-973f-d4b915a07328"),
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
                             PortionId = new Guid("8ecbc063-8d6e-450d-af39-0ba28bc572bf")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("52095d38-5663-40d1-b22d-de0d95a55bc4"),
+                            FoodPortionId = new Guid("8f268f3f-81f7-415a-83f5-6eace7eb623e"),
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
                             PortionId = new Guid("16dc894a-746e-497e-a2c5-2d58f7f83c4d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e336278f-ecdc-4cd6-84ba-00e02f44d564"),
+                            FoodPortionId = new Guid("fe5b9f49-4f33-47ec-a550-c01ef27d41df"),
                             FoodId = new Guid("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
                             PortionId = new Guid("30f41ca6-c420-4f7d-9602-bf80735d5691")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("999e314e-d258-4719-9124-c1286df39b87"),
+                            FoodPortionId = new Guid("fe262149-6703-46fd-b023-8207c5202a0f"),
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("1cf439ce-a31b-4b95-b092-b7f6edf8d40f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7f68621e-a887-4c64-a6f6-8e0e4ab75a0e"),
+                            FoodPortionId = new Guid("9be3952d-3c66-42a9-b6b1-0e90a1e10005"),
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("ad9ecd1e-40ec-414a-be69-b16e7013b377")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e90b378e-82d7-4991-8043-996dac84e9f0"),
+                            FoodPortionId = new Guid("bb0c0fe0-6b12-4e30-b007-2f98e1dd6d68"),
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("1802caa2-cfe0-48e7-8580-29165f84387d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a27408d5-f6a5-44f8-96f9-0e7bdaf0ba73"),
+                            FoodPortionId = new Guid("d587f91f-1676-4273-b295-f453ba9f3a4a"),
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("21e32570-7d64-4cec-b711-873185c76523")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9ca55b55-bac5-4bb1-9a96-e75852b58252"),
+                            FoodPortionId = new Guid("bf9b81d9-f80a-4b29-a4b2-e79f6df0498c"),
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
                             PortionId = new Guid("9c276c0b-84b6-4216-8dbb-ae2034ac2176")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b50e4f7f-6ff9-434e-b3d6-c79fc3d886d4"),
+                            FoodPortionId = new Guid("ce49a181-48c6-4b46-935f-0788ef8440ba"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("d9dad801-145a-419d-bbe2-408acf97a273")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c810c061-5542-44f1-91f6-8ad9e15f728a"),
+                            FoodPortionId = new Guid("0faf0838-a067-4b75-a608-3e1fb5d5e256"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("bf0f7ca4-9089-4800-95d7-8d037d98b7fc")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4569a957-448f-48a2-8a64-1faa76b1329e"),
+                            FoodPortionId = new Guid("620490c0-7ad9-4f5e-b969-d38acabdcf3a"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("56681171-ccbd-4700-90bc-2233c1e661bb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a23bc770-5373-413e-8020-d9fc7898d8bc"),
+                            FoodPortionId = new Guid("845e67d0-4c80-4f6e-b7f5-10055d3237cc"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("709578ca-672f-461e-995d-dc78aeda8c4c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f1d93019-4f93-4e45-a7de-eb038f16f603"),
+                            FoodPortionId = new Guid("e7423d89-16b6-47bd-9d7c-5edde1648eb4"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("f928b7a6-2558-478a-bc22-515516f4dc74")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3cc71829-b1a1-4fa4-aa8f-586fb8a5e8c4"),
+                            FoodPortionId = new Guid("3f8aa517-dccc-4ebb-b10e-53eda339f2a7"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("23ce32a0-6597-4b60-b35c-98073ff595c6")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("65331879-cd9c-4568-8682-51aa9157d93f"),
+                            FoodPortionId = new Guid("0cebd581-6046-45fc-99b7-395b914a7e8e"),
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
                             PortionId = new Guid("bad70aff-4237-4c83-b412-460020a5ee44")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("155d6754-f6cb-4f38-938a-66d26cc0eaf7"),
+                            FoodPortionId = new Guid("8544bf2b-700e-4e99-97bf-376f6778a57d"),
                             FoodId = new Guid("857b3565-b170-4162-a97b-c0184c4258aa"),
                             PortionId = new Guid("8c141b0b-f09b-486e-b75a-04fa194d412c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("5a6a4ccf-232f-4136-b0eb-f4a5effe8d42"),
+                            FoodPortionId = new Guid("bb3f3c5f-b509-4958-bcc9-9e7e75b358f9"),
                             FoodId = new Guid("857b3565-b170-4162-a97b-c0184c4258aa"),
                             PortionId = new Guid("f359ba3c-6597-40ad-9dbd-6719ff302994")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c525578b-db43-45bd-ac7e-a8625f181680"),
+                            FoodPortionId = new Guid("4baafada-d6cd-4935-af02-cc30e4fb7ecd"),
                             FoodId = new Guid("857b3565-b170-4162-a97b-c0184c4258aa"),
                             PortionId = new Guid("b6b0faee-84e8-4a16-a8f7-4b8719787e8a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cf4673f9-8635-4e44-a334-0ed82f8632ca"),
+                            FoodPortionId = new Guid("cd427aeb-aa46-40dc-8806-925302a2bfcb"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
                             PortionId = new Guid("59589114-7d6a-4c80-8681-db5c554ab38f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a0d7393f-f93c-42af-b799-e8c71bfd44e9"),
+                            FoodPortionId = new Guid("0f870f75-c34b-46db-b04f-621559134c7c"),
                             FoodId = new Guid("27dd8629-4564-478a-b049-6c4b81ee3cf1"),
                             PortionId = new Guid("13672611-5453-40a0-9b58-33c2e552bf57")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9a0f1840-71c7-47b7-a1df-936ab86f4be4"),
+                            FoodPortionId = new Guid("14aa792a-a59b-49f1-a635-de3afd8e8c35"),
                             FoodId = new Guid("27dd8629-4564-478a-b049-6c4b81ee3cf1"),
                             PortionId = new Guid("f01f8da7-9d7b-4893-999f-cf30e719e010")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cd100873-ea3c-4de0-b533-2e4e9eabb75d"),
+                            FoodPortionId = new Guid("c88eb719-9f27-4d24-85dd-b16a87288e4e"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("c65d34ee-8c0c-43bb-9d4e-aa39955a4768")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("204002f7-9ad1-4bd8-b301-2ae932847295"),
+                            FoodPortionId = new Guid("099acb13-4fbe-4e9b-96bc-8621ad7ffc6a"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("f9bc9ae8-e42e-4e8b-84d3-f2bc36037552")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1c280424-bfb0-485c-a99c-dbe9fd1b1c90"),
+                            FoodPortionId = new Guid("0fbafd92-7ac1-4f40-ba1e-e25bd79df67f"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("bd16f0ec-5ae1-42f4-a302-b4bce8f0db28")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("649ba323-04ad-4a65-acaa-3cd93d7ecffe"),
+                            FoodPortionId = new Guid("611e3f9a-2962-445c-bb77-8fa0e042d499"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("549d664a-eb1c-4b9a-8ad7-fab9e1482e5b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("514b67a9-44b0-497f-9921-12de341c1b05"),
+                            FoodPortionId = new Guid("01946487-95e5-41c1-9b05-ba6de66af54f"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("e45c2156-a98c-4121-90b4-25097e8a5cd1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4a4a722c-072f-42a7-98cc-d14f225e2985"),
+                            FoodPortionId = new Guid("4d3257cf-563d-4626-88ef-11a757989e77"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("7b138bd4-4d3a-426c-9ab0-d66699b762d2")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d35e5ee6-6364-4043-b83a-3fdb96fc5c7b"),
+                            FoodPortionId = new Guid("d8cb928b-4655-400a-a609-86404d3aca0c"),
                             FoodId = new Guid("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
                             PortionId = new Guid("2892c25f-bd50-4bb4-a845-997395ef6693")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bfa9a111-688a-437a-8b50-2dbcd833f58c"),
+                            FoodPortionId = new Guid("e366612d-b1fc-4e61-b02c-5771e98b012d"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("03a92c0b-b7f6-4283-8109-a35898d5d3c5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c329fb50-e06c-4f1a-b32d-a1398d6f5db9"),
+                            FoodPortionId = new Guid("64c282f9-6dad-4f99-b09a-8add61ae7ec8"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("fc245902-ef53-4363-b4ce-0e598e1dd4a4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7bd02f3e-cdcb-473e-96c0-ae8a8dcca96c"),
+                            FoodPortionId = new Guid("73da9dd4-569f-4135-bd87-19a275555d95"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("da254ee7-d229-4769-bad5-a617d09676d4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8e926511-baca-4f87-b4e8-e7d37c28a767"),
+                            FoodPortionId = new Guid("41797816-c002-4547-9df1-81a866d0a633"),
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41"),
                             PortionId = new Guid("3d6d946f-8d9f-479a-b27e-3d78dc354db0")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fb1faa7b-241d-45a4-8c11-f064bcd4308d"),
+                            FoodPortionId = new Guid("81421682-6a7c-4eda-8841-a491eedcc7d7"),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
                             PortionId = new Guid("424ebe64-6570-4d88-9052-08c06dc0a2c8")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d42f7b4a-cdaf-4697-8bb9-d75b959d2c0d"),
+                            FoodPortionId = new Guid("f2db9474-5186-4c6c-b2d0-ba6eaeca01d9"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5adcb96d-70ef-403d-89c6-cc3aa807b6a7")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("32d7395c-97d6-4d6c-9a8f-e73c752661b7"),
+                            FoodPortionId = new Guid("a8a4126a-a2eb-4448-9af7-3001c618c3d9"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5a9ac478-aa65-48ea-9387-1ad92f6c76b1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("76720981-57e1-4a22-ad21-923e3f680011"),
+                            FoodPortionId = new Guid("59bd388f-1b8b-4a1b-b478-ec01d556e926"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("113f6a04-87c4-43c6-8263-920bd099c8e0")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a135f706-5588-4d48-96ea-423e618dc892"),
+                            FoodPortionId = new Guid("f172536e-0e58-4eba-adb6-39715d5e8b8d"),
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("d2e88505-bbd6-4af6-9a88-535896c5d587")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("33f4badf-8e29-4417-b7bf-45d07eef2119"),
+                            FoodPortionId = new Guid("127665c1-cf2a-40db-8585-6d5d15fb484e"),
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("3f19ef5c-3c60-4a11-b1b3-5158859f1286")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("597f9722-fdb9-459b-8eaf-3b4bd65bfa0a"),
+                            FoodPortionId = new Guid("3019ac81-4c97-4cc0-900a-e2ec22721778"),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c"),
                             PortionId = new Guid("7e071bd6-6afa-483d-8688-28b31b9a8bef")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3a70d9ee-8233-449c-8b8a-45ae6028a75b"),
+                            FoodPortionId = new Guid("1c631f1d-96e2-4f9f-aaae-5f59d279300f"),
                             FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607"),
                             PortionId = new Guid("d6c41cdb-4735-4b9e-85ae-1f48f33b7d6c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1664911e-d995-4e4f-9b09-a12509e6e265"),
+                            FoodPortionId = new Guid("9038aaa6-069b-480f-8ac8-3530c0fcde53"),
                             FoodId = new Guid("01708b02-6cc1-41f6-ae4a-95c4085e1839"),
                             PortionId = new Guid("b9423874-3290-4fda-9996-7c13d7c61d96")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e26d0f01-924c-400d-980d-40bc2e8d4e9e"),
+                            FoodPortionId = new Guid("e8d600aa-1ec9-4bad-9693-999d1c7f14ae"),
                             FoodId = new Guid("436d8364-15fd-47a2-9b72-c3841db0da2e"),
                             PortionId = new Guid("2b7a3473-9f67-4938-b419-7cafa8f72a41")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d0fd488e-dd3d-456f-a74a-e3f6b657b42f"),
+                            FoodPortionId = new Guid("91709ac1-433d-4d75-b5c1-2fa38c3c30cc"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("a43d7637-6fc7-421b-86f1-f83e691431a4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("92a92e6c-235f-4021-8b36-b095acf40474"),
+                            FoodPortionId = new Guid("7e2e29ed-ffb6-40c6-98bb-8cdab45a6c0c"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("6e98f2be-9196-4c4e-8279-b02010f853f1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1f0b59cd-1e0e-4ad5-b9e9-1d6de36e27e9"),
+                            FoodPortionId = new Guid("c506727f-dff4-4d72-8166-54d3529fe18c"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("e00ed683-11ff-4c21-8b1c-576b448726c9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2f1b48c8-fab9-453e-8d4d-e894b89b04f6"),
+                            FoodPortionId = new Guid("f363986b-0495-4230-9003-62dd8041b9df"),
                             FoodId = new Guid("db3cd633-2350-4143-ae1f-ccc853583755"),
                             PortionId = new Guid("509da3d8-ed0f-4cd0-be26-3a896b9500b3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c448ab88-b6c8-4514-ba4d-2a4e3e66f3e1"),
+                            FoodPortionId = new Guid("0deb7567-7289-46fe-abdc-c58ae6bb5a5b"),
                             FoodId = new Guid("db3cd633-2350-4143-ae1f-ccc853583755"),
                             PortionId = new Guid("8bffc4ad-afcc-436b-953c-444f1e8ce533")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f3d8d1bf-7091-4be9-a1ee-964f06d9ef33"),
+                            FoodPortionId = new Guid("176f1ac4-f190-44a1-acff-33acd48b6a22"),
                             FoodId = new Guid("db3cd633-2350-4143-ae1f-ccc853583755"),
                             PortionId = new Guid("28f6a369-f694-437d-82eb-944b09d5e369")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2378835f-4877-48ce-8253-af26b050e2e4"),
+                            FoodPortionId = new Guid("d2739ae7-a895-4eba-b1d6-25da3b2f9db1"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("63d10d95-7983-455e-b920-29c1f0c88d85")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b809d058-f73f-4619-a40f-66722928d532"),
+                            FoodPortionId = new Guid("42cf22cc-fb2e-45cc-ad6c-2bb89e476cef"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("919c7f66-53e5-46bd-b181-558f6052b953")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c1809745-fa89-42de-8ff5-fff0db6700fa"),
+                            FoodPortionId = new Guid("f07aa51e-eeb6-4c49-9df9-edf921cb4f8b"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("87409e4f-4bea-4bba-855d-a3bfbc2f9c20")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("169cda6d-7ac4-4f24-9fe0-000bdb30366a"),
+                            FoodPortionId = new Guid("87d56f5e-dfdb-45f9-979e-5cbdff656ad4"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("26dcc6e0-67aa-40ed-b3d1-8a009c60a62c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("43bcd381-0d56-4092-8d54-d6304d8c4132"),
+                            FoodPortionId = new Guid("537b48fe-42b1-4db5-ba14-b6d861b2cac3"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("3c7d60d4-60da-4f51-9448-30877b126572")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8ca655c4-38fe-40b8-bd64-3ac8ea9eec4c"),
+                            FoodPortionId = new Guid("840ba47d-a1ee-48a0-9fc4-2cf9615dab42"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("9c3399d1-72db-4e86-a518-2575033bb6a8")
                         });
@@ -13427,6 +13427,536 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Workouts");
+
+                    b.HasData(
+                        new
+                        {
+                            WorkoutId = new Guid("027c771b-8dd4-4124-b651-111fda0b0dcf"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp khởi động toàn bộ cơ thể, làm nóng cơ bắp, giúp tăng cường lưu thông máu và chuẩn bị cho các bài tập tiếp theo.",
+                            WorkoutName = "Khởi động toàn thân"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("032322a9-a232-4030-bed3-0ccf952d5cff"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập giúp làm dẻo dai các khớp chân, tăng cường độ linh hoạt và giảm thiểu nguy cơ chấn thương khi tập luyện.",
+                            WorkoutName = "Chân dẻo dai"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("580069d7-9025-4864-adf2-3037608e9a22"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp tăng cường sự linh hoạt của khớp tay và vai, hỗ trợ cải thiện khả năng vận động của phần trên cơ thể.",
+                            WorkoutName = "Tay uyển chuyển"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("03741247-6b2d-49a9-a656-7fc8343747bd"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập toàn thân giúp kích thích các cơ lớn trong cơ thể, cải thiện sự dẻo dai và sức bền chung cho cơ thể.",
+                            WorkoutName = "Vận động toàn thân"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("298502cf-ebdf-4044-9350-a14606ebe099"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp cơ bắp chân săn chắc và phát triển sức mạnh, đặc biệt là khi bạn cần cải thiện khả năng di chuyển.",
+                            WorkoutName = "Chân săn chắc"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("2b36b55e-d222-4cb9-9540-4ce82f7abe54"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp tăng cường sự linh hoạt và sức mạnh của cánh tay, hỗ trợ tốt cho các bài tập thể thao khác.",
+                            WorkoutName = "Tay linh hoạt"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("60db3b47-a756-40d2-8d2a-47b5d02b10b3"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 1,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp làm nóng và kích thích tất cả các nhóm cơ trong cơ thể, chuẩn bị cho những bài tập nặng hơn.",
+                            WorkoutName = "Tập luyện toàn thân"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("ab9d8ae9-478c-450b-aecc-a86f3ce054b2"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 1,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp tăng cường sức mạnh cho các cơ chân, đặc biệt là các cơ bắp đùi và bắp chân.",
+                            WorkoutName = "Chân khỏe mạnh"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("56bdef4d-ab20-46cd-b74b-fc22d25edc00"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 1,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp phát triển cơ bắp tay và bả vai, làm tay trở nên mạnh mẽ và săn chắc hơn.",
+                            WorkoutName = "Tay rắn chắc"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("5c81c79b-cb95-4dd6-9620-75484f04a559"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 1,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập thử thách thể lực này giúp kiểm tra sức mạnh và sự bền bỉ của cơ thể thông qua các bài tập đòi hỏi sức lực cao.",
+                            WorkoutName = "Thử thách thể lực"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("d4425ce8-4652-4ea2-b26b-1ffd8835f97f"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 1,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập giúp cải thiện sức bền cho đôi chân, thích hợp cho những người tập thể thao đòi hỏi di chuyển lâu dài và mạnh mẽ.",
+                            WorkoutName = "Chân bền bỉ"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("8aaffa80-a610-4eb3-adb2-bbb46d2487d0"),
+                            CategoryId = new Guid("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 1,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập tăng cường sức mạnh cho tay và vai, giúp phát triển cơ bắp và cải thiện khả năng chống chịu với các bài tập nặng.",
+                            WorkoutName = "Tay cường độ cao"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp làm mềm các khớp và cơ, tăng cường sự linh hoạt để sẵn sàng cho các hoạt động thể chất nặng hơn.",
+                            WorkoutName = "Khởi động linh hoạt"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập toàn thân giúp phát triển sức mạnh cơ bắp cho tất cả các nhóm cơ, đặc biệt là cơ lớn như ngực, lưng, và chân.",
+                            WorkoutName = "Toàn thân mạnh mẽ"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập với các động tác nhịp điệu giúp cải thiện sức bền và sự phối hợp giữa các nhóm cơ, đồng thời tăng cường năng lượng cho cơ thể.",
+                            WorkoutName = "Nhịp điệu sôi động"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("2308c57b-829b-4c6e-b362-5b4634af2877"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập giúp kích thích năng lượng cho cơ thể, giúp bạn cảm thấy tràn đầy sức sống và chuẩn bị tốt cho các hoạt động tiếp theo.",
+                            WorkoutName = "Năng lượng dồi dào"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("d5487fbc-066f-4073-acf3-2d7c595012ee"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp xây dựng cơ bắp và cải thiện sức mạnh tổng thể, phù hợp cho những ai muốn nâng cao khả năng thể chất.",
+                            WorkoutName = "Vươn tầm sức mạnh"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("b8fd1003-667c-417e-80b8-d1b32f0b6788"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này kết hợp giữa sức mạnh và sự linh hoạt, giúp cải thiện khả năng vận động của cơ thể và nâng cao thể lực tổng thể.",
+                            WorkoutName = "Khỏe và linh hoạt"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("d103ce77-a74a-4227-aba0-e0c5452790a1"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp tăng cường sự bền bỉ cho cơ thể và cải thiện khả năng chịu đựng, rất hữu ích cho các hoạt động dài hạn.",
+                            WorkoutName = "Dẻo dai và bền bỉ"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("0812b9f4-73d9-4878-b99e-0b081f92ed13"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập thể thao này giúp cải thiện sự phối hợp và tốc độ phản xạ của cơ thể, giúp bạn năng động và linh hoạt hơn.",
+                            WorkoutName = "Vũ điệu thể thao"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("3ae73e0d-e6cc-4962-a17c-4e087d655e64"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này kết hợp giữa sức mạnh và khả năng duy trì sự cân bằng, giúp cải thiện sự ổn định cơ thể và khả năng phối hợp các nhóm cơ.",
+                            WorkoutName = "Sức mạnh và cân bằng"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("568e1c3d-c775-4597-86e1-cb65cfe0df6a"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp phát triển sức khỏe toàn diện, bao gồm sức mạnh, sức bền, sự linh hoạt và sự cân bằng của cơ thể.",
+                            WorkoutName = "Khỏe mạnh toàn diện"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("a99efeb6-14a4-44f6-8d22-b293db1fedcc"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này là sự kết hợp giữa vũ điệu và thể thao, giúp cải thiện khả năng vận động nhịp nhàng và tăng cường sức bền cho cơ thể.",
+                            WorkoutName = "Vũ điệu kết hợp"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("da56e057-d5d4-4077-a7c4-111bf3470e08"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này có cường độ cao, giúp tăng cường sức mạnh cơ bắp và nâng cao khả năng chịu đựng cho cơ thể.",
+                            WorkoutName = "Thử thách cường độ cao"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("cd738c01-05e8-4b4a-8d85-58544c6e95b5"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp săn chắc cơ bắp toàn thân, với trọng tâm là phát triển cơ bắp, đồng thời giảm mỡ và cải thiện hình thể.",
+                            WorkoutName = "Toàn thân săn chắc"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("906a8fa1-d0d6-477d-bc07-167098891ffb"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập khởi động cơ bản giúp làm ấm cơ thể, giảm thiểu nguy cơ chấn thương và chuẩn bị cho các bài tập tiếp theo.",
+                            WorkoutName = "Khởi động cơ bản"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("5d0a9ed1-c2e3-42f8-93b0-c6f2b9781ccc"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp nâng cao sức bền, cải thiện khả năng chịu đựng khi thực hiện các hoạt động thể thao kéo dài.",
+                            WorkoutName = "Luyện tập sức bền"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("ab2503e2-4ecb-44a4-9e5c-6fc4ad697783"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp tăng cường sức mạnh cơ bắp đồng thời cải thiện tốc độ và độ phản xạ của cơ thể.",
+                            WorkoutName = "Luyện tập nhanh và mạnh"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("e628d9f7-d645-4f48-b84d-44d6cc38d8ea"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập giúp phát triển sự linh hoạt và khả năng vận động của cơ thể, làm cho cơ thể mềm dẻo và dẻo dai hơn.",
+                            WorkoutName = "Chuyển động linh hoạt"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("536ac05d-37a7-41a9-80e0-b1651a24e1d7"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp xây dựng sức mạnh cơ thể toàn diện, với các bài tập kết hợp giữa các nhóm cơ lớn và nhỏ.",
+                            WorkoutName = "Sức mạnh toàn diện"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("7691ed30-fe88-4e75-97c6-f5f88d304efb"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này tiếp tục tập trung vào việc phát triển sức mạnh tổng thể, nâng cao sức bền và cải thiện sức khỏe lâu dài.",
+                            WorkoutName = "Sức mạnh toàn diện"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("425fc485-239f-479e-a4da-b1fe6aed6822"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp cơ thể vừa khỏe mạnh vừa dẻo dai, thích hợp cho việc nâng cao độ linh hoạt và sức bền của các nhóm cơ.",
+                            WorkoutName = "Khỏe và dẻo dai"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("8ac41353-c90d-478d-85b7-1c5ebdbb0da2"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập toàn thân giúp cải thiện sức khỏe chung, tăng cường khả năng vận động và phát triển cơ bắp đồng đều.",
+                            WorkoutName = "Tập luyện toàn thân"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("408aa31e-0ccf-45ec-bb86-d2c9135f8a38"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp cơ thể dẻo dai và tăng cường năng lượng, thích hợp để nâng cao khả năng hoạt động lâu dài và bền bỉ.",
+                            WorkoutName = "Dẻo dai và năng lượng"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("c08197fe-5bf6-442c-ade3-6d41313267e7"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập khởi động giúp cơ thể làm quen với các động tác nhẹ nhàng, tăng cường sự linh hoạt và giảm thiểu rủi ro chấn thương.",
+                            WorkoutName = "Khởi động cơ thể"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("b9329533-0f83-4c93-ac2b-6c6beba82c4f"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này kết hợp các động tác linh hoạt và sức mạnh, giúp cải thiện khả năng vận động và sự khỏe mạnh của cơ thể.",
+                            WorkoutName = "Linh hoạt và khỏe mạnh"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("22ccc19e-e649-4c46-b13f-b05bf60100d4"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp săn chắc cơ thể, tăng cường sức mạnh và giảm mỡ hiệu quả.",
+                            WorkoutName = "Săn chắc và khỏe mạnh"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("d0a4a055-5a3a-485e-9c98-3e01ae0279d3"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập giúp nâng cao sức mạnh và bền bỉ cho cơ thể, thích hợp cho những người muốn thử thách sức chịu đựng của mình.",
+                            WorkoutName = "Sức mạnh và bền bỉ"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("227a4189-7704-4648-9d9d-1f2c772fd25a"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập vũ điệu thể thao giúp cải thiện khả năng phối hợp và nhịp điệu của cơ thể, đồng thời tăng cường sức bền.",
+                            WorkoutName = "Vũ điệu thể thao"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("73689578-c13d-4f96-972d-6e52b4a2fd5b"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp cải thiện sự nhịp nhàng trong chuyển động của cơ thể, nâng cao sức khỏe và sự linh hoạt.",
+                            WorkoutName = "Chuyển động nhịp nhàng"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("eef6374e-4803-402b-bc2b-a48efa2e3270"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập giúp đốt cháy năng lượng và giảm mỡ hiệu quả, cải thiện sức khỏe tổng thể.",
+                            WorkoutName = "Đốt cháy năng lượng"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("49deb148-c08a-4f58-980e-8e2f65a6d757"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp cải thiện sức khỏe toàn thân, tăng cường các nhóm cơ lớn và nhỏ.",
+                            WorkoutName = "Toàn thân khỏe mạnh"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("93114cad-bc0e-40ca-b465-4911b26ffbc0"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập này giúp tăng cường sự linh hoạt và sức mạnh của cơ thể, phù hợp với những người muốn nâng cao thể lực tổng thể.",
+                            WorkoutName = "Linh hoạt và mạnh mẽ"
+                        },
+                        new
+                        {
+                            WorkoutId = new Guid("f9a5b7be-bd78-4185-9e35-ad2c90a55c69"),
+                            CategoryId = new Guid("036a94f2-013a-4375-a685-76ff6ffcc24e"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DifficultyLevel = 0,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
+                            Views = 0,
+                            WorkoutDescription = "Bài tập giúp phát triển sự linh hoạt và bền bỉ cho cơ thể, cải thiện khả năng hoạt động trong thời gian dài.",
+                            WorkoutName = "Luyện tập linh hoạt và bền bỉ"
+                        });
                 });
 
             modelBuilder.Entity("Monhealth.Domain.WorkoutExercise", b =>
@@ -13466,6 +13996,740 @@ namespace Monhealth.Identity.Migrations
                     b.HasIndex("WorkoutId");
 
                     b.ToTable("WorkoutExercises");
+
+                    b.HasData(
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("6fa872f3-fe3a-4d65-a3ca-2af579f158e3"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("027c771b-8dd4-4124-b651-111fda0b0dcf")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("275071e8-7bb2-41db-bdca-22e67063acc8"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
+                            Order = 2,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("027c771b-8dd4-4124-b651-111fda0b0dcf")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("b4d09038-e78a-4858-ab0b-ce32e030b028"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
+                            Order = 3,
+                            Reps = 30,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("027c771b-8dd4-4124-b651-111fda0b0dcf")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("4130041c-11c1-4cec-921d-169900c3f170"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("032322a9-a232-4030-bed3-0ccf952d5cff")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("8c9adb45-533d-4d06-ae16-c2623032e851"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("3100278d-eee7-4b89-b726-4b76daefabde"),
+                            Order = 2,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("032322a9-a232-4030-bed3-0ccf952d5cff")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("3f0b8c51-5c8e-4128-bae6-6beaf1aeaaaa"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
+                            Order = 3,
+                            Reps = 15,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("032322a9-a232-4030-bed3-0ccf952d5cff")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("d4f68d5d-f927-49e0-b82b-7460d07253f3"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
+                            Order = 4,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("032322a9-a232-4030-bed3-0ccf952d5cff")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("00588291-3492-4ecf-aca2-9641a5335779"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("580069d7-9025-4864-adf2-3037608e9a22")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("3c2d409b-fd2a-406e-ad3a-bcebdd578f41"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
+                            Order = 2,
+                            Reps = 20,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("580069d7-9025-4864-adf2-3037608e9a22")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("aa77f06e-307e-4c05-9e15-0efdb8809c1d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("72206c5e-58f3-46f0-a8b1-031cbf599433"),
+                            Order = 3,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("580069d7-9025-4864-adf2-3037608e9a22")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("7f785b5d-41e3-4991-b4b7-526db1ac94b5"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("03741247-6b2d-49a9-a656-7fc8343747bd")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("17fc713b-d510-42ca-9d2c-22b100a532b4"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("d0dcad19-4c0c-447d-8e3c-092c6d4ad14c"),
+                            Order = 2,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("03741247-6b2d-49a9-a656-7fc8343747bd")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("ab8e8fa5-3019-4dbf-b598-97d037f96583"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("bd80fdd3-c46c-4410-b126-51a11a8a2f5b"),
+                            Order = 3,
+                            Reps = 20,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("03741247-6b2d-49a9-a656-7fc8343747bd")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("db6545ef-c978-4139-b0d6-f8f888f28d64"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("298502cf-ebdf-4044-9350-a14606ebe099")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("9db27a68-f140-4792-a0b3-973f538c01b2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("ae6eaaa1-c8c4-4f97-afa4-4ceeea19d4b3"),
+                            Order = 2,
+                            Reps = 10,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("298502cf-ebdf-4044-9350-a14606ebe099")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("ec5dd40f-fb6a-4a34-971a-4ca54ff63489"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
+                            Order = 3,
+                            Reps = 32,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("298502cf-ebdf-4044-9350-a14606ebe099")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("28961984-9e39-48cb-a6c7-4926b7631d82"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("2b36b55e-d222-4cb9-9540-4ce82f7abe54")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("02be6a62-bc6f-41ad-95b4-1657b8d4e821"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("72206c5e-58f3-46f0-a8b1-031cbf599433"),
+                            Order = 2,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("2b36b55e-d222-4cb9-9540-4ce82f7abe54")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("7b6a0721-a642-4e7b-a8cd-c418c19244ab"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
+                            Order = 3,
+                            Reps = 10,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("2b36b55e-d222-4cb9-9540-4ce82f7abe54")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("110ae49c-5e86-42cc-8d5a-11a4316fd8ea"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
+                            Order = 1,
+                            Reps = 20,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("60db3b47-a756-40d2-8d2a-47b5d02b10b3")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("7bc8f610-6dec-4e52-951d-d474e470d317"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
+                            Order = 2,
+                            Reps = 30,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("60db3b47-a756-40d2-8d2a-47b5d02b10b3")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("dfb85b9e-7e52-47d0-b6a1-c7f3b86a05ee"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
+                            Order = 3,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("60db3b47-a756-40d2-8d2a-47b5d02b10b3")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("864b6ca6-e1bc-4c51-9018-008415585598"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("5cbc396e-381a-4d9f-9ad6-42b764deee3e"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("ab9d8ae9-478c-450b-aecc-a86f3ce054b2")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("3cb4f415-8dc6-483a-b6c5-0cb3c30be121"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
+                            Order = 2,
+                            Reps = 20,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("ab9d8ae9-478c-450b-aecc-a86f3ce054b2")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("dd25ad58-41d5-4131-8e15-9b78e174dcd2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
+                            Order = 3,
+                            Reps = 15,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("ab9d8ae9-478c-450b-aecc-a86f3ce054b2")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("b30115f7-0fb4-4183-90d4-1ebf579def37"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("56bdef4d-ab20-46cd-b74b-fc22d25edc00")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("d37e82ae-1845-419d-b6f0-5490ac1e2f51"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
+                            Order = 2,
+                            Reps = 10,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("56bdef4d-ab20-46cd-b74b-fc22d25edc00")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("f8b0724c-4e09-446c-beb2-be20498d1f48"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
+                            Order = 3,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("56bdef4d-ab20-46cd-b74b-fc22d25edc00")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("9dd40853-07e0-49ea-8d00-59c2473d3221"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
+                            Order = 1,
+                            Reps = 15,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("5c81c79b-cb95-4dd6-9620-75484f04a559")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("60110e3c-10bb-4ace-8975-11717fb83a8f"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
+                            Order = 2,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("5c81c79b-cb95-4dd6-9620-75484f04a559")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("35e023f2-a7e2-4c9a-aa84-4670b8b04fa5"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("1b2afb40-fb97-49ec-8fe3-81a17c6c9078"),
+                            Order = 3,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("5c81c79b-cb95-4dd6-9620-75484f04a559")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("39e064d8-1b3e-406b-87b2-cb2506adf24b"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("23842121-4834-4483-bfe2-2c244f5ecf76"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("d4425ce8-4652-4ea2-b26b-1ffd8835f97f")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("af303820-1a0f-40fc-9797-da0feb7cb279"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
+                            Order = 2,
+                            Reps = 15,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("d4425ce8-4652-4ea2-b26b-1ffd8835f97f")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("3dd75c87-f549-404d-a8c7-d188b8e19a73"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
+                            Order = 3,
+                            Reps = 30,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("d4425ce8-4652-4ea2-b26b-1ffd8835f97f")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("08eaa34d-6800-4da9-89bd-0b4929762776"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("faebde03-bab9-457b-9b45-a9fabd4760aa"),
+                            Order = 1,
+                            Reps = 8,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("8aaffa80-a610-4eb3-adb2-bbb46d2487d0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("957c4934-5add-4a94-8c67-91bbd0029b7a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
+                            Order = 2,
+                            Reps = 10,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("8aaffa80-a610-4eb3-adb2-bbb46d2487d0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("7fdb7fa0-401c-4e97-a588-74e9a2e5e25a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
+                            Order = 3,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("8aaffa80-a610-4eb3-adb2-bbb46d2487d0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("211f5fbb-062a-4f51-83e6-ee3cfef0452c"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("e16aa515-e8a3-4cbb-a4d5-65460ad544ee"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("3100278d-eee7-4b89-b726-4b76daefabde"),
+                            Order = 2,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("19328f1c-98ff-4b09-b926-f16fcc04d967"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
+                            Order = 3,
+                            Reps = 15,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("b2e850d1-eae1-4ed5-afb0-16a316ec77bc"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
+                            Order = 4,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("e60f874d-6c92-4759-9ca0-9813eeb1e3b4"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 20,
+                            ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
+                            Order = 5,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("8c5dd594-41b3-4115-bcbe-3bcfde2381b6"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
+                            Order = 6,
+                            Reps = 10,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("e62512cb-016c-45c3-b1e8-a38547695030"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 7,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("b27629a5-2e54-4477-b83f-b0cf34721b33"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
+                            Order = 8,
+                            Reps = 20,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("38cb6e4e-5ae9-460d-b4c3-68915117bf27"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("8e42d5a7-099e-4797-90d1-29ca0a344363"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("3100278d-eee7-4b89-b726-4b76daefabde"),
+                            Order = 2,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("c347d0de-b722-4f21-a351-910899852802"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
+                            Order = 3,
+                            Reps = 15,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("cd792272-af47-4023-9809-aeb24bee17c9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
+                            Order = 4,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("c535baec-af67-4779-869c-f928de6fc111"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
+                            Order = 5,
+                            Reps = 10,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("9877b6bd-8d3e-4383-84b1-861efd0023f5"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
+                            Order = 6,
+                            Reps = 12,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("4ce3917a-cede-4fb2-9bbc-bd868a28fff9"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
+                            Order = 7,
+                            Reps = 12,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("4e80a057-59d9-42f4-bbf3-3a859a4c2dbc"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
+                            Order = 8,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("ae21f842-2b9f-4310-a81e-645f11604772"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 60,
+                            ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
+                            Order = 1,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("cf2b1435-14c1-4847-b226-d4c595e09cec"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
+                            Order = 2,
+                            Reps = 20,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("6ee001dd-7f20-4883-8f71-e20fc9d08897"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 30,
+                            ExerciseId = new Guid("72206c5e-58f3-46f0-a8b1-031cbf599433"),
+                            Order = 3,
+                            Reps = 0,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("e944e9e0-7d6e-4c61-9c3f-b27a848525ef"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("1ff0ef05-4387-4483-8de3-0ef6d7724afd"),
+                            Order = 4,
+                            Reps = 10,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("003df72d-e4a2-4b85-b9cf-6a8411b1e719"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
+                            Order = 5,
+                            Reps = 12,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("cd0e21d2-5cd9-452f-9bd7-7cde839935d2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
+                            Order = 6,
+                            Reps = 15,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("b5e8aee5-3c8f-4258-a224-ed6c638a9924"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("7c38fc8f-8fd2-450e-8fa6-c4557f0e6e02"),
+                            Order = 7,
+                            Reps = 10,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563")
+                        },
+                        new
+                        {
+                            WorkoutExerciseId = new Guid("0d077291-4911-49f7-82ba-3c63d8f9770c"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Duration = 0,
+                            ExerciseId = new Guid("58878826-775e-4d4c-8e1b-d5c95afc214d"),
+                            Order = 8,
+                            Reps = 10,
+                            Status = false,
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563")
+                        });
                 });
 
             modelBuilder.Entity("Monhealth.Identity.Models.AppRole", b =>
@@ -13636,7 +14900,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "98929daa-99b7-4b18-8ca9-980de128882c",
+                            ConcurrencyStamp = "dcd5019e-7eb8-47e1-8be0-25da76945f48",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quocdai@gmail.com",
@@ -13645,10 +14909,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDypa4P4QzH9nX8tQxIQXqYWuPdti6HoQ7eprSfndqz+GtLUT30SGwNYphomeLl8/w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA+QxeOf/RNVUGCVZ1VGNMfk78XtEH7Xa51rypaL87LBFL2rlyb/rYqz+FY0FIRQ0Q==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9618e04b-393f-4ce2-960a-99f875466bc5",
+                            SecurityStamp = "c183485a-8a7c-465f-bdf7-46f6b404a0d9",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13659,7 +14923,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "26969352-fa1d-4ebc-a665-9c9a740fb29d",
+                            ConcurrencyStamp = "3301a41b-aca5-4041-93d6-3da1a2af5f18",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "toanvan@gmail.com",
@@ -13668,10 +14932,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGBsh5jYOs0uDI5o9eF+5yNnfR2qbF55U4IECFrC8SIve406XQpRusUf8AsP6HzM1Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECmnHvi9PCvCuO6MxjJj+TplSqCdct2s7yWDF5yY4A+O4fzZ6ieOJ4vw2M0WFHwOBg==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1938e72e-7868-4bd6-be50-14530ddee254",
+                            SecurityStamp = "f931936a-5470-419a-9fd5-b9f65ff7e872",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13682,7 +14946,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a7b4f61e-b0d7-4e22-ab13-3a329d8bd8d7",
+                            ConcurrencyStamp = "211a87b0-bd25-440b-9770-a2a93649cea6",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khanhpham@gmail.com",
@@ -13691,10 +14955,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKsGT0yfNSdFh4qJsBA0h8s7hXnjaoNNSL3dpqp1BAdmn7PFOA/Dj8AJF9RR9mUVpw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELFEsMUUEtJcbQsk/biRPjPdaD+Vo4qG3IyPJD3DsRZsrBpVvZp//RI2ceewBfBkCA==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "70761cd1-1c3a-4fb0-85e8-36c5c64771e8",
+                            SecurityStamp = "43f1388f-1527-4f25-992e-609ad622d554",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13705,7 +14969,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b638d639-7ce0-46e2-a284-27ec9ceff006",
+                            ConcurrencyStamp = "c4b691ab-4175-418e-b248-ffd953fbb494",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khaitoi@gmail.com",
@@ -13714,10 +14978,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJo76czSZvGkmab7XqsygHolfX99ulHUH5s/kSORLpMdIzIzl3IhzJGkol741zx9kg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECZYLdgTWQB8sN9i9OWIgqxT6wXwL9VE7jPMPADRGaSxlMPyno5qE65wl+L/D0Zlkw==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3da4210b-d5ec-48da-8452-4ce4c30fb538",
+                            SecurityStamp = "3acb5ce6-50d6-4794-bb2a-33ea1b812eaf",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13728,7 +14992,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5e82439a-d288-43ae-96fc-2fa9b97f3c55",
+                            ConcurrencyStamp = "c2924b08-3fc8-4b33-8d14-f1f35af17bf1",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quangdalat@gmail.com",
@@ -13737,10 +15001,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFqvek/SyRWCMa2vH1oqACyCI361LL7vIxmlL4jPDbfNgqoTBdAcHgofsaciyJYckw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHq9VK3ha9g4ptOwRIAZzuBuAupqQQzH4XCbcKa1jzla5sX4KmRSnooKEDQOJqZeIw==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "89a2bfd0-cc54-41f7-8b70-414365a84437",
+                            SecurityStamp = "84d9383b-1775-40b2-970d-90a3d8c3b402",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13751,7 +15015,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "afa959dd-7c28-444a-865b-063bd062f937",
+                            ConcurrencyStamp = "7e911069-65a5-4743-8f25-a9eb4d56184e",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "duythunglungtinhiu@gmail.com",
@@ -13760,10 +15024,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBJ6Fq2d4GkU8rsbOQvFKRMBEFf4zJ36Oajwkf525P6jlyykUzRGYu+NtlbQveqZBA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBJJ/wnIsAJPYkX+AtxwvzPDJqs1H41kXMLlumo04zpBxIKEbS8vyzGGTxH1IVA1nQ==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "28eda54c-eff7-490f-bbe5-5555c21f4836",
+                            SecurityStamp = "9f264bcb-4687-4552-9136-d542b4022dba",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -13774,7 +15038,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3971f782-5e8e-483c-85e7-a2a071376881",
+                            ConcurrencyStamp = "59b34d8c-4ca9-49b9-9104-916442415a4e",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "asd@gmail.com",
@@ -13783,10 +15047,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDreOEqimJlkoQWcBNHEhROInxx3/Xx0escp+VHLXAob5FGPmMAb7NMTpyt1H3FqPg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPV2DDr04ngYKykn0WnJNvUOFJEnGAiR8bsAMTtt39PuhyWwmV7Ns8xAKvwSyG9+/A==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a8119bd2-1923-439a-9e62-77d14aff0967",
+                            SecurityStamp = "1c81ac99-066f-4cb5-b39b-6c630cfca043",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),

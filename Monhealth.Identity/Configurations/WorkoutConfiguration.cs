@@ -440,7 +440,7 @@ namespace Monhealth.Identity.Configurations
             #region Workout 31
             new Workout
             {
-                WorkoutId = new Guid("536ac05d-37a7-41a9-80e0-b1651a24e1d7"),
+                WorkoutId = new Guid("7691ed30-fe88-4e75-97c6-f5f88d304efb"),
                 CategoryId = workout,
                 UserId = userId,
                 WorkoutName = "Sức mạnh toàn diện",
