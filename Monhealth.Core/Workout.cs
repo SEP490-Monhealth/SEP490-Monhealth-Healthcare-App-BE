@@ -12,10 +12,12 @@ namespace Monhealth.Domain
         public Guid WorkoutId { get; set; }
         public Guid CategoryId { get; set; }
         public Guid UserId { get; set; }
+        public WorkoutType WorkoutType { get; set; }
         public string WorkoutName { get; set; } = string.Empty;
         public string WorkoutDescription { get; set; } = string.Empty;
         public DifficultyLevel DifficultyLevel { get; set; }
         public int Views { get; set; } = default!;
+        public bool Status { get; set; } = default!;
 
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }

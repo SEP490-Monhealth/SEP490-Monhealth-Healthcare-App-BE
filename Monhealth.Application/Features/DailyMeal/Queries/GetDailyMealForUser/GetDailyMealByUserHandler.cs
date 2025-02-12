@@ -80,7 +80,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                 {
                     mealId = meal.MealId,
                     MealType = meal.MealType,
-                    TotalFoods = totalFoods,
+                    Foods = totalFoods,
                     Calories = totalCalories,
                     Protein = totalProtein,
                     Carbs = totalCarbs,

@@ -1019,25 +1019,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 50
-            new Food
-            {
-                FoodId = Guid.Parse("27dd8629-4564-478a-b049-6c4b81ee3cf1"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
-                UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Trứng vịt lộn",
-                FoodDescription = "Trứng vịt luộc, chứa phôi phát triển, ăn kèm rau răm và muối tiêu",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 50
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("27dd8629-4564-478a-b049-6c4b81ee3cf1"),
+            //     CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Protein,
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.MainDish],
+            //     FoodName = "Trứng vịt lộn",
+            //     FoodDescription = "Trứng vịt luộc, chứa phôi phát triển, ăn kèm rau răm và muối tiêu",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 51
             new Food
@@ -1080,25 +1080,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 53
-            new Food
-            {
-                FoodId = Guid.Parse("d9fa8f03-5825-4e83-88d3-1a7c49e39a7d"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
-                UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Bánh chưng",
-                FoodDescription = "Món bánh truyền thống từ gạo nếp, thịt mỡ, đậu xanh",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 53
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("d9fa8f03-5825-4e83-88d3-1a7c49e39a7d"),
+            //     CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Carbs,
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.MainDish],
+            //     FoodName = "Bánh chưng",
+            //     FoodDescription = "Món bánh truyền thống từ gạo nếp, thịt mỡ, đậu xanh",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 54
             new Food
@@ -1567,65 +1567,65 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 77
-            new Food
-            {
-                FoodId = Guid.Parse("3965d7c0-e550-497d-9b41-ea382c2bb83e"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
-                UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Sting",
-                FoodDescription = "Nước tăng lực vị dâu, ngọt và kích thích tinh thần",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 77
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("3965d7c0-e550-497d-9b41-ea382c2bb83e"),
+            //     CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Drink,
+            //     MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.Drink],
+            //     FoodName = "Sting",
+            //     FoodDescription = "Nước tăng lực vị dâu, ngọt và kích thích tinh thần",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
-            #region Food 78
-            new Food
-            {
-                FoodId = Guid.Parse("c60b8720-2ced-426c-b39b-606757200893"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
-                UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Pepsi",
-                FoodDescription = "Nước ngọt có ga, vị cola đặc trưng, dùng kèm bữa ăn nhanh",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 78
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("c60b8720-2ced-426c-b39b-606757200893"),
+            //     CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Drink,
+            //     MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.Drink],
+            //     FoodName = "Pepsi",
+            //     FoodDescription = "Nước ngọt có ga, vị cola đặc trưng, dùng kèm bữa ăn nhanh",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
-            #region Food 79
-            new Food
-            {
-                FoodId = Guid.Parse("dc49c7a4-cf6a-4b85-a5e0-5f923730464a"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
-                UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Coca cola",
-                FoodDescription = "Thức uống giải khát có ga, vị ngọt thanh",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 79
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("dc49c7a4-cf6a-4b85-a5e0-5f923730464a"),
+            //     CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Drink,
+            //     MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.Drink],
+            //     FoodName = "Coca cola",
+            //     FoodDescription = "Thức uống giải khát có ga, vị ngọt thanh",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 80
             new Food
@@ -1647,25 +1647,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 81
-            new Food
-            {
-                FoodId = Guid.Parse("81af247b-f112-4b7c-981c-d1ba1c3a3644"),
-                CategoryId = Guid.Parse("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
-                UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Kim chi",
-                FoodDescription = "Rau cải thảo lên men, cay nồng, thường ăn kèm món nướng",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 81
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("81af247b-f112-4b7c-981c-d1ba1c3a3644"),
+            //     CategoryId = Guid.Parse("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Vegetables,
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.SideDish],
+            //     FoodName = "Kim chi",
+            //     FoodDescription = "Rau cải thảo lên men, cay nồng, thường ăn kèm món nướng",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             // #region Food 82
             // new Food
@@ -1828,25 +1828,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 90
-            new Food
-            {
-                FoodId = Guid.Parse("c5822776-96df-4208-82b2-02f22594063b"),
-                CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
-                UserId = userId,
-                FoodType = FoodType.Snack,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Bánh cam",
-                FoodDescription = "Bánh tròn chiên giòn, nhân đậu xanh, ngọt thanh",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 90
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("c5822776-96df-4208-82b2-02f22594063b"),
+            //     CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Snack,
+            //     MealType = [MealType.Snack],
+            //     DishType = [DishType.Dessert],
+            //     FoodName = "Bánh cam",
+            //     FoodDescription = "Bánh tròn chiên giòn, nhân đậu xanh, ngọt thanh",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 91
             new Food
@@ -2153,45 +2153,45 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 106
-            new Food
-            {
-                FoodId = Guid.Parse("01708b02-6cc1-41f6-ae4a-95c4085e1839"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
-                UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Gỏi cuốn",
-                FoodDescription = "Cuốn bánh tráng với thịt, tôm, rau, chấm nước mắm chua ngọt",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 106
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("01708b02-6cc1-41f6-ae4a-95c4085e1839"),
+            //     CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Protein,
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.MainDish],
+            //     FoodName = "Gỏi cuốn",
+            //     FoodDescription = "Cuốn bánh tráng với thịt, tôm, rau, chấm nước mắm chua ngọt",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
-            #region Food 107
-            new Food
-            {
-                FoodId = Guid.Parse("436d8364-15fd-47a2-9b72-c3841db0da2e"),
-                CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
-                UserId = userId,
-                FoodType = FoodType.Snack,
-                MealType = [MealType.Snack],
-                DishType = [DishType.MainDish],
-                FoodName = "Bông lan trứng muối",
-                FoodDescription = "Bánh bông lan mềm, nhân trứng muối và chà bông",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 107
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("436d8364-15fd-47a2-9b72-c3841db0da2e"),
+            //     CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Snack,
+            //     MealType = [MealType.Snack],
+            //     DishType = [DishType.MainDish],
+            //     FoodName = "Bông lan trứng muối",
+            //     FoodDescription = "Bánh bông lan mềm, nhân trứng muối và chà bông",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 108
             new Food
@@ -2913,25 +2913,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 144
-            new Food
-            {
-                FoodId = Guid.Parse("6007962d-9bd0-43ce-8a83-6b5f9bed4156"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-                UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cua biển sốt me",
-                FoodDescription = "Món ăn đậm đà, chua ngọt, hợp khẩu vị mọi người",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 144
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("6007962d-9bd0-43ce-8a83-6b5f9bed4156"),
+            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Protein,
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.MainDish],
+            //     FoodName = "Cua biển sốt me",
+            //     FoodDescription = "Món ăn đậm đà, chua ngọt, hợp khẩu vị mọi người",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 145
             new Food

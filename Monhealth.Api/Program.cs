@@ -50,6 +50,7 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
+
 builder.Services.AddScoped<FoodFilterService>();
 builder.Services.AddScoped<GoalService>();
 builder.Services.AddScoped<FoodRandomService>();

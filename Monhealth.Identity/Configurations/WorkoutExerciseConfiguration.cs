@@ -460,49 +460,6 @@ namespace Monhealth.Identity.Configurations
             {
                 WorkoutExerciseId = Guid.NewGuid(),
                 WorkoutId = Guid.Parse("092499c9-93fe-45f9-abd9-c0641b9d06d1"),
-                ExerciseId = Guid.Parse("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
-                Order = 1,
-                Duration = 60,
-                Reps = 0,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("092499c9-93fe-45f9-abd9-c0641b9d06d1"),
-                ExerciseId = Guid.Parse("3100278d-eee7-4b89-b726-4b76daefabde"),
-                Order = 2,
-                Duration = 30,
-                Reps = 0,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("092499c9-93fe-45f9-abd9-c0641b9d06d1"),
-                ExerciseId = Guid.Parse("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
-                Order = 3,
-                Reps = 15,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("092499c9-93fe-45f9-abd9-c0641b9d06d1"),
-                ExerciseId = Guid.Parse("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
-                Order = 4,
-                Duration = 30,
-                Reps = 0,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("092499c9-93fe-45f9-abd9-c0641b9d06d1"),
                 ExerciseId = Guid.Parse("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
                 Order = 5,
                 Duration = 20,
@@ -550,50 +507,6 @@ namespace Monhealth.Identity.Configurations
             {
                 WorkoutExerciseId = Guid.NewGuid(),
                 WorkoutId = Guid.Parse("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0"),
-                ExerciseId = Guid.Parse("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
-                Order = 1,
-                Duration = 60,
-                Reps = 0,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0"),
-                ExerciseId = Guid.Parse("3100278d-eee7-4b89-b726-4b76daefabde"),
-                Order = 2,
-                Duration = 30,
-                Reps = 0,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0"),
-                ExerciseId = Guid.Parse("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
-                Order = 3,
-                Duration = 0,
-                Reps = 15,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0"),
-                ExerciseId = Guid.Parse("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
-                Order = 4,
-                Duration = 30,
-                Reps = 0,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0"),
                 ExerciseId = Guid.Parse("efbcb7f9-3585-4a1b-8700-871547b7e857"),
                 Order = 5,
                 Duration = 0,
@@ -637,39 +550,6 @@ namespace Monhealth.Identity.Configurations
             #endregion 
 
             #region Workout Exercise 15
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("bbd7c538-33d2-4f57-ae74-3b96fbd59563"),
-                ExerciseId = Guid.Parse("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
-                Order = 1,
-                Duration = 60,
-                Reps = 0,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("bbd7c538-33d2-4f57-ae74-3b96fbd59563"),
-                ExerciseId = Guid.Parse("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
-                Order = 2,
-                Duration = 0,
-                Reps = 20,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            new WorkoutExercise
-            {
-                WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("bbd7c538-33d2-4f57-ae74-3b96fbd59563"),
-                ExerciseId = Guid.Parse("72206c5e-58f3-46f0-a8b1-031cbf599433"),
-                Order = 3,
-                Duration = 30,
-                Reps = 0,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
             new WorkoutExercise
             {
                 WorkoutExerciseId = Guid.NewGuid(),
