@@ -19,7 +19,7 @@ namespace Monhealth.Identity.Repositories
             return await _context.Workouts.AnyAsync(w => w.WorkoutName.ToLower() == workoutName.ToLower() && w.UserId == userId);
         }
 
-        public async Task<PaginatedResult<Workout>> GetAllWorkWithPaging(int page, int limit, string? category, string? search, DifficultyLevel? difficulty, bool? popular, bool? status, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<Workout>> GetAllWorkWithPaging(int page, int limit, string? category, string? search, DifficultyLevel? difficulty, WorkoutType? workoutType, bool? popular, bool? status, CancellationToken cancellationToken)
         {
             search = search?.Trim();
             IQueryable<Workout> query = _context.Workouts.Include(f => f.Category).
@@ -35,10 +35,18 @@ namespace Monhealth.Identity.Repositories
             if (!string.IsNullOrEmpty(category))
                 query = query.Where(f => f.Category.CategoryName.ToLower() == category.ToLower());
 
-            //if (status.HasValue)
-            //{
-            //    query = query.Where(s => s.Status == status.Value);
-            //}
+            if (status.HasValue)
+            {
+                query = query.Where(s => s.Status == status.Value);
+            }
+            if (difficulty.HasValue)
+            {
+                query = query.Where(s => s.DifficultyLevel == difficulty.Value);
+            }
+            if (workoutType.HasValue)
+            {
+                query = query.Where(s => s.WorkoutType == workoutType.Value);
+            }
             if (popular.HasValue && popular.Value)
             {
                 query = query.OrderByDescending(s => s.Views);

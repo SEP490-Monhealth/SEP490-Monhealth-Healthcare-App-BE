@@ -4,6 +4,7 @@ using Monhealth.Application.Features.Exercise.Commands.UpdateExercise;
 using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseByUserId;
+using Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Automapper
@@ -12,6 +13,7 @@ namespace Monhealth.Application.Automapper
     {
         public ExerciseProfile()
         {
+            CreateMap<Exercise, ExerciseDto>();
             CreateMap<Exercise, GetAllExercisesDTO>();
             //.ForMember(dest => dest.CategoryName , opt => opt.MapFrom(src => src.Category.CategoryName)).ReverseMap();
 
@@ -29,6 +31,7 @@ namespace Monhealth.Application.Automapper
             CreateMap<UpdateExerciseDTO, Exercise>();
             //.ForMember(dest => dest.CategoryId, opt => opt.Ignore()) // Bỏ qua ánh xạ mặc định cho CategoryId
             //.ForMember(dest => dest.Category, opt => opt.Ignore()); // Bỏ qua ánh xạ Category (khóa ngoại)
+
         }
     }
 }

@@ -7,6 +7,7 @@ using Monhealth.Application.Features.Exercise.Commands.UpdateExercise;
 using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseByUserId;
+using Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 using System.Net;
@@ -79,7 +80,27 @@ namespace Monhealth.Api.Controllers
                 Data = exercise
             });
         }
-
+        [HttpGet("workout/{workoutId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetExerciseByWorkoutId([FromRoute] Guid workoutId)
+        {
+            var exercise = await _mediator.Send(new GetExerciseByWorkoutIdQuery() { WorkoutId = workoutId });
+            if (exercise == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Bài tập không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = exercise
+            });
+        }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateExercise(CreateExerciseDTO createExerciseDTO)
         {

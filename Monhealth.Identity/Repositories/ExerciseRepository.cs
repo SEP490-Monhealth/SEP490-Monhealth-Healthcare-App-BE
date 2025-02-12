@@ -67,6 +67,18 @@ namespace Monhealth.Identity.Repositories
             return await _context.Exercises.FirstOrDefaultAsync(n => n.ExerciseName.ToLower().Trim().Equals(exerciseName.ToLower().Trim()));
         }
 
+        public async Task<IEnumerable<Exercise>> GetExercisesByWorkoutIdAsync(Guid workoutId)
+        {
+            return await _context.WorkoutExercises
+                .Include(we => we.Workout)
+                .Where(we => we.WorkoutId == workoutId)
+
+                .Select(we => we.Exercise)
+                .ToListAsync();
+        }
+
+
+
         public async Task<List<Exercise>> GetExerciseUserIdAsync(Guid userId)
         {
             return await _context.Exercises.Where(u => u.UserId == userId).ToListAsync();
