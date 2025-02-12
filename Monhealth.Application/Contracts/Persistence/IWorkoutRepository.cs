@@ -9,6 +9,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
         Task<bool> ExistWorkoutName(string workoutName, Guid userId);
         Task<PaginatedResult<Workout>> GetAllWorkWithPaging(int page, int limit, string? category, string? search, DifficultyLevel? difficulty, bool? popular, bool? status, CancellationToken cancellationToken);
-
+        Task<Workout> GetWorkoutByIdAsync(Guid workoutId);
     }
 }

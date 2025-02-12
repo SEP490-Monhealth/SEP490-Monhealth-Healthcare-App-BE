@@ -56,6 +56,11 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<Workout> GetWorkoutByIdAsync(Guid workoutId)
+        {
+            return await _context.Workouts.Include(w => w.WorkoutExercises).ThenInclude(we => we.Exercise).FirstOrDefaultAsync(w => w.WorkoutId == workoutId);
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);

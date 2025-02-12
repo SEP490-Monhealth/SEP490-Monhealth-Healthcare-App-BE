@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Workout.Commands.CreateWorkout;
 using Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries;
+using Monhealth.Application.Features.Workout.Queries.GetWorkoutByIdQueries;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
 
@@ -45,5 +46,17 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpGet("{workoutId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetWorkoutById([FromRoute] Guid workoutId)
+        {
+            var workouts = await mediator.Send(new GetWorkoutByIdQuery(workoutId));
+
+            return new ResultModel
+            {
+                Data = workouts,
+                Status = 200,
+                Success = true,
+            };
+        }
     }
 }
