@@ -66,7 +66,5 @@ namespace Monhealth.Identity.Repositories
             return await _context.SaveChangesAsync(cancellationToken);
 
         }
-
-
     }
 }

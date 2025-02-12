@@ -3933,25 +3933,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 195
-            new Food
-            {
-                FoodId = Guid.Parse("0dbbf1e0-031a-4342-bfde-c127644ebddf"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-                UserId = userId,
-                FoodType = FoodType.Snack,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Bơ đậu phộng",
-                FoodDescription = "Ngọt béo tự nhiên, giàu năng lượng cho bữa sáng",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 195
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("0dbbf1e0-031a-4342-bfde-c127644ebddf"),
+            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+            //     UserId = userId,
+            //     FoodType = FoodType.Snack,
+            //     MealType = [MealType.Snack],
+            //     DishType = [DishType.Dessert],
+            //     FoodName = "Bơ đậu phộng",
+            //     FoodDescription = "Ngọt béo tự nhiên, giàu năng lượng cho bữa sáng",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 196
             new Food

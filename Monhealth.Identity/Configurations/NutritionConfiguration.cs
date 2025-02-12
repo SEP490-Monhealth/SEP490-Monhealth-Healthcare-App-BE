@@ -5639,34 +5639,34 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 195
-            new Nutrition
-            {
-                NutritionId = Guid.Parse("e31deb48-285a-43f7-8ec5-9dd6e61b4e4b"),
-                FoodId = Guid.Parse("0dbbf1e0-031a-4342-bfde-c127644ebddf"),
-                Calories = 588,
-                Protein = 25.1f,
-                Carbs = 20.1f,
-                Fiber = 6f,
-                Sugar = 9f,
-                Fat = 50f,
-                SaturatedFat = 10f,
-                UnsaturatedFat = 40f,
-                Cholesterol = 0,
-                Sodium = 17,
-                Potassium = 645,
-                Calcium = 59,
-                Iron = 1.9f,
-                VitaminA = 0,
-                VitaminB1 = 0.13f,
-                VitaminB2 = 0.17f,
-                VitaminC = 0,
-                VitaminD = 0,
-                VitaminE = 8f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 195
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.Parse("e31deb48-285a-43f7-8ec5-9dd6e61b4e4b"),
+            //     FoodId = Guid.Parse("0dbbf1e0-031a-4342-bfde-c127644ebddf"),
+            //     Calories = 588,
+            //     Protein = 25.1f,
+            //     Carbs = 20.1f,
+            //     Fiber = 6f,
+            //     Sugar = 9f,
+            //     Fat = 50f,
+            //     SaturatedFat = 10f,
+            //     UnsaturatedFat = 40f,
+            //     Cholesterol = 0,
+            //     Sodium = 17,
+            //     Potassium = 645,
+            //     Calcium = 59,
+            //     Iron = 1.9f,
+            //     VitaminA = 0,
+            //     VitaminB1 = 0.13f,
+            //     VitaminB2 = 0.17f,
+            //     VitaminC = 0,
+            //     VitaminD = 0,
+            //     VitaminE = 8f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 196
             new Nutrition
