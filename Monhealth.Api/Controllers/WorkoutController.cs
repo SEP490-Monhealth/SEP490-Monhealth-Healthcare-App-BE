@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Workout.Commands.CreateWorkout;
+using Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries;
 using Monhealth.Application.Models;
+using Monhealth.Core.Enum;
 
 namespace Monhealth.Api.Controllers
 {
@@ -30,5 +32,18 @@ namespace Monhealth.Api.Controllers
                 Status = 400,
             });
         }
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllWorkouts(int page = 1, int limit = 10, string? category = null, string? search = null, DifficultyLevel? difficulty = null, bool? popular = null, bool? status = null)
+        {
+            var workouts = await mediator.Send(new GetAllWorkoutQuery(page, limit, category, search, difficulty, popular, status));
+
+            return new ResultModel
+            {
+                Data = workouts,
+                Status = 200,
+                Success = true,
+            };
+        }
+
     }
 }

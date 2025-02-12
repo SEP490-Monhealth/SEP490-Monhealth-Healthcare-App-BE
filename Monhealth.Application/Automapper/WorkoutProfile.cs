@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Monhealth.Application.Features.Workout.Commands.CreateWorkout;
+using Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Automapper
@@ -12,6 +13,14 @@ namespace Monhealth.Application.Automapper
                 .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(_ => DateTime.Now));
             CreateMap<CreateExcerciseDto, WorkoutExercise>()
                   .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(_ => DateTime.Now));
+
+            //get
+            CreateMap<Workout, WorkoutDto>()
+                .ForMember(dest => dest.Exercises, opt => opt.MapFrom(src => src.WorkoutExercises.Count))
+                .ForMember(dest => dest.Duration, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => we.Duration)))
+                .ForMember(dest => dest.CaloriesBurned, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => we.Exercise.CaloriesPerMinute * we.Duration)));
+
+
         }
     }
 }
