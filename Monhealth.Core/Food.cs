@@ -18,6 +18,7 @@ namespace Monhealth.Domain
                 public List<DishType> DishType { get; set; } = new List<DishType>();
                 public string FoodName { get; set; } = string.Empty;
                 public string FoodDescription { get; set; } = string.Empty;
+                // public bool IsRecommended { get; set; } = false;
                 public int Views { get; set; } = 0;
                 public bool IsPublic { get; set; }
                 public bool Status { get; set; }

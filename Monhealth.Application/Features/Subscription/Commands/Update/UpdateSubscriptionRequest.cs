@@ -6,6 +6,5 @@ namespace Monhealth.Application.Features.Subscription.Commands.Update
     {
         public string SubscriptionName { get; set; } = string.Empty;
         public int Price { get; set; }
-
     }
 }

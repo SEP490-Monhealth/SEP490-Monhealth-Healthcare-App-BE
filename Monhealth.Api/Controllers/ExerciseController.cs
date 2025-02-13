@@ -80,6 +80,7 @@ namespace Monhealth.Api.Controllers
                 Data = exercise
             });
         }
+        
         [HttpGet("workout/{workoutId:guid}")]
         public async Task<ActionResult<ResultModel>> GetExerciseByWorkoutId([FromRoute] Guid workoutId)
         {
@@ -101,6 +102,7 @@ namespace Monhealth.Api.Controllers
                 Data = exercise
             });
         }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateExercise(CreateExerciseDTO createExerciseDTO)
         {

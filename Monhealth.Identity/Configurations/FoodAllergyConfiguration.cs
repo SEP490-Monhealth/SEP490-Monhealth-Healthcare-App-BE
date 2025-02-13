@@ -17,9 +17,6 @@ namespace Monhealth.Identity.Configurations
                 FoodId = Guid.Parse("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
                 AllergyId = Guid.Parse("16acfb07-feee-4bb9-ad2b-05e5b93d18e6")
             },
-            #endregion
-
-            #region FoodAllergy 2
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -28,7 +25,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 3
+            #region FoodAllergy 2
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -37,7 +34,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 4
+            #region FoodAllergy 3
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -46,7 +43,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 5
+            #region FoodAllergy 4
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -55,7 +52,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 6
+            #region FoodAllergy 5
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -64,7 +61,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 7
+            #region FoodAllergy 6
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -73,7 +70,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 8
+            #region FoodAllergy 7
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -82,16 +79,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 9
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("f412d88d-ce7e-4006-bc11-75af61438491"),
-                AllergyId = Guid.Parse("10127b02-786f-462b-8ee6-3df465903645")
-            },
-            #endregion
-
-            #region FoodAllergy 10
+            #region FoodAllergy 8
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -100,7 +88,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 11
+            #region FoodAllergy 9
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -109,7 +97,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 12
+            #region FoodAllergy 10
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -118,16 +106,13 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 13
+            #region FoodAllergy 11
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
                 FoodId = Guid.Parse("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                 AllergyId = Guid.Parse("b8f6417e-2aac-442e-aac4-de4d809c572c")
             },
-            #endregion
-
-            #region FoodAllergy 14
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -136,7 +121,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 15
+            #region FoodAllergy 12
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -145,7 +130,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 16
+            #region FoodAllergy 13
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -154,16 +139,13 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 17
+            #region FoodAllergy 14
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
                 FoodId = Guid.Parse("faf19891-525a-4308-9222-992e83de7ce7"),
                 AllergyId = Guid.Parse("b8f6417e-2aac-442e-aac4-de4d809c572c")
             },
-            #endregion
-
-            #region FoodAllergy 18
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -172,7 +154,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 19
+            #region FoodAllergy 15
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -181,25 +163,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 20
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("ede931f5-092e-4e41-8ce1-5a95bff2772a"),
-                AllergyId = Guid.Parse("b8f6417e-2aac-442e-aac4-de4d809c572c")
-            },
-            #endregion
-
-            #region FoodAllergy 21
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("ede931f5-092e-4e41-8ce1-5a95bff2772a"),
-                AllergyId = Guid.Parse("0d352b08-ada9-40f6-a23e-6f6f170a9cd4")
-            },
-            #endregion
-
-            #region FoodAllergy 22
+            #region FoodAllergy 16
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -208,7 +172,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 23
+            #region FoodAllergy 17
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -217,7 +181,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 24
+            #region FoodAllergy 18
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -226,7 +190,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 25
+            #region FoodAllergy 19
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -235,16 +199,13 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 26
+            #region FoodAllergy 20
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
                 FoodId = Guid.Parse("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                 AllergyId = Guid.Parse("b8f6417e-2aac-442e-aac4-de4d809c572c")
             },
-            #endregion
-
-            #region FoodAllergy 27
             new FoodAllergy
             {
                 FoodAllergyId = Guid.NewGuid(),
@@ -252,24 +213,6 @@ namespace Monhealth.Identity.Configurations
                 AllergyId = Guid.Parse("eb5cadbb-94e2-4bf9-8764-ddef8779ebd8")
             }
             #endregion
-
-            // #region FoodAllergy 28
-            // new FoodAllergy
-            // {
-            //     FoodAllergyId = Guid.NewGuid(),
-            //     FoodId = Guid.Parse("01708b02-6cc1-41f6-ae4a-95c4085e1839"),
-            //     AllergyId = Guid.Parse("13008773-dadd-4053-b64c-500b6050b2aa")
-            // },
-            // #endregion
-
-            // #region FoodAllergy 29
-            // new FoodAllergy
-            // {
-            //     FoodAllergyId = Guid.NewGuid(),
-            //     FoodId = Guid.Parse("436d8364-15fd-47a2-9b72-c3841db0da2e"),
-            //     AllergyId = Guid.Parse("d0127ea2-7f55-4515-b5ea-3db55af5774e")
-            // }
-            // #endregion
             );
         }
     }

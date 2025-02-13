@@ -1,11 +1,9 @@
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Features.Food.AddFood;
-using Monhealth.Application.Models;
 using Monhealth.Application.ServiceForRecommend.DTO;
 using Monhealth.Application.Services;
 using Monhealth.Core.Enum;
-using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.ServiceForRecommend
@@ -121,7 +119,6 @@ namespace Monhealth.Application.ServiceForRecommend
 
             var portion = CalculateNewPortion(mappedNutrition, allocation, ratio);
 
-
             return new DishDTO
             {
                 Food = selectedFood,
@@ -194,8 +191,6 @@ namespace Monhealth.Application.ServiceForRecommend
     }
 }
 
-
-
 public class MealPlanWithAllocationDTO
 {
     public MealDTO Breakfast { get; set; } = new MealDTO();
@@ -232,5 +227,3 @@ public class FoodDTO123
 //     public float PortionWeight { get; set; }
 //     public string MeasurementUnit { get; set; } = "g";
 // }
-
-
