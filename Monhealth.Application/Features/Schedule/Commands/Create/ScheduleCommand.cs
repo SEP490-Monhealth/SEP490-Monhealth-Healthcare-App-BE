@@ -19,7 +19,10 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 Date = request.Date,
-                Time = request.Time,
+                StarTime = request.StartTime,
+                EndTime = request.EndTime,
+                BookedSlots = request.BookedSlots,
+                MaxBookings = request.MaxBookings
             };
             _scheduleRepository.Add(model);
             await _scheduleRepository.SaveChangeAsync();
