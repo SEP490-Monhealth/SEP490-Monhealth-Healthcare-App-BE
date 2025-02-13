@@ -11,6 +11,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Exercise>> GetExerciseUserIdAsync(Guid userId);
         Task<Exercise> GetExerciseByNameAsync(string exerciseName);
         Task<IEnumerable<Exercise>> GetExercisesByWorkoutIdAsync(Guid workoutId);
+        Task<IEnumerable<Exercise>> GetExercisesByListId(List<Guid> exerciseIdList);
         Task<int> SaveChangeAsync();
     }
 }

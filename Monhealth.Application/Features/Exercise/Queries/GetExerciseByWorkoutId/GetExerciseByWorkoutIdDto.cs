@@ -2,7 +2,7 @@
 {
     public class GetExerciseByWorkoutIdDto
     {
-        public List<ExerciseDto> WarmUp { get; set; }
-        public List<ExerciseDto> Exercise { get; set; }
+        public List<ExerciseDto> Warmup { get; set; }
+        public List<ExerciseDto> Workout { get; set; }
     }
 }
