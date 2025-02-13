@@ -2,6 +2,7 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Review.Commands.Create;
+using Monhealth.Application.Features.Review.Commands.Delete;
 using Monhealth.Application.Features.Review.Commands.Update;
 using Monhealth.Application.Features.Review.Queries;
 using Monhealth.Application.Features.Review.Queries.GetById;
@@ -52,6 +53,33 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = 200,
                 Data = queries
+            });
+        }
+        [HttpDelete]
+        [Route("{reviewId:Guid}")]
+        public async Task<ActionResult<ResultModel>> RemoveReview(Guid reviewId)
+        {
+            var result = await _mediator.Send(new DeleteReviewRequest(reviewId));
+
+            if (!result)
+            {
+                // Trả về lỗi nếu xóa không thành công
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Xóa đánh giá không thành công",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa đánh giá thành công",
+                Status = 204,
+                Data = null
             });
         }
         [HttpPost]
