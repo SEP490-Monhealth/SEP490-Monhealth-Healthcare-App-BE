@@ -16,5 +16,6 @@ namespace Monhealth.Domain
 
         public List<Food>? Foods { get; set; }
         public ICollection<Workout>? Workouts { get; set; }
+        public ICollection<Service>? Services { get; set; }
     }
 }

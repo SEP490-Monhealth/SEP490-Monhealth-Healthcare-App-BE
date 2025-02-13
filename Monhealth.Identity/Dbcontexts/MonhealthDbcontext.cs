@@ -45,6 +45,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<DailyActivity> DailyActivities { get; set; }
         public DbSet<DailyWaterIntake> DailyWaterIntakes { get; set; }
+        public DbSet<Consultant> Consultants { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
