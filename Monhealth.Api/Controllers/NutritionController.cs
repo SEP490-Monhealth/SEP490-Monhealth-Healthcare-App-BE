@@ -22,7 +22,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllMetrics()
+        public async Task<ActionResult<ResultModel>> GetAllNutrition()
         {
             var nutritionList = await _mediator.Send(new GetNutritionListQuery());
 

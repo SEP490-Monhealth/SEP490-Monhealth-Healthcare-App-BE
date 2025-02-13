@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Review.Commands.Create;
+using Monhealth.Application.Features.Review.Commands.Update;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -16,7 +17,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResultModel>> AddNutrition([FromBody] AddReviewRequest request)
+        public async Task<ActionResult<ResultModel>> AddReview([FromBody] AddReviewRequest request)
         {
             var result = await _mediator.Send(request);
             if (result != null)
@@ -35,5 +36,26 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo dinh dưỡng thất bại"
             });
         }
+        [HttpPut]
+        [Route("{reviewId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateReview(Guid reviewId, [FromBody] UpdateReviewRequest request)
+        {
+            var command = new UpdateReviewCommand(reviewId, request);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Cập nhật đánh giá không thành công",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật đánh giá thành công",
+                Success = true,
+                Status = 204,
+            });
+        }
+
     }
 }
