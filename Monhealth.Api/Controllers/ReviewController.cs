@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Review.Commands.Create;
 using Monhealth.Application.Features.Review.Commands.Update;
+using Monhealth.Application.Features.Review.Queries;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -15,7 +16,18 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllReviews()
+        {
+            var queries = await _mediator.Send(new GetReviewListQuery());
 
+            return new ResultModel
+            {
+                Data = queries,
+                Status = 200,
+                Success = true
+            };
+        }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddReview([FromBody] AddReviewRequest request)
         {
