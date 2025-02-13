@@ -24,7 +24,7 @@ namespace Monhealth.Domain
         public int MaxDistance { get; set; }
 
         [ForeignKey(nameof(ConsultantId))]
-        public AppUser Consultant { get; set; }
+        public Consultant Consultant { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
 
