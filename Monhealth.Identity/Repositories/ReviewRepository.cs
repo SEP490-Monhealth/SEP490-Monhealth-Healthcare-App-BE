@@ -9,5 +9,10 @@ namespace Monhealth.Identity.Repositories
         public ReviewRepository(MonhealthDbcontext context) : base(context)
         {
         }
+
+        public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }

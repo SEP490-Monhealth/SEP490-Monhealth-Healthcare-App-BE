@@ -21,6 +21,7 @@ namespace Monhealth.Application.Features.Schedule.Commands.Update
             id.BookedSlots = request.Request.BookedSlots;
             id.MaxBookings = request.Request.MaxBookings;
             id.UpdatedAt = DateTime.Now;
+            id.Status = request.Request.Status;
             _scheduleRepository.Update(id);
             await _scheduleRepository.SaveChangeAsync();
             return true;

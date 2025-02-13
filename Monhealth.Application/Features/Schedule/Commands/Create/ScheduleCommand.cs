@@ -22,7 +22,8 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                 StartTime = request.StartTime,
                 EndTime = request.EndTime,
                 BookedSlots = request.BookedSlots,
-                MaxBookings = request.MaxBookings
+                MaxBookings = request.MaxBookings,
+                Status = request.Status
             };
             _scheduleRepository.Add(model);
             await _scheduleRepository.SaveChangeAsync();
