@@ -1,8 +1,10 @@
+using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Review.Commands.Create;
 using Monhealth.Application.Features.Review.Commands.Update;
 using Monhealth.Application.Features.Review.Queries;
+using Monhealth.Application.Features.Review.Queries.GetById;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -27,6 +29,30 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
+        }
+        [HttpGet]
+        [Route("{reviewId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetReviewDetail(Guid reviewId)
+        {
+            var queries = await _mediator.
+            Send(new GetReviewDetailQuery { ReviewId = reviewId });
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Đánh giá không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
         }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddReview([FromBody] AddReviewRequest request)
