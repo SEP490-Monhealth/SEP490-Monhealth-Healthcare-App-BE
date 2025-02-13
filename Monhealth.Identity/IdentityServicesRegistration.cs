@@ -86,6 +86,7 @@ namespace Monhealth.Identity
             services.AddScoped<IAllergyRepository, AllergyRepository>();
             services.AddScoped<IFoodAllergyRepository, FoodAllergyRepository>();
             services.AddScoped<IUserAllergyRepository, UserAllergyRepository>();
+            services.AddScoped<IReviewRepository , ReviewRepository>();
             // Đăng ký Background Service
             // Add Authentication
             services.AddAuthentication(options =>
