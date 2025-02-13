@@ -4,7 +4,9 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetById
     {
         public Guid ConsultantId { get; set; } // FK 
         public DateOnly? Date { get; set; } // 
-        public TimeOnly Time { get; set; } // 
-        public string Status { get; set; } = string.Empty;
+        public TimeOnly StartTime { get; set; }
+        public TimeOnly EndTime { get; set; } //
+        public int MaxBookings { get; set; }
+        public int BookedSlots { get; set; }
     }
 }

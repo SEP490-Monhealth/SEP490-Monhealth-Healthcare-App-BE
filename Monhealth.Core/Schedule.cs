@@ -17,6 +17,6 @@ namespace Monhealth.Domain
         public int BookedSlots { get; set; } 
         public string Status { get; set; } = string.Empty;
         [ForeignKey(nameof(ConsultantId))]
-        public AppUser User { get; set; }
+        public Consultant Consultant { get; set; }
     }
 }
