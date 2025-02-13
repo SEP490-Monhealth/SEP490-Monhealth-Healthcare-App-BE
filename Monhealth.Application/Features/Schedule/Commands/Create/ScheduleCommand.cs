@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 Date = request.Date,
-                StarTime = request.StartTime,
+                StartTime = request.StartTime,
                 EndTime = request.EndTime,
                 BookedSlots = request.BookedSlots,
                 MaxBookings = request.MaxBookings

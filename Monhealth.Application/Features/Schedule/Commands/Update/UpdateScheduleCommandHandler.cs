@@ -16,7 +16,7 @@ namespace Monhealth.Application.Features.Schedule.Commands.Update
         {
             var id = await _scheduleRepository.GetByIdAsync(request.ScheduleId);
             id.Date = request.Request.Date;
-            id.StarTime = request.Request.StartTime;
+            id.StartTime = request.Request.StartTime;
             id.EndTime = request.Request.EndTime;
             id.BookedSlots = request.Request.BookedSlots;
             id.MaxBookings = request.Request.MaxBookings;
