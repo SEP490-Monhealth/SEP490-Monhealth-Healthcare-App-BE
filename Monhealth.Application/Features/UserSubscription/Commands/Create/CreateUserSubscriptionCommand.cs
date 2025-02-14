@@ -2,4 +2,9 @@ using MediatR;
 
 namespace Monhealth.Application.Features.UserSubscription.Commands.Create;
 
-public record CreateUserSubscriptionCommand(CreateUserSubscriptionDTO Request) : IRequest;
+public class CreateUserSubscriptionCommand : IRequest<Unit>
+{
+    public Guid UserId { get; set; }
+    public Guid SubscriptionId { get; set; }
+    public int Duration { get; set; }
+}

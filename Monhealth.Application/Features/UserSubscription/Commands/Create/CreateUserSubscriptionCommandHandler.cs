@@ -3,7 +3,7 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.UserSubscription.Commands.Create
 {
-    public class CreateUserSubscriptionCommandHandler : IRequestHandler<CreateUserSubscriptionCommand>
+    public class CreateUserSubscriptionCommandHandler : IRequestHandler<CreateUserSubscriptionCommand, Unit>
     {
         private readonly IUserSubscriptionRepository _userSubscriptionRepository;
 
@@ -14,13 +14,13 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
 
         public async Task<Unit> Handle(CreateUserSubscriptionCommand request, CancellationToken cancellationToken)
         {
-            int Duration = request.Request.Duration;
+            int Duration = request.Duration;
             var model = new Monhealth.Domain.UserSubscription
             {
                 CreatedAt = DateTime.Now,
                 ExpiresAt = DateTime.Now.AddDays(Duration),
-                SubscriptionId = request.Request.SubscriptionId,
-                UserId = request.Request.UserId,
+                SubscriptionId = request.SubscriptionId,
+                UserId = request.UserId,
                 UpdatedAt = DateTime.Now,
             };
 

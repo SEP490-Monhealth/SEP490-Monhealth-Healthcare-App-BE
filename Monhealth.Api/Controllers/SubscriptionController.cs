@@ -1,4 +1,3 @@
-using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Subscription.Commands.Create;
@@ -8,6 +7,7 @@ using Monhealth.Application.Features.Subscription.Queries.GetAll;
 using Monhealth.Application.Features.Subscription.Queries.GetDetail;
 using Monhealth.Application.Features.UserSubscription.Commands.Create;
 using Monhealth.Application.Models;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -99,7 +99,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost("upgrade")]
-        public async Task<ActionResult<ResultModel>> Add2([FromBody] CreateUserSubscriptionCommand request)
+        public async Task<ActionResult<ResultModel>> Upgrade([FromBody] CreateUserSubscriptionCommand request)
         {
 
             var result = await _mediator.Send(request);
