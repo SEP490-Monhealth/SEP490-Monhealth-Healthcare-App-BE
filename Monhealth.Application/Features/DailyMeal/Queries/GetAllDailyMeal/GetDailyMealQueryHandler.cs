@@ -77,7 +77,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                     });
                 }
                 var sortedMeals = meals
-               .OrderBy(m => mealTypeOrder.IndexOf(m.MealType))
+               .OrderBy(m => mealTypeOrder.IndexOf(m.MealType.ToString()))
                .ToList();
 
                 // Tạo đối tượng DailyMealDTO

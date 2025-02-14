@@ -469,14 +469,14 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodPortion 42
-            new FoodPortion
-            {
-                FoodPortionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("f70172ed-7784-47ec-8aa2-a862ee56a13a"),
-                PortionId = Guid.Parse("2c7ac6ee-f7fe-4ec8-974f-11f62a5f60b9"),
-            },
-            #endregion
+            //#region FoodPortion 42
+            //new FoodPortion
+            //{
+            //    FoodPortionId = Guid.NewGuid(),
+            //    FoodId = Guid.Parse("f70172ed-7784-47ec-8aa2-a862ee56a13a"),
+            //    PortionId = Guid.Parse("2c7ac6ee-f7fe-4ec8-974f-11f62a5f60b9"),
+            //},
+            //#endregion
 
             #region FoodPortion 43
             new FoodPortion
@@ -562,14 +562,14 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodPortion 51
-            new FoodPortion
-            {
-                FoodPortionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("ede931f5-092e-4e41-8ce1-5a95bff2772a"),
-                PortionId = Guid.Parse("0336a88f-f5cd-4cc2-8478-980467aa91aa"),
-            },
-            #endregion
+            //#region FoodPortion 51
+            //new FoodPortion
+            //{
+            //    FoodPortionId = Guid.NewGuid(),
+            //    FoodId = Guid.Parse("ede931f5-092e-4e41-8ce1-5a95bff2772a"),
+            //    PortionId = Guid.Parse("0336a88f-f5cd-4cc2-8478-980467aa91aa"),
+            //},
+            //#endregion
 
             #region FoodPortion 52
             new FoodPortion
@@ -943,26 +943,26 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodPortion 80
-            new FoodPortion
-            {
-                FoodPortionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
-                PortionId = Guid.Parse("509da3d8-ed0f-4cd0-be26-3a896b9500b3"),
-            },
-            new FoodPortion
-            {
-                FoodPortionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
-                PortionId = Guid.Parse("8bffc4ad-afcc-436b-953c-444f1e8ce533"),
-            },
-            new FoodPortion
-            {
-                FoodPortionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
-                PortionId = Guid.Parse("28f6a369-f694-437d-82eb-944b09d5e369"),
-            },
-            #endregion
+            //#region FoodPortion 80
+            //new FoodPortion
+            //{
+            //    FoodPortionId = Guid.NewGuid(),
+            //    FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
+            //    PortionId = Guid.Parse("509da3d8-ed0f-4cd0-be26-3a896b9500b3"),
+            //},
+            //new FoodPortion
+            //{
+            //    FoodPortionId = Guid.NewGuid(),
+            //    FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
+            //    PortionId = Guid.Parse("8bffc4ad-afcc-436b-953c-444f1e8ce533"),
+            //},
+            //new FoodPortion
+            //{
+            //    FoodPortionId = Guid.NewGuid(),
+            //    FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
+            //    PortionId = Guid.Parse("28f6a369-f694-437d-82eb-944b09d5e369"),
+            //},
+            //#endregion
 
             #region FoodPortion 81
             new FoodPortion

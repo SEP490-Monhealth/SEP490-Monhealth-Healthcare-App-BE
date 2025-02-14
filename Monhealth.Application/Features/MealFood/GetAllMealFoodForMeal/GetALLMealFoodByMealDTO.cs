@@ -1,5 +1,6 @@
-using System.Text.Json.Serialization;
+using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
 {
@@ -7,7 +8,7 @@ namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
     {
         public Guid MealId { get; set; }
         public Guid UserId { get; set; }
-        public string MealType { get; set; } = string.Empty;
+        public MealType MealType { get; set; }
         public MealFoodNutritionDTO5 Nutrition { get; set; }
         public List<MealFoodDTO5> Items { get; set; }
     }

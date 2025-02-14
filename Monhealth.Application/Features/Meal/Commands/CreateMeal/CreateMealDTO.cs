@@ -1,3 +1,4 @@
+using Monhealth.Core.Enum;
 using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
@@ -6,7 +7,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
     {
         public Guid UserId { get; set; }
         [JsonPropertyName("type")]
-        public string MealType { get; set; } = string.Empty;
+        public MealType MealType { get; set; } = default!;
         public ICollection<MealFoodsDTO> Items { get; set; }
     }
     public class MealFoodsDTO

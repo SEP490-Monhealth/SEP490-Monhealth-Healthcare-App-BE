@@ -2,6 +2,7 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Services
@@ -12,7 +13,7 @@ namespace Monhealth.Application.Services
         private readonly IMealFoodRepository _mealFoodRepository;
         private readonly IPortionRepository _portionRepository;
         private readonly IFoodPortionRepository _foodPortionRepository;
-        private readonly ILogger<GenerateDailyMenuService>_logger;
+        private readonly ILogger<GenerateDailyMenuService> _logger;
         public GenerateDailyMenuService(IFoodRepository foodRepository, IMealFoodRepository mealFoodRepository,
          IPortionRepository portionRepository, IFoodPortionRepository foodPortionRepository,
          ILogger<GenerateDailyMenuService> logger)
@@ -57,9 +58,9 @@ namespace Monhealth.Application.Services
             Guid dailyMealId = Guid.NewGuid();
             //breakfast 
 
-            var breakfast = await CreateBalancedMeal("Breakfast", breakfastCalories, proteinRatio, carbsRatio, fatRatio, foodLists, userId, dailyMealId);
-            var lunch = await CreateBalancedMeal("Lunch", lunchCalories, proteinRatio, carbsRatio, fatRatio, foodLists, userId, dailyMealId);
-            var dinner = await CreateBalancedMeal("Dinner", dinnerCalories, proteinRatio, carbsRatio, fatRatio, foodLists, userId, dailyMealId);
+            var breakfast = await CreateBalancedMeal(MealType.Breakfast, breakfastCalories, proteinRatio, carbsRatio, fatRatio, foodLists, userId, dailyMealId);
+            var lunch = await CreateBalancedMeal(MealType.Lunch, lunchCalories, proteinRatio, carbsRatio, fatRatio, foodLists, userId, dailyMealId);
+            var dinner = await CreateBalancedMeal(MealType.Dinner, dinnerCalories, proteinRatio, carbsRatio, fatRatio, foodLists, userId, dailyMealId);
 
             // Tổng hợp dinh dưỡng
             double totalCalories = breakfast.TotalCalories + lunch.TotalCalories + dinner.TotalCalories;
@@ -90,7 +91,7 @@ namespace Monhealth.Application.Services
             if (nutritionValue <= 0) return double.MaxValue; // Không có giá trị dinh dưỡng
             return requiredValue / nutritionValue;
         }
-        private async Task<MealWithNutrition> CreateBalancedMeal(string mealType, double targetCalories, double proteinRatio, double carbsRatio, double fatRatio, List<Food> foodList, Guid userId, Guid dailyMealId)
+        private async Task<MealWithNutrition> CreateBalancedMeal(MealType mealType, double targetCalories, double proteinRatio, double carbsRatio, double fatRatio, List<Food> foodList, Guid userId, Guid dailyMealId)
         {
             Guid mealId = Guid.NewGuid();
             var selectedFoods = new List<MealFood>();

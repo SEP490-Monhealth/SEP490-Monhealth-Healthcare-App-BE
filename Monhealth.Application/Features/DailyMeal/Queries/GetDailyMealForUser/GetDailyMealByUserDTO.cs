@@ -1,5 +1,6 @@
-using System.Text.Json.Serialization;
+using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
 {
@@ -29,7 +30,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
     {
         public Guid mealId { get; set; }
         [JsonPropertyName("type")]
-        public string MealType { get; set; } = string.Empty;
+        public MealType MealType { get; set; }
         public int Foods { get; set; }
         public float Calories { get; set; }
         public float Protein { get; set; }

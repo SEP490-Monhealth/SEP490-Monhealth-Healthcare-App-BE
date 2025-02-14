@@ -40,17 +40,16 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
         {
 
             var userId = request.CreateMeal.UserId;
-            var mealType = request.CreateMeal.MealType;
             var currentDate1 = DateTime.Now.Date.Day;
-
+            var mealTypeString = request.CreateMeal.MealType.ToString();
 
             // Kiểm tra loại bữa ăn hợp lệ
             var validMealTypes = new HashSet<string> { "Breakfast", "Lunch", "Dinner", "Snack" };
-            if (!validMealTypes.Contains(mealType))
+            if (!validMealTypes.Contains(mealTypeString))
                 throw new ArgumentException("MealType phải là một trong các giá trị: Breakfast, Lunch, Dinner, Snack");
 
             // Kiểm tra bữa ăn đã tồn tại trong ngày hiện tại
-            var mealTypeEnum = Enum.Parse<MealType>(mealType);
+            var mealTypeEnum = Enum.Parse<MealType>(mealTypeString);
             var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, mealTypeEnum, currentDate1);
             Monhealth.Domain.Meal model;
 
@@ -64,7 +63,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 model = new Monhealth.Domain.Meal
                 {
                     UserId = userId,
-                    MealType = mealType,
+                    MealType = mealTypeEnum,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 };

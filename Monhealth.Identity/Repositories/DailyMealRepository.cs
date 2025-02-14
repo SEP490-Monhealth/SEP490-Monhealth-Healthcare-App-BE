@@ -9,6 +9,7 @@ namespace Monhealth.Identity.Repositories
     {
         public DailyMealRepository(MonhealthDbcontext context) : base(context)
         {
+
         }
 
         public async Task<List<DailyMeal>> GetAllDailyMeals()
@@ -42,7 +43,7 @@ namespace Monhealth.Identity.Repositories
                 if (dailyMeal.Meals != null)
                 {
                     dailyMeal.Meals = dailyMeal.Meals
-                        .OrderBy(m => mealTypeOrder.TryGetValue(m.MealType, out var order) ? order : int.MaxValue)
+                        .OrderBy(m => mealTypeOrder.TryGetValue(m.MealType.ToString(), out var order) ? order : int.MaxValue)
                         .ToList(); // Chuyển sang List sau khi sắp xếp
                 }
             }
@@ -79,7 +80,7 @@ namespace Monhealth.Identity.Repositories
             if (dailyMeal != null && dailyMeal.Meals != null)
             {
                 dailyMeal.Meals = dailyMeal.Meals
-                    .OrderBy(m => mealTypeOrder.TryGetValue(m.MealType, out var order) ? order : int.MaxValue)
+                    .OrderBy(m => mealTypeOrder.TryGetValue(m.MealType.ToString(), out var order) ? order : int.MaxValue)
                     .ToList();
             }
 
@@ -126,7 +127,7 @@ namespace Monhealth.Identity.Repositories
             if (dailyMeal != null && dailyMeal.Meals != null)
             {
                 dailyMeal.Meals = dailyMeal.Meals
-                    .OrderBy(m => mealTypeOrder.TryGetValue(m.MealType, out var order) ? order : int.MaxValue)
+                    .OrderBy(m => mealTypeOrder.TryGetValue(m.MealType.ToString(), out var order) ? order : int.MaxValue)
                     .ToList();
             }
 

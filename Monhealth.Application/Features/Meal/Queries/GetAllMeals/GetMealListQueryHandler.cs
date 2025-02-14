@@ -34,25 +34,26 @@ namespace Monhealth.Application.Features.Meal.Queries.GetAllMeals
 
                 foreach (var mealFood in meal.MealFoods)
                 {
-                    if(mealFood.Status == true){
-                    if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
-                        continue;
+                    if (mealFood.Status == true)
+                    {
+                        if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
+                            continue;
 
-                    // Lấy portion từ repository
-                    var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
-                    if (portion == null)
-                        continue;
+                        // Lấy portion từ repository
+                        var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
+                        if (portion == null)
+                            continue;
 
-                    var portionWeight = portion.PortionWeight;
+                        var portionWeight = portion.PortionWeight;
 
-                    // Tính toán giá trị dinh dưỡng
-                    totalCalories += (mealFood.Food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
-                    totalProtein += (mealFood.Food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
-                    totalCarbs += (mealFood.Food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
-                    totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
-                    totalFiber += (mealFood.Food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
-                    totalSugar += (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
-                        
+                        // Tính toán giá trị dinh dưỡng
+                        totalCalories += (mealFood.Food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                        totalProtein += (mealFood.Food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+                        totalCarbs += (mealFood.Food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+                        totalFat += (mealFood.Food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+                        totalFiber += (mealFood.Food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
+                        totalSugar += (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+
                     }
                 }
 

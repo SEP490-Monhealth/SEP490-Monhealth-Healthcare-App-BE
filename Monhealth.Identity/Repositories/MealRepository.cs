@@ -39,7 +39,7 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public async Task<List<string>> GetAllMealTypesAsync()
+        public async Task<List<MealType>> GetAllMealTypesAsync()
         {
             // Truy vấn tất cả MealType từ bảng MealFood
             return await _context.Meals

@@ -139,7 +139,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 model = new Monhealth.Domain.Meal
                 {
                     UserId = userId,
-                    MealType = mealType.ToString(),
+                    MealType = mealType,
                     CreatedAt = date,
                     UpdatedAt = DateTime.Now
                 };

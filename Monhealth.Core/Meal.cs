@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Common;
+﻿using Monhealth.Core.Enum;
+using Monhealth.Domain.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,7 +11,7 @@ namespace Monhealth.Domain
         public Guid MealId { get; set; }
         public Guid? DailyMealId { get; set; }
         public Guid UserId { get; set; }
-        public string MealType { get; set; } = string.Empty;
+        public MealType MealType { get; set; }
         [ForeignKey(nameof(DailyMealId))]
         public DailyMeal DailyMeal { get; set; }
         public ICollection<MealFood> MealFoods { get; set; }
