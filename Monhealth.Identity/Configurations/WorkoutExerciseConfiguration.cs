@@ -1307,7 +1307,7 @@ namespace Monhealth.Identity.Configurations
             new WorkoutExercise
             {
                 WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("e628d9f7-d645-4f48-b84d-44d6cc38d8ea"),
+                WorkoutId = Guid.Parse("ab2503e2-4ecb-44a4-9e5c-6fc4ad697783"),
                 ExerciseId = Guid.Parse("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
                 Order = 1,
                 Duration = 0,
@@ -1318,7 +1318,7 @@ namespace Monhealth.Identity.Configurations
             new WorkoutExercise
             {
                 WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("e628d9f7-d645-4f48-b84d-44d6cc38d8ea"),
+                WorkoutId = Guid.Parse("ab2503e2-4ecb-44a4-9e5c-6fc4ad697783"),
                 ExerciseId = Guid.Parse("01e6141a-930e-4126-a2c6-7c32a2ccdd43"),
                 Order = 2,
                 Duration = 0,
@@ -1329,7 +1329,7 @@ namespace Monhealth.Identity.Configurations
             new WorkoutExercise
             {
                 WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("e628d9f7-d645-4f48-b84d-44d6cc38d8ea"),
+                WorkoutId = Guid.Parse("ab2503e2-4ecb-44a4-9e5c-6fc4ad697783"),
                 ExerciseId = Guid.Parse("ac074f67-d4bf-4a7f-b7e3-d8d03bbb6704"),
                 Order = 3,
                 Duration = 0,
@@ -1340,7 +1340,7 @@ namespace Monhealth.Identity.Configurations
             new WorkoutExercise
             {
                 WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("e628d9f7-d645-4f48-b84d-44d6cc38d8ea"),
+                WorkoutId = Guid.Parse("ab2503e2-4ecb-44a4-9e5c-6fc4ad697783"),
                 ExerciseId = Guid.Parse("bc06f6c3-3625-438b-9563-3406e50612ee"),
                 Order = 4,
                 Duration = 0,
@@ -1351,7 +1351,7 @@ namespace Monhealth.Identity.Configurations
             new WorkoutExercise
             {
                 WorkoutExerciseId = Guid.NewGuid(),
-                WorkoutId = Guid.Parse("e628d9f7-d645-4f48-b84d-44d6cc38d8ea"),
+                WorkoutId = Guid.Parse("ab2503e2-4ecb-44a4-9e5c-6fc4ad697783"),
                 ExerciseId = Guid.Parse("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
                 Order = 5,
                 Duration = 0,
