@@ -55,8 +55,8 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
             var exercises = await exerciseRepository.GetExercisesByWorkoutIdAsync(request.WorkoutId);
             var response = new GetExerciseByWorkoutIdDto
             {
-                Warmup = mapper.Map<List<ExerciseDto>>(exerciseWramupList),
-                Workout = mapper.Map<List<ExerciseDto>>(exercises)
+                Warmup = mapper.Map<List<ExerciseDto>>(exerciseWramupList.ToList()),
+                Workout = mapper.Map<List<ExerciseDto>>(exercises.ToList())
             };
             return response;
         }

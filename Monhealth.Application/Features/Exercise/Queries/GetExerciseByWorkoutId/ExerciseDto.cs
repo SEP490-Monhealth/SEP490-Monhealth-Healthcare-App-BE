@@ -11,6 +11,8 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
         [JsonPropertyName("name")]
         public string ExerciseName { get; set; } = string.Empty;
         public string Instructions { get; set; } = string.Empty;
+        public int Duration { get; set; }
+        public int Reps { get; set; }
         public float CaloriesPerMinute { get; set; }
     }
 }
