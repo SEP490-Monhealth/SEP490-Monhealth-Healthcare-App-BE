@@ -45,7 +45,9 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<DailyActivity> DailyActivities { get; set; }
         public DbSet<DailyWaterIntake> DailyWaterIntakes { get; set; }
         public DbSet<Consultant> Consultants { get; set; }
-        public DbSet<ConsultantExpertise> ConsultantExpertise { get; set; }
+        public DbSet<Expertise> Expertises { get; set; }
+        public DbSet<ConsultantExpertise> ConsultantExpertises { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -128,7 +130,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new FoodPortionConfiguration());
             builder.ApplyConfiguration(new AllergyConfiguration());
             builder.ApplyConfiguration(new ExerciseConfiguration());
-            builder.ApplyConfiguration(new FoodAllergyConfiguration());
+            // builder.ApplyConfiguration(new FoodAllergyConfiguration());
             builder.ApplyConfiguration(new WorkoutConfiguration());
             builder.ApplyConfiguration(new WorkoutExerciseConfiguration());
             builder.ApplyConfiguration(new SubscriptionConfiguration());

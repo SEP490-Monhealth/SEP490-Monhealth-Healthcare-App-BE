@@ -13,9 +13,9 @@ namespace Monhealth.Api.Controllers
     public class WorkoutController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllWorkouts(int page = 1, int limit = 10, string? category = null, WorkoutType? type = null, string? search = null, DifficultyLevel? difficulty = null, bool? popular = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllWorkouts(int page = 1, int limit = 10, string? category = null, string? search = null, DifficultyLevel? difficulty = null, bool? popular = null, bool? status = null)
         {
-            var workouts = await mediator.Send(new GetAllWorkoutQuery(page, limit, category, type, search, difficulty, popular, status));
+            var workouts = await mediator.Send(new GetAllWorkoutQuery(page, limit, category, search, difficulty, popular, status));
 
             return new ResultModel
             {
