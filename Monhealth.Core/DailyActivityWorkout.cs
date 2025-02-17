@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class DailyActivityWorkout : TimeEntity
+    public class Activities : TimeEntity
     {
         [Key]
-        public Guid DailyActivityWorkoutId { get; set; }
+        public Guid ActivityId { get; set; }
         public Guid? DailyActivityId { get; set; }
         public Guid? WorkoutId { get; set; }
         public bool Status { get; set; }

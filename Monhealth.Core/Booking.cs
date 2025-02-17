@@ -9,7 +9,7 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid BookingId { get; set; } // PK
-        public Guid? ServiceId { get; set; } // FK
+        //public Guid? ServiceId { get; set; } // FK
         public Guid? UserId { get; set; } // FK
         public Guid? ConsultantId { get; set; } // FK
         public DateTime Date { get; set; }
@@ -18,8 +18,8 @@ namespace Monhealth.Domain
         public string Status { get; set; } = string.Empty;
         [ForeignKey(nameof(UserId)), Column(Order = 0)]
         public AppUser? User { get; set; }
-        [ForeignKey(nameof(ServiceId))]
-        public Service Service { get; set; }
+        //[ForeignKey(nameof(ServiceId))]
+        //public Service Service { get; set; }
         [ForeignKey(nameof(ConsultantId)), Column(Order = 1)]
         public AppUser? Consultant { get; set; }
         public ICollection<Payment> Payments { get; set; }

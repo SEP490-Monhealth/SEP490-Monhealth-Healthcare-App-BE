@@ -24,7 +24,7 @@ namespace Monhealth.Identity.Models
         public ICollection<Certificate> Certificates { get; set; }
         public ICollection<UserSubscription> UserSubscriptions { get; set; }
         public ICollection<Schedule> Schedules { get; set; }
-        public ICollection<Service> Services { get; set; }
+        //public ICollection<Service> Services { get; set; }
         [InverseProperty(nameof(Booking.User))]
         public ICollection<Booking> UserBookings { get; set; }
         [InverseProperty(nameof(Booking.Consultant))]

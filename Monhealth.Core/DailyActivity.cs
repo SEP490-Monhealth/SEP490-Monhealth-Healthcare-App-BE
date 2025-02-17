@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
@@ -16,6 +16,6 @@ namespace Monhealth.Domain
         public AppUser AppUser { get; set; }
         [ForeignKey(nameof(GoalId))]
         public Goal Goal { get; set; }
-        public ICollection<DailyActivityWorkout> DailyActivityWorkouts { get; set; }
+        public ICollection<Activities> Activities { get; set; }
     }
 }

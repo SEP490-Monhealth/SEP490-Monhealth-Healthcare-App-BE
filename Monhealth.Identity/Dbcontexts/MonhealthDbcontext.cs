@@ -31,11 +31,10 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<UserAllergy> UserAllergies { get; set; }
         public DbSet<FoodAllergy> FoodAllergies { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
-        public DbSet<CertificateImage> CertificateImages { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<UserSubscription> UserSubscriptions { get; set; }
-        public DbSet<Service> Services { get; set; }
+        //public DbSet<Service> Services { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Payment> Payments { get; set; }
