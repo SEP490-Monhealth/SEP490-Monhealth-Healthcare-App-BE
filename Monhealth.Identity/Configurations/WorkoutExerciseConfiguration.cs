@@ -340,8 +340,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutId = Guid.Parse("56bdef4d-ab20-46cd-b74b-fc22d25edc00"),
                 ExerciseId = Guid.Parse("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
                 Order = 3,
-                Duration = 30,
-                Reps = 0,
+                Duration = 0,
+                Reps = 20,
                 CreatedAt = today,
                 UpdatedAt = today,
             },
@@ -448,8 +448,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutId = Guid.Parse("8aaffa80-a610-4eb3-adb2-bbb46d2487d0"),
                 ExerciseId = Guid.Parse("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
                 Order = 3,
-                Duration = 30,
-                Reps = 0,
+                Duration = 0,
+                Reps = 20,
                 CreatedAt = today,
                 UpdatedAt = today,
             },
@@ -2131,7 +2131,6 @@ namespace Monhealth.Identity.Configurations
                 UpdatedAt = today,
             }
             #endregion
-
             );
         }
     }

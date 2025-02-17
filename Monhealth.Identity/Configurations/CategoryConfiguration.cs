@@ -194,9 +194,9 @@ namespace Monhealth.Identity.Configurations
             new Category
             {
                 CategoryId = Guid.Parse("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
-                CategoryName = "Warm up",
+                CategoryName = "Full Body",
                 CategoryType = (CategoryType)1,
-                CategoryDescription = "Bài tập khởi động nhẹ giúp làm nóng cơ bắp, tăng lưu thông máu và chuẩn bị cơ thể trước khi bước vào tập luyện.",
+                CategoryDescription = "",
                 Image = "",
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -207,9 +207,35 @@ namespace Monhealth.Identity.Configurations
             new Category
             {
                 CategoryId = Guid.Parse("036a94f2-013a-4375-a685-76ff6ffcc24e"),
-                CategoryName = "Workout",
+                CategoryName = "Upper Body",
                 CategoryType = (CategoryType)1,
-                CategoryDescription = "Bài tập chính với các động tác cường độ cao hoặc tập trung vào nhóm cơ nhất định, giúp phát triển sức mạnh và cải thiện thể lực.",
+                CategoryDescription = "",
+                Image = "",
+                CreatedAt = today,
+                UpdatedAt = today,
+            },
+            #endregion
+
+            #region Category Workout 3
+            new Category
+            {
+                CategoryId = Guid.Parse("2f998806-6963-42cf-9fce-7a5b5c2df540"),
+                CategoryName = "Lower Body",
+                CategoryType = (CategoryType)1,
+                CategoryDescription = "",
+                Image = "",
+                CreatedAt = today,
+                UpdatedAt = today,
+            },
+            #endregion
+
+            #region Category Workout 4
+            new Category
+            {
+                CategoryId = Guid.Parse("4575699a-5bb6-42ec-9d52-ea19d1170187"),
+                CategoryName = "Abs",
+                CategoryType = (CategoryType)1,
+                CategoryDescription = "",
                 Image = "",
                 CreatedAt = today,
                 UpdatedAt = today,

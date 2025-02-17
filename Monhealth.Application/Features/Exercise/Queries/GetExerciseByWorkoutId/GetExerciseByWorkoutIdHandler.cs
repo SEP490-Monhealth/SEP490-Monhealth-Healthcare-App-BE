@@ -12,7 +12,9 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
         {
             var workout = await workoutRepository.GetWorkoutByIdAsync(request.WorkoutId);
             if (workout == null) throw new Exception("Không tìm thấy bài tập");
+
             var exerciseLists = new List<string>();
+
             if (workout.WorkoutType == Core.Enum.WorkoutType.FullBody)
             {
                 exerciseLists = new List<string>
@@ -22,6 +24,7 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
                     "546e3f6d-16be-4d13-8c15-3947bcf15b1f"
                 };
             }
+            .
             else if (workout.WorkoutType == Core.Enum.WorkoutType.UpperBody)
             {
                 exerciseLists = new List<string>
