@@ -93,6 +93,16 @@ namespace Monhealth.Identity.Repositories
             return await _context.Exercises.Where(u => u.UserId == userId).ToListAsync();
         }
 
+        public async Task<IEnumerable<Workout>> GetWorkoutByWorkoutType(Workout workout)
+        {
+            return await _context.Workouts.Where(w => w.CategoryId == workout.CategoryId &&
+            w.WorkoutType == Core.Enum.WorkoutType.Warmup
+            && w.DifficultyLevel == workout.DifficultyLevel
+            )
+                .OrderBy(e => e.WorkoutExercises.Where(we => we.WorkoutId == workout.WorkoutId).Min(we => we.Order))
+                .ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();
