@@ -2,7 +2,7 @@ using AutoMapper;
 using Monhealth.Application.Features.Allergy.Queries.GetAll;
 using Monhealth.Application.Features.Allergy.Queries.GetByUser;
 using Monhealth.Application.Features.Allergy.Queries.GetDetail;
-using Monhealth.Core;
+using Monhealth.Domain;
 
 namespace Monhealth.Application.Automapper
 {

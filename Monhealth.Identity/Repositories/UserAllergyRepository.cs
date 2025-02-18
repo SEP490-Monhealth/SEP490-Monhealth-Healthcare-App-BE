@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Core;
+using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories

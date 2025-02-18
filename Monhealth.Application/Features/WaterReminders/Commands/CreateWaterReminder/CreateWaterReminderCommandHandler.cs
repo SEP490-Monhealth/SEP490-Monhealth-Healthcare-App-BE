@@ -13,7 +13,7 @@ namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
 
         public async Task<Unit> Handle(CreateWaterReminderCommand request, CancellationToken cancellationToken)
         {
-            var model = new Monhealth.Core.WaterReminder
+            var model = new Monhealth.Domain.WaterReminder
             {
                 UserId = request.UserId,
                 WaterReminderName = request.WaterReminderName,

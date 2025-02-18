@@ -14,7 +14,7 @@ namespace Monhealth.Application.Features.Allergy.Commands.CreateAllergy
 
         public async Task<bool> Handle(CreateAllergyRequest request, CancellationToken cancellationToken)
         {
-            var model = new Monhealth.Core.Allergy{
+            var model = new Monhealth.Domain.Allergy{
                 AllergyName = request.Name,
                 AllergyDescription = request.Description
             };

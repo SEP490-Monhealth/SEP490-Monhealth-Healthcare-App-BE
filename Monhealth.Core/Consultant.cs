@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Common;
+﻿using Monhealth.Core;
+using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,10 +11,13 @@ namespace Monhealth.Domain
         [Key]
         public Guid ConsultantId { get; set; }
         public Guid? UserId { get; set; }
+        public Guid? ExpertiseId { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int Experience { get; set; }
+
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
-        public ICollection<ConsultantExpertise>? ConsultantExpertises { get; set; }
+        [ForeignKey(nameof(ExpertiseId))]
+        public Expertise Expertise { get; set; }
     }
 }

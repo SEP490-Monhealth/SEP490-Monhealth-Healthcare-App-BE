@@ -79,6 +79,7 @@ namespace Monhealth.Identity
             services.AddHostedService<ResetIsDrunkService>();
             services.AddScoped<IWorkoutRepository, WorkoutRepository>();
             services.AddScoped<IWorkoutExcerciseRepository, WorkoutExcerciseRepository>();
+            services.AddScoped<IExpertiseRepository, ExpertiseRepository>();
             // Đăng ký MediatR
             services.AddScoped<WaterReminderResetService>();
             services.AddScoped<IDailyWaterIntakesRepository, DailyWaterIntakesRepository>();

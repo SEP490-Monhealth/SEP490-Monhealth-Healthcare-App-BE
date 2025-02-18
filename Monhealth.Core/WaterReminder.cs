@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
 
-namespace Monhealth.Core
+namespace Monhealth.Domain
 {
     public class WaterReminder : TimeEntity
     {
