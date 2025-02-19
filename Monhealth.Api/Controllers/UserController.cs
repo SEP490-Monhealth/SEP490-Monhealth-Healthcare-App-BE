@@ -82,6 +82,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpPut("users/{userId}/avatar")]
         public async Task<ActionResult<ResultModel>> UpdateUserAvatar(Guid userId, [FromBody] UpdateAvatarRequest request)
         {
@@ -94,6 +95,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpDelete("{userId}")]
         public async Task<ActionResult<ResultModel>> Delete(Guid userId)
         {
@@ -105,6 +107,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+        
         [HttpPatch]
         [Route("{userId}/status")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid userId)

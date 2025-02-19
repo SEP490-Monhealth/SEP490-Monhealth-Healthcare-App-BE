@@ -19,6 +19,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllReviews()
         {
@@ -31,6 +32,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet]
         [Route("{reviewId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetReviewDetail(Guid reviewId)
@@ -55,6 +57,49 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> AddReview([FromBody] AddReviewRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo đánh giá thành công",
+                    Status = 201,
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo đánh giá thất bại"
+            });
+        }
+
+        [HttpPut]
+        [Route("{reviewId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateReview(Guid reviewId, [FromBody] UpdateReviewRequest request)
+        {
+            var command = new UpdateReviewCommand(reviewId, request);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Cập nhật đánh giá không thành công",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật đánh giá thành công",
+                Success = true,
+                Status = 204,
+            });
+        }
+
         [HttpDelete]
         [Route("{reviewId:Guid}")]
         public async Task<ActionResult<ResultModel>> RemoveReview(Guid reviewId)
@@ -82,46 +127,5 @@ namespace Monhealth.Api.Controllers
                 Data = null
             });
         }
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> AddReview([FromBody] AddReviewRequest request)
-        {
-            var result = await _mediator.Send(request);
-            if (result != null)
-            {
-                return Ok(new ResultModel
-                {
-                    Success = true,
-                    Message = "Tạo dinh dưỡng thành công",
-                    Status = 201,
-                });
-            }
-
-            return BadRequest(new ResultModel
-            {
-                Success = false,
-                Message = "Tạo dinh dưỡng thất bại"
-            });
-        }
-        [HttpPut]
-        [Route("{reviewId:Guid}")]
-        public async Task<ActionResult<ResultModel>> UpdateReview(Guid reviewId, [FromBody] UpdateReviewRequest request)
-        {
-            var command = new UpdateReviewCommand(reviewId, request);
-            var result = await _mediator.Send(command);
-            if (!result)
-                return new ResultModel
-                {
-                    Message = "Cập nhật đánh giá không thành công",
-                    Success = false,
-                    Data = null
-                };
-            return Ok(new ResultModel
-            {
-                Message = "Cập nhật đánh giá thành công",
-                Success = true,
-                Status = 204,
-            });
-        }
-
     }
 }

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCompletedCommand;
-using Monhealth.Application.Features.Goals.Commands.CreateCommand;
 using Monhealth.Application.Features.Goals.Commands.DeleteCommand;
 using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
 using Monhealth.Application.Features.Goals.Queries.GetAllGoals;

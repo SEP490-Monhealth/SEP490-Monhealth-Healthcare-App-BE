@@ -25,6 +25,19 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpGet("{workoutId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetWorkoutById([FromRoute] Guid workoutId)
+        {
+            var workouts = await mediator.Send(new GetWorkoutByIdQuery(workoutId));
+
+            return new ResultModel
+            {
+                Data = workouts,
+                Status = 200,
+                Success = true,
+            };
+        }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateWorkout([FromBody] CreateWorkoutCommand command)
         {
@@ -45,19 +58,6 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo bài tập thất bại",
                 Status = 400,
             });
-        }
-
-        [HttpGet("{workoutId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetWorkoutById([FromRoute] Guid workoutId)
-        {
-            var workouts = await mediator.Send(new GetWorkoutByIdQuery(workoutId));
-
-            return new ResultModel
-            {
-                Data = workouts,
-                Status = 200,
-                Success = true,
-            };
         }
     }
 }

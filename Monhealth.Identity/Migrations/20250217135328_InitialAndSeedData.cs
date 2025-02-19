@@ -1020,7 +1020,7 @@ namespace Monhealth.Identity.Migrations
                     { new Guid("1975eaae-fd39-417e-bfcc-5e09f963b95f"), null, "Quản lý", "Manager", "MANAGER" },
                     { new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"), null, "Thành viên", "Member", "MEMBER" },
                     { new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"), null, "Người dùng", "User", "USER" },
-                    { new Guid("c0278115-8549-4fad-890a-44f8e8fcc022"), null, "Tư vấn viên", "Consultant", "CONSULTANT" },
+                    { new Guid("c0278115-8549-4fad-890a-44f8E8fcc022"), null, "Tư vấn viên", "Consultant", "CONSULTANT" },
                     { new Guid("d21edfd6-42d5-490a-a41c-43f7ef09c61f"), null, "Quản trị viên", "Admin", "ADMIN" }
                 });
 
@@ -1214,7 +1214,7 @@ namespace Monhealth.Identity.Migrations
                     { new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"), new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e") },
                     { new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"), new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d") },
                     { new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"), new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b") },
-                    { new Guid("c0278115-8549-4fad-890a-44f8e8fcc022"), new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87") }
+                    { new Guid("c0278115-8549-4fad-890a-44f8E8fcc022"), new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87") }
                 });
 
             migrationBuilder.InsertData(

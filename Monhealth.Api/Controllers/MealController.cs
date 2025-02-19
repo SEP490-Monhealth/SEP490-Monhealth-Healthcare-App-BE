@@ -82,7 +82,7 @@ namespace Monhealth.Api.Controllers
                 Data = meal
             });
         }
-        
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> AddMeal([FromBody] CreateMealDTO request)
         {
