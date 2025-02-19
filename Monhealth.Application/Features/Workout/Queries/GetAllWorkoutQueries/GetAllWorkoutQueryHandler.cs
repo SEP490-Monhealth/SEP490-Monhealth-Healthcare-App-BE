@@ -7,7 +7,6 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
 {
     public class GetAllWorkoutQueryHandler(IWorkoutRepository workoutRepository, IMapper mapper) : IRequestHandler<GetAllWorkoutQuery, PageResult<WorkoutDto>>
     {
-
         public async Task<PageResult<WorkoutDto>> Handle(GetAllWorkoutQuery request, CancellationToken cancellationToken)
         {
             var paginatedWorkout = await workoutRepository.GetAllWorkWithPaging(request.Page, request.Limit, request.CategoryName, request.Search, request.difficulty, request.Popular, request.Status, cancellationToken);
@@ -19,7 +18,6 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
                 TotalItems = paginatedWorkout.TotalCount,
                 Items = (List<WorkoutDto>)result
             };
-
         }
     }
 }

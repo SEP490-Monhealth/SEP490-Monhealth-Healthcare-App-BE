@@ -194,7 +194,7 @@ namespace Monhealth.Identity.Configurations
             new Category
             {
                 CategoryId = Guid.Parse("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9"),
-                CategoryName = "Full Body",
+                CategoryName = "Toàn thân",
                 CategoryType = (CategoryType)1,
                 CategoryDescription = "",
                 Image = "",
@@ -207,7 +207,7 @@ namespace Monhealth.Identity.Configurations
             new Category
             {
                 CategoryId = Guid.Parse("036a94f2-013a-4375-a685-76ff6ffcc24e"),
-                CategoryName = "Upper Body",
+                CategoryName = "Thân trên",
                 CategoryType = (CategoryType)1,
                 CategoryDescription = "",
                 Image = "",
@@ -220,7 +220,7 @@ namespace Monhealth.Identity.Configurations
             new Category
             {
                 CategoryId = Guid.Parse("2f998806-6963-42cf-9fce-7a5b5c2df540"),
-                CategoryName = "Lower Body",
+                CategoryName = "Thân dưới",
                 CategoryType = (CategoryType)1,
                 CategoryDescription = "",
                 Image = "",
@@ -233,7 +233,7 @@ namespace Monhealth.Identity.Configurations
             new Category
             {
                 CategoryId = Guid.Parse("4575699a-5bb6-42ec-9d52-ea19d1170187"),
-                CategoryName = "Abs",
+                CategoryName = "Bụng",
                 CategoryType = (CategoryType)1,
                 CategoryDescription = "",
                 Image = "",

@@ -111,7 +111,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            RoleId = new Guid("c0278115-8549-4fad-890a-44f8e8fcc022"),
+                            RoleId = new Guid("c0278115-8549-4fad-890a-44f8E8fcc022"),
                             UserId = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87")
                         },
                         new
@@ -14257,7 +14257,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c0278115-8549-4fad-890a-44f8e8fcc022"),
+                            Id = new Guid("c0278115-8549-4fad-890a-44f8E8fcc022"),
                             DisplayName = "Tư vấn viên",
                             Name = "Consultant",
                             NormalizedName = "CONSULTANT"
