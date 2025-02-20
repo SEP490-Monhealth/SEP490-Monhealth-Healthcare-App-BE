@@ -1926,34 +1926,34 @@ namespace Monhealth.Identity.Configurations
             // },
             // #endregion
 
-            #region Nutrition 67
-            new Nutrition
-            {
-                NutritionId = Guid.Parse("ca821e05-cfcc-4ea5-a544-734a88606c98"),
-                FoodId = Guid.Parse("46b9f487-dc6d-4c1d-9729-9f707ac28202"),
-                Calories = 250,
-                Protein = 12f,
-                Carbs = 30f,
-                Fiber = 1.5f,
-                Sugar = 5.0f,
-                Fat = 9.0f,
-                SaturatedFat = 3.0f,
-                UnsaturatedFat = 4.5f,
-                Cholesterol = 40,
-                Sodium = 400,
-                Potassium = 200,
-                Calcium = 80,
-                Iron = 2.0f,
-                VitaminA = 0.05f,
-                VitaminB1 = 0.1f,
-                VitaminB2 = 0.12f,
-                VitaminC = 0.0f,
-                VitaminD = 0.0f,
-                VitaminE = 0.2f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 67
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.Parse("ca821e05-cfcc-4ea5-a544-734a88606c98"),
+            //     FoodId = Guid.Parse("46b9f487-dc6d-4c1d-9729-9f707ac28202"),
+            //     Calories = 250,
+            //     Protein = 12f,
+            //     Carbs = 30f,
+            //     Fiber = 1.5f,
+            //     Sugar = 5.0f,
+            //     Fat = 9.0f,
+            //     SaturatedFat = 3.0f,
+            //     UnsaturatedFat = 4.5f,
+            //     Cholesterol = 40,
+            //     Sodium = 400,
+            //     Potassium = 200,
+            //     Calcium = 80,
+            //     Iron = 2.0f,
+            //     VitaminA = 0.05f,
+            //     VitaminB1 = 0.1f,
+            //     VitaminB2 = 0.12f,
+            //     VitaminC = 0.0f,
+            //     VitaminD = 0.0f,
+            //     VitaminE = 0.2f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 68
             new Nutrition
@@ -4943,34 +4943,34 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 171
-            new Nutrition
-            {
-                NutritionId = Guid.Parse("3d6391c3-73eb-42d1-b3d1-e8a3c6b7e995"),
-                FoodId = Guid.Parse("67f6b055-1abc-4a48-97ce-63aea2e5ef7b"),
-                Calories = 339,
-                Protein = 13.7f,
-                Carbs = 71.2f,
-                Fiber = 12.2f,
-                Sugar = 0.4f,
-                Fat = 2.5f,
-                SaturatedFat = 0.3f,
-                UnsaturatedFat = 2.2f,
-                Cholesterol = 0,
-                Sodium = 2,
-                Potassium = 431,
-                Calcium = 29,
-                Iron = 3.9f,
-                VitaminA = 0,
-                VitaminB1 = 0.49f,
-                VitaminB2 = 0.15f,
-                VitaminC = 0,
-                VitaminD = 0,
-                VitaminE = 0.2f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 171
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.Parse("3d6391c3-73eb-42d1-b3d1-e8a3c6b7e995"),
+            //     FoodId = Guid.Parse("67f6b055-1abc-4a48-97ce-63aea2e5ef7b"),
+            //     Calories = 339,
+            //     Protein = 13.7f,
+            //     Carbs = 71.2f,
+            //     Fiber = 12.2f,
+            //     Sugar = 0.4f,
+            //     Fat = 2.5f,
+            //     SaturatedFat = 0.3f,
+            //     UnsaturatedFat = 2.2f,
+            //     Cholesterol = 0,
+            //     Sodium = 2,
+            //     Potassium = 431,
+            //     Calcium = 29,
+            //     Iron = 3.9f,
+            //     VitaminA = 0,
+            //     VitaminB1 = 0.49f,
+            //     VitaminB2 = 0.15f,
+            //     VitaminC = 0,
+            //     VitaminD = 0,
+            //     VitaminE = 0.2f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 172
             new Nutrition

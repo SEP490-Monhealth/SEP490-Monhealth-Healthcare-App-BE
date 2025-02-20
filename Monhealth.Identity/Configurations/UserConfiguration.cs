@@ -159,12 +159,12 @@ namespace Monhealth.Identity.Configurations
             new AppUser
             {
                 Id = Guid.Parse("20041d5b-01e4-443f-9652-e39beb9748e5"),
-                FullName = "Chuyen Vien Tu Van",
+                FullName = "Van Huu Toan 2",
                 Status = true,
                 Email = "consultant@gmail.com",
                 NormalizedEmail = "CONSULTANT@GMAIL.COM",
-                UserName = "consultantvip",
-                NormalizedUserName = "CONSULTANTVIP",
+                UserName = "vanhtoan",
+                NormalizedUserName = "0987654321",
                 PhoneNumber = "0987654321",
                 LockoutEnabled = false,
                 EmailConfirmed = true,

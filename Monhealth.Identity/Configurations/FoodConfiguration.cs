@@ -18,13 +18,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("599cfc95-4108-4dcc-9c5a-077173251f8b"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Carbs],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish, DishType.SideDish],
+                DishType = [DishType.MainDish],
                 FoodName = "Cơm",
-                FoodDescription = "Gạo nấu chín, món ăn cơ bản trong bữa cơm hàng ngày của người Việt Nam",
+                FoodDescription = "Cơm là món ăn chủ yếu trong bữa ăn Việt Nam, cung cấp tinh bột quan trọng. Cơm thường ăn kèm với các món mặn như thịt, cá và rau, tạo nên một bữa ăn đầy đủ dinh dưỡng, bổ sung năng lượng cho cơ thể",
                 Views = 100,
                 IsPublic = true,
                 Status = true,
@@ -39,13 +39,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Carbs],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner, MealType.Snack],
                 DishType = [DishType.MainDish, DishType.SideDish],
                 FoodName = "Bánh mì",
-                FoodDescription = "Bánh vỏ giòn, ruột mềm, dùng kèm nhiều loại nhân như thịt, trứng, rau",
+                FoodDescription = "Bánh mì là món ăn nhanh, phổ biến với lớp vỏ giòn và nhân phong phú như thịt nướng, pate, trứng. Đây là lựa chọn lý tưởng cho bữa sáng hoặc bữa ăn nhẹ, dễ dàng mang theo và rất tiện lợi",
                 Views = 100,
                 IsPublic = true,
                 Status = true,
@@ -60,14 +60,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("a989c8db-7506-467f-8aba-dce042f68eea"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Dessert],
                 FoodName = "Chuối",
-                FoodDescription = "Trái cây ngọt, giàu năng lượng và chất dinh dưỡng, dễ dàng mang theo",
-                Views = 90,
+                FoodDescription = "Chuối là trái cây ngọt, dễ ăn, cung cấp vitamin C và kali. Chuối rất tốt cho hệ tiêu hóa và tim mạch. Món này thường được ăn trực tiếp, làm sinh tố hoặc chế biến thành các món tráng miệng như chè",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -81,14 +80,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish, DishType.SideDish],
+                DishType = [DishType.SideDish, DishType.MainDish],
                 FoodName = "Trứng gà luộc",
-                FoodDescription = "Món ăn giàu protein, dễ chế biến, thường dùng trong bữa sáng hoặc ăn vặt",
-                Views = 80,
+                FoodDescription = "Trứng gà luộc là món ăn đơn giản, giàu protein, vitamin B12 và khoáng chất. Trứng gà thường được ăn sáng hoặc dùng làm món phụ trong bữa ăn chính, giúp cung cấp năng lượng và duy trì sức khỏe",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -102,13 +100,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("021b651c-bb01-4965-95bc-3532fbacad3d"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Drink],
                 FoodName = "Sữa tươi không đường",
-                FoodDescription = "Thức uống giàu dinh dưỡng, bổ sung canxi, tốt cho sức khỏe xương và răng",
+                FoodDescription = "Sữa tươi không đường là nguồn cung cấp canxi và protein giúp xương chắc khỏe. Nó cũng hỗ trợ phát triển cơ bắp, cung cấp vitamin A và D. Sữa tươi là thức uống bổ dưỡng cho bữa sáng hoặc giữa các bữa ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -122,14 +120,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("8fa26c41-16b2-49f8-a284-856024a5f947"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
                 FoodName = "Bún bò huế",
-                FoodDescription = "Món bún nước đậm đà từ Huế, nổi bật với hương sả, ớt, thịt bò",
-                Views = 100,
+                FoodDescription = "Bún bò Huế là món ăn nổi tiếng với nước dùng đậm đà từ xương bò, mắm ruốc, và gia vị đặc trưng. Món này kết hợp bún, thịt bò, giò heo và rau sống, tạo nên hương vị thơm ngon, hấp dẫn cho bữa ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -143,14 +140,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("1387c20d-27a6-495b-a3a0-efbb715f6430"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
                 DishType = [DishType.Dessert],
                 FoodName = "Táo",
-                FoodDescription = "Trái cây giòn, ngọt, nhiều chất xơ và vitamin, tốt cho hệ tiêu hóa",
-                Views = 100,
+                FoodDescription = "Táo là trái cây giàu vitamin C và chất xơ, tốt cho tiêu hóa và hệ tim mạch. Táo có thể ăn trực tiếp hoặc làm sinh tố, salad, giúp tăng cường sức khỏe và cung cấp năng lượng tự nhiên cho cơ thể",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -164,13 +160,14 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("ab2117f7-9940-44cb-b191-2dfabefac8c8"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Carbs],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish, DishType.SideDish],
                 FoodName = "Bún",
-                FoodDescription = "Sợi bún mềm, thường dùng trong các món nước hoặc xào",
+                FoodDescription = "Bún là món ăn phổ biến ở Việt Nam, được chế biến từ gạo. Bún có thể kết hợp với các loại thịt, cá, hoặc rau, tạo thành những món như bún riêu, bún chả, bún bò Huế, mang lại hương vị đặc trưng",
+                Views = 100,
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -184,13 +181,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("455bb5ed-ed2c-4172-8831-2b8a08614198"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner, MealType.Snack],
                 DishType = [DishType.SideDish],
                 FoodName = "Dưa chuột",
-                FoodDescription = "Rau quả mát, nhiều nước, thường ăn sống hoặc làm gỏi",
+                FoodDescription = "Dưa chuột là rau quả tươi mát, giúp giải nhiệt và làm đẹp da. Dưa chuột có thể ăn sống, làm salad, hoặc chế biến thành món xào và canh, rất thích hợp trong các bữa ăn hằng ngày để thanh lọc cơ thể",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -204,13 +201,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("1140212e-cdb4-4f25-92f6-9b9407a71163"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Dessert],
                 FoodName = "Chuối tây",
-                FoodDescription = "Chuối nhỏ, vị ngọt nhẹ, thường dùng làm món ăn nhẹ hoặc nấu chè",
+                FoodDescription = "Chuối tây là trái cây ngọt, dễ ăn, giàu kali và vitamin. Chuối tây thường được ăn trực tiếp hoặc làm tráng miệng, sinh tố, chè. Đây là món ăn bổ dưỡng và dễ tiêu hóa, thích hợp cho mọi lứa tuổi",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -224,13 +221,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("ff1bc1f2-3515-4dfe-b271-8cabf205bbcf"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Dessert],
                 FoodName = "Chuối tiêu",
-                FoodDescription = "Loại chuối phổ biến, vỏ vàng, thơm, ngọt, dùng làm món tráng miệng",
+                FoodDescription = "Chuối tiêu là trái cây ngọt nhẹ, giàu kali và vitamin C, giúp hỗ trợ tiêu hóa và cung cấp năng lượng. Chuối tiêu có thể ăn trực tiếp hoặc chế biến thành các món tráng miệng như chè chuối hấp",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -244,13 +241,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("fa0d83ce-d0d7-414f-bd85-e4bc6402c0db"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Dessert],
                 FoodName = "Ổi",
-                FoodDescription = "Trái cây nhiều vitamin C, giòn, ngọt hoặc chua nhẹ, ăn cả vỏ",
+                FoodDescription = "Ổi là trái cây giàu vitamin C, giúp tăng cường hệ miễn dịch và làm đẹp da. Ổi có thể ăn trực tiếp hoặc làm sinh tố, nước ép, rất tốt cho sức khỏe, đặc biệt là trong việc hỗ trợ tiêu hóa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -264,14 +261,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("77fe5e06-7fee-486d-a1a7-c031f2065490"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
                 FoodName = "Cơm tấm sườn",
-                FoodDescription = "Món cơm từ gạo tấm, ăn kèm sườn nướng, đồ chua, và nước mắm",
-                Views = 100,
+                FoodDescription = "Cơm tấm sườn là món ăn phổ biến ở miền Nam Việt Nam, bao gồm cơm tấm mềm mịn ăn kèm với sườn nướng và các loại rau sống. Món này mang lại hương vị đậm đà và đầy đủ dinh dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -285,13 +281,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("86d88717-df08-4de6-b86d-870210864b46"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Dessert],
                 FoodName = "Thanh long",
-                FoodDescription = "Trái cây mọng nước, thịt trắng hoặc đỏ, vị ngọt thanh mát",
+                FoodDescription = "Thanh long là trái cây ngọt, mát, chứa nhiều vitamin C và khoáng chất, giúp tăng cường sức đề kháng và làm đẹp da. Thanh long có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -305,14 +301,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
                 FoodName = "Bún riêu cua",
-                FoodDescription = "Món bún với nước lèo cua đồng, ăn kèm rau sống và mắm tôm",
-                Views = 100,
+                FoodDescription = "Bún riêu cua là món ăn nổi tiếng với nước dùng chua ngọt, kết hợp với cua, bún và các loại rau sống. Món ăn này mang hương vị đặc trưng và bổ dưỡng, phù hợp cho bữa trưa hoặc tối",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -326,14 +321,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("7378ca5f-f1a8-4c23-a019-50af3012526f"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
                 FoodName = "Bánh bao",
-                FoodDescription = "Bánh hấp có nhân thịt, trứng, hoặc rau củ, mềm và thơm",
-                Views = 90,
+                FoodDescription = "Bánh bao là món ăn đơn giản, với lớp vỏ mềm mịn và nhân thịt heo hoặc trứng. Đây là món ăn nhanh gọn, thường được ăn sáng hoặc làm món phụ trong các bữa ăn chính",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -347,14 +341,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
                 FoodName = "Bún thịt nướng",
-                FoodDescription = "Bún tươi kết hợp thịt nướng, rau sống, và nước mắm chua ngọt",
-                Views = 100,
+                FoodDescription = "Bún thịt nướng là món ăn gồm bún mềm, thịt nướng thơm ngon và các loại rau sống. Món này có thể ăn kèm với nước mắm pha, tạo thành một bữa ăn vừa thanh mát vừa đầy đủ dinh dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -368,13 +361,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("42883b21-4cbd-40ce-850f-b0723f1766fe"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
                 FoodName = "Cà chua",
-                FoodDescription = "Loại quả đỏ mọng, thường dùng làm nước sốt, canh, hoặc ăn sống",
+                FoodDescription = "Cà chua là thực phẩm giàu vitamin C và chất xơ, có tác dụng làm đẹp da và hỗ trợ tiêu hóa. Cà chua có thể ăn sống, làm salad, hoặc chế biến thành các món xào, canh",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -388,14 +381,13 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("f6cf96c8-adc3-43e0-af5a-8b19623fed94"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch],
                 DishType = [DishType.MainDish],
                 FoodName = "Xôi mặn",
-                FoodDescription = "Món xôi từ gạo nếp, ăn kèm thịt, trứng, chả, và hành phi",
-                Views = 90,
+                FoodDescription = "Xôi mặn là món ăn từ gạo nếp, kết hợp với thịt, lạp xưởng hoặc trứng. Món này thường được ăn vào buổi sáng hoặc trong các dịp đặc biệt, rất bổ dưỡng và dễ ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -405,38 +397,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 20
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("f44fd111-2744-406a-a706-abc9c0494502"),
-            //     CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Mật ong",
-            //     FoodDescription = "Chất ngọt tự nhiên từ ong, có lợi cho sức khỏe và làm đẹp",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 20
+            new Food
+            {
+                FoodId = Guid.Parse("eac10b91-8509-4986-b689-7ee3a3757a18"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Dưa hấu",
+                FoodDescription = "Dưa hấu là trái cây giải nhiệt, chứa nhiều nước và vitamin C. Đây là món ăn lý tưởng trong mùa hè, giúp cung cấp nước và dưỡng chất cho cơ thể, có thể ăn trực tiếp hoặc làm sinh tố",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 21
             new Food
             {
-                FoodId = Guid.Parse("eac10b91-8509-4986-b689-7ee3a3757a18"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse("dca16637-cf90-402f-921f-5c60e99e4bfa"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Dưa hấu",
-                FoodDescription = "Trái cây nhiều nước, vị ngọt mát, thích hợp trong ngày nóng",
-                Views = 80,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Chả lụa",
+                FoodDescription = "Chả lụa là món ăn được làm từ thịt heo xay nhuyễn, cuộn chặt và hấp chín. Món này thường dùng trong các bữa ăn chính, bánh mì hoặc cơm, mang lại hương vị ngọt mềm, thơm ngon",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -449,14 +440,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 22
             new Food
             {
-                FoodId = Guid.Parse("dca16637-cf90-402f-921f-5c60e99e4bfa"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("a2c5c215-f105-42f9-8b68-3219b5bcc2a9"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish, DishType.SideDish],
-                FoodName = "Chả lụa",
-                FoodDescription = "Giò heo hấp chín, mềm, thơm, thường dùng trong bánh mì, bánh cuốn",
+                FoodType = [FoodType.Carbs],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cơm gạo lức",
+                FoodDescription = "Cơm gạo lức được làm từ gạo lức chưa xay xát hoàn toàn, giàu chất xơ và dinh dưỡng. Món này cung cấp năng lượng lâu dài, tốt cho sức khỏe và rất phổ biến trong các bữa ăn hàng ngày",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -469,14 +460,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 23
             new Food
             {
-                FoodId = Guid.Parse("a2c5c215-f105-42f9-8b68-3219b5bcc2a9"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse("85822a08-7189-4e08-8f55-25c73698af92"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish, DishType.SideDish],
-                FoodName = "Cơm gạo lứt",
-                FoodDescription = "Cơm từ gạo lứt, giàu chất xơ, tốt cho sức khỏe tim mạch",
+                DishType = [DishType.SideDish],
+                FoodName = "Xúc xích",
+                FoodDescription = "Xúc xích là món ăn làm từ thịt xay (thường là thịt heo hoặc bò), tẩm gia vị và nhồi vào ruột lợn, sau đó luộc hoặc nướng. Xúc xích dễ dàng chế biến và là món ăn nhanh gọn cho bữa sáng hoặc bữa phụ",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -489,14 +480,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 24
             new Food
             {
-                FoodId = Guid.Parse("85822a08-7189-4e08-8f55-25c73698af92"),
-                CategoryId = Guid.Parse("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
+                FoodId = Guid.Parse("ddc8d8f2-261b-4c1d-9061-e482d3c8cef3"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Snack],
-                DishType = [DishType.SideDish],
-                FoodName = "Xúc xích",
-                FoodDescription = "Món ăn nhanh từ thịt xay nhuyễn, thích hợp cho bữa ăn nhẹ",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Ức gà",
+                FoodDescription = "Ức gà là phần thịt ít mỡ, giàu protein và dễ chế biến. Món ức gà có thể nướng, xào, hấp hoặc luộc, cung cấp năng lượng và dưỡng chất cho cơ thể, phù hợp với bữa trưa hoặc tối",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -509,15 +500,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 25
             new Food
             {
-                FoodId = Guid.Parse("ddc8d8f2-261b-4c1d-9061-e482d3c8cef3"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Ức gà",
-                FoodDescription = "Phần thịt gà trắng, giàu đạm, ít béo, tốt cho người tập gym",
-                Views = 70,
+                FoodType = [FoodType.Carbs],
+                MealType = [MealType.Snack, MealType.Breakfast, MealType.Lunch],
+                DishType = [DishType.SideDish],
+                FoodName = "Bắp luộc",
+                FoodDescription = "Bắp luộc là món ăn đơn giản nhưng bổ dưỡng, chứa nhiều chất xơ và vitamin. Bắp luộc có thể ăn trực tiếp hoặc làm món ăn kèm trong bữa ăn, đặc biệt là vào mùa hè",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -530,14 +520,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 26
             new Food
             {
-                FoodId = Guid.Parse("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Bắp luộc",
-                FoodDescription = "Món bắp nấu chín, ngọt tự nhiên, thích hợp ăn sáng hoặc ăn vặt",
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Sữa chua",
+                FoodDescription = "Sữa chua là món ăn từ sữa lên men, chứa nhiều vi khuẩn có lợi cho hệ tiêu hóa. Sữa chua có thể ăn trực tiếp hoặc làm thành các món tráng miệng, bổ dưỡng và dễ tiêu hóa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -550,14 +540,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 27
             new Food
             {
-                FoodId = Guid.Parse("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
-                CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
+                FoodId = Guid.Parse("19bbab17-91c6-410f-b566-b509d067e76e"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Sữa chua",
-                FoodDescription = "Món ăn lên men từ sữa, giúp hỗ trợ tiêu hóa và làm đẹp da",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Đậu hũ",
+                FoodDescription = "Đậu hũ là món ăn được làm từ đậu nành, giàu protein thực vật. Đậu hũ có thể chế biến theo nhiều cách như chiên, nấu canh hoặc xào, mang lại hương vị thanh nhẹ và tốt cho sức khỏe",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -570,14 +560,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 28
             new Food
             {
-                FoodId = Guid.Parse("19bbab17-91c6-410f-b566-b509d067e76e"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Đậu hũ",
-                FoodDescription = "Sản phẩm từ đậu nành, giàu protein thực vật, dùng trong nhiều món chay",
+                FoodName = "Bánh bao chay",
+                FoodDescription = "Bánh bao chay là món ăn làm từ bột mì, nhân là các loại rau củ, đậu hũ hoặc nấm. Đây là món ăn phù hợp cho những người ăn chay, với hương vị nhẹ nhàng và bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -590,14 +580,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 29
             new Food
             {
-                FoodId = Guid.Parse("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
-                CategoryId = Guid.Parse("22ee062d-4904-4c64-a783-74b3e142aac7"),
+                FoodId = Guid.Parse("de097440-db5c-4d91-bd55-76618d70599d"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Bánh bao chay",
-                FoodDescription = "Bánh bao không nhân thịt, nhân rau củ hoặc đậu xanh",
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.Drink],
+                FoodName = "Nước cam",
+                FoodDescription = "Nước cam là thức uống từ cam tươi, cung cấp vitamin C và chất chống oxy hóa. Nước cam là lựa chọn tuyệt vời để giải khát và bổ sung dưỡng chất cho cơ thể, đặc biệt trong mùa lạnh",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -610,15 +600,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 30
             new Food
             {
-                FoodId = Guid.Parse("de097440-db5c-4d91-bd55-76618d70599d"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                FoodId = Guid.Parse("74181cd5-4b0b-48a9-9042-16d8789483d4"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Nước cam",
-                FoodDescription = "Thức uống tươi mát từ cam, cung cấp vitamin C tăng sức đề kháng",
-                Views = 100,
+                DishType = [DishType.SideDish],
+                FoodName = "Cà rốt",
+                FoodDescription = "Cà rốt là rau củ giàu vitamin A, giúp cải thiện thị lực và sức khỏe da. Cà rốt có thể ăn sống, làm salad, hoặc chế biến thành các món xào, canh hoặc nước ép",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -631,15 +620,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 31
             new Food
             {
-                FoodId = Guid.Parse("74181cd5-4b0b-48a9-9042-16d8789483d4"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Cà rốt",
-                FoodDescription = "Rau củ màu cam, giàu vitamin A, tốt cho mắt và sức khỏe da",
-                Views = 80,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cháo lòng",
+                FoodDescription = "Cháo lòng là món ăn sáng phổ biến, được làm từ cháo gạo nấu với các loại nội tạng heo như lòng, gan, dồi. Món này có vị đậm đà, thường ăn kèm với hành lá, rau thơm và gia vị",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -652,15 +640,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 32
             new Food
             {
-                FoodId = Guid.Parse("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("65c7b876-87e2-4307-ab76-c72ca277b78c"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cháo lòng",
-                FoodDescription = "Cháo gạo nấu với lòng heo, thơm béo, ăn kèm rau thơm",
-                Views = 80,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Snack],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Bánh mì sandwich",
+                FoodDescription = "Bánh mì sandwich là món ăn nhanh với lớp bánh mì mềm, nhân có thể là thịt, rau, trứng hoặc phô mai. Đây là lựa chọn lý tưởng cho bữa sáng hoặc bữa phụ, dễ dàng mang theo khi đi làm hoặc đi học",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -673,15 +660,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 33
             new Food
             {
-                FoodId = Guid.Parse("65c7b876-87e2-4307-ab76-c72ca277b78c"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                FoodId = Guid.Parse("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Bánh mì sandwich",
-                FoodDescription = "Bánh mì lát, dễ ăn, thích hợp cho bữa sáng nhanh",
-                Views = 90,
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Drink],
+                FoodName = "Nước dừa",
+                FoodDescription = "Nước dừa là thức uống mát từ nước bên trong quả dừa, giúp giải nhiệt và bổ sung khoáng chất. Nó cũng rất tốt cho làn da và hệ tiêu hóa, thích hợp để uống trong mùa hè",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -691,17 +677,17 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 34
+            #region Food 345
             new Food
             {
-                FoodId = Guid.Parse("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                FoodId = Guid.Parse("a3074169-6441-49cc-9ea7-79e240f6dda3"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Nước dừa",
-                FoodDescription = "Thức uống giải khát tự nhiên, giàu khoáng chất",
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.Dessert],
+                FoodName = "Xoài",
+                FoodDescription = "Xoài là trái cây ngọt, thơm, giàu vitamin C và chất xơ. Xoài có thể ăn trực tiếp hoặc làm sinh tố, chè, mang lại hương vị tươi mát và bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -714,14 +700,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 35
             new Food
             {
-                FoodId = Guid.Parse("a3074169-6441-49cc-9ea7-79e240f6dda3"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse("0a47589f-d177-46f9-8a10-63fd6da9b611"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Xoài",
-                FoodDescription = "Trái cây nhiệt đới, thịt vàng, ngọt hoặc chua tùy giống",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Rau muống",
+                FoodDescription = "Rau muống là loại rau lá xanh phổ biến ở Việt Nam, có thể xào, luộc hoặc làm canh. Rau muống giàu vitamin, khoáng chất và chất xơ, giúp hỗ trợ tiêu hóa và giải nhiệt",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -734,14 +720,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 36
             new Food
             {
-                FoodId = Guid.Parse("0a47589f-d177-46f9-8a10-63fd6da9b611"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("48113ca0-a1e7-4181-85fa-be6538a70873"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Rau muống",
-                FoodDescription = "Rau xanh thường luộc, xào hoặc làm gỏi, giàu chất xơ",
+                DishType = [DishType.MainDish],
+                FoodName = "Bún chả",
+                FoodDescription = "Bún chả là món ăn đặc sản Hà Nội, gồm bún, thịt chả nướng, và rau sống. Món ăn này có nước mắm pha chua ngọt, tạo thành bữa ăn ngon miệng, đậm đà và rất dễ ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -754,14 +740,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 37
             new Food
             {
-                FoodId = Guid.Parse("48113ca0-a1e7-4181-85fa-be6538a70873"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Bún chả",
-                FoodDescription = "Món bún ăn kèm thịt nướng, rau sống, và nước chấm chua ngọt",
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.Drink],
+                FoodName = "Sữa hộp milo",
+                FoodDescription = "Sữa hộp Milo là thức uống bổ dưỡng chứa nhiều vitamin và khoáng chất, phù hợp cho trẻ em và người lớn. Milo có hương vị ngọt ngào, thường được uống vào bữa sáng hoặc giữa các bữa ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -774,15 +760,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 38
             new Food
             {
-                FoodId = Guid.Parse("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                FoodId = Guid.Parse("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Sữa hộp milo",
-                FoodDescription = "Thức uống ca cao bổ dưỡng, thích hợp cho trẻ em",
-                Views = 80,
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh canh",
+                FoodDescription = "Bánh canh là món ăn nổi bật với nước dùng đậm đà, có thể làm từ bún hoặc bánh canh, ăn kèm với các loại thịt như cua, tôm, hoặc giò heo. Món này rất phổ biến ở miền Trung và Nam Việt Nam",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -795,15 +780,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 39
             new Food
             {
-                FoodId = Guid.Parse("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Bánh canh",
-                FoodDescription = "Món ăn với sợi bánh dày, ăn cùng nước lèo đậm đà",
-                Views = 100,
+                FoodName = "Hủ tíu",
+                FoodDescription = "Hủ tiếu là món ăn gồm mì hoặc bún ăn kèm với nước dùng thơm ngon và các loại thịt như tôm, gà, hoặc heo. Món này phổ biến ở miền Nam Việt Nam và rất dễ ăn, thích hợp cho bữa sáng hoặc bữa tối",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -816,15 +800,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 40
             new Food
             {
-                FoodId = Guid.Parse("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Hủ tíu",
-                FoodDescription = "Món ăn miền Nam với sợi hủ tíu mềm, nước lèo thanh ngọt",
-                Views = 100,
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.Drink],
+                FoodName = "Cà phê",
+                FoodDescription = "Cà phê là thức uống quen thuộc, có thể uống đen hoặc thêm sữa, với hương vị đậm đà và kích thích tinh thần. Cà phê thường được uống vào buổi sáng hoặc trong suốt cả ngày để duy trì sự tỉnh táo",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -837,15 +820,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 41
             new Food
             {
-                FoodId = Guid.Parse("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                FoodId = Guid.Parse("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Drink],
-                FoodName = "Cà phê",
-                FoodDescription = "Thức uống đậm đà, kích thích tinh thần, uống nóng hoặc đá",
-                Views = 90,
+                FoodName = "Cà phê sữa",
+                FoodDescription = "Cà phê sữa là thức uống phổ biến ở Việt Nam, được pha chế từ cà phê đen đặc kết hợp với sữa đặc ngọt. Món này có vị đắng nhẹ kết hợp với ngọt béo, thích hợp để uống vào buổi sáng để khởi đầu ngày mới",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -858,15 +840,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 42
             new Food
             {
-                FoodId = Guid.Parse("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                FoodId = Guid.Parse("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Drink, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Snack],
                 DishType = [DishType.Drink],
-                FoodName = "Cà phê sữa",
-                FoodDescription = "Cà phê kết hợp sữa đặc, vị ngọt béo hấp dẫn",
-                Views = 90,
+                FoodName = "Sữa đậu nành",
+                FoodDescription = "Sữa đậu nành là thức uống từ đậu nành xay nhuyễn, giàu protein và vitamin. Đây là món ăn sáng phổ biến, bổ dưỡng, có thể uống nóng hoặc lạnh, đặc biệt tốt cho người ăn chay và những người muốn bổ sung dưỡng chất từ thực vật",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -879,14 +860,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 43
             new Food
             {
-                FoodId = Guid.Parse("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
-                CategoryId = Guid.Parse("22ee062d-4904-4c64-a783-74b3e142aac7"),
+                FoodId = Guid.Parse("83e6e455-3ae1-4f5c-8e44-9a5ae79ee31b"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Drink],
-                FoodName = "Sữa đậu nành",
-                FoodDescription = "Thức uống từ đậu nành, ít ngọt, tốt cho sức khỏe",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Thịt kho tiêu",
+                FoodDescription = "Thịt kho tiêu là món ăn đơn giản nhưng thơm ngon, thường làm từ thịt ba chỉ hoặc thịt heo kho với tiêu, nước dừa và gia vị. Món này có vị mặn ngọt đậm đà, ăn cùng với cơm trắng rất hợp",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -899,15 +880,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 44
             new Food
             {
-                FoodId = Guid.Parse("83e6e455-3ae1-4f5c-8e44-9a5ae79ee31b"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Thịt kho tiêu",
-                FoodDescription = "Món thịt heo nấu tiêu, nước mắm, thơm nồng, đậm đà",
-                Views = 80,
+                FoodName = "Bún xào",
+                FoodDescription = "Bún xào là món ăn ngon miệng với bún xào cùng các loại rau và thịt hoặc tôm. Món này thường được chế biến nhanh, có vị thơm, ngọt từ các nguyên liệu kết hợp, thường ăn vào bữa trưa hoặc tối",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -920,14 +900,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 45
             new Food
             {
-                FoodId = Guid.Parse("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("3222413a-e385-4a0b-9d07-2af7b0cb4276"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Bún xào",
-                FoodDescription = "Món bún xào cùng rau củ và thịt, thơm ngon, dễ ăn",
+                DishType = [DishType.SideDish],
+                FoodName = "Cải thìa",
+                FoodDescription = "Cải thìa là loại rau xanh giàu vitamin và khoáng chất, có thể chế biến theo nhiều cách như xào, luộc hoặc nấu canh. Cải thìa giúp giải nhiệt và tốt cho hệ tiêu hóa, thường dùng trong các bữa ăn gia đình",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -940,14 +920,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 46
             new Food
             {
-                FoodId = Guid.Parse("3222413a-e385-4a0b-9d07-2af7b0cb4276"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("e0eec003-8384-412c-a307-b0185afdb0c7"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Cải thìa",
-                FoodDescription = "Loại rau xanh thường dùng trong món xào hoặc luộc",
+                FoodType = [FoodType.Carbs],
+                MealType = [MealType.Breakfast, MealType.Lunch],
+                DishType = [DishType.MainDish],
+                FoodName = "Xôi bắp",
+                FoodDescription = "Xôi bắp là món ăn sáng đơn giản, được làm từ gạo nếp và bắp, có vị ngọt tự nhiên của ngô. Món này dễ ăn, cung cấp năng lượng cho cả ngày dài, thường được ăn kèm với thịt hoặc các món mặn khác",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -960,14 +940,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 47
             new Food
             {
-                FoodId = Guid.Parse("e0eec003-8384-412c-a307-b0185afdb0c7"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish, DishType.SideDish],
-                FoodName = "Xôi bắp",
-                FoodDescription = "Xôi gạo nếp kết hợp bắp vàng ngọt, ăn kèm hành phi thơm",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Phở bò tái",
+                FoodDescription = "Phở bò tái là món phở nổi tiếng với nước dùng trong, đậm đà từ xương bò, ăn kèm với thịt bò tái và bánh phở mềm. Món ăn này rất phổ biến vào buổi sáng ở Việt Nam, mang lại cảm giác ấm cúng và no lâu",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -980,15 +960,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 48
             new Food
             {
-                FoodId = Guid.Parse("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("da89578e-9470-4b18-af4f-0bdcc011882f"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Phở bò tái",
-                FoodDescription = "Món phở với nước dùng đậm đà, thịt bò tái mềm ngon",
-                Views = 100,
+                FoodName = "Phở gà",
+                FoodDescription = "Phở gà là món ăn nhẹ nhàng, nước dùng thơm từ gà, ăn kèm với bánh phở và thịt gà. Món này có thể ăn vào buổi sáng hoặc bữa tối, rất thanh đạm nhưng đầy đủ dinh dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1001,15 +980,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 49
             new Food
             {
-                FoodId = Guid.Parse("da89578e-9470-4b18-af4f-0bdcc011882f"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("37a66f5c-437f-4520-90ec-4376e0093061"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Phở gà",
-                FoodDescription = "Phở nước lèo thanh ngọt, ăn kèm thịt gà và rau thơm",
-                Views = 90,
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.Drink],
+                FoodName = "Nước chanh",
+                FoodDescription = "Nước chanh là thức uống giải khát tuyệt vời, giúp cung cấp vitamin C, giải nhiệt và làm đẹp da. Món này có thể uống vào bất kỳ thời gian nào trong ngày, đặc biệt là trong mùa hè",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1019,37 +997,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 50
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("27dd8629-4564-478a-b049-6c4b81ee3cf1"),
-            //     CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Trứng vịt lộn",
-            //     FoodDescription = "Trứng vịt luộc, chứa phôi phát triển, ăn kèm rau răm và muối tiêu",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 50
+            new Food
+            {
+                FoodId = Guid.Parse("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh mì thịt trứng",
+                FoodDescription = "Bánh mì thịt trứng là món ăn nhanh, với bánh mì mềm, nhân thịt nướng và trứng chiên. Đây là món ăn sáng phổ biến, đơn giản nhưng đầy đủ dinh dưỡng, dễ ăn và tiện lợi",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 51
             new Food
             {
-                FoodId = Guid.Parse("37a66f5c-437f-4520-90ec-4376e0093061"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                FoodId = Guid.Parse("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Nước chanh",
-                FoodDescription = "Thức uống giải khát, làm từ chanh tươi, cung cấp nhiều vitamin C",
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Quýt",
+                FoodDescription = "Quýt là trái cây ngọt, chứa nhiều vitamin C và giúp tăng cường hệ miễn dịch. Quýt có thể ăn trực tiếp hoặc làm nước ép, rất tốt cho sức khỏe, đặc biệt là giúp giải nhiệt trong mùa hè",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1062,15 +1040,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 52
             new Food
             {
-                FoodId = Guid.Parse("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                FoodId = Guid.Parse("fa445aa4-7b0d-4d47-8ba7-f919dd123637"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Breakfast, MealType.Lunch],
-                DishType = [DishType.MainDish],
-                FoodName = "Bánh mì thịt trứng",
-                FoodDescription = "Bánh mì giòn kẹp thịt, trứng và rau, ăn sáng nhanh tiện lợi",
-                Views = 100,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Sữa chua nha đam",
+                FoodDescription = "Sữa chua nha đam là món tráng miệng được làm từ sữa chua và nha đam tươi, giúp làm đẹp da và hỗ trợ tiêu hóa. Món này mát, dễ ăn và rất tốt cho sức khỏe, đặc biệt là trong thời tiết nóng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1080,37 +1057,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 53
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("d9fa8f03-5825-4e83-88d3-1a7c49e39a7d"),
-            //     CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Carbs,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Bánh chưng",
-            //     FoodDescription = "Món bánh truyền thống từ gạo nếp, thịt mỡ, đậu xanh",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 53
+            new Food
+            {
+                FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh xèo",
+                FoodDescription = "Bánh xèo là món ăn truyền thống với vỏ bánh giòn, nhân tôm, thịt heo, giá đỗ và các loại rau. Món này thường được ăn kèm với nước mắm chua ngọt và rau sống, tạo nên hương vị đậm đà, hấp dẫn",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 54
             new Food
             {
-                FoodId = Guid.Parse("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse("58fe08ca-5c52-4847-800e-b9970c3782f0"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Quýt",
-                FoodDescription = "Trái cây nhỏ, vị ngọt thanh, dễ bóc vỏ, giàu vitamin C",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Ớt chuông",
+                FoodDescription = "Ớt chuông là loại rau quả giàu vitamin C, giúp tăng cường sức khỏe và làm đẹp da. Ớt chuông có thể ăn sống, xào, hoặc làm salad, mang lại hương vị tươi mát và màu sắc đẹp mắt cho bữa ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1123,14 +1100,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 55
             new Food
             {
-                FoodId = Guid.Parse("fa445aa4-7b0d-4d47-8ba7-f919dd123637"),
-                CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
+                FoodId = Guid.Parse("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Sữa chua nha đam",
-                FoodDescription = "Sữa chua mịn kết hợp nha đam giòn, tốt cho tiêu hóa",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Nấm kim châm",
+                FoodDescription = "Nấm kim châm là loại nấm có thân dài và mỏng, thường được dùng trong các món canh, xào hoặc salad. Nấm kim châm giàu chất xơ và khoáng chất, rất tốt cho sức khỏe, đặc biệt là hệ tiêu hóa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1140,37 +1117,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 56
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("f412d88d-ce7e-4006-bc11-75af61438491"),
-            //     CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Bánh tiêu",
-            //     FoodDescription = "Loại bánh chiên phồng, thơm mùi mè, ngọt nhẹ",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 56
+            new Food
+            {
+                FoodId = Guid.Parse("a782e478-d5c5-4da6-b809-180b48ad08c3"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish, DishType.MainDish],
+                FoodName = "Lòng đỏ trứng gà",
+                FoodDescription = "Lòng đỏ trứng gà là phần chứa nhiều chất béo, protein và vitamin, rất tốt cho sự phát triển của cơ thể. Lòng đỏ trứng gà thường được sử dụng trong các món ăn như trứng bác, bánh hoặc các món ăn kèm",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 57
             new Food
             {
-                FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                FoodId = Guid.Parse("f41484a3-c7df-4530-b7d2-060390103985"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Bánh xèo",
-                FoodDescription = "Món bánh bột vàng giòn, nhân thịt, tôm, ăn kèm rau sống",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish, DishType.MainDish],
+                FoodName = "Lòng trắng trứng gà",
+                FoodDescription = "Lòng trắng trứng gà chứa nhiều protein và ít chất béo, rất tốt cho sức khỏe. Lòng trắng trứng có thể chế biến thành các món như trứng luộc, trứng chưng, hoặc làm nguyên liệu trong các món ăn khác",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1183,14 +1160,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 58
             new Food
             {
-                FoodId = Guid.Parse("58fe08ca-5c52-4847-800e-b9970c3782f0"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Ớt chuông",
-                FoodDescription = "Rau quả màu sắc, giòn ngọt, giàu vitamin, thường dùng làm salad",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Hoành thánh",
+                FoodDescription = "Hoành thánh là món ăn từ bột mì, nhân thịt hoặc tôm, thường được nấu trong nước dùng thơm ngon. Món này có thể ăn trong các bữa sáng hoặc bữa tối, mang lại cảm giác ấm cúng và bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1203,14 +1180,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 59
             new Food
             {
-                FoodId = Guid.Parse("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Nấm kim châm",
-                FoodDescription = "Loại nấm nhỏ dài, thơm ngon, thường dùng trong lẩu hoặc xào",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Tôm",
+                FoodDescription = "Tôm là hải sản giàu protein, omega-3 và vitamin, rất tốt cho sức khỏe tim mạch. Tôm có thể chế biến thành nhiều món ăn như xào, hấp, hoặc nấu canh, tạo hương vị tươi ngon cho bữa ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1223,15 +1200,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 60
             new Food
             {
-                FoodId = Guid.Parse("a782e478-d5c5-4da6-b809-180b48ad08c3"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("40f03f23-9341-4343-9bf8-fdfdb3b9f236"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish, DishType.SideDish],
-                FoodName = "Lòng đỏ trứng gà",
-                FoodDescription = "Phần trứng vàng, giàu dinh dưỡng và chất béo",
-                Views = 80,
+                DishType = [DishType.SideDish],
+                FoodName = "Đậu bắp",
+                FoodDescription = "Đậu bắp là loại rau quả giàu vitamin C và chất xơ, giúp hỗ trợ tiêu hóa và làm đẹp da. Đậu bắp có thể ăn luộc, xào hoặc làm canh, là món ăn bổ dưỡng cho các bữa ăn gia đình",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1244,15 +1220,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 61
             new Food
             {
-                FoodId = Guid.Parse("f41484a3-c7df-4530-b7d2-060390103985"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish, DishType.SideDish],
-                FoodName = "Lòng trắng trứng gà",
-                FoodDescription = "Phần trứng trắng, ít béo, giàu protein, thích hợp cho người ăn kiêng",
-                Views = 80,
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh canh cua",
+                FoodDescription = "Bánh canh cua là món ăn đặc trưng với nước dùng đậm đà từ cua, ăn kèm với bánh canh mềm và các loại rau. Món này rất phổ biến ở miền Nam và mang lại hương vị thơm ngon, bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1265,15 +1240,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 62
             new Food
             {
-                FoodId = Guid.Parse("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("c16aac77-64ee-476d-a646-a3029da83e41"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Hoành thánh",
-                FoodDescription = "Món bột mỏng nhân thịt, hấp hoặc chiên, thường ăn kèm nước lèo",
-                Views = 100,
+                FoodName = "Bánh bèo",
+                FoodDescription = "Bánh bèo là món ăn dân dã của miền Trung, gồm bánh làm từ bột gạo, thường được phủ lên trên các loại tôm, thịt hoặc mỡ hành. Món này có thể ăn kèm với nước mắm chua ngọt",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1286,14 +1260,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 63
             new Food
             {
-                FoodId = Guid.Parse("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Tôm",
-                FoodDescription = "Hải sản giàu đạm, chế biến đa dạng: hấp, chiên, xào, hoặc nướng",
+                FoodName = "Bún mắm",
+                FoodDescription = "Bún mắm là món ăn nổi bật với nước dùng từ mắm, kết hợp với bún và các loại hải sản như tôm, cá. Đây là món ăn đặc sản của miền Tây, mang lại hương vị đậm đà và rất thơm ngon",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1306,14 +1280,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 64
             new Food
             {
-                FoodId = Guid.Parse("40f03f23-9341-4343-9bf8-fdfdb3b9f236"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("244e7e03-baaa-4dc4-aa10-d9d0dac410fe"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
-                FoodName = "Đậu bắp",
-                FoodDescription = "Rau quả giòn, nhiều nhớt, thường dùng nấu canh hoặc luộc",
+                FoodName = "Cải thảo",
+                FoodDescription = "Cải thảo là loại rau xanh, thường được dùng trong các món xào, nấu canh hoặc làm gỏi. Cải thảo chứa nhiều vitamin và khoáng chất, giúp hỗ trợ tiêu hóa và cải thiện sức khỏe",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1326,15 +1300,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 65
             new Food
             {
-                FoodId = Guid.Parse("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("51061170-597d-4289-a021-1e7dde88331f"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Bánh canh cua",
-                FoodDescription = "Món bánh canh với thịt cua, nước lèo đậm đà",
-                Views = 100,
+                FoodName = "Thịt vịt",
+                FoodDescription = "Thịt vịt là nguồn protein giàu chất dinh dưỡng, có thể chế biến thành nhiều món như vịt nướng, vịt kho hoặc vịt luộc. Món thịt vịt thường có hương vị đặc trưng, đậm đà và thích hợp cho các bữa ăn gia đình",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1344,37 +1317,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 66
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("a84ec8cd-f9d8-4723-8b9e-4ff4eee1685e"),
-            //     CategoryId = Guid.Parse("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá viên chiên",
-            //     FoodDescription = "Món ăn vặt từ cá xay, chiên giòn, chấm kèm tương ớt",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 66
+            new Food
+            {
+                FoodId = Guid.Parse("c137f014-34c2-4f0a-be52-7c2a5c64abae"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Thịt gà",
+                FoodDescription = "Thịt gà là nguồn protein nhẹ nhàng, giàu dinh dưỡng. Thịt gà có thể chế biến thành nhiều món như gà kho, gà luộc, hoặc gà xào. Đây là lựa chọn phổ biến trong các bữa ăn hàng ngày",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 67
             new Food
             {
-                FoodId = Guid.Parse("46b9f487-dc6d-4c1d-9729-9f707ac28202"),
-                CategoryId = Guid.Parse("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
+                FoodId = Guid.Parse("5ff26461-880d-4b94-bfd0-e8badc77fe33"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Hamburger",
-                FoodDescription = "Bánh mì tròn kẹp thịt, phô mai, rau, và nước sốt",
+                FoodName = "Thịt kho trứng",
+                FoodDescription = "Thịt kho trứng là món ăn quen thuộc với thịt heo kho cùng trứng luộc, mang hương vị mặn ngọt đậm đà. Món này thường ăn kèm với cơm trắng, rất ngon miệng và bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1387,14 +1360,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 68
             new Food
             {
-                FoodId = Guid.Parse("c16aac77-64ee-476d-a646-a3029da83e41"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                FoodId = Guid.Parse("73016f70-ebb4-4583-aa12-7f3f4633ada4"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Bánh bèo",
-                FoodDescription = "Món bánh bột gạo nhỏ, ăn kèm tôm cháy và nước mắm",
+                FoodName = "Sườn non",
+                FoodDescription = "Sườn non là phần thịt heo mềm, có thể chế biến thành nhiều món như sườn nướng, sườn kho hoặc sườn xào chua ngọt. Món sườn non rất thích hợp cho các bữa cơm gia đình, có vị đậm đà và dễ ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1407,14 +1380,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 69
             new Food
             {
-                FoodId = Guid.Parse("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("0455b535-2662-43aa-bca2-3e75595fb181"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Bún mắm",
-                FoodDescription = "Món bún với nước lèo mắm cá, đậm đà, ăn kèm hải sản và rau",
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Thịt heo bằm",
+                FoodDescription = "Thịt heo bằm là nguyên liệu dễ chế biến, thường được dùng trong các món như thịt heo bằm xào rau, làm nhân cho các món bánh bao hoặc canh. Món này có hương vị mềm mại và giàu dinh dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1427,14 +1400,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 70
             new Food
             {
-                FoodId = Guid.Parse("244e7e03-baaa-4dc4-aa10-d9d0dac410fe"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Cải thảo",
-                FoodDescription = "Rau xanh giòn, thường dùng làm kim chi hoặc xào",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cơm chiên trứng",
+                FoodDescription = "Cơm chiên trứng là món ăn đơn giản nhưng ngon miệng, được làm từ cơm nguội xào cùng trứng, có thể thêm các loại rau và thịt tùy thích. Món này phù hợp cho bữa trưa hoặc tối nhanh gọn và đầy đủ dinh dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1447,14 +1420,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 71
             new Food
             {
-                FoodId = Guid.Parse("51061170-597d-4289-a021-1e7dde88331f"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("6e12f6cb-6695-4c7a-bfb0-cd4936ee1782"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Thịt vịt",
-                FoodDescription = "Loại thịt mềm, ngọt, chế biến thành món quay, hấp, hoặc nấu cháo",
+                FoodName = "Cháo sườn",
+                FoodDescription = "Cháo sườn là món ăn sáng phổ biến, với cháo mềm mịn kết hợp cùng sườn heo kho hoặc hầm. Món này có vị ngọt tự nhiên từ xương, thường ăn kèm với hành lá, rau thơm và gia vị",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1467,14 +1440,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 72
             new Food
             {
-                FoodId = Guid.Parse("c137f014-34c2-4f0a-be52-7c2a5c64abae"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Thịt gà",
-                FoodDescription = "Thịt gia cầm phổ biến, dùng trong nhiều món nướng, luộc, hầm",
+                FoodName = "Bánh bột lọc",
+                FoodDescription = "Bánh bột lọc là món ăn đặc trưng của miền Trung, gồm vỏ bánh làm từ bột năng, nhân tôm hoặc thịt, sau đó hấp chín. Món này thường ăn kèm với nước mắm chua ngọt và rau sống",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1487,15 +1460,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 73
             new Food
             {
-                FoodId = Guid.Parse("5ff26461-880d-4b94-bfd0-e8badc77fe33"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Thịt kho trứng",
-                FoodDescription = "Món thịt nấu cùng trứng và nước mắm, vị ngọt mặn hấp dẫn",
-                Views = 80,
+                FoodName = "Bánh bao xá xíu",
+                FoodDescription = "Bánh bao xá xíu là món bánh mềm mịn, với nhân thịt heo xá xíu thơm ngon. Món này rất phổ biến trong các bữa sáng hoặc bữa ăn nhanh gọn, giàu protein và dễ tiêu hóa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1508,15 +1480,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 74
             new Food
             {
-                FoodId = Guid.Parse("73016f70-ebb4-4583-aa12-7f3f4633ada4"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("faf19891-525a-4308-9222-992e83de7ce7"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Sườn non",
-                FoodDescription = "Phần sườn heo mềm, ngon, thích hợp nấu canh hoặc kho",
-                Views = 90,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Cá hồi",
+                FoodDescription = "Cá hồi là loại hải sản giàu omega-3, tốt cho sức khỏe tim mạch. Cá hồi có thể chế biến thành nhiều món như nướng, hấp, hoặc làm sushi, mang lại hương vị tươi ngon và bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1529,14 +1500,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 75
             new Food
             {
-                FoodId = Guid.Parse("0455b535-2662-43aa-bca2-3e75595fb181"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("30355638-a0e2-4126-93ae-beb7aa9b5758"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Thịt heo bằm",
-                FoodDescription = "Thịt heo xay nhuyễn, dùng nấu canh, xào, hoặc làm nhân",
+                FoodType = [FoodType.Carbs],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Khoai lang",
+                FoodDescription = "Khoai lang là một loại củ giàu vitamin và chất xơ, có thể chế biến thành các món như khoai lang luộc, chiên, hoặc làm món xào. Món này cung cấp năng lượng và rất tốt cho sức khỏe",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1549,15 +1520,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 76
             new Food
             {
-                FoodId = Guid.Parse("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse("8893c58d-06fd-4c34-9e77-2f50779642dd"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Carbs],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cơm chiên trứng",
-                FoodDescription = "Cơm chiên vàng với trứng gà, thêm hành phi thơm ngon",
-                Views = 90,
+                DishType = [DishType.SideDish],
+                FoodName = "Khoai tây",
+                FoodDescription = "Khoai tây là nguồn cung cấp tinh bột và vitamin C. Khoai tây có thể chế biến thành nhiều món như khoai tây chiên, luộc, nghiền hoặc nướng, rất phổ biến trong các bữa ăn gia đình",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1567,77 +1537,78 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 77
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("3965d7c0-e550-497d-9b41-ea382c2bb83e"),
-            //     CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Drink,
-            //     MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.Drink],
-            //     FoodName = "Sting",
-            //     FoodDescription = "Nước tăng lực vị dâu, ngọt và kích thích tinh thần",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 77
+            new Food
+            {
+                FoodId = Guid.Parse("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Hành tây",
+                FoodDescription = "Hành tây là loại củ gia vị phổ biến, mang lại hương vị thơm ngon cho các món xào, canh hoặc salad. Hành tây có tác dụng tốt cho sức khỏe tim mạch và giúp cải thiện hệ tiêu hóa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 78
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("c60b8720-2ced-426c-b39b-606757200893"),
-            //     CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Drink,
-            //     MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.Drink],
-            //     FoodName = "Pepsi",
-            //     FoodDescription = "Nước ngọt có ga, vị cola đặc trưng, dùng kèm bữa ăn nhanh",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 78
+            new Food
+            {
+                FoodId = Guid.Parse("80ba2672-d26a-4703-98f0-d246a50f92f1"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Bầu",
+                FoodDescription = "Bầu là loại rau quả mát, chứa nhiều vitamin và khoáng chất. Bầu có thể chế biến thành các món canh, xào hoặc làm gỏi, giúp thanh nhiệt và hỗ trợ tiêu hóa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 79
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("dc49c7a4-cf6a-4b85-a5e0-5f923730464a"),
-            //     CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Drink,
-            //     MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.Drink],
-            //     FoodName = "Coca cola",
-            //     FoodDescription = "Thức uống giải khát có ga, vị ngọt thanh",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 79
+            new Food
+            {
+                FoodId = Guid.Parse("a53672e7-8593-4779-bd02-9f02ae81f915"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Mực",
+                FoodDescription = "Mực là hải sản giàu protein và khoáng chất, có thể chế biến thành các món xào, hấp, hoặc nướng. Mực có vị ngọt tự nhiên, giúp bổ sung dinh dưỡng và rất dễ ăn",
+                Views = 27,
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 80
             new Food
             {
-                FoodId = Guid.Parse("6e12f6cb-6695-4c7a-bfb0-cd4936ee1782"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("98006e54-c44e-4a81-aa99-d4bb95bfb89d"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cháo sườn",
-                FoodDescription = "Cháo gạo trắng nấu nhuyễn, thêm sườn heo mềm ngọt",
+                DishType = [DishType.SideDish],
+                FoodName = "Đậu que",
+                FoodDescription = "Đậu que là loại rau quả giàu vitamin và chất xơ, có thể chế biến thành các món xào, luộc hoặc nấu canh. Đậu que giúp tăng cường hệ tiêu hóa và cung cấp năng lượng cho cơ thể",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1647,57 +1618,57 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 81
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("81af247b-f112-4b7c-981c-d1ba1c3a3644"),
-            //     CategoryId = Guid.Parse("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Vegetables,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.SideDish],
-            //     FoodName = "Kim chi",
-            //     FoodDescription = "Rau cải thảo lên men, cay nồng, thường ăn kèm món nướng",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 81
+            new Food
+            {
+                FoodId = Guid.Parse("fb7d87aa-2bb8-4065-bd31-b54239057405"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh ướt",
+                FoodDescription = "Bánh ướt là món ăn nhẹ làm từ bột gạo, có kết cấu mềm mịn, thường được ăn kèm với thịt heo, chả lụa và rau sống. Món này có thể được rưới nước mắm chua ngọt, mang lại hương vị thơm ngon và thanh mát",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 82
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("face3a50-e5e6-41e3-83e8-f96e7c8c98d4"),
-            //     CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Carbs,
-            //     MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Bánh đúc",
-            //     FoodDescription = "Bánh bột gạo mềm, ăn kèm mắm tôm, thịt bằm",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 82
+            new Food
+            {
+                FoodId = Guid.Parse("f0132626-5535-4f30-9af4-7e89e086aaaf"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh cuốn",
+                FoodDescription = "Bánh cuốn là món ăn làm từ bột gạo, nhân thường là thịt băm, nấm hoặc trứng. Bánh cuốn mềm mịn, ăn kèm với nước mắm và rau sống, thường được dùng trong bữa sáng hoặc bữa phụ",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 83
             new Food
             {
-                FoodId = Guid.Parse("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                FoodId = Guid.Parse("7268b449-cb54-4f3d-9709-f42b9966d707"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Bánh bột lọc",
-                FoodDescription = "Món bánh trong suốt, nhân tôm thịt, thường hấp hoặc luộc",
+                FoodName = "Canh bún",
+                FoodDescription = "Canh bún là món ăn nổi bật với nước dùng ngọt từ xương, kết hợp với bún, thịt heo hoặc tôm. Món này thường ăn kèm với rau sống và gia vị, mang lại hương vị đậm đà và dễ ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1710,15 +1681,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 84
             new Food
             {
-                FoodId = Guid.Parse("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                FoodId = Guid.Parse("7b8500af-d730-4138-9617-cba352faed4a"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Bánh bao xá xíu",
-                FoodDescription = "Bánh hấp nhân thịt xá xíu, mềm, thơm ngọt",
-                Views = 90,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Vải",
+                FoodDescription = "Vải là trái cây ngọt, chứa nhiều vitamin C và khoáng chất. Vải có thể ăn trực tiếp hoặc làm sinh tố, chè, mang lại hương vị tươi mát và bổ dưỡng, đặc biệt trong mùa hè",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1731,14 +1701,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 85
             new Food
             {
-                FoodId = Guid.Parse("faf19891-525a-4308-9222-992e83de7ce7"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("dd1482e7-b3dd-4b17-80f6-5618a640c671"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cá hồi",
-                FoodDescription = "Loại cá béo, giàu omega-3, thường ăn sống hoặc nướng",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Cá khô",
+                FoodDescription = "Cá khô là món ăn truyền thống, có thể làm từ nhiều loại cá, chế biến bằng cách phơi khô. Cá khô có vị mặn, thơm, thường được ăn kèm với cơm trắng hoặc làm nguyên liệu cho các món canh",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1751,14 +1721,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 86
             new Food
             {
-                FoodId = Guid.Parse("30355638-a0e2-4126-93ae-beb7aa9b5758"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse("628d87df-0bde-417d-b8b5-5f8f5536410b"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Khoai lang",
-                FoodDescription = "Loại củ ngọt tự nhiên, dùng luộc, nướng hoặc chiên",
+                FoodType = [FoodType.Vegetables, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Nấm đùi gà",
+                FoodDescription = "Nấm đùi gà có hình dạng giống đùi gà, thịt nấm mềm và thơm. Món này thường được dùng trong các món xào, nấu canh hoặc làm salad, rất giàu dinh dưỡng và dễ chế biến",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1771,14 +1741,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 87
             new Food
             {
-                FoodId = Guid.Parse("8893c58d-06fd-4c34-9e77-2f50779642dd"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse("fc85f2de-9aae-4ff4-a829-e01662a42976"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Khoai tây",
-                FoodDescription = "Loại củ mềm, dùng làm khoai chiên, nghiền hoặc hầm",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Mướp",
+                FoodDescription = "Mướp là loại rau quả mát, chứa nhiều nước và vitamin. Mướp có thể chế biến thành canh, xào hoặc làm món gỏi, giúp thanh nhiệt, giải độc và tốt cho hệ tiêu hóa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1791,14 +1761,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 88
             new Food
             {
-                FoodId = Guid.Parse("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("ef8b0ee3-a4d5-4883-af63-33c83d102bea"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Hành tây",
-                FoodDescription = "Loại rau củ thơm, thường dùng làm gia vị hoặc ăn sống",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh bao trứng cút",
+                FoodDescription = "Bánh bao trứng cút là món bánh bao với nhân thịt heo hoặc đậu xanh, kèm trứng cút. Bánh có vỏ mềm, nhân thơm ngon, thường được ăn sáng hoặc làm món ăn phụ trong các bữa ăn chính",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1811,14 +1781,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 89
             new Food
             {
-                FoodId = Guid.Parse("80ba2672-d26a-4703-98f0-d246a50f92f1"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("9122357a-179f-45f4-9106-67eea24d48ab"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Bầu",
-                FoodDescription = "Loại quả dài, xanh, dùng nấu canh hoặc xào",
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Drink],
+                FoodName = "Trà tắc",
+                FoodDescription = "Trà tắc là thức uống giải khát phổ biến, được làm từ trà xanh kết hợp với nước cốt chanh tươi và mật ong. Trà tắc giúp giải nhiệt, thanh lọc cơ thể và mang lại cảm giác sảng khoái",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1828,38 +1798,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 90
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("c5822776-96df-4208-82b2-02f22594063b"),
-            //     CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Bánh cam",
-            //     FoodDescription = "Bánh tròn chiên giòn, nhân đậu xanh, ngọt thanh",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 90
+            new Food
+            {
+                FoodId = Guid.Parse("22d1cbad-a884-400c-b681-30b17d98bf1c"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish, DishType.MainDish],
+                FoodName = "Đậu hũ non",
+                FoodDescription = "Đậu hũ non là món ăn được làm từ đậu nành, có kết cấu mềm mịn. Đậu hũ non có thể chế biến thành các món xào, canh hoặc ăn kèm với siro, là món ăn dễ tiêu hóa và rất bổ dưỡng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 91
             new Food
             {
-                FoodId = Guid.Parse("a53672e7-8593-4779-bd02-9f02ae81f915"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("c81a404a-ec10-428e-acec-dd56ec1d3607"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Mực",
-                FoodDescription = "Hải sản giòn, ngọt, chế biến nướng, hấp, hoặc chiên",
-                Views = 27,
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Nem chua",
+                FoodDescription = "Nem chua là món ăn đặc sản, được làm từ thịt heo xay nhuyễn, gia vị và gói trong lá chuối, lên men tự nhiên. Món này có vị chua nhẹ, thơm ngon, thường ăn kèm với tỏi, ớt hoặc rau sống",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1869,37 +1838,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 92
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("ede931f5-092e-4e41-8ce1-5a95bff2772a"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cua",
-            //     FoodDescription = "Hải sản vỏ cứng, thịt ngọt, thường hấp hoặc nấu lẩu",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 92
+            new Food
+            {
+                FoodId = Guid.Parse("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Cá ngừ",
+                FoodDescription = "Cá ngừ là loại hải sản giàu omega-3 và protein, có thể chế biến thành nhiều món như cá ngừ nướng, cá ngừ kho hoặc làm sushi. Món này rất bổ dưỡng và dễ dàng chế biến",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 93
             new Food
             {
-                FoodId = Guid.Parse("98006e54-c44e-4a81-aa99-d4bb95bfb89d"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("87225215-43af-49f2-a40b-a5ebb087d27b"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Đậu que",
-                FoodDescription = "Rau xanh giòn, thích hợp luộc, xào hoặc nấu canh",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Phở bò viên",
+                FoodDescription = "Phở bò viên là món phở nổi tiếng với nước dùng trong, đậm đà từ xương bò, ăn kèm với bánh phở mềm và bò viên. Món này mang lại hương vị thơm ngon, phổ biến cho bữa sáng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1912,15 +1881,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 94
             new Food
             {
-                FoodId = Guid.Parse("fb7d87aa-2bb8-4065-bd31-b54239057405"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                FoodId = Guid.Parse("23443efa-dc06-4e7a-949c-5c823ee6e575"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast],
-                DishType = [DishType.MainDish],
-                FoodName = "Bánh ướt",
-                FoodDescription = "Bánh bột gạo tráng mỏng, ăn kèm chả, nước mắm",
-                Views = 80,
+                FoodType = [FoodType.Carbs],
+                MealType = [MealType.Breakfast, MealType.Snack, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Khoai lang luộc",
+                FoodDescription = "Khoai lang luộc là món ăn đơn giản nhưng giàu dinh dưỡng, cung cấp vitamin A, chất xơ và khoáng chất. Khoai lang có thể ăn trực tiếp hoặc dùng làm món ăn kèm trong các bữa chính",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1933,15 +1901,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 95
             new Food
             {
-                FoodId = Guid.Parse("f0132626-5535-4f30-9af4-7e89e086aaaf"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                FoodId = Guid.Parse("afe0a180-0077-4fdf-89e8-9513c6132f92"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast],
-                DishType = [DishType.MainDish],
-                FoodName = "Bánh cuốn",
-                FoodDescription = "Bánh tráng mỏng cuộn nhân thịt, mộc nhĩ, ăn kèm nước mắm",
-                Views = 90,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.Dessert],
+                FoodName = "Đu đủ",
+                FoodDescription = "Đu đủ là trái cây ngọt, giàu vitamin C và enzym papain, giúp tiêu hóa tốt. Đu đủ có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng, rất tốt cho sức khỏe và làn da",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1954,15 +1921,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 96
             new Food
             {
-                FoodId = Guid.Parse("7268b449-cb54-4f3d-9709-f42b9966d707"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Canh bún",
-                FoodDescription = "Món bún nước dùng từ cua đồng, ăn kèm rau muống",
-                Views = 100,
+                FoodName = "Cháo đậu đỏ",
+                FoodDescription = "Cháo đậu đỏ là món ăn nhẹ nhàng, làm từ đậu đỏ và gạo, có tác dụng bổ máu, thanh nhiệt. Món này có thể ăn vào buổi sáng hoặc tối, rất bổ dưỡng và dễ tiêu hóa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1975,14 +1941,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 97
             new Food
             {
-                FoodId = Guid.Parse("7b8500af-d730-4138-9617-cba352faed4a"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
                 DishType = [DishType.Dessert],
-                FoodName = "Vải",
-                FoodDescription = "Trái cây nhỏ, ngọt, mọng nước, vỏ đỏ, hạt to",
+                FoodName = "Chè đậu đen",
+                FoodDescription = "Chè đậu đen là món tráng miệng phổ biến, làm từ đậu đen nấu nhừ, kết hợp với đường và có thể thêm nước cốt dừa. Món này ngọt mát, giúp thanh nhiệt và rất tốt cho sức khỏe",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -1995,14 +1961,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 98
             new Food
             {
-                FoodId = Guid.Parse("dd1482e7-b3dd-4b17-80f6-5618a640c671"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("da85064b-e528-4bfa-8a64-1fbe704f9af5"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cá khô",
-                FoodDescription = "Cá phơi khô, dùng nướng, chiên hoặc làm gỏi",
+                DishType = [DishType.SideDish],
+                FoodName = "Dưa cải chua",
+                FoodDescription = "Dưa cải chua là món ăn lên men, được làm từ cải thảo hoặc cải bẹ, mang vị chua nhẹ. Món này thường ăn kèm với cơm, giúp hỗ trợ tiêu hóa và bổ sung lợi khuẩn cho hệ tiêu hóa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2015,14 +1981,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 99
             new Food
             {
-                FoodId = Guid.Parse("628d87df-0bde-417d-b8b5-5f8f5536410b"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("86bcbac3-fc75-46ed-8d0e-18c8c4860692"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Nấm đùi gà",
-                FoodDescription = "Loại nấm to, thơm ngon, thích hợp xào hoặc nấu canh",
+                DishType = [DishType.MainDish],
+                FoodName = "Ức gà nướng",
+                FoodDescription = "Ức gà nướng là món ăn ít mỡ, giàu protein, có thể được ướp gia vị và nướng chín. Món này thường được ăn kèm với rau củ hoặc cơm, là lựa chọn tốt cho bữa ăn nhẹ nhàng nhưng đầy đủ dinh dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2035,14 +2001,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 100
             new Food
             {
-                FoodId = Guid.Parse("fc85f2de-9aae-4ff4-a829-e01662a42976"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse("a6ce6816-c6e1-4512-aeb6-d5d647815c1d"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Mướp",
-                FoodDescription = "Loại quả xanh, mềm, thường nấu canh hoặc xào",
+                DishType = [DishType.MainDish],
+                FoodName = "Thịt bò nạc",
+                FoodDescription = "Thịt bò nạc là phần thịt ít mỡ, giàu protein và sắt, có thể chế biến thành các món như bò xào, nướng hoặc làm súp. Món ăn này cung cấp năng lượng và dưỡng chất cho cơ thể, thích hợp cho các bữa chính",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2055,15 +2021,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 101
             new Food
             {
-                FoodId = Guid.Parse("ef8b0ee3-a4d5-4883-af63-33c83d102bea"),
-                CategoryId = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551"),
+                FoodId = Guid.Parse("edb9d5d0-01f3-4607-a406-9e04bbff85fb"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast],
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Bánh bao trứng cút",
-                FoodDescription = "Bánh hấp nhân thịt, trứng cút, ăn sáng tiện lợi",
-                Views = 90,
+                FoodName = "Cá hồi nướng",
+                FoodDescription = "Cá hồi nướng là món ăn bổ dưỡng, giàu omega-3 và protein, thường được ướp gia vị trước khi nướng. Món này có hương vị ngọt tự nhiên, thích hợp ăn kèm với rau sống hoặc cơm",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2076,14 +2041,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 102
             new Food
             {
-                FoodId = Guid.Parse("9122357a-179f-45f4-9106-67eea24d48ab"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                FoodId = Guid.Parse("4d640470-857a-4765-905f-e49e98a281a1"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Trà tắc",
-                FoodDescription = "Nước trà kết hợp tắc, vị chua ngọt, giải khát",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Tôm hấp",
+                FoodDescription = "Tôm hấp là món ăn đơn giản, dễ chế biến, giữ nguyên vị ngọt của tôm. Món này thường được ăn kèm với muối tiêu chanh hoặc nước mắm chua ngọt, thích hợp cho bữa ăn nhẹ",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2096,14 +2061,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 103
             new Food
             {
-                FoodId = Guid.Parse("22d1cbad-a884-400c-b681-30b17d98bf1c"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse("d3a1c73d-ca5a-45ea-a7fa-d582f1253b79"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Đậu hũ non",
-                FoodDescription = "Đậu hũ mềm mịn, thường dùng làm canh hoặc món tráng miệng",
+                DishType = [DishType.MainDish],
+                FoodName = "Thịt lợn nạc",
+                FoodDescription = "Thịt lợn nạc là phần thịt ít mỡ, dễ chế biến thành các món như xào, kho hoặc nướng. Món này cung cấp protein và chất sắt, thường được ăn trong các bữa chính",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2116,14 +2081,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 104
             new Food
             {
-                FoodId = Guid.Parse("c81a404a-ec10-428e-acec-dd56ec1d3607"),
-                CategoryId = Guid.Parse("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
+                FoodId = Guid.Parse("adeb902f-fb34-44eb-aa60-76eaeb0ed70b"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Nem chua",
-                FoodDescription = "Thịt chua lên men, thường ăn kèm lá ổi và tương ớt",
+                FoodName = "Cá thu nướng",
+                FoodDescription = "Cá thu nướng là món ăn thơm ngon, giàu protein và omega-3. Cá thu thường được ướp gia vị rồi nướng, tạo nên món ăn đậm đà và bổ dưỡng cho bữa tối",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2136,14 +2101,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 105
             new Food
             {
-                FoodId = Guid.Parse("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("3fa8cf38-d835-4279-a113-a8f44cd013e6"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cá ngừ",
-                FoodDescription = "Loại cá giàu dinh dưỡng, thường làm salad hoặc áp chảo",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Đậu nành luộc",
+                FoodDescription = "Đậu nành luộc là món ăn nhẹ, giàu protein và vitamin. Đậu nành có thể ăn trực tiếp hoặc chế biến thành các món như đậu hũ, giúp bổ sung dinh dưỡng cho cơ thể",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2153,57 +2118,57 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 106
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("01708b02-6cc1-41f6-ae4a-95c4085e1839"),
-            //     CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Gỏi cuốn",
-            //     FoodDescription = "Cuốn bánh tráng với thịt, tôm, rau, chấm nước mắm chua ngọt",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 106
+            new Food
+            {
+                FoodId = Guid.Parse("d3392e5d-a48f-4b5a-968d-31b98bd47835"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Sữa chua Hy Lạp",
+                FoodDescription = "Sữa chua Hy Lạp là loại sữa chua đặc, chứa nhiều probiotics giúp hỗ trợ tiêu hóa. Món này có thể ăn trực tiếp hoặc kết hợp với trái cây tươi, mang lại cảm giác ngon miệng và bổ dưỡng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 107
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("436d8364-15fd-47a2-9b72-c3841db0da2e"),
-            //     CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Bông lan trứng muối",
-            //     FoodDescription = "Bánh bông lan mềm, nhân trứng muối và chà bông",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 107
+            new Food
+            {
+                FoodId = Guid.Parse("ad6a860f-4a4a-4cb7-90fa-21c8f36c91ce"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Ức vịt nướng",
+                FoodDescription = "Ức vịt nướng là món ăn ngon miệng, thịt vịt mềm và mọng nước khi được ướp gia vị và nướng chín. Món này có thể ăn kèm với cơm hoặc rau sống, mang lại hương vị đậm đà",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 108
             new Food
             {
-                FoodId = Guid.Parse("87225215-43af-49f2-a40b-a5ebb087d27b"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Phở bò viên",
-                FoodDescription = "Phở bò kết hợp bò viên dai ngon, nước lèo đậm đà",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Cá ngừ đóng hộp",
+                FoodDescription = "Cá ngừ đóng hộp là món ăn tiện lợi, giàu protein và omega-3. Món này có thể ăn trực tiếp, làm salad hoặc kèm với cơm, rất dễ chế biến và thích hợp cho bữa ăn nhanh",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2216,14 +2181,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 109
             new Food
             {
-                FoodId = Guid.Parse("23443efa-dc06-4e7a-949c-5c823ee6e575"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse("50c0adac-c878-4a21-8b5f-01478e7e4852"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast],
-                DishType = [DishType.MainDish],
-                FoodName = "Khoai lang luộc",
-                FoodDescription = "Khoai lang luộc chín, ngọt bùi, giàu chất xơ",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish, DishType.MainDish],
+                FoodName = "Đậu hũ chiên",
+                FoodDescription = "Đậu hũ chiên là món ăn phổ biến trong các bữa ăn chay, có kết cấu giòn bên ngoài và mềm mịn bên trong. Món này có thể ăn kèm với các loại nước chấm hoặc xào với rau củ",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2236,14 +2201,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 110
             new Food
             {
-                FoodId = Guid.Parse("afe0a180-0077-4fdf-89e8-9513c6132f92"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Đu đủ",
-                FoodDescription = "Trái cây ngọt mềm, màu cam, giàu vitamin A và chất xơ",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Bò bít tết",
+                FoodDescription = "Bò bít tết là món ăn từ thịt bò nạc, được nướng hoặc áp chảo đến độ chín vừa phải. Món này thường được ăn kèm với khoai tây chiên hoặc rau sống, mang lại hương vị đậm đà, rất thích hợp cho bữa tối",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2256,14 +2221,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 111
             new Food
             {
-                FoodId = Guid.Parse("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
-                CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
+                FoodId = Guid.Parse("a23f6c85-1a80-4255-a9a1-d08c1d60e753"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Cháo đậu đỏ",
-                FoodDescription = "Cháo từ đậu đỏ, ngọt dịu, bổ máu và mát gan",
+                FoodName = "Cá hồi hun khói",
+                FoodDescription = "Cá hồi hun khói là món ăn giàu omega-3, có hương vị đậm đà và thơm ngon từ quá trình hun khói. Món này thường được ăn kèm với bánh mì hoặc làm thành salad, rất bổ dưỡng và dễ ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2276,14 +2241,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 112
             new Food
             {
-                FoodId = Guid.Parse("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
-                CategoryId = Guid.Parse("78651ea5-2013-4e50-a55f-714de91a712d"),
+                FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
+                FoodType = [FoodType.Snack, FoodType.Protein],
                 MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Chè đậu đen",
-                FoodDescription = "Món chè ngọt làm từ đậu đen nấu mềm, nước cốt dừa thơm",
+                DishType = [DishType.Snack],
+                FoodName = "Hạt hạnh nhân",
+                FoodDescription = "Hạt hạnh nhân là loại hạt giàu chất béo lành mạnh, vitamin E và protein. Hạnh nhân có thể ăn trực tiếp, làm snack hoặc thêm vào các món salad, mang lại lợi ích cho sức khỏe tim mạch",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2296,14 +2261,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 113
             new Food
             {
-                FoodId = Guid.Parse("da85064b-e528-4bfa-8a64-1fbe704f9af5"),
-                CategoryId = Guid.Parse("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
+                FoodId = Guid.Parse("8da16f72-42a9-4da2-b217-811903e340c4"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Dưa cải chua",
-                FoodDescription = "Rau cải muối lên men, chua nhẹ, ăn kèm món kho",
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Đậu hũ sốt cà",
+                FoodDescription = "Đậu hũ sốt cà là món ăn chay nhẹ nhàng, với đậu hũ mềm mịn ăn kèm với sốt cà chua đậm đà. Món này cung cấp protein thực vật và rất dễ chế biến, phù hợp cho các bữa ăn chay hoặc ăn kiêng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2316,14 +2281,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 114
             new Food
             {
-                FoodId = Guid.Parse("86bcbac3-fc75-46ed-8d0e-18c8c4860692"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("a5d484c6-9cc8-4d6e-a53c-5c8a2c20999b"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Ức gà nướng",
-                FoodDescription = "Giàu protein, ít béo, phù hợp chế độ giảm cân",
+                FoodName = "Thịt lợn xông khói",
+                FoodDescription = "Thịt lợn xông khói có vị mặn ngọt, được chế biến bằng cách xông khói để tạo hương vị đặc trưng. Món này có thể ăn kèm với cơm, salad hoặc làm nhân cho bánh mì",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2336,14 +2301,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 115
             new Food
             {
-                FoodId = Guid.Parse("a6ce6816-c6e1-4512-aeb6-d5d647815c1d"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Thịt bò nạc",
-                FoodDescription = "Thịt đỏ mềm, giàu dinh dưỡng, giúp phát triển cơ bắp",
+                FoodType = [FoodType.Snack, FoodType.Protein],
+                MealType = [MealType.Snack],
+                DishType = [DishType.Snack],
+                FoodName = "Hạt bí ngô",
+                FoodDescription = "Hạt bí ngô là món snack bổ dưỡng, giàu magiê và kẽm, có thể ăn trực tiếp hoặc rắc lên salad. Món này giúp tăng cường hệ miễn dịch và rất tốt cho sức khỏe tim mạch",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2356,14 +2321,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 116
             new Food
             {
-                FoodId = Guid.Parse("edb9d5d0-01f3-4607-a406-9e04bbff85fb"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("b29dc622-e8ae-4471-8e22-5676aa5fa909"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Protein, FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cá hồi nướng",
-                FoodDescription = "Omega-3 dồi dào, tốt cho tim mạch và làn da khỏe mạnh",
+                DishType = [DishType.SideDish],
+                FoodName = "Đậu Hà Lan luộc",
+                FoodDescription = "Đậu hà lan luộc là món ăn giàu protein và chất xơ, có thể ăn trực tiếp hoặc chế biến thành salad. Món này có vị ngọt tự nhiên, rất bổ dưỡng và dễ chế biến",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2376,14 +2341,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 117
             new Food
             {
-                FoodId = Guid.Parse("4d640470-857a-4765-905f-e49e98a281a1"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("0f7f47a1-f122-4f58-9e24-40ece9323520"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Tôm hấp",
-                FoodDescription = "Món hải sản ít calo, bổ sung protein và khoáng chất",
+                FoodName = "Thịt gà quay",
+                FoodDescription = "Thịt gà quay là món ăn có lớp da giòn, thịt mềm, được ướp gia vị rồi quay chín. Món này thường được ăn kèm với cơm hoặc rau sống, rất ngon miệng và dễ ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2396,14 +2361,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 118
             new Food
             {
-                FoodId = Guid.Parse("d3a1c73d-ca5a-45ea-a7fa-d582f1253b79"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Thịt lợn nạc",
-                FoodDescription = "Thịt trắng mềm, nguồn cung cấp sắt và protein",
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.Drink],
+                FoodName = "Sữa bò tươi",
+                FoodDescription = "Sữa bò tươi là thức uống bổ dưỡng, cung cấp canxi, vitamin D và protein. Sữa bò có thể uống trực tiếp hoặc làm nguyên liệu cho các món sinh tố, mang lại nhiều lợi ích cho sức khỏe xương",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2416,14 +2381,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 119
             new Food
             {
-                FoodId = Guid.Parse("adeb902f-fb34-44eb-aa60-76eaeb0ed70b"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("c46676b3-cbcc-49e9-ad44-7d450a481a19"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cá thu nướng",
-                FoodDescription = "Giàu omega-3, tốt cho trí não và sức khỏe tim mạch",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Yến mạch",
+                FoodDescription = "Yến mạch là ngũ cốc giàu chất xơ và vitamin, giúp giảm cholesterol và hỗ trợ tiêu hóa. Món yến mạch có thể nấu cháo hoặc làm sinh tố, thích hợp cho bữa sáng bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2436,14 +2401,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 120
             new Food
             {
-                FoodId = Guid.Parse("3fa8cf38-d835-4279-a113-a8f44cd013e6"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse("597a11b3-31a0-4e70-8d2f-95465ee03e8b"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
-                FoodName = "Đậu nành luộc",
-                FoodDescription = "Thực phẩm chay bổ dưỡng, giàu protein thực vật",
+                FoodName = "Cải bó xôi",
+                FoodDescription = "Cải bó xôi là rau xanh giàu vitamin A, C và chất sắt. Món cải bó xôi có thể ăn sống trong salad, xào hoặc nấu canh, giúp tăng cường sức khỏe xương và cải thiện hệ miễn dịch",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2456,14 +2421,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 121
             new Food
             {
-                FoodId = Guid.Parse("d3392e5d-a48f-4b5a-968d-31b98bd47835"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Breakfast],
-                DishType = [DishType.Drink],
-                FoodName = "Sữa chua Hy Lạp",
-                FoodDescription = "Giàu lợi khuẩn, hỗ trợ tiêu hóa và làm đẹp da",
+                FoodType = [FoodType.Snack, FoodType.Protein],
+                MealType = [MealType.Snack],
+                DishType = [DishType.Snack],
+                FoodName = "Hạt hướng dương",
+                FoodDescription = "Hạt hướng dương là loại hạt giàu vitamin E, chất béo lành mạnh và protein. Hạt có thể ăn trực tiếp như món snack hoặc thêm vào salad, rất tốt cho sức khỏe tim mạch và giúp cung cấp năng lượng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2476,14 +2441,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 122
             new Food
             {
-                FoodId = Guid.Parse("ad6a860f-4a4a-4cb7-90fa-21c8f36c91ce"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("644f32b3-897e-45b1-b4d7-aa8b9585a262"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Ức vịt nướng",
-                FoodDescription = "Món giàu sắt, thích hợp cho bữa tiệc thịnh soạn",
+                DishType = [DishType.SideDish],
+                FoodName = "Rau mồng tơi",
+                FoodDescription = "Rau mồng tơi là loại rau xanh giàu vitamin A và chất sắt, có thể chế biến thành các món xào, luộc hoặc canh. Món rau này giúp thanh nhiệt, giải độc và tốt cho hệ tiêu hóa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2496,14 +2461,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 123
             new Food
             {
-                FoodId = Guid.Parse("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cá ngừ đóng hộp",
-                FoodDescription = "Tiện lợi, giàu dinh dưỡng, dễ chế biến nhiều món",
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Lê",
+                FoodDescription = "Lê là trái cây ngọt mát, giàu vitamin C và chất xơ, giúp cải thiện hệ tiêu hóa và làm đẹp da. Lê có thể ăn trực tiếp hoặc làm sinh tố, chè, mang lại hương vị tươi mát và bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2513,37 +2478,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 124
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("2da12ed2-3082-4374-807e-795372dfd1de"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá bơn nướng",
-            //     FoodDescription = "Thịt cá mềm, thơm, bổ sung dưỡng chất thiết yếu",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 124
+            new Food
+            {
+                FoodId = Guid.Parse("2e641c82-56f7-480d-b216-63723b5a5e7d"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Dâu tây",
+                FoodDescription = "Dâu tây là trái cây ngọt, chứa nhiều vitamin C và chất chống oxy hóa, giúp làm đẹp da và tăng cường sức đề kháng. Dâu tây có thể ăn trực tiếp, làm sinh tố, hoặc chế biến thành các món tráng miệng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 125
             new Food
             {
-                FoodId = Guid.Parse("50c0adac-c878-4a21-8b5f-01478e7e4852"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse("a8de2767-4b0a-41db-b33b-2523f5be2e0c"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Đậu hũ chiên",
-                FoodDescription = "Món chay giàu protein, dễ chế biến với nhiều gia vị",
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Mâm xôi",
+                FoodDescription = "Mâm xôi là trái cây giàu vitamin C và chất chống oxy hóa, có tác dụng tốt cho hệ miễn dịch và làn da. Mâm xôi có thể ăn trực tiếp hoặc làm sinh tố, chè, tráng miệng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2553,97 +2518,97 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 126
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("431b7ee6-7c63-43ac-ae7e-be93f7fb6647"),
-            //     CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Thịt nai nướng",
-            //     FoodDescription = "Món đặc sản, thịt ngọt, giàu sắt và năng lượng",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 126
+            new Food
+            {
+                FoodId = Guid.Parse("00333cd3-f43b-40af-855e-95aa8a636e4a"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Bí đỏ",
+                FoodDescription = "Bí đỏ là loại rau quả giàu vitamin A và C, giúp cải thiện thị lực và sức khỏe da. Bí đỏ có thể chế biến thành các món canh, xào, hoặc làm sinh tố, là món ăn bổ dưỡng cho cả gia đình",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 127
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("016d6e20-bf8b-4b0e-9e0c-a1d6199f73d4"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cua hấp",
-            //     FoodDescription = "Hải sản ngọt tự nhiên, cung cấp canxi và kẽm",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 127
+            new Food
+            {
+                FoodId = Guid.Parse("8d95f2a5-cdd0-4c79-8cd0-99ff05cad567"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Khoai môn",
+                FoodDescription = "Khoai môn là loại củ giàu tinh bột và vitamin C, có thể chế biến thành các món xào, luộc, làm chè hoặc làm nhân bánh. Món khoai môn rất bổ dưỡng và dễ tiêu hóa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 128
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("c027a073-e154-4c78-821e-3588fcb4df03"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Dessert,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Hạt chia ngâm",
-            //     FoodDescription = "Siêu thực phẩm, giàu chất xơ và omega-3",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 128
+            new Food
+            {
+                FoodId = Guid.Parse("7afe5fe6-3bcb-4354-86ea-e8d6a81aa9a2"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Măng tây",
+                FoodDescription = "Măng tây là loại rau giàu vitamin K và chất chống oxy hóa, tốt cho sức khỏe tim mạch và hệ xương. Măng tây có thể xào, nấu canh hoặc ăn sống, rất bổ dưỡng và dễ chế biến",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 129
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("341c53c9-7894-410c-ab04-0dca11ff6a80"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá tuyết hấp",
-            //     FoodDescription = "Thịt trắng thơm ngọt, giàu dinh dưỡng, dễ tiêu hóa",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 129
+            new Food
+            {
+                FoodId = Guid.Parse("ff348fc8-cd36-41c4-984f-a5884171f367"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Bắp cải tím",
+                FoodDescription = "Bắp cải tím là loại rau giàu vitamin C và chất xơ, có thể chế biến thành salad, xào hoặc nấu canh. Món bắp cải tím giúp giải độc, hỗ trợ tiêu hóa và tốt cho sức khỏe tim mạch",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 130
             new Food
             {
-                FoodId = Guid.Parse("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("7b3216ff-858e-423e-b8db-a85571aa5488"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Bò bít tết",
-                FoodDescription = "Thịt bò mềm, hấp dẫn, thích hợp cho bữa tối cao cấp",
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Kiwi",
+                FoodDescription = "Kiwi là trái cây giàu vitamin C, chất xơ và chất chống oxy hóa. Kiwi giúp cải thiện hệ tiêu hóa, tăng cường sức đề kháng và làm đẹp da. Món này có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2653,37 +2618,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 131
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("02aad946-ee2f-45f8-8ce5-8ebc476ba631"),
-            //     CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Ức gà tây",
-            //     FoodDescription = "Giàu protein, ít béo, giúp xây dựng cơ bắp hiệu quả",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 131
+            new Food
+            {
+                FoodId = Guid.Parse("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.Snack],
+                FoodName = "Hạt kê",
+                FoodDescription = "Hạt kê là loại hạt giàu protein, chất xơ và khoáng chất như sắt và magiê. Hạt kê có thể nấu cháo, làm bánh hoặc thêm vào các món salad, là lựa chọn bổ dưỡng cho các bữa ăn nhẹ",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 132
             new Food
             {
-                FoodId = Guid.Parse("a23f6c85-1a80-4255-a9a1-d08c1d60e753"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse("35cad577-0748-469f-8909-7dc013cf1c55"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cá hồi hun khói",
-                FoodDescription = "Hương vị đậm đà, tiện lợi, tốt cho sức khỏe tim",
+                DishType = [DishType.SideDish],
+                FoodName = "Măng khô",
+                FoodDescription = "Măng khô là món ăn được làm từ măng tươi phơi khô, có thể chế biến thành các món canh hoặc xào. Măng khô có vị ngọt tự nhiên, giòn và là món ăn bổ dưỡng trong các bữa ăn gia đình",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2693,37 +2658,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 133
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("c7e5ccea-ca0e-4c25-be0b-509bb51b38a2"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá basa chiên",
-            //     FoodDescription = "Món cá vàng giòn, giàu omega-3, dễ chế biến",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 133
+            new Food
+            {
+                FoodId = Guid.Parse("575e8bca-57e3-4d16-b380-545a046c9a4e"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Rong biển khô",
+                FoodDescription = "Rong biển khô là thực phẩm giàu vitamin, khoáng chất và chất xơ, rất tốt cho sức khỏe. Món rong biển có thể dùng làm salad, súp, hoặc làm nhân cho sushi, rất phổ biến trong ẩm thực châu Á",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 134
             new Food
             {
-                FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse("830df1fb-09f6-4e6e-95c3-e39051e3b2d8"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Snack,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Hạt hạnh nhân",
-                FoodDescription = "Thực phẩm nhẹ, cung cấp năng lượng và vitamin E",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Bông cải xanh",
+                FoodDescription = "Bông cải xanh (súp lơ) là loại rau chứa nhiều vitamin C, vitamin K và chất chống oxy hóa. Bông cải xanh có thể xào, luộc hoặc làm món canh, là món ăn bổ dưỡng giúp cải thiện sức khỏe",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2733,97 +2698,97 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 135
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("a6b8e6e4-1e44-4626-a7d0-1cefefc4f613"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá chình nướng",
-            //     FoodDescription = "Thịt ngọt, mềm, bổ dưỡng, tốt cho sức khỏe",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 135
+            new Food
+            {
+                FoodId = Guid.Parse("9b98036c-2047-4700-bb13-b34a432bb999"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Gạo lứt",
+                FoodDescription = "Gạo lứt là loại gạo nguyên hạt, giàu chất xơ, vitamin và khoáng chất. Món gạo lứt có thể ăn kèm với các món thịt hoặc rau, giúp duy trì năng lượng lâu dài và rất tốt cho hệ tiêu hóa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 136
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("6dfafffc-d4f7-4402-b585-37a1c8994663"),
-            //     CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cà ri gà",
-            //     FoodDescription = "Món cay hấp dẫn, giàu hương vị, hợp khẩu vị Việt",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 136
+            new Food
+            {
+                FoodId = Guid.Parse("1aa49363-ab95-4565-9e27-1855702197fd"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Nho",
+                FoodDescription = "Nho là trái cây ngọt, giàu vitamin C và chất chống oxy hóa, có tác dụng tăng cường sức đề kháng và làm đẹp da. Nho có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 137
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("55cb9711-56aa-4efb-b31f-d034134cb1b8"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá trích muối",
-            //     FoodDescription = "Hải sản đậm đà, thích hợp ăn kèm bánh mì",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 137
+            new Food
+            {
+                FoodId = Guid.Parse("98c908b5-dad8-4db4-8d60-c6157c53d2c0"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Rau cải bó xôi",
+                FoodDescription = "Rau cải bó xôi là loại rau xanh chứa nhiều vitamin A, C và chất sắt. Món cải bó xôi có thể ăn sống trong salad, xào hoặc nấu canh, rất bổ dưỡng và tốt cho sức khỏe xương",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 138
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("304376d6-f9c5-48f0-985c-06080347b173"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá hồi sốt chanh",
-            //     FoodDescription = "Món thanh nhẹ, chua ngọt, giàu omega-3",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 138
+            new Food
+            {
+                FoodId = Guid.Parse("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish, DishType.MainDish],
+                FoodName = "Đậu đen",
+                FoodDescription = "Đậu đen là nguồn cung cấp protein thực vật và chất xơ tuyệt vời, giúp cải thiện hệ tiêu hóa. Đậu đen có thể nấu cháo, chè hoặc làm các món xào, rất bổ dưỡng cho sức khỏe",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 139
             new Food
             {
-                FoodId = Guid.Parse("8da16f72-42a9-4da2-b217-811903e340c4"),
-                CategoryId = Guid.Parse("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
+                FoodId = Guid.Parse("857b3565-b170-4162-a97b-c0184c4258aa"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
-                FoodName = "Đậu hũ sốt cà",
-                FoodDescription = "Món chay đơn giản, ngon miệng, giàu protein",
+                FoodName = "Củ cải đường",
+                FoodDescription = "Củ cải đường là loại củ chứa nhiều vitamin C và khoáng chất, giúp cải thiện sức khỏe tim mạch và huyết áp. Món củ cải đường có thể ăn sống, xào hoặc nấu canh, mang lại lợi ích cho cơ thể",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2836,14 +2801,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 140
             new Food
             {
-                FoodId = Guid.Parse("a5d484c6-9cc8-4d6e-a53c-5c8a2c20999b"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("7cd76708-7312-445e-a392-14f0e806a786"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Protein, FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Thịt lợn xông khói",
-                FoodDescription = "Vị mặn đậm, dùng làm topping hoặc ăn sáng",
+                DishType = [DishType.SideDish],
+                FoodName = "Đậu Hà Lan",
+                FoodDescription = "Đậu Hà Lan là loại rau giàu vitamin, khoáng chất và chất xơ, giúp hỗ trợ hệ tiêu hóa và tăng cường miễn dịch. Đậu Hà Lan có thể ăn trực tiếp, làm salad hoặc nấu canh",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2853,37 +2818,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 141
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("56bb5be7-3a7f-4942-89c6-3c6af934adf3"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá chim trắng nướng",
-            //     FoodDescription = "Cá biển thơm ngon, giàu dinh dưỡng tự nhiên",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 141
+            new Food
+            {
+                FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Snack],
+                DishType = [DishType.SideDish],
+                FoodName = "Lúa mạch",
+                FoodDescription = "Lúa mạch là ngũ cốc giàu chất xơ và protein, có thể chế biến thành cháo, bánh hoặc thêm vào các món salad. Lúa mạch giúp cải thiện tiêu hóa và cung cấp năng lượng bền vững cho cơ thể",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 142
             new Food
             {
-                FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse("10869d8c-14b9-4464-85ca-bf76fc4bf91d"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Snack,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Hạt bí ngô",
-                FoodDescription = "Giàu kẽm, ăn nhẹ tốt cho sức khỏe và làn da",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Rau dền đỏ",
+                FoodDescription = "Rau dền đỏ là loại rau xanh giàu vitamin C và chất xơ, giúp hỗ trợ tiêu hóa và tăng cường miễn dịch. Rau dền đỏ có thể xào, nấu canh hoặc làm món gỏi, rất bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2896,14 +2861,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 143
             new Food
             {
-                FoodId = Guid.Parse("b29dc622-e8ae-4471-8e22-5676aa5fa909"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Carbs],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Đậu Hà Lan luộc",
-                FoodDescription = "Rau củ giàu vitamin, hỗ trợ hệ miễn dịch",
+                DishType = [DishType.MainDish, DishType.SideDish],
+                FoodName = "Mì gạo lứt",
+                FoodDescription = "Mì gạo lứt được làm từ gạo lứt nguyên hạt, giàu chất xơ và vitamin. Món mì này có thể chế biến thành các món xào, soup hoặc ăn kèm với thịt, rất tốt cho sức khỏe và giúp giảm cholesterol",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2913,77 +2878,77 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 144
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("6007962d-9bd0-43ce-8a83-6b5f9bed4156"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cua biển sốt me",
-            //     FoodDescription = "Món ăn đậm đà, chua ngọt, hợp khẩu vị mọi người",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 144
+            new Food
+            {
+                FoodId = Guid.Parse("9979963d-5c37-4fa9-955c-d1ecb5814607"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Rau chân vịt",
+                FoodDescription = "Rau chân vịt (cải bó xôi) là loại rau giàu vitamin A, C và chất sắt, giúp tăng cường sức khỏe xương và hỗ trợ miễn dịch. Rau chân vịt có thể ăn sống trong salad, xào hoặc nấu canh",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 145
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("189dadbe-caf2-4d83-bb01-5ffa8776fa20"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Đậu phộng rang",
-            //     FoodDescription = "Món ăn nhẹ phổ biến, giàu năng lượng và chất béo",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 145
+            new Food
+            {
+                FoodId = Guid.Parse("845454d0-967a-4e48-aef3-bd8458775500"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Củ cải trắng",
+                FoodDescription = "Củ cải trắng là loại rau củ giàu vitamin C và chất xơ, giúp thanh nhiệt và giải độc cơ thể. Món củ cải trắng có thể ăn sống, xào hoặc nấu canh, mang lại hương vị thanh mát và bổ dưỡng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 146
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Sò điệp hấp",
-            //     FoodDescription = "Hải sản cao cấp, thơm ngọt, giàu dinh dưỡng",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 146
+            new Food
+            {
+                FoodId = Guid.Parse("6a88b8cb-dc82-4751-a2e4-23e5516d850b"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert, DishType.SideDish],
+                FoodName = "Rau má",
+                FoodDescription = "Rau má là loại rau mát, giúp thanh nhiệt, giải độc và làm đẹp da. Rau má có thể ăn sống trong salad hoặc nấu canh, rất tốt cho sức khỏe và có tác dụng làm dịu cơ thể trong mùa hè",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 147
             new Food
             {
-                FoodId = Guid.Parse("0f7f47a1-f122-4f58-9e24-40ece9323520"),
-                CategoryId = Guid.Parse("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Thịt gà quay",
-                FoodDescription = "Thịt gà vàng giòn, hương vị hấp dẫn, dễ ăn",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Snack],
+                FoodName = "Hạt lanh",
+                FoodDescription = "Hạt lanh là nguồn tuyệt vời cung cấp omega-3, chất xơ và lignans, giúp bảo vệ tim mạch và giảm viêm. Hạt lanh có thể thêm vào các món sinh tố, salad hoặc dùng để nướng bánh",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -2996,14 +2961,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 148
             new Food
             {
-                FoodId = Guid.Parse("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Sữa bò tươi",
-                FoodDescription = "Nguồn canxi tự nhiên, tốt cho xương và cơ thể",
+                FoodType = [FoodType.Snack, FoodType.Protein],
+                MealType = [MealType.Snack],
+                DishType = [DishType.Snack],
+                FoodName = "Hạt dẻ cười",
+                FoodDescription = "Hạt dẻ cười là loại hạt giàu chất béo lành mạnh, vitamin E và khoáng chất, giúp bảo vệ tim mạch và cung cấp năng lượng. Hạt dẻ cười có thể ăn trực tiếp hoặc thêm vào các món tráng miệng, salad",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3013,117 +2978,117 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 149
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("d675513e-3be1-4c47-b0d2-0718f02ae93b"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Hạt mè",
-            //     FoodDescription = "Nhỏ gọn, giàu dưỡng chất, dùng trong món ăn châu Á",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 149
+            new Food
+            {
+                FoodId = Guid.Parse("49601ef1-2131-478f-a1de-f2e444602be3"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Drink],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Drink],
+                FoodName = "Dừa tươi",
+                FoodDescription = "Dừa tươi là thức uống giải khát tuyệt vời, giàu vitamin C và khoáng chất. Nước dừa cung cấp độ ẩm và giúp thanh nhiệt, rất tốt cho làn da và sức khỏe hệ tiêu hóa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 150
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("8bcd1ea8-cf17-4457-bc32-65033e43e311"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá mòi hộp dầu",
-            //     FoodDescription = "Tiện lợi, giàu omega-3, bổ sung bữa ăn nhanh",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 150
+            new Food
+            {
+                FoodId = Guid.Parse("d3c360a2-441e-4700-a6ec-4310b5976901"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cá thu",
+                FoodDescription = "Cá thu là loại hải sản giàu omega-3 và protein, rất tốt cho sức khỏe tim mạch. Cá thu có thể nướng, chiên hoặc kho, mang lại hương vị thơm ngon và bổ dưỡng cho bữa ăn",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 151
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("7f55881d-f8f4-43aa-b4b6-5d56fd56cfde"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá lóc hấp",
-            //     FoodDescription = "Cá đồng ngon ngọt, giàu chất dinh dưỡng",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 151
+            new Food
+            {
+                FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Snack],
+                MealType = [MealType.Snack],
+                DishType = [DishType.Snack],
+                FoodName = "Hạt mắc ca",
+                FoodDescription = "Hạt mắc ca là loại hạt giàu chất béo lành mạnh, vitamin E và khoáng chất, giúp cải thiện sức khỏe tim mạch. Hạt có thể ăn trực tiếp hoặc thêm vào salad, rất bổ dưỡng và dễ tiêu hóa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 152
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("bbd19c8e-c1b4-497f-aadb-ca584820c465"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Hạt diêm mạch",
-            //     FoodDescription = "Siêu thực phẩm, giàu protein và chất xơ",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 152
+            new Food
+            {
+                FoodId = Guid.Parse("cb693182-b5ff-4f2b-9a47-44ab84841843"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Hồng xiêm",
+                FoodDescription = "Hồng xiêm là trái cây ngọt, có hương vị đặc trưng, giàu vitamin C và khoáng chất. Món này có thể ăn trực tiếp hoặc chế biến thành các món tráng miệng, sinh tố, rất tốt cho sức khỏe",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 153
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("da3b2de7-bfd2-4c5e-9958-f8a8368b158a"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá trắm hấp",
-            //     FoodDescription = "Nhỏ gọn, giàu dưỡng chất, dùng trong món ăn châu Á",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 153
+            new Food
+            {
+                FoodId = Guid.Parse("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Đào",
+                FoodDescription = "Đào là trái cây ngọt, mọng nước, chứa nhiều vitamin C và chất chống oxy hóa. Món này có thể ăn trực tiếp, làm sinh tố hoặc chế biến thành các món tráng miệng, giúp tăng cường sức đề kháng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 154
             new Food
             {
-                FoodId = Guid.Parse("c46676b3-cbcc-49e9-ad44-7d450a481a19"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Breakfast, MealType.Lunch],
-                DishType = [DishType.MainDish],
-                FoodName = "Yến mạch",
-                FoodDescription = "Giàu chất xơ, hỗ trợ tiêu hóa và tốt cho tim mạch",
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Lựu",
+                FoodDescription = "Lựu là trái cây giàu vitamin C, chất chống oxy hóa và khoáng chất. Món này có thể ăn trực tiếp hoặc làm nước ép, giúp cải thiện hệ miễn dịch và làm đẹp da",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3136,14 +3101,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 155
             new Food
             {
-                FoodId = Guid.Parse("597a11b3-31a0-4e70-8d2f-95465ee03e8b"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Cải bó xôi",
-                FoodDescription = "Rau lá xanh, chứa nhiều sắt và vitamin K",
+                DishType = [DishType.MainDish],
+                FoodName = "Súp cua",
+                FoodDescription = "Súp cua là món ăn nhẹ với nước dùng từ cua, mang hương vị ngọt tự nhiên và bổ dưỡng. Món này thường được ăn vào bữa sáng hoặc bữa tối, rất giàu protein và khoáng chất",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3153,37 +3118,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 156
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("628fe894-0d9c-416f-866b-eb77f763ee62"),
-            //     CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Dessert,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Bơ",
-            //     FoodDescription = "Giàu chất béo tốt, giúp nuôi dưỡng làn da và tóc",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 156
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh bí đỏ",
+                FoodDescription = "Canh bí đỏ là món ăn thanh mát, giàu vitamin A và C. Canh bí đỏ có thể nấu với thịt heo hoặc tôm, mang lại hương vị ngọt tự nhiên, bổ dưỡng và dễ tiêu hóa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 157
             new Food
             {
-                FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Snack,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Hạt hướng dương",
-                FoodDescription = "Thực phẩm ăn nhẹ, giàu vitamin E và khoáng chất",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh rau củ",
+                FoodDescription = "Canh rau củ là món ăn nhẹ nhàng, giàu vitamin và chất xơ, thích hợp cho các bữa ăn dinh dưỡng. Các loại rau như cà rốt, khoai tây, đậu que được nấu chung tạo thành món canh thơm ngon, dễ ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3193,37 +3158,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 158
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("0d3e0ef5-afcc-418a-a3f6-f2a24cfd3166"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Hạt óc chó",
-            //     FoodDescription = "Giàu omega-3, hỗ trợ trí não và sức khỏe tim mạch",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 158
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh bí đao",
+                FoodDescription = "Canh bí đao là món canh mát, giúp giải nhiệt và thanh lọc cơ thể. Bí đao có thể nấu với tôm, thịt heo hoặc cá, mang lại hương vị thanh đạm và rất bổ dưỡng cho sức khỏe",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 159
             new Food
             {
-                FoodId = Guid.Parse("644f32b3-897e-45b1-b4d7-aa8b9585a262"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Protein, FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Rau mồng tơi",
-                FoodDescription = "Rau xanh giúp bổ máu, hỗ trợ tiêu hóa tốt",
+                DishType = [DishType.Soup],
+                FoodName = "Canh cua mồng tơi",
+                FoodDescription = "Canh cua mồng tơi là món ăn dân dã, có vị ngọt từ cua và mồng tơi. Món này không chỉ thơm ngon mà còn rất bổ dưỡng, đặc biệt tốt cho hệ tiêu hóa và làn da",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3236,14 +3201,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 160
             new Food
             {
-                FoodId = Guid.Parse("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Lê",
-                FoodDescription = "Trái cây mọng nước, giàu chất xơ và vitamin C",
+                FoodType = [FoodType.Vegetables, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh nấm",
+                FoodDescription = "Canh nấm là món ăn nhẹ, bổ dưỡng, giàu vitamin và chất xơ. Nấm có thể kết hợp với rau củ hoặc thịt để tạo ra món canh thơm ngon, rất phù hợp cho bữa ăn thanh đạm",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3256,14 +3221,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 161
             new Food
             {
-                FoodId = Guid.Parse("2e641c82-56f7-480d-b216-63723b5a5e7d"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Dâu tây",
-                FoodDescription = "Quả ngọt mọng, giàu chất chống oxy hóa và tốt cho da",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cháo gà",
+                FoodDescription = "Cháo gà là món ăn nhẹ, với cháo mịn và thịt gà chín mềm, thường ăn kèm với hành lá, rau thơm và gia vị. Món này dễ tiêu hóa, phù hợp cho bữa sáng hoặc khi bạn cảm thấy mệt mỏi",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3276,14 +3241,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 162
             new Food
             {
-                FoodId = Guid.Parse("a8de2767-4b0a-41db-b33b-2523f5be2e0c"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Mâm xôi",
-                FoodDescription = "Siêu thực phẩm mọng nước, giàu chất xơ và vitamin",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cháo sườn non",
+                FoodDescription = "Cháo sườn non là món ăn thơm ngon, với cháo được nấu từ xương sườn heo, có vị ngọt tự nhiên từ xương. Món này thường được ăn kèm với hành phi và gia vị, thích hợp cho bữa sáng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3296,14 +3261,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 163
             new Food
             {
-                FoodId = Guid.Parse("00333cd3-f43b-40af-855e-95aa8a636e4a"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Bí đỏ",
-                FoodDescription = "Nguồn cung cấp beta-carotene tốt cho mắt và da",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cháo thịt bằm",
+                FoodDescription = "Cháo thịt bằm là món cháo có thịt heo xay nhuyễn, nấu cùng với gạo và gia vị. Món này bổ dưỡng, dễ ăn và dễ tiêu hóa, thích hợp cho bữa sáng hoặc bữa ăn nhẹ",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3316,14 +3281,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 164
             new Food
             {
-                FoodId = Guid.Parse("8d95f2a5-cdd0-4c79-8cd0-99ff05cad567"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Khoai môn",
-                FoodDescription = "Thực phẩm bổ dưỡng, giàu tinh bột và khoáng chất",
+                DishType = [DishType.MainDish],
+                FoodName = "Bún chả cá",
+                FoodDescription = "Bún chả cá là món ăn với bún, chả cá chiên hoặc hấp và nước dùng từ cá. Món ăn này có vị ngọt tự nhiên từ cá, rất phổ biến ở miền Trung và Nam Việt Nam",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3333,37 +3298,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 165
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("37d1bd46-54c4-40ef-a1f0-7bd0883ad818"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Hạt dẻ",
-            //     FoodDescription = "Thực phẩm ăn nhẹ, cung cấp năng lượng và dưỡng chất",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 165
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Bún gà",
+                FoodDescription = "Bún gà là món ăn thanh mát với bún, thịt gà luộc hoặc xé nhỏ và nước dùng thơm ngon. Đây là món ăn nhẹ nhàng, thích hợp cho bữa sáng hoặc bữa trưa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 166
             new Food
             {
-                FoodId = Guid.Parse("7afe5fe6-3bcb-4354-86ea-e8d6a81aa9a2"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Măng tây",
-                FoodDescription = "Rau xanh giàu folate, tốt cho phụ nữ mang thai",
+                DishType = [DishType.MainDish],
+                FoodName = "Bún hải sản",
+                FoodDescription = "Bún hải sản là món ăn đậm đà với bún, nước dùng từ hải sản và các loại hải sản như tôm, cua, mực. Món này có hương vị đặc trưng và rất bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3376,14 +3341,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 167
             new Food
             {
-                FoodId = Guid.Parse("ff348fc8-cd36-41c4-984f-a5884171f367"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Bắp cải tím",
-                FoodDescription = "Màu sắc hấp dẫn, giàu chất chống oxy hóa",
+                DishType = [DishType.MainDish],
+                FoodName = "Bún ốc",
+                FoodDescription = "Bún ốc là món ăn nổi bật với nước dùng chua ngọt từ ốc và gia vị, kết hợp với bún và các loại rau sống. Món này có vị thơm ngon, thích hợp cho bữa trưa hoặc tối",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3393,37 +3358,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 168
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("e8a16fb6-33a9-4a5a-85f8-ffa5a1465885"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Vegetables,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.SideDish],
-            //     FoodName = "Đậu phộng",
-            //     FoodDescription = "Thực phẩm ăn nhẹ quen thuộc, giàu năng lượng",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 168
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cháo vịt",
+                FoodDescription = "Cháo vịt là món cháo nấu với thịt vịt, có vị ngọt tự nhiên từ thịt và xương vịt. Món này thường được ăn vào bữa sáng hoặc bữa tối, giúp cung cấp năng lượng và dưỡng chất",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 169
             new Food
             {
-                FoodId = Guid.Parse("7b3216ff-858e-423e-b8db-a85571aa5488"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Kiwi",
-                FoodDescription = "Trái cây chua ngọt, giàu vitamin C và chất chống oxy hóa",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh mì chả cá",
+                FoodDescription = "Bánh mì chả cá là món ăn sáng quen thuộc, với bánh mì mềm, nhân chả cá chiên thơm ngon và rau sống. Món này rất phổ biến ở Việt Nam, tiện lợi và dễ ăn",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3436,14 +3401,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 170
             new Food
             {
-                FoodId = Guid.Parse("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Snack,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Hạt kê",
-                FoodDescription = "Thực phẩm giàu protein thực vật, hỗ trợ tiêu hóa",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Mì Quảng",
+                FoodDescription = "Mì Quảng là món đặc sản của miền Trung, gồm mì gạo, nước dùng đậm đà, tôm, thịt hoặc trứng, và rau sống. Món ăn này có vị đặc trưng và rất thích hợp cho bữa sáng hoặc trưa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3456,14 +3421,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 171
             new Food
             {
-                FoodId = Guid.Parse("67f6b055-1abc-4a48-97ce-63aea2e5ef7b"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Snack,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Hạt lúa mì",
-                FoodDescription = "Nguồn năng lượng dồi dào, bổ sung nhiều vitamin",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Miến gà",
+                FoodDescription = "Miến gà là món ăn nhẹ với miến mềm, nước dùng thơm ngon từ gà, ăn kèm với thịt gà xé nhỏ. Món này rất dễ ăn, thích hợp cho bữa sáng hoặc bữa trưa nhẹ nhàng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3476,14 +3441,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 172
             new Food
             {
-                FoodId = Guid.Parse("35cad577-0748-469f-8909-7dc013cf1c55"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Măng khô",
-                FoodDescription = "Rau củ khô giàu chất xơ, tiện lợi cho nhiều món ăn",
+                DishType = [DishType.Soup],
+                FoodName = "Súp rau củ",
+                FoodDescription = "Súp rau củ là món canh thanh đạm với các loại rau củ như cà rốt, khoai tây, đậu que, nấu trong nước dùng nhẹ nhàng. Món này bổ dưỡng, dễ tiêu hóa và thích hợp cho các bữa ăn thanh mát",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3496,14 +3461,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 173
             new Food
             {
-                FoodId = Guid.Parse("575e8bca-57e3-4d16-b380-545a046c9a4e"),
-                CategoryId = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Rong biển khô",
-                FoodDescription = "Hải sản khô giàu iod, tốt cho chức năng tuyến giáp",
+                DishType = [DishType.Soup],
+                FoodName = "Súp bò hầm",
+                FoodDescription = "Súp bò hầm là món ăn có nước dùng đậm đà từ xương bò, với thịt bò mềm và rau củ đi kèm. Món này cung cấp năng lượng và dưỡng chất, rất phù hợp cho bữa tối",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3516,14 +3481,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 174
             new Food
             {
-                FoodId = Guid.Parse("830df1fb-09f6-4e6e-95c3-e39051e3b2d8"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Protein, FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Bông cải xanh",
-                FoodDescription = "Rau xanh giàu vitamin C và chất chống oxy hóa",
+                DishType = [DishType.Soup],
+                FoodName = "Súp gà nấm",
+                FoodDescription = "Súp gà nấm là món ăn nhẹ nhàng với nước dùng từ gà và nấm, giúp thanh nhiệt và dễ tiêu hóa. Món này thường ăn vào bữa sáng hoặc khi cần bồi bổ cơ thể",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3536,14 +3501,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 175
             new Food
             {
-                FoodId = Guid.Parse("9b98036c-2047-4700-bb13-b34a432bb999"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Gạo lứt",
-                FoodDescription = "Giàu chất xơ và vitamin, tốt cho sức khỏe tim mạch",
+                DishType = [DishType.Soup],
+                FoodName = "Súp hải sản",
+                FoodDescription = "Súp hải sản là món ăn đậm đà với nước dùng từ hải sản như tôm, cua, mực, nấu cùng với rau củ và gia vị. Món này rất bổ dưỡng và thích hợp cho các bữa ăn chính",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3553,57 +3518,57 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 176
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("77b9e248-971c-4292-8cd7-fd7ec55cf643"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Carbs,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.SideDish],
-            //     FoodName = "Đậu lăng",
-            //     FoodDescription = "Nguồn protein thực vật, bổ sung năng lượng bền vững",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 176
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Rau xào",
+                FoodDescription = "Rau xào là món ăn đơn giản với rau củ được xào nhanh với gia vị. Món này thường sử dụng các loại rau như cải thảo, cải ngọt, giúp cung cấp vitamin và khoáng chất cho cơ thể",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 177
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("4d773186-20f8-42c2-839b-1ce1601280fa"),
-            //     CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Dessert,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Xoài",
-            //     FoodDescription = "Trái cây nhiệt đới ngọt, giàu vitamin C và chất xơ",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 177
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Rau luộc",
+                FoodDescription = "Rau luộc là món ăn thanh mát, giúp bổ sung vitamin và khoáng chất, rất tốt cho sức khỏe. Các loại rau như rau muống, rau ngót thường được luộc và ăn kèm với nước mắm hoặc gia vị",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 178
             new Food
             {
-                FoodId = Guid.Parse("1aa49363-ab95-4565-9e27-1855702197fd"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Nho",
-                FoodDescription = "Trái cây mọng nước, giàu chất chống oxy hóa và kali",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cơm gà xối mỡ",
+                FoodDescription = "Cơm gà xối mỡ là món ăn đặc trưng với cơm trắng ăn kèm thịt gà chiên giòn, đậm đà với lớp mỡ giòn rụm. Món này thường được ăn kèm với dưa leo và rau sống",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3616,14 +3581,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 179
             new Food
             {
-                FoodId = Guid.Parse("98c908b5-dad8-4db4-8d60-c6157c53d2c0"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
-                FoodName = "Rau cải bó xôi",
-                FoodDescription = "Rau xanh chứa nhiều sắt, giúp bổ máu và tăng sức khỏe",
+                FoodName = "Salad rau",
+                FoodDescription = "Salad rau là món ăn nhẹ, là sự kết hợp của các loại rau tươi như xà lách, cà chua, dưa leo, trộn với nước sốt chua ngọt hoặc dầu olive. Món này bổ dưỡng, giàu vitamin và chất xơ",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3636,14 +3601,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 180
             new Food
             {
-                FoodId = Guid.Parse("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
-                FoodName = "Đậu đen",
-                FoodDescription = "Nguồn protein thực vật, giàu chất xơ và khoáng chất",
+                FoodName = "Rau muống luộc",
+                FoodDescription = "Rau muống luộc là món ăn đơn giản, dễ làm, rất phổ biến ở Việt Nam. Rau muống luộc có thể ăn kèm với nước mắm tỏi ớt hoặc làm món ăn phụ trong bữa cơm, giúp thanh nhiệt và bổ sung dưỡng chất",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3656,14 +3621,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 181
             new Food
             {
-                FoodId = Guid.Parse("857b3565-b170-4162-a97b-c0184c4258aa"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Protein, FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Củ cải đường",
-                FoodDescription = "Củ đỏ giàu dưỡng chất, hỗ trợ chức năng gan và máu",
+                DishType = [DishType.Soup],
+                FoodName = "Canh chua cá",
+                FoodDescription = "Canh chua cá là món ăn đậm đà với nước dùng chua ngọt, thường làm từ cá và các loại rau như giá đỗ, ngò rí, ăn kèm với bún. Món này thanh mát, giải nhiệt và rất bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3676,14 +3641,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 182
             new Food
             {
-                FoodId = Guid.Parse("7cd76708-7312-445e-a392-14f0e806a786"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Đậu Hà Lan",
-                FoodDescription = "Rau củ ngọt tự nhiên, giàu vitamin và chất xơ",
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh mì ốp la",
+                FoodDescription = "Bánh mì ốp la là món ăn sáng phổ biến với bánh mì giòn, nhân trứng ốp la và có thể kèm thịt, rau. Đây là món ăn nhanh gọn, dễ dàng và bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3696,14 +3661,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 183
             new Food
             {
-                FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
-                MealType = [MealType.Lunch, MealType.Dinner],
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Lúa mạch",
-                FoodDescription = "Ngũ cốc giàu năng lượng, tốt cho tim mạch và tiêu hóa",
+                FoodName = "Bò kho",
+                FoodDescription = "Bò kho là món ăn với thịt bò hầm mềm mịn, nước dùng đậm đà với gia vị thơm ngon. Món này thường ăn kèm với bánh mì hoặc bún, là bữa ăn đầy đủ và ấm áp",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3716,14 +3681,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 184
             new Food
             {
-                FoodId = Guid.Parse("10869d8c-14b9-4464-85ca-bf76fc4bf91d"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Rau dền đỏ",
-                FoodDescription = "Rau củ màu đỏ, giàu sắt và hỗ trợ tuần hoàn máu",
+                DishType = [DishType.Soup],
+                FoodName = "Canh rau ngót",
+                FoodDescription = "Canh rau ngót là món canh thanh mát, có vị ngọt tự nhiên từ rau ngót. Món này thường được nấu với thịt hoặc tôm, giúp giải nhiệt và bổ sung dinh dưỡng cho cơ thể",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3736,14 +3701,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 185
             new Food
             {
-                FoodId = Guid.Parse("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
-                CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Carbs,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Mì gạo lứt",
-                FoodDescription = "Mì giàu chất xơ, lựa chọn lành mạnh thay thế mì trắng",
+                DishType = [DishType.Soup],
+                FoodName = "Canh cải xanh",
+                FoodDescription = "Canh cải xanh là món canh nhẹ, giàu vitamin và khoáng chất, thường được nấu với thịt heo hoặc tôm. Đây là món ăn bổ dưỡng, dễ tiêu hóa và thích hợp cho các bữa ăn thanh đạm",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3756,14 +3721,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 186
             new Food
             {
-                FoodId = Guid.Parse("9979963d-5c37-4fa9-955c-d1ecb5814607"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Rau chân vịt",
-                FoodDescription = "Rau xanh giàu folate, tốt cho hệ miễn dịch và máu",
+                DishType = [DishType.Soup],
+                FoodName = "Canh củ quả",
+                FoodDescription = "Canh củ quả là món canh với nhiều loại rau củ như cà rốt, khoai tây, đậu hà lan, nấu trong nước dùng nhẹ nhàng. Món này cung cấp nhiều vitamin và chất xơ, rất tốt cho sức khỏe",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3773,57 +3738,57 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 187
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("cf0fce11-3569-435b-8942-9c0ceb23d6dc"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá hồi áp chảo",
-            //     FoodDescription = "Cá biển giàu omega-3, hỗ trợ trí não và sức khỏe tim",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 187
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Thịt heo kho",
+                FoodDescription = "Thịt heo kho là món ăn với thịt heo được kho mềm, thấm đẫm gia vị mặn ngọt. Món này thường ăn kèm với cơm trắng, tạo thành một bữa ăn đậm đà và bổ dưỡng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 188
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("c3480e21-940b-4190-b07c-f3208ae96367"),
-            //     CategoryId = Guid.Parse("4c35b262-4c08-4624-900b-e22ba8988c92"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Carbs,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Ngũ cốc nguyên hạt",
-            //     FoodDescription = "Thực phẩm nguyên hạt, bổ sung dinh dưỡng toàn diện",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 188
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Rau muống xào tỏi",
+                FoodDescription = "Rau muống xào tỏi là món ăn phổ biến, với rau muống tươi xào cùng tỏi và gia vị. Món này có vị đậm đà, thơm ngon, rất thích hợp ăn kèm với cơm trắng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 189
             new Food
             {
-                FoodId = Guid.Parse("845454d0-967a-4e48-aef3-bd8458775500"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Củ cải trắng",
-                FoodDescription = "Củ ngọt, ít calo, giúp làm mát cơ thể hiệu quả",
+                DishType = [DishType.Soup],
+                FoodName = "Canh bầu",
+                FoodDescription = "Canh bầu là món canh thanh mát, với bầu nấu cùng nước dùng nhẹ nhàng từ xương hoặc thịt. Món canh này có tác dụng giải nhiệt, rất thích hợp trong những ngày hè nóng bức",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3836,14 +3801,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 190
             new Food
             {
-                FoodId = Guid.Parse("6a88b8cb-dc82-4751-a2e4-23e5516d850b"),
-                CategoryId = Guid.Parse("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Vegetables,
+                FoodType = [FoodType.Vegetables],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.SideDish],
-                FoodName = "Rau má",
-                FoodDescription = "Rau xanh giàu chất chống oxy hóa, hỗ trợ thải độc",
+                FoodName = "Rau cải xanh",
+                FoodDescription = "Rau cải xanh là loại rau giàu vitamin A, C và chất xơ, có thể chế biến thành các món xào, luộc hoặc nấu canh. Món rau cải xanh cung cấp nhiều dưỡng chất và giúp thanh nhiệt cho cơ thể",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3856,14 +3821,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 191
             new Food
             {
-                FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
                 DishType = [DishType.Dessert],
-                FoodName = "Hạt lanh",
-                FoodDescription = "Giàu omega-3, tốt cho hệ tim mạch và não bộ",
+                FoodName = "Mận",
+                FoodDescription = "Mận là trái cây ngọt, mọng nước, chứa nhiều vitamin C và chất chống oxy hóa, giúp tăng cường sức đề kháng và làm đẹp da. Mận có thể ăn trực tiếp hoặc làm sinh tố, chè",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3876,14 +3841,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 192
             new Food
             {
-                FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
                 DishType = [DishType.Dessert],
-                FoodName = "Hạt dẻ cười",
-                FoodDescription = "Giàu chất xơ và vitamin, tốt cho hệ tiêu hóa",
+                FoodName = "Chôm chôm",
+                FoodDescription = "Chôm chôm là trái cây ngọt, có vỏ đỏ hoặc vàng, mọng nước và giàu vitamin C. Món này rất thích hợp trong mùa hè, giúp giải nhiệt và bổ sung dinh dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3896,14 +3861,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 193
             new Food
             {
-                FoodId = Guid.Parse("49601ef1-2131-478f-a1de-f2e444602be3"),
-                CategoryId = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Drink,
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.Drink],
-                FoodName = "Dừa tươi",
-                FoodDescription = "Trái cây mọng nước, cung cấp hydrat và chất điện giải",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh cải ngọt",
+                FoodDescription = "Canh cải ngọt là món ăn nhẹ nhàng, với cải ngọt nấu trong nước dùng, có thể kết hợp với thịt heo hoặc tôm. Món canh này bổ dưỡng, dễ tiêu hóa và giúp thanh nhiệt",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3916,14 +3881,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 194
             new Food
             {
-                FoodId = Guid.Parse("d3c360a2-441e-4700-a6ec-4310b5976901"),
-                CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Protein,
+                FoodType = [FoodType.Protein],
                 MealType = [MealType.Lunch, MealType.Dinner],
                 DishType = [DishType.MainDish],
-                FoodName = "Cá thu",
-                FoodDescription = "Cá biển giàu omega-3, tăng cường sức khỏe tim mạch",
+                FoodName = "Thịt gà kho",
+                FoodDescription = "Thịt gà kho là món ăn đậm đà với thịt gà kho trong gia vị như nước mắm, tiêu, và gia vị khác. Món này có thể ăn kèm với cơm trắng, mang lại hương vị ngon miệng và bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3933,37 +3898,37 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 195
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("0dbbf1e0-031a-4342-bfde-c127644ebddf"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Bơ đậu phộng",
-            //     FoodDescription = "Ngọt béo tự nhiên, giàu năng lượng cho bữa sáng",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 195
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Bắp cải luộc",
+                FoodDescription = "Bắp cải luộc là món ăn thanh mát, dễ làm, chứa nhiều vitamin và khoáng chất. Bắp cải luộc có thể ăn kèm với nước mắm hoặc làm món ăn phụ trong bữa ăn chính",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 196
             new Food
             {
-                FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
-                CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Snack,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Hạt mắc ca",
-                FoodDescription = "Hạt thơm ngon, bổ sung dinh dưỡng và năng lượng",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh mùng tơi mướp",
+                FoodDescription = "Canh mùng tơi mướp là món canh mát, giải nhiệt, giúp bổ sung dưỡng chất và hỗ trợ tiêu hóa. Món này thường được nấu với thịt hoặc tôm, mang lại hương vị thanh đạm và bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3976,14 +3941,14 @@ namespace Monhealth.Identity.Configurations
             #region Food 197
             new Food
             {
-                FoodId = Guid.Parse("cb693182-b5ff-4f2b-9a47-44ab84841843"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Hồng xiêm",
-                FoodDescription = "Trái cây nhiệt đới ngọt, giàu chất xơ và vitamin A",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh rau dền",
+                FoodDescription = "Canh rau dền là món ăn nhẹ nhàng, thanh mát, thường được nấu với thịt hoặc tôm. Rau dền chứa nhiều vitamin và khoáng chất, giúp cải thiện sức khỏe và hỗ trợ tiêu hóa",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -3993,77 +3958,77 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Food 198
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("f70172ed-7784-47ec-8aa2-a862ee56a13a"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá trích",
-            //     FoodDescription = "Cá biển thơm ngon, tốt cho trí não và tuần hoàn máu",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 198
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cơm chiên",
+                FoodDescription = "Cơm chiên là món ăn phổ biến, được làm từ cơm nguội chiên cùng với thịt, trứng và rau củ. Món này thường ăn kèm với dưa leo hoặc salad, rất dễ ăn và tiện lợi",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 199
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("d8216f25-d01e-48c6-a44f-0a1672862f53"),
-            //     CategoryId = Guid.Parse("fe3a3546-b294-4665-9c82-092d4ab5a187"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Snack,
-            //     MealType = [MealType.Snack],
-            //     DishType = [DishType.Dessert],
-            //     FoodName = "Hạt hồ đào",
-            //     FoodDescription = "Hạt giàu chất béo không bão hòa, giúp kiểm soát cholesterol",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 199
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh mướp",
+                FoodDescription = "Canh mướp là món ăn thanh mát với mướp nấu trong nước dùng nhẹ nhàng từ xương hoặc thịt. Món canh này có tác dụng giải nhiệt, rất thích hợp vào mùa hè",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
-            // #region Food 200
-            // new Food
-            // {
-            //     FoodId = Guid.Parse("7aee65aa-860d-48c2-ad47-2614e5e04998"),
-            //     CategoryId = Guid.Parse("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
-            //     UserId = userId,
-            //     FoodType = FoodType.Protein,
-            //     MealType = [MealType.Lunch, MealType.Dinner],
-            //     DishType = [DishType.MainDish],
-            //     FoodName = "Cá chép",
-            //     FoodDescription = "Cá nước ngọt giàu protein và khoáng chất thiết yếu",
-            //     IsPublic = true,
-            //     Status = true,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
-            // },
-            // #endregion
+            #region Food 200
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Cải ngọt luộc",
+                FoodDescription = "Cải ngọt luộc là món rau luộc đơn giản, dễ làm, giàu vitamin và chất xơ. Món này thường ăn kèm với nước mắm chua ngọt hoặc làm món ăn phụ trong các bữa ăn chính",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
 
             #region Food 201
             new Food
             {
-                FoodId = Guid.Parse("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Đào",
-                FoodDescription = "Trái cây ngọt, giàu vitamin C, thích hợp làm món tráng miệng",
+                FoodType = [FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.SideDish],
+                FoodName = "Rau muống xào tỏi",
+                FoodDescription = "Rau muống xào tỏi là món ăn đơn giản nhưng thơm ngon, với rau muống tươi xào cùng tỏi và gia vị. Món này có vị ngọt tự nhiên từ rau, thường ăn kèm với cơm trắng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
@@ -4076,22 +4041,343 @@ namespace Monhealth.Identity.Configurations
             #region Food 202
             new Food
             {
-                FoodId = Guid.Parse("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
-                CategoryId = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
                 UserId = userId,
-                FoodType = FoodType.Dessert,
-                MealType = [MealType.Snack],
-                DishType = [DishType.Dessert],
-                FoodName = "Lựu",
-                FoodDescription = "Trái cây giàu chất chống oxy hóa, tốt cho tim mạch",
+                FoodType = [FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cá kho",
+                FoodDescription = "Cá kho là món ăn đậm đà với cá kho trong nước mắm, tiêu và các gia vị khác. Món này có thể ăn kèm với cơm trắng, mang lại hương vị mặn ngọt và rất bổ dưỡng",
                 IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = userId,
                 UpdatedBy = userId,
-            });
+            },
             #endregion
+
+            #region Food 203
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh mì chả lụa",
+                FoodDescription = "Bánh mì chả lụa là món ăn sáng phổ biến, với bánh mì giòn và nhân chả lụa thơm ngon. Món này đơn giản, dễ ăn và thích hợp cho bữa sáng hoặc bữa phụ",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 204
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cơm chiên dương châu",
+                FoodDescription = "Cơm chiên dương châu là món cơm chiên với các loại rau củ, tôm, thịt, trứng, mang đến hương vị đậm đà và đầy đủ dinh dưỡng. Món này thích hợp cho bữa trưa hoặc tối",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 205
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cơm rang",
+                FoodDescription = "Cơm rang là món ăn phổ biến, làm từ cơm nguội chiên với gia vị và các nguyên liệu như thịt, rau, trứng. Món này nhanh gọn, dễ chế biến và có thể ăn kèm với dưa leo hoặc salad",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 206
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cháo đậu xanh",
+                FoodDescription = "Cháo đậu xanh là món ăn nhẹ, dễ tiêu hóa, được làm từ đậu xanh và gạo, có tác dụng bổ máu và thanh nhiệt. Món này có thể ăn vào bữa sáng hoặc tối, rất bổ dưỡng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 207
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Mì xào thập cẩm",
+                FoodDescription = "Mì xào thập cẩm là món ăn với mì, các loại rau củ và thịt, xào chung với gia vị đậm đà. Món này dễ chế biến và là bữa ăn nhanh gọn nhưng đầy đủ dưỡng chất",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 208
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Súp khoai tây",
+                FoodDescription = "Súp khoai tây là món canh ngon và bổ dưỡng, với khoai tây nấu mềm trong nước dùng nhẹ nhàng. Món này thích hợp cho bữa tối, mang lại cảm giác ấm áp và dễ tiêu hóa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 209
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Breakfast, MealType.Lunch],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh cuốn thịt bằm",
+                FoodDescription = "Bánh cuốn thịt bằm là món ăn được làm từ bột gạo, nhân thịt bằm, mộc nhĩ và gia vị, ăn kèm với nước mắm chua ngọt và rau sống. Món này rất phổ biến ở miền Bắc Việt Nam",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 210
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein, FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Bò xào rau củ",
+                FoodDescription = "Bò xào rau củ là món ăn ngon với thịt bò thái mỏng xào nhanh với các loại rau củ như ớt, hành tây, cà rốt. Món này cung cấp nhiều vitamin và protein, thích hợp cho bữa tối bổ dưỡng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 211
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Cơm gà",
+                FoodDescription = "Cơm gà là món ăn đơn giản với cơm trắng ăn kèm thịt gà luộc hoặc chiên, thường được dùng kèm với nước mắm, rau sống và canh. Món này ngon miệng, dễ chế biến và bổ dưỡng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 212
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Carbs, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.MainDish],
+                FoodName = "Bánh hỏi",
+                FoodDescription = "Bánh hỏi là món ăn với bánh phở mềm, thường được ăn kèm với thịt nướng hoặc chả, và nước mắm pha. Món này có vị thanh nhẹ, rất phổ biến trong các bữa ăn ở miền Trung",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 213
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Vegetables, FoodType.Protein],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh bí đỏ nấu tôm",
+                FoodDescription = "Canh bí đỏ nấu tôm là món canh nhẹ, thanh mát, với bí đỏ nấu mềm kết hợp với tôm. Món canh này giàu vitamin A và protein, giúp bổ dưỡng và dễ tiêu hóa",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 214
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Măng cụt",
+                FoodDescription = "Măng cụt là trái cây ngọt, mọng nước, chứa nhiều vitamin C và khoáng chất. Món này có thể ăn trực tiếp hoặc làm nước ép, mang lại cảm giác giải nhiệt và bổ sung dinh dưỡng",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 215
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Nhãn",
+                FoodDescription = "Nhãn là trái cây ngọt, mọng nước, chứa nhiều vitamin C và giúp tăng cường sức đề kháng. Nhãn có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng, rất tốt cho sức khỏe",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 216
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Dessert],
+                MealType = [MealType.Snack, MealType.Breakfast],
+                DishType = [DishType.Dessert],
+                FoodName = "Cam",
+                FoodDescription = "Cam là trái cây giàu vitamin C, giúp tăng cường miễn dịch và làm đẹp da. Cam có thể ăn trực tiếp hoặc làm nước ép, giúp giải nhiệt và bổ sung dinh dưỡng cho cơ thể",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 217
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein, FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh hẹ tôm",
+                FoodDescription = "Canh hẹ tôm là món canh thanh mát, với tôm và hẹ nấu chung trong nước dùng thơm ngon. Món này giúp bổ sung protein và vitamin, rất dễ ăn và thích hợp cho các bữa ăn nhẹ",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Food 218
+            new Food
+            {
+                FoodId = Guid.Parse(""),
+                CategoryId = Guid.Parse(""),
+                UserId = userId,
+                FoodType = [FoodType.Protein, FoodType.Vegetables],
+                MealType = [MealType.Lunch, MealType.Dinner],
+                DishType = [DishType.Soup],
+                FoodName = "Canh thịt bò hầm",
+                FoodDescription = "Canh thịt bò hầm là món canh đậm đà, với thịt bò hầm mềm cùng các gia vị và rau củ. Món này bổ dưỡng, cung cấp nhiều protein và khoáng chất, thích hợp cho bữa tối hoặc bữa chính",
+                IsPublic = true,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            }
+            #endregion
+            );
         }
     }
 }
