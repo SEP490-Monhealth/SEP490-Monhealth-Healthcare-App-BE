@@ -18,7 +18,7 @@ using Monhealth.Domain;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/expertises")]
+    [Route("api/v1/expertises")]
     [ApiController]
     public class ExpertiseController : ControllerBase
     {

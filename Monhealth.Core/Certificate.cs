@@ -10,7 +10,6 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid CertificateId { get; set; } // PK 
-        public Guid UserId { get; set; } // FK 
         public Guid ExpertiseId { get; set; }
         public string CertificateName { get; set; } = string.Empty;
         public string Images { get; set; } = string.Empty;
@@ -19,8 +18,6 @@ namespace Monhealth.Domain
         public bool Status { get; set; }
         [ForeignKey(nameof(ExpertiseId))]
         public Expertise? Expertise { get; set; }
-        [ForeignKey(nameof(UserId))]
-        public AppUser User { get; set; }
     }
 
 }
