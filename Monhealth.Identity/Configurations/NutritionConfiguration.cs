@@ -15,7 +15,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 1
             new Nutrition
             {
-                NutritionId = Guid.Parse("cf529ca8-a8f3-4ba9-937e-d3711cf963f3"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                 Calories = 130,
                 Protein = 2.7f,
@@ -44,7 +44,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 2
             new Nutrition
             {
-                NutritionId = Guid.Parse("87b1e95b-a7ad-4514-9f9a-001d54f6653b"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
                 Calories = 265,
                 Protein = 8f,
@@ -73,7 +73,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 3
             new Nutrition
             {
-                NutritionId = Guid.Parse("73e992ee-249f-4580-b1d3-ae21e5c2b984"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a989c8db-7506-467f-8aba-dce042f68eea"),
                 Calories = 89,
                 Protein = 1.1f,
@@ -102,7 +102,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 4
             new Nutrition
             {
-                NutritionId = Guid.Parse("ea48100c-1775-4605-88ff-f25a40450a04"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                 Calories = 155,
                 Protein = 13f,
@@ -131,7 +131,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 5
             new Nutrition
             {
-                NutritionId = Guid.Parse("bf843bd9-a86c-4308-880f-803ac05c3948"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("021b651c-bb01-4965-95bc-3532fbacad3d"),
                 Calories = 42,
                 Protein = 3.4f,
@@ -160,7 +160,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 6
             new Nutrition
             {
-                NutritionId = Guid.Parse("dfe2c54d-de32-461f-9da2-e27cbe29b735"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("8fa26c41-16b2-49f8-a284-856024a5f947"),
                 Calories = 380,
                 Protein = 16f,
@@ -189,7 +189,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 7
             new Nutrition
             {
-                NutritionId = Guid.Parse("dbbe9095-73d4-40b6-bcc7-f507e61268ae"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("1387c20d-27a6-495b-a3a0-efbb715f6430"),
                 Calories = 52,
                 Protein = 0.3f,
@@ -218,7 +218,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 8
             new Nutrition
             {
-                NutritionId = Guid.Parse("9ccefcaf-d588-4357-bac4-54c4f0e0f361"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("ab2117f7-9940-44cb-b191-2dfabefac8c8"),
                 Calories = 110,
                 Protein = 1.8f,
@@ -247,7 +247,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 9
             new Nutrition
             {
-                NutritionId = Guid.Parse("4c6c4ed8-5e9d-4904-ba56-1de114a00a6f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("455bb5ed-ed2c-4172-8831-2b8a08614198"),
                 Calories = 15,
                 Protein = 0.7f,
@@ -276,7 +276,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 10
             new Nutrition
             {
-                NutritionId = Guid.Parse("8777dd83-1b4a-43f2-83dd-c4fb6834cb27"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("1140212e-cdb4-4f25-92f6-9b9407a71163"),
                 Calories = 90,
                 Protein = 1f,
@@ -305,7 +305,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 11
             new Nutrition
             {
-                NutritionId = Guid.Parse("2d054b02-0de6-4445-a261-0ec9795be969"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("ff1bc1f2-3515-4dfe-b271-8cabf205bbcf"),
                 Calories = 89,
                 Protein = 1.1f,
@@ -334,7 +334,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 12
             new Nutrition
             {
-                NutritionId = Guid.Parse("13c985da-9447-4937-9d43-4932151fc3d8"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("fa0d83ce-d0d7-414f-bd85-e4bc6402c0db"),
                 Calories = 68,
                 Protein = 2.6f,
@@ -363,7 +363,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 13
             new Nutrition
             {
-                NutritionId = Guid.Parse("cf188682-e681-49ac-9ac3-7aa1efce7075"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("77fe5e06-7fee-486d-a1a7-c031f2065490"),
                 Calories = 440,
                 Protein = 21f,
@@ -392,7 +392,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 14
             new Nutrition
             {
-                NutritionId = Guid.Parse("c4154bdd-4853-4e11-aeac-c92601d7d628"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("86d88717-df08-4de6-b86d-870210864b46"),
                 Calories = 50,
                 Protein = 1.1f,
@@ -421,7 +421,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 15
             new Nutrition
             {
-                NutritionId = Guid.Parse("df8467cf-46a6-428a-9ffe-311514abe5b9"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
                 Calories = 360,
                 Protein = 15f,
@@ -450,7 +450,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 16
             new Nutrition
             {
-                NutritionId = Guid.Parse("cd9c9ed7-f40d-441a-952d-5a1b9cabf684"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("7378ca5f-f1a8-4c23-a019-50af3012526f"),
                 Calories = 230,
                 Protein = 7f,
@@ -479,7 +479,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 17
             new Nutrition
             {
-                NutritionId = Guid.Parse("322c2cb9-e6e4-40da-bc07-ba199f5f608e"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
                 Calories = 450,
                 Protein = 20f,
@@ -508,7 +508,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 18
             new Nutrition
             {
-                NutritionId = Guid.Parse("6b20f666-1c8a-4f85-92cd-2f2f97ba206e"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("42883b21-4cbd-40ce-850f-b0723f1766fe"),
                 Calories = 18,
                 Protein = 0.9f,
@@ -537,7 +537,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 19
             new Nutrition
             {
-                NutritionId = Guid.Parse("23311b4d-29be-4d87-982a-2e2db501dd04"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("f6cf96c8-adc3-43e0-af5a-8b19623fed94"),
                 Calories = 420,
                 Protein = 12f,
@@ -563,39 +563,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 20
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("ba3d6c03-e3e5-41f5-afa9-d2d918339049"),
-            //     FoodId = Guid.Parse("f44fd111-2744-406a-a706-abc9c0494502"),
-            //     Calories = 304,
-            //     Protein = 0.3f,
-            //     Carbs = 82.4f,
-            //     Fiber = 0.0f,
-            //     Sugar = 82.1f,
-            //     Fat = 0.0f,
-            //     SaturatedFat = 0.0f,
-            //     UnsaturatedFat = 0.0f,
-            //     Cholesterol = 0,
-            //     Sodium = 4,
-            //     Potassium = 52,
-            //     Calcium = 6,
-            //     Iron = 0.4f,
-            //     VitaminA = 0.0f,
-            //     VitaminB1 = 0.01f,
-            //     VitaminB2 = 0.02f,
-            //     VitaminC = 0.5f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.0f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 21
             new Nutrition
             {
-                NutritionId = Guid.Parse("06e223cf-0f44-46b1-bd33-10df70a0461e"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("eac10b91-8509-4986-b689-7ee3a3757a18"),
                 Calories = 30,
                 Protein = 0.6f,
@@ -624,7 +595,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 22
             new Nutrition
             {
-                NutritionId = Guid.Parse("f3c2112c-b631-403c-9a80-340ba0c205a3"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("dca16637-cf90-402f-921f-5c60e99e4bfa"),
                 Calories = 249,
                 Protein = 16f,
@@ -653,7 +624,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 23
             new Nutrition
             {
-                NutritionId = Guid.Parse("5d83f737-caf1-4c51-b34b-bb04f2554f53"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a2c5c215-f105-42f9-8b68-3219b5bcc2a9"),
                 Calories = 110,
                 Protein = 2.6f,
@@ -682,7 +653,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 24
             new Nutrition
             {
-                NutritionId = Guid.Parse("b7982fb5-0e00-457f-a618-3aabbb7d13cb"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("85822a08-7189-4e08-8f55-25c73698af92"),
                 Calories = 296,
                 Protein = 12f,
@@ -711,7 +682,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 25
             new Nutrition
             {
-                NutritionId = Guid.Parse("28f0f25f-36fa-4b27-9c06-705b460a50f6"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("ddc8d8f2-261b-4c1d-9061-e482d3c8cef3"),
                 Calories = 165,
                 Protein = 31f,
@@ -740,7 +711,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 26
             new Nutrition
             {
-                NutritionId = Guid.Parse("af359eea-3c29-4aa4-96d4-9655583de28a"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
                 Calories = 96,
                 Protein = 3.4f,
@@ -769,7 +740,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 27
             new Nutrition
             {
-                NutritionId = Guid.Parse("33a32530-356d-4135-8f98-73c80bf301a3"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                 Calories = 59,
                 Protein = 3.5f,
@@ -798,7 +769,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 28
             new Nutrition
             {
-                NutritionId = Guid.Parse("96760b52-ddb9-4e89-87eb-284ab5838132"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("19bbab17-91c6-410f-b566-b509d067e76e"),
                 Calories = 76,
                 Protein = 8f,
@@ -827,7 +798,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 29
             new Nutrition
             {
-                NutritionId = Guid.Parse("038f49ca-33e6-44b5-9709-29fbe196a026"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
                 Calories = 150,
                 Protein = 5f,
@@ -856,7 +827,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 30
             new Nutrition
             {
-                NutritionId = Guid.Parse("e63d956e-7965-4fce-a6b8-4b471d812174"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("de097440-db5c-4d91-bd55-76618d70599d"),
                 Calories = 45,
                 Protein = 0.7f,
@@ -885,7 +856,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 31
             new Nutrition
             {
-                NutritionId = Guid.Parse("ff22f28d-22f4-4964-91ea-50619e603acd"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                 Calories = 41,
                 Protein = 0.9f,
@@ -914,7 +885,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 32
             new Nutrition
             {
-                NutritionId = Guid.Parse("22ae0d04-5c0d-4cc9-95ea-3a55d7ca686b"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
                 Calories = 150,
                 Protein = 8f,
@@ -943,7 +914,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 33
             new Nutrition
             {
-                NutritionId = Guid.Parse("f5172f72-f249-4842-9a27-71656f044f9c"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("65c7b876-87e2-4307-ab76-c72ca277b78c"),
                 Calories = 265,
                 Protein = 8f,
@@ -972,7 +943,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 34
             new Nutrition
             {
-                NutritionId = Guid.Parse("380a74d8-eb21-4c3d-bcf4-d49488b4faa6"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
                 Calories = 19,
                 Protein = 0.7f,
@@ -1001,7 +972,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 35
             new Nutrition
             {
-                NutritionId = Guid.Parse("0f507f0d-1519-4844-9b3d-1463d0f9f7f3"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a3074169-6441-49cc-9ea7-79e240f6dda3"),
                 Calories = 60,
                 Protein = 0.8f,
@@ -1030,7 +1001,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 36
             new Nutrition
             {
-                NutritionId = Guid.Parse("68f0232c-daa3-4160-92b4-c9d2f48805a2"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("0a47589f-d177-46f9-8a10-63fd6da9b611"),
                 Calories = 35,
                 Protein = 3.6f,
@@ -1059,7 +1030,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 37
             new Nutrition
             {
-                NutritionId = Guid.Parse("14be9dff-6b6b-4b57-8ba9-219193695091"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("48113ca0-a1e7-4181-85fa-be6538a70873"),
                 Calories = 410,
                 Protein = 16f,
@@ -1088,7 +1059,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 38
             new Nutrition
             {
-                NutritionId = Guid.Parse("bafda235-4d19-4bfd-abe1-ccf2e8e642a0"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
                 Calories = 120,
                 Protein = 4f,
@@ -1117,7 +1088,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 39
             new Nutrition
             {
-                NutritionId = Guid.Parse("1071273a-384e-4d10-8997-7fc91ef7bf92"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
                 Calories = 300,
                 Protein = 10f,
@@ -1146,7 +1117,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 40
             new Nutrition
             {
-                NutritionId = Guid.Parse("fd064d13-48cd-473f-9375-c46c79bc4eed"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
                 Calories = 350,
                 Protein = 12f,
@@ -1175,7 +1146,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 41
             new Nutrition
             {
-                NutritionId = Guid.Parse("6b3afd8f-cad3-4529-bac1-5f816c2287a5"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
                 Calories = 2,
                 Protein = 0.1f,
@@ -1204,7 +1175,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 42
             new Nutrition
             {
-                NutritionId = Guid.Parse("64013dfb-bfa6-4ce2-ad13-897b966acb9e"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
                 Calories = 90,
                 Protein = 2f,
@@ -1233,7 +1204,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 43
             new Nutrition
             {
-                NutritionId = Guid.Parse("5164278e-0585-41be-b67f-bec3d7857740"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
                 Calories = 54,
                 Protein = 3.3f,
@@ -1262,7 +1233,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 44
             new Nutrition
             {
-                NutritionId = Guid.Parse("a8b5a680-61d1-4d93-addc-92e94556be72"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("83e6e455-3ae1-4f5c-8e44-9a5ae79ee31b"),
                 Calories = 300,
                 Protein = 20f,
@@ -1291,7 +1262,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 45
             new Nutrition
             {
-                NutritionId = Guid.Parse("10226d83-c689-436e-8551-2fcccec6b39b"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
                 Calories = 400,
                 Protein = 12f,
@@ -1320,7 +1291,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 46
             new Nutrition
             {
-                NutritionId = Guid.Parse("096eb271-f92a-48b7-8238-c85913ed038e"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("3222413a-e385-4a0b-9d07-2af7b0cb4276"),
                 Calories = 13,
                 Protein = 1.5f,
@@ -1349,7 +1320,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 47
             new Nutrition
             {
-                NutritionId = Guid.Parse("78c68fe2-e3cf-4022-96cc-a3085aca85cf"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("e0eec003-8384-412c-a307-b0185afdb0c7"),
                 Calories = 350,
                 Protein = 8f,
@@ -1378,7 +1349,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 48
             new Nutrition
             {
-                NutritionId = Guid.Parse("d5b77299-4ab8-4dfa-9e5d-54d668e708b4"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
                 Calories = 450,
                 Protein = 20f,
@@ -1407,7 +1378,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 49
             new Nutrition
             {
-                NutritionId = Guid.Parse("4becd22b-623f-4171-a253-71860e713590"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("da89578e-9470-4b18-af4f-0bdcc011882f"),
                 Calories = 420,
                 Protein = 18f,
@@ -1433,39 +1404,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 50
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("069ec9f7-4ef2-4264-af51-cb3aaae4c4e8"),
-            //     FoodId = Guid.Parse("27dd8629-4564-478a-b049-6c4b81ee3cf1"),
-            //     Calories = 188,
-            //     Protein = 13.6f,
-            //     Carbs = 1.6f,
-            //     Fiber = 0.0f,
-            //     Sugar = 0.0f,
-            //     Fat = 13.0f,
-            //     SaturatedFat = 4.0f,
-            //     UnsaturatedFat = 6.0f,
-            //     Cholesterol = 600,
-            //     Sodium = 140,
-            //     Potassium = 160,
-            //     Calcium = 82,
-            //     Iron = 2.5f,
-            //     VitaminA = 0.65f,
-            //     VitaminB1 = 0.1f,
-            //     VitaminB2 = 0.5f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.3f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 51
             new Nutrition
             {
-                NutritionId = Guid.Parse("5c04c4bd-38f6-4df1-ab63-fae57aa591bd"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("37a66f5c-437f-4520-90ec-4376e0093061"),
                 Calories = 11,
                 Protein = 0.2f,
@@ -1494,7 +1436,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 52
             new Nutrition
             {
-                NutritionId = Guid.Parse("f5f1aa49-7b6f-4a25-a0ac-a9966394299a"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
                 Calories = 400,
                 Protein = 15f,
@@ -1520,39 +1462,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 53
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("39ad233b-474d-4320-80b7-94babe2bc88e"),
-            //     FoodId = Guid.Parse("d9fa8f03-5825-4e83-88d3-1a7c49e39a7d"),
-            //     Calories = 350,
-            //     Protein = 8f,
-            //     Carbs = 50f,
-            //     Fiber = 3.0f,
-            //     Sugar = 1.5f,
-            //     Fat = 12.0f,
-            //     SaturatedFat = 4.0f,
-            //     UnsaturatedFat = 6.0f,
-            //     Cholesterol = 15,
-            //     Sodium = 450,
-            //     Potassium = 120,
-            //     Calcium = 20,
-            //     Iron = 1.2f,
-            //     VitaminA = 0.03f,
-            //     VitaminB1 = 0.08f,
-            //     VitaminB2 = 0.05f,
-            //     VitaminC = 1.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.2f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 54
             new Nutrition
             {
-                NutritionId = Guid.Parse("25ed5811-187c-4caf-bc27-6ff15182bcdb"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                 Calories = 53,
                 Protein = 0.8f,
@@ -1581,7 +1494,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 55
             new Nutrition
             {
-                NutritionId = Guid.Parse("1a75b180-b31e-4fe3-8ac7-149003583a88"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("fa445aa4-7b0d-4d47-8ba7-f919dd123637"),
                 Calories = 64,
                 Protein = 3.4f,
@@ -1607,39 +1520,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 56
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("09c52182-7cd0-4bf4-9c0f-1d4ed29b90db"),
-            //     FoodId = Guid.Parse("f412d88d-ce7e-4006-bc11-75af61438491"),
-            //     Calories = 180,
-            //     Protein = 4f,
-            //     Carbs = 30f,
-            //     Fiber = 1.5f,
-            //     Sugar = 8.0f,
-            //     Fat = 5.0f,
-            //     SaturatedFat = 2.0f,
-            //     UnsaturatedFat = 2.5f,
-            //     Cholesterol = 0,
-            //     Sodium = 200,
-            //     Potassium = 50,
-            //     Calcium = 10,
-            //     Iron = 1.0f,
-            //     VitaminA = 0.01f,
-            //     VitaminB1 = 0.06f,
-            //     VitaminB2 = 0.03f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 57
             new Nutrition
             {
-                NutritionId = Guid.Parse("aebf714c-276f-44a2-8182-8957a551c5f3"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),
                 Calories = 300,
                 Protein = 10f,
@@ -1668,7 +1552,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 58
             new Nutrition
             {
-                NutritionId = Guid.Parse("0dd9fb10-50cb-40f6-9a77-dbba9166de0e"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                 Calories = 20,
                 Protein = 0.9f,
@@ -1697,7 +1581,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 59
             new Nutrition
             {
-                NutritionId = Guid.Parse("c8b18054-abb6-4f13-9825-0134a0252c78"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
                 Calories = 37,
                 Protein = 2.7f,
@@ -1726,7 +1610,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 60
             new Nutrition
             {
-                NutritionId = Guid.Parse("d9ec9f21-932f-4fde-878a-ca7e0b17790f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                 Calories = 322,
                 Protein = 15.9f,
@@ -1755,7 +1639,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 61
             new Nutrition
             {
-                NutritionId = Guid.Parse("5cc59833-5d75-46de-ac6d-1f695554912d"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("f41484a3-c7df-4530-b7d2-060390103985"),
                 Calories = 17,
                 Protein = 3.6f,
@@ -1784,7 +1668,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 62
             new Nutrition
             {
-                NutritionId = Guid.Parse("367709d2-284b-4a39-b7dd-4148bd6eb202"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
                 Calories = 250,
                 Protein = 10f,
@@ -1813,7 +1697,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 63
             new Nutrition
             {
-                NutritionId = Guid.Parse("e4ff8429-0e76-4817-8a59-d3bf5c27f8e3"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                 Calories = 99,
                 Protein = 20.9f,
@@ -1842,7 +1726,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 64
             new Nutrition
             {
-                NutritionId = Guid.Parse("ac737809-1aca-43de-88bb-b6f5fe42f87f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("40f03f23-9341-4343-9bf8-fdfdb3b9f236"),
                 Calories = 33,
                 Protein = 1.9f,
@@ -1871,7 +1755,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 65
             new Nutrition
             {
-                NutritionId = Guid.Parse("df7427c5-d01b-4e38-9830-3a170b5ef80b"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
                 Calories = 380,
                 Protein = 18f,
@@ -1897,68 +1781,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 66
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("7603131c-28dd-4e9a-8a8b-e8d24a30e6a3"),
-            //     FoodId = Guid.Parse("a84ec8cd-f9d8-4723-8b9e-4ff4eee1685e"),
-            //     Calories = 250,
-            //     Protein = 10f,
-            //     Carbs = 15f,
-            //     Fiber = 1.0f,
-            //     Sugar = 0.5f,
-            //     Fat = 15.0f,
-            //     SaturatedFat = 5.0f,
-            //     UnsaturatedFat = 8.0f,
-            //     Cholesterol = 45,
-            //     Sodium = 700,
-            //     Potassium = 150,
-            //     Calcium = 30,
-            //     Iron = 0.5f,
-            //     VitaminA = 0.02f,
-            //     VitaminB1 = 0.02f,
-            //     VitaminB2 = 0.03f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 67
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("ca821e05-cfcc-4ea5-a544-734a88606c98"),
-            //     FoodId = Guid.Parse("46b9f487-dc6d-4c1d-9729-9f707ac28202"),
-            //     Calories = 250,
-            //     Protein = 12f,
-            //     Carbs = 30f,
-            //     Fiber = 1.5f,
-            //     Sugar = 5.0f,
-            //     Fat = 9.0f,
-            //     SaturatedFat = 3.0f,
-            //     UnsaturatedFat = 4.5f,
-            //     Cholesterol = 40,
-            //     Sodium = 400,
-            //     Potassium = 200,
-            //     Calcium = 80,
-            //     Iron = 2.0f,
-            //     VitaminA = 0.05f,
-            //     VitaminB1 = 0.1f,
-            //     VitaminB2 = 0.12f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.2f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 68
             new Nutrition
             {
-                NutritionId = Guid.Parse("091a6364-90b6-4fe3-957c-2d8b1307a75c"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("c16aac77-64ee-476d-a646-a3029da83e41"),
                 Calories = 150,
                 Protein = 3f,
@@ -1987,7 +1813,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 69
             new Nutrition
             {
-                NutritionId = Guid.Parse("ea5c7dc7-7502-4eba-a4c5-97e0735584dc"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
                 Calories = 400,
                 Protein = 15f,
@@ -2016,7 +1842,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 70
             new Nutrition
             {
-                NutritionId = Guid.Parse("40f36f07-a829-4c0b-bbb1-497cdc5d7494"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("244e7e03-baaa-4dc4-aa10-d9d0dac410fe"),
                 Calories = 25,
                 Protein = 1.3f,
@@ -2045,7 +1871,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 71
             new Nutrition
             {
-                NutritionId = Guid.Parse("8cecb3df-8f91-4fed-9f0d-e620f7beeb29"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("51061170-597d-4289-a021-1e7dde88331f"),
                 Calories = 337,
                 Protein = 19f,
@@ -2074,7 +1900,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 72
             new Nutrition
             {
-                NutritionId = Guid.Parse("a21dfb54-4cc8-4345-bb9f-980e89b0d215"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("c137f014-34c2-4f0a-be52-7c2a5c64abae"),
                 Calories = 239,
                 Protein = 27f,
@@ -2103,7 +1929,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 73
             new Nutrition
             {
-                NutritionId = Guid.Parse("4f7b350b-b3d1-42d7-ad5b-546604b20846"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("5ff26461-880d-4b94-bfd0-e8badc77fe33"),
                 Calories = 300,
                 Protein = 18f,
@@ -2132,7 +1958,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 74
             new Nutrition
             {
-                NutritionId = Guid.Parse("2a306022-b824-4ba1-80dd-953e3c315d29"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("73016f70-ebb4-4583-aa12-7f3f4633ada4"),
                 Calories = 290,
                 Protein = 20f,
@@ -2161,7 +1987,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 75
             new Nutrition
             {
-                NutritionId = Guid.Parse("f5e817c1-6b7c-42ee-9fd3-e95735b78155"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("0455b535-2662-43aa-bca2-3e75595fb181"),
                 Calories = 250,
                 Protein = 19f,
@@ -2190,7 +2016,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 76
             new Nutrition
             {
-                NutritionId = Guid.Parse("02a5199d-2f55-4015-bb78-0161b473f87b"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
                 Calories = 220,
                 Protein = 7f,
@@ -2216,97 +2042,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 77
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("e6a620b4-6724-48d9-92d4-839ebbbfe1bb"),
-            //     FoodId = Guid.Parse("3965d7c0-e550-497d-9b41-ea382c2bb83e"),
-            //     Calories = 50,
-            //     Protein = 0,
-            //     Carbs = 13f,
-            //     Fiber = 0.0f,
-            //     Sugar = 13.0f,
-            //     Fat = 0.0f,
-            //     SaturatedFat = 0.0f,
-            //     UnsaturatedFat = 0.0f,
-            //     Cholesterol = 0,
-            //     Sodium = 5,
-            //     Potassium = 10,
-            //     Calcium = 0,
-            //     Iron = 0.0f,
-            //     VitaminA = 0.0f,
-            //     VitaminB1 = 0.0f,
-            //     VitaminB2 = 0.0f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.0f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 78
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("b609be21-9f88-4ae5-800d-de5cb067401a"),
-            //     FoodId = Guid.Parse("c60b8720-2ced-426c-b39b-606757200893"),
-            //     Calories = 41,
-            //     Protein = 0,
-            //     Carbs = 11f,
-            //     Fiber = 0.0f,
-            //     Sugar = 11.0f,
-            //     Fat = 0.0f,
-            //     SaturatedFat = 0.0f,
-            //     UnsaturatedFat = 0.0f,
-            //     Cholesterol = 0,
-            //     Sodium = 10,
-            //     Potassium = 4,
-            //     Calcium = 0,
-            //     Iron = 0.0f,
-            //     VitaminA = 0.0f,
-            //     VitaminB1 = 0.0f,
-            //     VitaminB2 = 0.0f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.0f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 79
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("dbf1befa-4698-4079-9ea2-68756469f4fb"),
-            //     FoodId = Guid.Parse("dc49c7a4-cf6a-4b85-a5e0-5f923730464a"),
-            //     Calories = 39,
-            //     Protein = 0,
-            //     Carbs = 10.6f,
-            //     Fiber = 0.0f,
-            //     Sugar = 10.6f,
-            //     Fat = 0.0f,
-            //     SaturatedFat = 0.0f,
-            //     UnsaturatedFat = 0.0f,
-            //     Cholesterol = 0,
-            //     Sodium = 5,
-            //     Potassium = 1,
-            //     Calcium = 0,
-            //     Iron = 0.0f,
-            //     VitaminA = 0.0f,
-            //     VitaminB1 = 0.0f,
-            //     VitaminB2 = 0.0f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.0f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 80
             new Nutrition
             {
-                NutritionId = Guid.Parse("c1f75dc1-46e3-4243-be43-1c3da379c0f3"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("6e12f6cb-6695-4c7a-bfb0-cd4936ee1782"),
                 Calories = 200,
                 Protein = 10f,
@@ -2332,68 +2071,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 81
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("dd13cb3c-d1e4-42da-a4e0-453145148903"),
-            //     FoodId = Guid.Parse("81af247b-f112-4b7c-981c-d1ba1c3a3644"),
-            //     Calories = 15,
-            //     Protein = 1f,
-            //     Carbs = 2.4f,
-            //     Fiber = 1.6f,
-            //     Sugar = 1.1f,
-            //     Fat = 0.2f,
-            //     SaturatedFat = 0.0f,
-            //     UnsaturatedFat = 0.2f,
-            //     Cholesterol = 0,
-            //     Sodium = 498,
-            //     Potassium = 175,
-            //     Calcium = 33,
-            //     Iron = 0.5f,
-            //     VitaminA = 0.35f,
-            //     VitaminB1 = 0.03f,
-            //     VitaminB2 = 0.04f,
-            //     VitaminC = 20.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 82
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("8b8db2ca-66f8-4e7d-b69d-5ab31bc24475"),
-            //     FoodId = Guid.Parse("face3a50-e5e6-41e3-83e8-f96e7c8c98d4"),
-            //     Calories = 120,
-            //     Protein = 2f,
-            //     Carbs = 25f,
-            //     Fiber = 0.5f,
-            //     Sugar = 1.0f,
-            //     Fat = 2.0f,
-            //     SaturatedFat = 0.5f,
-            //     UnsaturatedFat = 1.0f,
-            //     Cholesterol = 0,
-            //     Sodium = 200,
-            //     Potassium = 20,
-            //     Calcium = 10,
-            //     Iron = 0.2f,
-            //     VitaminA = 0.0f,
-            //     VitaminB1 = 0.01f,
-            //     VitaminB2 = 0.02f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.0f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 83
             new Nutrition
             {
-                NutritionId = Guid.Parse("62d74ef0-fd81-4a5f-89f2-7ebb368e85ee"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
                 Calories = 160,
                 Protein = 5f,
@@ -2422,7 +2103,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 84
             new Nutrition
             {
-                NutritionId = Guid.Parse("52829ec6-f1fc-4eda-ab4b-55a4e5b1463d"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
                 Calories = 230,
                 Protein = 7f,
@@ -2451,7 +2132,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 85
             new Nutrition
             {
-                NutritionId = Guid.Parse("963a6933-cb39-42e0-9dec-ce7c2bb696f1"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("faf19891-525a-4308-9222-992e83de7ce7"),
                 Calories = 206,
                 Protein = 22f,
@@ -2480,7 +2161,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 86
             new Nutrition
             {
-                NutritionId = Guid.Parse("4f85fde0-9e9d-4731-8876-626704643cfd"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                 Calories = 86,
                 Protein = 1.6f,
@@ -2509,7 +2190,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 87
             new Nutrition
             {
-                NutritionId = Guid.Parse("03e81e53-5d3b-4788-8649-1126abcf1c46"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                 Calories = 77,
                 Protein = 2f,
@@ -2538,7 +2219,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 88
             new Nutrition
             {
-                NutritionId = Guid.Parse("66b7e498-4724-48ff-946f-7492f83ca015"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
                 Calories = 40,
                 Protein = 1.1f,
@@ -2567,7 +2248,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 89
             new Nutrition
             {
-                NutritionId = Guid.Parse("0420436a-aa95-4fdd-b86e-d9ce42fc9746"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                 Calories = 14,
                 Protein = 0.6f,
@@ -2593,39 +2274,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 90
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("a3a71311-393b-48b9-80d9-164010a16388"),
-            //     FoodId = Guid.Parse("c5822776-96df-4208-82b2-02f22594063b"),
-            //     Calories = 250,
-            //     Protein = 4f,
-            //     Carbs = 45f,
-            //     Fiber = 2.0f,
-            //     Sugar = 20.0f,
-            //     Fat = 8.0f,
-            //     SaturatedFat = 2.5f,
-            //     UnsaturatedFat = 3.5f,
-            //     Cholesterol = 0,
-            //     Sodium = 200,
-            //     Potassium = 50,
-            //     Calcium = 20,
-            //     Iron = 1.0f,
-            //     VitaminA = 0.02f,
-            //     VitaminB1 = 0.04f,
-            //     VitaminB2 = 0.03f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 91
             new Nutrition
             {
-                NutritionId = Guid.Parse("48f62ff0-3017-4f15-a869-d25b229e44f9"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a53672e7-8593-4779-bd02-9f02ae81f915"),
                 Calories = 92,
                 Protein = 15.6f,
@@ -2651,39 +2303,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 92
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("b897b5d9-cada-44aa-967d-5c65d95e3346"),
-            //     FoodId = Guid.Parse("ede931f5-092e-4e41-8ce1-5a95bff2772a"),
-            //     Calories = 83,
-            //     Protein = 17.5f,
-            //     Carbs = 0,
-            //     Fiber = 0.0f,
-            //     Sugar = 0.0f,
-            //     Fat = 1.3f,
-            //     SaturatedFat = 0.3f,
-            //     UnsaturatedFat = 0.7f,
-            //     Cholesterol = 97,
-            //     Sodium = 395,
-            //     Potassium = 259,
-            //     Calcium = 99,
-            //     Iron = 0.8f,
-            //     VitaminA = 0.02f,
-            //     VitaminB1 = 0.01f,
-            //     VitaminB2 = 0.02f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 93
             new Nutrition
             {
-                NutritionId = Guid.Parse("6ed6b010-c774-4204-b5d7-9db739c50534"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("98006e54-c44e-4a81-aa99-d4bb95bfb89d"),
                 Calories = 31,
                 Protein = 1.8f,
@@ -2712,7 +2335,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 94
             new Nutrition
             {
-                NutritionId = Guid.Parse("81c240bc-77d1-4da5-b93b-40706cc90711"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("fb7d87aa-2bb8-4065-bd31-b54239057405"),
                 Calories = 150,
                 Protein = 3f,
@@ -2741,7 +2364,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 95
             new Nutrition
             {
-                NutritionId = Guid.Parse("66577f5e-803a-4494-910f-68afa1478176"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("f0132626-5535-4f30-9af4-7e89e086aaaf"),
                 Calories = 200,
                 Protein = 6f,
@@ -2770,7 +2393,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 96
             new Nutrition
             {
-                NutritionId = Guid.Parse("c087ebac-77dd-40d0-bbc3-f12cc6ec458e"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("7268b449-cb54-4f3d-9709-f42b9966d707"),
                 Calories = 350,
                 Protein = 12f,
@@ -2799,7 +2422,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 97
             new Nutrition
             {
-                NutritionId = Guid.Parse("13b7d0f2-110b-47ca-b579-1f89a3eb076c"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("7b8500af-d730-4138-9617-cba352faed4a"),
                 Calories = 66,
                 Protein = 0.8f,
@@ -2828,7 +2451,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 98
             new Nutrition
             {
-                NutritionId = Guid.Parse("37ddc9f0-736f-43a3-a127-160740e599e8"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("dd1482e7-b3dd-4b17-80f6-5618a640c671"),
                 Calories = 245,
                 Protein = 57f,
@@ -2857,7 +2480,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 99
             new Nutrition
             {
-                NutritionId = Guid.Parse("f4c9c7ca-a1db-41db-8def-9a819c3c5dde"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("628d87df-0bde-417d-b8b5-5f8f5536410b"),
                 Calories = 28,
                 Protein = 2.8f,
@@ -2886,7 +2509,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 100
             new Nutrition
             {
-                NutritionId = Guid.Parse("9f72e213-a220-4d5d-92de-04c44f4a6d2e"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                 Calories = 20,
                 Protein = 1.2f,
@@ -2915,7 +2538,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 101
             new Nutrition
             {
-                NutritionId = Guid.Parse("9af709dc-6fe9-4050-b83c-134ee2bc2802"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("ef8b0ee3-a4d5-4883-af63-33c83d102bea"),
                 Calories = 260,
                 Protein = 9f,
@@ -2944,7 +2567,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 102
             new Nutrition
             {
-                NutritionId = Guid.Parse("6f09345e-735c-4fd8-a222-3791ce358f65"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("9122357a-179f-45f4-9106-67eea24d48ab"),
                 Calories = 40,
                 Protein = 0.2f,
@@ -2973,7 +2596,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 103
             new Nutrition
             {
-                NutritionId = Guid.Parse("0bcdbd43-5822-437a-afdf-b9eb07a78676"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("22d1cbad-a884-400c-b681-30b17d98bf1c"),
                 Calories = 55,
                 Protein = 5f,
@@ -3002,7 +2625,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 104
             new Nutrition
             {
-                NutritionId = Guid.Parse("cf45af51-23c9-49c6-b1a8-d4b42cad33a3"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("c81a404a-ec10-428e-acec-dd56ec1d3607"),
                 Calories = 100,
                 Protein = 8f,
@@ -3031,7 +2654,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 105
             new Nutrition
             {
-                NutritionId = Guid.Parse("5bac507b-f44c-4c29-91b7-1d15c59a6449"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                 Calories = 132,
                 Protein = 29f,
@@ -3057,68 +2680,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 106
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("09a360a0-45c8-432e-88a1-7440af7268f2"),
-            //     FoodId = Guid.Parse("01708b02-6cc1-41f6-ae4a-95c4085e1839"),
-            //     Calories = 150,
-            //     Protein = 10f,
-            //     Carbs = 15f,
-            //     Fiber = 2.0f,
-            //     Sugar = 2.0f,
-            //     Fat = 5.0f,
-            //     SaturatedFat = 1.5f,
-            //     UnsaturatedFat = 2.5f,
-            //     Cholesterol = 30,
-            //     Sodium = 400,
-            //     Potassium = 120,
-            //     Calcium = 25,
-            //     Iron = 0.8f,
-            //     VitaminA = 0.03f,
-            //     VitaminB1 = 0.02f,
-            //     VitaminB2 = 0.02f,
-            //     VitaminC = 5.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 107
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("5abaf708-ccd8-4618-af45-14d2bf9d21a4"),
-            //     FoodId = Guid.Parse("436d8364-15fd-47a2-9b72-c3841db0da2e"),
-            //     Calories = 250,
-            //     Protein = 6f,
-            //     Carbs = 30f,
-            //     Fiber = 1.0f,
-            //     Sugar = 15.0f,
-            //     Fat = 12.0f,
-            //     SaturatedFat = 4.0f,
-            //     UnsaturatedFat = 6.0f,
-            //     Cholesterol = 70,
-            //     Sodium = 200,
-            //     Potassium = 50,
-            //     Calcium = 40,
-            //     Iron = 0.6f,
-            //     VitaminA = 0.05f,
-            //     VitaminB1 = 0.03f,
-            //     VitaminB2 = 0.05f,
-            //     VitaminC = 0.0f,
-            //     VitaminD = 0.0f,
-            //     VitaminE = 0.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 108
             new Nutrition
             {
-                NutritionId = Guid.Parse("da470c94-f90f-493e-bf4b-c01935c35e81"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("87225215-43af-49f2-a40b-a5ebb087d27b"),
                 Calories = 450,
                 Protein = 20f,
@@ -3147,7 +2712,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 109
             new Nutrition
             {
-                NutritionId = Guid.Parse("2294d934-ca9f-4095-a2ae-796dc4a93a15"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("23443efa-dc06-4e7a-949c-5c823ee6e575"),
                 Calories = 86,
                 Protein = 1.6f,
@@ -3176,7 +2741,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 110
             new Nutrition
             {
-                NutritionId = Guid.Parse("c8da0730-2735-4893-a5d0-b7e46424ca52"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                 Calories = 59,
                 Protein = 0.9f,
@@ -3205,7 +2770,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 111
             new Nutrition
             {
-                NutritionId = Guid.Parse("020e964c-f99e-47f2-b12b-211df01556ea"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
                 Calories = 120,
                 Protein = 3f,
@@ -3234,7 +2799,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 112
             new Nutrition
             {
-                NutritionId = Guid.Parse("a5d8a693-7e00-4968-ac24-2b59989c939c"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
                 Calories = 140,
                 Protein = 5f,
@@ -3263,7 +2828,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 113
             new Nutrition
             {
-                NutritionId = Guid.Parse("e31e069c-8e49-48a5-b50e-4672ec95a42d"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("da85064b-e528-4bfa-8a64-1fbe704f9af5"),
                 Calories = 15,
                 Protein = 1.2f,
@@ -3292,7 +2857,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 114
             new Nutrition
             {
-                NutritionId = Guid.Parse("df3fac73-d9c5-4cc1-a478-c8a2fd7d5aa5"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("86bcbac3-fc75-46ed-8d0e-18c8c4860692"),
                 Calories = 165,
                 Protein = 31f,
@@ -3321,7 +2886,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 115
             new Nutrition
             {
-                NutritionId = Guid.Parse("906ff341-e0db-4538-8965-be70bcc1a2bd"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a6ce6816-c6e1-4512-aeb6-d5d647815c1d"),
                 Calories = 250,
                 Protein = 26f,
@@ -3350,7 +2915,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 116
             new Nutrition
             {
-                NutritionId = Guid.Parse("b093fbee-db92-4031-b46b-f6528da9b6c7"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("edb9d5d0-01f3-4607-a406-9e04bbff85fb"),
                 Calories = 206,
                 Protein = 22f,
@@ -3379,7 +2944,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 117
             new Nutrition
             {
-                NutritionId = Guid.Parse("7ef18737-806e-4e66-ab2b-121a0ed87e95"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("4d640470-857a-4765-905f-e49e98a281a1"),
                 Calories = 99,
                 Protein = 24f,
@@ -3408,7 +2973,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 118
             new Nutrition
             {
-                NutritionId = Guid.Parse("e389a501-335a-4bc4-b58c-7b461c80bf0f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("d3a1c73d-ca5a-45ea-a7fa-d582f1253b79"),
                 Calories = 242,
                 Protein = 27f,
@@ -3437,7 +3002,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 119
             new Nutrition
             {
-                NutritionId = Guid.Parse("7a15075d-2280-420e-8053-ed9b266f793c"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("adeb902f-fb34-44eb-aa60-76eaeb0ed70b"),
                 Calories = 189,
                 Protein = 19f,
@@ -3466,7 +3031,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 120
             new Nutrition
             {
-                NutritionId = Guid.Parse("5e990885-3986-44d1-b4da-4f08dc54520e"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("3fa8cf38-d835-4279-a113-a8f44cd013e6"),
                 Calories = 172,
                 Protein = 18f,
@@ -3495,7 +3060,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 121
             new Nutrition
             {
-                NutritionId = Guid.Parse("37afe853-af91-43e0-995d-5b47c71f34e9"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("d3392e5d-a48f-4b5a-968d-31b98bd47835"),
                 Calories = 59,
                 Protein = 10f,
@@ -3524,7 +3089,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 122
             new Nutrition
             {
-                NutritionId = Guid.Parse("31e868b9-09e6-4755-8d80-d23c40290901"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("ad6a860f-4a4a-4cb7-90fa-21c8f36c91ce"),
                 Calories = 190,
                 Protein = 28f,
@@ -3553,7 +3118,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 123
             new Nutrition
             {
-                NutritionId = Guid.Parse("12b5b9d3-f1ed-4e35-9f3d-4213546e6de7"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
                 Calories = 116,
                 Protein = 25f,
@@ -3579,39 +3144,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 124
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("f8e9a827-2af6-46f3-9e02-0cebad334bd3"),
-            //     FoodId = Guid.Parse("2da12ed2-3082-4374-807e-795372dfd1de"),
-            //     Calories = 91,
-            //     Protein = 19f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 1.3f,
-            //     SaturatedFat = 0.3f,
-            //     UnsaturatedFat = 1f,
-            //     Cholesterol = 48,
-            //     Sodium = 60,
-            //     Potassium = 410,
-            //     Calcium = 11,
-            //     Iron = 0.4f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.03f,
-            //     VitaminB2 = 0.18f,
-            //     VitaminC = 0,
-            //     VitaminD = 180f,
-            //     VitaminE = 0.3f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 125
             new Nutrition
             {
-                NutritionId = Guid.Parse("286e4e51-e6c6-40b9-b584-6c43dc41354f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("50c0adac-c878-4a21-8b5f-01478e7e4852"),
                 Calories = 145,
                 Protein = 15f,
@@ -3637,126 +3173,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 126
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("ed061871-ac23-450d-8ff1-528d3fac3be8"),
-            //     FoodId = Guid.Parse("431b7ee6-7c63-43ac-ae7e-be93f7fb6647"),
-            //     Calories = 158,
-            //     Protein = 30f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 3f,
-            //     SaturatedFat = 1.1f,
-            //     UnsaturatedFat = 1.9f,
-            //     Cholesterol = 75,
-            //     Sodium = 55,
-            //     Potassium = 320,
-            //     Calcium = 15,
-            //     Iron = 3.5f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.07f,
-            //     VitaminB2 = 0.12f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.6f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 127
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("7e687cdd-ff64-49ac-acf6-b6d3ba5cead6"),
-            //     FoodId = Guid.Parse("016d6e20-bf8b-4b0e-9e0c-a1d6199f73d4"),
-            //     Calories = 87,
-            //     Protein = 18f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 1.4f,
-            //     SaturatedFat = 0.3f,
-            //     UnsaturatedFat = 1.1f,
-            //     Cholesterol = 42,
-            //     Sodium = 365,
-            //     Potassium = 289,
-            //     Calcium = 44,
-            //     Iron = 0.8f,
-            //     VitaminA = 15f,
-            //     VitaminB1 = 0.02f,
-            //     VitaminB2 = 0.11f,
-            //     VitaminC = 3.5f,
-            //     VitaminD = 0,
-            //     VitaminE = 1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 128
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("70f2deb9-2a90-4c02-8488-1b351630c1ca"),
-            //     FoodId = Guid.Parse("c027a073-e154-4c78-821e-3588fcb4df03"),
-            //     Calories = 138,
-            //     Protein = 4.7f,
-            //     Carbs = 12.1f,
-            //     Fiber = 10.6f,
-            //     Sugar = 0,
-            //     Fat = 8.7f,
-            //     SaturatedFat = 0.9f,
-            //     UnsaturatedFat = 7.8f,
-            //     Cholesterol = 0,
-            //     Sodium = 5,
-            //     Potassium = 116,
-            //     Calcium = 177,
-            //     Iron = 2.2f,
-            //     VitaminA = 54f,
-            //     VitaminB1 = 0.16f,
-            //     VitaminB2 = 0.17f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.4f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 129
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("2e11edf9-3a0b-4c88-ac50-3e5022f383c7"),
-            //     FoodId = Guid.Parse("341c53c9-7894-410c-ab04-0dca11ff6a80"),
-            //     Calories = 105,
-            //     Protein = 23f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 0.8f,
-            //     SaturatedFat = 0.2f,
-            //     UnsaturatedFat = 0.6f,
-            //     Cholesterol = 40,
-            //     Sodium = 54,
-            //     Potassium = 293,
-            //     Calcium = 13,
-            //     Iron = 0.3f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.07f,
-            //     VitaminB2 = 0.26f,
-            //     VitaminC = 0,
-            //     VitaminD = 144f,
-            //     VitaminE = 0.2f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 130
             new Nutrition
             {
-                NutritionId = Guid.Parse("42238057-f7d3-4616-bc35-fb6de3e96ca3"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                 Calories = 271,
                 Protein = 26f,
@@ -3782,39 +3202,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 131
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("69e88351-09f6-471d-be0a-a0976da5cedd"),
-            //     FoodId = Guid.Parse("02aad946-ee2f-45f8-8ce5-8ebc476ba631"),
-            //     Calories = 135,
-            //     Protein = 30f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 1.5f,
-            //     SaturatedFat = 0.5f,
-            //     UnsaturatedFat = 1f,
-            //     Cholesterol = 50,
-            //     Sodium = 60,
-            //     Potassium = 260,
-            //     Calcium = 12,
-            //     Iron = 0.8f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.07f,
-            //     VitaminB2 = 0.1f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.3f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 132
             new Nutrition
             {
-                NutritionId = Guid.Parse("438f7428-5464-45b7-8011-6e112744c5aa"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a23f6c85-1a80-4255-a9a1-d08c1d60e753"),
                 Calories = 117,
                 Protein = 20f,
@@ -3840,39 +3231,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 133
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("6072e9af-17be-4477-9612-6473e4aae6fe"),
-            //     FoodId = Guid.Parse("c7e5ccea-ca0e-4c25-be0b-509bb51b38a2"),
-            //     Calories = 188,
-            //     Protein = 20f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 11f,
-            //     SaturatedFat = 2f,
-            //     UnsaturatedFat = 9f,
-            //     Cholesterol = 65,
-            //     Sodium = 55,
-            //     Potassium = 300,
-            //     Calcium = 10,
-            //     Iron = 0.5f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.05f,
-            //     VitaminB2 = 0.12f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.4f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 134
             new Nutrition
             {
-                NutritionId = Guid.Parse("9a859f30-3316-4886-a1a8-ea3a5ff06913"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),
                 Calories = 576,
                 Protein = 21f,
@@ -3898,126 +3260,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 135
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("0b3537f5-2bbb-4b0b-82c1-a57d44023a3e"),
-            //     FoodId = Guid.Parse("a6b8e6e4-1e44-4626-a7d0-1cefefc4f613"),
-            //     Calories = 184,
-            //     Protein = 18f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 12f,
-            //     SaturatedFat = 2.8f,
-            //     UnsaturatedFat = 9.2f,
-            //     Cholesterol = 70,
-            //     Sodium = 60,
-            //     Potassium = 350,
-            //     Calcium = 20,
-            //     Iron = 1.1f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.08f,
-            //     VitaminB2 = 0.15f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.4f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 136
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("8dba0332-68dd-447f-8f8d-cb3c86a79d6a"),
-            //     FoodId = Guid.Parse("6dfafffc-d4f7-4402-b585-37a1c8994663"),
-            //     Calories = 210,
-            //     Protein = 18f,
-            //     Carbs = 6f,
-            //     Fiber = 1.5f,
-            //     Sugar = 2f,
-            //     Fat = 13f,
-            //     SaturatedFat = 5f,
-            //     UnsaturatedFat = 8f,
-            //     Cholesterol = 55,
-            //     Sodium = 320,
-            //     Potassium = 200,
-            //     Calcium = 15,
-            //     Iron = 1f,
-            //     VitaminA = 10f,
-            //     VitaminB1 = 0.05f,
-            //     VitaminB2 = 0.12f,
-            //     VitaminC = 5f,
-            //     VitaminD = 0,
-            //     VitaminE = 0.5f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 137
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("5639b4b0-1266-4566-ae9d-7a502354237e"),
-            //     FoodId = Guid.Parse("55cb9711-56aa-4efb-b31f-d034134cb1b8"),
-            //     Calories = 158,
-            //     Protein = 18f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 9.3f,
-            //     SaturatedFat = 2.3f,
-            //     UnsaturatedFat = 7f,
-            //     Cholesterol = 77,
-            //     Sodium = 570,
-            //     Potassium = 327,
-            //     Calcium = 20,
-            //     Iron = 1.6f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.07f,
-            //     VitaminB2 = 0.23f,
-            //     VitaminC = 0,
-            //     VitaminD = 600f,
-            //     VitaminE = 1.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 138
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("067f40b0-b9f0-4bb7-900b-f3b6e9bd340d"),
-            //     FoodId = Guid.Parse("304376d6-f9c5-48f0-985c-06080347b173"),
-            //     Calories = 215,
-            //     Protein = 22f,
-            //     Carbs = 1f,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 13f,
-            //     SaturatedFat = 3.5f,
-            //     UnsaturatedFat = 9.5f,
-            //     Cholesterol = 68,
-            //     Sodium = 59,
-            //     Potassium = 364,
-            //     Calcium = 13,
-            //     Iron = 0.6f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.1f,
-            //     VitaminB2 = 0.38f,
-            //     VitaminC = 5f,
-            //     VitaminD = 570f,
-            //     VitaminE = 0.4f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 139
             new Nutrition
             {
-                NutritionId = Guid.Parse("78c064d5-1903-4845-bb09-a6e9b4652764"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("8da16f72-42a9-4da2-b217-811903e340c4"),
                 Calories = 145,
                 Protein = 12f,
@@ -4046,7 +3292,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 140
             new Nutrition
             {
-                NutritionId = Guid.Parse("320899d0-0233-4c35-9226-25f18e9f8420"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a5d484c6-9cc8-4d6e-a53c-5c8a2c20999b"),
                 Calories = 417,
                 Protein = 13f,
@@ -4072,39 +3318,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 141
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("f76ab23b-9bf2-4ad3-9cca-7f5b247018a0"),
-            //     FoodId = Guid.Parse("56bb5be7-3a7f-4942-89c6-3c6af934adf3"),
-            //     Calories = 97,
-            //     Protein = 20f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 2.1f,
-            //     SaturatedFat = 0.6f,
-            //     UnsaturatedFat = 1.5f,
-            //     Cholesterol = 55,
-            //     Sodium = 55,
-            //     Potassium = 350,
-            //     Calcium = 12,
-            //     Iron = 0.4f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.03f,
-            //     VitaminB2 = 0.09f,
-            //     VitaminC = 0,
-            //     VitaminD = 180f,
-            //     VitaminE = 0.3f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 142
             new Nutrition
             {
-                NutritionId = Guid.Parse("1d11ea43-b4c2-47ad-9acb-33a1581df55b"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
                 Calories = 559,
                 Protein = 30f,
@@ -4133,7 +3350,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 143
             new Nutrition
             {
-                NutritionId = Guid.Parse("6cca7fd0-1564-44ea-b2e6-0c7123a2c46f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("b29dc622-e8ae-4471-8e22-5676aa5fa909"),
                 Calories = 81,
                 Protein = 5.4f,
@@ -4159,97 +3376,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 144
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("175c7c52-ce22-4bdd-a115-f824729f5f6e"),
-            //     FoodId = Guid.Parse("6007962d-9bd0-43ce-8a83-6b5f9bed4156"),
-            //     Calories = 102,
-            //     Protein = 18f,
-            //     Carbs = 2f,
-            //     Fiber = 0.5f,
-            //     Sugar = 1.5f,
-            //     Fat = 2.1f,
-            //     SaturatedFat = 0.5f,
-            //     UnsaturatedFat = 1.6f,
-            //     Cholesterol = 55,
-            //     Sodium = 250,
-            //     Potassium = 300,
-            //     Calcium = 45,
-            //     Iron = 0.7f,
-            //     VitaminA = 15f,
-            //     VitaminB1 = 0.04f,
-            //     VitaminB2 = 0.09f,
-            //     VitaminC = 4f,
-            //     VitaminD = 0,
-            //     VitaminE = 1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 145
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("2b274865-9739-4eba-9d35-468cbf0d012b"),
-            //     FoodId = Guid.Parse("189dadbe-caf2-4d83-bb01-5ffa8776fa20"),
-            //     Calories = 567,
-            //     Protein = 26f,
-            //     Carbs = 16f,
-            //     Fiber = 8.5f,
-            //     Sugar = 4.2f,
-            //     Fat = 49f,
-            //     SaturatedFat = 6.8f,
-            //     UnsaturatedFat = 42.2f,
-            //     Cholesterol = 0,
-            //     Sodium = 18,
-            //     Potassium = 705,
-            //     Calcium = 92,
-            //     Iron = 4.6f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.64f,
-            //     VitaminB2 = 0.11f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 6.6f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 146
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("2594193a-4050-4c16-9492-b9f0d7583430"),
-            //     FoodId = Guid.Parse("db3cd633-2350-4143-ae1f-ccc853583755"),
-            //     Calories = 111,
-            //     Protein = 20f,
-            //     Carbs = 3.2f,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 1.2f,
-            //     SaturatedFat = 0.3f,
-            //     UnsaturatedFat = 0.9f,
-            //     Cholesterol = 37,
-            //     Sodium = 200,
-            //     Potassium = 287,
-            //     Calcium = 10,
-            //     Iron = 0.4f,
-            //     VitaminA = 10f,
-            //     VitaminB1 = 0.04f,
-            //     VitaminB2 = 0.14f,
-            //     VitaminC = 3f,
-            //     VitaminD = 0,
-            //     VitaminE = 0.3f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 147
             new Nutrition
             {
-                NutritionId = Guid.Parse("9310a279-efc8-4f83-872a-742b4bbb3bb0"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
                 Calories = 42,
                 Protein = 3.4f,
@@ -4278,7 +3408,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 148
             new Nutrition
             {
-                NutritionId = Guid.Parse("642b5a68-9e92-4e95-a273-35ff6791d0ab"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("0f7f47a1-f122-4f58-9e24-40ece9323520"),
                 Calories = 239,
                 Protein = 27f,
@@ -4304,156 +3434,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-
-            // #region Nutrition 149
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("6f5e61ca-9b59-43e4-b1bd-8aa9accc9480"),
-            //     FoodId = Guid.Parse("d675513e-3be1-4c47-b0d2-0718f02ae93b"),
-            //     Calories = 573,
-            //     Protein = 18f,
-            //     Carbs = 23f,
-            //     Fiber = 12f,
-            //     Sugar = 0.3f,
-            //     Fat = 50f,
-            //     SaturatedFat = 6.9f,
-            //     UnsaturatedFat = 43.1f,
-            //     Cholesterol = 0,
-            //     Sodium = 11,
-            //     Potassium = 468,
-            //     Calcium = 975,
-            //     Iron = 14.6f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.79f,
-            //     VitaminB2 = 0.25f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.2f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 150
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("cc684c94-dc48-4e90-ad4a-dc01b1b585d8"),
-            //     FoodId = Guid.Parse("8bcd1ea8-cf17-4457-bc32-65033e43e311"),
-            //     Calories = 208,
-            //     Protein = 24f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 11f,
-            //     SaturatedFat = 1.5f,
-            //     UnsaturatedFat = 9.5f,
-            //     Cholesterol = 61,
-            //     Sodium = 282,
-            //     Potassium = 397,
-            //     Calcium = 382,
-            //     Iron = 2.9f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.04f,
-            //     VitaminB2 = 0.22f,
-            //     VitaminC = 0,
-            //     VitaminD = 177f,
-            //     VitaminE = 2f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 151
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("ef4e79eb-da6b-47a1-8710-989a64487de0"),
-            //     FoodId = Guid.Parse("7f55881d-f8f4-43aa-b4b6-5d56fd56cfde"),
-            //     Calories = 90,
-            //     Protein = 18f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 2f,
-            //     SaturatedFat = 0.5f,
-            //     UnsaturatedFat = 1.5f,
-            //     Cholesterol = 45,
-            //     Sodium = 50,
-            //     Potassium = 310,
-            //     Calcium = 12,
-            //     Iron = 0.5f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.03f,
-            //     VitaminB2 = 0.1f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.2f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 152
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("685b3bae-37b8-415e-ae1d-bfc2401ac6b9"),
-            //     FoodId = Guid.Parse("bbd19c8e-c1b4-497f-aadb-ca584820c465"),
-            //     Calories = 120,
-            //     Protein = 4.1f,
-            //     Carbs = 21f,
-            //     Fiber = 2.8f,
-            //     Sugar = 0.9f,
-            //     Fat = 1.9f,
-            //     SaturatedFat = 0.2f,
-            //     UnsaturatedFat = 1.7f,
-            //     Cholesterol = 0,
-            //     Sodium = 7,
-            //     Potassium = 172,
-            //     Calcium = 17,
-            //     Iron = 1.5f,
-            //     VitaminA = 14f,
-            //     VitaminB1 = 0.11f,
-            //     VitaminB2 = 0.09f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.6f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 153
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("1e3470f7-ba09-479f-bfab-099c9a8f7e70"),
-            //     FoodId = Guid.Parse("da3b2de7-bfd2-4c5e-9958-f8a8368b158a"),
-            //     Calories = 96,
-            //     Protein = 20f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 2f,
-            //     SaturatedFat = 0.6f,
-            //     UnsaturatedFat = 1.4f,
-            //     Cholesterol = 40,
-            //     Sodium = 55,
-            //     Potassium = 320,
-            //     Calcium = 14,
-            //     Iron = 0.6f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.05f,
-            //     VitaminB2 = 0.2f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.4f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 154
             new Nutrition
             {
-                NutritionId = Guid.Parse("391824d1-8312-4e3d-88b6-840b67e05c1f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("c46676b3-cbcc-49e9-ad44-7d450a481a19"),
                 Calories = 389,
                 Protein = 16.9f,
@@ -4482,7 +3466,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 155
             new Nutrition
             {
-                NutritionId = Guid.Parse("4de229b6-0e2f-431d-9201-41bf4a9e847f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("597a11b3-31a0-4e70-8d2f-95465ee03e8b"),
                 Calories = 23,
                 Protein = 2.9f,
@@ -4508,39 +3492,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 156
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("15f817fb-27c9-45b6-8d01-2bb8fc539421"),
-            //     FoodId = Guid.Parse("628fe894-0d9c-416f-866b-eb77f763ee62"),
-            //     Calories = 160,
-            //     Protein = 2f,
-            //     Carbs = 8.5f,
-            //     Fiber = 6.7f,
-            //     Sugar = 0.7f,
-            //     Fat = 14.7f,
-            //     SaturatedFat = 2.1f,
-            //     UnsaturatedFat = 12.6f,
-            //     Cholesterol = 0,
-            //     Sodium = 7,
-            //     Potassium = 485,
-            //     Calcium = 12,
-            //     Iron = 0.6f,
-            //     VitaminA = 146f,
-            //     VitaminB1 = 0.07f,
-            //     VitaminB2 = 0.13f,
-            //     VitaminC = 10f,
-            //     VitaminD = 0,
-            //     VitaminE = 2.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 157
             new Nutrition
             {
-                NutritionId = Guid.Parse("e54509ea-935c-4076-9187-b085565c9c24"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),
                 Calories = 584,
                 Protein = 20.8f,
@@ -4566,39 +3521,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 158
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("3365c26f-d697-4286-8b1c-adc1124d71bf"),
-            //     FoodId = Guid.Parse("0d3e0ef5-afcc-418a-a3f6-f2a24cfd3166"),
-            //     Calories = 654,
-            //     Protein = 15.2f,
-            //     Carbs = 13.7f,
-            //     Fiber = 6.7f,
-            //     Sugar = 2.6f,
-            //     Fat = 65.2f,
-            //     SaturatedFat = 6.1f,
-            //     UnsaturatedFat = 59.1f,
-            //     Cholesterol = 0,
-            //     Sodium = 2,
-            //     Potassium = 441,
-            //     Calcium = 98,
-            //     Iron = 2.9f,
-            //     VitaminA = 20f,
-            //     VitaminB1 = 0.34f,
-            //     VitaminB2 = 0.15f,
-            //     VitaminC = 1.3f,
-            //     VitaminD = 0,
-            //     VitaminE = 0.7f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 159
             new Nutrition
             {
-                NutritionId = Guid.Parse("43fd1c06-ca6f-45f4-bd25-309e86ff4e8c"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("644f32b3-897e-45b1-b4d7-aa8b9585a262"),
                 Calories = 19,
                 Protein = 2f,
@@ -4627,7 +3553,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 160
             new Nutrition
             {
-                NutritionId = Guid.Parse("3c0b20ab-c832-47c9-8ff7-34528e1ed1c8"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
                 Calories = 57,
                 Protein = 0.4f,
@@ -4656,7 +3582,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 161
             new Nutrition
             {
-                NutritionId = Guid.Parse("d39e3f7e-2537-4fb8-ac97-853684714a29"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                 Calories = 32,
                 Protein = 0.7f,
@@ -4685,7 +3611,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 162
             new Nutrition
             {
-                NutritionId = Guid.Parse("2e77be32-b505-4c84-af6e-c2166e9622a7"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("a8de2767-4b0a-41db-b33b-2523f5be2e0c"),
                 Calories = 52,
                 Protein = 1.2f,
@@ -4714,7 +3640,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 163
             new Nutrition
             {
-                NutritionId = Guid.Parse("07240e21-d8f0-495b-a258-5a159e0cf6e0"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("00333cd3-f43b-40af-855e-95aa8a636e4a"),
                 Calories = 26,
                 Protein = 1f,
@@ -4743,7 +3669,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 164
             new Nutrition
             {
-                NutritionId = Guid.Parse("1473ba30-3e54-4000-9f60-fc5e68b30c8b"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("8d95f2a5-cdd0-4c79-8cd0-99ff05cad567"),
                 Calories = 142,
                 Protein = 0.5f,
@@ -4769,39 +3695,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 165
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("c93af12e-5f12-424e-8f03-a6f865522017"),
-            //     FoodId = Guid.Parse("37d1bd46-54c4-40ef-a1f0-7bd0883ad818"),
-            //     Calories = 131,
-            //     Protein = 2.1f,
-            //     Carbs = 28.8f,
-            //     Fiber = 4.2f,
-            //     Sugar = 10.7f,
-            //     Fat = 1.4f,
-            //     SaturatedFat = 0.3f,
-            //     UnsaturatedFat = 1.1f,
-            //     Cholesterol = 0,
-            //     Sodium = 27,
-            //     Potassium = 715,
-            //     Calcium = 18,
-            //     Iron = 0.9f,
-            //     VitaminA = 15f,
-            //     VitaminB1 = 0.16f,
-            //     VitaminB2 = 0.09f,
-            //     VitaminC = 26f,
-            //     VitaminD = 0,
-            //     VitaminE = 0.4f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 166
             new Nutrition
             {
-                NutritionId = Guid.Parse("f68975c6-d48b-4bf3-a1a3-0c8989d1c43f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("7afe5fe6-3bcb-4354-86ea-e8d6a81aa9a2"),
                 Calories = 20,
                 Protein = 2.2f,
@@ -4830,7 +3727,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 167
             new Nutrition
             {
-                NutritionId = Guid.Parse("519c497e-44bb-41c0-87eb-59f4ed5de68f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("ff348fc8-cd36-41c4-984f-a5884171f367"),
                 Calories = 31,
                 Protein = 1.4f,
@@ -4856,39 +3753,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 168
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("280eefda-68a9-4320-805c-a2f814df0ae7"),
-            //     FoodId = Guid.Parse("e8a16fb6-33a9-4a5a-85f8-ffa5a1465885"),
-            //     Calories = 567,
-            //     Protein = 25.8f,
-            //     Carbs = 16.1f,
-            //     Fiber = 8.5f,
-            //     Sugar = 4.2f,
-            //     Fat = 49.2f,
-            //     SaturatedFat = 6.8f,
-            //     UnsaturatedFat = 42.4f,
-            //     Cholesterol = 0,
-            //     Sodium = 18,
-            //     Potassium = 705,
-            //     Calcium = 92,
-            //     Iron = 4.6f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.64f,
-            //     VitaminB2 = 0.11f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 6.6f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 169
             new Nutrition
             {
-                NutritionId = Guid.Parse("83d8e505-9186-4394-b3c0-b6f36bcd12f9"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("7b3216ff-858e-423e-b8db-a85571aa5488"),
                 Calories = 61,
                 Protein = 1.1f,
@@ -4917,7 +3785,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 170
             new Nutrition
             {
-                NutritionId = Guid.Parse("3460a786-93a3-47a2-8ef8-871d2a8f48ca"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
                 Calories = 378,
                 Protein = 11f,
@@ -4943,39 +3811,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 171
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("3d6391c3-73eb-42d1-b3d1-e8a3c6b7e995"),
-            //     FoodId = Guid.Parse("67f6b055-1abc-4a48-97ce-63aea2e5ef7b"),
-            //     Calories = 339,
-            //     Protein = 13.7f,
-            //     Carbs = 71.2f,
-            //     Fiber = 12.2f,
-            //     Sugar = 0.4f,
-            //     Fat = 2.5f,
-            //     SaturatedFat = 0.3f,
-            //     UnsaturatedFat = 2.2f,
-            //     Cholesterol = 0,
-            //     Sodium = 2,
-            //     Potassium = 431,
-            //     Calcium = 29,
-            //     Iron = 3.9f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.49f,
-            //     VitaminB2 = 0.15f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.2f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 172
             new Nutrition
             {
-                NutritionId = Guid.Parse("1f0efba1-d79f-4589-9781-67d4e3832a49"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("35cad577-0748-469f-8909-7dc013cf1c55"),
                 Calories = 27,
                 Protein = 3f,
@@ -5004,7 +3843,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 173
             new Nutrition
             {
-                NutritionId = Guid.Parse("26e78cb5-07a9-4cf9-9635-ae49f565002a"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("575e8bca-57e3-4d16-b380-545a046c9a4e"),
                 Calories = 306,
                 Protein = 5.8f,
@@ -5033,7 +3872,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 174
             new Nutrition
             {
-                NutritionId = Guid.Parse("07b97860-12b5-41ae-b6fd-baadb0d1f637"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("830df1fb-09f6-4e6e-95c3-e39051e3b2d8"),
                 Calories = 34,
                 Protein = 2.8f,
@@ -5062,7 +3901,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 175
             new Nutrition
             {
-                NutritionId = Guid.Parse("0941001b-4d50-4f35-b672-aedf872ea325"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("9b98036c-2047-4700-bb13-b34a432bb999"),
                 Calories = 112,
                 Protein = 2.6f,
@@ -5088,68 +3927,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 176
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("498f7782-db66-4b8e-bc10-9dd7ecbe2cc1"),
-            //     FoodId = Guid.Parse("77b9e248-971c-4292-8cd7-fd7ec55cf643"),
-            //     Calories = 116,
-            //     Protein = 9f,
-            //     Carbs = 20.1f,
-            //     Fiber = 7.9f,
-            //     Sugar = 1.8f,
-            //     Fat = 0.4f,
-            //     SaturatedFat = 0.1f,
-            //     UnsaturatedFat = 0.3f,
-            //     Cholesterol = 0,
-            //     Sodium = 2,
-            //     Potassium = 369,
-            //     Calcium = 19,
-            //     Iron = 3.3f,
-            //     VitaminA = 8f,
-            //     VitaminB1 = 0.17f,
-            //     VitaminB2 = 0.21f,
-            //     VitaminC = 1.5f,
-            //     VitaminD = 0,
-            //     VitaminE = 0.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 177
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("f9bc8847-6168-402d-a1e0-c45d6166b817"),
-            //     FoodId = Guid.Parse("4d773186-20f8-42c2-839b-1ce1601280fa"),
-            //     Calories = 60,
-            //     Protein = 0.8f,
-            //     Carbs = 14.9f,
-            //     Fiber = 1.6f,
-            //     Sugar = 13.7f,
-            //     Fat = 0.4f,
-            //     SaturatedFat = 0.1f,
-            //     UnsaturatedFat = 0.3f,
-            //     Cholesterol = 0,
-            //     Sodium = 1,
-            //     Potassium = 168,
-            //     Calcium = 11,
-            //     Iron = 0.2f,
-            //     VitaminA = 54f,
-            //     VitaminB1 = 0.03f,
-            //     VitaminB2 = 0.04f,
-            //     VitaminC = 36.4f,
-            //     VitaminD = 0,
-            //     VitaminE = 0.9f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 178
             new Nutrition
             {
-                NutritionId = Guid.Parse("aa894459-9f93-4e75-a127-35b0eae71957"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("1aa49363-ab95-4565-9e27-1855702197fd"),
                 Calories = 69,
                 Protein = 0.7f,
@@ -5178,7 +3959,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 179
             new Nutrition
             {
-                NutritionId = Guid.Parse("c290176e-e79f-4f97-9a4f-9e5ef06c0d49"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("98c908b5-dad8-4db4-8d60-c6157c53d2c0"),
                 Calories = 23,
                 Protein = 2.9f,
@@ -5207,7 +3988,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 180
             new Nutrition
             {
-                NutritionId = Guid.Parse("0303db3c-64a2-450b-b807-0b2bb8fea2a8"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
                 Calories = 132,
                 Protein = 8.9f,
@@ -5236,7 +4017,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 181
             new Nutrition
             {
-                NutritionId = Guid.Parse("4c1369ea-163e-4975-be97-74547f3e9f60"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("857b3565-b170-4162-a97b-c0184c4258aa"),
                 Calories = 43,
                 Protein = 1.6f,
@@ -5265,7 +4046,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 182
             new Nutrition
             {
-                NutritionId = Guid.Parse("04e83169-5ab3-4b5d-b716-42b99ee48ea4"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("7cd76708-7312-445e-a392-14f0e806a786"),
                 Calories = 81,
                 Protein = 5.4f,
@@ -5294,7 +4075,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 183
             new Nutrition
             {
-                NutritionId = Guid.Parse("1867907b-f5d1-44f4-859e-baa2724cd04f"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),
                 Calories = 354,
                 Protein = 12.5f,
@@ -5323,7 +4104,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 184
             new Nutrition
             {
-                NutritionId = Guid.Parse("9121fc2e-232b-4820-8422-7f1b4d74d0d0"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("10869d8c-14b9-4464-85ca-bf76fc4bf91d"),
                 Calories = 22,
                 Protein = 2.1f,
@@ -5352,7 +4133,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 185
             new Nutrition
             {
-                NutritionId = Guid.Parse("de579e51-44c1-485b-b775-7be82cafe4ed"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
                 Calories = 110,
                 Protein = 2.5f,
@@ -5381,7 +4162,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 186
             new Nutrition
             {
-                NutritionId = Guid.Parse("28a27e20-ed22-4dbd-9347-c4b44e48fad7"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("9979963d-5c37-4fa9-955c-d1ecb5814607"),
                 Calories = 23,
                 Protein = 2.9f,
@@ -5407,68 +4188,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 187
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("de3ce9d7-1807-420f-b279-39156363bf7c"),
-            //     FoodId = Guid.Parse("cf0fce11-3569-435b-8942-9c0ceb23d6dc"),
-            //     Calories = 206,
-            //     Protein = 22f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 13f,
-            //     SaturatedFat = 3.1f,
-            //     UnsaturatedFat = 9.9f,
-            //     Cholesterol = 63,
-            //     Sodium = 59,
-            //     Potassium = 363,
-            //     Calcium = 12,
-            //     Iron = 0.5f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.1f,
-            //     VitaminB2 = 0.38f,
-            //     VitaminC = 0,
-            //     VitaminD = 570f,
-            //     VitaminE = 0.4f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 188
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("234631b0-e115-4e6d-b3de-e83448a2340c"),
-            //     FoodId = Guid.Parse("c3480e21-940b-4190-b07c-f3208ae96367"),
-            //     Calories = 400,
-            //     Protein = 12f,
-            //     Carbs = 70f,
-            //     Fiber = 11f,
-            //     Sugar = 0.8f,
-            //     Fat = 7f,
-            //     SaturatedFat = 1.5f,
-            //     UnsaturatedFat = 5.5f,
-            //     Cholesterol = 0,
-            //     Sodium = 2,
-            //     Potassium = 400,
-            //     Calcium = 30,
-            //     Iron = 3f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.5f,
-            //     VitaminB2 = 0.2f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 0.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 189
             new Nutrition
             {
-                NutritionId = Guid.Parse("a491a600-a88b-44c8-bc7b-70079aa09725"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("845454d0-967a-4e48-aef3-bd8458775500"),
                 Calories = 16,
                 Protein = 0.6f,
@@ -5497,7 +4220,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 190
             new Nutrition
             {
-                NutritionId = Guid.Parse("6387bbb3-5d75-40f8-a48d-316fb7628ee0"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("6a88b8cb-dc82-4751-a2e4-23e5516d850b"),
                 Calories = 20,
                 Protein = 2f,
@@ -5526,7 +4249,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 191
             new Nutrition
             {
-                NutritionId = Guid.Parse("cb56c1e3-4966-4c4a-983e-71ca4f2a82d7"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
                 Calories = 534,
                 Protein = 18.3f,
@@ -5555,7 +4278,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 192
             new Nutrition
             {
-                NutritionId = Guid.Parse("6d932f58-dd55-48f7-9e94-6be12a944ee2"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
                 Calories = 562,
                 Protein = 20.3f,
@@ -5584,7 +4307,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 193
             new Nutrition
             {
-                NutritionId = Guid.Parse("16e7e423-ddfc-4e43-92ad-2f2cfd76308b"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("49601ef1-2131-478f-a1de-f2e444602be3"),
                 Calories = 354,
                 Protein = 3.3f,
@@ -5613,7 +4336,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 194
             new Nutrition
             {
-                NutritionId = Guid.Parse("415a9ba8-8e8c-48a8-adb7-5b6a5ab88892"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("d3c360a2-441e-4700-a6ec-4310b5976901"),
                 Calories = 189,
                 Protein = 19f,
@@ -5639,39 +4362,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 195
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("e31deb48-285a-43f7-8ec5-9dd6e61b4e4b"),
-            //     FoodId = Guid.Parse("0dbbf1e0-031a-4342-bfde-c127644ebddf"),
-            //     Calories = 588,
-            //     Protein = 25.1f,
-            //     Carbs = 20.1f,
-            //     Fiber = 6f,
-            //     Sugar = 9f,
-            //     Fat = 50f,
-            //     SaturatedFat = 10f,
-            //     UnsaturatedFat = 40f,
-            //     Cholesterol = 0,
-            //     Sodium = 17,
-            //     Potassium = 645,
-            //     Calcium = 59,
-            //     Iron = 1.9f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.13f,
-            //     VitaminB2 = 0.17f,
-            //     VitaminC = 0,
-            //     VitaminD = 0,
-            //     VitaminE = 8f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 196
             new Nutrition
             {
-                NutritionId = Guid.Parse("abd8e616-aa88-44bd-a005-9b27f53c21c8"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
                 Calories = 718,
                 Protein = 7.9f,
@@ -5700,7 +4394,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 197
             new Nutrition
             {
-                NutritionId = Guid.Parse("578a7c16-1b10-47d7-a04b-9933eee3ccf9"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("cb693182-b5ff-4f2b-9a47-44ab84841843"),
                 Calories = 83,
                 Protein = 0.4f,
@@ -5726,97 +4420,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // #region Nutrition 198
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("6173c19a-0549-4066-bdca-bfc0e432e830"),
-            //     FoodId = Guid.Parse("f70172ed-7784-47ec-8aa2-a862ee56a13a"),
-            //     Calories = 158,
-            //     Protein = 18f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 9.3f,
-            //     SaturatedFat = 2.3f,
-            //     UnsaturatedFat = 7f,
-            //     Cholesterol = 77,
-            //     Sodium = 570,
-            //     Potassium = 327,
-            //     Calcium = 20,
-            //     Iron = 1.6f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.07f,
-            //     VitaminB2 = 0.23f,
-            //     VitaminC = 0,
-            //     VitaminD = 600f,
-            //     VitaminE = 1.1f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 199
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("c2211387-2e4e-4988-b166-5b24670871af"),
-            //     FoodId = Guid.Parse("d8216f25-d01e-48c6-a44f-0a1672862f53"),
-            //     Calories = 691,
-            //     Protein = 9.2f,
-            //     Carbs = 13.9f,
-            //     Fiber = 9.6f,
-            //     Sugar = 4f,
-            //     Fat = 72f,
-            //     SaturatedFat = 6.2f,
-            //     UnsaturatedFat = 65.8f,
-            //     Cholesterol = 0,
-            //     Sodium = 0,
-            //     Potassium = 410,
-            //     Calcium = 70,
-            //     Iron = 2.5f,
-            //     VitaminA = 56f,
-            //     VitaminB1 = 0.66f,
-            //     VitaminB2 = 0.13f,
-            //     VitaminC = 1.1f,
-            //     VitaminD = 0,
-            //     VitaminE = 0.7f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
-            // #region Nutrition 200
-            // new Nutrition
-            // {
-            //     NutritionId = Guid.Parse("f1a312f4-c569-4427-9a4e-096f5a0d33ff"),
-            //     FoodId = Guid.Parse("7aee65aa-860d-48c2-ad47-2614e5e04998"),
-            //     Calories = 127,
-            //     Protein = 17f,
-            //     Carbs = 0,
-            //     Fiber = 0,
-            //     Sugar = 0,
-            //     Fat = 5.6f,
-            //     SaturatedFat = 1.2f,
-            //     UnsaturatedFat = 4.4f,
-            //     Cholesterol = 82,
-            //     Sodium = 79,
-            //     Potassium = 275,
-            //     Calcium = 12,
-            //     Iron = 0.6f,
-            //     VitaminA = 0,
-            //     VitaminB1 = 0.04f,
-            //     VitaminB2 = 0.2f,
-            //     VitaminC = 0,
-            //     VitaminD = 24f,
-            //     VitaminE = 0.2f,
-            //     CreatedAt = today,
-            //     UpdatedAt = today,
-            // },
-            // #endregion
-
             #region Nutrition 201
             new Nutrition
             {
-                NutritionId = Guid.Parse("d4835dd1-0a29-4a71-baec-4ef0c3351aac"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                 Calories = 39,
                 Protein = 0.9f,
@@ -5845,7 +4452,7 @@ namespace Monhealth.Identity.Configurations
             #region Nutrition 202
             new Nutrition
             {
-                NutritionId = Guid.Parse("f10ffe60-7e1b-4e49-a238-521c8b8c0005"),
+                NutritionId = Guid.NewGuid(),
                 FoodId = Guid.Parse("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                 Calories = 83,
                 Protein = 1.7f,
