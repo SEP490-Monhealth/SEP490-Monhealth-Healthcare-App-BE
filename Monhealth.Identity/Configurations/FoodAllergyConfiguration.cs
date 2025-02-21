@@ -606,7 +606,6 @@ namespace Monhealth.Identity.Configurations
                 AllergyId = Guid.Parse("91df2b87-a28d-4e89-a779-d4220d68a0f8")
             }
             #endregion
-
             );
         }
     }

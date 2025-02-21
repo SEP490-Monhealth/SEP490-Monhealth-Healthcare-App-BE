@@ -6305,7 +6305,6 @@ namespace Monhealth.Identity.Configurations
             }
             #endregion
             );
-
         }
     }
 }
