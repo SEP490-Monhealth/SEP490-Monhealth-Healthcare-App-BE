@@ -3113,7 +3113,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 155
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("5f848972-c5ae-45fc-8ba2-103b24d8a23a"),
                 CategoryId = seafood,
                 UserId = userId,
                 FoodType = [FoodType.Protein],
@@ -3133,7 +3133,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 156
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("2ae82bfd-34db-4928-bfee-b60f4aec4460"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3153,7 +3153,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 157
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("c69f3300-4f1b-45ce-bdc3-ae45fec848a7"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
