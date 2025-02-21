@@ -7,6 +7,7 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
     public class UpdateFoodRequestAdmin : IRequest<bool>
     {
         public string Category { get; set; } = string.Empty;
+        public List<FoodType> FoodType { get; set; }
         public List<MealType> MealType { get; set; }
         public List<DishType> DishType { get; set; }
         [JsonPropertyName("name")]
