@@ -15,9 +15,9 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         private readonly IExpertiseRepository _expertiseRepository;
         private readonly ICertificateRepository _certificateRepository;
         private readonly IMapper _mapper;
-        public CreateConsultantCommandHandler(IConsultantRepository consultantRepository, 
-                                                IExpertiseRepository expertiseRepository, 
-                                                ICertificateRepository certificateRepository, 
+        public CreateConsultantCommandHandler(IConsultantRepository consultantRepository,
+                                                IExpertiseRepository expertiseRepository,
+                                                ICertificateRepository certificateRepository,
                                                 IMapper mapper)
         {
             _consultantRepository = consultantRepository;
@@ -27,22 +27,18 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         }
         public async Task<Unit> Handle(CreateConsultantCommand request, CancellationToken cancellationToken)
         {
-            var checkExpertise = await _expertiseRepository.GetByIdAsync(request.CreateConsultantDTO.ExpertiseId);
-            if (checkExpertise == null)
-            {
-                // Create Expertise                
-                var newExpertise = _mapper.Map<Domain.Expertise>(request.CreateConsultantDTO);
-                newExpertise.ExpertiseId = Guid.NewGuid();
-                newExpertise.CreatedAt = DateTime.Now;
-                newExpertise.UpdatedAt = DateTime.Now;
-                _expertiseRepository.Add(newExpertise);
-                checkExpertise = newExpertise;
-            }
+            // Create Expertise                
+            var newExpertise = _mapper.Map<Domain.Expertise>(request.CreateConsultantDTO);
+            newExpertise.ExpertiseId = Guid.NewGuid();
+            newExpertise.CreatedAt = DateTime.Now;
+            newExpertise.UpdatedAt = DateTime.Now;
+            _expertiseRepository.Add(newExpertise);
+
 
             // Create Consultant
             var newConsultant = _mapper.Map<Domain.Consultant>(request.CreateConsultantDTO);
             newConsultant.ConsultantId = Guid.NewGuid();
-            newConsultant.ExpertiseId = checkExpertise.ExpertiseId;
+            newConsultant.ExpertiseId = newExpertise.ExpertiseId;
             newConsultant.Status = false;
             newConsultant.CreatedAt = DateTime.Now;
             newConsultant.UpdatedAt = DateTime.Now;
@@ -51,7 +47,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             // Create Certificate
             var newCertificate = _mapper.Map<Domain.Certificate>(request.CreateConsultantDTO);
             newCertificate.CertificateId = Guid.NewGuid();
-            newCertificate.ExpertiseId = checkExpertise.ExpertiseId;
+            newCertificate.ExpertiseId = newExpertise.ExpertiseId;
             newCertificate.Status = true;
             newCertificate.CreatedAt = DateTime.Now;
             newCertificate.UpdatedAt = DateTime.Now;

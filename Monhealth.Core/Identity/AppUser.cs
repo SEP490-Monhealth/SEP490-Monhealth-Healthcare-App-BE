@@ -21,7 +21,7 @@ namespace Monhealth.Identity.Models
         public ICollection<Metric> Metrics { get; set; }
         public ICollection<Goal> Goals { get; set; }
         public ICollection<UserAllergy> UserAllergies { get; set; }
-        public ICollection<Certificate> Certificates { get; set; }
+        //public ICollection<Certificate> Certificates { get; set; }
         public ICollection<UserSubscription> UserSubscriptions { get; set; }
         public ICollection<Schedule> Schedules { get; set; }
         //public ICollection<Service> Services { get; set; }

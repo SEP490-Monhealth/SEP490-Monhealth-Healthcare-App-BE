@@ -9,7 +9,6 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
     public class CreateConsultantDTO
     {
         public Guid? UserId { get; set; }
-        public Guid ExpertiseId { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int? Experience { get; set; }
 
@@ -18,7 +17,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
 
         // Certificate
         public string CertificateName { get; set; } = string.Empty;
-        public string Images { get; set; } = string.Empty;
+        public List<string>? Images { get; set; }
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
     }
