@@ -165,8 +165,11 @@ namespace Monhealth.Application.ServiceForRecommend
 
             if (dishType == DishType.SideDish && mainDish != null)
             {
-                var allowedSideDishes = GetAllowedSideDishTypes(mainDish.Food?.FoodType);
-                validFoods = validFoods.Where(f => allowedSideDishes.Contains(f.FoodType)).ToList();
+                var allowedSideDishes = GetAllowedSideDishTypes(mainDish.Food?.FoodType ?? new List<FoodType>());
+
+                validFoods = validFoods
+                    .Where(f => f.FoodType.Any(ft => allowedSideDishes.Contains(ft)))
+                    .ToList();
             }
 
             if (!validFoods.Any())
@@ -178,16 +181,31 @@ namespace Monhealth.Application.ServiceForRecommend
             return validFoods.OrderBy(_ => Guid.NewGuid()).FirstOrDefault();
         }
 
-        public List<FoodType> GetAllowedSideDishTypes(FoodType? mainDishType)
+        public List<FoodType> GetAllowedSideDishTypes(List<FoodType>? mainDishTypes)
         {
-            return mainDishType switch
+            if (mainDishTypes == null || !mainDishTypes.Any())
             {
-                FoodType.Carbs => new List<FoodType> { FoodType.Protein, FoodType.Vegetables },
-                FoodType.Protein => new List<FoodType> { FoodType.Vegetables },
-                FoodType.Vegetables => new List<FoodType> { FoodType.Protein, FoodType.Carbs },
-                _ => new List<FoodType> { FoodType.Vegetables }
-            };
+                return new List<FoodType> { FoodType.Vegetables }; // Default safe value
+            }
+
+            var allowedTypes = new HashSet<FoodType>();
+
+            foreach (var type in mainDishTypes)
+            {
+                var result = type switch
+                {
+                    FoodType.Carbs => new List<FoodType> { FoodType.Protein, FoodType.Vegetables },
+                    FoodType.Protein => new List<FoodType> { FoodType.Vegetables },
+                    FoodType.Vegetables => new List<FoodType> { FoodType.Protein, FoodType.Carbs },
+                    _ => new List<FoodType> { FoodType.Vegetables }
+                };
+
+                allowedTypes.UnionWith(result);
+            }
+
+            return allowedTypes.ToList();
         }
+
     }
 }
 
@@ -218,7 +236,7 @@ public class FoodDTO123
 {
     public Guid FoodId { get; set; }
     public string FoodName { get; set; } = string.Empty;
-    public FoodType FoodType { get; set; }
+    public List<FoodType> FoodType { get; set; }
 }
 
 // public class PortionDTO

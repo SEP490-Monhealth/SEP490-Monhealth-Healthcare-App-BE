@@ -9,7 +9,7 @@ namespace Monhealth.Application.ServiceForRecommend
         public string Category { get; set; } = string.Empty;
         public List<MealType> MealType { get; set; }
         public List<DishType> DishType { get; set; }
-        public FoodType FoodType { get; set; } // 🛠 Thêm thuộc tính FoodType
+        public List<FoodType> FoodType { get; set; } // 🛠 Thêm thuộc tính FoodType
         public float Calories { get; set; }
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
