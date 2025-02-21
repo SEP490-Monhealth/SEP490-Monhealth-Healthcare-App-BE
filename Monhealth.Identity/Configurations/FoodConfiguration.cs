@@ -1,4 +1,3 @@
-using System.Runtime.Intrinsics.Arm;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Monhealth.Core.Enum;
@@ -24,8 +23,6 @@ namespace Monhealth.Identity.Configurations
             var fermented = Guid.Parse("fc7f66aa-8c09-46db-a679-be440e3ed91f");
             var fruits = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a");
             var fastfood = Guid.Parse("bd21fd3f-8b19-4756-9da8-8ea32fc646d6");
-            var cakes = Guid.Parse("cd017b8a-fbed-4399-99ed-b59eec9b9551");
-            var snacks = Guid.Parse("5c899b0d-5d6a-4366-a4fd-797ab5b2168e");
 
             builder.HasData(
 
