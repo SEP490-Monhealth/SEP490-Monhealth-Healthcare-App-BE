@@ -3113,7 +3113,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 155
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("5f848972-c5ae-45fc-8ba2-103b24d8a23a"),
                 CategoryId = seafood,
                 UserId = userId,
                 FoodType = [FoodType.Protein],
@@ -3133,7 +3133,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 156
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("2ae82bfd-34db-4928-bfee-b60f4aec4460"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3153,7 +3153,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 157
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("c69f3300-4f1b-45ce-bdc3-ae45fec848a7"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3173,7 +3173,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 158
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("6487a532-ff5e-4b77-b408-46c789608de9"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3193,7 +3193,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 159
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("63045676-0e70-425f-aa96-e348a4e88c3a"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Protein, FoodType.Vegetables],
@@ -3213,7 +3213,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 160
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("827829bf-71cd-4865-80af-1457e0091456"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables, FoodType.Protein],
@@ -3233,7 +3233,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 161
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("c5e3e4ed-0164-4917-a1ce-99679b971a22"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3253,7 +3253,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 162
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("e7d4d8d6-6e9a-4c38-95f2-e9790f5bd2c2"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3273,7 +3273,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 163
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("fa1f0dc9-270a-4e77-881f-acb53ac1c91d"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3293,7 +3293,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 164
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("0ece5f0f-9fec-4f74-b948-90dce7ce6ce3"),
                 CategoryId = seafood,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3313,7 +3313,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 165
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("7167f942-dc89-4f29-8022-588373aef45e"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3333,7 +3333,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 166
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("d65c7826-78c0-4991-b3b6-1e2b25437f61"),
                 CategoryId = seafood,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3353,7 +3353,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 167
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("90099162-15e0-4ef0-b93e-59d409678b63"),
                 CategoryId = seafood,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3373,7 +3373,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 168
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("e1a6ae3e-bbb3-4e7f-9d92-55bd38e6fa2f"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3393,7 +3393,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 169
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("9669cdf4-c133-476f-b2bd-f3c091346c52"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3413,7 +3413,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 170
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("61b2c4d9-6de2-4fb2-af3b-fe9fabee0bd4"),
                 CategoryId = cereal,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3433,7 +3433,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 171
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("af036922-79f3-45a7-b562-a6279520c0e6"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3453,7 +3453,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 172
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("00bc33fe-4cd5-47df-bd94-15ac9f93648c"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3473,7 +3473,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 173
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("7b3935fa-e426-4dcd-b59f-2dbe8960956b"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Protein],
@@ -3493,7 +3493,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 174
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("3426c7e8-055b-414f-84a3-eb9afdb1d33e"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Protein, FoodType.Vegetables],
@@ -3513,7 +3513,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 175
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("ea63d4c3-41f7-4f89-bf33-e8a16c5d6956"),
                 CategoryId = seafood,
                 UserId = userId,
                 FoodType = [FoodType.Protein],
@@ -3533,7 +3533,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 176
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("a988cc73-072e-4af1-9b53-55fbf0f4fe79"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3553,7 +3553,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 177
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("2ee163f7-4463-44ec-b9e2-8a409c112db4"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3573,7 +3573,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 178
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("01e60ae4-ff69-44d6-b4fd-aaf916e3a7e5"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3593,7 +3593,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 179
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("eec3d874-6331-4e33-bbe6-bf0cc4335b29"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3613,7 +3613,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 180
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("90a605b6-843d-4cc1-8fe7-a016c76ee29c"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3633,7 +3633,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 181
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("56513d2d-2472-4fa4-80bc-2f54002b187f"),
                 CategoryId = seafood,
                 UserId = userId,
                 FoodType = [FoodType.Protein, FoodType.Vegetables],
@@ -3653,7 +3653,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 182
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("2d821db4-3e99-4877-b979-bc82d34b3b01"),
                 CategoryId = cereal,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3673,7 +3673,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 183
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("29dfb5da-8818-40ff-bf66-7553521c2161"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Protein],
@@ -3693,7 +3693,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 184
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("64e0dca1-abd5-4886-b124-ef0f4a44d0a6"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3713,7 +3713,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 185
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("4edcae53-7e30-42bb-8526-7686355f2268"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3733,7 +3733,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 186
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("0292d477-d63b-4904-a83b-2cd8cac39c14"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3753,7 +3753,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 187
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("b80c562a-e1d4-4117-a317-c06b5bae8950"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Protein],
@@ -3773,7 +3773,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 188
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("99ec20c3-f2a7-4727-9d12-a30f92d256cd"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3793,7 +3793,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 189
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("3dc2fa80-ab87-4e26-907b-3516611371b8"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3813,7 +3813,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 190
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("2c990331-b6ca-4642-893a-be68f0d398d5"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3833,7 +3833,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 191
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("f0e4a066-b920-4540-a035-1a5504ff1358"),
                 CategoryId = fruits,
                 UserId = userId,
                 FoodType = [FoodType.Dessert],
@@ -3853,7 +3853,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 192
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("c9cb635f-b21e-4b04-9ac9-84d01f2ef42b"),
                 CategoryId = fruits,
                 UserId = userId,
                 FoodType = [FoodType.Dessert],
@@ -3873,7 +3873,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 193
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("982d8f3e-f517-4bd2-87a8-48329fc9eb91"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3893,7 +3893,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 194
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("43d635e2-6f0c-4385-83d8-fedfd479d356"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Protein],
@@ -3913,7 +3913,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 195
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("8ed85dc2-7654-4c48-81f9-19946a73f71d"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3933,7 +3933,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 196
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("881ae045-1c9a-4e20-9160-0e8c14486be5"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3953,7 +3953,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 197
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("b42e9ba6-8aa7-419a-907f-ec7e21cb9337"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -3973,7 +3973,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 198
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
                 CategoryId = cereal,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -3993,7 +3993,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 199
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("e370081a-c0a6-4c00-b01c-7c52f953b7f1"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -4013,7 +4013,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 200
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("9acdf58c-c37d-4026-a3f9-40fda186184b"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables],
@@ -4033,27 +4033,7 @@ namespace Monhealth.Identity.Configurations
             #region Food 201
             new Food
             {
-                FoodId = Guid.Parse(""),
-                CategoryId = vegetables,
-                UserId = userId,
-                FoodType = [FoodType.Vegetables],
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish],
-                FoodName = "Rau muống xào tỏi",
-                FoodDescription = "Rau muống xào tỏi là món ăn đơn giản nhưng thơm ngon, với rau muống tươi xào cùng tỏi và gia vị. Món này có vị ngọt tự nhiên từ rau, thường ăn kèm với cơm trắng",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
-
-            #region Food 202
-            new Food
-            {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("b79878e6-36d9-4efc-b3ff-a3c45b35ff21"),
                 CategoryId = seafood,
                 UserId = userId,
                 FoodType = [FoodType.Protein],
@@ -4070,10 +4050,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 203
+            #region Food 202
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("8382816f-1beb-4804-9698-3b486798b20a"),
                 CategoryId = cereal,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -4090,10 +4070,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 204
+            #region Food 203
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("2405ffc3-524e-4331-9e68-47a411d7b9b8"),
                 CategoryId = cereal,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -4110,10 +4090,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 205
+            #region Food 204
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),
                 CategoryId = cereal,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -4130,10 +4110,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 206
+            #region Food 205
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("2146faae-2e7c-4460-8d81-38f5d313012c"),
                 CategoryId = sweets,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -4150,10 +4130,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 207
+            #region Food 206
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"),
                 CategoryId = cereal,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -4170,10 +4150,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 208
+            #region Food 207
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("a950000c-9837-4d1b-b1ae-b9db230f8f1f"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Carbs],
@@ -4190,10 +4170,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 209
+            #region Food 208
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("30f9d9dc-1653-495c-99b7-b649c49f7930"),
                 CategoryId = cereal,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -4210,10 +4190,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 210
+            #region Food 209
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("a364353c-d589-4a94-9c3b-3038113ea249"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Protein, FoodType.Vegetables],
@@ -4230,10 +4210,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 211
+            #region Food 210
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("cf9ab10f-2094-496b-9018-96b9d2e1af76"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -4250,10 +4230,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 212
+            #region Food 211
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("8c9e1c76-2616-43a4-8c80-3e2e23b8ac4f"),
                 CategoryId = cereal,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
@@ -4270,10 +4250,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 213
+            #region Food 212
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("87cdf191-876c-4270-92f9-4bb1fc2a7fe9"),
                 CategoryId = vegetables,
                 UserId = userId,
                 FoodType = [FoodType.Vegetables, FoodType.Protein],
@@ -4290,10 +4270,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 214
+            #region Food 213
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("3d19d971-88d0-4108-a335-24ac9e1dec50"),
                 CategoryId = fruits,
                 UserId = userId,
                 FoodType = [FoodType.Dessert],
@@ -4310,10 +4290,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 215
+            #region Food 214
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("a504d882-4f38-413e-bb28-fae1f2787150"),
                 CategoryId = fruits,
                 UserId = userId,
                 FoodType = [FoodType.Dessert],
@@ -4330,10 +4310,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 216
+            #region Food 215
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("9f624258-a4ee-4879-a23f-b3d0479f2b1b"),
                 CategoryId = fruits,
                 UserId = userId,
                 FoodType = [FoodType.Dessert],
@@ -4350,10 +4330,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 217
+            #region Food 216
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("d034b7e9-b5a2-42d7-95b7-c0c30207293d"),
                 CategoryId = seafood,
                 UserId = userId,
                 FoodType = [FoodType.Protein, FoodType.Vegetables],
@@ -4370,10 +4350,10 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 218
+            #region Food 217
             new Food
             {
-                FoodId = Guid.Parse(""),
+                FoodId = Guid.Parse("85e621ed-0e0c-4d20-8891-51d311cea4a3"),
                 CategoryId = meat,
                 UserId = userId,
                 FoodType = [FoodType.Protein, FoodType.Vegetables],
