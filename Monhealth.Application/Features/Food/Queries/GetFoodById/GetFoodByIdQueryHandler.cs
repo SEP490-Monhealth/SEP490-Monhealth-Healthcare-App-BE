@@ -21,11 +21,13 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
             var query = await _foodRepository.GetFoodByIdAsync(request.FoodId);
             var result = new GetFoodByIdDTO
             {
-                Category = query.Category.CategoryName,
+                Category = query.Category?.CategoryName,
                 CreatedAt = query.CreatedAt,
-                MealType = query.MealType, 
+                MealType = query.MealType,
                 DishType = query.DishType,
                 FoodDescription = query.FoodDescription,
+                Allergies = query.FoodAllergies?.
+                Select(fa => fa.Allergy.AllergyName).ToList(),
                 FoodName = query.FoodName,
                 IsPublic = query.IsPublic,
                 Status = query.Status,

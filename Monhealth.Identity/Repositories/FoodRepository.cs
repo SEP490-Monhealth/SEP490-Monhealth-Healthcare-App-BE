@@ -116,6 +116,8 @@ namespace Monhealth.Identity.Repositories
                 .Where(f => f.UserId == userId)
                 .Include(f => f.Category)
                 .Include(f => f.Nutrition)
+                .Include(f => f.FoodAllergies)
+                .ThenInclude(f => f.Allergy)
                 .Include(f => f.FoodPortions).ThenInclude(fp => fp.Portion);
 
             // Tính tổng số lượng bản ghi

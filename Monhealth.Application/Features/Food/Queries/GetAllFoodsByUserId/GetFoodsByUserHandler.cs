@@ -27,6 +27,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
                 MealType = food.MealType, // Chuyển từ chuỗi sang danh sách
                 DishType = food.DishType, // Chuyển từ chuỗi sang danh sách
                 FoodDescription = food.FoodDescription,
+                Allergies = food.FoodAllergies?.Select(fa => fa.Allergy.AllergyName).ToList(),
                 Category = food.Category?.CategoryName, // Nếu có quan hệ với Category
                 Portion = food.FoodPortions.Select(fp => new GetPortionForGetFoodByUserDTO
                 {
