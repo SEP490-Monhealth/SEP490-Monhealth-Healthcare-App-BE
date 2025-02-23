@@ -19,7 +19,11 @@ namespace Monhealth.Identity.Repositories
         {
             search = search?.Trim();
             IQueryable<Food> query = _context.Foods.Include(f => f.Category).
-            Include(f => f.Nutrition).Include(f => f.FoodPortions).ThenInclude(f => f.Portion).AsQueryable();
+            Include(f => f.Nutrition).
+            Include(f => f.FoodPortions)
+            .ThenInclude(f => f.Portion)
+            .Include(f => f.FoodAllergies)
+            .ThenInclude(f => f.Allergy).AsQueryable();
 
             // filter search
             if (!string.IsNullOrEmpty(search))
@@ -84,6 +88,8 @@ namespace Monhealth.Identity.Repositories
                 .Include(fc => fc.Nutrition)
                 .Include(fc => fc.FoodPortions)
                 .ThenInclude(fc => fc.Portion)
+                .Include(fc => fc.FoodAllergies)
+                .ThenInclude(fc => fc.Allergy)
                 .FirstOrDefaultAsync(f => f.FoodId == foodId);
 
             // If the food item exists, increment its Views count

@@ -134,6 +134,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new WorkoutConfiguration());
             builder.ApplyConfiguration(new WorkoutExerciseConfiguration());
             builder.ApplyConfiguration(new SubscriptionConfiguration());
+            builder.ApplyConfiguration(new FoodAllergyConfiguration());
         }
     }
 }
