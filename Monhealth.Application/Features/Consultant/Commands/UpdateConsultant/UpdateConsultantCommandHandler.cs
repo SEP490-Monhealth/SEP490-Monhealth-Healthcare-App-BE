@@ -20,9 +20,18 @@ namespace Monhealth.Application.Features.Consultant.Commands.UpdateConsultant
             _expertiseRepository = expertiseRepository;
             _mapper = mapper;
         }
-        public Task<bool> Handle(UpdateConsultantCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateConsultantCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var consultant = await _consultantRepository.GetByIdAsync(request.ConsultantId);
+            if (consultant == null)
+            {
+                return false;
+            }
+            var updateConsultant = _mapper.Map(request.UpdateConsultantDTO, consultant);
+            updateConsultant.UpdatedAt = DateTime.Now;
+            _consultantRepository.Update(updateConsultant);
+            await _consultantRepository.SaveChangeAsync();
+            return true;
         }
     }
 }

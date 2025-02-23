@@ -8,8 +8,8 @@ namespace Monhealth.Application.Features.Consultant.Commands.UpdateConsultant
 {
     public class UpdateConsultantDTO
     {
-        public Guid? ExpertiseId { get; set; }
         public string Bio { get; set; } = string.Empty;
-        public int Experience { get; set; }
+        public int? Experience { get; set; }
+
     }
 }

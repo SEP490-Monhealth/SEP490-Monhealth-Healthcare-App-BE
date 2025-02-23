@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
+using Monhealth.Application.Features.Consultant.Commands.UpdateConsultant;
 using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
 using Monhealth.Domain;
 
@@ -19,6 +20,8 @@ namespace Monhealth.Application.Automapper
             CreateMap<CreateConsultantDTO, Consultant>().ReverseMap();
             CreateMap<CreateConsultantDTO, Expertise>().ReverseMap();
             CreateMap<CreateConsultantDTO, Certificate>().ReverseMap();
+
+            CreateMap<UpdateConsultantDTO, Consultant>().ReverseMap();
         }
     }
 }

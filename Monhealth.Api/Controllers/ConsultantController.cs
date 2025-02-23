@@ -3,8 +3,12 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
+using Monhealth.Application.Features.Consultant.Commands.DeleteConsultant;
+using Monhealth.Application.Features.Consultant.Commands.UpdateConsultant;
 using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
 using Monhealth.Application.Features.Expertise.Commands.CreateExpertise;
+using Monhealth.Application.Features.Expertise.Commands.DeleteExpertise;
+using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
 using Monhealth.Application.Features.Expertise.Queries.GetAllExpertises;
 using Monhealth.Application.Models;
 
@@ -50,6 +54,48 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo tư vấn viên thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
+            };
+        }
+        [HttpPut("{consultantId}")]
+        public async Task<ActionResult<ResultModel>> UpdateConsultant(Guid consultantId, [FromBody] UpdateConsultantDTO updateConsultantDTO)
+        {
+            var command = new UpdateConsultantCommand(consultantId, updateConsultantDTO);
+            var result = await _mediator.Send(command);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Cập nhật tư vấn thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật tư vấn thành công"
+            };
+        }
+        [HttpDelete("{consultantId}")]
+        public async Task<ActionResult<ResultModel>> DeleteConsultant(Guid consultantId)
+        {
+            var command = new DeleteConsultantCommand { ConsultantId = consultantId };
+            var delete = await _mediator.Send(command);
+            if (!delete)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy tư vấn"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Xóa tư vấn thành công"
             };
         }
     }
