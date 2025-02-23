@@ -9,8 +9,7 @@ namespace Monhealth.Application.Features.Review.Commands.Update
         public UpdateReviewCommand(Guid reviewId, UpdateReviewRequest request)
         {
             ReviewId = reviewId;
-            Request.Comment = request.Comment;
-            Request.Rating = request.Rating;
+            Request = request;
         }
     }
 }

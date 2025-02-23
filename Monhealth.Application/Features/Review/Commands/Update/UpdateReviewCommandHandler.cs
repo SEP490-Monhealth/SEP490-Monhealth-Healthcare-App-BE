@@ -14,8 +14,9 @@ namespace Monhealth.Application.Features.Review.Commands.Update
         public async Task<bool> Handle(UpdateReviewCommand request, CancellationToken cancellationToken)
         {
             var update = await _reviewRepository.GetByIdAsync(request.ReviewId);
-            update.Comment = request.Request.Comment;
+            update.Comment = request.Request?.Comment;
             update.Rating = request.Request.Rating;
+            update.UpdatedAt = DateTime.Now;
             _reviewRepository.Update(update);
             await _reviewRepository.SaveChangeAsync();
             return true;

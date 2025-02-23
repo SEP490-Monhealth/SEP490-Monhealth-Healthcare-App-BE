@@ -6,6 +6,7 @@ using Monhealth.Application.Features.Review.Commands.Delete;
 using Monhealth.Application.Features.Review.Commands.Update;
 using Monhealth.Application.Features.Review.Queries;
 using Monhealth.Application.Features.Review.Queries.GetById;
+using Monhealth.Application.Features.Review.Queries.GetReviewByConsultant;
 using Monhealth.Application.Features.Review.Queries.GetReviewByUser;
 using Monhealth.Application.Models;
 
@@ -58,13 +59,37 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
-        
+
         [HttpGet]
-        [Route("{userId:Guid}/userId")]
+        [Route("user/{userId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetReviewByUser(Guid userId)
         {
             var queries = await _mediator.
             Send(new GetReviewByUserQuery { userId = userId });
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Đánh giá không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
+        [HttpGet]
+        [Route("consultant/{consultantId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetReviewByConsultant(Guid consultantId)
+        {
+            var queries = await _mediator.
+            Send(new GetReviewByConsultantQuery { ConsultantId = consultantId });
 
             if (queries == null)
             {
