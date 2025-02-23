@@ -12,8 +12,9 @@ namespace Monhealth.Domain
         public Guid? UserId { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int Experience { get; set; }
-        [ForeignKey(nameof(UserId))]
-        public AppUser AppUser { get; set; }
+        // [ForeignKey(nameof(UserId))]
+        // public AppUser AppUser { get; set; }
+        public ICollection<Booking>? Bookings { get; set; }
         public ICollection<ConsultantExpertise>? ConsultantExpertises { get; set; }
     }
 }

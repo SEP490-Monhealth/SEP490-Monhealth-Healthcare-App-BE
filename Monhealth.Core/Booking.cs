@@ -21,7 +21,7 @@ namespace Monhealth.Domain
         //[ForeignKey(nameof(ServiceId))]
         //public Service Service { get; set; }
         [ForeignKey(nameof(ConsultantId)), Column(Order = 1)]
-        public AppUser? Consultant { get; set; }
+        public Consultant? Consultant { get; set; }
         public ICollection<Payment> Payments { get; set; }
 
     }
