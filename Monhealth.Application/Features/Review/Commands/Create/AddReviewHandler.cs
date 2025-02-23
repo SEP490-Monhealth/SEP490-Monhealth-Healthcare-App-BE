@@ -21,7 +21,9 @@ namespace Monhealth.Application.Features.Review.Commands.Create
                 UserId = request.UserId,
                 ConsultantId = request.ConsultantId,
                 Rating = request.Rating,
-                Comment = request.Comment
+                Comment = request.Comment,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
             _reviewRepository.Add(model);
             await _reviewRepository.SaveChangeAsync();
