@@ -13,6 +13,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodsByCategoryName
         public string FoodDescription { get; set; } = string.Empty;
         public GetPortionForGetAllFoodDTO1 Portion { get; set; }
         public GetNutritionForGetAllFoodDTO1 Nutrition { get; set; }
+        public List<string> Allergies { get; set; }
         public bool IsPublic { get; set; }
         public bool Status { get; set; }
     }

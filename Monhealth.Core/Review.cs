@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class Review : BaseEntity
+    public class Review : TimeEntity
     {
         [Key]
         public Guid ReviewId { get; set; } // PK
@@ -17,6 +17,5 @@ namespace Monhealth.Domain
         public Booking Booking { get; set; }
         [ForeignKey(nameof(ConsultantId))]
         public Consultant Consultant { get; set; }
-
     }
 }

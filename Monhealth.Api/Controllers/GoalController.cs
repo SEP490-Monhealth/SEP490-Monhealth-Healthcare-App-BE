@@ -148,7 +148,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("user/{userId:guid}/exercise")]
+        [HttpGet("user/{userId:guid}/workout")]
         public async Task<ActionResult<ResultModel>> GetExercise([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetExerciseByGoalIdQuery() { UserId = userId });
@@ -214,27 +214,27 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpDelete("{goalId}")]
-        public async Task<ActionResult<ResultModel>> Delete(Guid goalId)
-        {
-            var command = new DeleteGoalCommand { GoalId = goalId };
-            var delete = await _mediator.Send(command);
-            if (!delete)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy mục tiêu"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Xóa số liệu thành công"
-            };
-        }
+        // [HttpDelete("{goalId}")]
+        // public async Task<ActionResult<ResultModel>> Delete(Guid goalId)
+        // {
+        //     var command = new DeleteGoalCommand { GoalId = goalId };
+        //     var delete = await _mediator.Send(command);
+        //     if (!delete)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Message = "Không tìm thấy mục tiêu"
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = (int)HttpStatusCode.OK,
+        //         Message = "Xóa số liệu thành công"
+        //     };
+        // }
 
         [HttpPatch("{goalId}/completed")]
         public async Task<ActionResult<ResultModel>> ChangeStatusCompleted(Guid goalId)

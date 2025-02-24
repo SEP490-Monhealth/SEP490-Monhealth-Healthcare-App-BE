@@ -190,6 +190,5 @@ namespace Monhealth.Api.Controllers
                 Message = "Thay đổi trạng thái thành công"
             };
         }
-
     }
 }

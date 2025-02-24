@@ -34,6 +34,18 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetMetricByUserId(Guid userId)
+        {
+            var metric = await _mediator.Send(new GetMetricByUserIdQuery() { UserId = userId });
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Data = metric
+            };
+        }
+
         [HttpGet("{metricId:guid}")]
         public async Task<ActionResult<ResultModel>> GetMetricById(Guid metricId)
         {
@@ -47,18 +59,6 @@ namespace Monhealth.Api.Controllers
                     Message = "Số liệu không tồn tại"
                 };
             }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Data = metric
-            };
-        }
-
-        [HttpGet("user/{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetMetricByUserId(Guid userId)
-        {
-            var metric = await _mediator.Send(new GetMetricByUserIdQuery() { UserId = userId });
             return new ResultModel
             {
                 Success = true,
@@ -111,26 +111,26 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpDelete("{metricId}")]
-        public async Task<ActionResult<ResultModel>> Delete(Guid metricId)
-        {
-            var metricCommand = new DeleteMetricCommand { MetricId = metricId };
-            var delete = await _mediator.Send(metricCommand);
-            if (!delete)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy số liệu"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Xóa số liệu thành công"
-            };
-        }
+        // [HttpDelete("{metricId}")]
+        // public async Task<ActionResult<ResultModel>> Delete(Guid metricId)
+        // {
+        //     var metricCommand = new DeleteMetricCommand { MetricId = metricId };
+        //     var delete = await _mediator.Send(metricCommand);
+        //     if (!delete)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Message = "Không tìm thấy số liệu"
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = (int)HttpStatusCode.OK,
+        //         Message = "Xóa số liệu thành công"
+        //     };
+        // }
     }
 }

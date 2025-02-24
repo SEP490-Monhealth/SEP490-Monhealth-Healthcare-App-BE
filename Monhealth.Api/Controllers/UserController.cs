@@ -107,7 +107,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
-        
+
         [HttpPatch]
         [Route("{userId}/status")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid userId)

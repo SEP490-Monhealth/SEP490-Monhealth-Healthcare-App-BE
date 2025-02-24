@@ -8,15 +8,15 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
     {
         public Guid FoodId { get; set; }
         public string Category { get; set; }
-        public List<MealType> MealType { get; set; } 
+        public List<MealType> MealType { get; set; }
         public List<DishType> DishType { get; set; }
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
         public string FoodDescription { get; set; } = string.Empty;
-        public List<string> Allergies { get; set; }
         public GetPortionForGetFoodByUserDTO Portion { get; set; }
         public GetNutritionForGetFoodByUserDTO Nutrition { get; set; }
+        public List<string> Allergies { get; set; }
         public bool IsPublic { get; set; }
         public bool Status { get; set; }
     }

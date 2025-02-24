@@ -17,7 +17,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("99b9eae6-f5e8-4b41-9394-6a8f2ca1062b"),
                 AllergyName = "Đậu phộng",
-                AllergyDescription = "Dị ứng với đậu phộng khá phổ biến và có thể gây phản ứng nghiêm trọng như sưng tấy, phát ban, khó thở, hoặc sốc phản vệ.",
+                AllergyDescription = "Dị ứng với đậu phộng khá phổ biến và có thể gây phản ứng nghiêm trọng như sưng tấy, phát ban, khó thở, hoặc sốc phản vệ",
                 CreatedAt = today,
                 UpdatedAt = today,
             },

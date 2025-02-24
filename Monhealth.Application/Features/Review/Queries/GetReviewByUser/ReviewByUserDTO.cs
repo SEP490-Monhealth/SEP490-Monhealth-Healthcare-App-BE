@@ -2,7 +2,7 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Review.Queries.GetReviewByUser
 {
-    public class ReviewByUserDTO : BaseEntity
+    public class ReviewByUserDTO : TimeEntity
     {
         public Guid BookingId { get; set; }
         public Guid ConsultantId { get; set; }

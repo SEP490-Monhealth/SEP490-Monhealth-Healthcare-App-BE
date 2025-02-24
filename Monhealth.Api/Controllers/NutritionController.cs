@@ -21,43 +21,43 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllNutrition()
-        {
-            var nutritionList = await _mediator.Send(new GetNutritionListQuery());
+        // [HttpGet]
+        // public async Task<ActionResult<ResultModel>> GetAllNutrition()
+        // {
+        //     var nutritionList = await _mediator.Send(new GetNutritionListQuery());
 
-            return new ResultModel
-            {
-                Data = nutritionList,
-                Status = 200,
-                Success = true
-            };
-        }
+        //     return new ResultModel
+        //     {
+        //         Data = nutritionList,
+        //         Status = 200,
+        //         Success = true
+        //     };
+        // }
 
-        [HttpGet]
-        [Route("{nutritionId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetNutritionDetail(Guid nutritionId)
-        {
-            var queries = await _mediator.
-            Send(new GetNutritionDetailQuery() { NutritionId = nutritionId });
+        // [HttpGet]
+        // [Route("{nutritionId:Guid}")]
+        // public async Task<ActionResult<ResultModel>> GetNutritionDetail(Guid nutritionId)
+        // {
+        //     var queries = await _mediator.
+        //     Send(new GetNutritionDetailQuery() { NutritionId = nutritionId });
 
-            if (queries == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Dinh dưỡng không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = queries
-            });
-        }
+        //     if (queries == null)
+        //     {
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Dinh dưỡng không tồn tại",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 200,
+        //         Data = queries
+        //     });
+        // }
 
         [HttpGet]
         [Route("food/{foodId:Guid}")]
@@ -84,26 +84,26 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> AddNutrition([FromBody] AddNutritionRequest request)
-        {
-            var result = await _mediator.Send(request);
-            if (result)
-            {
-                return Ok(new ResultModel
-                {
-                    Success = true,
-                    Message = "Tạo dinh dưỡng thành công",
-                    Status = 201,
-                });
-            }
+        // [HttpPost]
+        // public async Task<ActionResult<ResultModel>> AddNutrition([FromBody] AddNutritionRequest request)
+        // {
+        //     var result = await _mediator.Send(request);
+        //     if (result)
+        //     {
+        //         return Ok(new ResultModel
+        //         {
+        //             Success = true,
+        //             Message = "Tạo dinh dưỡng thành công",
+        //             Status = 201,
+        //         });
+        //     }
 
-            return BadRequest(new ResultModel
-            {
-                Success = false,
-                Message = "Tạo dinh dưỡng thất bại"
-            });
-        }
+        //     return BadRequest(new ResultModel
+        //     {
+        //         Success = false,
+        //         Message = "Tạo dinh dưỡng thất bại"
+        //     });
+        // }
 
         [HttpPut]
         [Route("{nutritionId:Guid}")]
@@ -126,32 +126,32 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpDelete]
-        [Route("{nutritionId:Guid}")]
-        public async Task<ActionResult<ResultModel>> RemoveNutrition(Guid nutritionId)
-        {
-            var result = await _mediator.Send(new DeleteNutritionRequest(nutritionId));
+        // [HttpDelete]
+        // [Route("{nutritionId:Guid}")]
+        // public async Task<ActionResult<ResultModel>> RemoveNutrition(Guid nutritionId)
+        // {
+        //     var result = await _mediator.Send(new DeleteNutritionRequest(nutritionId));
 
-            if (!result)
-            {
-                // Trả về lỗi nếu xóa không thành công
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Xóa dinh dưỡng không thành công",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
+        //     if (!result)
+        //     {
+        //         // Trả về lỗi nếu xóa không thành công
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Xóa dinh dưỡng không thành công",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
 
-            // Trả về kết quả thành công
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Xóa dinh dưỡng thành công",
-                Status = 204,
-                Data = null
-            });
-        }
+        //     // Trả về kết quả thành công
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Message = "Xóa dinh dưỡng thành công",
+        //         Status = 204,
+        //         Data = null
+        //     });
+        // }
     }
 }

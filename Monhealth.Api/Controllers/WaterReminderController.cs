@@ -41,37 +41,6 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        // [HttpPost("reset")]
-        // public async Task<IActionResult> ResetReminders()
-        // {
-        //     int resetCount = await _resetService.ResetRemindersAsync();
-        //     return Ok(new
-        //     {
-        //         Message = $"Successfully reset {resetCount} reminders.",
-        //         ResetCount = resetCount
-        //     });
-        // }
-
-        [HttpGet("{waterReminderId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetReminderById(Guid waterReminderId)
-        {
-            var portion = await _mediator.Send(new GerReminderDetailQuery() { WaterReminderId = waterReminderId });
-            if (portion == null)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                };
-            }
-            return new ResultModel
-            {
-                Data = portion,
-                Status = 200,
-                Success = true
-            };
-        }
-
         [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReminderByUser(Guid userId)
         {
@@ -83,6 +52,26 @@ namespace Monhealth.Api.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Message = "Không tìm lời nhắc"
+                };
+            }
+            return new ResultModel
+            {
+                Data = portion,
+                Status = 200,
+                Success = true
+            };
+        }
+
+        [HttpGet("{waterReminderId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetReminderById(Guid waterReminderId)
+        {
+            var portion = await _mediator.Send(new GerReminderDetailQuery() { WaterReminderId = waterReminderId });
+            if (portion == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
                 };
             }
             return new ResultModel
@@ -115,6 +104,17 @@ namespace Monhealth.Api.Controllers
                 Status = 400,
             });
         }
+
+        // [HttpPost("reset")]
+        // public async Task<IActionResult> ResetReminders()
+        // {
+        //     int resetCount = await _resetService.ResetRemindersAsync();
+        //     return Ok(new
+        //     {
+        //         Message = $"Successfully reset {resetCount} reminders",
+        //         ResetCount = resetCount
+        //     });
+        // }
 
         [HttpPut("{waterReminderId}")]
         public async Task<ActionResult<ResultModel>> Update(Guid waterReminderId, [FromBody] UpdateReminderRequest request)

@@ -20,18 +20,18 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllCategories()
-        {
-            var categories = await _mediator.Send(new GetMealListQuery());
+        // [HttpGet]
+        // public async Task<ActionResult<ResultModel>> GetAllCategories()
+        // {
+        //     var categories = await _mediator.Send(new GetMealListQuery());
 
-            return new ResultModel
-            {
-                Data = categories,
-                Status = 200,
-                Success = true
-            };
-        }
+        //     return new ResultModel
+        //     {
+        //         Data = categories,
+        //         Status = 200,
+        //         Success = true
+        //     };
+        // }
 
         [HttpGet]
         [Route("{mealId:Guid}")]
@@ -108,30 +108,29 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpDelete]
-        [Route("{mealId:Guid}")]
-        public async Task<ActionResult<ResultModel>> RemoveMeal(Guid mealId)
-        {
-            var result = await _mediator.Send(new DeleteMealCommand(mealId));
+        // [HttpDelete]
+        // [Route("{mealId:Guid}")]
+        // public async Task<ActionResult<ResultModel>> RemoveMeal(Guid mealId)
+        // {
+        //     var result = await _mediator.Send(new DeleteMealCommand(mealId));
 
-            if (!result)
-            {
-                // Trả về lỗi nếu xóa không thành công
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Xóa bữa ăn không thành công",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Xóa bữa ăn thành công",
-                Status = 204,
-                Data = null
-            });
-        }
+        //     if (!result)
+        //     {
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Xóa bữa ăn không thành công",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Message = "Xóa bữa ăn thành công",
+        //         Status = 204,
+        //         Data = null
+        //     });
+        // }
     }
 }

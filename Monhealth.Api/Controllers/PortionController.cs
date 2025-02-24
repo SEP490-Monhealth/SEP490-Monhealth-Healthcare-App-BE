@@ -22,40 +22,40 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery] string sort = null, string order = null)
-        {
-            var query = new GetAllPortionQuery(sort, order);
-            var result = await _mediator.Send(query);
-            return new ResultModel
-            {
-                Data = result,
-                Status = 200,
-                Success = true,
-                Message = "Lấy danh sách khẩu phần ăn thành công"
-            };
-        }
+        // [HttpGet]
+        // public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery] string sort = null, string order = null)
+        // {
+        //     var query = new GetAllPortionQuery(sort, order);
+        //     var result = await _mediator.Send(query);
+        //     return new ResultModel
+        //     {
+        //         Data = result,
+        //         Status = 200,
+        //         Success = true,
+        //         Message = "Lấy danh sách khẩu phần ăn thành công"
+        //     };
+        // }
 
-        [HttpGet("{portionId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetPortionById(Guid portionId)
-        {
-            var portion = await _mediator.Send(new GetPortionByIdQuery() { PortionId = portionId });
-            if (portion == null)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy khẩu phần ăn"
-                };
-            }
-            return new ResultModel
-            {
-                Data = portion,
-                Status = 200,
-                Success = true
-            };
-        }
+        // [HttpGet("{portionId:guid}")]
+        // public async Task<ActionResult<ResultModel>> GetPortionById(Guid portionId)
+        // {
+        //     var portion = await _mediator.Send(new GetPortionByIdQuery() { PortionId = portionId });
+        //     if (portion == null)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Message = "Không tìm thấy khẩu phần ăn"
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Data = portion,
+        //         Status = 200,
+        //         Success = true
+        //     };
+        // }
 
         [HttpGet("food/{foodId}")]
         public async Task<ActionResult<ResultModel>> GetPortionsByFoodId(Guid foodId)
@@ -79,69 +79,69 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> CreateFoodPortion([FromBody] CreatePortionCommand createPortion)
-        {
-            var create = await _mediator.Send(createPortion);
-            if (create == Unit.Value)
-            {
-                return new ResultModel
-                {
-                    Message = "Tạo khẩu phần ăn thành công",
-                    Status = 201,
-                    Success = true
-                };
-            }
-            return new ResultModel
-            {
-                Message = "Tạo khẩu phần ăn thất bại",
-                Status = (int)HttpStatusCode.BadRequest,
-                Success = false
-            };
-        }
+        // [HttpPost]
+        // public async Task<ActionResult<ResultModel>> CreateFoodPortion([FromBody] CreatePortionCommand createPortion)
+        // {
+        //     var create = await _mediator.Send(createPortion);
+        //     if (create == Unit.Value)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Message = "Tạo khẩu phần ăn thành công",
+        //             Status = 201,
+        //             Success = true
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Message = "Tạo khẩu phần ăn thất bại",
+        //         Status = (int)HttpStatusCode.BadRequest,
+        //         Success = false
+        //     };
+        // }
 
-        [HttpPut("{portionId}")]
-        public async Task<ActionResult<ResultModel>> Update(Guid portionId, [FromBody] UpdatePortionRequest updatePortion)
-        {
-            var command = new UpdatePortionCommand(portionId, updatePortion);
-            var result = await _mediator.Send(command);
-            if (!result)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật khẩu phần ăn thất bại"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật khẩu phần ăn thành công"
-            };
-        }
+        // [HttpPut("{portionId}")]
+        // public async Task<ActionResult<ResultModel>> Update(Guid portionId, [FromBody] UpdatePortionRequest updatePortion)
+        // {
+        //     var command = new UpdatePortionCommand(portionId, updatePortion);
+        //     var result = await _mediator.Send(command);
+        //     if (!result)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Message = "Cập nhật khẩu phần ăn thất bại"
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = (int)HttpStatusCode.OK,
+        //         Message = "Cập nhật khẩu phần ăn thành công"
+        //     };
+        // }
 
-        [HttpDelete("{portionId}")]
-        public async Task<ActionResult<ResultModel>> Delete(Guid portionId)
-        {
-            var command = new DeletePortionCommand { PortionId = portionId };
-            var delete = await _mediator.Send(command);
-            if (!delete)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Xóa khẩu phần ăn thất bại"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Xóa khẩu phần ăn thành công"
-            };
-        }
+        // [HttpDelete("{portionId}")]
+        // public async Task<ActionResult<ResultModel>> Delete(Guid portionId)
+        // {
+        //     var command = new DeletePortionCommand { PortionId = portionId };
+        //     var delete = await _mediator.Send(command);
+        //     if (!delete)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Message = "Xóa khẩu phần ăn thất bại"
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = (int)HttpStatusCode.OK,
+        //         Message = "Xóa khẩu phần ăn thành công"
+        //     };
+        // }
     }
 }

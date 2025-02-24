@@ -18,8 +18,8 @@ namespace Monhealth.Application.Features.Review.Commands.Create
             var model = new Monhealth.Domain.Review
             {
                 BookingId = request.BookingId,
-                UserId = request.UserId,
                 ConsultantId = request.ConsultantId,
+                UserId = request.UserId,
                 Rating = request.Rating,
                 Comment = request.Comment,
                 CreatedAt = DateTime.Now,

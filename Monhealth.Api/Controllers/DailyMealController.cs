@@ -79,6 +79,5 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
-
     }
 }
