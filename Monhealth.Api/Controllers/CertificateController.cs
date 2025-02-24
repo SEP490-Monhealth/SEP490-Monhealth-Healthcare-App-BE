@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Certificate.Commands.CreateCertificate;
+using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
+using Monhealth.Application.Features.Certificate.Queries.GetCertificateById;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -32,5 +34,28 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllCertificate(int page = 1, int limit = 10, string? search = null, bool? status = null)
+        {
+            var certificates = await mediator.Send(new GetAllCertificateQuery(page, limit, search, status));
+            return new ResultModel
+            {
+                Data = certificates,
+                Status = 200,
+                Success = true,
+            };
+        }
+
+        [HttpGet("{certificateId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetCertificateById(Guid CertificateId)
+        {
+            var certificate = await mediator.Send(new GetCertificateByIdQuery { CertificateId = CertificateId });
+            return new ResultModel
+            {
+                Data = certificate,
+                Status = 200,
+                Success = true,
+            };
+        }
     }
 }
