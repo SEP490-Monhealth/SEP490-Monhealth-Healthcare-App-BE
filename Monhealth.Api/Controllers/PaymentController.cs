@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Payment.Commands.Create;
 using Monhealth.Application.Features.Payment.Commands.Update;
+using Monhealth.Application.Features.Payment.Queries.GetALL;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -50,6 +51,18 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật thanh toán thành công",
                 Status = 204,
             });
+        }
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllReviews()
+        {
+            var queries = await _mediator.Send(new GetPaymentListQuery());
+
+            return new ResultModel
+            {
+                Data = queries,
+                Status = 200,
+                Success = true
+            };
         }
     }
 }
