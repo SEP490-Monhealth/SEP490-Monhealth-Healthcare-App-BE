@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsultant;
 using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
 using Monhealth.Application.Features.Consultant.Commands.DeleteConsultant;
 using Monhealth.Application.Features.Consultant.Commands.UpdateConsultant;
@@ -10,7 +11,9 @@ using Monhealth.Application.Features.Expertise.Commands.CreateExpertise;
 using Monhealth.Application.Features.Expertise.Commands.DeleteExpertise;
 using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
 using Monhealth.Application.Features.Expertise.Queries.GetAllExpertises;
+using Monhealth.Application.Features.Food.ChangeStatus;
 using Monhealth.Application.Models;
+using Monhealth.Domain;
 
 namespace Monhealth.Api.Controllers
 {
@@ -24,9 +27,9 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllConsultants()
+        public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, bool? status = null)
         {
-            var consultantsList = await _mediator.Send(new GetAllConsultantsQuery());
+            var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, status));
 
             return new ResultModel
             {
@@ -67,15 +70,37 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật tư vấn thất bại"
+                    Message = "Cập nhật tư vấn viên thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật tư vấn thành công"
+                Message = "Cập nhật tư vấn viên thành công"
             };
+        }
+        [HttpPatch("{consultantId}")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusConsultant(Guid consultantId)
+        {
+            var consultant = await _mediator.Send(new ChangeStatusConsultantCommand() { ConsultantId = consultantId });
+
+            if (consultant == false)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Tư vấn viên không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Message = "Cập nhật tư vấn viên thành công"
+            });
         }
         [HttpDelete("{consultantId}")]
         public async Task<ActionResult<ResultModel>> DeleteConsultant(Guid consultantId)
@@ -88,14 +113,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy tư vấn"
+                    Message = "Không tìm thấy tư vấn viên"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Xóa tư vấn thành công"
+                Message = "Xóa tư vấn viên thành công"
             };
         }
     }
