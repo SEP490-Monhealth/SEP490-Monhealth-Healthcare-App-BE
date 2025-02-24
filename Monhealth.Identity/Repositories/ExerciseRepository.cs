@@ -23,12 +23,10 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(s => EF.Functions.Collate(s.ExerciseName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
                     s.ExerciseId.ToString().ToLower().Contains(search.ToLower()));
             }
-            // filter exerciseType
-            //if (!string.IsNullOrEmpty(exerciseType))
-            //{
-            //    query = query.Where(f => f.Category.CategoryName == exerciseType && f.Category.CategoryType == (CategoryType)1);
-            //}
-            query = query.Where(t => t.ExerciseType == exerciseType);
+            if (exerciseType.HasValue)
+            {
+                query = query.Where(e => e.ExerciseType == exerciseType);
+            }
             if (status.HasValue)
             {
                 query = query.Where(s => s.Status == status.Value);
