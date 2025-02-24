@@ -7,6 +7,8 @@ using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
 using Monhealth.Application.Features.Consultant.Commands.DeleteConsultant;
 using Monhealth.Application.Features.Consultant.Commands.UpdateConsultant;
 using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
+using Monhealth.Application.Features.Consultant.Queries.GetConsultantById;
+using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Application.Features.Expertise.Commands.CreateExpertise;
 using Monhealth.Application.Features.Expertise.Commands.DeleteExpertise;
 using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
@@ -37,6 +39,27 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
+        }
+        [HttpGet("{consultantId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetConsultantById(Guid consultantId)
+        {
+            var consultant = await _mediator.Send(new GetConsultantByIdCommand { ConsultantId = consultantId });
+            if (consultant == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Tư vấn viên không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = consultant
+            });
         }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateConsultant([FromBody] CreateConsultantDTO createConsultantDTO)

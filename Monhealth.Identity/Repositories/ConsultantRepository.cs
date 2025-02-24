@@ -57,6 +57,32 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<Consultant> GetConsultantById(Guid consultantId)
+        {
+            var consultant = await _context.Consultants
+                .Where(i => i.ConsultantId == consultantId)
+                .Select(c => new Consultant
+                {
+                    ConsultantId = c.ConsultantId,
+                    UserId = c.UserId,
+                    Status = c.Status,
+                    Bio = c.Bio,
+                    Experience = c.Experience,
+                    CreatedAt = c.CreatedAt,
+                    UpdatedAt = c.UpdatedAt,
+                    AppUser = new AppUser
+                    {
+                        FullName = c.AppUser.FullName,
+                        Avatar = c.AppUser.Avatar,
+                    },
+                    Expertise = new Expertise
+                    {
+                        ExpertiseName = c.Expertise.ExpertiseName,
+                    }
+                }).FirstOrDefaultAsync();
+            return consultant;
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

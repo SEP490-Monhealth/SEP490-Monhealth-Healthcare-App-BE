@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -11,13 +12,16 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetConsultantById
     public class GetConsultantByIdCommandHandler : IRequestHandler<GetConsultantByIdCommand, GetConsultantByIdDTO>
     {
         private readonly IConsultantRepository _consultantRepository;
-        public GetConsultantByIdCommandHandler(IConsultantRepository consultantRepository)
+        private readonly IMapper _mapper;
+        public GetConsultantByIdCommandHandler(IConsultantRepository consultantRepository, IMapper mapper)
         {
             _consultantRepository = consultantRepository;
+            _mapper = mapper;
         }
-        public Task<GetConsultantByIdDTO> Handle(GetConsultantByIdCommand request, CancellationToken cancellationToken)
+        public async Task<GetConsultantByIdDTO> Handle(GetConsultantByIdCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var consultant = await _consultantRepository.GetConsultantById(request.ConsultantId);
+            return _mapper.Map<GetConsultantByIdDTO>(consultant);
         }
     }
 }
