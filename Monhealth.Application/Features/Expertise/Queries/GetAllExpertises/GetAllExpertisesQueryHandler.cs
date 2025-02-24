@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
+using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Expertise.Queries.GetAllExpertises
 {
-    public class GetAllExpertisesQueryHandler : IRequestHandler<GetAllExpertisesQuery, List<GetAllExpertisesDTO>>
+    public class GetAllExpertisesQueryHandler : IRequestHandler<GetAllExpertisesQuery, PageResult<GetAllExpertisesDTO>>
     {
         private readonly IExpertiseRepository _expertiseRepository;
         private readonly IMapper _mapper;
@@ -13,10 +15,17 @@ namespace Monhealth.Application.Features.Expertise.Queries.GetAllExpertises
             _expertiseRepository = expertiseRepository;
             _mapper = mapper;
         }
-        public async Task<List<GetAllExpertisesDTO>> Handle(GetAllExpertisesQuery request, CancellationToken cancellationToken)
+        public async Task<PageResult<GetAllExpertisesDTO>> Handle(GetAllExpertisesQuery request, CancellationToken cancellationToken)
         {
-            var listExpertises = await _expertiseRepository.GetAllAsync();
-            return _mapper.Map<List<GetAllExpertisesDTO>>(listExpertises);
+            var listExpertise = await _expertiseRepository.GetAllExpertisesAsync(request.Page, request.Limit);
+            var listExpertiseDto = _mapper.Map<List<GetAllExpertisesDTO>>(listExpertise.Items);
+            return new PageResult<GetAllExpertisesDTO>()
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(listExpertise.TotalCount / (double)request.Limit),
+                TotalItems = listExpertise.TotalCount,
+                Items = listExpertiseDto
+            };
         }
     }
 }

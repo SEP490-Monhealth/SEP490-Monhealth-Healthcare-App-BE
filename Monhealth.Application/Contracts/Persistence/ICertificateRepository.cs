@@ -9,6 +9,7 @@ namespace Monhealth.Application.Contracts.Persistence
 {
     public interface ICertificateRepository : IGenericRepository<Certificate, Guid>
     {
+        Task<List<Certificate>> GetCertificateByExpertiseId(Guid expertiseId);
         Task<int> SaveChangeAsync();
     }
 }

@@ -28,9 +28,9 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllExpertises()
+        public async Task<ActionResult<ResultModel>> GetAllExpertises(int page = 1, int limit = 10)
         {
-            var expertiseList = await _mediator.Send(new GetAllExpertisesQuery());
+            var expertiseList = await _mediator.Send(new GetAllExpertisesQuery(page, limit));
 
             return new ResultModel
             {
