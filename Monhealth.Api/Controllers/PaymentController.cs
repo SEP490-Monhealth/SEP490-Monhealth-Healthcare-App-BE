@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Payment.Commands.Create;
+using Monhealth.Application.Features.Payment.Commands.Update;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -17,7 +18,7 @@ namespace Monhealth.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Create([FromBody] AddPaymentRequest request)
         {
-             var result = await _mediator.Send(request);
+            var result = await _mediator.Send(request);
             if (result != null)
             {
                 return Ok(new ResultModel
@@ -32,6 +33,22 @@ namespace Monhealth.Api.Controllers
             {
                 Success = false,
                 Message = "Tạo thanh toán thất bại"
+            });
+        }
+        [HttpPatch]
+        public async Task<IActionResult> UpdatePayment([FromQuery] Guid paymentId, [FromQuery] int amount)
+        {
+            var command = new UpdatePaymentCommand(paymentId, amount);
+            var result = await _mediator.Send(command);
+
+            if (!result)
+                return NotFound("Không tìm thấy thanh toán nào.");
+
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhật thanh toán thành công",
+                Status = 204,
             });
         }
     }
