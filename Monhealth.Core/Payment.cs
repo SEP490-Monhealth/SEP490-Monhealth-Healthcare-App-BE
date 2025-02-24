@@ -1,5 +1,6 @@
 ﻿using Monhealth.Domain.Common;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
@@ -11,6 +12,8 @@ namespace Monhealth.Domain
         public Guid SubscriptionId { get; set; } // FK
         public int Amount { get; set; }
         public string Status { get; set; } = string.Empty;
+        [ForeignKey(nameof(SubscriptionId))]
+        public Subscription Subscription { get; set; }
         //[ForeignKey(nameof(BookingId))]
         //public Booking Booking { get; set; }
     }
