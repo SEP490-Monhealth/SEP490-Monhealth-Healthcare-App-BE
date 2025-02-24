@@ -1,8 +1,10 @@
+using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Payment.Commands.Create;
 using Monhealth.Application.Features.Payment.Commands.Update;
 using Monhealth.Application.Features.Payment.Queries.GetALL;
+using Monhealth.Application.Features.Payment.Queries.GetById;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -63,6 +65,30 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
+        }
+        [HttpGet]
+        [Route("{paymentId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetReviewDetail(Guid paymentId)
+        {
+            var queries = await _mediator.
+            Send(new GetPaymentByIdQuery { PaymentId = paymentId });
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Thanh toán không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
         }
     }
 }
