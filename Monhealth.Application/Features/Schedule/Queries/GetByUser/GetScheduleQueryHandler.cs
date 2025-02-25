@@ -17,8 +17,8 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
 
         public async Task<List<GetScheduleByUserDTO>> Handle(GetScheduleByUserQuery request, CancellationToken cancellationToken)
         {
-           var user = await _scheduleRepository.GetSchedulesByUser(request.UserId);
-           return _mapper.Map<List<GetScheduleByUserDTO>>(user); 
+            var user = await _scheduleRepository.GetSchedulesByUser(request.UserId);
+            return _mapper.Map<List<GetScheduleByUserDTO>>(user);
         }
     }
 }

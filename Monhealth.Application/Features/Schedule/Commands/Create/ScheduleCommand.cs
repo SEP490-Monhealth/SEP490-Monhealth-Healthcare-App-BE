@@ -1,3 +1,4 @@
+using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 namespace Monhealth.Application.Features.Schedule.Commands.Create
@@ -5,27 +6,20 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
     public class ScheduleCommand : IRequestHandler<ScheduleRequest, bool>
     {
         private readonly IScheduleRepository _scheduleRepository;
+        private readonly IMapper mapper;
 
-        public ScheduleCommand(IScheduleRepository scheduleRepository)
+        public ScheduleCommand(IScheduleRepository scheduleRepository, IMapper mapper)
         {
             _scheduleRepository = scheduleRepository;
+            this.mapper = mapper;
         }
 
         public async Task<bool> Handle(ScheduleRequest request, CancellationToken cancellationToken)
         {
-            var model = new Monhealth.Domain.Schedule
-            {
-                ConsultantId = request.ConsultantId,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-                Date = request.Date,
-                StartTime = request.StartTime,
-                EndTime = request.EndTime,
-                BookedSlots = request.BookedSlots,
-                MaxBookings = request.MaxBookings,
-                Status = request.Status
-            };
-            _scheduleRepository.Add(model);
+            var schedule = mapper.Map<Domain.Schedule>(request);
+            schedule.Status = Domain.Enum.ScheduleStatus.Available;
+            schedule.CreatedAt = DateTime.Now;
+            _scheduleRepository.Add(schedule);
             await _scheduleRepository.SaveChangeAsync();
             return true;
         }

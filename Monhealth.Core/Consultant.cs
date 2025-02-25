@@ -1,7 +1,5 @@
 ﻿using Monhealth.Domain.Common;
-using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
@@ -15,6 +13,6 @@ namespace Monhealth.Domain
         // [ForeignKey(nameof(UserId))]
         // public AppUser AppUser { get; set; }
         public ICollection<Booking>? Bookings { get; set; }
-        public ICollection<ConsultantExpertise>? ConsultantExpertises { get; set; }
+        public ICollection<Schedule>? Schedules { get; set; }
     }
 }

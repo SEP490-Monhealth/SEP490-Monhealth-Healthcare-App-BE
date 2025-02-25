@@ -12,6 +12,6 @@ namespace Monhealth.Application.Features.Schedule.Commands.Update
             ScheduleId = scheduleId;
             Request = request;
         }
-        
+
     }
 }

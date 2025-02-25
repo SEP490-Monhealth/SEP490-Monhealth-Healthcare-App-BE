@@ -1,5 +1,6 @@
-using MediatR;
+﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.Schedule.Commands.Update
 {
@@ -14,15 +15,22 @@ namespace Monhealth.Application.Features.Schedule.Commands.Update
 
         public async Task<bool> Handle(UpdateScheduleCommand request, CancellationToken cancellationToken)
         {
-            var id = await _scheduleRepository.GetByIdAsync(request.ScheduleId);
-            id.Date = request.Request.Date;
-            id.StartTime = request.Request.StartTime;
-            id.EndTime = request.Request.EndTime;
-            id.BookedSlots = request.Request.BookedSlots;
-            id.MaxBookings = request.Request.MaxBookings;
-            id.UpdatedAt = DateTime.Now;
-            id.Status = request.Request.Status;
-            _scheduleRepository.Update(id);
+            var schedule = await _scheduleRepository.GetByIdAsync(request.ScheduleId);
+            if (schedule == null) throw new BadRequestException("Không tìm thấy lịch");
+            // Chỉ cập nhật nếu có thay đổi
+            if (schedule.Date != request.Request.Date)
+            {
+                schedule.Date = request.Request.Date;
+            }
+
+            if (schedule.Time != request.Request.Time)
+            {
+                schedule.Time = request.Request.Time;
+            }
+            if (schedule.ConsultantId != request.Request.ConsultantId)
+            {
+                schedule.ConsultantId = request.Request.ConsultantId;
+            }
             await _scheduleRepository.SaveChangeAsync();
             return true;
         }

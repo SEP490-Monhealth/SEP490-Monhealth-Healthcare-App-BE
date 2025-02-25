@@ -1,13 +1,14 @@
-using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Schedule.Commands.Create;
 using Monhealth.Application.Features.Schedule.Commands.Delete;
 using Monhealth.Application.Features.Schedule.Commands.Update;
+using Monhealth.Application.Features.Schedule.Commands.UpdateScheduleStatus;
 using Monhealth.Application.Features.Schedule.Queries.GetAll;
 using Monhealth.Application.Features.Schedule.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetById;
 using Monhealth.Application.Models;
+using System.Net;
 namespace Monhealth.Api.Controllers
 {
     [Route("api/v1/schedules")]
@@ -150,6 +151,27 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
                 Data = queries
             });
+        }
+
+        [HttpPatch("{scheduleId:guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateScheduleStatus([FromRoute] Guid scheduleId)
+        {
+            var result = await _mediator.Send(new UpdateScheduleStatusCommand { ScheduleId = scheduleId });
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Message = "Cập nhật lịch thất bại",
+                    Success = false,
+                    Data = null
+                };
+            }
+            return new ResultModel
+            {
+                Message = "Cập nhập trạng thái thành công",
+                Status = (int)HttpStatusCode.OK,
+                Success = true
+            };
         }
     }
 }
