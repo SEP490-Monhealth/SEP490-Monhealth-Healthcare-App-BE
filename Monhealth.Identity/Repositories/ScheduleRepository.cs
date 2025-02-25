@@ -10,10 +10,14 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<List<Schedule>> GetSchedulesByUser(Guid userId)
+        public async Task<List<Schedule>> GetSchedulesByUser(Guid userId, DateOnly? Date)
         {
-            return await _context.Schedules.
-            Where(s => s.ConsultantId == userId).ToListAsync();
+            var query = _context.Schedules.Where(s => s.ConsultantId == userId);
+            if (Date.HasValue)
+            {
+                query = query.Where(s => s.Date == Date.Value);
+            }
+            return await query.ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

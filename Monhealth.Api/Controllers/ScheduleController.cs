@@ -61,10 +61,10 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId)
+        public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, [FromQuery] DateOnly? date = null)
         {
             var queries = await _mediator.
-            Send(new GetScheduleByUserQuery { UserId = consultantId });
+            Send(new GetScheduleByUserQuery { UserId = consultantId, Date = date });
 
             if (queries == null)
             {
