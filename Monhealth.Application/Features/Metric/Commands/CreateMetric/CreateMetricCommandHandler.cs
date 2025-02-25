@@ -207,7 +207,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 PortionId = portion.PortionId,
                 Quantity = 1,
                 CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                UpdatedAt = DateTime.Now,
+                IsRecommended = true
             });
 
             await _mealRepository.SaveChangeAsync();

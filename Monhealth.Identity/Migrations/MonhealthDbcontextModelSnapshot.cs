@@ -316,409 +316,409 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            FoodAllergyId = new Guid("7b665472-f8e9-4791-b950-bc4a67fe7d85"),
+                            FoodAllergyId = new Guid("64788448-766b-4fdc-855e-f4094c2b4b05"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("0eaec761-a2b4-4fd1-b1c6-8f7f7734df43"),
+                            FoodAllergyId = new Guid("482e0964-54e9-48be-bdc8-d975278b088a"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("34c07188-05f8-4574-88fd-82839060d3d1"),
+                            FoodAllergyId = new Guid("bc8ed90e-5d86-49e0-b262-1e7bc4496a7d"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("245b9dc7-5256-44b9-8c91-a3c19fbe8627"),
+                            FoodAllergyId = new Guid("26812e33-61c1-45bf-817e-84f796b2cb59"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("6bd6c27a-3145-4f94-a5a6-0a4c45ab9fd7"),
+                            FoodAllergyId = new Guid("68328abf-d50e-42b9-b7f5-a30beef77771"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("7378ca5f-f1a8-4c23-a019-50af3012526f")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("1b874ba3-c75e-4573-a4f0-0247b2991fd5"),
+                            FoodAllergyId = new Guid("94c32988-a6a9-4749-859a-e6c87a30176e"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("7378ca5f-f1a8-4c23-a019-50af3012526f")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("c243b28b-14fb-4a0b-95c4-cbc3f429d56d"),
+                            FoodAllergyId = new Guid("20ede6cc-e944-4965-880a-29e2483ed984"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("5b844d98-8399-4112-8aa6-b931de1aa475"),
+                            FoodAllergyId = new Guid("fd709fc4-4e4c-4119-a23a-90651d241aed"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("19bbab17-91c6-410f-b566-b509d067e76e")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("e581d3b5-f79b-4c64-843c-5cae9e229ac0"),
+                            FoodAllergyId = new Guid("05354f0e-27a3-4ec6-83b2-c35e2efdc255"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("186d831f-24cb-4467-bd80-4d2570322131"),
+                            FoodAllergyId = new Guid("6ec9618f-6a5f-4b27-b14e-f0b303738990"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("764e49b9-96a8-43b0-988f-8123252ccf91"),
+                            FoodAllergyId = new Guid("d013e2ea-d059-4009-b06d-6d7e3339e6fd"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("c2138d50-2c4e-41d8-9da6-07246b20a928"),
+                            FoodAllergyId = new Guid("68950a4a-dc4a-4c17-80a0-4063891bb583"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("665c987f-5b8c-4a92-b0d3-38baca7c4b0b"),
+                            FoodAllergyId = new Guid("06a2c95b-3a18-4516-85da-b44e03089afc"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("7d26796e-c052-45d0-a967-b6c2ae964059"),
+                            FoodAllergyId = new Guid("f36aa4e2-5ea1-4c98-b322-520f29795c4e"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("33ea5290-a01f-43e0-a5e0-0f83c7eb02b7"),
+                            FoodAllergyId = new Guid("1f6742cb-dd87-4f59-a146-0ec646afc58e"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("eadc52e3-1a48-4abe-971b-4d03debe38b9"),
+                            FoodAllergyId = new Guid("85f921e9-d1c0-4b1f-9a36-80d4a16b065d"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("7a707517-9350-4f41-a290-fea67c6cf66b"),
+                            FoodAllergyId = new Guid("e96113bd-a6b2-4651-97f8-d3a8be14700e"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("df29f48d-f4f3-4b2b-8167-6d8cd80b0ca1"),
+                            FoodAllergyId = new Guid("be08d00a-c388-403d-932e-871b1bedd509"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("ae2a9ad4-907a-4611-836f-416d8de421c7"),
+                            FoodAllergyId = new Guid("d15ab0da-1019-4942-902c-23fd49917a6f"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("fa445aa4-7b0d-4d47-8ba7-f919dd123637")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("bbf220a5-d047-4511-b31f-8b0f4c739d1e"),
+                            FoodAllergyId = new Guid("7fb404e5-4520-4691-b04b-5be342f6fa38"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("0e2f6c8c-d144-4335-bbd3-3e889384254a"),
+                            FoodAllergyId = new Guid("afac1ea8-7c06-419f-910e-dd3c225ad884"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("e45705c5-d10f-45b8-94f7-e048a1b1dff2"),
+                            FoodAllergyId = new Guid("959036ba-1feb-4433-906d-6e37f4d647df"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("f41484a3-c7df-4530-b7d2-060390103985")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("e573b202-483c-4f7d-a92a-f42a0b1cbc36"),
+                            FoodAllergyId = new Guid("58fced2f-91f0-4a3b-bcc6-f1d8ebcc45b1"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("d193eb99-d56c-401d-92b4-72996693d7ba"),
+                            FoodAllergyId = new Guid("ff5fbdaa-3367-4fe9-8313-542da7ef2c60"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("8d083131-b0e1-4c92-b8df-50b573548aaa"),
+                            FoodAllergyId = new Guid("bd4709da-4b7d-4629-aa08-1670e9dcddb0"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("d6aa4258-0326-4302-be70-9bd1bc3adc53"),
+                            FoodAllergyId = new Guid("6e9ca594-bf76-413a-b6b0-e3249415ff75"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("1853400c-3f60-4f3c-bf48-2c30995fa4f4"),
+                            FoodAllergyId = new Guid("5a1196d4-cbe8-42b1-b41b-24d27900e44d"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("5ff26461-880d-4b94-bfd0-e8badc77fe33")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("791003ee-74f9-4c47-aee3-24e432f3c95a"),
+                            FoodAllergyId = new Guid("dd559bf9-d12c-48d1-9201-9be71d349d97"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("4a32d6e0-d3e8-4ad6-af39-ad5654b68e2f"),
+                            FoodAllergyId = new Guid("eb06138d-6cd2-493e-98bc-1a67be1323d8"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("b55719e2-f30a-475e-8ede-c67b48df6fda"),
+                            FoodAllergyId = new Guid("66081d82-f8a1-414f-899f-e5bc97253182"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("80165a36-fed3-4647-8cff-2d44c313a4b8"),
+                            FoodAllergyId = new Guid("aecbe399-acfc-4386-ad60-b72f4b4bf233"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("3e1bc996-e18a-451e-9fbc-694a42b25d11"),
+                            FoodAllergyId = new Guid("162e135b-f6a1-4a16-9ea2-33d5fce9fd2e"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("a53672e7-8593-4779-bd02-9f02ae81f915")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("d9d85410-52b0-4e39-8ebd-b4f764fec5d6"),
+                            FoodAllergyId = new Guid("a9bc30c5-1ab0-42ed-bde3-04e98579edbd"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("7115001e-29c2-4353-9346-d1ead99b7422"),
+                            FoodAllergyId = new Guid("a75fee76-1d5d-4791-bc8a-febc1e7e021d"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("dd1482e7-b3dd-4b17-80f6-5618a640c671")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("b1885c9d-b6c9-4a7d-b679-960d8a7f3ee3"),
+                            FoodAllergyId = new Guid("b92d3d4f-e7dc-4818-a981-41f689a87c28"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("8d2562c3-c49a-4e62-877a-35bcbf8743fd"),
+                            FoodAllergyId = new Guid("a5039f16-1735-4d2c-87ca-e4d14483cc57"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("c5b995f8-fe57-4b65-8f58-fa24e3caac7f"),
+                            FoodAllergyId = new Guid("72cd1441-dc2c-4492-b678-9b52f76f52e1"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("9c0ec52b-ead4-4060-a790-7a8357273946"),
+                            FoodAllergyId = new Guid("5ea9117c-3bc4-4516-8242-64e1b286b506"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("75252d0b-e1d2-4396-8800-95e1055a53ce"),
+                            FoodAllergyId = new Guid("88992a7c-db45-4d99-8c6c-4e43ede9665a"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("8d8ef83d-76d6-45ee-9826-c7be7e1554c1"),
+                            FoodAllergyId = new Guid("34a69b2a-5b0e-4770-b026-002f5cf3a2e4"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("edb9d5d0-01f3-4607-a406-9e04bbff85fb")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("e41b3b08-4f33-4615-9cec-0829fed42846"),
+                            FoodAllergyId = new Guid("7ad371f1-63d6-4536-8148-02b5a39e008d"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a91124b7-563c-4bac-8955-cabe8ce21590"),
+                            FoodAllergyId = new Guid("50d4fede-1a64-4489-9550-8b1c97346a34"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("adeb902f-fb34-44eb-aa60-76eaeb0ed70b")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("25545c78-4d86-4bc0-b7ee-9a01e93d017f"),
+                            FoodAllergyId = new Guid("a9012734-360a-4666-bf45-b7d05380cba1"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("3fa8cf38-d835-4279-a113-a8f44cd013e6")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("15e9c541-0f66-4910-ba01-ed1fd2f200a0"),
+                            FoodAllergyId = new Guid("dac78bba-bab9-4b44-a24b-1cf0bb21a4f0"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("d3392e5d-a48f-4b5a-968d-31b98bd47835")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("12352504-89aa-4457-97e7-25e64880ad7a"),
+                            FoodAllergyId = new Guid("2eaac6c6-044e-4961-a6c8-4794f708081c"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("f648b47d-383e-4a02-9cda-c68e6d48546f"),
+                            FoodAllergyId = new Guid("bd9971b7-f279-46df-957b-ff8eb98b80c3"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("50c0adac-c878-4a21-8b5f-01478e7e4852")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a312958d-f41b-4f5e-b34e-6b35a639f3df"),
+                            FoodAllergyId = new Guid("dd62834a-2718-473c-8075-4d2a52498e76"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("a23f6c85-1a80-4255-a9a1-d08c1d60e753")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("0d0a706c-39e8-463a-b43a-ae05f430c90c"),
+                            FoodAllergyId = new Guid("596a2f7c-01c4-4185-9d20-ce9311138b30"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("b0f051be-5972-4e7a-a77d-47ec28d58993")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("5e4958c6-7eac-4852-8a83-31832d6356cb"),
+                            FoodAllergyId = new Guid("c36c7702-4001-4e36-a492-013bab6d5550"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("8da16f72-42a9-4da2-b217-811903e340c4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("3b85dad9-4771-426c-9a75-7ec2d429329c"),
+                            FoodAllergyId = new Guid("6cee1c4a-d5a7-4fa0-9677-38ffb45b7061"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("59988378-901f-4ec4-bd6c-9fdc28ca97a1")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a3f3450b-268a-46f3-ab48-a44b89bd85ef"),
+                            FoodAllergyId = new Guid("92571a70-27b7-47a7-aea2-62bdff87b560"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("98b3945a-9169-4581-b1a5-da82f2ebd8d4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("1719fe67-4f36-4e9a-94c0-64e6fc896ef8"),
+                            FoodAllergyId = new Guid("8ef81ae0-978b-42db-a9cd-cd0ee50e2f6b"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("4e46f955-4413-496f-97b4-968a38ee3e11")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("1cbdc447-ed84-4d34-860e-088b29eebbdf"),
+                            FoodAllergyId = new Guid("f1721421-04e4-45d1-bee2-98b189a8086d"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("404a286a-90c5-4c54-8e27-3ddeba55ada3")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("077693e0-bb41-4843-b65b-ea5e66ffd9d8"),
+                            FoodAllergyId = new Guid("12fc521d-bc26-41e9-814b-d9c18c5b1239"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("d3c360a2-441e-4700-a6ec-4310b5976901")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("547a5fe8-fd16-4ae9-8720-f06eded2e082"),
+                            FoodAllergyId = new Guid("3f157b79-7982-434e-8c41-3c228a8bfcd6"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("731974ef-495e-4c08-ba95-20589d60c20c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("93eb5ea0-bcd9-4817-aa89-387bf6f78395"),
+                            FoodAllergyId = new Guid("a538e75a-606e-44b8-a346-3cc6f5f64ea2"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("5f848972-c5ae-45fc-8ba2-103b24d8a23a")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("108d3eae-4147-41c0-8672-5d4a99599409"),
+                            FoodAllergyId = new Guid("b6135dc8-1169-4bf7-aa70-60862f0203f2"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("63045676-0e70-425f-aa96-e348a4e88c3a")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("c213b131-16ef-4ce3-a0e7-24c0e7c29ee9"),
+                            FoodAllergyId = new Guid("a560ee7f-e763-4aa8-bc7a-131a906819e7"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("0ece5f0f-9fec-4f74-b948-90dce7ce6ce3")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("2b3f5be5-3fa8-4608-b0fe-4b6149d6ee16"),
+                            FoodAllergyId = new Guid("0be11138-624c-45d2-a51c-d2d9f85e2ac7"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("d65c7826-78c0-4991-b3b6-1e2b25437f61")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("bf5334f7-75b5-43a4-9831-23d08b90c505"),
+                            FoodAllergyId = new Guid("fa7c8d23-4a70-4c58-9ff0-d2b20ed043c6"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("90099162-15e0-4ef0-b93e-59d409678b63")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("6632f1d5-2111-4327-82be-02a3b9101d54"),
+                            FoodAllergyId = new Guid("c34aa42c-fc89-46c6-b2d2-e23b40c018fd"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("9669cdf4-c133-476f-b2bd-f3c091346c52")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("2c5498d8-d98b-4062-84bd-0d52be471b79"),
+                            FoodAllergyId = new Guid("97c6319e-2319-4565-8b82-6a7efdd210ac"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("9669cdf4-c133-476f-b2bd-f3c091346c52")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("926d8451-7cca-4a20-b742-b7c5400df0f6"),
+                            FoodAllergyId = new Guid("cb2013ae-68a2-4583-9718-2c7373bdeab3"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("61b2c4d9-6de2-4fb2-af3b-fe9fabee0bd4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("2feb425a-1f63-4beb-84e6-cc61acabf71a"),
+                            FoodAllergyId = new Guid("68064a9e-68db-468c-aaf5-e17ec837eb2c"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("ea63d4c3-41f7-4f89-bf33-e8a16c5d6956")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("44b1e0ee-1bcc-4802-9854-f86f0f4cb9c1"),
+                            FoodAllergyId = new Guid("ea29eb8c-9437-4f7b-a701-a40447fe6ad2"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("56513d2d-2472-4fa4-80bc-2f54002b187f")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("73f4cea5-2a4b-4212-b0c9-76549f64329a"),
+                            FoodAllergyId = new Guid("64cd28c7-0092-4895-b943-397537858090"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("2d821db4-3e99-4877-b979-bc82d34b3b01")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("8a396848-9710-4a57-ab12-f1d9fbe422bf"),
+                            FoodAllergyId = new Guid("4719dc9f-ac48-481e-bbb2-31d953a9148b"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("2d821db4-3e99-4877-b979-bc82d34b3b01")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("32edb8b5-0e69-4bfb-abac-5b86412d1a87"),
+                            FoodAllergyId = new Guid("01d603ff-8703-42b9-b376-f3a64200349a"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("a1ff09f1-9d02-40a8-84de-8da9aad67c58")
                         });
@@ -6426,667 +6426,667 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            FoodPortionId = new Guid("267ba6b5-ca9e-4529-940c-5a5984c67861"),
+                            FoodPortionId = new Guid("53646510-42bd-48d0-b67f-8ee1627d8c92"),
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("1808de3e-ae43-41a6-b9ce-bfe89131be5a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("74a69bf7-fca7-461e-8c6c-7e14b774e80e"),
+                            FoodPortionId = new Guid("882b6436-0c46-4160-925c-81e60cfdc6f0"),
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("40991196-f258-43f1-ac84-0381afa83477")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("88a4c4a8-2c79-43e9-805e-bf36f9cceaa8"),
+                            FoodPortionId = new Guid("5bcbaead-28c7-4796-98d4-b988fcba0efa"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("28b06cf6-6367-4786-bccb-89c43dd3ce3a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b6025ef0-e779-42cc-8901-94cba6111ef9"),
+                            FoodPortionId = new Guid("88977217-0e69-48ea-98d2-1101a9328b59"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("91524cc2-db22-4cab-abb7-700725232f1f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bd3d6472-a7e7-49f6-b444-56eef1319aa3"),
+                            FoodPortionId = new Guid("d81678b8-862c-4b2b-a7ee-4414489ec236"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("1b56833b-1ff5-4a90-aea9-074de2d0dd67")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("70620155-7386-4c52-97b6-dda5450c0dda"),
+                            FoodPortionId = new Guid("0cf2cace-de88-4af3-a8cd-2b9612226f10"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("c605aa91-495e-4977-9876-b2a198ce356e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a81a2076-952d-4ca6-9102-157cc68446c4"),
+                            FoodPortionId = new Guid("ff13b080-7e94-4dde-805d-d4e3eb0ed6c5"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("7be0e4d3-1e50-4de1-931d-08adb85f628b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f40d9cc2-40e3-4d32-9c97-f9795acec2e3"),
+                            FoodPortionId = new Guid("700f5c6c-72cb-4a6e-93dc-793a84318103"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("698c67ad-a726-435b-b9d2-c5690a79eb5a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("634a58b8-324d-4ca2-94ae-081e53fddabf"),
+                            FoodPortionId = new Guid("144cd5fc-392d-4fbc-a1f2-cc1587855c23"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("399eee61-90b5-464f-b3f7-7ddc1077ab0d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("09646071-929d-4c5b-bcd6-22938435248c"),
+                            FoodPortionId = new Guid("f76a58d9-0434-47ae-b73f-e46bf1e1585c"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("6f34350b-8f99-446e-9de9-e0c6277b10f3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cf455e13-e773-4d3f-86f0-e7202f1aeb08"),
+                            FoodPortionId = new Guid("a45c610a-6daf-4c1d-a35f-11e1dfc4a082"),
                             FoodId = new Guid("8fa26c41-16b2-49f8-a284-856024a5f947"),
                             PortionId = new Guid("41ae956e-14fc-44af-bc6a-e5ba77661cee")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8e48dd9a-9453-41d2-8f22-8ccddbf1fc77"),
+                            FoodPortionId = new Guid("849bfbda-1552-4702-a2e7-b1a210233d9c"),
                             FoodId = new Guid("1387c20d-27a6-495b-a3a0-efbb715f6430"),
                             PortionId = new Guid("a1589990-affa-4805-a1e0-73de1ffa8516")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c9271e1b-bb0e-424b-ae74-f0f31dd35bca"),
+                            FoodPortionId = new Guid("7ece1378-698f-40b4-b3a7-596b83ffd8fe"),
                             FoodId = new Guid("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
                             PortionId = new Guid("4e9013c8-d6f7-4740-80d5-e95d318873b9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e8c49717-776f-4d1a-9289-b87c139008a1"),
+                            FoodPortionId = new Guid("77153ffc-b8ab-4762-be45-75d00cd39d9b"),
                             FoodId = new Guid("eac10b91-8509-4986-b689-7ee3a3757a18"),
                             PortionId = new Guid("1bf9c3e0-7a2c-46f5-8187-82e5ad1af649")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ae1e7f6d-a57d-49d1-881c-0070e8d9a374"),
+                            FoodPortionId = new Guid("7aecff26-776d-4756-95a5-ce7e4549b137"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("faec7c41-2e11-4092-8ab9-cc9c152d858f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("abe0ec2e-1047-4966-99fc-77ed22e4e829"),
+                            FoodPortionId = new Guid("0b887c66-b187-4de1-adb1-0024b485972c"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("36398f6d-0668-4d37-8850-9f9ee89b8b92")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7ab76c98-5bf7-410f-9695-f85848af4dd4"),
+                            FoodPortionId = new Guid("2cb4e145-8e1f-4887-b2f2-9235ea51da50"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("c6e853f0-06bd-4cda-8b43-cbe66fea98c8")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ea32e199-016b-40c5-8e84-b31b4db94d4b"),
+                            FoodPortionId = new Guid("ff3f08df-f04e-4774-8d14-11591fba3d68"),
                             FoodId = new Guid("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
                             PortionId = new Guid("268e00a0-2da3-4e5c-8ea7-5ad8923cfd52")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("0e97e222-497d-4bb7-aa9e-0c249a297c18"),
+                            FoodPortionId = new Guid("7ffabb46-c7b6-4793-baf8-f0e92af76ee6"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("40bbc8c4-f383-4ae6-979a-3ac83c275881")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ba44feb0-ce89-428e-8e0c-4218ff56c8b6"),
+                            FoodPortionId = new Guid("5e3f39cf-7f6b-4e97-b7a4-ccc335696b6d"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("26096793-894d-47c1-a06f-cf9133f8089d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e2c0087e-cea3-4003-8178-4f85e0623f6c"),
+                            FoodPortionId = new Guid("eadd2cee-f805-4f26-a1dc-5d9b9c228d03"),
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
                             PortionId = new Guid("de5d78a3-c5b1-4e2a-b9eb-f3757c999024")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("71362d6f-bd68-48da-bcad-3caaed112e31"),
+                            FoodPortionId = new Guid("03f35b19-f3b4-4999-9014-fa31364e5775"),
                             FoodId = new Guid("de097440-db5c-4d91-bd55-76618d70599d"),
                             PortionId = new Guid("92e149ff-8491-48cf-a4e8-8106b1e95c4c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("930c68bb-0f83-4e51-8a4a-c78a89d808a2"),
+                            FoodPortionId = new Guid("52a463be-4f79-492d-8ab6-82018fd0727b"),
                             FoodId = new Guid("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
                             PortionId = new Guid("3f77fd90-591c-45f3-8bbc-87d0bb49e461")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("19ca7ae4-8d49-48e5-8354-fd4b11e7ec89"),
+                            FoodPortionId = new Guid("3ba60bf9-23b7-4bb1-bee1-e338cc464f0c"),
                             FoodId = new Guid("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
                             PortionId = new Guid("6792c392-3c86-4162-be91-4fc8646f861d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("24d0bc8f-6ea4-4080-bb2c-decde38ee84b"),
+                            FoodPortionId = new Guid("2a7fabac-568b-4d7a-9286-0a3c11e4dcb7"),
                             FoodId = new Guid("48113ca0-a1e7-4181-85fa-be6538a70873"),
                             PortionId = new Guid("c4fc900f-5a92-4228-ac03-57285fff159e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7f129c94-f878-47e6-bb73-2a84f1c4f4a1"),
+                            FoodPortionId = new Guid("5aa03f4f-45d7-47ae-b934-0d98203e44da"),
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
                             PortionId = new Guid("cd0a9e6f-bf5b-40b3-bb6c-22ccb8e6ab6a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6c735960-1840-4d6b-abc8-f3343ff319ea"),
+                            FoodPortionId = new Guid("4baf1266-4ba5-4264-b695-8414e6a655b8"),
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
                             PortionId = new Guid("a33065fe-80ad-4879-9333-424aadc6734f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d3f86216-04e2-466d-a3db-b3ed3b9c6472"),
+                            FoodPortionId = new Guid("ca8a21b9-00fa-420e-8a94-bfad79620f2c"),
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
                             PortionId = new Guid("eceaaa32-4023-4eab-abb6-9172c908f77c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fe0579f9-cf70-4923-92cb-68f9fdce8452"),
+                            FoodPortionId = new Guid("317232c7-9e8d-41c0-b819-b02c257a52b6"),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
                             PortionId = new Guid("31e9bda5-8ec3-4444-a23a-908e84da6a14")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("360758bc-a928-4296-9eda-cf131c344651"),
+                            FoodPortionId = new Guid("eb40f0fd-a5bb-47ba-ac98-e58221091d34"),
                             FoodId = new Guid("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
                             PortionId = new Guid("93984b54-2044-4ea9-8364-a03c6568e358")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f5af8469-4cbd-4742-8f99-8a9153a8f35f"),
+                            FoodPortionId = new Guid("c8462dbc-0233-4aa1-a443-7d0706083d39"),
                             FoodId = new Guid("da89578e-9470-4b18-af4f-0bdcc011882f"),
                             PortionId = new Guid("749b288c-112b-4b7b-8750-0daff63d9ab3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f7c6aed2-4b90-4d01-b94c-ee9c8b1c63c3"),
+                            FoodPortionId = new Guid("dd62ab53-6d26-4858-a983-d33e05e12ea9"),
                             FoodId = new Guid("37a66f5c-437f-4520-90ec-4376e0093061"),
                             PortionId = new Guid("1500876f-ef20-40de-baae-de0336bdc47b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("829203cb-0046-4afa-948e-fe3f6d3d7c46"),
+                            FoodPortionId = new Guid("0705b64c-30ed-40f9-ba37-d9592f5b9494"),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d"),
                             PortionId = new Guid("24a4ed15-69e4-4fb5-8dd2-1695de52c264")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("0981c150-708d-4913-85eb-45a8783ee199"),
+                            FoodPortionId = new Guid("292c179a-335c-409a-bc3a-d8aaf42de092"),
                             FoodId = new Guid("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
                             PortionId = new Guid("bfc705ab-d7e9-44c9-9447-c0b39bc76ca1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("24b75d20-940c-44bb-a375-e5c3fd2541f4"),
+                            FoodPortionId = new Guid("a006de49-c12e-4ff2-8690-419c7169337c"),
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
                             PortionId = new Guid("b6623163-4c27-4d0c-99ef-12a67b87635f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("daf8f95a-cb0a-4869-a1a8-f0e60b94efae"),
+                            FoodPortionId = new Guid("fd2b6354-96cf-4c3b-83f4-a0f5f528674f"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("a88faa7c-6eab-4ecb-8a75-b078a9cf7834")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("64943f92-02a6-43ba-bc30-b72b5787794a"),
+                            FoodPortionId = new Guid("34b8b7dc-6f28-4569-85af-6df0cc82b0cd"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("218b9709-852d-4a1f-ad8b-c9410b49fea6")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4f949d3e-db8b-4421-a29d-0e4c7ccae1df"),
+                            FoodPortionId = new Guid("ec9a4adb-0f19-449e-aad8-c30d9a41cfbb"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("e5cc2785-6d62-4b5f-8fc1-e6ab45babd76")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("24f57827-2c97-4286-a4f6-a78f20ffafd6"),
+                            FoodPortionId = new Guid("f06b1f16-8ddd-4fd9-a624-8e77b9e732d5"),
                             FoodId = new Guid("fb7d87aa-2bb8-4065-bd31-b54239057405"),
                             PortionId = new Guid("22f0a09e-6816-410e-a5a2-c802103b089b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f78b8e0d-f188-40c5-aaff-19d1d2f8ae4b"),
+                            FoodPortionId = new Guid("9b1e7fa7-3586-460f-bc91-e1f6094926eb"),
                             FoodId = new Guid("9122357a-179f-45f4-9106-67eea24d48ab"),
                             PortionId = new Guid("5feca670-1f15-430d-9b04-7ac86a329a6c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2b59d097-ab22-497d-abec-69a260cd4315"),
+                            FoodPortionId = new Guid("04771e4c-8e47-47f6-bc73-7b27d7f15988"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("f483bb75-84f0-4ecc-8a06-f366a488c6bf")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("831fe970-163b-44c1-8d54-8f66e65ddce7"),
+                            FoodPortionId = new Guid("0de57465-61fa-43d3-be70-9398b2c91f04"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("17c9d30f-bd85-4e58-bfc0-6b6d70b2e5fe")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c5b9595e-96f0-4a00-b255-8da931bb7832"),
+                            FoodPortionId = new Guid("6f41bced-c5bb-425d-ba03-14107adba59d"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("52c86d57-0909-41c3-b513-e770e6f6d104")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2dfb63b0-3ab2-47a1-87bf-5c69ff6157da"),
+                            FoodPortionId = new Guid("663ac93d-f86e-43c1-bc35-e85e7ac7a2f3"),
                             FoodId = new Guid("87225215-43af-49f2-a40b-a5ebb087d27b"),
                             PortionId = new Guid("a9385e8a-e9b9-484f-beeb-bc35529cf91a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a3069c98-8c21-4108-bbf3-26ce5fb35af4"),
+                            FoodPortionId = new Guid("89541945-932a-4672-a3b2-cde5250d1523"),
                             FoodId = new Guid("23443efa-dc06-4e7a-949c-5c823ee6e575"),
                             PortionId = new Guid("8a81e20e-ea16-4073-957e-29508a8f7419")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f92b17fc-f185-4a2a-99bd-f3663c96055c"),
+                            FoodPortionId = new Guid("9f2fa7db-e9c5-497e-9ec1-6990d35a8a56"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
                             PortionId = new Guid("84793ef9-fcd0-42df-ab0d-9380dfa18630")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("eb1b9e83-ca01-4ca2-9b33-e6065c130959"),
+                            FoodPortionId = new Guid("78805f02-b6ae-44b4-8f0c-455154a3cc1b"),
                             FoodId = new Guid("77fe5e06-7fee-486d-a1a7-c031f2065490"),
                             PortionId = new Guid("255ba0f6-14cc-4049-add8-138f27055b49")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b17ce9cf-1587-4124-9a0d-c59e1728a439"),
+                            FoodPortionId = new Guid("1c90966f-f219-4609-8f16-3536f1dacef0"),
                             FoodId = new Guid("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
                             PortionId = new Guid("f7b36043-9ca9-42c3-8a00-e9e235b56bb3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9d488a2f-a039-47c8-ada6-ec5fd70af725"),
+                            FoodPortionId = new Guid("d396f375-0019-45d5-9ed0-507737dbf77c"),
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
                             PortionId = new Guid("18809fb3-b78a-4f67-b9f9-8bb6ab95ab00")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7c3978ab-1ffa-4cf3-b6c5-8c8824ab733e"),
+                            FoodPortionId = new Guid("67540e75-3571-442a-bdec-ac898c2c4019"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("cd0b1476-44a8-4350-a6a1-3de8747a5ebc")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1bd507da-d6a8-4e1b-a5f6-70cdd4dacfe6"),
+                            FoodPortionId = new Guid("146a5c69-c51b-45a1-aa2f-657ecabd2277"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("5afaa147-398e-4be8-b0d1-8dcabe6ed18c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("230fc439-2d02-4511-91f4-cdf4730b88da"),
+                            FoodPortionId = new Guid("98cb80ff-741a-45e7-b803-709bf7f32e28"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("d3850e1b-4780-490d-8c0c-ced1a9aa323b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fccede5e-d2de-461c-a077-c7c345b1d4a9"),
+                            FoodPortionId = new Guid("935036f8-11c0-4459-9f20-f9843790c757"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("e09c493c-5806-4b14-bbef-e26e19e1d8d5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("278de2a0-4f09-4648-8ef5-8133a9831537"),
+                            FoodPortionId = new Guid("9197e77b-07eb-469b-ab6f-a77dc67315fb"),
                             FoodId = new Guid("7b3216ff-858e-423e-b8db-a85571aa5488"),
                             PortionId = new Guid("5f7f859a-f20a-4f6c-8b8c-ecfbb1ff522e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a6f65a58-940c-4030-8fa0-6eb6c1533d8e"),
+                            FoodPortionId = new Guid("8eec7c85-262d-4813-bf24-a7406c595c6b"),
                             FoodId = new Guid("42883b21-4cbd-40ce-850f-b0723f1766fe"),
                             PortionId = new Guid("f0e8f9cd-d133-49cf-be7d-d427b630e05a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("398dfa0e-0527-4d7e-8570-7095db8d9efa"),
+                            FoodPortionId = new Guid("1f1639f7-c915-4249-ac89-95484bb10c79"),
                             FoodId = new Guid("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
                             PortionId = new Guid("ef6b8c43-9ab5-497c-a9a8-e31f0a349527")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("172d78ea-7aa7-4121-b979-45685f4221c5"),
+                            FoodPortionId = new Guid("7d8bef27-791c-4ea2-80cd-b4bc2d2579ef"),
                             FoodId = new Guid("845454d0-967a-4e48-aef3-bd8458775500"),
                             PortionId = new Guid("1cddc91d-209a-4948-8e9f-9017252d5423")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("400c0749-bb40-4dbd-94b1-c616f27037f2"),
+                            FoodPortionId = new Guid("8df8b44f-c38f-4f52-87ef-98a7b2b5b67b"),
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
                             PortionId = new Guid("d09266d3-9e7d-46a6-ad3a-7c608ec802d1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7627de9b-916d-4de3-822e-cc8de9e1e070"),
+                            FoodPortionId = new Guid("a6935c34-ac90-4786-a235-f8d9afeac696"),
                             FoodId = new Guid("f0132626-5535-4f30-9af4-7e89e086aaaf"),
                             PortionId = new Guid("5384aebd-4eab-4a44-8cbb-7ec2c04f1401")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("039782be-6072-42dd-a8d4-9a1cd65407ae"),
+                            FoodPortionId = new Guid("0a6522c9-bbbc-4582-a3f6-2be6d5057d08"),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c"),
                             PortionId = new Guid("222e1fa2-3910-42ac-9a5c-f371dded16eb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6052e7b5-562b-4288-b2fd-4f5fe06d4c90"),
+                            FoodPortionId = new Guid("c4028249-b6fb-46b2-8e7f-812bd9de3b01"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("eff728af-c8f0-4bb5-a985-d079cbadb6b5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c5c70f3d-10aa-4496-9c5e-886cca0da80f"),
+                            FoodPortionId = new Guid("693b4779-7f2c-405f-b6e7-333a262e1eb0"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a5dbb27a-4856-44be-a239-76eb073c3e41")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7948a55c-96f1-4175-b9ea-06ab9e8d464d"),
+                            FoodPortionId = new Guid("6fa16760-7ec9-4e62-b80e-d5e7ff08a2af"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a7936b9f-b6f8-4295-8b6e-6fe1b096f437")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ddec368d-b469-4fe5-baf2-c4549c3487c9"),
+                            FoodPortionId = new Guid("023e2af0-4c64-4edc-844b-2b7cd0d46607"),
                             FoodId = new Guid("a3074169-6441-49cc-9ea7-79e240f6dda3"),
                             PortionId = new Guid("e23d4491-73d1-45b5-8010-0385d7185c98")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d615b94f-41bf-435a-a0ab-30293e9d279e"),
+                            FoodPortionId = new Guid("6d37834d-294c-40f7-bff5-fd8ba74a3ac4"),
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
                             PortionId = new Guid("bdd1ee1e-3a93-421f-855e-0993c7e6f767")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("567f09cd-4015-4a4e-a0c2-0289bfa8af1f"),
+                            FoodPortionId = new Guid("03de9726-3303-4319-89bb-9841b6be4f69"),
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707"),
                             PortionId = new Guid("c4993d6a-a2e0-4ddd-821a-0629541e019c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("038bfe06-f129-400c-a3df-5d2060f557e4"),
+                            FoodPortionId = new Guid("159d80ae-296d-4c3a-8c4e-1a8a6b5102d3"),
                             FoodId = new Guid("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
                             PortionId = new Guid("5a1bc1cb-ed0b-49bf-9c1a-5494db962d27")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("124733ef-2626-41ce-8c4a-1008b675049c"),
+                            FoodPortionId = new Guid("2627aa16-1610-41f2-9303-15fe7e678124"),
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
                             PortionId = new Guid("8ecbc063-8d6e-450d-af39-0ba28bc572bf")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("92bdb842-3ec2-4d6a-907b-d16c75e87412"),
+                            FoodPortionId = new Guid("0258f2f9-26de-46d4-8418-3253ec51ff96"),
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
                             PortionId = new Guid("16dc894a-746e-497e-a2c5-2d58f7f83c4d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a1a7322c-f132-4c0d-b34e-0e64851584e5"),
+                            FoodPortionId = new Guid("b2cfaa2a-3a13-43ca-b829-00218721e171"),
                             FoodId = new Guid("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
                             PortionId = new Guid("30f41ca6-c420-4f7d-9602-bf80735d5691")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("5fa0adfa-bc00-4cc6-bb11-a54559c0ea12"),
+                            FoodPortionId = new Guid("5e8120c3-ea70-46bb-9dc4-9ddb288b8090"),
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("1cf439ce-a31b-4b95-b092-b7f6edf8d40f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6d481c8c-0829-4236-bd8f-ee6fa1901d04"),
+                            FoodPortionId = new Guid("2e15355a-22b9-46ad-99a5-5cee25364467"),
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("ad9ecd1e-40ec-414a-be69-b16e7013b377")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("93fbff16-ad14-429a-bb8f-19ef3d0cb1b6"),
+                            FoodPortionId = new Guid("e5b5534b-389b-48a1-b571-174737747ed6"),
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("1802caa2-cfe0-48e7-8580-29165f84387d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8bcff54d-3db9-4c85-ad10-8e63e0af57f2"),
+                            FoodPortionId = new Guid("13c2ff35-7e5a-414b-a1d0-ca4c8e55fc3a"),
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("21e32570-7d64-4cec-b711-873185c76523")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8cd9bec5-76b3-41fc-aa4c-78f7d859a2a8"),
+                            FoodPortionId = new Guid("7f153d37-6ffc-43d4-bd96-27bc360d67c1"),
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
                             PortionId = new Guid("9c276c0b-84b6-4216-8dbb-ae2034ac2176")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7023f484-a712-4f79-9cb2-44a3999aca9e"),
+                            FoodPortionId = new Guid("9c157b59-fb8b-41b2-86aa-4e8d0be25d85"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("d9dad801-145a-419d-bbe2-408acf97a273")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("36ed1144-4a01-44f2-af0d-6ddc44d63ab5"),
+                            FoodPortionId = new Guid("ba33a6db-0c08-40b1-8a65-c50560a2422d"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("bf0f7ca4-9089-4800-95d7-8d037d98b7fc")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7ecdd8ec-c3ee-434c-b769-5e3352bb42b9"),
+                            FoodPortionId = new Guid("8bedbf3e-8f3f-40c3-8c69-a777aa758961"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("56681171-ccbd-4700-90bc-2233c1e661bb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("16b8eea5-5375-4280-9930-8f3e2dde1fbe"),
+                            FoodPortionId = new Guid("1eae2593-25ff-461f-a34a-4e4d90977a84"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("709578ca-672f-461e-995d-dc78aeda8c4c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3808630c-7b37-416f-995e-e0866dcc9fba"),
+                            FoodPortionId = new Guid("622f240a-404a-47cc-9e99-2be0e3b86f30"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("f928b7a6-2558-478a-bc22-515516f4dc74")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("46bfdaf9-bc8d-4ecb-8e99-7c3bd5646b28"),
+                            FoodPortionId = new Guid("957064fa-d617-4d4f-8cbb-68aac6fad910"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("23ce32a0-6597-4b60-b35c-98073ff595c6")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("17ca1c8e-70a3-495d-86a2-addcc919d733"),
+                            FoodPortionId = new Guid("81ae72cd-3710-44c8-bded-bf9b4ac39a9a"),
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
                             PortionId = new Guid("bad70aff-4237-4c83-b412-460020a5ee44")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("52e9b063-40e9-4385-a56f-be1ffab1b9ef"),
+                            FoodPortionId = new Guid("9a5b5605-e926-4627-953a-43f55f08fca2"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
                             PortionId = new Guid("59589114-7d6a-4c80-8681-db5c554ab38f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a5895827-b1db-47e7-901a-093c5f1fb0b5"),
+                            FoodPortionId = new Guid("c1dc2626-8a91-42f9-afbb-4189623b0902"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("c65d34ee-8c0c-43bb-9d4e-aa39955a4768")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ea220a62-3b77-43ec-8ef5-6d48d9df5169"),
+                            FoodPortionId = new Guid("6fa97051-fa0a-49d8-b777-b87efe766201"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("f9bc9ae8-e42e-4e8b-84d3-f2bc36037552")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fafad84e-20b4-4bf3-a440-1fea40c2a26a"),
+                            FoodPortionId = new Guid("42639568-6022-48f1-8e59-424ee023c09f"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("bd16f0ec-5ae1-42f4-a302-b4bce8f0db28")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("444d642a-e953-4e35-a696-b439906b3529"),
+                            FoodPortionId = new Guid("1c1e85b0-1f47-41a5-9ae4-530b7cf02bac"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("549d664a-eb1c-4b9a-8ad7-fab9e1482e5b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("53753eb7-523c-4f87-92fd-c69d0a54cccc"),
+                            FoodPortionId = new Guid("7367de1d-dad3-4614-a4ce-cc8aba1edc8a"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("e45c2156-a98c-4121-90b4-25097e8a5cd1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c0f989ac-e640-4615-b503-c5aed6036883"),
+                            FoodPortionId = new Guid("2b40750e-db54-44e8-8ed3-fb74b1250fe5"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("7b138bd4-4d3a-426c-9ab0-d66699b762d2")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9416975b-d009-470d-976e-6433796b3cca"),
+                            FoodPortionId = new Guid("b8956554-3e6e-408a-a78e-ad3b049cbb4e"),
                             FoodId = new Guid("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
                             PortionId = new Guid("2892c25f-bd50-4bb4-a845-997395ef6693")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("166bc02b-16f0-4aa2-812e-5fcf57d87c0e"),
+                            FoodPortionId = new Guid("ba269943-a595-402c-b16f-4192f4adbc56"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("03a92c0b-b7f6-4283-8109-a35898d5d3c5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8fe697c9-97cf-4eb5-a43f-c6cf3189dbe4"),
+                            FoodPortionId = new Guid("80103755-6205-4170-893e-f8c8b902948c"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("fc245902-ef53-4363-b4ce-0e598e1dd4a4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b2142e8d-da2d-4f7c-a4ed-ec41f1460da7"),
+                            FoodPortionId = new Guid("6fb44f9d-e0b9-456c-9691-9e52e813b5d1"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("da254ee7-d229-4769-bad5-a617d09676d4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2412c65d-06c7-4b65-b6a0-cdc202185579"),
+                            FoodPortionId = new Guid("259a58d1-31ab-407d-a2b4-48bc952eb4fe"),
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41"),
                             PortionId = new Guid("3d6d946f-8d9f-479a-b27e-3d78dc354db0")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("5dcc63a9-2ac0-47b2-b54b-73a2d0fe0d92"),
+                            FoodPortionId = new Guid("83cf2435-907d-448e-8830-228065a41372"),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
                             PortionId = new Guid("424ebe64-6570-4d88-9052-08c06dc0a2c8")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2fcac746-ad43-4314-b5ac-bb6c27246dec"),
+                            FoodPortionId = new Guid("c26e3d9a-cb8c-47c1-a6cd-939c6d8774d8"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5adcb96d-70ef-403d-89c6-cc3aa807b6a7")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fd8bfecc-2012-47c7-86b9-36b3a7cdc18e"),
+                            FoodPortionId = new Guid("8a547044-c3d5-47f1-8fa0-13914afd1056"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5a9ac478-aa65-48ea-9387-1ad92f6c76b1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("906a17b1-9f41-4b92-b0c0-40bd688b2b88"),
+                            FoodPortionId = new Guid("efcb9c65-6954-467c-9980-aa865cbe59a3"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("113f6a04-87c4-43c6-8263-920bd099c8e0")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ccdf114b-2b9d-4b0c-a769-9818a5d841cf"),
+                            FoodPortionId = new Guid("e847f54d-ee80-4d8a-b021-19b7865b154a"),
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("d2e88505-bbd6-4af6-9a88-535896c5d587")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("0a6cc9d7-3195-4a8a-8686-7095f4cc2e74"),
+                            FoodPortionId = new Guid("5a41f874-1f39-4c1b-a55a-c4da83034b84"),
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("3f19ef5c-3c60-4a11-b1b3-5158859f1286")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cc2f65cb-c628-475a-bf36-3cc7a5884679"),
+                            FoodPortionId = new Guid("8b85cf5d-4987-431f-8c39-22935370b64c"),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c"),
                             PortionId = new Guid("7e071bd6-6afa-483d-8688-28b31b9a8bef")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f73bb558-6d6c-4eaf-8400-c782d1374253"),
+                            FoodPortionId = new Guid("564e463f-8cb2-4c1f-8bd6-d065b0cdcfc1"),
                             FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607"),
                             PortionId = new Guid("d6c41cdb-4735-4b9e-85ae-1f48f33b7d6c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2eb3408e-b21e-4017-b815-372ad0f4c7e6"),
+                            FoodPortionId = new Guid("fbba39fb-aefd-45e2-8daa-1a805f70e602"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("a43d7637-6fc7-421b-86f1-f83e691431a4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("797efe9d-f34f-415d-bbbb-ee9dae760d13"),
+                            FoodPortionId = new Guid("d70a953c-a6c1-4569-80b6-1634d6182441"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("6e98f2be-9196-4c4e-8279-b02010f853f1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bee4608c-4b6d-49f0-aa63-f5fa05e9ddfc"),
+                            FoodPortionId = new Guid("215d9182-b35d-415b-b6cf-32a56b4ba5cd"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("e00ed683-11ff-4c21-8b1c-576b448726c9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6b83e238-54f5-460e-a123-dfb3a5091173"),
+                            FoodPortionId = new Guid("4db1204d-db34-426b-be1f-ac33533eb774"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("63d10d95-7983-455e-b920-29c1f0c88d85")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cbb3c486-bdab-4dd9-ba2a-0858245c7d6e"),
+                            FoodPortionId = new Guid("b7d54b05-224f-4bc0-bae2-4243b242ac33"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("919c7f66-53e5-46bd-b181-558f6052b953")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("11c494fb-9a96-4703-88e2-80ec20abe1ac"),
+                            FoodPortionId = new Guid("2a3aa258-8e0c-4bc6-8622-17c3cb0ccaf5"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("87409e4f-4bea-4bba-855d-a3bfbc2f9c20")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2abcf88d-939c-4c9d-8965-52b62e5a8249"),
+                            FoodPortionId = new Guid("79800667-9aaa-4939-910f-7a872b18cafc"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("26dcc6e0-67aa-40ed-b3d1-8a009c60a62c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a89479d2-3dc5-4df8-8807-5aba7152a231"),
+                            FoodPortionId = new Guid("88a520f7-5722-4b08-b59c-e48e90008522"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("3c7d60d4-60da-4f51-9448-30877b126572")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("13a6eb3a-9580-4bbd-b188-8bb98896a89e"),
+                            FoodPortionId = new Guid("f9ad728c-9d7e-4aeb-9496-6c9592974829"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("9c3399d1-72db-4e86-a518-2575033bb6a8")
                         });
@@ -7195,6 +7195,9 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid>("FoodId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsRecommended")
+                        .HasColumnType("bit");
 
                     b.Property<Guid>("MealId")
                         .HasColumnType("uniqueidentifier");
@@ -7358,7 +7361,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            NutritionId = new Guid("7eb3d2c2-f0e4-4630-9ae7-54514e1f3aa0"),
+                            NutritionId = new Guid("f42a4d2f-536a-43fb-9487-0679930bb02d"),
                             Calcium = 10f,
                             Calories = 130f,
                             Carbs = 28.2f,
@@ -7384,7 +7387,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1a0b4b6c-e853-4bf6-ba9c-39ace744a927"),
+                            NutritionId = new Guid("08c62502-4313-4057-b510-525d5fcb2bf2"),
                             Calcium = 22f,
                             Calories = 265f,
                             Carbs = 49f,
@@ -7410,7 +7413,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("66a82642-1518-4659-b4be-97fc2ce7e8af"),
+                            NutritionId = new Guid("b8ef0f05-988a-4507-ba2d-f192eb5d28dc"),
                             Calcium = 5f,
                             Calories = 89f,
                             Carbs = 22.8f,
@@ -7436,7 +7439,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5aa1c578-13d3-4df4-a5da-7ce621140bd0"),
+                            NutritionId = new Guid("d3b7efa8-17be-4580-a5a7-f120c6b1aeb4"),
                             Calcium = 56f,
                             Calories = 155f,
                             Carbs = 1.1f,
@@ -7462,7 +7465,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d5619274-98f4-44e2-911e-45112eb3a5e7"),
+                            NutritionId = new Guid("870948d1-0565-4803-9ad2-3d2fe286399d"),
                             Calcium = 125f,
                             Calories = 42f,
                             Carbs = 5f,
@@ -7488,7 +7491,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("192e1cad-8046-4755-9223-f7d4a9c87d65"),
+                            NutritionId = new Guid("c47e1ee2-5854-4bf5-ac4b-564ce2500a26"),
                             Calcium = 50f,
                             Calories = 380f,
                             Carbs = 45f,
@@ -7514,7 +7517,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e82d4cf2-9f56-4226-8302-7d3c03dfb4ba"),
+                            NutritionId = new Guid("b5a178a3-f28b-4b79-9586-43b70d568dd6"),
                             Calcium = 6f,
                             Calories = 52f,
                             Carbs = 13.8f,
@@ -7540,7 +7543,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("955f2214-0f6e-4c2e-b1fd-d2dbeb241a46"),
+                            NutritionId = new Guid("68d691b9-6cce-4df3-9c19-5ba83a563202"),
                             Calcium = 4f,
                             Calories = 110f,
                             Carbs = 24f,
@@ -7566,7 +7569,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4fe44ce8-7b95-423d-a095-454f555a3b26"),
+                            NutritionId = new Guid("68b57e12-66ac-4611-98b2-4a812811e497"),
                             Calcium = 16f,
                             Calories = 15f,
                             Carbs = 3.6f,
@@ -7592,7 +7595,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a36ccedd-54d5-4ced-bc5a-bf2deafb77b3"),
+                            NutritionId = new Guid("077d7377-d24e-47c3-abe0-6350ca38a623"),
                             Calcium = 5f,
                             Calories = 90f,
                             Carbs = 23f,
@@ -7618,7 +7621,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("40e88dba-c076-4388-b2a7-fb578fe9be17"),
+                            NutritionId = new Guid("329c8065-b44a-408c-beae-619142c195bc"),
                             Calcium = 5f,
                             Calories = 89f,
                             Carbs = 22.8f,
@@ -7644,7 +7647,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c8b82719-2d9f-4b7f-ae21-6a26611193ab"),
+                            NutritionId = new Guid("6e86b2cb-de57-471b-b918-5a7d540fbd05"),
                             Calcium = 18f,
                             Calories = 68f,
                             Carbs = 14.3f,
@@ -7670,7 +7673,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0bc3f047-f4aa-4a12-9420-cd2e2ab8c7b6"),
+                            NutritionId = new Guid("4f14033c-3731-469b-a748-f91046535914"),
                             Calcium = 30f,
                             Calories = 440f,
                             Carbs = 50f,
@@ -7696,7 +7699,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5cfeb7ef-9c4e-42d9-afce-c210f4ff98f9"),
+                            NutritionId = new Guid("441898c3-515a-4be2-a763-591e1aaac213"),
                             Calcium = 10f,
                             Calories = 50f,
                             Carbs = 11f,
@@ -7722,7 +7725,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bdfd1b61-b27b-4fa4-a47e-b4e7e6f95378"),
+                            NutritionId = new Guid("93c0ab2d-cb4a-416a-9a67-9fb304fec2ed"),
                             Calcium = 80f,
                             Calories = 360f,
                             Carbs = 45f,
@@ -7748,7 +7751,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("51899399-c775-44c2-9b83-7d3f856ed228"),
+                            NutritionId = new Guid("c869928a-f68a-49ef-be49-cc4626ff614a"),
                             Calcium = 20f,
                             Calories = 230f,
                             Carbs = 40f,
@@ -7774,7 +7777,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1861d131-b0d4-4a99-bd9a-873d66b99e8d"),
+                            NutritionId = new Guid("b2897fa1-d092-4cf6-baa6-1b273923b561"),
                             Calcium = 40f,
                             Calories = 450f,
                             Carbs = 50f,
@@ -7800,7 +7803,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e7ecfbb7-d891-4842-aba6-655002d38826"),
+                            NutritionId = new Guid("0ca3d474-0102-4933-bdfd-f6b34f27b668"),
                             Calcium = 10f,
                             Calories = 18f,
                             Carbs = 3.9f,
@@ -7826,7 +7829,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("888fbb12-c5e9-4cb9-b084-9c37f634311a"),
+                            NutritionId = new Guid("5a47f7ca-0209-498e-aa5f-9a5584667d6f"),
                             Calcium = 30f,
                             Calories = 420f,
                             Carbs = 60f,
@@ -7852,7 +7855,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("13446471-047e-4316-8a28-6994fe38500e"),
+                            NutritionId = new Guid("ead5a7be-7d48-4562-9e72-46e663b55e1c"),
                             Calcium = 7f,
                             Calories = 30f,
                             Carbs = 7.6f,
@@ -7878,7 +7881,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("28d5e859-a035-4819-8a86-52b26fd31887"),
+                            NutritionId = new Guid("0aac07c4-ad77-4211-a1ff-f262a795539c"),
                             Calcium = 40f,
                             Calories = 249f,
                             Carbs = 1.5f,
@@ -7904,7 +7907,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c12b82d4-ed17-405b-9dda-12dfbf3ed842"),
+                            NutritionId = new Guid("cf0fcc10-6bd5-4e50-bc05-8af5cb8265f8"),
                             Calcium = 10f,
                             Calories = 110f,
                             Carbs = 23f,
@@ -7930,7 +7933,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("889d3e24-28e3-4487-a8ec-b005c04d75e9"),
+                            NutritionId = new Guid("11701c3a-d069-4b7d-a802-aa143768bde9"),
                             Calcium = 20f,
                             Calories = 296f,
                             Carbs = 1.7f,
@@ -7956,7 +7959,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f24d7936-d856-4e54-be99-8dc079909cb2"),
+                            NutritionId = new Guid("bd66c5e7-2742-4170-8321-400fc8451b3b"),
                             Calcium = 11f,
                             Calories = 165f,
                             Carbs = 0f,
@@ -7982,7 +7985,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bac64dee-184d-43a8-ac26-9eb727cd17ba"),
+                            NutritionId = new Guid("c755bab8-924a-45c1-91ba-cd6ba241f2d5"),
                             Calcium = 2f,
                             Calories = 96f,
                             Carbs = 21f,
@@ -8008,7 +8011,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7d9296ae-df28-4e8c-8b3a-8763f6b314ab"),
+                            NutritionId = new Guid("0c9f1fd3-8b3f-4f8d-a5bc-0b7632c7a04d"),
                             Calcium = 110f,
                             Calories = 59f,
                             Carbs = 4.7f,
@@ -8034,7 +8037,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("239c16d0-c81c-4ca6-b264-933dad34658a"),
+                            NutritionId = new Guid("911b8f35-042e-4725-bf9e-bd07b5e77196"),
                             Calcium = 201f,
                             Calories = 76f,
                             Carbs = 1.9f,
@@ -8060,7 +8063,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1713969c-3df4-43d1-8d41-4266efd54e8d"),
+                            NutritionId = new Guid("1c88dd5d-0a15-4ca1-9dd0-7c8d665505e9"),
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 30f,
@@ -8086,7 +8089,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("da6b569a-c630-44b0-bb63-b1d21d881e2a"),
+                            NutritionId = new Guid("3f5d8c21-815e-4857-930e-0dfcca9fb286"),
                             Calcium = 11f,
                             Calories = 45f,
                             Carbs = 10.4f,
@@ -8112,7 +8115,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f0e4983d-6183-4df8-83d4-b79c712d5077"),
+                            NutritionId = new Guid("4d0d3171-6ba6-4a8f-9d8e-6c47f44bbd52"),
                             Calcium = 33f,
                             Calories = 41f,
                             Carbs = 9.6f,
@@ -8138,7 +8141,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("54f31e84-56ad-447a-bbe7-a34441946bc2"),
+                            NutritionId = new Guid("d00ef618-0652-4feb-b5bf-cf3e78012489"),
                             Calcium = 30f,
                             Calories = 150f,
                             Carbs = 18f,
@@ -8164,7 +8167,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7273ae92-7782-4cc6-a3dc-d22e9627d64b"),
+                            NutritionId = new Guid("47fc6f3b-0330-45dd-aa67-bea4f4ba6a9e"),
                             Calcium = 22f,
                             Calories = 265f,
                             Carbs = 49f,
@@ -8190,7 +8193,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("87c3cd60-69ae-44ba-b01d-5a95b057a12a"),
+                            NutritionId = new Guid("dfc19c54-0f13-4489-a07a-a8b49907f769"),
                             Calcium = 24f,
                             Calories = 19f,
                             Carbs = 3.7f,
@@ -8216,7 +8219,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("ac31498e-8eeb-461b-89c5-b26203f53409"),
+                            NutritionId = new Guid("04c4d6d2-ae27-4ab7-bae1-9a2ed0a9938a"),
                             Calcium = 11f,
                             Calories = 60f,
                             Carbs = 15f,
@@ -8242,7 +8245,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9157121b-9845-403c-ba53-e14c4e59116d"),
+                            NutritionId = new Guid("7504d60b-7bc5-43d1-92cc-c9ead552772c"),
                             Calcium = 77f,
                             Calories = 35f,
                             Carbs = 5.4f,
@@ -8268,7 +8271,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6dd70870-c55b-4951-a3b2-3ff03cb72291"),
+                            NutritionId = new Guid("a01f3a16-5003-4e3c-8707-aa35d0b1cd6e"),
                             Calcium = 40f,
                             Calories = 410f,
                             Carbs = 50f,
@@ -8294,7 +8297,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("31fc5e0b-2596-4b52-a17c-f6716a96b270"),
+                            NutritionId = new Guid("c2d5e304-459e-48de-ab93-78b389639267"),
                             Calcium = 120f,
                             Calories = 120f,
                             Carbs = 18f,
@@ -8320,7 +8323,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cc702617-1344-4608-b948-c4dd2869d15d"),
+                            NutritionId = new Guid("7350e7a5-074c-4d7c-a578-a1578eff608d"),
                             Calcium = 40f,
                             Calories = 300f,
                             Carbs = 50f,
@@ -8346,7 +8349,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("40f45ef2-34ae-4234-a703-78e795232ab2"),
+                            NutritionId = new Guid("04d99e67-f3da-45bb-b8bb-2e9fc7dd2c68"),
                             Calcium = 40f,
                             Calories = 350f,
                             Carbs = 55f,
@@ -8372,7 +8375,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3fe38619-3bac-4128-a7e0-df8b40960d52"),
+                            NutritionId = new Guid("30118bd9-3cc1-484e-94ef-f24ca2bcaf19"),
                             Calcium = 2f,
                             Calories = 2f,
                             Carbs = 0f,
@@ -8398,7 +8401,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bf522454-5594-4872-ad03-069f5309a07e"),
+                            NutritionId = new Guid("88a95d13-4832-4414-8876-27a1ca22d5ed"),
                             Calcium = 60f,
                             Calories = 90f,
                             Carbs = 10f,
@@ -8424,7 +8427,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("59b90467-78f4-44b7-bb3f-4db717529570"),
+                            NutritionId = new Guid("d052a412-301a-4895-9cfa-892c903c454b"),
                             Calcium = 25f,
                             Calories = 54f,
                             Carbs = 6.3f,
@@ -8450,7 +8453,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3f85db7d-822c-466a-83e3-af8a021b9650"),
+                            NutritionId = new Guid("3226b212-97a9-4c83-97eb-defe7aa5827e"),
                             Calcium = 30f,
                             Calories = 300f,
                             Carbs = 3f,
@@ -8476,7 +8479,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("80b8199c-7efa-4132-8da5-eb0d48a6203a"),
+                            NutritionId = new Guid("b3af61b6-6b49-4eaa-b763-d707cf8de4cc"),
                             Calcium = 50f,
                             Calories = 400f,
                             Carbs = 60f,
@@ -8502,7 +8505,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5220c160-336a-4c42-8427-d2baffc102d5"),
+                            NutritionId = new Guid("991a88fc-3264-454a-8814-01dab1a57331"),
                             Calcium = 105f,
                             Calories = 13f,
                             Carbs = 2.2f,
@@ -8528,7 +8531,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cd8ef4d8-e37d-4263-8a7a-8f88cc9bfaeb"),
+                            NutritionId = new Guid("4ea2439e-a0db-450c-a917-4070dba919a3"),
                             Calcium = 15f,
                             Calories = 350f,
                             Carbs = 70f,
@@ -8554,7 +8557,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7b2e205a-ccd0-4438-b903-dce4d6ae5857"),
+                            NutritionId = new Guid("d26c868b-36a8-487e-9026-8b277d30a91d"),
                             Calcium = 40f,
                             Calories = 450f,
                             Carbs = 50f,
@@ -8580,7 +8583,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1b581342-63f5-4082-ba61-f06ba80bd59a"),
+                            NutritionId = new Guid("6d62c7aa-2ab8-44c6-9ca3-c75712a690b5"),
                             Calcium = 35f,
                             Calories = 420f,
                             Carbs = 50f,
@@ -8606,7 +8609,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c6a9468c-f26c-4724-bda1-8cc061cda4e5"),
+                            NutritionId = new Guid("c0f89982-349c-4424-a404-5db0e7c60875"),
                             Calcium = 3f,
                             Calories = 11f,
                             Carbs = 3.3f,
@@ -8632,7 +8635,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9ac71ae3-c085-4266-b0ac-03444e92ceee"),
+                            NutritionId = new Guid("053e1ecc-75a6-4cac-b61c-479382d1881d"),
                             Calcium = 30f,
                             Calories = 400f,
                             Carbs = 45f,
@@ -8658,7 +8661,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("fc372b2c-353f-41fb-9b0d-97a080bb2e23"),
+                            NutritionId = new Guid("ce68ee1c-8493-40bd-974d-a4b33b6f9022"),
                             Calcium = 37f,
                             Calories = 53f,
                             Carbs = 13.3f,
@@ -8684,7 +8687,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("40921941-cc3c-4a12-9d0b-da4b207e40de"),
+                            NutritionId = new Guid("3db16f98-0bc1-4f9c-8eba-44ab3eebf317"),
                             Calcium = 110f,
                             Calories = 64f,
                             Carbs = 9.4f,
@@ -8710,7 +8713,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d18f97e9-0b21-41c4-a35b-ec86c7b86568"),
+                            NutritionId = new Guid("54ce37fb-65de-4213-844e-bb6f97e2413f"),
                             Calcium = 30f,
                             Calories = 300f,
                             Carbs = 40f,
@@ -8736,7 +8739,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("aebc0037-0cdb-4d86-9cec-8aabdeea3176"),
+                            NutritionId = new Guid("4cc75b18-8d28-4772-9230-8bc7cd1adb29"),
                             Calcium = 10f,
                             Calories = 20f,
                             Carbs = 4.6f,
@@ -8762,7 +8765,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b55ecfce-d5b6-4822-8981-fafbd902a1e6"),
+                            NutritionId = new Guid("65a0b2d6-eb24-4ccb-be86-2a18c4e31925"),
                             Calcium = 3f,
                             Calories = 37f,
                             Carbs = 7.8f,
@@ -8788,7 +8791,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d827d441-b174-4e30-a23a-72a57fb31c17"),
+                            NutritionId = new Guid("0efed067-5594-454c-9550-7b90390ffc9c"),
                             Calcium = 129f,
                             Calories = 322f,
                             Carbs = 3.6f,
@@ -8814,7 +8817,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3326865a-1122-4324-a602-25d494ca5050"),
+                            NutritionId = new Guid("7aa305db-02e2-4404-832b-fe347321d86a"),
                             Calcium = 2f,
                             Calories = 17f,
                             Carbs = 0.2f,
@@ -8840,7 +8843,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f99375ac-0b4f-4444-a91a-bebbb8283784"),
+                            NutritionId = new Guid("47c810b3-288d-489d-b6f4-8eced53771af"),
                             Calcium = 20f,
                             Calories = 250f,
                             Carbs = 32f,
@@ -8866,7 +8869,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3c9d0014-ab99-4c6b-b8f9-1d0bea592ba2"),
+                            NutritionId = new Guid("ea8cd536-472b-45dd-9964-8c1a0d4b03fb"),
                             Calcium = 70f,
                             Calories = 99f,
                             Carbs = 0.2f,
@@ -8892,7 +8895,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("18d4318d-5bd4-49bc-9892-bde098063095"),
+                            NutritionId = new Guid("881f468c-6497-4ff3-ae05-6d5d397c7295"),
                             Calcium = 81f,
                             Calories = 33f,
                             Carbs = 7f,
@@ -8918,7 +8921,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("dbf5c5c0-7aca-4939-b550-972ac86b0ff8"),
+                            NutritionId = new Guid("862b3c1f-374e-466f-944f-ec4eba508ce0"),
                             Calcium = 80f,
                             Calories = 380f,
                             Carbs = 50f,
@@ -8944,7 +8947,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("432075b6-ee4d-497f-b284-6588075fb2d5"),
+                            NutritionId = new Guid("b0fae7d2-80c1-4e04-93cc-34f5e9a569cf"),
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 30f,
@@ -8970,7 +8973,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5e951c99-8b53-4d3c-a712-8a0b2ec32fbb"),
+                            NutritionId = new Guid("d312cffe-e7f8-4534-80b7-498ecc06abdf"),
                             Calcium = 50f,
                             Calories = 400f,
                             Carbs = 55f,
@@ -8996,7 +8999,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("01bd2b4e-6f19-449b-b3c8-db90ccc152c9"),
+                            NutritionId = new Guid("b6d99987-f83f-4ddb-b417-728b25945719"),
                             Calcium = 40f,
                             Calories = 25f,
                             Carbs = 5.8f,
@@ -9022,7 +9025,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3d07205f-dff3-4618-bd50-d4a72d389131"),
+                            NutritionId = new Guid("6d0eee92-3cf1-4be8-bd38-249f7994911f"),
                             Calcium = 11f,
                             Calories = 337f,
                             Carbs = 0f,
@@ -9048,7 +9051,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5b11ecfb-e561-4764-86c4-415254c95f93"),
+                            NutritionId = new Guid("ea5c9d55-3c3a-470f-b724-c66e04396306"),
                             Calcium = 12f,
                             Calories = 239f,
                             Carbs = 0f,
@@ -9074,7 +9077,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4d9a4fcb-6ca0-4f29-bd54-7754317db859"),
+                            NutritionId = new Guid("d5b06c11-5a5e-4674-a34f-7e0aec18c60b"),
                             Calcium = 30f,
                             Calories = 300f,
                             Carbs = 2f,
@@ -9100,7 +9103,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a6433010-7327-4af5-b7ec-8a616cb4ef1c"),
+                            NutritionId = new Guid("d7a96f1d-b798-4525-a40c-ad4846644660"),
                             Calcium = 10f,
                             Calories = 290f,
                             Carbs = 0f,
@@ -9126,7 +9129,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("eb699758-b752-4fb1-b4c3-57d9ad30272e"),
+                            NutritionId = new Guid("7f7255c1-5d8a-4f01-9cc6-69867b0e2e8b"),
                             Calcium = 8f,
                             Calories = 250f,
                             Carbs = 0f,
@@ -9152,7 +9155,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("557feaf0-8e70-4b82-845f-167412b59b9b"),
+                            NutritionId = new Guid("18a0b056-ba25-48ff-81db-ce7c518bd705"),
                             Calcium = 20f,
                             Calories = 220f,
                             Carbs = 28f,
@@ -9178,7 +9181,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e0cf3e35-c7fa-4ff9-a1a5-47f574286033"),
+                            NutritionId = new Guid("0a55e4c6-d250-4d61-b6d1-bae4f1dd6143"),
                             Calcium = 20f,
                             Calories = 200f,
                             Carbs = 25f,
@@ -9204,7 +9207,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e6db41cf-bc43-46b2-9f17-52eb80e1965a"),
+                            NutritionId = new Guid("c30c068f-47b2-4680-9e5e-24a5e2c59b1e"),
                             Calcium = 10f,
                             Calories = 160f,
                             Carbs = 30f,
@@ -9230,7 +9233,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6513bf4e-148a-446a-9f41-7c74fb8d9727"),
+                            NutritionId = new Guid("e352e7f1-91ff-4cfc-9101-b431ed1423aa"),
                             Calcium = 20f,
                             Calories = 230f,
                             Carbs = 40f,
@@ -9256,7 +9259,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b41cc80d-fe51-4381-be1c-df5e045bee41"),
+                            NutritionId = new Guid("18f639e0-ef12-4810-a3d3-8613ab104736"),
                             Calcium = 9f,
                             Calories = 206f,
                             Carbs = 0f,
@@ -9282,7 +9285,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e182f719-85d8-446d-a6c4-c91184b5356f"),
+                            NutritionId = new Guid("b978b7f2-530c-45a1-a0ac-ca9daad44841"),
                             Calcium = 30f,
                             Calories = 86f,
                             Carbs = 20.1f,
@@ -9308,7 +9311,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d0e25fdb-c963-4043-b5b5-7bafb24e3e62"),
+                            NutritionId = new Guid("803ed304-430f-439f-a911-fcab1f9f1039"),
                             Calcium = 11f,
                             Calories = 77f,
                             Carbs = 17f,
@@ -9334,7 +9337,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8be23079-f450-45f8-ada4-4315db6ff62b"),
+                            NutritionId = new Guid("a466a3b3-01c2-4c9e-af0d-994839364e9d"),
                             Calcium = 23f,
                             Calories = 40f,
                             Carbs = 9.3f,
@@ -9360,7 +9363,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("882c6966-1d02-4a91-a1b1-54d26a728a76"),
+                            NutritionId = new Guid("e95e9df6-879b-477a-8d69-2992b09886cd"),
                             Calcium = 18f,
                             Calories = 14f,
                             Carbs = 3.4f,
@@ -9386,7 +9389,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8f8e2da3-76e3-4196-9e5e-669fe62da00d"),
+                            NutritionId = new Guid("30dbd072-2963-43e9-bc80-3dd99eda4eac"),
                             Calcium = 21f,
                             Calories = 92f,
                             Carbs = 3.1f,
@@ -9412,7 +9415,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("837b8ea8-c139-43da-b6bb-c30e9ebf611e"),
+                            NutritionId = new Guid("81a48c2e-42b4-49b2-aede-f8083b8b28a6"),
                             Calcium = 37f,
                             Calories = 31f,
                             Carbs = 7.1f,
@@ -9438,7 +9441,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1f27e664-eebf-482d-9b39-22353dbb1024"),
+                            NutritionId = new Guid("bb9dabfb-83e4-4d25-a2c7-1b7f08d041a7"),
                             Calcium = 10f,
                             Calories = 150f,
                             Carbs = 30f,
@@ -9464,7 +9467,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4122b43e-6e45-4915-a948-1543969d6c03"),
+                            NutritionId = new Guid("8fc9e378-2f72-4bac-ab10-0d13dc502e63"),
                             Calcium = 20f,
                             Calories = 200f,
                             Carbs = 35f,
@@ -9490,7 +9493,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6766912b-f353-4a7a-895a-c8b0915b505b"),
+                            NutritionId = new Guid("2d974a64-7483-4374-8559-3a972f9c9b41"),
                             Calcium = 60f,
                             Calories = 350f,
                             Carbs = 50f,
@@ -9516,7 +9519,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("eef803a8-c94b-4d99-bfa1-53e839f696d4"),
+                            NutritionId = new Guid("ac4775e6-9708-4ad7-924b-c27733ba7f56"),
                             Calcium = 5f,
                             Calories = 66f,
                             Carbs = 16.5f,
@@ -9542,7 +9545,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a3c43db4-09b3-41e4-bd46-a84ec1651e0b"),
+                            NutritionId = new Guid("ca935011-70d5-4d49-b2f5-d0b0abca8976"),
                             Calcium = 500f,
                             Calories = 245f,
                             Carbs = 0f,
@@ -9568,7 +9571,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("be2661b2-e1a5-4052-a916-6e5b27b79064"),
+                            NutritionId = new Guid("d2958c8f-4ca4-4da3-bb40-e0b8802eb66d"),
                             Calcium = 5f,
                             Calories = 28f,
                             Carbs = 4.8f,
@@ -9594,7 +9597,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b747e9d2-49ff-4d61-baae-dba62431ca4b"),
+                            NutritionId = new Guid("ff35da68-6487-495b-a363-c476709b38cd"),
                             Calcium = 18f,
                             Calories = 20f,
                             Carbs = 4.3f,
@@ -9620,7 +9623,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4c16aaae-eb33-49a6-8b80-a4de71ea0d70"),
+                            NutritionId = new Guid("f6cf85f6-6023-48c9-9da3-d7567641f146"),
                             Calcium = 30f,
                             Calories = 260f,
                             Carbs = 42f,
@@ -9646,7 +9649,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b6a153b4-185b-4cde-a5ae-612092250c1e"),
+                            NutritionId = new Guid("d4fa3e69-a3de-40d1-815d-f519ee09d2a4"),
                             Calcium = 10f,
                             Calories = 40f,
                             Carbs = 10f,
@@ -9672,7 +9675,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f2cb3a4d-e625-4d0f-8346-ca5ca335f8d2"),
+                            NutritionId = new Guid("122da4a0-053d-493e-9a0f-9de5b877b46c"),
                             Calcium = 80f,
                             Calories = 55f,
                             Carbs = 2f,
@@ -9698,7 +9701,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("aabcca0a-503e-4227-b89d-9f4e162243e9"),
+                            NutritionId = new Guid("5a4c151d-6fa8-4068-9592-2970216a9f42"),
                             Calcium = 10f,
                             Calories = 100f,
                             Carbs = 3f,
@@ -9724,7 +9727,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d114f6a4-6eac-4d22-a528-0e47ce0eb44f"),
+                            NutritionId = new Guid("ac85dfc4-7843-4f3d-96ec-04a75aba108b"),
                             Calcium = 10f,
                             Calories = 132f,
                             Carbs = 0f,
@@ -9750,7 +9753,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d367ddc9-b536-4d4c-b832-f156c0692a74"),
+                            NutritionId = new Guid("8a44f52b-655e-46b9-8885-c343cb950c88"),
                             Calcium = 40f,
                             Calories = 450f,
                             Carbs = 50f,
@@ -9776,7 +9779,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("21531e81-c016-4f85-84d0-1ebdb3e07b62"),
+                            NutritionId = new Guid("a0d822b3-8177-4502-989c-49703cfef807"),
                             Calcium = 30f,
                             Calories = 86f,
                             Carbs = 20.1f,
@@ -9802,7 +9805,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8f574be0-346e-4a76-b8de-f9df443b901e"),
+                            NutritionId = new Guid("e1c72f03-2325-40d2-b92d-0dcedd85b6cc"),
                             Calcium = 20f,
                             Calories = 59f,
                             Carbs = 15f,
@@ -9828,7 +9831,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cd4dc2aa-df72-42f7-85f7-dd0c83ce943c"),
+                            NutritionId = new Guid("b715d6eb-2cac-40bb-bd6c-2b6437341ff0"),
                             Calcium = 30f,
                             Calories = 120f,
                             Carbs = 25f,
@@ -9854,7 +9857,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e11dd208-5601-40c4-8025-5eb6f6f2fd33"),
+                            NutritionId = new Guid("99cb317e-638e-4a52-a375-b4499eff535f"),
                             Calcium = 40f,
                             Calories = 140f,
                             Carbs = 25f,
@@ -9880,7 +9883,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4fd64a02-3322-4f8e-b6f0-fe270bb026fa"),
+                            NutritionId = new Guid("e9f2aeed-b5d3-42c5-9909-d080e150fa33"),
                             Calcium = 40f,
                             Calories = 15f,
                             Carbs = 2.4f,
@@ -9906,7 +9909,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8f34703c-e504-4073-9f19-87dc3a744aea"),
+                            NutritionId = new Guid("3be255b0-0efb-4e68-8222-60f0b2de9acc"),
                             Calcium = 13f,
                             Calories = 165f,
                             Carbs = 0f,
@@ -9932,7 +9935,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a7fc40bb-7526-4935-8ae7-41bfbb8e3b9b"),
+                            NutritionId = new Guid("1e49fea4-e904-4d2a-aa8b-cdecfdb11da0"),
                             Calcium = 20f,
                             Calories = 250f,
                             Carbs = 0f,
@@ -9958,7 +9961,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("65094eaf-2c9a-424f-8d50-30247e5b9b5e"),
+                            NutritionId = new Guid("54cfe33b-144a-47f3-8fc4-b65370fed8f8"),
                             Calcium = 12f,
                             Calories = 206f,
                             Carbs = 0f,
@@ -9984,7 +9987,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("34002cab-cfe8-417c-9dc3-a98f85de7341"),
+                            NutritionId = new Guid("c624e6d0-3326-4135-9979-57d524f08040"),
                             Calcium = 70f,
                             Calories = 99f,
                             Carbs = 0.2f,
@@ -10010,7 +10013,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("61e0ecba-2b67-4dbc-b67a-5f48782d4879"),
+                            NutritionId = new Guid("aaed5c86-46c8-4f06-8739-027f45e2e58b"),
                             Calcium = 7f,
                             Calories = 242f,
                             Carbs = 0f,
@@ -10036,7 +10039,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9da8125b-6d92-4117-afe4-3d3f62dbe3e8"),
+                            NutritionId = new Guid("0ee2e8c9-89a9-43ef-9ef2-3dd89c217fe1"),
                             Calcium = 12f,
                             Calories = 189f,
                             Carbs = 0f,
@@ -10062,7 +10065,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cd2b3619-efe4-4cf8-8fbc-0a0fcc8ed2ed"),
+                            NutritionId = new Guid("ddfc0049-155c-4519-be81-a6fe08136b79"),
                             Calcium = 277f,
                             Calories = 172f,
                             Carbs = 8.4f,
@@ -10088,7 +10091,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("38b09cb5-81c2-458a-abfd-537f80274880"),
+                            NutritionId = new Guid("d30af905-934d-42c6-a07f-f9a0084a8630"),
                             Calcium = 110f,
                             Calories = 59f,
                             Carbs = 3.6f,
@@ -10114,7 +10117,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b2d30615-8ff4-4a0e-8861-44ae984b70e4"),
+                            NutritionId = new Guid("1483bf45-37d2-4873-8cce-6d4037fe9949"),
                             Calcium = 15f,
                             Calories = 190f,
                             Carbs = 0f,
@@ -10140,7 +10143,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("580e536b-950e-4a58-a55f-7e53e7e4337f"),
+                            NutritionId = new Guid("72df27d6-4a2a-4f0c-a994-2d532be2a79d"),
                             Calcium = 11f,
                             Calories = 116f,
                             Carbs = 0f,
@@ -10166,7 +10169,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a3087e5f-0c0f-4a9e-9df2-420885f2dc08"),
+                            NutritionId = new Guid("185ca99b-f004-4d9b-8156-b1b1ddd7773d"),
                             Calcium = 350f,
                             Calories = 145f,
                             Carbs = 5.3f,
@@ -10192,7 +10195,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6a7cbc40-09e1-4bdb-b2aa-3ce21a9cf417"),
+                            NutritionId = new Guid("b567049f-b4d0-4a35-8d82-1093e2c6a406"),
                             Calcium = 18f,
                             Calories = 271f,
                             Carbs = 0f,
@@ -10218,7 +10221,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e6052c1c-f6ff-456e-b9d0-ad174c0cb0ce"),
+                            NutritionId = new Guid("9910984b-02a3-4927-b8a0-dce9e805ac14"),
                             Calcium = 11f,
                             Calories = 117f,
                             Carbs = 0f,
@@ -10244,7 +10247,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bcaa01be-6302-4895-8ded-0dd3f64da3e3"),
+                            NutritionId = new Guid("2935e45d-dcc7-4939-84bb-5b100a5a75ac"),
                             Calcium = 264f,
                             Calories = 576f,
                             Carbs = 22f,
@@ -10270,7 +10273,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d6c17d72-17bf-4dc6-a479-6ab918f4dcc5"),
+                            NutritionId = new Guid("a5d122fb-e37f-405b-9fe9-354f6b72128f"),
                             Calcium = 357f,
                             Calories = 145f,
                             Carbs = 4f,
@@ -10296,7 +10299,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("201103d1-92a6-4c95-ba15-2527aefa8b3a"),
+                            NutritionId = new Guid("778dcdee-5d16-4b56-9939-31696093bba8"),
                             Calcium = 15f,
                             Calories = 417f,
                             Carbs = 1.4f,
@@ -10322,7 +10325,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("45936c8c-0f5f-4847-9bc5-74b6cbd4a56b"),
+                            NutritionId = new Guid("f0c0dbc5-945f-4b52-9f4b-1d11cf937f37"),
                             Calcium = 46f,
                             Calories = 559f,
                             Carbs = 14f,
@@ -10348,7 +10351,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("2de4c31e-5a8c-479d-9661-9afb63c2f844"),
+                            NutritionId = new Guid("e9b4261f-70db-477b-80a0-1fb5237e8306"),
                             Calcium = 25f,
                             Calories = 81f,
                             Carbs = 14f,
@@ -10374,7 +10377,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("61082bfc-f5f0-43eb-922c-b21d1c41b1b8"),
+                            NutritionId = new Guid("5771a372-d337-4fb0-9e24-8fa11b08a4c3"),
                             Calcium = 120f,
                             Calories = 42f,
                             Carbs = 5f,
@@ -10400,7 +10403,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7c3ef8d0-97d4-43f7-8d75-947afd505df5"),
+                            NutritionId = new Guid("266aeb2b-1faa-465f-ab01-9111650d7b1f"),
                             Calcium = 15f,
                             Calories = 239f,
                             Carbs = 0f,
@@ -10426,7 +10429,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("05234fba-bfc9-4496-a87f-014245db49c1"),
+                            NutritionId = new Guid("a2336334-682d-432a-90ff-0efc6c1dedc6"),
                             Calcium = 54f,
                             Calories = 389f,
                             Carbs = 66.3f,
@@ -10452,7 +10455,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3d8dd049-9890-4fb2-aa79-e254b4214d7c"),
+                            NutritionId = new Guid("6f90995e-017d-42c9-a599-93dce80cbd13"),
                             Calcium = 99f,
                             Calories = 23f,
                             Carbs = 3.6f,
@@ -10478,7 +10481,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f1579161-0579-49f1-862e-e05e4376bef4"),
+                            NutritionId = new Guid("fc0a9f76-f7e5-4a41-bb53-fee367a3ca4d"),
                             Calcium = 78f,
                             Calories = 584f,
                             Carbs = 20f,
@@ -10504,7 +10507,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("55c72c30-08d6-44da-a7d5-e95c16567f0a"),
+                            NutritionId = new Guid("459a9e23-f3ea-449f-bfcf-e2724292cfab"),
                             Calcium = 114f,
                             Calories = 19f,
                             Carbs = 3.4f,
@@ -10530,7 +10533,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f1c63fe4-4d09-4e2f-9156-272359eb6488"),
+                            NutritionId = new Guid("842ec4b9-6383-45e9-9f2d-3f432c2f7a2b"),
                             Calcium = 9f,
                             Calories = 57f,
                             Carbs = 15.2f,
@@ -10556,7 +10559,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cebae6b2-d315-49ac-94ae-af34d401dbc9"),
+                            NutritionId = new Guid("7c2d61a3-9fe7-421e-9537-8848dd764f10"),
                             Calcium = 16f,
                             Calories = 32f,
                             Carbs = 7.7f,
@@ -10582,7 +10585,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1bcbf793-241e-425b-b9ed-8379296bbb7e"),
+                            NutritionId = new Guid("a0040a0f-e272-4668-b6b3-fc0075935a3f"),
                             Calcium = 25f,
                             Calories = 52f,
                             Carbs = 11.9f,
@@ -10608,7 +10611,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("54e04383-ff13-4bf8-9398-b0a883dc9bb7"),
+                            NutritionId = new Guid("ce1511fb-6e61-4185-9360-bc258ea657a0"),
                             Calcium = 21f,
                             Calories = 26f,
                             Carbs = 6.5f,
@@ -10634,7 +10637,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5ef31d43-693c-41eb-8642-c54ac400e423"),
+                            NutritionId = new Guid("a37f61b3-eba0-44d3-9ff8-358babb30de9"),
                             Calcium = 43f,
                             Calories = 142f,
                             Carbs = 34.6f,
@@ -10660,7 +10663,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("00957915-97de-483f-83f5-ef74d853af78"),
+                            NutritionId = new Guid("2d209f50-7f21-4ae6-8da9-39d0d0daff5c"),
                             Calcium = 24f,
                             Calories = 20f,
                             Carbs = 3.9f,
@@ -10686,7 +10689,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("2f946ee1-8ba3-478e-b25a-1375b579db7c"),
+                            NutritionId = new Guid("6444c10d-453b-4d79-89d7-9fb2f1bc8070"),
                             Calcium = 45f,
                             Calories = 31f,
                             Carbs = 7.4f,
@@ -10712,7 +10715,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("565cbce9-b0d7-4ce2-b23f-44d2d8ed6b4a"),
+                            NutritionId = new Guid("3009a8dc-1348-49cc-b0ac-9978992be40b"),
                             Calcium = 34f,
                             Calories = 61f,
                             Carbs = 14.7f,
@@ -10738,7 +10741,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e9a81df6-e218-43a5-8ef8-0e33231fcef7"),
+                            NutritionId = new Guid("d07a6753-2607-4bde-bbeb-82af31c4ac09"),
                             Calcium = 8f,
                             Calories = 378f,
                             Carbs = 72.9f,
@@ -10764,7 +10767,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b421f362-e37a-4161-9a94-db0a729bb6e5"),
+                            NutritionId = new Guid("65d40b3e-4021-4b53-bcf0-7f20b1ab2f7c"),
                             Calcium = 16f,
                             Calories = 27f,
                             Carbs = 5.2f,
@@ -10790,7 +10793,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("65a8be28-7f11-4780-b7a9-6656bc821932"),
+                            NutritionId = new Guid("4ee38a1c-7f02-4b8c-b02e-42c3467a9738"),
                             Calcium = 70f,
                             Calories = 306f,
                             Carbs = 80f,
@@ -10816,7 +10819,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("ad401dbc-d9da-4606-984c-8988e9e234d9"),
+                            NutritionId = new Guid("6aa9d919-d340-43c0-a0ec-b8f9f25bc922"),
                             Calcium = 47f,
                             Calories = 34f,
                             Carbs = 6.6f,
@@ -10842,7 +10845,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("18f09173-a961-46d4-96b5-1a3974591c38"),
+                            NutritionId = new Guid("b2102bd4-7ffd-4c00-bd2e-a6137a71e2e5"),
                             Calcium = 10f,
                             Calories = 112f,
                             Carbs = 23.5f,
@@ -10868,7 +10871,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("ecc505df-8784-4072-a4e8-f45d6b87593f"),
+                            NutritionId = new Guid("5e2a1ba9-8e43-4280-b191-45a29ba6600f"),
                             Calcium = 10f,
                             Calories = 69f,
                             Carbs = 18.1f,
@@ -10894,7 +10897,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e2b32751-aa5b-4f94-8fa0-d973e456020b"),
+                            NutritionId = new Guid("42b6d6de-6256-4f90-a59e-3d5087a75418"),
                             Calcium = 99f,
                             Calories = 23f,
                             Carbs = 3.6f,
@@ -10920,7 +10923,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("796a70eb-587a-4a82-a530-21825dee0da5"),
+                            NutritionId = new Guid("96af9631-c8de-44c6-bad9-c287d58df606"),
                             Calcium = 27f,
                             Calories = 132f,
                             Carbs = 23.7f,
@@ -10946,7 +10949,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6642b742-bfe0-47d7-a79b-8b24eb39c252"),
+                            NutritionId = new Guid("3afa69c5-a667-467e-a170-c19d99664826"),
                             Calcium = 16f,
                             Calories = 43f,
                             Carbs = 9.6f,
@@ -10972,7 +10975,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("78d1ff41-bb08-4b1a-a6fc-57a670723a78"),
+                            NutritionId = new Guid("66dada6b-2ac6-49d0-abdd-8173ed7af2a9"),
                             Calcium = 25f,
                             Calories = 81f,
                             Carbs = 14.5f,
@@ -10998,7 +11001,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("dd2c601c-bc3c-4aee-946f-7129c2863e44"),
+                            NutritionId = new Guid("efb52746-aa86-4863-bdbe-77c9b8bae7a4"),
                             Calcium = 33f,
                             Calories = 354f,
                             Carbs = 73.5f,
@@ -11024,7 +11027,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("988534b0-7b33-4e46-94fa-75f4ea52a5c9"),
+                            NutritionId = new Guid("6286b51d-e1fd-400a-97f1-e66187097766"),
                             Calcium = 55f,
                             Calories = 22f,
                             Carbs = 3.8f,
@@ -11050,7 +11053,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b9514243-d32a-4f9a-8c3b-01b5f1375b66"),
+                            NutritionId = new Guid("426f2ef9-a553-4be9-bbf6-8eeab5c36380"),
                             Calcium = 8f,
                             Calories = 110f,
                             Carbs = 23.4f,
@@ -11076,7 +11079,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("91342268-43fb-42b1-8cf8-5b0e294fbec5"),
+                            NutritionId = new Guid("07b51f34-78b5-4228-b950-66ea37af4ab3"),
                             Calcium = 99f,
                             Calories = 23f,
                             Carbs = 3.6f,
@@ -11102,7 +11105,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3ff3bc44-b1bc-4ae9-86b2-2323c757ab13"),
+                            NutritionId = new Guid("eade539f-3095-4e23-9c5f-e323f6c903d8"),
                             Calcium = 27f,
                             Calories = 16f,
                             Carbs = 3.4f,
@@ -11128,7 +11131,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7f65cb15-7d00-490d-a8f3-ab71423770b0"),
+                            NutritionId = new Guid("963b81b0-153b-4c70-a3f1-df01bc467444"),
                             Calcium = 39f,
                             Calories = 20f,
                             Carbs = 3.8f,
@@ -11154,7 +11157,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a9c746a3-af21-4fa1-8a51-b3c67c396237"),
+                            NutritionId = new Guid("e3a86324-3097-4815-a121-0151e273c7d9"),
                             Calcium = 255f,
                             Calories = 534f,
                             Carbs = 28.9f,
@@ -11180,7 +11183,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d9e53ae8-d82d-4ff7-a669-bb9a07f5cc4d"),
+                            NutritionId = new Guid("e0702b39-7660-4e22-a136-0001a62fe3a4"),
                             Calcium = 107f,
                             Calories = 562f,
                             Carbs = 27.2f,
@@ -11206,7 +11209,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("66f9c8e3-3153-4048-9934-992efff0d4ba"),
+                            NutritionId = new Guid("6ba6762e-027f-40a3-919a-b98b761e5130"),
                             Calcium = 14f,
                             Calories = 354f,
                             Carbs = 15.2f,
@@ -11232,7 +11235,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5d9eb8cb-4e10-47aa-8305-52a27dd6d301"),
+                            NutritionId = new Guid("5f066f8e-10a1-4a8a-861c-9bf5acbab99c"),
                             Calcium = 12f,
                             Calories = 189f,
                             Carbs = 0f,
@@ -11258,7 +11261,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6d69d32c-3269-4a58-bfb1-18502df1186a"),
+                            NutritionId = new Guid("debb27e9-9a9a-4fdd-881c-94b592a2e6f0"),
                             Calcium = 85f,
                             Calories = 718f,
                             Carbs = 13.8f,
@@ -11284,7 +11287,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b4c27701-71c8-4412-ac7e-466de049286b"),
+                            NutritionId = new Guid("93b8a667-a8f1-4a8a-a460-e1dc1e9dd98b"),
                             Calcium = 21f,
                             Calories = 83f,
                             Carbs = 19.9f,
@@ -11310,7 +11313,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cbacfd24-1a47-453f-bb6a-c07c02f98feb"),
+                            NutritionId = new Guid("534eef51-4b6f-4d19-9820-cb1fa8930027"),
                             Calcium = 6f,
                             Calories = 39f,
                             Carbs = 9.5f,
@@ -11336,7 +11339,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("deb29a3c-4594-439c-ab2a-b71735f7348f"),
+                            NutritionId = new Guid("7d7e58e8-a6b2-4057-b89b-dd01a094eed6"),
                             Calcium = 10f,
                             Calories = 83f,
                             Carbs = 18.7f,
@@ -11362,7 +11365,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f34d8e68-4f5c-4be4-b7dc-4301ac1ebefe"),
+                            NutritionId = new Guid("82ec8811-0a38-4b8d-937b-29cf5fbe6557"),
                             Calcium = 20f,
                             Calories = 85f,
                             Carbs = 5f,
@@ -11388,7 +11391,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("16d6c19f-2068-40df-82a1-fb8d9ef062c5"),
+                            NutritionId = new Guid("72168530-a1b7-4d08-90f9-834b1e02ed02"),
                             Calcium = 20f,
                             Calories = 35f,
                             Carbs = 8f,
@@ -11414,7 +11417,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d26d7c5e-9746-42b0-80e9-42de67a8213b"),
+                            NutritionId = new Guid("f88a9e35-d511-4aee-948a-a5ab73063ba7"),
                             Calcium = 30f,
                             Calories = 40f,
                             Carbs = 9f,
@@ -11440,7 +11443,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c066840e-8590-41cf-97bf-0ab6a45c4514"),
+                            NutritionId = new Guid("15187b00-91a6-459e-b8c1-1302dd772c6c"),
                             Calcium = 20f,
                             Calories = 15f,
                             Carbs = 3.5f,
@@ -11466,7 +11469,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1a4dae90-148d-40c7-be57-17bc99188bcb"),
+                            NutritionId = new Guid("eb3bf38e-4325-41c7-ae97-8a35ddd3940b"),
                             Calcium = 40f,
                             Calories = 70f,
                             Carbs = 6f,
@@ -11492,7 +11495,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9f786a96-13de-411a-9e5e-09d24f2421ec"),
+                            NutritionId = new Guid("78d4b231-2a60-4965-b0f6-64503b6469ad"),
                             Calcium = 15f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -11518,7 +11521,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("be4aa1df-501d-4b74-89c5-a86b6b1e472c"),
+                            NutritionId = new Guid("a29574bb-26c0-4b71-9f97-708196f4ff81"),
                             Calcium = 10f,
                             Calories = 90f,
                             Carbs = 15f,
@@ -11544,7 +11547,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("84808d39-fec0-47c2-9443-f19ed7b40e7d"),
+                            NutritionId = new Guid("b9e27ca0-0951-410a-9c81-605fe12deb52"),
                             Calcium = 15f,
                             Calories = 120f,
                             Carbs = 15f,
@@ -11570,7 +11573,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("064a52ce-63ad-461d-965f-2737a5071056"),
+                            NutritionId = new Guid("a0574245-a2b4-4ebb-a0bb-adfaf256ba05"),
                             Calcium = 15f,
                             Calories = 110f,
                             Carbs = 14f,
@@ -11596,7 +11599,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("210c1087-3209-4601-a427-f11be8cabe1f"),
+                            NutritionId = new Guid("59689733-bbc3-4520-96db-c048505c45ec"),
                             Calcium = 30f,
                             Calories = 120f,
                             Carbs = 18f,
@@ -11622,7 +11625,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b30c8e75-8775-40b7-b86f-7ad27c5c0c87"),
+                            NutritionId = new Guid("e7050635-ee39-4b15-a968-af2e51667cd6"),
                             Calcium = 25f,
                             Calories = 105f,
                             Carbs = 15f,
@@ -11648,7 +11651,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("348644e9-22a7-4edc-85f9-71c924a3b6ef"),
+                            NutritionId = new Guid("d7940240-d955-4183-aad4-9de41e2a083e"),
                             Calcium = 30f,
                             Calories = 110f,
                             Carbs = 15f,
@@ -11674,7 +11677,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("34661806-8f64-4974-a852-7aa6791f45e6"),
+                            NutritionId = new Guid("242a83fb-fec6-4a56-8d03-d04cf65be140"),
                             Calcium = 30f,
                             Calories = 95f,
                             Carbs = 15f,
@@ -11700,7 +11703,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e5edda25-e03e-46b8-a9b3-c6ff8b312694"),
+                            NutritionId = new Guid("91cb02b7-8963-48c5-b0cf-43941cc63e54"),
                             Calcium = 20f,
                             Calories = 120f,
                             Carbs = 16f,
@@ -11726,7 +11729,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3e3d37c0-3ef5-45f1-a104-8d17a5aa82a2"),
+                            NutritionId = new Guid("1304787b-4690-4572-a527-c4dcc62490ac"),
                             Calcium = 40f,
                             Calories = 230f,
                             Carbs = 30f,
@@ -11752,7 +11755,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("00adaee4-949f-4cfe-8557-fb7da595ed36"),
+                            NutritionId = new Guid("1f637335-3ed7-4fa9-98c0-de79bdab22bd"),
                             Calcium = 30f,
                             Calories = 200f,
                             Carbs = 25f,
@@ -11778,7 +11781,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7b3625ed-a40b-4eac-9bda-109d50aff848"),
+                            NutritionId = new Guid("9c03ff8f-663c-4cc0-aef6-77ccf79b2078"),
                             Calcium = 15f,
                             Calories = 90f,
                             Carbs = 14f,
@@ -11804,7 +11807,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("25146e1c-5866-4996-b96a-c2b36e838784"),
+                            NutritionId = new Guid("71a19aad-df7c-4586-8eca-e801910a766d"),
                             Calcium = 30f,
                             Calories = 40f,
                             Carbs = 8f,
@@ -11830,7 +11833,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3ffd2b1d-7aba-4b96-b706-2721f8e1b40e"),
+                            NutritionId = new Guid("bef7d6ac-2685-421e-b204-c1d6ce5e7f5e"),
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 8f,
@@ -11856,7 +11859,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e732db10-b5a4-4552-b7ed-c450a32af5d4"),
+                            NutritionId = new Guid("74cdb7b7-8902-44da-b16a-6ba59025beb2"),
                             Calcium = 15f,
                             Calories = 70f,
                             Carbs = 6f,
@@ -11882,7 +11885,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1a2a3479-ce02-4197-b504-50a3600b39a1"),
+                            NutritionId = new Guid("146bd6d5-7b0d-4dd1-a6ba-d540491e9d24"),
                             Calcium = 30f,
                             Calories = 90f,
                             Carbs = 6f,
@@ -11908,7 +11911,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("12ace2de-47cd-4b31-889a-6af91797bb6f"),
+                            NutritionId = new Guid("0c291b65-d295-456f-83a1-9c8b49bf6ce3"),
                             Calcium = 50f,
                             Calories = 60f,
                             Carbs = 8f,
@@ -11934,7 +11937,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("271890fd-c43d-44be-9acc-a8027797c74c"),
+                            NutritionId = new Guid("9e294f3d-51e8-4679-91fb-62620244dd2c"),
                             Calcium = 40f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -11960,7 +11963,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c2c653d2-bc68-428d-a207-495aa1852543"),
+                            NutritionId = new Guid("09b9830f-cba6-48e7-8016-e6211ec1eff5"),
                             Calcium = 20f,
                             Calories = 250f,
                             Carbs = 30f,
@@ -11986,7 +11989,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("68418135-e1a9-4912-8c8e-6afb0e99a625"),
+                            NutritionId = new Guid("83745acc-e92f-49e8-9a2a-22a7727e5419"),
                             Calcium = 40f,
                             Calories = 40f,
                             Carbs = 8f,
@@ -12012,7 +12015,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("fd9fe54a-9d78-47f9-87a3-ad056b3ecc8b"),
+                            NutritionId = new Guid("4881aa66-4bf4-443c-8a95-1f0f971a81df"),
                             Calcium = 40f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -12038,7 +12041,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0e8b3749-f7b8-435e-b3b0-978e0ff1b41c"),
+                            NutritionId = new Guid("b0280e76-ecb4-42a8-a65b-f4c09089f000"),
                             Calcium = 25f,
                             Calories = 70f,
                             Carbs = 6f,
@@ -12064,7 +12067,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("44adc99c-d255-407f-a531-91a154cc9302"),
+                            NutritionId = new Guid("f7918114-6eed-472e-b66d-349536eb81d1"),
                             Calcium = 40f,
                             Calories = 280f,
                             Carbs = 30f,
@@ -12090,7 +12093,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b8a1f148-9c44-4194-8c5d-935f6eac91fa"),
+                            NutritionId = new Guid("4994b109-61c9-4b3c-91cb-708f33b0e131"),
                             Calcium = 30f,
                             Calories = 220f,
                             Carbs = 12f,
@@ -12116,7 +12119,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d8e57f70-01e4-4fd2-8587-6a383dc78196"),
+                            NutritionId = new Guid("f917348f-9076-4998-918b-a1f90fac3057"),
                             Calcium = 50f,
                             Calories = 40f,
                             Carbs = 7f,
@@ -12142,7 +12145,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("364a80e7-2d2a-469a-9f61-d279419b2eba"),
+                            NutritionId = new Guid("1654de3f-07af-4e1f-8d3c-37b8ea2fe035"),
                             Calcium = 40f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -12168,7 +12171,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3ab1fa33-31c9-48e5-90fe-8e9c00b6f551"),
+                            NutritionId = new Guid("c57cc61d-8481-4eb5-9d14-6f77ccdf18b2"),
                             Calcium = 35f,
                             Calories = 28f,
                             Carbs = 6.5f,
@@ -12194,7 +12197,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("28a6ef89-dafe-46ec-9541-b611786bb68d"),
+                            NutritionId = new Guid("c0e474b2-3516-48a8-aa25-78b56c8ea184"),
                             Calcium = 15f,
                             Calories = 242f,
                             Carbs = 3.1f,
@@ -12220,7 +12223,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("23d9df50-cef1-4cb6-be7a-e58fc2bcadac"),
+                            NutritionId = new Guid("efe1fe91-7406-42c6-9e5a-b6ede03f7d4f"),
                             Calcium = 55f,
                             Calories = 35f,
                             Carbs = 7.1f,
@@ -12246,7 +12249,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("46ed7de4-68cd-4bd2-a3a5-569061d5f87a"),
+                            NutritionId = new Guid("92452591-1851-4348-a21d-9a5a6ae33ed5"),
                             Calcium = 16f,
                             Calories = 13f,
                             Carbs = 3.1f,
@@ -12272,7 +12275,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b8b7f4bd-ca68-4e04-907e-6194b9522bf1"),
+                            NutritionId = new Guid("7328ed71-e3fc-4481-aa61-8b0894b8afa1"),
                             Calcium = 150f,
                             Calories = 23f,
                             Carbs = 4f,
@@ -12298,7 +12301,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8ad27bdc-6840-40e7-83b0-f892a627a70a"),
+                            NutritionId = new Guid("c874c3ea-b649-4e5d-a42a-fc3a879b7d37"),
                             Calcium = 6f,
                             Calories = 46f,
                             Carbs = 11.4f,
@@ -12324,7 +12327,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("696fe7f3-6712-4940-ac3b-e4e6fcc153a4"),
+                            NutritionId = new Guid("419affac-aad3-4c95-8054-ad935913968d"),
                             Calcium = 22f,
                             Calories = 68f,
                             Carbs = 16.5f,
@@ -12350,7 +12353,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7bd1a731-b6c8-4d5e-93dc-cd8f5e52ec44"),
+                            NutritionId = new Guid("dd2a7244-2f30-47bb-81f3-d22dbd2dcad7"),
                             Calcium = 130f,
                             Calories = 23f,
                             Carbs = 4.1f,
@@ -12376,7 +12379,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e895df54-5527-4480-bc65-ee07cac25c55"),
+                            NutritionId = new Guid("bc10c37c-e0d7-462b-8f0b-f19a94f0af81"),
                             Calcium = 15f,
                             Calories = 165f,
                             Carbs = 1.1f,
@@ -12402,7 +12405,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c25fa86a-fca1-4248-b31b-f2c1f16ee0dd"),
+                            NutritionId = new Guid("e95079ce-c3ec-42e4-94f4-38ed6d715907"),
                             Calcium = 40f,
                             Calories = 25f,
                             Carbs = 5.8f,
@@ -12428,7 +12431,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5e090d60-9ece-48d6-b952-603b8dae4f01"),
+                            NutritionId = new Guid("cabf4f56-c82c-48eb-8500-9e62cf17e312"),
                             Calcium = 35f,
                             Calories = 22f,
                             Carbs = 4.4f,
@@ -12454,7 +12457,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a023e442-5a53-4388-99a2-98a1cf3f3ef9"),
+                            NutritionId = new Guid("da0c628e-7506-4526-9ca7-96d10b2e9a11"),
                             Calcium = 40f,
                             Calories = 23f,
                             Carbs = 4.1f,
@@ -12480,7 +12483,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("21314de4-3c00-4dec-97da-b03cdf2e69bc"),
+                            NutritionId = new Guid("45286853-3bd9-4e92-b821-e3b80bb08327"),
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 22.5f,
@@ -12506,7 +12509,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d8b89ff1-5f1e-462f-a2fe-063c94b08334"),
+                            NutritionId = new Guid("763fd2a7-cc11-4317-81a4-94c2f8766e72"),
                             Calcium = 20f,
                             Calories = 16f,
                             Carbs = 3.7f,
@@ -12532,7 +12535,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1d6f0c7b-0484-4b8c-87d1-ccc39a3a7364"),
+                            NutritionId = new Guid("89b0a00d-54bd-4a7b-ac02-be7565d8218f"),
                             Calcium = 130f,
                             Calories = 23f,
                             Carbs = 4.1f,
@@ -12558,7 +12561,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4a8fac26-5224-4664-b7b5-76fdfee4e2e9"),
+                            NutritionId = new Guid("947aae40-7622-4eb7-9fb4-1670612bf8fb"),
                             Calcium = 25f,
                             Calories = 150f,
                             Carbs = 2f,
@@ -12584,7 +12587,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("22a7fcdc-a414-44e6-9041-de4c5feb9e57"),
+                            NutritionId = new Guid("de782da0-c16d-40f1-8410-6f4d767e055b"),
                             Calcium = 50f,
                             Calories = 250f,
                             Carbs = 30f,
@@ -12610,7 +12613,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("71a8299f-ca57-49f4-8812-91c9e31e59d9"),
+                            NutritionId = new Guid("6abf53c8-5d0d-4fbc-9123-726b32dd25e3"),
                             Calcium = 40f,
                             Calories = 190f,
                             Carbs = 28f,
@@ -12636,7 +12639,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("987ef24c-9b46-4af8-ba10-a2a26bbbc6f7"),
+                            NutritionId = new Guid("efa6967a-72d8-41fd-9c31-213bd7cfe20b"),
                             Calcium = 20f,
                             Calories = 170f,
                             Carbs = 23f,
@@ -12662,7 +12665,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("45dfe132-36f0-46c0-b2cf-797333db6c80"),
+                            NutritionId = new Guid("809d991c-8083-4688-ba58-a7a3c9c7d3ad"),
                             Calcium = 40f,
                             Calories = 110f,
                             Carbs = 20f,
@@ -12688,7 +12691,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("87b0c3f1-ca1f-406b-a482-5661fd2ad890"),
+                            NutritionId = new Guid("49d2ba43-2654-4822-8865-1abd6ac25ca7"),
                             Calcium = 40f,
                             Calories = 200f,
                             Carbs = 30f,
@@ -12714,7 +12717,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("42b42ea1-712d-47b4-95ae-bbff07059ed8"),
+                            NutritionId = new Guid("c7c7e61c-804d-4df2-a513-ee050c1c5773"),
                             Calcium = 15f,
                             Calories = 80f,
                             Carbs = 17f,
@@ -12740,7 +12743,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("ad1b9812-365d-493b-8f16-43eb6d1ba76e"),
+                            NutritionId = new Guid("71f043b4-1131-4709-904f-35d6bf52e73f"),
                             Calcium = 30f,
                             Calories = 130f,
                             Carbs = 18f,
@@ -12766,7 +12769,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3772bd6c-9a75-47c0-862b-d4378a3338bc"),
+                            NutritionId = new Guid("02191fc7-a7fc-4bcc-966d-28e76a13b319"),
                             Calcium = 30f,
                             Calories = 180f,
                             Carbs = 10f,
@@ -12792,7 +12795,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4bd1d58a-6740-4015-a4b7-e70b25ff6647"),
+                            NutritionId = new Guid("83de4695-7d5e-40b1-a5df-03483e693c7f"),
                             Calcium = 30f,
                             Calories = 150f,
                             Carbs = 18f,
@@ -12818,7 +12821,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("630a0834-5615-456e-968a-e60adaebbd24"),
+                            NutritionId = new Guid("e866e1ff-b449-4341-a578-bb6503668033"),
                             Calcium = 15f,
                             Calories = 130f,
                             Carbs = 28f,
@@ -12844,7 +12847,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7168d8cd-89b4-40c5-905e-10ee58b88ee9"),
+                            NutritionId = new Guid("1cd6c527-69b6-4b13-9eb8-636ef4fb187c"),
                             Calcium = 40f,
                             Calories = 50f,
                             Carbs = 8.5f,
@@ -12870,7 +12873,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("adfd4367-15eb-491f-891f-faa4f530a432"),
+                            NutritionId = new Guid("4edda8f2-b381-46ef-a9d8-32b73a2c4307"),
                             Calcium = 12f,
                             Calories = 73f,
                             Carbs = 18f,
@@ -12896,7 +12899,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("111af79e-e27a-4bfb-9557-240214e4da7c"),
+                            NutritionId = new Guid("c7a0e729-1c55-4c67-b024-94b06c9aa8d7"),
                             Calcium = 9f,
                             Calories = 60f,
                             Carbs = 16f,
@@ -12922,7 +12925,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1cc6341a-a7c8-4efe-93ee-a7bdbc902749"),
+                            NutritionId = new Guid("94422d47-d555-4f07-9a80-d80d4aaf6788"),
                             Calcium = 40f,
                             Calories = 52f,
                             Carbs = 13f,
@@ -12948,7 +12951,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a2c7347e-77fa-4793-8098-60780935d4b2"),
+                            NutritionId = new Guid("b966d8fc-851a-461d-a833-593696a5664d"),
                             Calcium = 20f,
                             Calories = 40f,
                             Carbs = 3f,
@@ -12974,7 +12977,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("52700fa8-bb4a-4de0-816d-235d8a7be6d5"),
+                            NutritionId = new Guid("a244d264-1b7b-4ffb-8dc4-296a82af71a9"),
                             Calcium = 30f,
                             Calories = 130f,
                             Carbs = 6f,
@@ -15095,7 +15098,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            WorkoutExerciseId = new Guid("2b8561d9-f995-4ec7-b0d2-b6199a3f5a5e"),
+                            WorkoutExerciseId = new Guid("c4614f56-c7dd-4dab-b4a0-93ed712cbc5c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15107,7 +15110,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("dbc684d0-f1b5-4add-81eb-e4a52a779ef5"),
+                            WorkoutExerciseId = new Guid("73057207-99cd-457f-9a23-2fd92e659e3e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -15119,7 +15122,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5570a2b2-7a52-47c7-8daf-0298f55ea765"),
+                            WorkoutExerciseId = new Guid("80dd4a0a-3885-4b7b-b283-39d42f2860aa"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -15131,7 +15134,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("99430e5e-9935-40cf-a11f-2a315e0d48ed"),
+                            WorkoutExerciseId = new Guid("68e30e88-8937-4925-b285-b2e22a6e23c8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15143,7 +15146,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ab5c3cdf-9bcb-43ea-b989-a8a37a121e7d"),
+                            WorkoutExerciseId = new Guid("65619dd6-13b6-46c3-9232-986a911629dd"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("3100278d-eee7-4b89-b726-4b76daefabde"),
@@ -15155,7 +15158,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d1da388c-77e2-4845-812b-b4774e3eea3c"),
+                            WorkoutExerciseId = new Guid("fc6f8758-bf94-4228-ad47-1540f2d47b97"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15167,7 +15170,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f42cf0ef-4ff5-427d-8d10-9edf9b7e6e59"),
+                            WorkoutExerciseId = new Guid("7c746896-120f-4cc6-abd2-de1b1a49f197"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
@@ -15179,7 +15182,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ccf495d9-8879-4a63-8720-95b7b40475cf"),
+                            WorkoutExerciseId = new Guid("f86d2a48-bb2f-4e89-9c9b-6c2ffd4bb262"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15191,7 +15194,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("93a6f429-0583-48fa-911b-f416418445d3"),
+                            WorkoutExerciseId = new Guid("bbb4590c-6aac-4994-a94e-df35b68d2d5e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
@@ -15203,7 +15206,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d5e7c1a0-6801-42f5-8f5a-fc94bc922729"),
+                            WorkoutExerciseId = new Guid("c077db60-7e0c-448e-a9ec-3c380b27bf12"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("72206c5e-58f3-46f0-a8b1-031cbf599433"),
@@ -15215,7 +15218,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f92957c5-5a9d-4bf4-bbb3-d28c692e5e7c"),
+                            WorkoutExerciseId = new Guid("1ee00212-3e91-451c-a8da-c53493fb03b4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15227,7 +15230,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("30fd5880-bd30-428c-85e5-a54cbe608d5a"),
+                            WorkoutExerciseId = new Guid("e216b5f2-c67a-4f4e-9e68-1479ea5f18fc"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("d0dcad19-4c0c-447d-8e3c-092c6d4ad14c"),
@@ -15239,7 +15242,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0f65c78a-2a44-4079-977e-8ee59db08b07"),
+                            WorkoutExerciseId = new Guid("15382d89-de9f-4ffd-b318-049579f19152"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("bd80fdd3-c46c-4410-b126-51a11a8a2f5b"),
@@ -15251,7 +15254,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3ee81d3a-a2be-4fcb-87a7-8f9c6dfa1a4f"),
+                            WorkoutExerciseId = new Guid("554c6653-bc73-48d5-930b-b20568202dd5"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15263,7 +15266,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d5fb97d6-2a46-4047-b96d-10c3e449e8e5"),
+                            WorkoutExerciseId = new Guid("df177b10-413b-4643-bd4d-70509ae9ab80"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("ae6eaaa1-c8c4-4f97-afa4-4ceeea19d4b3"),
@@ -15275,7 +15278,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("04243362-1e48-452f-b9c3-563dbbecb30a"),
+                            WorkoutExerciseId = new Guid("fc37a5bc-9553-4143-9ab0-36874e2e84b2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -15287,7 +15290,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3c116e88-390b-403b-bc97-976f8e8c6766"),
+                            WorkoutExerciseId = new Guid("251d8e79-3863-4904-9b6c-5e25bfb181c4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15299,7 +15302,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("53f8e780-d11b-43c5-b722-dc3e242c09b5"),
+                            WorkoutExerciseId = new Guid("aca639db-160f-4787-b7db-9f0495b28a11"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("72206c5e-58f3-46f0-a8b1-031cbf599433"),
@@ -15311,7 +15314,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d82f821c-05dd-4791-8337-a5586468793d"),
+                            WorkoutExerciseId = new Guid("b4bbc49e-613e-40c6-9393-6e468abadb83"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -15323,7 +15326,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("502c6c66-e3b5-4d4a-a998-adf9d28d38f3"),
+                            WorkoutExerciseId = new Guid("a36975e6-0c0f-4014-af51-bdfec7ca8bb2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -15335,7 +15338,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8f18081d-a20b-4d58-bba9-8f13f31c5331"),
+                            WorkoutExerciseId = new Guid("75c672a9-7f2b-4225-9242-c29f356186b4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -15347,7 +15350,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ad761bc3-6b3f-412c-bf6e-4619bc18f9f3"),
+                            WorkoutExerciseId = new Guid("4049f7ea-74a8-4922-b2bd-bccebcef2acc"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
@@ -15359,7 +15362,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d4ced14d-326e-4aca-89bf-45a2c485618f"),
+                            WorkoutExerciseId = new Guid("4790b58d-5b01-453e-89dc-846e9dae43ab"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("5cbc396e-381a-4d9f-9ad6-42b764deee3e"),
@@ -15371,7 +15374,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("25b058aa-2784-4932-a60f-bdf15da53b93"),
+                            WorkoutExerciseId = new Guid("76d11c96-996c-4b1a-a42d-b15da264b33c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -15383,7 +15386,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2cae3d45-65ae-4a52-aacc-7355a857b56c"),
+                            WorkoutExerciseId = new Guid("5dd38ad9-81ff-43f0-a945-e4a77fef3f61"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15395,7 +15398,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c5192df2-d3fa-431f-ae60-c88c9b216ccb"),
+                            WorkoutExerciseId = new Guid("88544d8f-a78c-4b47-b75b-8f7de461541b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15407,7 +15410,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9338b290-08d4-47ec-a5a0-5aba7834e4cf"),
+                            WorkoutExerciseId = new Guid("d968f194-d867-4560-a250-2dff03fc1390"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -15419,7 +15422,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("aad78138-0402-48ee-bae9-9fe0091527ac"),
+                            WorkoutExerciseId = new Guid("4ad2045d-5050-4aa6-8216-1e82554282c3"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
@@ -15431,7 +15434,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9e4a43a0-32d2-4f12-b6b5-6189fbd97b42"),
+                            WorkoutExerciseId = new Guid("1e7dd318-92f1-43b0-9719-20a1b64821f9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15443,7 +15446,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("724f59a9-a12c-4f59-9104-fd4ed5ec01d2"),
+                            WorkoutExerciseId = new Guid("ff533275-c0bc-4164-88cc-1a6c9645ef86"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -15455,7 +15458,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("05a936d9-4fe3-44bb-94cf-26821ee7785c"),
+                            WorkoutExerciseId = new Guid("c02fe659-8f11-4d5a-a263-fa40c3856e9a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("1b2afb40-fb97-49ec-8fe3-81a17c6c9078"),
@@ -15467,7 +15470,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f02df366-c082-494f-beb5-179ae4dbdb53"),
+                            WorkoutExerciseId = new Guid("d732db91-4499-40d7-b14a-f6678e0cb5e4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("23842121-4834-4483-bfe2-2c244f5ecf76"),
@@ -15479,7 +15482,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7f30d620-d6de-4082-8902-4461a4197701"),
+                            WorkoutExerciseId = new Guid("b8beec03-0999-46f2-89ad-6df84036971b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15491,7 +15494,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f62b5427-1850-4b52-aea1-dec06228c11c"),
+                            WorkoutExerciseId = new Guid("bf2b7c7f-a463-4286-9316-e8280723cf67"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -15503,7 +15506,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3e6ee5db-6a5a-4921-9446-2985ea93ad7a"),
+                            WorkoutExerciseId = new Guid("7726c03f-0b32-4163-a2cb-0caeb70c3c6a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("faebde03-bab9-457b-9b45-a9fabd4760aa"),
@@ -15515,7 +15518,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6d9baa7c-7e53-47be-9996-93e323f6fd1a"),
+                            WorkoutExerciseId = new Guid("0831da5d-0c04-426e-9ff1-114ba9e288ce"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -15527,7 +15530,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("98fb5f31-b47e-4f1a-b0a3-182b1ef32aea"),
+                            WorkoutExerciseId = new Guid("df55e7b8-75de-428c-9f53-76486ece6b1b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
@@ -15539,7 +15542,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a166af3b-9629-477b-8297-dfa22a731494"),
+                            WorkoutExerciseId = new Guid("236215d0-925c-457d-983d-a1afb6a2dc88"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 20,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -15551,7 +15554,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("59c2c661-919a-4356-a70a-a366f87522ea"),
+                            WorkoutExerciseId = new Guid("6b300139-30e6-486a-b413-621fa0b757c1"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
@@ -15563,7 +15566,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a8652921-16fb-4b93-9916-d65b501c6647"),
+                            WorkoutExerciseId = new Guid("732a618a-7403-44dd-85a7-e9171cff3c97"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15575,7 +15578,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("17c95332-90e8-4b4e-a7d3-79ecca4799a3"),
+                            WorkoutExerciseId = new Guid("ff7aa744-2b7a-483c-a771-746fabf89058"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -15587,7 +15590,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("22a2080c-979e-4f4c-87c1-4031c25f77f7"),
+                            WorkoutExerciseId = new Guid("093f9281-7381-4e60-91a9-913859436472"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -15599,7 +15602,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9326e374-34c6-4541-8fb6-a00fa7cf3fa2"),
+                            WorkoutExerciseId = new Guid("ed33f0b3-b9ca-47f8-92fb-0b649d487832"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -15611,7 +15614,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d90ac95f-4eee-412e-b9cd-db1a929cea99"),
+                            WorkoutExerciseId = new Guid("20a242a2-f704-4292-bd5e-f3df2e96a8d2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -15623,7 +15626,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a44c17a7-1834-4391-a709-aa80fb03c8e8"),
+                            WorkoutExerciseId = new Guid("14e1c5d9-5624-48ca-be48-432cadc8d361"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -15635,7 +15638,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1fd0612a-66d3-4a55-9da5-846b5fec4072"),
+                            WorkoutExerciseId = new Guid("298bcda3-6435-4b86-82b0-1be401f8177f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("1ff0ef05-4387-4483-8de3-0ef6d7724afd"),
@@ -15647,7 +15650,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f6901399-ec42-4e8e-847a-18d40066d913"),
+                            WorkoutExerciseId = new Guid("f0f75e37-6476-4f02-8650-a4e1ef0c0bd4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -15659,7 +15662,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7a832e1b-35f3-4d68-9a69-6323ebcf277f"),
+                            WorkoutExerciseId = new Guid("3e9bb71c-09aa-4df9-b0cc-99033dd98b92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -15671,7 +15674,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3ebcd831-f6f2-4a08-8ce8-52007a413c91"),
+                            WorkoutExerciseId = new Guid("03bd1cf3-9e75-4dc1-8ced-8f78f959b95b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("7c38fc8f-8fd2-450e-8fa6-c4557f0e6e02"),
@@ -15683,7 +15686,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2a4a9938-c93f-4612-bf75-05f5f5c9c083"),
+                            WorkoutExerciseId = new Guid("ba447989-ecf1-48e7-8ee8-ad827c2bad7d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("58878826-775e-4d4c-8e1b-d5c95afc214d"),
@@ -15695,7 +15698,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3f748364-ddea-4709-b9ef-949587da9125"),
+                            WorkoutExerciseId = new Guid("88fbda5a-f091-47dd-b393-17a777a19b7f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -15707,7 +15710,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("58fa5bc1-ac3d-4457-ba24-94e944e69d81"),
+                            WorkoutExerciseId = new Guid("0aef8bb6-c4ac-4a9b-a44f-e2e56a7ec167"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 20,
                             ExerciseId = new Guid("9ba29558-e51b-4a1a-a1c4-b747967e32fb"),
@@ -15719,7 +15722,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("92a1519b-41d5-4c81-90d1-d6b51fe8da62"),
+                            WorkoutExerciseId = new Guid("4d55a452-2f8c-4d7b-8705-20e2ea579446"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15731,7 +15734,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("de607519-925d-49d2-8f7d-9d50e3e8a2b2"),
+                            WorkoutExerciseId = new Guid("268ff622-0e38-45a8-90b1-39236e8746b1"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("407ff857-d218-44a8-8d0f-0bfa5d53bf03"),
@@ -15743,7 +15746,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fcbb387d-bb39-4f57-8060-14cab4cf8d6b"),
+                            WorkoutExerciseId = new Guid("611242fe-1d50-45e1-8a06-9927e338288a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -15755,7 +15758,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("001672dc-8031-4fa3-b3fb-16111c485b32"),
+                            WorkoutExerciseId = new Guid("cf7ffee1-4ffc-41a4-8d1a-af67094d9f14"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15767,7 +15770,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("612301a8-1b0b-48b4-bc62-47d2e150a7e5"),
+                            WorkoutExerciseId = new Guid("e5e98d00-f098-4ddc-bfce-829d32ae4ab9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("0a9e1fb3-9abf-4775-a75e-2bb13009a29d"),
@@ -15779,7 +15782,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6b6a8f94-bf04-401c-b33d-e0a893fa8ead"),
+                            WorkoutExerciseId = new Guid("686d756f-85d4-46cf-85c6-4171ba3bedc2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("b2e62599-1f8c-4fc2-9ca7-8ab7aa571d4e"),
@@ -15791,7 +15794,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7604a537-dc50-439a-ba8c-b928aae29894"),
+                            WorkoutExerciseId = new Guid("81929550-3c55-460f-9737-78cc34507d82"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -15803,7 +15806,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4658a729-f579-4e8e-991b-a59adee571dd"),
+                            WorkoutExerciseId = new Guid("98d87035-b2f6-4c79-97e2-8c3f986babdb"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 40,
                             ExerciseId = new Guid("07a4dbcd-635a-4a76-92d4-8127de619e6d"),
@@ -15815,7 +15818,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f83c1f43-44b7-4868-9f59-857b542180d1"),
+                            WorkoutExerciseId = new Guid("f4d74ae4-f4f9-4f44-907d-439dfc9fbb23"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -15827,7 +15830,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("450fe06a-f922-4799-9356-4925050bfb95"),
+                            WorkoutExerciseId = new Guid("dc73a3b8-b3aa-48c1-939c-78c729788413"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -15839,7 +15842,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5025ae42-af85-4a95-80ff-2da19a8b4d46"),
+                            WorkoutExerciseId = new Guid("3fc1592d-a72d-4e2f-ab2c-25bb050cb9a4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15851,7 +15854,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9f47b9ec-019e-4dc0-bfa1-f48662c29267"),
+                            WorkoutExerciseId = new Guid("2dad02be-dc6f-4006-95c2-e53e945c3719"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -15863,7 +15866,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2ac2f93a-a028-42d3-8e95-9c97d8b0335e"),
+                            WorkoutExerciseId = new Guid("a81b74d5-a982-450d-9158-010b33686781"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("01dc4c46-e1ef-44bc-9f19-ecb283bf27ce"),
@@ -15875,7 +15878,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("61077d7d-a804-41b5-bc5c-df8bbf3f0a15"),
+                            WorkoutExerciseId = new Guid("925f1e37-941c-46db-bb4a-e55a4fd212b8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("6badb5b5-ad99-4b89-80c6-e52d0f7cd7ba"),
@@ -15887,7 +15890,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("28ee501c-8449-4777-b4f9-b2a1b5d990d8"),
+                            WorkoutExerciseId = new Guid("03596977-14c8-4382-8d5d-f99564d79d28"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -15899,7 +15902,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f0a74ec5-6edf-4822-983a-637956960331"),
+                            WorkoutExerciseId = new Guid("65ef152a-5e27-4d30-b60b-6684ae566336"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -15911,7 +15914,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("31f8a92c-7d61-403e-9376-c1c566b90302"),
+                            WorkoutExerciseId = new Guid("d59327fa-b9f7-46f7-9103-ec7bc0c05cc0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -15923,7 +15926,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("aeccad6d-4793-4158-9cee-a31fbc91d8aa"),
+                            WorkoutExerciseId = new Guid("9a4aaf49-3ff5-455f-8b41-53879ec2b794"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -15935,7 +15938,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d7775940-25be-47cd-b1e7-88c4a6afa288"),
+                            WorkoutExerciseId = new Guid("a2d29c7b-d9e2-4a5f-a205-ff7eb7099b75"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 20,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -15947,7 +15950,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5f08c0a4-1311-4b2b-979a-15d2fbb15b19"),
+                            WorkoutExerciseId = new Guid("bc298cc7-0616-461b-be79-96b4d11bdd5f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -15959,7 +15962,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("957483a4-dfca-469b-946e-5ca5d96b9fed"),
+                            WorkoutExerciseId = new Guid("471b6ddc-643f-41d3-babe-182460bec9eb"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("93e22c77-001f-4825-8983-4ec5b643b7bb"),
@@ -15971,7 +15974,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("07dd05b6-50e9-4e9d-a7cc-a949f4313458"),
+                            WorkoutExerciseId = new Guid("3ec61d15-4708-4b93-8479-6a51a79e3cec"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("23842121-4834-4483-bfe2-2c244f5ecf76"),
@@ -15983,7 +15986,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("16829d44-7471-4835-815c-2fc0457be61c"),
+                            WorkoutExerciseId = new Guid("68942762-7426-42b9-b70c-3952c224eab8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("439db970-c7c8-4b3b-9a35-127d31d920dc"),
@@ -15995,7 +15998,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5def6ab7-d9d4-4e2f-8f50-f884f016814d"),
+                            WorkoutExerciseId = new Guid("290b6821-a0b4-4ed3-85a9-6d5c57faf6df"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 20,
                             ExerciseId = new Guid("9ba29558-e51b-4a1a-a1c4-b747967e32fb"),
@@ -16007,7 +16010,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8e328f6b-8545-49d2-9eee-fddd3254b28d"),
+                            WorkoutExerciseId = new Guid("4f817b24-e2a7-4aad-b354-cd2e7254faf8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("0a280d32-de67-4a38-8f21-923243489eef"),
@@ -16019,7 +16022,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("86eb8d29-d500-4ce2-8662-d144df6ca24f"),
+                            WorkoutExerciseId = new Guid("e7fb33ab-6e7b-4d4c-9d86-a7ef18879fb0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
@@ -16031,7 +16034,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("dc7cc3dd-cec9-46c6-984d-a8082cdcb703"),
+                            WorkoutExerciseId = new Guid("1e292d02-f875-4a25-8e63-411795162beb"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("235f7494-3e7d-45a5-a31a-6d5449b1322d"),
@@ -16043,7 +16046,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("88223aab-f2d1-4077-a800-e4c3973dcb91"),
+                            WorkoutExerciseId = new Guid("618d17ed-6f40-4744-819c-a39076852a4b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -16055,7 +16058,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4fcae4c8-7170-42c2-bf2a-b7e959e45ab7"),
+                            WorkoutExerciseId = new Guid("c4e8748b-f40b-46f3-867e-5b8c09c61e49"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -16067,7 +16070,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1a83ff51-52ec-4037-a0ac-3079961252ad"),
+                            WorkoutExerciseId = new Guid("9f6ca800-811a-44f8-9921-19ee3d4053bf"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -16079,7 +16082,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3af78c8a-e57b-4127-9da7-9f28ed69b7ae"),
+                            WorkoutExerciseId = new Guid("638845b6-6a41-48a0-aa5c-4ee43d873efc"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("9fb83332-a8fc-4fcc-a015-2e784e2ab33b"),
@@ -16091,7 +16094,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b2aacdc6-dc19-4206-b5f2-0b28fc830e56"),
+                            WorkoutExerciseId = new Guid("f799cfc7-98ff-488f-b545-2c469019b2c9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("8b93dbb2-fc2b-4627-b79a-3ec45a7c6238"),
@@ -16103,7 +16106,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("895efbc4-73be-498e-8f4c-50900e42514f"),
+                            WorkoutExerciseId = new Guid("1deb60e2-a6c3-4c35-b5e3-5b64a4f21dd7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("8619916d-a296-48a5-af89-f82a6a1cb26f"),
@@ -16115,7 +16118,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("dd45452d-1e97-4872-8002-a8e84a7e8aa5"),
+                            WorkoutExerciseId = new Guid("59422b49-da05-4f07-a122-ab5a46ffffec"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("d4ebca3a-83ef-485b-9178-83d4eab9694c"),
@@ -16127,7 +16130,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("09da442a-a9b9-4cd2-a62e-88f6fa131d25"),
+                            WorkoutExerciseId = new Guid("e8e3ebb8-a0e1-46f1-af72-2b6e7725871b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -16139,7 +16142,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("407ead30-4232-4ecf-aaec-8499d17c6518"),
+                            WorkoutExerciseId = new Guid("dc1e2f17-ba81-4095-a1ae-06e65739f183"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 10,
                             ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -16151,7 +16154,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ed670dec-cace-4131-96e6-e405b3bb6bd3"),
+                            WorkoutExerciseId = new Guid("f474ba20-f7fe-42db-b033-8f33c17fecd1"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("6749cbc6-0e28-4163-95e8-7fb2a27c54cf"),
@@ -16163,7 +16166,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("75a7a0f7-c0f8-487a-bcde-63924f92250e"),
+                            WorkoutExerciseId = new Guid("13a8ab58-0036-40f4-9517-a1ce032bf4d7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -16175,7 +16178,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("91481196-d2e2-4ca1-a40b-7516a1d63473"),
+                            WorkoutExerciseId = new Guid("d4a818b5-4992-4d47-9cbb-ce22576d4066"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -16187,7 +16190,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("75df6d5b-bc04-4a19-85dc-e6cbe095baa9"),
+                            WorkoutExerciseId = new Guid("c972740d-2ce3-4f94-984b-5bbef40c3110"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("d4ebca3a-83ef-485b-9178-83d4eab9694c"),
@@ -16199,7 +16202,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1669ecc9-d490-4b54-800a-13e54e11456b"),
+                            WorkoutExerciseId = new Guid("4d04e4cb-f7ae-44d3-bb3a-24e32d2efae6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -16211,7 +16214,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b7639a39-2a7c-4880-865c-130f063405ec"),
+                            WorkoutExerciseId = new Guid("acfbbebd-0002-493e-8829-9cb1c69c7188"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("0c011f92-425a-477c-84d4-3d6dc883119b"),
@@ -16223,7 +16226,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2e14ed1f-f017-41f4-920f-f31f10528e40"),
+                            WorkoutExerciseId = new Guid("ea99d9ca-fd76-43e9-824c-f591d358a5c4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("f06a6d9b-ed14-46cd-9e56-145cd1fd3d7c"),
@@ -16235,7 +16238,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("96b53e65-3b2c-4447-9966-b58eca8f6821"),
+                            WorkoutExerciseId = new Guid("ca43cabe-5a2f-4842-a0d1-9c554b9c1a9e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -16247,7 +16250,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("87ba9533-f1de-40c9-a309-fcf110049625"),
+                            WorkoutExerciseId = new Guid("fb4c3b92-b8f7-4ada-86f2-6696eaf62264"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -16259,7 +16262,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ecaac7d5-2ee6-4dc8-b517-21383596f235"),
+                            WorkoutExerciseId = new Guid("7816a841-194d-4632-8dce-753d15dcde19"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
@@ -16271,7 +16274,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fc9249e1-3d06-4b67-ae63-615b79be7cc9"),
+                            WorkoutExerciseId = new Guid("743b169d-f26b-4068-b34f-2eaa5b6d8bf6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -16283,7 +16286,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("747a3631-6848-4e99-9c9d-d254d1fbc535"),
+                            WorkoutExerciseId = new Guid("b68a480d-2bb0-4a00-ab6e-d6bc5616204b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -16295,7 +16298,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d4ce7349-7e2f-404e-b074-58d3aadf0f8f"),
+                            WorkoutExerciseId = new Guid("b906c362-2710-408e-b220-ebac5c4592e9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -16307,7 +16310,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8efe7703-b60e-4a4c-8f38-ac998a48a76e"),
+                            WorkoutExerciseId = new Guid("c8740635-db82-43c5-9b75-847dc0dab65c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 20,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -16319,7 +16322,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7332fb5d-cfa9-4787-8b09-612e6363078e"),
+                            WorkoutExerciseId = new Guid("a6518f48-25f9-4e41-9113-325452d34339"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -16331,7 +16334,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("76c7cedd-eb65-413f-b54b-2b8c9b0a4c70"),
+                            WorkoutExerciseId = new Guid("61271dff-b1d4-40a1-b8f6-e911b8235763"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -16343,7 +16346,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("09bb9924-5e75-4372-aa93-3ef908298f15"),
+                            WorkoutExerciseId = new Guid("2e7cab32-0ae8-4ed1-ba9b-6c2094efc8d2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("6ef8ed78-0d00-4271-bf9b-edf27a55ecab"),
@@ -16355,7 +16358,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("af75ea59-ced5-4fcf-96b7-f38772adebec"),
+                            WorkoutExerciseId = new Guid("69127f37-9cf2-4c3b-b082-91211e67d204"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("0d816828-8a94-4dcb-a87c-b70b295a39b6"),
@@ -16367,7 +16370,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6620c5c8-61ed-4a92-b383-fe87959b248d"),
+                            WorkoutExerciseId = new Guid("28f9d91d-8672-46fd-8b66-ada2e1686dab"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("9fb83332-a8fc-4fcc-a015-2e784e2ab33b"),
@@ -16379,7 +16382,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9d501596-dd49-4bc3-aae1-97cde45f86fe"),
+                            WorkoutExerciseId = new Guid("d9f6ae01-1fa7-4e46-8534-e3be5cfe6c58"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -16391,7 +16394,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("737fc5cd-4b56-4c82-85b2-41817efb03c8"),
+                            WorkoutExerciseId = new Guid("2283ba21-d440-4c86-9c45-ae866e121b06"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("256e23fa-03b1-4328-a325-512f0860d9b0"),
@@ -16403,7 +16406,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("eb5d1084-80af-4cdc-add3-d46a60d1b3c5"),
+                            WorkoutExerciseId = new Guid("0e56f7e5-3ae2-4d8f-8920-bc03270b343c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -16415,7 +16418,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f2bf44fa-bb63-4f9d-b17b-a0f740a0e50e"),
+                            WorkoutExerciseId = new Guid("39ae0ef0-c0e0-4fb0-8ca0-2c0f5beee995"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -16427,7 +16430,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d55ed173-49f2-483f-9085-bcc215224162"),
+                            WorkoutExerciseId = new Guid("6c98a172-a7f3-4c06-8193-b8ed4d898e30"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("01e6141a-930e-4126-a2c6-7c32a2ccdd43"),
@@ -16439,7 +16442,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("bdaa31e5-2e5a-4ef0-8741-9eda12c505de"),
+                            WorkoutExerciseId = new Guid("9dc4d299-7276-42e6-923c-6588f1fb50eb"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("ac074f67-d4bf-4a7f-b7e3-d8d03bbb6704"),
@@ -16451,7 +16454,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b8c0c82c-6b0b-40ba-976d-e3b20fc03f35"),
+                            WorkoutExerciseId = new Guid("c1b61b5b-a66b-41fd-bdab-bc30292479f5"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -16463,7 +16466,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("86e9a933-8016-464d-920a-6964296a1b4b"),
+                            WorkoutExerciseId = new Guid("97abb2de-0dd4-43c3-9877-46343595ea51"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -16475,7 +16478,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("153ff25b-95a3-473f-bbbb-493ccfa33ebc"),
+                            WorkoutExerciseId = new Guid("48ee6351-894c-4a7e-8182-60846e0ae2c5"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -16487,7 +16490,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a17b91d0-5129-46a3-bb65-03129cc20494"),
+                            WorkoutExerciseId = new Guid("7129eb1f-8694-47b5-97dd-e61c6b07379a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("01e6141a-930e-4126-a2c6-7c32a2ccdd43"),
@@ -16499,7 +16502,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d51d649c-ed1d-4294-882f-8adf3f1df4d6"),
+                            WorkoutExerciseId = new Guid("3be545d8-272d-4c96-be44-aac101a2099b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("ac074f67-d4bf-4a7f-b7e3-d8d03bbb6704"),
@@ -16511,7 +16514,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("65cad3e0-2b4e-40fc-b65e-0ae5c883aece"),
+                            WorkoutExerciseId = new Guid("7b06b0a4-efb3-4a23-939c-5389523e7840"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -16523,7 +16526,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("177f9573-af91-4ce6-8fa0-887e62172294"),
+                            WorkoutExerciseId = new Guid("5c10cd1d-4e04-448b-be1f-971dfb20f594"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -16535,7 +16538,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b14e9cd9-5d98-41bd-ba30-4505fddd649c"),
+                            WorkoutExerciseId = new Guid("1d3e608a-c71d-4331-850e-720bbfbef2fc"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -16547,7 +16550,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9899778e-a45c-411d-98fc-b9b62aa4875d"),
+                            WorkoutExerciseId = new Guid("0e8fd30e-3892-4e53-bdef-1f4057516a6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -16559,7 +16562,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("babc93ec-fd77-4b51-b153-4bd89a790a9a"),
+                            WorkoutExerciseId = new Guid("550ad2db-26a4-4ba0-8600-50d578a50bee"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -16571,7 +16574,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8da783c7-344f-45c7-ac6c-bdd4bb7417a7"),
+                            WorkoutExerciseId = new Guid("33a153b3-8786-4fe0-8fac-b2707fea7e9f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 20,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -16583,7 +16586,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3084dbad-7804-4cac-8de9-18ea00c8f0de"),
+                            WorkoutExerciseId = new Guid("20d3f348-1f95-4399-b822-51225686ef21"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -16595,7 +16598,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b9c87be9-7e05-4851-9c3d-b503efef771d"),
+                            WorkoutExerciseId = new Guid("fba69deb-32df-48f5-a345-42b7ffeed89b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -16607,7 +16610,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8ccda3d3-cfdb-4760-8320-11b090f71bb7"),
+                            WorkoutExerciseId = new Guid("fde0fb30-7e40-4959-b68d-b477f99bea0d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("f06a6d9b-ed14-46cd-9e56-145cd1fd3d7c"),
@@ -16619,7 +16622,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("89742736-4c8d-4ffa-a5ce-17794833359b"),
+                            WorkoutExerciseId = new Guid("6999af2a-0ad2-42fe-8867-4f7da01f02ac"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("4834f1ce-41dc-4161-ac51-e03ca78b62b8"),
@@ -16631,7 +16634,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e1e35a5d-638c-42a7-89f2-044f10830d84"),
+                            WorkoutExerciseId = new Guid("43dfcaf8-00cf-4369-ba67-97a4c1e414a8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -16643,7 +16646,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("16ff8da2-2591-4e28-aad6-fc3502a07053"),
+                            WorkoutExerciseId = new Guid("cc7cb693-a1ff-408e-a624-c535ea479a8e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -16655,7 +16658,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b8f94c67-442b-4e19-82b9-3a2ab7a839f2"),
+                            WorkoutExerciseId = new Guid("d093f980-18a6-4595-8f88-a8565131d675"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -16667,7 +16670,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("459f52c4-6855-4d40-8157-9e3d1182b117"),
+                            WorkoutExerciseId = new Guid("148ba988-1e32-4ec6-9817-64c479875ef2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -16679,7 +16682,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("beb4f804-a3be-4d9a-939c-d08101953399"),
+                            WorkoutExerciseId = new Guid("208d4882-0746-4bdf-9957-56cb6a8be5ea"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -16691,7 +16694,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b882516f-e543-47a0-ad0b-ee28f5f79067"),
+                            WorkoutExerciseId = new Guid("9004c03c-57db-4f4e-998f-9f78127fa5e7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("3a5a57a3-3495-45ae-9ebe-708e4d513d0c"),
@@ -16703,7 +16706,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e6ff2108-8a66-4515-bf01-33c242a40e82"),
+                            WorkoutExerciseId = new Guid("029045d5-306a-48ea-bacf-0e86faa618b1"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -16715,7 +16718,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3646a8f5-4966-48bd-88fb-29903bfa315b"),
+                            WorkoutExerciseId = new Guid("11b7e89e-76c4-48fd-a3c6-33333bf1f9b8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("d6b2c0d5-110f-4dff-9aa7-91da10a29dca"),
@@ -16727,7 +16730,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("abc1dbec-d7ba-4404-8f28-4a25af35a07a"),
+                            WorkoutExerciseId = new Guid("89054b1f-2fbe-4764-9c4d-d66a93467814"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("13ca014d-8b75-414f-afe3-3d378ef7fa97"),
@@ -16739,7 +16742,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("86c1e4ca-52fe-4654-8c6f-a67d65383ee8"),
+                            WorkoutExerciseId = new Guid("7b4d342e-3cd0-4c31-9aa0-54ca7069bc53"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("05c931df-c828-442e-aee1-56432cb772c7"),
@@ -16751,7 +16754,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6c10b6a0-51fe-4d43-9c7a-3339daa3db72"),
+                            WorkoutExerciseId = new Guid("1038fe27-abba-4dae-b8b6-9ae12bb6ddef"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -16763,7 +16766,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("682fd0dc-bb21-439b-861f-3c6cdfe2a544"),
+                            WorkoutExerciseId = new Guid("9534e6e8-4e19-43f4-a7b5-446f447971a2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -16775,7 +16778,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("126e7e09-e580-4236-bcbf-74ac81f316ee"),
+                            WorkoutExerciseId = new Guid("2be63b6b-9869-4973-842c-79ef78564bbd"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -16787,7 +16790,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("694d1856-6c91-4a62-a191-d007e8328029"),
+                            WorkoutExerciseId = new Guid("ab5e3107-1036-4674-9255-240ec12ec7f7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("22af0171-257b-43bc-9013-8985472a8c84"),
@@ -16799,7 +16802,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1c62b670-ef00-4d47-b4cf-ada7aafc6a08"),
+                            WorkoutExerciseId = new Guid("f6523643-bbd1-4670-839b-ce5a46fb6b5f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("6ffea500-ca35-4483-b049-d8593b2c8680"),
@@ -16811,7 +16814,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("60cecaf3-8f36-4035-998f-d59bff1d46d6"),
+                            WorkoutExerciseId = new Guid("add8c0d0-e8f4-40d6-a35f-0e55accf0eb6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("6d6b06e1-5ade-4dae-b442-7aa200661760"),
@@ -16823,7 +16826,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3e5097ac-b744-4db2-b2b8-f2e3f23b6e59"),
+                            WorkoutExerciseId = new Guid("2c88cbac-1398-4a63-9f5a-3c1810e115a0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -16835,7 +16838,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4e569b27-adda-4540-b81a-560a2b7cc3fd"),
+                            WorkoutExerciseId = new Guid("e4faa7d0-8941-4cc0-8bce-6cf1d5160009"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("0a280d32-de67-4a38-8f21-923243489eef"),
@@ -16847,7 +16850,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6dc96458-d798-487d-89e4-876dfb34d638"),
+                            WorkoutExerciseId = new Guid("7f0dc256-155e-451c-8f14-ca8ec0bfc64b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -16859,7 +16862,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0328a84a-1b4d-41a1-a1fa-76abdf6ec7ae"),
+                            WorkoutExerciseId = new Guid("d31adbc9-d308-4a23-84a2-40ca911f0a7c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("0d1e54fe-7a5f-4e0a-a59f-ee9f443718e0"),
@@ -16871,7 +16874,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("40e94e83-780f-4195-8cd8-ef50a909bd1e"),
+                            WorkoutExerciseId = new Guid("a7455e4f-f312-48f2-b00a-4646e9d2be87"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("ae6eaaa1-c8c4-4f97-afa4-4ceeea19d4b3"),
@@ -16883,7 +16886,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1da7c9d1-5764-45e5-a177-6e8a02c9d189"),
+                            WorkoutExerciseId = new Guid("a9b06921-0d2f-40de-b630-e37588401984"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 20,
                             ExerciseId = new Guid("d3d944c4-947d-4910-bb6e-636390e5b8d5"),
@@ -16895,7 +16898,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("dc0c7bad-e9ef-422a-a0d5-c603462a3b81"),
+                            WorkoutExerciseId = new Guid("d5916790-1060-4771-a05f-d6edf7d5793f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 20,
                             ExerciseId = new Guid("f93d73ba-d1d6-4037-b51b-1fd005accff3"),
@@ -16907,7 +16910,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("57c99d24-d56a-4891-91d9-a166719153af"),
+                            WorkoutExerciseId = new Guid("efd0b84d-d639-4878-96c7-75ae50c6cf0f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -16919,7 +16922,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("541d24d5-e003-4f1b-837e-a716816def2f"),
+                            WorkoutExerciseId = new Guid("5f9f1817-7dac-4300-84af-01f6fa027c76"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -16931,7 +16934,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ea05e60a-9d91-461e-bfd9-f55db8d6cf5c"),
+                            WorkoutExerciseId = new Guid("f6ab295c-de27-4d0a-9eac-23f090be5b3e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("385f13f7-79bf-437b-acac-745b50485b9f"),
@@ -16943,7 +16946,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fe9e437b-ecaa-47c6-9b96-c4749e59a7d9"),
+                            WorkoutExerciseId = new Guid("9219e7f0-a595-43fc-bb91-3b978d256b07"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -16955,7 +16958,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("32c67209-17fe-4feb-9fd8-f8d8a999b846"),
+                            WorkoutExerciseId = new Guid("1d0803d2-3841-47b0-84ad-d5c722e476a6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -16967,7 +16970,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f81ec806-7231-43e1-ae0f-c619fe581f80"),
+                            WorkoutExerciseId = new Guid("30171aad-f38f-447d-b22b-5d7bdd031eba"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -16979,7 +16982,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f199de4e-79d9-4c13-aaab-20ade0eff78c"),
+                            WorkoutExerciseId = new Guid("7f769379-1906-43ce-92ac-2895c1dc975d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -16991,7 +16994,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d9b75e50-bc73-4bae-8018-f73e91509309"),
+                            WorkoutExerciseId = new Guid("42a9480f-a8c3-45bb-935c-01ec7881a05c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -17003,7 +17006,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3ec4e379-099d-4903-8049-0422c91ba44e"),
+                            WorkoutExerciseId = new Guid("704d8a93-6b9f-41cb-9eaa-b298b6bc18ea"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -17015,7 +17018,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("671f08fd-8fcb-4495-bd9c-ebeed65c71f0"),
+                            WorkoutExerciseId = new Guid("8ee07791-5f3f-4673-8b39-0e5c3f6472ea"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -17027,7 +17030,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("dfd0b490-fca4-4ca4-996e-1952a127c94d"),
+                            WorkoutExerciseId = new Guid("0b7430f2-28d9-4f79-b585-233223531b39"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -17039,7 +17042,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0de55577-38b1-4998-a4aa-6aa95b18ad48"),
+                            WorkoutExerciseId = new Guid("4e7eeceb-90da-4304-a4c6-4119b0bdb8ed"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -17051,7 +17054,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("556ee5b3-fe85-49c9-b8ae-2ee87b3a3bc8"),
+                            WorkoutExerciseId = new Guid("c3f08fc0-c6e5-4c26-9cb4-b97f142d5f46"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -17063,7 +17066,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a5763a54-d5aa-4325-b9ca-5329df0dba88"),
+                            WorkoutExerciseId = new Guid("b88bef82-d8be-4d8b-9ede-bfaa89803ecd"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -17075,7 +17078,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c7dfab87-6ab6-4eb2-82d2-1c8eca8547ca"),
+                            WorkoutExerciseId = new Guid("cb8870bd-d55e-4810-bfce-37a76cd02df3"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 60,
                             ExerciseId = new Guid("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -17087,7 +17090,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0c5ae6bc-65ed-4258-bde7-9c3a7b608fdd"),
+                            WorkoutExerciseId = new Guid("0ba8bf47-bf99-4088-831a-e4105ab63b71"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -17099,7 +17102,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cbd50e46-4f71-4b83-8c5c-16a13a2b6681"),
+                            WorkoutExerciseId = new Guid("06bbeb01-921d-47ff-af6c-f5b510bc7886"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -17111,7 +17114,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("704bd03d-3bcb-45dc-a312-d600200901cb"),
+                            WorkoutExerciseId = new Guid("7d6df52d-12e9-461f-9d22-6f41a424cbc3"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -17123,7 +17126,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d036eb3b-e965-4fce-8849-f11fa8423b85"),
+                            WorkoutExerciseId = new Guid("acf58125-0d3d-4df5-b386-844e0314c960"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -17135,7 +17138,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0f53dce7-f8d6-469c-bfbb-d4e44461e8b5"),
+                            WorkoutExerciseId = new Guid("bc329c26-4f7d-4d8f-9698-be761648ca25"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("7c38fc8f-8fd2-450e-8fa6-c4557f0e6e02"),
@@ -17147,7 +17150,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d97b0c4d-3c15-4c52-a8f5-1c6846a4f1a2"),
+                            WorkoutExerciseId = new Guid("bf1c1dc0-482c-4523-aa0f-bf61cb6b83c0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("58878826-775e-4d4c-8e1b-d5c95afc214d"),
@@ -17159,7 +17162,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1a802e81-53fa-43c2-b0d6-8e4e061a8e0a"),
+                            WorkoutExerciseId = new Guid("5765fb94-4df2-4ba1-972e-543e4125388a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("3a5a57a3-3495-45ae-9ebe-708e4d513d0c"),
@@ -17171,7 +17174,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("96c47cb8-6a9a-4d16-a8d8-b6e8caeacb0c"),
+                            WorkoutExerciseId = new Guid("c109e37d-ae19-4874-ba8a-9872dbbeea4c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("2e787245-7612-41bc-9b75-7a4857282350"),
@@ -17183,7 +17186,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b1ccd080-69b7-43c5-90f6-1e9adb8d81b4"),
+                            WorkoutExerciseId = new Guid("a93a1681-c886-4d4b-9bb0-5bf5b89015ba"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -17195,7 +17198,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cb2398cf-2156-47bd-9ac1-691644c477d1"),
+                            WorkoutExerciseId = new Guid("75b744dd-47b7-4362-b25a-64a0ab5163cb"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 30,
                             ExerciseId = new Guid("2696db05-e815-4c8b-870d-23c338479e95"),
@@ -17207,7 +17210,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("af4c1d5e-7edb-4204-ac15-642bbab39a72"),
+                            WorkoutExerciseId = new Guid("93dbeabd-10e9-4ff1-b3ef-5e1409fc5b1e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -17219,7 +17222,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2a85991f-a4ce-4b72-86fe-77e9081e1fa4"),
+                            WorkoutExerciseId = new Guid("210ecccb-ca54-4796-aa88-5f58325038aa"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -17231,7 +17234,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5565a82c-c778-493b-a60a-6e7b3d2b8195"),
+                            WorkoutExerciseId = new Guid("a4963655-2fb9-4446-9cba-95213059cb80"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -17243,7 +17246,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7cd1d5c1-09c2-43eb-82a9-85ae9cb60fbe"),
+                            WorkoutExerciseId = new Guid("97e2b0b6-7e74-47cd-9258-008f8d992fde"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -17255,7 +17258,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f41b2144-2d42-4912-97b5-ec8a0b99661a"),
+                            WorkoutExerciseId = new Guid("8e2b8c1d-fd06-4a59-afcc-1e906b338a26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Duration = 0,
                             ExerciseId = new Guid("93e22c77-001f-4825-8983-4ec5b643b7bb"),
@@ -17435,7 +17438,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1c670537-4e29-489b-b5ad-be2d9b514cea",
+                            ConcurrencyStamp = "0eec0970-844b-4fec-800f-5082d860442c",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "asd@gmail.com",
@@ -17444,10 +17447,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOPGQaVkgvae6nxzokDp8qXEUYdHXcl4UJh6ZjeyuLwfWgiUaPsspWovO3TiqzF59Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDoxt9NdtVlZetQN6sfGKHRyGUlZrjG5fb6W1cI0i/wV6CiKVo8PwI/Dm3XMTW5n7g==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8462e114-4be5-4f71-8fc6-353be44599b8",
+                            SecurityStamp = "67dd400e-8bf1-4c5d-8efb-7be9ca453e91",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17458,7 +17461,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6f5b3d3e-a85a-41ec-889d-df6ab0f0e629",
+                            ConcurrencyStamp = "f178b85a-15aa-41cf-9429-e81ecb45e714",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "toanvan@gmail.com",
@@ -17467,10 +17470,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAENHzjm6GPYa16oMALPv5t/vC7Z3EkthEh7ZGp1+pZrcq87UGt+aoVo/JDfCsnqrg+g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKbXG8sNYGiAMkCUjSfacr+QACVmugsWRSx5DI3A7PvL8WQCmb/OTgj4WYwLcRJrwg==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4c4bb051-b810-435f-98ba-4f60d69f8e77",
+                            SecurityStamp = "d268642c-8282-4118-b215-9d6e7804e527",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17481,7 +17484,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2ad229a7-0cc1-4ab2-9238-42ea96efe861",
+                            ConcurrencyStamp = "b4de0c1e-87c1-405b-8814-5e68826eeb72",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quocdai@gmail.com",
@@ -17490,10 +17493,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAED89GEO+E25+zqqkMmzOyqF6KXVlUgq41Z8/rCwTdCWaPKLVrnB/ekdtpBhHQ4hLFw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPwnS/ECXmhZt/yqMJUp0R8SD4RKkZst3YrjJB19HMrD2J6g02KbJ4oRsABDZT43rg==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "80ae105e-4236-4685-ba47-6448980cec45",
+                            SecurityStamp = "c5b05575-844c-4057-8790-fbb62d38a01b",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17504,7 +17507,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "add279e6-1556-45e8-81f7-e5741837c08d",
+                            ConcurrencyStamp = "d497aba7-6239-4408-a8c0-e58caba57294",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khaitoi@gmail.com",
@@ -17513,10 +17516,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEG/syDjSjXqOAmc3u0ZINHZC5xZum11vGywyIygSljD6kQ5ekEWJXFK9w0wLMCi7Ng==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDx3kDfWQ08/wU5zkfkTtXXo3daHlsHytfJhmn5Mn9/XV/ls/e9+xZeoBEQYRWmxrA==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e38eb5f4-d814-4760-920f-dbece3d239c8",
+                            SecurityStamp = "5edb0b20-7f75-4fe1-9e96-d7bd7ea2f277",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17527,7 +17530,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e6888d68-285f-4625-954b-a54735a99288",
+                            ConcurrencyStamp = "beaf1567-3dd4-45b1-8f2b-f50cd52b4eeb",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "duythunglungtinhiu@gmail.com",
@@ -17536,10 +17539,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJBTA/6KeCiuQdQXfRlEltCHiIjKnEIBAhEk6b87PdFhlZOtZb9b5aR4qEBRukMdmw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHgWd7aXuMHlLXAdwVqNDsA9U1HrSTh5JXESeRp48VtwqvwoCxjLeytnciC+G7pC1Q==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "56ae4e53-3b5f-488f-ae7c-c289f9ec1d54",
+                            SecurityStamp = "715626a0-ac2f-4ecf-ae38-6fb02564e75b",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17550,7 +17553,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c8419f5a-f59c-46b8-9e1b-d5684e9776a1",
+                            ConcurrencyStamp = "bbab30b2-b1f9-4094-aa80-32ebf81a92ec",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khanhpham@gmail.com",
@@ -17559,10 +17562,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAENMS3azrJy5m/8J2/zkjwemWIHIf1PkcBPQ8IdeacDZg8I5pVmbh4yTHx9hmAqssbA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE0xXf6dNcDZ5rGBPRm48b0mBts66ea0pyEx/Q1HgOvtG6KEkxCtX14nAYLwYpntnQ==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cb713e30-1e0d-4d1e-9203-49f984b9038c",
+                            SecurityStamp = "0a5952f7-e557-4c57-9ccc-fa49ea7bd054",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17573,7 +17576,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5ea66d4a-c0f8-4a11-a578-bab65a6345ee",
+                            ConcurrencyStamp = "1d65dd51-3bf7-4810-99eb-56febaa8f1bf",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quangdalat@gmail.com",
@@ -17582,10 +17585,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEjzqxoKT12ySflm2cYjDDIiwp96Y7TJkzocNcODrpsaaVlXlTMM8u1YR4HRzTGocg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGnYyVIbE1U6ZdcBZL8oCU20uf+XwYPG7aIxlYfSw6WT5pjL8yWSQw84PAFDB7PqNw==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b862d508-fb89-4682-83e4-1486c719751d",
+                            SecurityStamp = "7e4db216-5220-413a-a920-683fab194b06",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17596,7 +17599,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("20041d5b-01e4-443f-9652-e39beb9748e5"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9b5cc26e-5f57-4565-ac66-c1b754926376",
+                            ConcurrencyStamp = "ad82d85a-09e7-40f9-8d46-edff0894cb23",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "consultant@gmail.com",
@@ -17605,10 +17608,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CONSULTANT@GMAIL.COM",
                             NormalizedUserName = "0987654321",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJMz8whOsrnKHoK1bokExGbJk3fivkRGxbHof3DKOHZxj86q1q44vyt4TobB4Sb4FQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJbayKLjekgki+MjKrJ7aZbr+qipaGa67a4e35xGQqgsVYuL7hQcjrS6rAnF2wWO9g==",
                             PhoneNumber = "0987654321",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "05d39e3a-2bdd-41a6-921e-30762b613bfd",
+                            SecurityStamp = "0cc546b2-1cb2-4b47-93b5-3976d5f6f1ae",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17767,7 +17770,7 @@ namespace Monhealth.Identity.Migrations
             modelBuilder.Entity("Monhealth.Domain.ConsultantExpertise", b =>
                 {
                     b.HasOne("Monhealth.Domain.Consultant", "Consultant")
-                        .WithMany("ConsultantExpertises")
+                        .WithMany()
                         .HasForeignKey("ConsultantId");
 
                     b.HasOne("Monhealth.Core.Expertise", "Expertise")
@@ -17976,7 +17979,7 @@ namespace Monhealth.Identity.Migrations
                         .HasForeignKey("AppUserId");
 
                     b.HasOne("Monhealth.Domain.Consultant", "Consultant")
-                        .WithMany()
+                        .WithMany("Schedules")
                         .HasForeignKey("ConsultantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -18082,7 +18085,7 @@ namespace Monhealth.Identity.Migrations
                 {
                     b.Navigation("Bookings");
 
-                    b.Navigation("ConsultantExpertises");
+                    b.Navigation("Schedules");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.DailyActivity", b =>

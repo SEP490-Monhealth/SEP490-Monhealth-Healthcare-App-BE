@@ -118,7 +118,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                         CreatedAt = DateTime.Now,
                         UpdatedAt = DateTime.Now,
                         PortionId = portionId,
-                        Status = false
+                        Status = false,
+                        IsRecommended = false
                     };
                     _mealFoodRepository.Add(mealFood);
                 }
