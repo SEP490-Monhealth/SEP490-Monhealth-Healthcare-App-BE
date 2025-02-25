@@ -18,42 +18,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> Create([FromBody] AddPaymentRequest request)
-        {
-            var result = await _mediator.Send(request);
-            if (result != null)
-            {
-                return Ok(new ResultModel
-                {
-                    Success = true,
-                    Message = "Tạo thanh toán thành công",
-                    Status = 201,
-                });
-            }
 
-            return BadRequest(new ResultModel
-            {
-                Success = false,
-                Message = "Tạo thanh toán thất bại"
-            });
-        }
-        [HttpPatch("{paymentId:guid}")]
-        public async Task<IActionResult> UpdatePayment([FromRoute] Guid paymentId, [FromBody] UpdatePaymentDto updatePaymentDto)
-        {
-            var command = new UpdatePaymentCommand(paymentId, updatePaymentDto);
-            var result = await _mediator.Send(command);
-
-            if (!result)
-                return NotFound("Không tìm thấy thanh toán nào.");
-
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Cập nhật thanh toán thành công",
-                Status = 204,
-            });
-        }
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllReviews()
         {
@@ -66,6 +31,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet]
         [Route("{paymentId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetReviewDetail(Guid paymentId)
@@ -90,6 +56,28 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> Create([FromBody] AddPaymentRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo thanh toán thành công",
+                    Status = 201,
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo thanh toán thất bại"
+            });
+        }
+
         [HttpDelete]
         [Route("{paymentId:Guid}")]
         public async Task<ActionResult<ResultModel>> Remove(Guid paymentId)
@@ -115,6 +103,23 @@ namespace Monhealth.Api.Controllers
                 Message = "Xóa thanh toán thành công",
                 Status = 204,
                 Data = null
+            });
+        }
+
+        [HttpPut("{paymentId:guid}")]
+        public async Task<IActionResult> UpdatePayment([FromRoute] Guid paymentId, [FromBody] UpdatePaymentDto updatePaymentDto)
+        {
+            var command = new UpdatePaymentCommand(paymentId, updatePaymentDto);
+            var result = await _mediator.Send(command);
+
+            if (!result)
+                return NotFound("Không tìm thấy thanh toán nào.");
+
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhật thanh toán thành công",
+                Status = 204,
             });
         }
     }

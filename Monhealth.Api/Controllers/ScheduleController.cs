@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Schedule.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetById;
 using Monhealth.Application.Models;
 using System.Net;
+
 namespace Monhealth.Api.Controllers
 {
     [Route("api/v1/schedules")]
