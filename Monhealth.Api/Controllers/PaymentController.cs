@@ -1,4 +1,3 @@
-using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Payment.Commands.Create;
@@ -6,6 +5,7 @@ using Monhealth.Application.Features.Payment.Commands.Update;
 using Monhealth.Application.Features.Payment.Queries.GetALL;
 using Monhealth.Application.Features.Payment.Queries.GetById;
 using Monhealth.Application.Models;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -38,10 +38,10 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo thanh toán thất bại"
             });
         }
-        [HttpPatch]
-        public async Task<IActionResult> UpdatePayment([FromQuery] Guid paymentId, [FromQuery] int amount)
+        [HttpPatch("{paymentId:guid}")]
+        public async Task<IActionResult> UpdatePayment([FromRoute] Guid paymentId, [FromBody] UpdatePaymentDto updatePaymentDto)
         {
-            var command = new UpdatePaymentCommand(paymentId, amount);
+            var command = new UpdatePaymentCommand(paymentId, updatePaymentDto);
             var result = await _mediator.Send(command);
 
             if (!result)

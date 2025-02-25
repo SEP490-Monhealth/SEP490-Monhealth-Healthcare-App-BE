@@ -5,11 +5,11 @@ namespace Monhealth.Application.Features.Payment.Commands.Update
     public class UpdatePaymentCommand : IRequest<bool>
     {
         public Guid PaymentId { get; set; }
-        public int Amount { get; set; }
-        public UpdatePaymentCommand(Guid paymentId, int amount)
+        public UpdatePaymentDto UpdatePaymentDto { get; set; }
+        public UpdatePaymentCommand(Guid paymentId, UpdatePaymentDto updatePaymentDto)
         {
             PaymentId = paymentId;
-            Amount = amount;
+            UpdatePaymentDto = updatePaymentDto;
         }
 
     }
