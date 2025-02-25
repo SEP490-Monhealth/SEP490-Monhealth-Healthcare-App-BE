@@ -1,9 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Certificate.Commands.CreateCertificate;
+using Monhealth.Application.Features.Certificate.Commands.DeleteCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetCertificateById;
 using Monhealth.Application.Models;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -56,6 +58,31 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true,
             };
+        }
+
+        [HttpDelete("{certificateId:guid}")]
+        public async Task<ActionResult<ResultModel>> DeleteCertificateById(Guid certificateId)
+        {
+            var result = await mediator.Send(new DeleteCertificateCommand { CertificateId = certificateId });
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Message = "Xóa chứng chỉ không thành công",
+                    Status = (int)HttpStatusCode.BadRequest,
+                    Data = null
+                });
+            }
+
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa chứng chỉ thành công",
+                Status = 204,
+                Data = null
+            });
+
         }
     }
 }
