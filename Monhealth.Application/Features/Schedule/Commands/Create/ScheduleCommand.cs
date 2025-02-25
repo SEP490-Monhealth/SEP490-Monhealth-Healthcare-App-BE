@@ -16,11 +16,23 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
 
         public async Task<bool> Handle(ScheduleRequest request, CancellationToken cancellationToken)
         {
-            var schedule = mapper.Map<Domain.Schedule>(request);
-            schedule.Status = Domain.Enum.ScheduleStatus.Available;
-            schedule.CreatedAt = DateTime.Now;
-            _scheduleRepository.Add(schedule);
-            await _scheduleRepository.SaveChangeAsync();
+            if (request.Items != null)
+            {
+                foreach (var item in request.Items)
+                {
+                    var schedule = new Domain.Schedule
+                    {
+                        ConsultantId = request.ConsultantId,
+                        Date = item.Date,
+                        Time = item.Time,
+                        Status = Domain.Enum.ScheduleStatus.Available,
+                        CreatedAt = DateTime.Now
+                    };
+                    _scheduleRepository.Add(schedule);
+                }
+
+                await _scheduleRepository.SaveChangeAsync();
+            }
             return true;
         }
     }
