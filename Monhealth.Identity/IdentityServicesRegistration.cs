@@ -79,6 +79,9 @@ namespace Monhealth.Identity
             services.AddHostedService<ResetIsDrunkService>();
             services.AddScoped<IWorkoutRepository, WorkoutRepository>();
             services.AddScoped<IWorkoutExcerciseRepository, WorkoutExcerciseRepository>();
+            services.AddScoped<ICertificateRepository, CertificateRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
+
             services.AddScoped<IExpertiseRepository, ExpertiseRepository>();
             services.AddScoped<IConsultantRepository, ConsultantRepository>();
             services.AddScoped<ICertificateRepository, CertificateRepository>();
@@ -89,7 +92,7 @@ namespace Monhealth.Identity
             services.AddScoped<IAllergyRepository, AllergyRepository>();
             services.AddScoped<IFoodAllergyRepository, FoodAllergyRepository>();
             services.AddScoped<IUserAllergyRepository, UserAllergyRepository>();
-            services.AddScoped<IReviewRepository , ReviewRepository>();
+            services.AddScoped<IReviewRepository, ReviewRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             // Đăng ký Background Service
             // Add Authentication

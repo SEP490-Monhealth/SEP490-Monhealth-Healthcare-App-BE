@@ -1,31 +1,100 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Certificate.Queries.GetAllCertificates;
-using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
+using Monhealth.Application.Features.Certificate.Commands.CreateCertificate;
+using Monhealth.Application.Features.Certificate.Commands.DeleteCertificate;
+using Monhealth.Application.Features.Certificate.Commands.UpdateCertificate;
+using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
+using Monhealth.Application.Features.Certificate.Queries.GetCertificateById;
 using Monhealth.Application.Models;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/certificates")]
     [ApiController]
-    public class CertificateController : ControllerBase
+    public class CertificateController(IMediator mediator) : ControllerBase
     {
-        private readonly IMediator _mediator;
-        public CertificateController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
-        [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllCertificate()
-        {
-            var certificatesList = await _mediator.Send(new GetAllCertificatesQuery());
 
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> CreateCertificate([FromBody] CertificateCommand certificateCommand)
+        {
+            var result = await mediator.Send(certificateCommand);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo chứng chỉ thành công",
+                    Status = 201,
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo chứng chỉ thất bại",
+                Status = 500,
+            });
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllCertificate(int page = 1, int limit = 10, string? search = null, bool? status = null)
+        {
+            var certificates = await mediator.Send(new GetAllCertificateQuery(page, limit, search, status));
             return new ResultModel
             {
-                Data = certificatesList,
+                Data = certificates,
                 Status = 200,
-                Success = true
+                Success = true,
+            };
+        }
+
+        [HttpGet("{certificateId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetCertificateById(Guid certificateId)
+        {
+            var certificate = await mediator.Send(new GetCertificateByIdQuery { CertificateId = certificateId });
+            return new ResultModel
+            {
+                Data = certificate,
+                Status = 200,
+                Success = true,
+            };
+        }
+
+        [HttpDelete("{certificateId:guid}")]
+        public async Task<ActionResult<ResultModel>> DeleteCertificateById(Guid certificateId)
+        {
+            var result = await mediator.Send(new DeleteCertificateCommand { CertificateId = certificateId });
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Message = "Xóa chứng chỉ không thành công",
+                    Status = (int)HttpStatusCode.BadRequest,
+                    Data = null
+                });
+            }
+
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa chứng chỉ thành công",
+                Status = 204,
+                Data = null
+            });
+
+        }
+        [HttpPatch("{certificateId:guid}")]
+        public async Task<ActionResult<ResultModel>> ChangeCertificateStatus(Guid certificateId)
+        {
+            await mediator.Send(new UpdateCertificateStatusCommand { CertificcateId = certificateId });
+            return new ResultModel
+            {
+                Data = null,
+                Status = 200,
+                Message = "Cập nhập trạng thái thành công",
+                Success = true,
             };
         }
     }

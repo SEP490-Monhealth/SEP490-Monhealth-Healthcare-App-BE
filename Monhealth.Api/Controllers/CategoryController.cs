@@ -1,11 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Category.AddCategory;
-using Monhealth.Application.Features.Category.DeleteCategory;
 using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType;
-using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
-using Monhealth.Application.Features.Category.UpdateCategory;
-using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
 using System.Net;

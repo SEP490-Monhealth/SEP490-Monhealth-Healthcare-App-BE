@@ -11,6 +11,7 @@ namespace Monhealth.Domain
         public int Price { get; set; }
         public ICollection<UserSubscription> UserSubscriptions { get; set; }
         public ICollection<Payment> Payments { get; set; }
+
     }
 
 }

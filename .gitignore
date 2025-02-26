@@ -10,3 +10,4 @@ Monhealth.Identity/obj
 Monhealth.Infrastructure/bin
 Monhealth.Infrastructure/obj
 
+/Monhealth.Application/Features/.env

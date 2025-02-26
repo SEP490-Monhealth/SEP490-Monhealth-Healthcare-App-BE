@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using Monhealth.Application.Features.Certificate.Queries.GetAllCertificates;
+﻿using AutoMapper;
+using Monhealth.Application.Features.Certificate.Commands.CreateCertificate;
+using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Automapper
@@ -13,7 +9,8 @@ namespace Monhealth.Application.Automapper
     {
         public CertificateProfile()
         {
-            CreateMap<GetAllCertificatesDTO, Certificate>().ReverseMap();
+            CreateMap<CertificateCommand, Certificate>();
+            CreateMap<Certificate, CertificateDto>();
         }
     }
 }

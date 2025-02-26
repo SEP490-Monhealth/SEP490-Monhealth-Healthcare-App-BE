@@ -10,15 +10,18 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid CertificateId { get; set; } // PK 
-        public Guid ExpertiseId { get; set; }
+        public Guid? UserId { get; set; } // FK 
+        public Guid? ExpertiseId { get; set; }
         public string CertificateName { get; set; } = string.Empty;
-        public List<string> Images { get; set; } = new List<string>();
+        public string Images { get; set; } = string.Empty;
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
         public bool Status { get; set; }
 
         [ForeignKey(nameof(ExpertiseId))]
         public Expertise? Expertise { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public AppUser? User { get; set; }
     }
 
 }

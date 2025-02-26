@@ -14,7 +14,6 @@ namespace Monhealth.Domain
         public string Status { get; set; } = string.Empty;
         [ForeignKey(nameof(SubscriptionId))]
         public Subscription Subscription { get; set; }
-        //[ForeignKey(nameof(BookingId))]
-        //public Booking Booking { get; set; }
+
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -56,7 +51,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             // Savechange
             await _expertiseRepository.SaveChangeAsync();
             await _consultantRepository.SaveChangeAsync();
-            await _certificateRepository.SaveChangeAsync();
+            await _certificateRepository.SaveChangeAsync(cancellationToken);
 
             return Unit.Value;
         }

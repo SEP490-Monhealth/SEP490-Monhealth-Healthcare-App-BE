@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertise
 {
@@ -40,16 +34,16 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertise
 
             // Update Certificate
             var certificates = await _certificateRepository.GetCertificateByExpertiseId(request.ExpertiseId);
-            foreach (var certificate in certificates)
-            {
-                certificate.CertificateName = request.UpdateExpertiseDTO.CertificateName;
-                certificate.IssueDate = request.UpdateExpertiseDTO.IssueDate;
-                certificate.ExpiryDate = request.UpdateExpertiseDTO.ExpiryDate;
-                certificate.Images = request.UpdateExpertiseDTO.Images;
-                certificate.UpdatedAt = DateTime.Now;
-                _certificateRepository.Update(certificate);
-            }
-            
+            //foreach (var certificate in certificates)
+            //{
+            //    certificate.CertificateName = request.UpdateExpertiseDTO.CertificateName;
+            //    certificate.IssueDate = request.UpdateExpertiseDTO.IssueDate;
+            //    certificate.ExpiryDate = request.UpdateExpertiseDTO.ExpiryDate;
+            //    certificate.Images = request.UpdateExpertiseDTO.Images;
+            //    certificate.UpdatedAt = DateTime.Now;
+            //    _certificateRepository.Update(certificate);
+            //}
+
             await _expertiseRepository.SaveChangeAsync();
             await _certificateRepository.SaveChangeAsync();
             return true;
