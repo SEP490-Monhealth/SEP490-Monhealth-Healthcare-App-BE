@@ -1,8 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Monhealth.Domain;
 using Monhealth.Domain.Common;
-namespace Monhealth.Core
+namespace Monhealth.Domain
 {
     public class FoodAllergy : TimeEntity
     {

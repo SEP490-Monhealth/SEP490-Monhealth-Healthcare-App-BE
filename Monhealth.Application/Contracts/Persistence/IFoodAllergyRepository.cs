@@ -1,4 +1,4 @@
-using Monhealth.Core;
+using Monhealth.Domain;
 
 namespace Monhealth.Application.Contracts.Persistence
 {

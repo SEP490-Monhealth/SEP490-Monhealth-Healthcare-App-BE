@@ -2,7 +2,7 @@ using AutoMapper;
 using Monhealth.Application.Features.Reminders.Queries.GetAllReminder;
 using Monhealth.Application.Features.Reminders.Queries.GetReminderByUser;
 using Monhealth.Application.Features.Reminders.Queries.GetReminderDetail;
-using Monhealth.Core;
+using Monhealth.Domain;
 
 namespace Monhealth.Application.Automapper.CustomFoodMapper.ReminderMapper
 {
