@@ -12,6 +12,7 @@ namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
         public MealFoodNutritionDTO5 Nutrition { get; set; }
         public List<MealFoodDTO5> Items { get; set; }
     }
+
     public class MealFoodNutritionDTO5
     {
         public float Calories { get; set; }
@@ -21,6 +22,7 @@ namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
         public float Fiber { get; set; }
         public float Sugar { get; set; }
     }
+
     public class MealFoodDTO5
     {
         public Guid MealFoodId { get; set; }
@@ -32,6 +34,7 @@ namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
         public float Calories { get; set; }
         public MealFoodPortion5 Portion { get; set; }
     }
+
     public class MealFoodPortion5
     {
         [JsonPropertyName("size")]
@@ -40,6 +43,5 @@ namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
         public float PortionWeight { get; set; }
         [JsonPropertyName("unit")]
         public string MeasurementUnit { get; set; } = string.Empty;
-
     }
 }

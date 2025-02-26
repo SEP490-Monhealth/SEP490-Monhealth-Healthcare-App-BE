@@ -112,7 +112,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, newGoal, userId.Value, currentDate);
                 await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, newGoal, userId.Value, currentDate);
                 await CreateMealAsync(MealType.Snack, mealPlan.Snack, newGoal, userId.Value, currentDate);
-
             }
 
             #endregion

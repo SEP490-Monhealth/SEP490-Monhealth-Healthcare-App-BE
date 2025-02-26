@@ -17,8 +17,9 @@ namespace Monhealth.Domain
         public float TotalFats { get; set; }
         public float TotalFibers { get; set; }
         public float TotalSugars { get; set; }
+
         [ForeignKey(nameof(GoalId))]
-        public Goal Goal {get ;set ;}
+        public Goal Goal { get; set; }
         public ICollection<Meal> Meals { get; set; }
     }
 }

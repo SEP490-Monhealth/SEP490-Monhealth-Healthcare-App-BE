@@ -17,6 +17,7 @@ namespace Monhealth.Domain
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
         public bool Status { get; set; }
+
         [ForeignKey(nameof(ExpertiseId))]
         public Expertise? Expertise { get; set; }
         [ForeignKey(nameof(UserId))]

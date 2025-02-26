@@ -15,7 +15,6 @@ namespace Monhealth.Domain
 
         [ForeignKey(nameof(DailyActivityId))]
         public DailyActivity? DailyActivity { get; set; }
-
         [ForeignKey(nameof(WorkoutId))]
         public Workout? Workout { get; set; }
     }

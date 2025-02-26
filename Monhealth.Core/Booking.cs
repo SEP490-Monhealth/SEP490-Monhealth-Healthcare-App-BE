@@ -16,6 +16,7 @@ namespace Monhealth.Domain
         public int Amount { get; set; }
         public string Notes { get; set; } = string.Empty;
         public string Status { get; set; } = string.Empty;
+
         [ForeignKey(nameof(UserId)), Column(Order = 0)]
         public AppUser? User { get; set; }
         //[ForeignKey(nameof(ServiceId))]

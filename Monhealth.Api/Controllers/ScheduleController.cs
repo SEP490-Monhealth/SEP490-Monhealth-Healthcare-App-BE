@@ -154,7 +154,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{scheduleId:guid}")]
+        [HttpPatch("{scheduleId:guid}/status")]
         public async Task<ActionResult<ResultModel>> UpdateScheduleStatus([FromRoute] Guid scheduleId)
         {
             var result = await _mediator.Send(new UpdateScheduleStatusCommand { ScheduleId = scheduleId });

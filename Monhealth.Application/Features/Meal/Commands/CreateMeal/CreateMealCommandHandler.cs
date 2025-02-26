@@ -118,8 +118,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                         CreatedAt = DateTime.Now,
                         UpdatedAt = DateTime.Now,
                         PortionId = portionId,
+                        IsRecommended = false,
                         Status = false,
-                        IsRecommended = false
                     };
                     _mealFoodRepository.Add(mealFood);
                 }
@@ -132,7 +132,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     _foodRepository.Update(food);
                     await _foodRepository.SaveChangesAsync();
                 }
-
             }
 
             var currentDate = DateTime.Now.Date;
@@ -140,10 +139,12 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
             var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(currentDate, userId);
             var goal = await _goalRepository.GetByUserIdAsync(userId);
+
             if (goal == null)
             {
                 throw new Exception($"Kong tìm thấy Goal nào liên kết với UserId: {userId}");
             }
+
             if (dailyMeal == null)
             {
                 dailyMeal = new Monhealth.Domain.DailyMeal
@@ -200,7 +201,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                         dailyMeal.TotalFats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
                         dailyMeal.TotalFibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
                         dailyMeal.TotalSugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
-
                     }
                 }
             }
@@ -210,6 +210,5 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
             return model.MealId;
         }
-
     }
 }

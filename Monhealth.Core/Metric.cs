@@ -20,6 +20,7 @@ namespace Monhealth.Domain
         public float Bmr { get; set; }
         public float Tdee { get; set; }
         public float Ibw { get; set; }
+
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
     }

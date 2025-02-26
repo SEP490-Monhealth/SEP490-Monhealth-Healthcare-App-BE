@@ -12,6 +12,7 @@ namespace Monhealth.Domain
         public Guid? ConsultantId { get; set; }
         public Guid? ExpertiseId { get; set; }
 
+
         [ForeignKey(nameof(ExpertiseId))]
         public Expertise? Expertise { get; set; }
         [ForeignKey(nameof(ConsultantId))]

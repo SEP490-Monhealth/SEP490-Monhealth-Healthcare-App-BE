@@ -12,7 +12,7 @@ namespace Monhealth.Application.Features.MealFood.Queries
             IPortionRepository portionRepository)
         {
             _mealFoodRepository = mealFoodRepository;
-            _portionRepository = portionRepository ;
+            _portionRepository = portionRepository;
         }
 
         public async Task<List<GetMealFoodByMealIdDTO>> Handle(GetMealFoodByMealIdQuery request, CancellationToken cancellationToken)
@@ -52,9 +52,10 @@ namespace Monhealth.Application.Features.MealFood.Queries
                         Weight = portion.PortionWeight,
                         Unit = portion.MeasurementUnit ?? string.Empty,
                     },
+                    isRecommended = mf.IsRecommended,
+                    Status = mf.Status,
                     CreatedAt = mf.CreatedAt,
-                    UpdatedAt = mf.UpdatedAt,
-                    Status = mf.Status
+                    UpdatedAt = mf.UpdatedAt
                 };
 
                 result.Add(mealFoodDTO);

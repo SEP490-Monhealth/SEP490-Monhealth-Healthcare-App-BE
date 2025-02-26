@@ -22,7 +22,5 @@ namespace Monhealth.Application.Features.Schedule.Commands.UpdateScheduleStatus
             await scheduleRepository.SaveChangeAsync();
             return true;
         }
-
-
     }
 }
