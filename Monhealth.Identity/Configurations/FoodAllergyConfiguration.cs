@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Monhealth.Core;
+using Monhealth.Domain;
 
 namespace Monhealth.Identity.Configurations
 {
