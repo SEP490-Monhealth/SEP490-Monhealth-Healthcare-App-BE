@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Certificate.Commands.CreateCertificate;
 using Monhealth.Application.Features.Certificate.Commands.DeleteCertificate;
+using Monhealth.Application.Features.Certificate.Commands.UpdateCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetCertificateById;
 using Monhealth.Application.Models;
@@ -49,9 +50,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{certificateId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetCertificateById(Guid CertificateId)
+        public async Task<ActionResult<ResultModel>> GetCertificateById(Guid certificateId)
         {
-            var certificate = await mediator.Send(new GetCertificateByIdQuery { CertificateId = CertificateId });
+            var certificate = await mediator.Send(new GetCertificateByIdQuery { CertificateId = certificateId });
             return new ResultModel
             {
                 Data = certificate,
@@ -83,6 +84,18 @@ namespace Monhealth.Api.Controllers
                 Data = null
             });
 
+        }
+        [HttpPatch("{certificateId:guid}")]
+        public async Task<ActionResult<ResultModel>> ChangeCertificateStatus(Guid certificateId)
+        {
+            await mediator.Send(new UpdateCertificateStatusCommand { CertificcateId = certificateId });
+            return new ResultModel
+            {
+                Data = null,
+                Status = 200,
+                Message = "Cập nhập trạng thái thành công",
+                Success = true,
+            };
         }
     }
 }

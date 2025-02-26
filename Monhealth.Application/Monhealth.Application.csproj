@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Booking\Queries\" />
     <Folder Include="Features\UserFood\Queries\" />
     <Folder Include="Features\Workout\Queries\GetWorkoutByUserIdQueries\" />
   </ItemGroup>
