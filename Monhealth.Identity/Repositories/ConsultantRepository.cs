@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
-using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
 
@@ -31,7 +25,8 @@ namespace Monhealth.Identity.Repositories
                     Experience = c.Experience,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
-                    AppUser = new AppUser {
+                    AppUser = new AppUser
+                    {
                         FullName = c.AppUser.FullName,
                         Avatar = c.AppUser.Avatar,
                     },
@@ -81,6 +76,11 @@ namespace Monhealth.Identity.Repositories
                     }
                 }).FirstOrDefaultAsync();
             return consultant;
+        }
+
+        public async Task<Consultant> GetConsultantByUserId(Guid? userId)
+        {
+            return await _context.Consultants.FirstOrDefaultAsync(c => c.UserId == userId);
         }
 
         public async Task<int> SaveChangeAsync()

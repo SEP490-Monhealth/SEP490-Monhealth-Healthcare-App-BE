@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
+using System.Text.Json;
 
 namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
 {
@@ -23,17 +25,22 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         public async Task<Unit> Handle(CreateConsultantCommand request, CancellationToken cancellationToken)
         {
             // Create Expertise                
-            var newExpertise = _mapper.Map<Domain.Expertise>(request.CreateConsultantDTO);
-            newExpertise.ExpertiseId = Guid.NewGuid();
-            newExpertise.CreatedAt = DateTime.Now;
-            newExpertise.UpdatedAt = DateTime.Now;
-            _expertiseRepository.Add(newExpertise);
+            var expertise = await _expertiseRepository.GetExpertiseByNameAsync(request.CreateConsultantDTO.ExpertiseName);
+            if (expertise == null)
+            {
+                expertise = _mapper.Map<Domain.Expertise>(request.CreateConsultantDTO);
+                expertise.ExpertiseId = Guid.NewGuid();
+                expertise.CreatedAt = DateTime.Now;
+                expertise.UpdatedAt = DateTime.Now;
+                _expertiseRepository.Add(expertise);
 
-
+            }
             // Create Consultant
+            var consultant = await _consultantRepository.GetConsultantByUserId(request.CreateConsultantDTO.UserId);
+            if (consultant != null) { throw new BadRequestException("Người dùng này đã là chuyên viên tư vấn"); }
             var newConsultant = _mapper.Map<Domain.Consultant>(request.CreateConsultantDTO);
             newConsultant.ConsultantId = Guid.NewGuid();
-            newConsultant.ExpertiseId = newExpertise.ExpertiseId;
+            newConsultant.ExpertiseId = expertise.ExpertiseId;
             newConsultant.Status = false;
             newConsultant.CreatedAt = DateTime.Now;
             newConsultant.UpdatedAt = DateTime.Now;
@@ -42,17 +49,14 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             // Create Certificate
             var newCertificate = _mapper.Map<Domain.Certificate>(request.CreateConsultantDTO);
             newCertificate.CertificateId = Guid.NewGuid();
-            newCertificate.ExpertiseId = newExpertise.ExpertiseId;
+            newCertificate.ExpertiseId = expertise.ExpertiseId;
+            newCertificate.Images = JsonSerializer.Serialize(request.CreateConsultantDTO.Images);
             newCertificate.Status = true;
             newCertificate.CreatedAt = DateTime.Now;
             newCertificate.UpdatedAt = DateTime.Now;
             _certificateRepository.Add(newCertificate);
 
-            // Savechange
-            await _expertiseRepository.SaveChangeAsync();
-            await _consultantRepository.SaveChangeAsync();
             await _certificateRepository.SaveChangeAsync(cancellationToken);
-
             return Unit.Value;
         }
     }

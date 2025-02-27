@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
-using Monhealth.Identity.Models;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -12,6 +10,7 @@ namespace Monhealth.Identity.Repositories
     {
         public ExpertiseRepository(MonhealthDbcontext context) : base(context)
         {
+
         }
 
         public async Task<PaginatedResult<Expertise>> GetAllExpertisesAsync(int page, int limit)

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Monhealth.Application.Models;
-using Monhealth.Application.Models.Paging;
+﻿using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Contracts.Persistence
@@ -13,6 +7,7 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, bool? status);
         Task<Consultant> GetConsultantById(Guid consultantId);
+        Task<Consultant> GetConsultantByUserId(Guid? userId);
         Task<int> SaveChangeAsync();
     }
 }

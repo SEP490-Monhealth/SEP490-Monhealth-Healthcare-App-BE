@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
 {
@@ -13,9 +9,11 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         public int? Experience { get; set; }
 
         // Expertise
+        [JsonPropertyName("expertise")]
         public string ExpertiseName { get; set; } = string.Empty;
 
         // Certificate
+        [JsonPropertyName("certificate")]
         public string CertificateName { get; set; } = string.Empty;
         public List<string>? Images { get; set; }
         public DateTime? IssueDate { get; set; }
