@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Booking.Commands.CreateBooking;
+using Monhealth.Application.Features.Booking.Commands.DeleteBooking;
 using Monhealth.Application.Features.Booking.Commands.UpdateBooking;
 using Monhealth.Application.Features.Booking.Queries.GetAllBookings;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId;
@@ -14,8 +15,6 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class BookingController(IMediator mediator) : ControllerBase
     {
-
-
 
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllBooking(int page = 1, int limit = 10)
@@ -86,6 +85,18 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Message = "Cập nhập lịch hẹn thành công",
                 Status = 201,
+            });
+        }
+
+        [HttpDelete("{bookingId:guid}")]
+        public async Task<ActionResult<ResultModel>> DeleteBookingById([FromRoute] Guid bookingId)
+        {
+            await mediator.Send(new DeleteBookingCommand { BookingId = bookingId });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa lịch hẹn thành công",
+                Status = 204,
             });
         }
     }
