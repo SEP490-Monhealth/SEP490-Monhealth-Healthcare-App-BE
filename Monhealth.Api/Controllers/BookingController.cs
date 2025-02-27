@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Booking.Commands.CreateBooking;
+using Monhealth.Application.Features.Booking.Commands.UpdateBooking;
 using Monhealth.Application.Features.Booking.Queries.GetAllBookings;
+using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId;
 using Monhealth.Application.Features.Booking.Queries.GetBookingById;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByUserId;
 using Monhealth.Application.Models;
@@ -13,17 +15,7 @@ namespace Monhealth.Api.Controllers
     public class BookingController(IMediator mediator) : ControllerBase
     {
 
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> CreateBooking([FromBody] CreateBookingCommand command)
-        {
-            await mediator.Send(command);
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Tạo lịch hẹn thành công",
-                Status = 201,
-            });
-        }
+
 
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllBooking(int page = 1, int limit = 10)
@@ -61,6 +53,40 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpGet("consultant/{consultantId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId)
+        {
+            var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId });
+            return new ResultModel
+            {
+                Data = booking,
+                Status = 200,
+                Success = true,
+            };
+        }
 
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> CreateBooking([FromBody] CreateBookingCommand command)
+        {
+            await mediator.Send(command);
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Tạo lịch hẹn thành công",
+                Status = 201,
+            });
+        }
+
+        [HttpPut("{bookingId:guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateBookingById([FromRoute] Guid bookingId, [FromBody] UpdateBookingDto command)
+        {
+            await mediator.Send(new UpdateBookingCommand(bookingId, command));
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập lịch hẹn thành công",
+                Status = 201,
+            });
+        }
     }
 }

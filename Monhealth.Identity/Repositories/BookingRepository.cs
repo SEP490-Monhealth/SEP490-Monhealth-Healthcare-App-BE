@@ -28,9 +28,22 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        public Task<Booking> GetBookingByConsultantId(Guid consultantId)
+        public async Task<Booking?> GetBookingByConsultantId(Guid consultantId)
         {
-            throw new NotImplementedException();
+            return await _context.Bookings.AsNoTracking()
+                .Where(b => b.ConsultantId == consultantId)
+                .Select(b => new Booking
+                {
+                    BookingId = b.BookingId,
+                    UserId = b.UserId,
+                    Date = b.Date,
+                    Notes = b.Notes,
+                    Status = b.Status,
+                    CreatedAt = b.CreatedAt,
+                    UpdatedAt = b.UpdatedAt,
+                    CreatedBy = b.CreatedBy,
+                    UpdatedBy = b.UpdatedBy,
+                }).FirstOrDefaultAsync();
         }
 
         public async Task<Booking> GetBookingByUserId(Guid userId)
@@ -52,7 +65,7 @@ namespace Monhealth.Identity.Repositories
                        UpdatedBy = b.UpdatedBy,
 
                    })
-                   .FirstOrDefaultAsync();
+                   .FirstOrDefaultAsync() ?? new Booking(); ;
 
 
         }
