@@ -205,7 +205,6 @@ namespace Monhealth.Application.ServiceForRecommend
 
             return allowedTypes.ToList();
         }
-
     }
 }
 
@@ -221,7 +220,9 @@ public class MealDTO
 {
     public DishDTO MainDish { get; set; } = new DishDTO();
     public DishDTO SideDish { get; set; } = new DishDTO();
+    public DishDTO Soup { get; set; } = new DishDTO();
     public DishDTO Dessert { get; set; } = new DishDTO();
+    public DishDTO Snack { get; set; } = new DishDTO();
 }
 
 public class DishDTO

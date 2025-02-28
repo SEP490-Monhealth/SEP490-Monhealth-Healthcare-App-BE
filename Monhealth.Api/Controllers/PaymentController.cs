@@ -78,34 +78,6 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpDelete]
-        [Route("{paymentId:Guid}")]
-        public async Task<ActionResult<ResultModel>> Remove(Guid paymentId)
-        {
-            var result = await _mediator.Send(new DeletePaymentCommand(paymentId));
-
-            if (!result)
-            {
-                // Trả về lỗi nếu xóa không thành công
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Xóa thanh toán không thành công",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-
-            // Trả về kết quả thành công
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Xóa thanh toán thành công",
-                Status = 204,
-                Data = null
-            });
-        }
-
         [HttpPut("{paymentId:guid}")]
         public async Task<IActionResult> UpdatePayment([FromRoute] Guid paymentId, [FromBody] UpdatePaymentDto updatePaymentDto)
         {
@@ -122,5 +94,33 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
             });
         }
+
+        // [HttpDelete]
+        // [Route("{paymentId:Guid}")]
+        // public async Task<ActionResult<ResultModel>> Remove(Guid paymentId)
+        // {
+        //     var result = await _mediator.Send(new DeletePaymentCommand(paymentId));
+
+        //     if (!result)
+        //     {
+        //         // Trả về lỗi nếu xóa không thành công
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Xóa thanh toán không thành công",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+
+        //     // Trả về kết quả thành công
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Message = "Xóa thanh toán thành công",
+        //         Status = 204,
+        //         Data = null
+        //     });
+        // }
     }
 }

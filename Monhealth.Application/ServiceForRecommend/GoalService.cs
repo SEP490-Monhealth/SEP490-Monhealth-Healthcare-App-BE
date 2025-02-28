@@ -4,7 +4,6 @@ using Monhealth.Application.ServiceForRecommend.DTO;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 
-
 namespace Monhealth.Application.Services
 {
     public class GoalService

@@ -14,29 +14,6 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class CertificateController(IMediator mediator) : ControllerBase
     {
-
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> CreateCertificate([FromBody] CertificateCommand certificateCommand)
-        {
-            var result = await mediator.Send(certificateCommand);
-            if (result != null)
-            {
-                return Ok(new ResultModel
-                {
-                    Success = true,
-                    Message = "Tạo chứng chỉ thành công",
-                    Status = 201,
-                });
-            }
-
-            return BadRequest(new ResultModel
-            {
-                Success = false,
-                Message = "Tạo chứng chỉ thất bại",
-                Status = 500,
-            });
-        }
-
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllCertificate(int page = 1, int limit = 10, string? search = null, bool? status = null)
         {
@@ -61,31 +38,53 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpDelete("{certificateId:guid}")]
-        public async Task<ActionResult<ResultModel>> DeleteCertificateById(Guid certificateId)
-        {
-            var result = await mediator.Send(new DeleteCertificateCommand { CertificateId = certificateId });
-            if (!result)
-            {
-                return BadRequest(new ResultModel
-                {
-                    Success = false,
-                    Message = "Xóa chứng chỉ không thành công",
-                    Status = (int)HttpStatusCode.BadRequest,
-                    Data = null
-                });
-            }
+        // [HttpPost]
+        // public async Task<ActionResult<ResultModel>> CreateCertificate([FromBody] CertificateCommand certificateCommand)
+        // {
+        //     var result = await mediator.Send(certificateCommand);
+        //     if (result != null)
+        //     {
+        //         return Ok(new ResultModel
+        //         {
+        //             Success = true,
+        //             Message = "Tạo chứng chỉ thành công",
+        //             Status = 201,
+        //         });
+        //     }
 
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Xóa chứng chỉ thành công",
-                Status = 204,
-                Data = null
-            });
+        //     return BadRequest(new ResultModel
+        //     {
+        //         Success = false,
+        //         Message = "Tạo chứng chỉ thất bại",
+        //         Status = 500,
+        //     });
+        // }
 
-        }
-        [HttpPatch("{certificateId:guid}")]
+        // [HttpDelete("{certificateId:guid}")]
+        // public async Task<ActionResult<ResultModel>> DeleteCertificateById(Guid certificateId)
+        // {
+        //     var result = await mediator.Send(new DeleteCertificateCommand { CertificateId = certificateId });
+        //     if (!result)
+        //     {
+        //         return BadRequest(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Xóa chứng chỉ không thành công",
+        //             Status = (int)HttpStatusCode.BadRequest,
+        //             Data = null
+        //         });
+        //     }
+
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Message = "Xóa chứng chỉ thành công",
+        //         Status = 204,
+        //         Data = null
+        //     });
+        // }
+
+        [HttpPatch("{certificateId:guid}/status")]
         public async Task<ActionResult<ResultModel>> ChangeCertificateStatus(Guid certificateId)
         {
             await mediator.Send(new UpdateCertificateStatusCommand { CertificcateId = certificateId });

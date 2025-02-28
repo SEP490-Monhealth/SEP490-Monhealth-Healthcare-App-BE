@@ -22,19 +22,19 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        // [HttpGet]
-        // public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery] string sort = null, string order = null)
-        // {
-        //     var query = new GetAllPortionQuery(sort, order);
-        //     var result = await _mediator.Send(query);
-        //     return new ResultModel
-        //     {
-        //         Data = result,
-        //         Status = 200,
-        //         Success = true,
-        //         Message = "Lấy danh sách khẩu phần ăn thành công"
-        //     };
-        // }
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery] string sort = null, string order = null)
+        {
+            var query = new GetAllPortionQuery(sort, order);
+            var result = await _mediator.Send(query);
+            return new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true,
+                Message = "Lấy danh sách khẩu phần ăn thành công"
+            };
+        }
 
         // [HttpGet("{portionId:guid}")]
         // public async Task<ActionResult<ResultModel>> GetPortionById(Guid portionId)
@@ -79,26 +79,26 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        // [HttpPost]
-        // public async Task<ActionResult<ResultModel>> CreateFoodPortion([FromBody] CreatePortionCommand createPortion)
-        // {
-        //     var create = await _mediator.Send(createPortion);
-        //     if (create == Unit.Value)
-        //     {
-        //         return new ResultModel
-        //         {
-        //             Message = "Tạo khẩu phần ăn thành công",
-        //             Status = 201,
-        //             Success = true
-        //         };
-        //     }
-        //     return new ResultModel
-        //     {
-        //         Message = "Tạo khẩu phần ăn thất bại",
-        //         Status = (int)HttpStatusCode.BadRequest,
-        //         Success = false
-        //     };
-        // }
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> CreateFoodPortion([FromBody] CreatePortionCommand createPortion)
+        {
+            var create = await _mediator.Send(createPortion);
+            if (create == Unit.Value)
+            {
+                return new ResultModel
+                {
+                    Message = "Tạo khẩu phần ăn thành công",
+                    Status = 201,
+                    Success = true
+                };
+            }
+            return new ResultModel
+            {
+                Message = "Tạo khẩu phần ăn thất bại",
+                Status = (int)HttpStatusCode.BadRequest,
+                Success = false
+            };
+        }
 
         // [HttpPut("{portionId}")]
         // public async Task<ActionResult<ResultModel>> Update(Guid portionId, [FromBody] UpdatePortionRequest updatePortion)

@@ -83,7 +83,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPut("users/{userId}/avatar")]
+        [HttpPut("{userId}/avatar")]
         public async Task<ActionResult<ResultModel>> UpdateUserAvatar(Guid userId, [FromBody] UpdateAvatarRequest request)
         {
             var command = new UpdateAvatarCommand(userId, request);

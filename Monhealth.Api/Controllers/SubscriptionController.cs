@@ -34,25 +34,25 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        // [HttpGet("{subscriptionId:guid}")]
-        // public async Task<ActionResult<ResultModel>> GetReminderById(Guid subscriptionId)
-        // {
-        //     var portion = await _mediator.Send(new SubscriptionDetailQuery() { SubscriptionId = subscriptionId });
-        //     if (portion == null)
-        //     {
-        //         return new ResultModel
-        //         {
-        //             Success = false,
-        //             Status = (int)HttpStatusCode.NotFound,
-        //         };
-        //     }
-        //     return new ResultModel
-        //     {
-        //         Data = portion,
-        //         Status = 200,
-        //         Success = true
-        //     };
-        // }
+        [HttpGet("{subscriptionId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetReminderById(Guid subscriptionId)
+        {
+            var portion = await _mediator.Send(new SubscriptionDetailQuery() { SubscriptionId = subscriptionId });
+            if (portion == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                };
+            }
+            return new ResultModel
+            {
+                Data = portion,
+                Status = 200,
+                Success = true
+            };
+        }
 
         // [HttpGet("user/{userId:guid}")]
         // public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
