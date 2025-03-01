@@ -10,15 +10,18 @@ namespace Monhealth.Application.Features.Food.AddFood
         private readonly ICategoryRepository _categoryRepository;
         private readonly IPortionRepository _portionRepository;
         private readonly INutritionRepository _nutritionRepository;
+        private readonly ICategoryFoodRepository _categoryFoodRepository;
         public AddFoodHandle(IFoodRepository foodRepository,
         ICategoryRepository categoryRepository,
         IPortionRepository portionRepository,
-        INutritionRepository nutritionRepository)
+        INutritionRepository nutritionRepository,
+        ICategoryFoodRepository categoryFoodRepository)
         {
             _foodRepository = foodRepository;
             _categoryRepository = categoryRepository;
             _portionRepository = portionRepository;
             _nutritionRepository = nutritionRepository;
+            _categoryFoodRepository = categoryFoodRepository;
         }
 
         public async Task<bool> Handle(AddFoodRequest request, CancellationToken cancellationToken)
@@ -29,9 +32,11 @@ namespace Monhealth.Application.Features.Food.AddFood
             var category = await _categoryRepository.GetCategoryByCategoryName(request.Category);
             if (category == null)
                 throw new Exception("Danh mục không tồn tại");
+            Guid foodId = Guid.NewGuid();
             var food = new Monhealth.Domain.Food
             {
                 UserId = request.UserId,
+                FoodId = foodId,
                 FoodName = request.FoodName,
                 MealType = request.MealType,
                 DishType = request.DishType,
@@ -41,9 +46,14 @@ namespace Monhealth.Application.Features.Food.AddFood
                 Status = false,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                CategoryId = category.CategoryId,
                 IsPublic = true
             };
+            var categoryFood = new CategoryFood
+            {
+                CategoryId = category.CategoryId,
+                FoodId = foodId
+            };
+            _categoryFoodRepository.Add(categoryFood);
 
             _foodRepository.Add(food);
             await _foodRepository.SaveChangesAsync();

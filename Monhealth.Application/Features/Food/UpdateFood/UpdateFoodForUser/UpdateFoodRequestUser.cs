@@ -7,9 +7,9 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForUser
     {
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
-        public List<FoodType> FoodType { get; set; }
-        public List<MealType> MealType { get; set; }
-        public List<DishType> DishType { get; set; }
+        public List<FoodType> FoodType { get; set; } = [];
+        public List<MealType> MealType { get; set; } = [];
+        public List<DishType> DishType { get; set; } = [];
         [JsonPropertyName("description")]
         public string FoodDescription { get; set; } = string.Empty;
         public bool IsPublic { get; set; }

@@ -37,7 +37,6 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Payment> Payments { get; set; }
-        public DbSet<UserFood> UserFoods { get; set; }
         public DbSet<Workout> Workouts { get; set; }
         public DbSet<WorkoutExercise> WorkoutExercises { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
@@ -45,6 +44,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<DailyWaterIntake> DailyWaterIntakes { get; set; }
         public DbSet<Consultant> Consultants { get; set; }
         public DbSet<Expertise> Expertises { get; set; }
+        public DbSet<CategoryFood> CategoryFoods { get; set; }
         //public DbSet<ConsultantExpertise> ConsultantExpertises { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -86,20 +86,20 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(we => we.ExerciseId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<UserFood>(entity =>
-            {
-                entity.Property(e => e.Categories)
-                    .HasConversion(
-                      v => string.Join(',', v), // Chuyển từ List<string> thành chuỗi
-                      v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList() // Chuyển chuỗi thành List<string>
-                  );
+            // builder.Entity<UserFood>(entity =>
+            // {
+            //     entity.Property(e => e.Categories)
+            //         .HasConversion(
+            //           v => string.Join(',', v), // Chuyển từ List<string> thành chuỗi
+            //           v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList() // Chuyển chuỗi thành List<string>
+            //       );
 
-                entity.Property(e => e.Allergies)
-                    .HasConversion(
-                        v => string.Join(',', v),
-                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-                    );
-            });
+            //     entity.Property(e => e.Allergies)
+            //         .HasConversion(
+            //             v => string.Join(',', v),
+            //             v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+            //         );
+            // });
             builder.Entity<Food>(entity =>
             {
                 entity.Property(e => e.MealType)
@@ -134,6 +134,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new WorkoutExerciseConfiguration());
             builder.ApplyConfiguration(new SubscriptionConfiguration());
             builder.ApplyConfiguration(new FoodAllergyConfiguration());
+            builder.ApplyConfiguration(new CategoryFoodConfiguration());
         }
     }
 }

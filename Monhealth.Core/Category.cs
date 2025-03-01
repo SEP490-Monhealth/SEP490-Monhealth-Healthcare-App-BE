@@ -13,8 +13,7 @@ namespace Monhealth.Domain
         public string CategoryName { get; set; } = string.Empty;
         public string? CategoryDescription { get; set; } = string.Empty;
         public string? Image { get; set; } = string.Empty;
-
-        public List<Food>? Foods { get; set; }
+        public ICollection<CategoryFood> CategoryFoods { get; set; } = [];
         public ICollection<Workout>? Workouts { get; set; }
         //public ICollection<Service>? Services { get; set; }
     }

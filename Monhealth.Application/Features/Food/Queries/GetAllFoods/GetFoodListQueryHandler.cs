@@ -29,20 +29,20 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
                 FoodDescription = food.FoodDescription,
                 Allergies = food.FoodAllergies?
                .Where(f => f.Allergy != null)
-               .Select(f => f.Allergy.AllergyName).ToList(),
-                Category = food.Category?.CategoryName, // Nếu có quan hệ với Category
+               .Select(f => f.Allergy.AllergyName).ToList() ?? [],
+                Category = food.CategoryFoods.Select(x => x.Category.CategoryName).FirstOrDefault() ?? "", // Nếu có quan hệ với Category
                 Portion = food.FoodPortions.Select(fp => new GetPortionForGetAllFoodDTO
                 {
                     PortionSize = fp.Portion.PortionSize,
                     PortionWeight = fp.Portion.PortionWeight,
                     MeasurementUnit = fp.Portion.MeasurementUnit
-                }).FirstOrDefault(),
+                }).FirstOrDefault() ?? null!,
                 Nutrition = food.Nutrition != null
          ? new GetNutritionForGetAllFoodDTO
          {
              Calories = food.Nutrition.Calories
          }
-         : null,
+         : null!,
                 Status = food.Status,
                 IsPublic = food.IsPublic,
                 CreatedAt = food.CreatedAt,

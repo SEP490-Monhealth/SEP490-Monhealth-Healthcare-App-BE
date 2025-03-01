@@ -72,7 +72,6 @@ namespace Monhealth.Identity
             services.AddScoped<IGoalRepository, GoalRepository>();
             services.AddScoped<IGoalsCalculator, GoalsCalculator>();
             services.AddScoped<IAllergyRepository, AllergyRepository>();
-            services.AddScoped<IUserFoodRepository, UserFoodRepository>();
             services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
             services.AddScoped<IUserSubscriptionRepository, UserSubscriptionRepository>();
             services.AddScoped<IExerciseRepository, ExerciseRepository>();
@@ -94,6 +93,7 @@ namespace Monhealth.Identity
             services.AddScoped<IUserAllergyRepository, UserAllergyRepository>();
             services.AddScoped<IReviewRepository, ReviewRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<ICategoryFoodRepository , CategoryFoodRepository>();
             // Đăng ký Background Service
             // Add Authentication
             services.AddAuthentication(options =>
