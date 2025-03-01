@@ -8,5 +8,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<bool> CheckIfUserIsAllergicToFoodAsync(Guid user, Guid food);
         Task<List<Allergy>> GetByUserId(Guid userId);
         Task<List<Guid>> GetAllergyIdsByNamesAsync(IEnumerable<string> allergyNames);
+        Task<List<Allergy>>GetAllergiesByList(List<string> allergies);
     }
 }

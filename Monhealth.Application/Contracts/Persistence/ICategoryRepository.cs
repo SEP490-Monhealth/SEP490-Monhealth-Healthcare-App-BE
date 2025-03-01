@@ -12,5 +12,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<Category> GetCategoryByCategoryName(string Name);
         Task<List<Category>> GetCategoriesByType(CategoryType categoryType);
         Task<List<Guid>> GetCategoryIdsByNamesAsync(IEnumerable<string> categoryNames);
+        Task<List<Category>>GetCategoriesByList(List<string> categories);
     }
 }

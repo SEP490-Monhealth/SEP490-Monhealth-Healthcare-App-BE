@@ -1,12 +1,6 @@
-using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Allergy.Commands.CreateAllergy;
-using Monhealth.Application.Features.Allergy.Commands.DeleteAllergy;
-using Monhealth.Application.Features.Allergy.Commands.UpdateAllergy;
 using Monhealth.Application.Features.Allergy.Queries.GetAll;
-using Monhealth.Application.Features.Allergy.Queries.GetByUser;
-using Monhealth.Application.Features.Allergy.Queries.GetDetail;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers

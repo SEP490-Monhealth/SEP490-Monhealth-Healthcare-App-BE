@@ -18,5 +18,10 @@ namespace Monhealth.Identity.Repositories
                         .Select(ua => ua.AllergyId)
                         .ToListAsync();
         }
+
+        public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }

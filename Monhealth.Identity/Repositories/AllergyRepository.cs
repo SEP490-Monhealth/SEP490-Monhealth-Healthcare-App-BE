@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Core;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -21,6 +20,12 @@ namespace Monhealth.Identity.Repositories
                  fa => fa.AllergyId,
                  (ua, fa) => new { ua, fa })
            .AnyAsync(joined => joined.fa.FoodId == food);
+        }
+
+        public async Task<List<Allergy>> GetAllergiesByList(List<string> allergies)
+        {
+            return await _context.Allergies
+            .Where(a => allergies.Contains(a.AllergyName)).ToListAsync();
         }
 
         public async Task<List<Guid>> GetAllergyIdsByNamesAsync(IEnumerable<string> allergyNames)
