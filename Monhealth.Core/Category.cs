@@ -1,4 +1,5 @@
 ﻿
+using Monhealth.Core;
 using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
 using System.ComponentModel.DataAnnotations;
@@ -14,7 +15,7 @@ namespace Monhealth.Domain
         public string? CategoryDescription { get; set; } = string.Empty;
         public string? Image { get; set; } = string.Empty;
         public ICollection<CategoryFood> CategoryFoods { get; set; } = [];
-        public ICollection<Workout>? Workouts { get; set; }
-        //public ICollection<Service>? Services { get; set; }
+        public ICollection<Workout> Workouts { get; set; } =[];
+        public ICollection<UserCategory> UserCategories{ get; set; } =[];
     }
 }

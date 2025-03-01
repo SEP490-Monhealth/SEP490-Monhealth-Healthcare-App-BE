@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Monhealth.Core;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Configurations;
@@ -45,6 +46,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Consultant> Consultants { get; set; }
         public DbSet<Expertise> Expertises { get; set; }
         public DbSet<CategoryFood> CategoryFoods { get; set; }
+        public DbSet<UserCategory> UserCategories { get; set; }
         //public DbSet<ConsultantExpertise> ConsultantExpertises { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
