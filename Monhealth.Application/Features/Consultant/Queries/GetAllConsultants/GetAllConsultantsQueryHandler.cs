@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Consultant.Queries.GetAllConsultants

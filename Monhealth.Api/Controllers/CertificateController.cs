@@ -60,29 +60,29 @@ namespace Monhealth.Api.Controllers
         //     });
         // }
 
-        // [HttpDelete("{certificateId:guid}")]
-        // public async Task<ActionResult<ResultModel>> DeleteCertificateById(Guid certificateId)
-        // {
-        //     var result = await mediator.Send(new DeleteCertificateCommand { CertificateId = certificateId });
-        //     if (!result)
-        //     {
-        //         return BadRequest(new ResultModel
-        //         {
-        //             Success = false,
-        //             Message = "Xóa chứng chỉ không thành công",
-        //             Status = (int)HttpStatusCode.BadRequest,
-        //             Data = null
-        //         });
-        //     }
+        [HttpDelete("{certificateId:guid}")]
+        public async Task<ActionResult<ResultModel>> DeleteCertificateById(Guid certificateId)
+        {
+            var result = await mediator.Send(new DeleteCertificateCommand { CertificateId = certificateId });
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Message = "Xóa chứng chỉ không thành công",
+                    Status = (int)HttpStatusCode.BadRequest,
+                    Data = null
+                });
+            }
 
-        //     return Ok(new ResultModel
-        //     {
-        //         Success = true,
-        //         Message = "Xóa chứng chỉ thành công",
-        //         Status = 204,
-        //         Data = null
-        //     });
-        // }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa chứng chỉ thành công",
+                Status = 204,
+                Data = null
+            });
+        }
 
         [HttpPatch("{certificateId:guid}/status")]
         public async Task<ActionResult<ResultModel>> ChangeCertificateStatus(Guid certificateId)

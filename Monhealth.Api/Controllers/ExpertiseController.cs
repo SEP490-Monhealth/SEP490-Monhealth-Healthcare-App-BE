@@ -12,13 +12,11 @@ using Monhealth.Application.Features.Expertise.Commands.DeleteExpertise;
 using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
 using Monhealth.Application.Features.Expertise.Queries.GetAllExpertises;
 using Monhealth.Application.Features.Expertise.Queries.GetExpertiseById;
-using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Application.Models;
-using Monhealth.Domain;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/expertises")]
+    [Route("api/v1/expertise")]
     [ApiController]
     public class ExpertiseController : ControllerBase
     {
@@ -63,27 +61,27 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        // [HttpPost]
-        // public async Task<ActionResult<ResultModel>> CreateExpertise([FromBody] CreateExpertiseDTO createExpertiseDTO)
-        // {
-        //     var command = new CreateExpertiseCommand(createExpertiseDTO);
-        //     var createExpertise = await _mediator.Send(command);
-        //     if (createExpertise == Unit.Value)
-        //     {
-        //         return new ResultModel
-        //         {
-        //             Message = "Tạo chuyên môn thành công",
-        //             Status = 201,
-        //             Success = true
-        //         };
-        //     }
-        //     return new ResultModel
-        //     {
-        //         Message = "Tạo chuyên môn thất bại",
-        //         Status = (int)HttpStatusCode.BadRequest,
-        //         Success = false
-        //     };
-        // }
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> CreateExpertise([FromBody] CreateExpertiseDTO createExpertiseDTO)
+        {
+            var command = new CreateExpertiseCommand(createExpertiseDTO);
+            var createExpertise = await _mediator.Send(command);
+            if (createExpertise == Unit.Value)
+            {
+                return new ResultModel
+                {
+                    Message = "Tạo chuyên môn thành công",
+                    Status = 201,
+                    Success = true
+                };
+            }
+            return new ResultModel
+            {
+                Message = "Tạo chuyên môn thất bại",
+                Status = (int)HttpStatusCode.BadRequest,
+                Success = false
+            };
+        }
 
         [HttpPut("{expertiseId}")]
         public async Task<ActionResult<ResultModel>> UpdateExpertise(Guid expertiseId, [FromBody] UpdateExpertiseDTO updateExpertiseDTO)

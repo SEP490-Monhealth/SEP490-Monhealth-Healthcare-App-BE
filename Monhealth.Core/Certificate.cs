@@ -1,5 +1,4 @@
-﻿using Monhealth.Core;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,5 +22,4 @@ namespace Monhealth.Domain
         [ForeignKey(nameof(UserId))]
         public AppUser? User { get; set; }
     }
-
 }
