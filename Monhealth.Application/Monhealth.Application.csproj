@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Activity\Queries\" />
     <Folder Include="Features\Certificate\Commands\" />
     <Folder Include="Features\UserFood\Queries\" />
     <Folder Include="Features\Workout\Queries\GetWorkoutByUserIdQueries\" />

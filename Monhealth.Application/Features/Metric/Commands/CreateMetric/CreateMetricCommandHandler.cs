@@ -81,6 +81,12 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             var newGoal = _mapper.Map<Goal>(request.CreateMetricDTO);
             _goalCalculator.CreateCalculateGoal(newGoal, request.CreateMetricDTO, newMetric.Tdee);
             newGoal.GoalId = Guid.NewGuid();
+            var checkStatus = await _goalRepository.CheckStatusGoal(request.CreateMetricDTO.UserId);
+            if(checkStatus != null)
+            {
+                checkStatus.Status = GoalStatus.Abandoned;
+                _goalRepository.Update(newGoal);
+            }
             newGoal.Status = GoalStatus.Active;
             newGoal.CreatedAt = DateTime.Now;
             newGoal.UpdatedAt = DateTime.Now;

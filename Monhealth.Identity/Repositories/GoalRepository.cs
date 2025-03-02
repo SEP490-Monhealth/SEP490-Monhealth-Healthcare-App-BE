@@ -12,6 +12,14 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+        public async Task<Goal> CheckStatusGoal(Guid userId)
+        {
+            var activeGoal = await _context.Goals
+                                 .Where(g => g.UserId == userId && g.Status == GoalStatus.Active)
+                                 .FirstOrDefaultAsync();
+            return activeGoal;
+        }
+
         public async Task<float> GetActivityLevelByUserIdAsync(Guid userId)
         {
             var activityLevel = await _context.Metrics
