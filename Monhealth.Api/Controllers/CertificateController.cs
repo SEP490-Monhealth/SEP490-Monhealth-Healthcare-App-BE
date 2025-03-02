@@ -87,7 +87,7 @@ namespace Monhealth.Api.Controllers
         [HttpPatch("{certificateId:guid}/status")]
         public async Task<ActionResult<ResultModel>> ChangeCertificateStatus(Guid certificateId)
         {
-            await mediator.Send(new UpdateCertificateStatusCommand { CertificcateId = certificateId });
+            await mediator.Send(new UpdateCertificateStatusCommand { CertificateId = certificateId });
             return new ResultModel
             {
                 Data = null,

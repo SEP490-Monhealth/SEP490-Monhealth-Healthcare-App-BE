@@ -9,7 +9,7 @@ namespace Monhealth.Application.Features.Certificate.Commands.UpdateCertificateS
     {
         public async Task<Unit> Handle(UpdateCertificateStatusCommand request, CancellationToken cancellationToken)
         {
-            var certificate = await certificateRepository.GetByIdAsync(request.CertificcateId);
+            var certificate = await certificateRepository.GetByIdAsync(request.CertificateId);
             if (certificate == null) { throw new BadRequestException("Không tìm thấy chứng chỉ"); }
             if (certificate.Status)
             {
