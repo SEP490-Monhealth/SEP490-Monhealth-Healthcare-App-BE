@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsultant;
+using Monhealth.Application.Features.Consultant.Commands.ChangeVeryfiedConsultant;
 using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
 using Monhealth.Application.Features.Consultant.Commands.DeleteConsultant;
 using Monhealth.Application.Features.Consultant.Commands.UpdateConsultant;
@@ -150,6 +151,28 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = 200,
                 Message = "Cập nhật tư vấn viên thành công"
+            });
+        }
+        [HttpPatch("{consultantId}/veryfied")]
+        public async Task<ActionResult<ResultModel>> ChangeVeryfiedConsultant(Guid consultantId)
+        {
+            var consultant = await _mediator.Send(new ChangeVeryfiedConsultantCommand() { ConsultantId = consultantId });
+
+            if (consultant == false)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Tư vấn viên không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Message = "Xác thực tư vấn viên thành công"
             });
         }
     }
