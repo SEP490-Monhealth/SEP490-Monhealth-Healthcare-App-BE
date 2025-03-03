@@ -6,6 +6,7 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
 {
     public class GetExerciseByWorkoutIdHandler(IWorkoutRepository workoutRepository, IMapper mapper,
                 IExerciseRepository exerciseRepository
+
         ) : IRequestHandler<GetExerciseByWorkoutIdQuery, GetExerciseByWorkoutIdDto>
     {
         public async Task<GetExerciseByWorkoutIdDto> Handle(GetExerciseByWorkoutIdQuery request, CancellationToken cancellationToken)
@@ -19,8 +20,9 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
                 var workouts = (List<Domain.Workout>)await exerciseRepository.GetWorkoutByWorkoutType(workout);
                 if (workouts.Any())
                 {
-                    var randomIndex = new Random().Next(workouts.Count()); // Tạo random một lần
-                    workoutWarmup = workouts[randomIndex];
+                    //var randomIndex = new Random().Next(workouts.Count()); // Tạo random một lần
+                    //workoutWarmup = workouts[randomIndex];
+                    workoutWarmup = workouts.FirstOrDefault();
                 }
 
             }
