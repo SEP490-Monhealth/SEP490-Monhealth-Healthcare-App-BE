@@ -71,69 +71,73 @@ namespace Monhealth.Application.ServiceForRecommend
             };
         }
 
-        private async Task<DishDTO?> GetRandomDishWithPortionAsync(MealType mealType, DishType dishType, Guid userId, MealAllocationDTO allocation, float ratio, DishDTO? mainDish = null)
+        private async Task<DishDTO?> GetRandomDishWithPortionAsync(
+    MealType mealType, DishType dishType, Guid userId, 
+    MealAllocationDTO allocation, float ratio, DishDTO? mainDish = null)
+{
+    var filteredFoods = await _foodFilterService.GetFilterFoodAsync(
+        userId, 1, 100,
+        new List<string> { mealType.ToString().ToLower() },  // Sửa lỗi Enum -> string
+        new List<string> { dishType.ToString().ToLower() }   // Sửa lỗi Enum -> string
+    );
+
+    if (filteredFoods == null || !filteredFoods.Items.Any())
+    {
+        _logger.LogWarning($"No available foods found for {mealType} - {dishType}.");
+        return null;
+    }
+
+    var foodList = filteredFoods.Items
+        .Select(f => new FoodDTO123
         {
-            var filteredFoods = await _foodFilterService.GetFilterFoodAsync(
-                userId, 1, 100,
-                new List<string> { mealType.ToString() },
-                new List<string> { dishType.ToString() }
-            );
+            FoodId = f.FoodId,
+            FoodName = f.FoodName,
+            FoodType = f.FoodType
+        })
+        .ToList();
 
-            if (filteredFoods == null || !filteredFoods.Items.Any())
-            {
-                _logger.LogWarning($"No available foods found for {mealType} - {dishType}.");
-                return null;
-            }
+    var selectedFood = SelectWeightedRandom(foodList, mealType, dishType, mainDish);
+    if (selectedFood == null)
+    {
+        _logger.LogWarning($"No suitable {dishType} found for {mealType}.");
+        return null;
+    }
 
-            var foodList = filteredFoods.Items
-                .Select(f => new FoodDTO123
-                {
-                    FoodId = f.FoodId,
-                    FoodName = f.FoodName,
-                    FoodType = f.FoodType
-                })
-                .ToList();
+    var foodNutrition = await _foodRepository.GetFoodByIdAsync(selectedFood.FoodId);
+    if (foodNutrition?.Nutrition == null)
+    {
+        _logger.LogWarning($"No nutrition data found for foodId {selectedFood.FoodId}.");
+        return null;
+    }
 
-            var selectedFood = SelectWeightedRandom(foodList, mealType, dishType, mainDish);
-            if (selectedFood == null)
-            {
-                _logger.LogWarning($"No suitable {dishType} found for {mealType}.");
-                return null;
-            }
+    var mappedNutrition = new Monhealth.Application.Features.Food.AddFood.NutritionDTO
+    {
+        Calories = foodNutrition.Nutrition.Calories,
+        Protein = foodNutrition.Nutrition.Protein,
+        Carbs = foodNutrition.Nutrition.Carbs,
+        Fat = foodNutrition.Nutrition.Fat,
+        Fiber = foodNutrition.Nutrition.Fiber,
+        Sugar = foodNutrition.Nutrition.Sugar
+    };
 
-            var foodNutrition = await _foodRepository.GetFoodByIdAsync(selectedFood.FoodId);
-            if (foodNutrition?.Nutrition == null)
-            {
-                _logger.LogWarning($"No nutrition data found for foodId {selectedFood.FoodId}.");
-                return null;
-            }
-            var mappedNutrition = new Monhealth.Application.Features.Food.AddFood.NutritionDTO
-            {
-                Calories = foodNutrition.Nutrition.Calories,
-                Protein = foodNutrition.Nutrition.Protein,
-                Carbs = foodNutrition.Nutrition.Carbs,
-                Fat = foodNutrition.Nutrition.Fat,
-                Fiber = foodNutrition.Nutrition.Fiber,
-                Sugar = foodNutrition.Nutrition.Sugar
-            };
+    var portion = CalculateNewPortion(mappedNutrition, allocation, ratio);
 
-            var portion = CalculateNewPortion(mappedNutrition, allocation, ratio);
+    return new DishDTO
+    {
+        Food = selectedFood,
+        Allocation = new MealAllocationDTO
+        {
+            Calories = allocation.Calories * ratio,
+            Protein = allocation.Protein * ratio,
+            Carbs = allocation.Carbs * ratio,
+            Fat = allocation.Fat * ratio,
+            Fiber = allocation.Fiber * ratio,
+            Sugar = allocation.Sugar * ratio
+        },
+        Portion = portion
+    };
+}
 
-            return new DishDTO
-            {
-                Food = selectedFood,
-                Allocation = new MealAllocationDTO
-                {
-                    Calories = allocation.Calories * ratio,
-                    Protein = allocation.Protein * ratio,
-                    Carbs = allocation.Carbs * ratio,
-                    Fat = allocation.Fat * ratio,
-                    Fiber = allocation.Fiber * ratio,
-                    Sugar = allocation.Sugar * ratio
-                },
-                Portion = portion
-            };
-        }
 
         private PortionDTO CalculateNewPortion(NutritionDTO nutrition, MealAllocationDTO allocation, float ratio)
         {

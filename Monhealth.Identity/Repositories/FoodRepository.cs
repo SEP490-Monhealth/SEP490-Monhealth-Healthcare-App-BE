@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -243,8 +244,8 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
     List<Guid> categoryIds,
     List<Guid> excludedFoodIds,
-    List<string>? mealTypeFilter,
-    List<string>? dishTypeFilter,
+    List<MealType>? mealTypeFilter,
+    List<DishType>? dishTypeFilter,
     int skip,
     int take)
         {
@@ -256,19 +257,20 @@ namespace Monhealth.Identity.Repositories
                             && f.IsPublic == true
                             && f.Status == true);
 
-            // Apply mealTypeFilter if provided
             if (mealTypeFilter != null && mealTypeFilter.Any())
             {
-                var normalizedMealTypeFilter = mealTypeFilter.Select(mt => mt.ToLower()).ToList();
-                query = query.Where(f => f.MealType.Any(mt => normalizedMealTypeFilter.Contains(mt.ToString().ToLower())));
+                query = query.AsEnumerable()
+                             .Where(f => f.MealType.Any(mt => mealTypeFilter.Contains(mt)))
+                             .AsQueryable();
             }
 
-            // Apply dishTypeFilter if provided
             if (dishTypeFilter != null && dishTypeFilter.Any())
             {
-                var normalizedDishTypeFilter = dishTypeFilter.Select(dt => dt.ToLower()).ToList();
-                query = query.Where(f => f.DishType.Any(dt => normalizedDishTypeFilter.Contains(dt.ToString().ToLower())));
+                query = query.AsEnumerable()
+                             .Where(f => f.DishType.Any(dt => dishTypeFilter.Contains(dt)))
+                             .AsQueryable();
             }
+
 
             // Get the total count before pagination
             var totalCount = await query.CountAsync();

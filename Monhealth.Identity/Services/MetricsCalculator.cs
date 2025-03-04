@@ -1,5 +1,4 @@
 using Monhealth.Application.Contracts.Services;
-using System;
 
 namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
 {

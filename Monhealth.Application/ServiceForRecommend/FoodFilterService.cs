@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monteith.Application.Contracts.Persistence;
 
@@ -35,11 +36,11 @@ namespace Monhealth.Application.ServiceForRecommend
         }
 
         public async Task<PageResult<FoodFilterDTO>> GetFilterFoodAsync(
-            Guid userId,
-            int pageNumber,
-            int pageSize,
-            List<string>? mealTypeFilter = null,
-            List<string>? dishTypeFilter = null)
+      Guid userId,
+      int pageNumber,
+      int pageSize,
+      List<string>? mealTypeFilter = null,
+      List<string>? dishTypeFilter = null)
         {
             if (pageNumber <= 0) pageNumber = 1;
             if (pageSize <= 0) pageSize = 10;
@@ -52,7 +53,6 @@ namespace Monhealth.Application.ServiceForRecommend
             var userCategories = await _userCategoryRepository.GetUserCategoryByUserId(userId);
             var categoryIds = userCategories.Select(c => c.CategoryId).ToList();
 
-            // Nếu không có danh mục nào được chọn, trả về rỗng
             if (!categoryIds.Any())
             {
                 _logger.LogInformation($"Người dùng {userId} không chọn danh mục nào. Không trả về kết quả.");
@@ -70,12 +70,15 @@ namespace Monhealth.Application.ServiceForRecommend
                 ? await _foodAllergyRepository.GetFoodIdsByAllergyIdsAsync(allergyIds)
                 : new List<Guid>();
 
-            // Lọc danh sách thức ăn dựa trên danh mục và loại trừ các món có thành phần dị ứng
+            // Chuyển `mealTypeFilter` từ `string` thành `Enum`
+            var mealTypeEnums = mealTypeFilter?.Select(m => Enum.Parse<MealType>(m, true)).ToList();
+            var dishTypeEnums = dishTypeFilter?.Select(d => Enum.Parse<DishType>(d, true)).ToList();
+
             var filteredFoodsPaginated = await _foodRepository.GetPaginatedFoodsByFiltersAsync(
                 categoryIds, // Chỉ lấy món ăn thuộc danh mục này
                 excludedFoodIds, // Loại bỏ món ăn có thành phần dị ứng
-                mealTypeFilter,
-                dishTypeFilter,
+                mealTypeEnums,
+                dishTypeEnums,
                 (pageNumber - 1) * pageSize,
                 pageSize);
 
@@ -83,6 +86,7 @@ namespace Monhealth.Application.ServiceForRecommend
 
             return BuildPageResult(filteredFoodsPaginated, pageNumber, pageSize);
         }
+
 
         private PageResult<FoodFilterDTO> BuildPageResult(PaginatedResult<Food> paginatedFoods, int pageNumber, int pageSize)
         {
