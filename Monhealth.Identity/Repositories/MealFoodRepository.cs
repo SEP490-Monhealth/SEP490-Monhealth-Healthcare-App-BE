@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
@@ -14,9 +10,6 @@ namespace Monhealth.Identity.Repositories
         public MealFoodRepository(MonhealthDbcontext context) : base(context)
         {
         }
-
-       
-
 
         public async Task<MealFood> GetByMealIdAndFoodId(Guid mealId, Guid FoodId)
         {
@@ -39,6 +32,11 @@ namespace Monhealth.Identity.Repositories
         }
 
         public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> SaveChangeASyncs()
         {
             return await _context.SaveChangesAsync();
         }
