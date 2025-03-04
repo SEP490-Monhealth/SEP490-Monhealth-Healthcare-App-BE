@@ -22,12 +22,12 @@ namespace Monhealth.Application.Features.Consultant.Commands.ChangeVeryfiedConsu
             {
                 return false;
             }
-            if(consultant.Verified == false)
+            if(consultant.IsVerified == false)
             {
-                consultant.Verified = true;
+                consultant.IsVerified = true;
             } else
             {
-                consultant.Verified = false;
+                consultant.IsVerified = false;
             }
             _consultantRepository.Update(consultant);
             await _consultantRepository.SaveChangeAsync();

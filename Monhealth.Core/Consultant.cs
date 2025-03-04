@@ -13,7 +13,7 @@ namespace Monhealth.Domain
         public Guid? ExpertiseId { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int? Experience { get; set; }
-        public bool? Verified { get; set; }
+        public bool? IsVerified { get; set; }
         public bool? Status { get; set; }
 
         [ForeignKey(nameof(UserId))]

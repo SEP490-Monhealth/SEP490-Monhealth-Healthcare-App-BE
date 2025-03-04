@@ -11,13 +11,13 @@ namespace Monhealth.Application.Features.Certificate.Commands.UpdateCertificateS
         {
             var certificate = await certificateRepository.GetByIdAsync(request.CertificateId);
             if (certificate == null) { throw new BadRequestException("Không tìm thấy chứng chỉ"); }
-            if (certificate.Verified)
+            if (certificate.IsVerified)
             {
-                certificate.Verified = false;
+                certificate.IsVerified = false;
             }
             else
             {
-                certificate.Verified = true;
+                certificate.IsVerified = true;
             }
             certificateRepository.Update(certificate);
             await certificateRepository.SaveChangeAsync(cancellationToken);

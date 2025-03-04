@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
             {
                 certificate.Images = imageUrls;
             }
-            certificate.Verified = false;
+            certificate.IsVerified = false;
             certificateRepository.Add(certificate);
             await certificateRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
