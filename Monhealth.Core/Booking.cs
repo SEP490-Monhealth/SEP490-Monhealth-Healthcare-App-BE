@@ -19,6 +19,5 @@ namespace Monhealth.Domain
         public AppUser? User { get; set; }
         [ForeignKey(nameof(ConsultantId)), Column(Order = 1)]
         public Consultant? Consultant { get; set; }
-
     }
 }

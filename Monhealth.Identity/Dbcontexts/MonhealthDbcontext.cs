@@ -103,6 +103,14 @@ namespace Monhealth.Identity.Dbcontexts
             });
             builder.Entity<Food>(entity =>
             {
+                entity.Property(e => e.FoodType)
+                    .HasConversion(
+                        v => string.Join(',', v.Select(x => x.ToString())), // Từ List<FoodType> -> string
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                              .Select(x => Enum.Parse<FoodType>(x)) // Từ string -> List<FoodType>
+                              .ToList()
+                    );
+
                 entity.Property(e => e.MealType)
                     .HasConversion(
                         v => string.Join(',', v.Select(x => x.ToString())), // Từ List<MealType> -> string

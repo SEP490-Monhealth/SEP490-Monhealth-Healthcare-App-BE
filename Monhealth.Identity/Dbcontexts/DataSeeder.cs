@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Dbcontexts
             {
                 await context.Roles.AddAsync(new AppRole()
                 {
-                Id = rootAdminRoleId,
+                    Id = rootAdminRoleId,
                     Name = "Admin",
                     NormalizedName = "ADMIN",
                     DisplayName = "Quản trị viên"
@@ -40,6 +40,7 @@ namespace Monhealth.Identity.Dbcontexts
                     CreatedAt = DateTime.Parse("2025-01-06"),
                     UpdatedAt = DateTime.Parse("2025-01-06"),
                 };
+
                 user.PasswordHash = passwordHasher.HashPassword(user, "123As@");
                 await context.Users.AddAsync(user);
 
