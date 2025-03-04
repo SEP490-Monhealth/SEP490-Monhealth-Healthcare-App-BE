@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Booking.Commands.CreateBooking;
 using Monhealth.Application.Features.Booking.Commands.DeleteBooking;
 using Monhealth.Application.Features.Booking.Commands.UpdateBooking;
+using Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel;
+using Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus;
 using Monhealth.Application.Features.Booking.Queries.GetAllBookings;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId;
 using Monhealth.Application.Features.Booking.Queries.GetBookingById;
@@ -97,6 +99,48 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Message = "Xóa lịch hẹn thành công",
                 Status = 204,
+            });
+        }
+
+        [HttpPatch("{bookingId:guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateBookingStatus([FromRoute] Guid bookingId)
+        {
+            var result = await mediator.Send(new UpdateBookingStatusCommand { BookingId = bookingId });
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập trạng thái thất bại",
+                    Status = 500,
+                };
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập trạng thái thành công",
+                Status = 200,
+            });
+        }
+
+        [HttpPatch("cancel/{bookingId:guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId)
+        {
+            var result = await mediator.Send(new UpdateBookingCancelCommand { BookingId = bookingId });
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập trạng thái thất bại",
+                    Status = 500,
+                };
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập trạng thái thành công",
+                Status = 200,
             });
         }
     }

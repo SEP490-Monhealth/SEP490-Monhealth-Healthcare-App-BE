@@ -13,33 +13,36 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
         {
             var workout = await workoutRepository.GetWorkoutByIdAsync(request.WorkoutId);
             if (workout == null) throw new Exception("Không tìm thấy bài tập");
-            var exerciseWramupList = new List<Domain.Exercise>();
-            Domain.Workout workoutWarmup = null;
+
+            List<Domain.Exercise> exerciseWarmupList = new();
+            Domain.Workout? workoutWarmup = null;
+
             if (workout.WorkoutType != Core.Enum.WorkoutType.Warmup)
             {
-                var workouts = (List<Domain.Workout>)await exerciseRepository.GetWorkoutByWorkoutType(workout);
-                if (workouts.Any())
-                {
-                    //var randomIndex = new Random().Next(workouts.Count()); // Tạo random một lần
-                    //workoutWarmup = workouts[randomIndex];
-                    workoutWarmup = workouts.FirstOrDefault();
-                }
-
+                var warmupWorkouts = await exerciseRepository.GetWorkoutByWorkoutType(workout);
+                workoutWarmup = warmupWorkouts.FirstOrDefault();
             }
+
             if (workoutWarmup != null)
             {
-                exerciseWramupList = (List<Domain.Exercise>)await exerciseRepository.GetExercisesByWorkoutIdAsync(workoutWarmup.WorkoutId);
-
-
+                exerciseWarmupList = (List<Domain.Exercise>)await exerciseRepository.GetExercisesByWorkoutIdAsync(workoutWarmup.WorkoutId);
             }
 
-            var exercises = await exerciseRepository.GetExercisesByWorkoutIdAsync(request.WorkoutId);
-            var response = new GetExerciseByWorkoutIdDto
+            int totalWarmupDuration = exerciseWarmupList
+                .Sum(ex => ex.WorkoutExercises?.Sum(we => (we?.Duration ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0);
+
+            var exercises = (List<Domain.Exercise>)await exerciseRepository.GetExercisesByWorkoutIdAsync(request.WorkoutId);
+
+            int totalExerciseDuration = exercises
+                .Sum(ex => ex.WorkoutExercises?.Sum(we => (we?.Duration ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0);
+
+            return new GetExerciseByWorkoutIdDto
             {
-                Warmup = workoutWarmup != null ? mapper.Map<List<ExerciseDto>>(exerciseWramupList) : new List<ExerciseDto>(),
-                Workout = mapper.Map<List<ExerciseDto>>(exercises.ToList())
+                Warmup = workoutWarmup != null ? mapper.Map<List<ExerciseDto>>(exerciseWarmupList) : new List<ExerciseDto>(),
+                Workout = mapper.Map<List<ExerciseDto>>(exercises),
+                WarmupDuration = totalWarmupDuration,
+                WorkoutDuration = totalExerciseDuration
             };
-            return response;
         }
     }
 }

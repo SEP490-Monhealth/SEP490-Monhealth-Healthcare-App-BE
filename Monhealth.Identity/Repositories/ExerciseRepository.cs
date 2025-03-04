@@ -4,6 +4,7 @@ using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
+using System.ComponentModel.DataAnnotations;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -77,14 +78,39 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<IEnumerable<Exercise>> GetExercisesByWorkoutIdAsync(Guid workoutId)
         {
-            return await _context.Exercises.Include(e => e.WorkoutExercises)
-                .Where(e => e.WorkoutExercises.Select(we => we.WorkoutId).Contains(workoutId))
-                .OrderBy(e => e.WorkoutExercises.Where(we => we.WorkoutId == workoutId).Min(we => we.Order))
-                .ToListAsync();
+            return await _context.Exercises
+             .Where(e => e.WorkoutExercises.Any(we => we.WorkoutId == workoutId)) // Filter Exercises with WorkoutId
+             .OrderBy(e => e.WorkoutExercises
+                .Where(we => we.WorkoutId == workoutId)
+                    .Min(we => we.Order)) // Order by Min(Order)
+             .Select(e => new Exercise
+             {
+                 ExerciseId = e.ExerciseId,
+                 UserId = e.UserId,
+
+                 ExerciseName = e.ExerciseName,
+                 ExerciseType = e.ExerciseType,
+                 CaloriesPerMinute = e.CaloriesPerMinute,
+                 Instructions = e.Instructions,
+                 Status = e.Status,
+                 CreatedAt = e.CreatedAt,
+                 UpdatedAt = e.UpdatedAt,
+                 WorkoutExercises = e.WorkoutExercises
+                 .Where(we => we.WorkoutId == workoutId && we.ExerciseId == e.ExerciseId) // Only include filtered WorkoutExercises
+                 .ToList()
+             })
+             .ToListAsync();
 
         }
 
-
+        [Key]
+        public Guid ExerciseId { get; set; }
+        public Guid UserId { get; set; }
+        public ExerciseType ExerciseType { get; set; }
+        public string ExerciseName { get; set; } = string.Empty;
+        public string Instructions { get; set; } = string.Empty;
+        public float CaloriesPerMinute { get; set; }
+        public bool Status { get; set; }
 
         public async Task<List<Exercise>> GetExerciseUserIdAsync(Guid userId)
         {
