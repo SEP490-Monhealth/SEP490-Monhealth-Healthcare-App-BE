@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Monhealth.Core;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Repositories;
@@ -9,6 +10,12 @@ namespace Monhealth.Identity
     {
         public UserCategoryRepository(MonhealthDbcontext context) : base(context)
         {
+        }
+
+        public async Task<List<UserCategory>> GetUserCategoryByUserId(Guid userId)
+        {
+            return await _context.UserCategories.
+            Where(uc => uc.UserId == userId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

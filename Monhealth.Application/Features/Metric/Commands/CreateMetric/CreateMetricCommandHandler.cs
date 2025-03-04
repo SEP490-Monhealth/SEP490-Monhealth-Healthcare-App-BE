@@ -98,24 +98,24 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             #endregion
 
             // **Tạo Meal cho 3 ngày**
-            // #region Generate Meals for 3 Days
-            // for (int i = 0; i < 3; i++)
-            // {
-            //     var currentDate = DateTime.Now.Date.AddDays(i);
+            #region Generate Meals for 3 Days
+            for (int i = 0; i < 3; i++)
+            {
+                var currentDate = DateTime.Now.Date.AddDays(i);
 
-            //     var goalType = await _goalRepository.GetGoalTypeByUserIdAsync(userId.Value) ?? GoalType.Maintenance;
-            //     var activityLevel = await _goalRepository.GetActivityLevelByUserIdAsync(userId.Value);
+                var goalType = await _goalRepository.GetGoalTypeByUserIdAsync(userId.Value) ?? GoalType.Maintenance;
+                var activityLevel = await _goalRepository.GetActivityLevelByUserIdAsync(userId.Value);
 
-            //     var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, goalType, activityLevel);
+                var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, goalType, activityLevel);
 
-            //     await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, newGoal, userId.Value, currentDate);
-            //     await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, newGoal, userId.Value, currentDate);
-            //     await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, newGoal, userId.Value, currentDate);
-            //     await CreateMealAsync(MealType.Snack, mealPlan.Snack, newGoal, userId.Value, currentDate);
-            // }
+                await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, newGoal, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, newGoal, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, newGoal, userId.Value, currentDate);
+                await CreateMealAsync(MealType.Snack, mealPlan.Snack, newGoal, userId.Value, currentDate);
+            }
 
-            // #endregion
-            // await _reminderRepository.SaveChangeAsync();
+            #endregion
+            await _reminderRepository.SaveChangeAsync();
 
              return Unit.Value;
         }
@@ -155,17 +155,17 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             await AddMealToDailyMeal(userId, date);
         }
 
-        // private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
-        // {
-        //     return mealType switch
-        //     {
-        //         MealType.Breakfast => (1f, 0f, 0f),
-        //         MealType.Lunch => (0.55f, 0.3f, 0.15f),
-        //         MealType.Dinner => (goalType == GoalType.WeightLoss || activityLevel < 1.725) ? (0.65f, 0.35f, 0f) : (0.6f, 0.3f, 0.1f),
-        //         MealType.Snack => (0.8f, 0.2f, 0f),
-        //         _ => throw new Exception($"MealType không hợp lệ: {mealType}")
-        //     };
-        // }
+        private (float mainDish, float sideDish, float dessert) GetMealRatios(MealType mealType, GoalType goalType, float activityLevel)
+        {
+            return mealType switch
+            {
+                MealType.Breakfast => (1f, 0f, 0f),
+                MealType.Lunch => (0.55f, 0.3f, 0.15f),
+                MealType.Dinner => (goalType == GoalType.WeightLoss || activityLevel < 1.725) ? (0.65f, 0.35f, 0f) : (0.6f, 0.3f, 0.1f),
+                MealType.Snack => (0.8f, 0.2f, 0f),
+                _ => throw new Exception($"MealType không hợp lệ: {mealType}")
+            };
+        }
 
         private async Task AddDishToMealAsync(DishDTO dish, Guid mealId, Goal goal, MealType mealType)
         {

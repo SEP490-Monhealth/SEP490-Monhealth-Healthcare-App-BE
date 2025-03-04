@@ -18,8 +18,8 @@ namespace Monhealth.Application.Features
 
         public async Task<Unit> Handle(CreateUserCategoryRequest request, CancellationToken cancellationToken)
         {
-            var CategoryName = await _categoryRepository.GetCategoriesByList(request.Category);
-            if (CategoryName.Count() != request.Category.Count()) return Unit.Value;
+            var CategoryName = await _categoryRepository.GetCategoriesByList(request.Categories);
+            if (CategoryName.Count() != request.Categories.Count()) return Unit.Value;
             _userCategoryRepository.AddRange(CategoryName.Select(c => new UserCategory(
             )
             {
