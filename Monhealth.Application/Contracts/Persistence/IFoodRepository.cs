@@ -40,6 +40,9 @@ namespace Monhealth.Application.Contracts.Persistence
         //dung cho randomFood
         Task<Nutrition?> GetNutritionByFoodIdAsync(Guid foodId);
         Task<List<Nutrition>> GetNutritionByFoodIdsAsync(List<Guid> foodIds);
-        
+
+        //Get All Food
+        IQueryable<Food> GetAll();
+
     }
 }

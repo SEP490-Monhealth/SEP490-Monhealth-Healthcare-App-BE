@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Monhealth.Core;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
@@ -102,23 +103,38 @@ namespace Monhealth.Identity.Dbcontexts
             //             v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
             //         );
             // });
+            // Create Value Comparers for List<MealType> and List<DishType>
+            var mealTypeComparer = new ValueComparer<List<MealType>>(
+    (c1, c2) => c1.SequenceEqual(c2),
+    c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+    c => c.ToList()
+);
+
+            var dishTypeComparer = new ValueComparer<List<DishType>>(
+                (c1, c2) => c1.SequenceEqual(c2),
+                c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                c => c.ToList()
+            );
+
             builder.Entity<Food>(entity =>
             {
                 entity.Property(e => e.MealType)
                     .HasConversion(
-                        v => string.Join(',', v.Select(x => x.ToString())), // Từ List<MealType> -> string
+                        v => string.Join(',', v.Select(x => x.ToString())),
                         v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                              .Select(x => Enum.Parse<MealType>(x)) // Từ string -> List<MealType>
+                              .Select(x => Enum.Parse<MealType>(x))
                               .ToList()
-                    );
+                    )
+                   .Metadata.SetValueComparer(mealTypeComparer);
 
                 entity.Property(e => e.DishType)
                     .HasConversion(
-                        v => string.Join(',', v.Select(x => x.ToString())), // Từ List<DishType> -> string
+                        v => string.Join(',', v.Select(x => x.ToString())),
                         v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                              .Select(x => Enum.Parse<DishType>(x)) // Từ string -> List<DishType>
+                              .Select(x => Enum.Parse<DishType>(x))
                               .ToList()
-                    );
+                    )
+                    .Metadata.SetValueComparer(dishTypeComparer);
             });
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());

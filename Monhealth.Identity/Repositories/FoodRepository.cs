@@ -16,6 +16,12 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+        public IQueryable<Food> GetAll()
+        {
+
+            return _context.Foods.AsQueryable();
+        }
+
         public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName, bool? popular, bool? isPublic)
         {
             search = search?.Trim();
@@ -253,34 +259,29 @@ namespace Monhealth.Identity.Repositories
                 .Include(f => f.CategoryFoods)
                     .ThenInclude(cf => cf.Category)
                 .Where(f => !excludedFoodIds.Contains(f.FoodId)
-                            && f.CategoryFoods.Any(cf => categoryIds.Contains(cf.CategoryId)) // Filter using CategoryFoods
-                            && f.IsPublic == true
-                            && f.Status == true);
+                            && f.CategoryFoods.Any(cf => categoryIds.Contains(cf.CategoryId))
+                            && f.IsPublic
+                            && f.Status);
 
+            // ✅ Correct way: Apply filtering directly in the database
             if (mealTypeFilter != null && mealTypeFilter.Any())
             {
-                query = query.AsEnumerable()
-                             .Where(f => f.MealType.Any(mt => mealTypeFilter.Contains(mt)))
-                             .AsQueryable();
+                query = query.Where(f => f.MealType.Any(mt => mealTypeFilter.Select(s => nameof(s)).Contains(nameof(mt))));
             }
 
             if (dishTypeFilter != null && dishTypeFilter.Any())
             {
-                query = query.AsEnumerable()
-                             .Where(f => f.DishType.Any(dt => dishTypeFilter.Contains(dt)))
-                             .AsQueryable();
+                query = query.Where(f => f.DishType.Any(dt => dishTypeFilter.Select(s => nameof(s)).Contains(nameof(dt))));
             }
 
+            // ✅ Fix: Use Async operations on IQueryable
+            var totalCount = await query.CountAsync(); // Must stay async
 
-            // Get the total count before pagination
-            var totalCount = await query.CountAsync();
-
-            // Apply pagination and ordering
             var items = await query
-                .OrderBy(f => f.FoodName) // Order by food name
+                .OrderBy(f => f.FoodName)
                 .Skip(skip)
                 .Take(take)
-                .ToListAsync();
+                .ToListAsync(); // ✅ Ensure ToListAsync() is called on IQueryable
 
             return new PaginatedResult<Food>
             {
@@ -288,6 +289,7 @@ namespace Monhealth.Identity.Repositories
                 TotalCount = totalCount
             };
         }
+
 
 
 
