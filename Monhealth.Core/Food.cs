@@ -21,6 +21,7 @@ namespace Monhealth.Domain
                 public int Views { get; set; } = 0;
                 public bool IsPublic { get; set; }
                 public bool Status { get; set; }
+
                 [ForeignKey(nameof(CategoryId))]
                 public Category Category { get; set; }
                 [ForeignKey(nameof(UserId))]

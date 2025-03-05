@@ -8,11 +8,12 @@ namespace Monhealth.Domain
     public class Schedule : TimeEntity
     {
         [Key]
-        public Guid ScheduleId { get; set; } // PK 
-        public Guid ConsultantId { get; set; } // FK 
+        public Guid ScheduleId { get; set; }
+        public Guid ConsultantId { get; set; }
         public DateOnly? Date { get; set; }
         public TimeOnly? Time { get; set; }
         public ScheduleStatus Status { get; set; }
+
         [ForeignKey(nameof(ConsultantId))]
         public Consultant Consultant { get; set; }
     }

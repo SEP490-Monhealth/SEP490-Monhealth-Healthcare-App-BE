@@ -7,8 +7,8 @@ namespace Monhealth.Domain
     public class DailyWaterIntake : TimeEntity
     {
         public Guid DailyWaterIntakeId { get; set; }
-        public Guid GoalId { get; set; }
         public Guid UserId { get; set; }
+        public Guid GoalId { get; set; }
         public float TotalVolume { get; set; }
 
         [ForeignKey(nameof(UserId))]

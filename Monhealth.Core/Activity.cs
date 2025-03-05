@@ -1,4 +1,3 @@
-
 using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
@@ -10,16 +9,15 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid ActivityId { get; set; }
+        public Guid? UserId { get; set; }
         public Guid? DailyActivityId { get; set; }
         public Guid? WorkoutId { get; set; }
-        public Guid? UserId { get; set; }
-        public bool Status { get; set; }
 
+        [ForeignKey(nameof(UserId))]
+        public AppUser? AppUser { get; set; }
         [ForeignKey(nameof(DailyActivityId))]
         public DailyActivity? DailyActivity { get; set; }
         [ForeignKey(nameof(WorkoutId))]
         public Workout? Workout { get; set; }
-        [ForeignKey(nameof(UserId))]
-        public AppUser? AppUser { get; set; }
     }
 }
