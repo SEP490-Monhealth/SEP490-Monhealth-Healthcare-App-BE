@@ -22,11 +22,11 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                 {
                     var schedule = new Domain.Schedule
                     {
-                        ConsultantId = request.ConsultantId,
-                        Date = item.Date,
-                        Time = item.Time,
-                        Status = Domain.Enum.ScheduleStatus.Available,
-                        CreatedAt = DateTime.Now
+                        //ConsultantId = request.ConsultantId,
+                        //Date = item.Date,
+                        //Time = item.Time,
+                        //Status = Domain.Enum.ScheduleStatus.Available,
+                        //CreatedAt = DateTime.Now
                     };
                     _scheduleRepository.Add(schedule);
                 }

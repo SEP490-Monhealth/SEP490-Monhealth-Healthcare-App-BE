@@ -9,7 +9,7 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid CertificateId { get; set; } // PK 
-        public Guid? UserId { get; set; } // FK 
+        public Guid? UserId { get; set; } // FK //ConsultantId right
         public Guid? ExpertiseId { get; set; }
         public string CertificateName { get; set; } = string.Empty;
         public string Images { get; set; } = string.Empty;

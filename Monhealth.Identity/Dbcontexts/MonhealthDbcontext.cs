@@ -46,7 +46,9 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Consultant> Consultants { get; set; }
         public DbSet<Expertise> Expertises { get; set; }
         public DbSet<Activity> Activities { get; set; }
-        //public DbSet<ConsultantExpertise> ConsultantExpertises { get; set; }
+        public DbSet<ScheduleTimeSlot> ScheduleTimeSlots { get; set; }
+        public DbSet<TimeSlot> TimeSlots { get; set; }
+        public DbSet<ScheduleException> ScheduleExceptions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -15,7 +15,7 @@ namespace Monhealth.Identity.Repositories
             var query = _context.Schedules.Where(s => s.ConsultantId == userId);
             if (Date.HasValue)
             {
-                query = query.Where(s => s.Date == Date.Value);
+                // query = query.Where(s => s.Date == Date.Value);
             }
             return await query.ToListAsync();
         }
