@@ -92,7 +92,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             newGoal.UpdatedAt = DateTime.Now;
             _goalRepository.Add(newGoal);
             #endregion
-
+            await _goalRepository.SaveChangeAsync();
             // Tạo Reminder
             #region Reminder Creation
             Guid? userId = request.CreateMetricDTO.UserId;
@@ -112,7 +112,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 var goalType = await _goalRepository.GetGoalTypeByUserIdAsync(userId.Value) ?? GoalType.Maintenance;
                 var activityLevel = await _goalRepository.GetActivityLevelByUserIdAsync(userId.Value);
 
-                var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, goalType, activityLevel);
+                var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, activityLevel);
 
                 await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, newGoal, userId.Value, currentDate);
                 await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, newGoal, userId.Value, currentDate);
@@ -274,7 +274,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             {
                 throw new Exception($"❌ Không tìm thấy Goal nào liên kết với UserId: {userId}");
             }
-
+           
             // 🔹 Kiểm tra nếu `DailyMeal` đã tồn tại
             var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(date.Date, userId);
             if (dailyMeal == null)
