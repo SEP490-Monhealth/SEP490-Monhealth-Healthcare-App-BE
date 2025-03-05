@@ -29,7 +29,7 @@ namespace Monhealth.Application.Features.Category.AddCategory
                 CategoryType = request.CategoryType,
                 CategoryName = request.CategoryName,
                 CategoryDescription = request.CategoryDescription,
-                ImageUrls = request.CategoryImage,
+                ImageUrl = request.CategoryImage,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };

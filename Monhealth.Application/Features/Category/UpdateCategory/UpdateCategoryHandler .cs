@@ -26,7 +26,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
             category.CategoryType = request.CategoryType;
             category.CategoryName = request.CategoryName;
             category.CategoryDescription = request.CategoryDescription;
-            category.ImageUrls = request.CategoryImage;
+            category.ImageUrl = request.CategoryImage;
             category.UpdatedAt = DateTime.Now;
             _categoryRepository.Update(category);
             await _categoryRepository.SaveChangeAsync();
