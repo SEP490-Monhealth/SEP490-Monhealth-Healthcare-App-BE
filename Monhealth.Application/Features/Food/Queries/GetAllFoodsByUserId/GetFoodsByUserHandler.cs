@@ -27,20 +27,20 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
                 MealType = food.MealType, // Chuyển từ chuỗi sang danh sách
                 DishType = food.DishType, // Chuyển từ chuỗi sang danh sách
                 FoodDescription = food.FoodDescription,
-                Allergies = food.FoodAllergies?.Select(fa => fa.Allergy.AllergyName).ToList(),
-                Category = food.Category?.CategoryName, // Nếu có quan hệ với Category
+                Allergies = food.FoodAllergies?.Select(fa => fa.Allergy.AllergyName).ToList() ?? [],
+                Category = food.CategoryFoods.Select(x => x.Category.CategoryName).FirstOrDefault() ?? null!, // Nếu có quan hệ với Category
                 Portion = food.FoodPortions.Select(fp => new GetPortionForGetFoodByUserDTO
                 {
                     PortionSize = fp.Portion.PortionSize,
                     PortionWeight = fp.Portion.PortionWeight,
                     MeasurementUnit = fp.Portion.MeasurementUnit
-                }).FirstOrDefault(),
+                }).FirstOrDefault() ?? null!,
                 Nutrition = food.Nutrition != null
           ? new GetNutritionForGetFoodByUserDTO
           {
               Calories = food.Nutrition.Calories
           }
-          : null,
+          : null!,
                 Status = food.Status,
                 IsPublic = food.IsPublic,
                 CreatedAt = food.CreatedAt,

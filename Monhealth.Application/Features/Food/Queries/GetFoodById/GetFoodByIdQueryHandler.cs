@@ -18,20 +18,20 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
 
         public async Task<GetFoodByIdDTO> Handle(GetFoodByIdQuery request, CancellationToken cancellationToken)
         {
-            var query = await _foodRepository.GetFoodByIdAsync(request.FoodId);
+            var gettingFood = await _foodRepository.GetFoodByIdAsync(request.FoodId);
             var result = new GetFoodByIdDTO
             {
-                Category = query.Category?.CategoryName,
-                CreatedAt = query.CreatedAt,
-                MealType = query.MealType,
-                DishType = query.DishType,
-                FoodDescription = query.FoodDescription,
-                Allergies = query.FoodAllergies?.
+                Category = gettingFood.CategoryFoods?.Select(x => x.Category.CategoryName).FirstOrDefault() ?? "",
+                CreatedAt = gettingFood.CreatedAt,
+                MealType = gettingFood.MealType,
+                DishType = gettingFood.DishType,
+                FoodDescription = gettingFood.FoodDescription,
+                Allergies = gettingFood.FoodAllergies?.
                 Select(fa => fa.Allergy.AllergyName).ToList(),
-                FoodName = query.FoodName,
-                IsPublic = query.IsPublic,
-                Status = query.Status,
-                UpdatedAt = query.UpdatedAt
+                FoodName = gettingFood.FoodName,
+                IsPublic = gettingFood.IsPublic,
+                Status = gettingFood.Status,
+                UpdatedAt = gettingFood.UpdatedAt
             };
             return result;
         }

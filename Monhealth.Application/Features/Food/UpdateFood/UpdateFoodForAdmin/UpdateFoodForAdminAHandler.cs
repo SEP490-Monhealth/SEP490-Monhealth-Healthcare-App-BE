@@ -7,12 +7,15 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
     {
         private readonly IFoodRepository _foodRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly ICategoryFoodRepository _categoryFoodRepository;
 
         public UpdateFoodForAdminAHandler(IFoodRepository foodRepository
-        , ICategoryRepository categoryRepository)
+        , ICategoryRepository categoryRepository,
+        ICategoryFoodRepository categoryFoodRepository)
         {
             _foodRepository = foodRepository;
             _categoryRepository = categoryRepository;
+            _categoryFoodRepository = categoryFoodRepository;
 
         }
         public async Task<bool> Handle(UpdateFoodRequestAdminHandler request, CancellationToken cancellationToken)
@@ -25,7 +28,6 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
             food.FoodName = request.RequestData.FoodName;
             food.FoodDescription = request.RequestData.FoodDescription;
             food.UpdatedAt = DateTime.Now;
-            food.CategoryId = null;
             food.DishType = request.RequestData.DishType;
             food.MealType = request.RequestData.MealType;
             food.FoodType = request.RequestData.FoodType;
@@ -35,8 +37,11 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
                 var category = await _categoryRepository.GetCategoryByCategoryName(categoryName);
                 if (category == null)
                     throw new Exception($"Danh mục  không tồn tại");
-
-                food.CategoryId = category.CategoryId; // Gán danh mục mới
+                var categoryFood = await _categoryFoodRepository.GetByIdAsync(request.FoodId);
+                if (categoryFood != null)
+                {
+                    categoryFood.CategoryId = category.CategoryId;
+                }
             }
 
             await _foodRepository.SaveChangesAsync();

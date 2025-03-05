@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Monhealth.Core;
 using Monhealth.Domain;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,7 +7,7 @@ namespace Monhealth.Identity.Models
 {
     public class AppUser : IdentityUser<Guid>
     {
-        public string FullName { get; set; }
+        public string FullName { get; set; } = null!;
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpiryTime { get; set; }
         public string? Avatar { get; set; }
@@ -23,16 +24,16 @@ namespace Monhealth.Identity.Models
         public ICollection<Workout> Workouts { get; set; }
         public ICollection<UserAllergy> UserAllergies { get; set; }
         //public ICollection<Certificate> Certificates { get; set; }
-        public ICollection<UserSubscription> UserSubscriptions { get; set; }
-        public ICollection<Schedule> Schedules { get; set; }
+        public ICollection<UserSubscription> UserSubscriptions { get; set; } =[];
+        public ICollection<Schedule> Schedules { get; set; } =[];
         //public ICollection<Service> Services { get; set; }
         [InverseProperty(nameof(Booking.User))]
-        public ICollection<Booking> UserBookings { get; set; }
+        public ICollection<Booking> UserBookings { get; set; } =[];
         // [InverseProperty(nameof(Booking.Consultant))]
         // public ICollection<Booking> ConsultantBookings { get; set; }
-        public ICollection<DailyActivity> DailyActivities { get; set; }
-        public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; }
         public ICollection<Activity> Activities { get; set; }
-        public UserFood UserFood { get; set; }
+        public ICollection<DailyActivity> DailyActivities { get; set; } =[];
+        public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; } =[];
+        public ICollection<UserCategory> UserCategories { get; set; } =[];
     }
 }

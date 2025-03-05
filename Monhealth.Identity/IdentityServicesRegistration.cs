@@ -14,6 +14,7 @@ using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
 using Monhealth.Identity.Repositories;
 using Monhealth.Identity.Services;
+using Monteith.Application.Contracts.Persistence;
 using System.Text;
 
 namespace Monhealth.Identity
@@ -72,7 +73,6 @@ namespace Monhealth.Identity
             services.AddScoped<IGoalRepository, GoalRepository>();
             services.AddScoped<IGoalsCalculator, GoalsCalculator>();
             services.AddScoped<IAllergyRepository, AllergyRepository>();
-            services.AddScoped<IUserFoodRepository, UserFoodRepository>();
             services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
             services.AddScoped<IUserSubscriptionRepository, UserSubscriptionRepository>();
             services.AddScoped<IExerciseRepository, ExerciseRepository>();
@@ -81,7 +81,6 @@ namespace Monhealth.Identity
             services.AddScoped<IWorkoutExcerciseRepository, WorkoutExcerciseRepository>();
             services.AddScoped<ICertificateRepository, CertificateRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
-
             services.AddScoped<IExpertiseRepository, ExpertiseRepository>();
             services.AddScoped<IConsultantRepository, ConsultantRepository>();
             services.AddScoped<ICertificateRepository, CertificateRepository>();
@@ -96,6 +95,8 @@ namespace Monhealth.Identity
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IActivityRepository, ActivityRepository>();
             services.AddScoped<IDailyActivityRepository, DailyActivityRepository>();
+            services.AddScoped<ICategoryFoodRepository , CategoryFoodRepository>();
+            services.AddScoped<IUserCategoryRepository,UserCategoryRepository>();
             // Đăng ký Background Service
             // Add Authentication
             services.AddAuthentication(options =>

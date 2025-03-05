@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -15,10 +16,17 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+        public IQueryable<Food> GetAll()
+        {
+
+            return _context.Foods.AsQueryable();
+        }
+
         public async Task<PaginatedResult<Food>> GetAllFoodAsync(int page, int limit, string? search, bool? status, string categoryName, bool? popular, bool? isPublic)
         {
             search = search?.Trim();
-            IQueryable<Food> query = _context.Foods.Include(f => f.Category).
+            IQueryable<Food> query = _context.Foods.Include(f => f.CategoryFoods).
+            ThenInclude(f => f.Category).
             Include(f => f.Nutrition).
             Include(f => f.FoodPortions)
             .ThenInclude(f => f.Portion)
@@ -33,7 +41,8 @@ namespace Monhealth.Identity.Repositories
                     s.FoodId.ToString().ToLower().Contains(search.ToLower()));
             }
             if (!string.IsNullOrEmpty(categoryName))
-                query = query.Where(f => f.Category.CategoryName == categoryName);
+                query = query.Where(f => f.CategoryFoods.
+                Any(x => x.Category.CategoryName == categoryName));
 
             if (isPublic.HasValue)
             {
@@ -69,22 +78,23 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Food> GetByIdWithCategoriesAsync(Guid foodId)
         {
-            return await _context.Foods
-        .Include(f => f.Category)
+            return await _context.Foods.Include(f => f.CategoryFoods)
+        .ThenInclude(f => f.Category)
         .Include(f => f.FoodPortions)
-        .FirstOrDefaultAsync(f => f.FoodId == foodId);
+        .FirstOrDefaultAsync(f => f.FoodId == foodId) ?? null!;
         }
 
         public async Task<List<Food>> GetFoodByCategoryName(string categoryName)
         {
-            return await _context.Foods.Where(f => f.Category.CategoryName == categoryName)
+            return await _context.Foods.Where(f => f.CategoryFoods.Any(x => x.Category.CategoryName == categoryName))
             .ToListAsync();
         }
         public async Task<Food> GetFoodByIdAsync(Guid foodId)
         {
             // Fetch the food item along with its related data
             var food = await _context.Foods
-                .Include(fc => fc.Category)
+                .Include(fc => fc.CategoryFoods)
+                .ThenInclude(fc => fc.Category)
                 .Include(fc => fc.Nutrition)
                 .Include(fc => fc.FoodPortions)
                 .ThenInclude(fc => fc.Portion)
@@ -114,7 +124,8 @@ namespace Monhealth.Identity.Repositories
             // Truy vấn dữ liệu cơ bản
             IQueryable<Food> query = _context.Foods
                 .Where(f => f.UserId == userId)
-                .Include(f => f.Category)
+                .Include(f => f.CategoryFoods)
+                .ThenInclude(f => f.Category)
                 .Include(f => f.Nutrition)
                 .Include(f => f.FoodAllergies)
                 .ThenInclude(f => f.Allergy)
@@ -140,7 +151,8 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<Food>> GetFoodsAsync(int Skip, int take)
         {
             return await _context.Foods
-                .Include(f => f.Category)
+                .Include(f => f.CategoryFoods)
+                .ThenInclude(f => f.Category)
                 .Include(f => f.Nutrition)
                 .Include(f => f.FoodPortions).ThenInclude(fp => fp.Portion)
            .Skip(Skip)
@@ -150,9 +162,8 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Food>> GetFoodsByCategoryNameAsync(string[] categoryNames)
         {
-            return await _context.Foods.Where(f => categoryNames.Contains(f.Category.CategoryName)).
+            return await _context.Foods.Where(f => f.CategoryFoods.All(x => categoryNames.Contains(x.Category.CategoryName))).
                Include(f => f.Nutrition).Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
-
         }
 
         public async Task<List<Food>> GetFoodsExcludingIdsAsync(List<Guid> excludedFoodIds, int skip, int take)
@@ -195,7 +206,8 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Food>> GetPaginatedFoodsAsync(int skip, int take)
         {
-            var query = _context.Foods.Include(f => f.Category).AsQueryable();
+            var query = _context.Foods.Include(f => f.CategoryFoods)
+            .ThenInclude(fc => fc.Category).AsQueryable();
 
             var totalCount = await query.CountAsync();
             var items = await query
@@ -215,14 +227,14 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Food>> GetPaginatedFoodsByCategoryIdsAsync(IEnumerable<Guid> categoryIds, int skip, int take)
         {
-
-            var query = _context.Foods.Include(f => f.Category)
-     .Where(f => f.CategoryId != null && categoryIds.Contains(f.CategoryId.Value));
-
+            var query = _context.Foods
+                .Include(f => f.CategoryFoods)
+                    .ThenInclude(cf => cf.Category)
+                .Where(f => f.CategoryFoods.Any(cf => categoryIds.Contains(cf.CategoryId))); // Filter using CategoryFoods
 
             var totalCount = await query.CountAsync();
             var items = await query
-                .OrderBy(f => f.FoodName) // Sắp xếp theo tên món ăn
+                .OrderBy(f => f.FoodName) // Order by food name
                 .Skip(skip)
                 .Take(take)
                 .ToListAsync();
@@ -234,47 +246,50 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+
         public async Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
-     List<Guid> categoryIds,
-     List<Guid> excludedFoodIds,
-     List<string>? mealTypeFilter,
-     List<string>? dishTypeFilter,
-     int skip,
-     int take)
+    List<Guid> categoryIds,
+    List<Guid> excludedFoodIds,
+    List<MealType>? mealTypeFilter,
+    List<DishType>? dishTypeFilter,
+    int skip,
+    int take)
         {
-            var query = _context.Foods.Include(f => f.Category)
-     .Where(f => !excludedFoodIds.Contains(f.FoodId) && categoryIds.Contains(f.CategoryId.Value)
-     && f.IsPublic == true && f.Status == true);
+            var query = _context.Foods
+                .Include(f => f.CategoryFoods)
+                    .ThenInclude(cf => cf.Category)
+                .Where(f => !excludedFoodIds.Contains(f.FoodId)
+                            && f.CategoryFoods.Any(cf => categoryIds.Contains(cf.CategoryId))
+                            && f.IsPublic
+                            && f.Status);
 
-            var items = await query.ToListAsync();
-
+            // ✅ Correct way: Apply filtering directly in the database
             if (mealTypeFilter != null && mealTypeFilter.Any())
             {
-                var normalizedMealTypeFilter = mealTypeFilter.Select(mt => mt.ToLower()).ToList();
-                items = items.Where(f => f.MealType.Any(mt => normalizedMealTypeFilter.Contains(mt.ToString().ToLower()))).ToList();
+                query = query.Where(f => f.MealType.Any(mt => mealTypeFilter.Select(s => nameof(s)).Contains(nameof(mt))));
             }
 
             if (dishTypeFilter != null && dishTypeFilter.Any())
             {
-                var normalizedDishTypeFilter = dishTypeFilter.Select(dt => dt.ToLower()).ToList();
-                items = items.Where(f => f.DishType.Any(dt => normalizedDishTypeFilter.Contains(dt.ToString().ToLower()))).ToList();
+                query = query.Where(f => f.DishType.Any(dt => dishTypeFilter.Select(s => nameof(s)).Contains(nameof(dt))));
             }
 
-            var totalCount = items.Count;
+            // ✅ Fix: Use Async operations on IQueryable
+            var totalCount = await query.CountAsync(); // Must stay async
 
-            items = items
+            var items = await query
                 .OrderBy(f => f.FoodName)
                 .Skip(skip)
                 .Take(take)
-                .ToList();
+                .ToListAsync(); // ✅ Ensure ToListAsync() is called on IQueryable
 
             return new PaginatedResult<Food>
             {
                 Items = items,
                 TotalCount = totalCount
             };
-
         }
+
 
 
 

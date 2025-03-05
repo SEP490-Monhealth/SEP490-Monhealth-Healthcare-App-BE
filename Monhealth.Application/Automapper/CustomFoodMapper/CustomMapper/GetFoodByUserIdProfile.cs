@@ -15,7 +15,7 @@ namespace Monhealth.Application.Automapper.CustomFoodMapper.CustomMapper
         public GetFoodByUserIdProfile()
         {
             CreateMap<Food, FoodsByUserIdDTO>()
-            .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category.CategoryName))
+            .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.CategoryFoods.Select(cf => cf.Category.CategoryName)))
             .ForMember(dest => dest.Portion, opt => opt.MapFrom(src => src.FoodPortions.Select(fp => fp.Portion).FirstOrDefault()))
             .ForMember(dest => dest.Nutrition, opt => opt.MapFrom<GetAllFoodByUserIdCaloriesValueResolver>());
 

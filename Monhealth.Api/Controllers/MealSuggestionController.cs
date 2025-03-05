@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Models;
 using Monhealth.Application.ServiceForRecommend;
@@ -20,29 +19,29 @@ public class MealSuggestion : ControllerBase
         _goalService = goalService;
         _foodRandomService = foodRandomService;
     }
-    [HttpGet]
-    [Route("{userId:guid}")]
-    public async Task<IActionResult> GenerateDailyMenu(
-    [Required] Guid userId,
-    int pageNumber = 1,
-    int pageSize = 10,
-    [FromQuery] string? mealType = null,
-    [FromQuery] string? dishType = null)
-    {
-        // Tách các giá trị từ chuỗi truyền vào (nếu có) thành danh sách
-        var mealTypeList = !string.IsNullOrWhiteSpace(mealType)
-            ? mealType.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim().ToLower()).ToList()
-            : null;
+    // [HttpGet]
+    // [Route("{userId:guid}")]
+    // public async Task<IActionResult> GenerateDailyMenu(
+    // [Required] Guid userId,
+    // int pageNumber = 1,
+    // int pageSize = 10,
+    // [FromQuery] string? mealType = null,
+    // [FromQuery] string? dishType = null)
+    // {
+    //     // Tách các giá trị từ chuỗi truyền vào (nếu có) thành danh sách
+    //     var mealTypeList = !string.IsNullOrWhiteSpace(mealType)
+    //         ? mealType.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim().ToLower()).ToList()
+    //         : null;
 
-        var dishTypeList = !string.IsNullOrWhiteSpace(dishType)
-            ? dishType.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim().ToLower()).ToList()
-            : null;
+    //     var dishTypeList = !string.IsNullOrWhiteSpace(dishType)
+    //         ? dishType.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim().ToLower()).ToList()
+    //         : null;
 
-        // Gọi FoodFilterService với danh sách đã xử lý
-        var foods = await _foodFilterService.GetFilterFoodAsync(userId, pageNumber, pageSize, mealTypeList, dishTypeList);
+    //     // Gọi FoodFilterService với danh sách đã xử lý
+    //     var foods = await _foodFilterService.GetFilterFoodAsync(userId, pageNumber, pageSize, mealTypeList, dishTypeList);
 
-        return Ok(foods);
-    }
+    //     return Ok(foods);
+    // }
 
     [HttpGet("user/{userId}/goal")]
     public async Task<ActionResult<ResultModel>> GetGoal(Guid userId)

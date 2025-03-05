@@ -1,4 +1,5 @@
 ﻿using Monhealth.Application.Models.Paging;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 namespace Monhealth.Application.Contracts.Persistence
 {
@@ -31,14 +32,17 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
             List<Guid> categoryIds,
             List<Guid> excludedFoodIds,
-            List<string>? mealTypeFilter,
-            List<string>? dishTypeFilter,
+            List<MealType>? mealTypeFilter,
+            List<DishType>? dishTypeFilter,
 
             int skip,
             int take);
         //dung cho randomFood
         Task<Nutrition?> GetNutritionByFoodIdAsync(Guid foodId);
         Task<List<Nutrition>> GetNutritionByFoodIdsAsync(List<Guid> foodIds);
-        
+
+        //Get All Food
+        IQueryable<Food> GetAll();
+
     }
 }

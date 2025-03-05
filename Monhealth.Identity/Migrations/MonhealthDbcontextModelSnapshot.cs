@@ -167,7 +167,38 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Monhealth.Domain.Activity", b =>
+=======
+            modelBuilder.Entity("Monhealth.Core.UserCategory", b =>
+                {
+                    b.Property<Guid>("UserCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserCategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserCategories");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Activities", b =>
+>>>>>>> origin/HC-RecommendFood-Duy
                 {
                     b.Property<Guid>("ActivityId")
                         .ValueGeneratedOnAdd()
@@ -518,6 +549,1771 @@ namespace Monhealth.Identity.Migrations
                             CategoryType = 1,
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "",
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.CategoryFood", b =>
+                {
+                    b.Property<Guid>("CategoryFoodId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("FoodId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("CategoryFoodId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("FoodId");
+
+                    b.ToTable("CategoryFoods");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryFoodId = new Guid("4ceff27c-474c-4789-b313-da6767ccb707"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("13f7ada6-7e3a-4b29-a565-db57bf81b95f"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("361b36c2-2f0c-4321-ba8a-6d2075344b06"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("89755ccf-1a54-4ba0-9c32-b3629e5fab77"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2a6b3f78-0d1e-488e-97a3-9a93f72058a3"),
+                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("f17f4ea6-27fc-46d5-9d1a-a52c6550046c"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("8fa26c41-16b2-49f8-a284-856024a5f947"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("e539e6eb-a0ba-483f-929a-9237bd888525"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("1387c20d-27a6-495b-a3a0-efbb715f6430"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("5d1d86a2-a171-4695-928d-d0fd955f8422"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("ab2117f7-9940-44cb-b191-2dfabefac8c8"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("32506ce8-bef1-469b-bfcb-254be8df62c8"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("455bb5ed-ed2c-4172-8831-2b8a08614198"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("370e134a-eb58-4809-a4c5-1880e5dd501c"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("1140212e-cdb4-4f25-92f6-9b9407a71163"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d8cceacc-3836-4906-8b1f-fa0b5fdb6c56"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("ff1bc1f2-3515-4dfe-b271-8cabf205bbcf"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("70afb91d-656b-4c59-a0ff-f8cd23ae7c12"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("fa0d83ce-d0d7-414f-bd85-e4bc6402c0db"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("84a8ee99-6d0e-4ecb-be66-9803d3eafedb"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("77fe5e06-7fee-486d-a1a7-c031f2065490"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("6f0ebe1d-185b-4715-87dc-cf455fd675e3"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("86d88717-df08-4de6-b86d-870210864b46"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("67fb3d20-67b8-4a47-a3ef-393927c26e85"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("bd16b88d-9799-4e99-826e-5c2e1632978c"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7378ca5f-f1a8-4c23-a019-50af3012526f"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("df1b5e1f-ddc7-47fe-833a-7c5326d3c8cd"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("8578faec-72a9-45f9-b5e1-8e8ea33e915c"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("42883b21-4cbd-40ce-850f-b0723f1766fe"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("6a2c14f0-bc1d-4aa6-b98d-d27dbceb9aca"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("f6cf96c8-adc3-43e0-af5a-8b19623fed94"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("fe36af80-6b96-4f33-b93c-8485f7a84325"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("eac10b91-8509-4986-b689-7ee3a3757a18"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("e55f395a-0538-4370-b661-f22f2f27a9c3"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("dca16637-cf90-402f-921f-5c60e99e4bfa"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("591606ca-c44c-4adf-af64-425588eb29d2"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a2c5c215-f105-42f9-8b68-3219b5bcc2a9"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d4974d65-1346-482e-b508-25e494e0dcf1"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("cdb875c7-c89f-4dd6-93e5-e20292575284"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("ddc8d8f2-261b-4c1d-9061-e482d3c8cef3"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("8d5b71cf-819e-4d02-8df8-8ffad6317b65"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("5a7b42b0-2acf-4a8e-a5e9-e780838f28a7"),
+                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("fc24eb4d-cbc7-4345-b306-fbf879a1d82a"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("19bbab17-91c6-410f-b566-b509d067e76e"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("9c570173-797c-4b08-8095-dddfb4bc8f28"),
+                            CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("0c907875-66f7-4c52-a961-c27ee358c5ba"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("de097440-db5c-4d91-bd55-76618d70599d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("8128108a-85e8-437f-8fb0-b8457cbdee9f"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("fcdd0fc4-b798-4758-9f49-eeaa68116b01"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("67c38898-8456-4d9b-ae02-3ec5040515c8"),
+                            CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("1b25f0a3-fc15-4e34-94ff-272d1fd98241"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a3757d7b-6294-4f6f-bb9e-614e3aa8a4d4"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a3074169-6441-49cc-9ea7-79e240f6dda3"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("513955dd-dec1-4121-ad6b-bb4396568be1"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("0a47589f-d177-46f9-8a10-63fd6da9b611"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("dd54b846-405e-4d8e-8874-4104f78b9451"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("48113ca0-a1e7-4181-85fa-be6538a70873"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("dedc7c94-e129-4ca7-b692-1feef7938f45"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("e1961f3d-9711-47fd-9447-85b7d0d149a7"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a426ceb2-94d3-40c3-b197-dabecd0e719f"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("436c060d-17e9-49a8-af7b-d10826e48658"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("3921f5d6-0e09-4b0e-977a-c8822d87da73"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("41f955ed-278c-4bd9-b991-aec1a25b2268"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("1a459f6b-0a5a-45e5-9252-eed4bff830e6"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("83e6e455-3ae1-4f5c-8e44-9a5ae79ee31b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("612f5512-c33b-4e92-9ecb-537479e89baa"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d4a28898-0bf8-4a7e-ab59-bff9184b0f31"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("3222413a-e385-4a0b-9d07-2af7b0cb4276"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("ea51fc9f-6d02-4aa4-b573-84d4c6fb4fac"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("e0eec003-8384-412c-a307-b0185afdb0c7"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("c104cd2d-454b-42af-9f1a-870b23a430ed"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("62729429-b927-4e08-bd37-f6e92a8b0425"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("da89578e-9470-4b18-af4f-0bdcc011882f"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("4b9091ef-4599-4447-b785-d1fe0592048c"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("37a66f5c-437f-4520-90ec-4376e0093061"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("26141374-b181-46a1-acbd-65f20a6784bf"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("8bd65155-dee2-4b7e-a4e5-f86a61fea02f"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("239fdb81-c393-42d2-8487-1f98f9c5d3a1"),
+                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("fa445aa4-7b0d-4d47-8ba7-f919dd123637"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("9c9e2ff2-fdf5-46f0-9fb1-32db7b646c99"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("9ac7bbc7-ef3e-470c-8306-ee8e7b0d2c28"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("b0bad030-b40c-4514-9a0d-e9304cd7acd1"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("1a2f817b-89de-4d5f-ae4a-0a1c30cad476"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("4727271e-7f87-472e-b8d9-0494542949f8"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("f41484a3-c7df-4530-b7d2-060390103985"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d4a7fb74-84a3-4ba3-94e1-4a0b7dc8e7c9"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("4cdfc1de-c85b-4102-a447-f5d5905c8e13"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d3f5f46b-f66c-4472-8114-75269867bfe6"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("40f03f23-9341-4343-9bf8-fdfdb3b9f236"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("0835d081-f9a4-40e5-9361-42e2c334bca6"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d3e810c2-5b4c-43e4-8613-2d452c279ecc"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("b46ad7b3-6c52-4a97-8d64-537bceaa59ab"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("019699ad-29b8-4e92-9363-e0d32efd9217"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("244e7e03-baaa-4dc4-aa10-d9d0dac410fe"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("3830989c-8df0-4411-8b24-e061117db4f9"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("51061170-597d-4289-a021-1e7dde88331f"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2fdbd470-32ac-4217-aa2f-71d7cf097b87"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c137f014-34c2-4f0a-be52-7c2a5c64abae"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("990dc58d-271a-4f72-813c-22ca568a98ee"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("5ff26461-880d-4b94-bfd0-e8badc77fe33"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("37b56810-78d1-4f03-b678-aee1db7bdd16"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("73016f70-ebb4-4583-aa12-7f3f4633ada4"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("6e814198-525b-4776-97a9-2d462ab9c342"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("0455b535-2662-43aa-bca2-3e75595fb181"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("820de250-f163-44b0-92b4-521640f4df59"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("bee4e3b9-9f80-48d2-8f7b-87216b646586"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("6e12f6cb-6695-4c7a-bfb0-cd4936ee1782"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("db78d649-67d8-462e-88a2-82125953401b"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("53559df7-7ddd-4473-9b7a-5e3c77f66ab8"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("8c7cbeca-c001-4d93-b188-9023b3f434a2"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("9daea56d-7fc3-40f8-b40c-87b2e3fbfc91"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("57a3cf8f-ccc3-4c55-ab70-fd0221fc5bd3"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("01b47081-bdb3-4480-b294-462514862a05"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("131c465a-e54c-4707-82e3-e4f9fde4501c"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("cb5d0de4-bc2c-40ff-8b41-597b9203e0c9"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a53672e7-8593-4779-bd02-9f02ae81f915"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2a693086-6fd5-4f88-b14b-35cbedd510e7"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("98006e54-c44e-4a81-aa99-d4bb95bfb89d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a47593f1-c3af-489b-9c9b-3a10ee93bf86"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("fb7d87aa-2bb8-4065-bd31-b54239057405"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("6cedb44e-353d-4ecf-a09a-5d405ac3d752"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("f0132626-5535-4f30-9af4-7e89e086aaaf"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("edb535f6-e860-4840-98e9-b585f5a705d8"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("78afc33e-a8ec-49dc-85d1-5e9f93a89462"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7b8500af-d730-4138-9617-cba352faed4a"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("1ff893e6-86a9-4e10-adda-8539a25dba72"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("dd1482e7-b3dd-4b17-80f6-5618a640c671"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("3dd7becd-ae0b-4e80-be5f-a3e1c78a7439"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("628d87df-0bde-417d-b8b5-5f8f5536410b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("aa296125-3ee1-4e00-92a0-bb59a027069c"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a9ed6ec9-b1db-4a53-9d14-ca28c5169834"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d5eaa197-5e1d-4efb-8f98-a0d17584fdee"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("9122357a-179f-45f4-9106-67eea24d48ab"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("b0e4967e-0bc9-41db-8e1f-bf4acc06a37f"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("bc14e3ac-9a94-4307-9dcf-847a4e447d21"),
+                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("b83c42b3-580d-4a20-8f34-4bb7ee2f02f2"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2efb2732-2dc8-49db-9af9-666c017386e9"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("87225215-43af-49f2-a40b-a5ebb087d27b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("8b7212c4-6bca-4210-a216-647fadacd303"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("23443efa-dc06-4e7a-949c-5c823ee6e575"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("bd4dbae5-d67b-43b8-9b09-947baca71150"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("609f323f-9697-4d97-8831-fd806aae4da0"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("f2633339-5f98-4db8-badc-0cf73309c760"),
+                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2200fdc2-c799-4163-ab5f-a7d5a934234a"),
+                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("da85064b-e528-4bfa-8a64-1fbe704f9af5"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a304ab82-8aaa-4510-b0c7-fbb7cea7cd86"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("86bcbac3-fc75-46ed-8d0e-18c8c4860692"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a7694564-78d7-4154-8713-146c5555488b"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a6ce6816-c6e1-4512-aeb6-d5d647815c1d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("19873bda-4335-46a4-8d73-0a037df5cfef"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("edb9d5d0-01f3-4607-a406-9e04bbff85fb"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2a813648-6a91-4933-86f4-748406c85e62"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("8b7a71ff-ea17-464c-afd3-e92c1ac4bcf5"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("d3a1c73d-ca5a-45ea-a7fa-d582f1253b79"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d658e1a0-d532-4290-81e7-1ec71d408c74"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("adeb902f-fb34-44eb-aa60-76eaeb0ed70b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("9bc72b4f-d936-475b-b9f8-6f325761dd46"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("3fa8cf38-d835-4279-a113-a8f44cd013e6"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("5d18cfda-fa5d-4dbe-b564-41cc5ca16419"),
+                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("d3392e5d-a48f-4b5a-968d-31b98bd47835"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("1eea62cf-267b-4312-b953-1ae592867549"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("ad6a860f-4a4a-4cb7-90fa-21c8f36c91ce"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("bd259f6e-b89c-43c7-a0df-89de6b4262f1"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("829be3d5-855c-4bc3-91d9-44c994a08d30"),
+                            CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("50c0adac-c878-4a21-8b5f-01478e7e4852"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("35ac7942-588c-4462-9439-1d611f2ccbe6"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("8430810e-ed80-4951-9dcc-cd01e03739d0"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a23f6c85-1a80-4255-a9a1-d08c1d60e753"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("39b2bf8d-50c3-480f-97df-609e2bdd573c"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("b0f051be-5972-4e7a-a77d-47ec28d58993"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a40e1a1e-c115-46c5-9ca0-48b897d4988b"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("8da16f72-42a9-4da2-b217-811903e340c4"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2313b941-ae39-470c-b52d-2eed5c742ecc"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a5d484c6-9cc8-4d6e-a53c-5c8a2c20999b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("6e5e96df-1f2e-46f2-95cb-c624430bc818"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("30307023-41ff-4dc5-8e4e-5c2778e30d21"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("b29dc622-e8ae-4471-8e22-5676aa5fa909"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("0c324da6-30e3-4acb-ae36-5dd4cf679816"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("0f7f47a1-f122-4f58-9e24-40ece9323520"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("90daa1aa-261b-4ca8-a833-db78b6ff4069"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2de85035-d863-4e9f-9fb6-5581ddd5dbd8"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c46676b3-cbcc-49e9-ad44-7d450a481a19"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("80263850-92d9-4b0f-99e0-543288baf909"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("597a11b3-31a0-4e70-8d2f-95465ee03e8b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("8fbae622-7747-45f7-96ef-d6ae309db39e"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("4e46f955-4413-496f-97b4-968a38ee3e11"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("fd83b090-9201-4d56-b905-8c692b9d308e"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("644f32b3-897e-45b1-b4d7-aa8b9585a262"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("08bc4b24-1ec8-4753-a5fb-ed19ffce8757"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("b9b8e2d7-471e-433c-8587-f783869a1999"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("017a81c2-36c5-4edb-b346-04b0627a443d"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a8de2767-4b0a-41db-b33b-2523f5be2e0c"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("5c9873af-6672-4ac9-aac6-4ef823f68207"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("00333cd3-f43b-40af-855e-95aa8a636e4a"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("7b58adc1-11cf-4503-b65e-0c876056275d"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("8d95f2a5-cdd0-4c79-8cd0-99ff05cad567"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("e8d0b7b0-b620-4749-8681-8a006d82b3ec"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7afe5fe6-3bcb-4354-86ea-e8d6a81aa9a2"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("5ce6e5f6-43ad-49ca-bcef-e96ebc054b23"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("ff348fc8-cd36-41c4-984f-a5884171f367"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("686e201a-aee3-4275-8df6-68999fa71526"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7b3216ff-858e-423e-b8db-a85571aa5488"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d438dec5-87b5-4e12-a7e4-6d37e256e813"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a97a20b1-074d-4a10-bedb-a85b81d47ab7"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("35cad577-0748-469f-8909-7dc013cf1c55"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("95b75e66-f8bf-43cd-81c9-5194450e8d5e"),
+                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("575e8bca-57e3-4d16-b380-545a046c9a4e"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("21690f94-3412-41d1-b179-f2cbd6b09695"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("830df1fb-09f6-4e6e-95c3-e39051e3b2d8"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("f9f17d6d-c7e9-4ee9-bcf7-7aae35739db2"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("9b98036c-2047-4700-bb13-b34a432bb999"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("ed6d4303-e609-4d67-adaa-088490c6b3e8"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("1aa49363-ab95-4565-9e27-1855702197fd"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("3b836dfe-bf5d-442e-ac38-00b479df6ea4"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("98c908b5-dad8-4db4-8d60-c6157c53d2c0"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("4c79b4ae-d978-4128-83ec-a196832ea433"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("08f7020d-0159-4c0c-84f5-a5e39e677767"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("857b3565-b170-4162-a97b-c0184c4258aa"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("eae4a8f3-3136-4542-9ac9-3ebb1fe21852"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7cd76708-7312-445e-a392-14f0e806a786"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a5334be7-82f5-45e7-a62e-94905de214f7"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("642480b4-22c9-4350-a6ce-c052f99e60e3"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("9ebb3c13-e5eb-4d2c-b21b-b8549414d03a"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("10869d8c-14b9-4464-85ca-bf76fc4bf91d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("7e967429-11a8-466c-9255-08038e5ea3b3"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("44c2f7f3-d40b-4125-b032-6f809c70f3d6"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("9979963d-5c37-4fa9-955c-d1ecb5814607"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a903ec9f-639f-4d8b-801b-7c40a846f553"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("6a88b8cb-dc82-4751-a2e4-23e5516d850b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("27069687-6f40-47f9-be56-a37cfbbfebdd"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7729551a-e475-4079-aaa0-07c02efde2a5"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("cc9a608a-f4ae-4081-8533-0a3e02cc2748"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("c0c87ef7-3cd6-4f90-836d-c0594d3619b1"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("845454d0-967a-4e48-aef3-bd8458775500"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("e9cc2f31-5b69-4d3b-98d0-1a006a48ed06"),
+                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("49601ef1-2131-478f-a1de-f2e444602be3"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("551d6eab-6134-4d45-aebc-41be62ef8e49"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("d3c360a2-441e-4700-a6ec-4310b5976901"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2833ff0a-b5b8-43c2-8799-50dce1cd7eb5"),
+                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("731974ef-495e-4c08-ba95-20589d60c20c"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("0e354348-605a-465b-a0af-0ecc2e62c7b8"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("cb693182-b5ff-4f2b-9a47-44ab84841843"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("984749a9-47a0-4d24-84d8-265008f3d612"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2b417704-1288-453f-882e-d968a90ce0d3"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("594a0d84-d3a4-4d9e-a8da-3341c36e69ae"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("5f848972-c5ae-45fc-8ba2-103b24d8a23a"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("0c9e1d76-c720-4abb-b9a3-967da333ba33"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2ae82bfd-34db-4928-bfee-b60f4aec4460"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d1f2bf0b-506b-4f24-9fde-8cf28bf9915f"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c69f3300-4f1b-45ce-bdc3-ae45fec848a7"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("b465c1d3-ecc0-49c8-b090-ae2d736501ba"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("6487a532-ff5e-4b77-b408-46c789608de9"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("256c6f20-7e19-42ec-a35e-5f03585914db"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("63045676-0e70-425f-aa96-e348a4e88c3a"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("da84f6ab-8d68-4f48-9a27-7d8135301162"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("827829bf-71cd-4865-80af-1457e0091456"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("768e777c-8ab5-4cc4-9f0b-1c17ed457ac5"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c5e3e4ed-0164-4917-a1ce-99679b971a22"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("c8c678bd-5aa0-4df5-89b2-93a0bb3f679c"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("e7d4d8d6-6e9a-4c38-95f2-e9790f5bd2c2"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("631ff5dd-dc93-4b9d-afee-3c3015dacf39"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("fa1f0dc9-270a-4e77-881f-acb53ac1c91d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("5dad534c-235b-40bc-80db-11470f9f09f0"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("0ece5f0f-9fec-4f74-b948-90dce7ce6ce3"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("f2a12fe1-9b9e-4602-be49-4ac3753da603"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7167f942-dc89-4f29-8022-588373aef45e"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("ec6b5d79-7b68-4f64-be21-1c84ac045526"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("d65c7826-78c0-4991-b3b6-1e2b25437f61"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("582a5cdb-2a54-47f6-a65f-e782caf1c1ab"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("90099162-15e0-4ef0-b93e-59d409678b63"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("e3e0e19b-5a57-4fe9-87a3-6a04d7611015"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("e1a6ae3e-bbb3-4e7f-9d92-55bd38e6fa2f"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("431896a0-6c61-475d-92e7-4d9e9674a604"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("9669cdf4-c133-476f-b2bd-f3c091346c52"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("16f52932-1aad-46d5-9199-bcb6e4d34645"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("61b2c4d9-6de2-4fb2-af3b-fe9fabee0bd4"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("93f2a2b0-45fa-4847-b535-afa6800e4f2a"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("af036922-79f3-45a7-b562-a6279520c0e6"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("782413e3-2e73-4375-96e7-dc7bcb032b20"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("00bc33fe-4cd5-47df-bd94-15ac9f93648c"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("29c0863c-6718-4723-8dad-f943bbb143bd"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7b3935fa-e426-4dcd-b59f-2dbe8960956b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("f6d01756-1c65-48b6-83aa-bcfc186c5578"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("3426c7e8-055b-414f-84a3-eb9afdb1d33e"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("527eb961-4a98-4b0a-9b3e-0fdddb1e049d"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("ea63d4c3-41f7-4f89-bf33-e8a16c5d6956"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("af9a0716-8c6f-47ef-8e61-46142b346372"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("b42e9ba6-8aa7-419a-907f-ec7e21cb9337"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("285d1dde-f51e-4469-a01f-84e3c30b775b"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("99ec20c3-f2a7-4727-9d12-a30f92d256cd"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("86c78b27-0173-49a5-9b08-de4b998c86e3"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("17427acf-a4a6-416f-adfd-1abbece692c0"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2c990331-b6ca-4642-893a-be68f0d398d5"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("d6dbf1b9-da7c-4fcc-9874-7feda08373fc"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("f0e4a066-b920-4540-a035-1a5504ff1358"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2465d1a4-53b0-4df9-9292-fbc34afc8fe2"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("c9cb635f-b21e-4b04-9ac9-84d01f2ef42b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("257ac771-0692-4243-b13f-f406c0424832"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2d821db4-3e99-4877-b979-bc82d34b3b01"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("1e7a332a-7023-443d-8b8f-6f4514682525"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("29dfb5da-8818-40ff-bf66-7553521c2161"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("7256ec31-5175-429e-b9d8-f51a321c0e0e"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("64e0dca1-abd5-4886-b124-ef0f4a44d0a6"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("e4b939d3-c361-484d-b49e-98e63f5b790d"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("881ae045-1c9a-4e20-9160-0e8c14486be5"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("cc96c80c-98ea-4c79-8013-b1ec70c50e73"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("0292d477-d63b-4904-a83b-2cd8cac39c14"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("ae8c85f3-8338-49ea-b795-f16ca99dcec9"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("b80c562a-e1d4-4117-a317-c06b5bae8950"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("9d238961-fc45-46bb-8301-2af4a56f0e79"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("3dc2fa80-ab87-4e26-907b-3516611371b8"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("4bd850bb-182e-4cec-a0ca-49b9c0e9897e"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2c990331-b6ca-4642-893a-be68f0d398d5"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("3e3449ef-dbc6-4579-8686-2bc56fa3e817"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("9acdf58c-c37d-4026-a3f9-40fda186184b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("6b042c79-2185-4908-a361-43b0ac710d0d"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("f0e4a066-b920-4540-a035-1a5504ff1358"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("814c295e-9092-4fc3-aad2-9c7fc24f8d2b"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("3dd4fdf7-ff67-4f64-89ad-0c9e89ca4af4"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7b3935fa-e426-4dcd-b59f-2dbe8960956b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("3ae2ac74-52d7-4542-9fa0-3734bec511a7"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("4edcae53-7e30-42bb-8526-7686355f2268"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("1f9ce552-59b4-42bd-9c62-e875d2cfa2c1"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("8ed85dc2-7654-4c48-81f9-19946a73f71d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("2fb0ef0b-7690-4d81-a345-ccebaae451ff"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("881ae045-1c9a-4e20-9160-0e8c14486be5"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("1387336e-d244-4ef2-ad39-b61a48ef4a1b"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("b80c562a-e1d4-4117-a317-c06b5bae8950"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("4026ee06-5af2-4d4c-83a9-3d9c6fb27be4"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("f64a5add-56ee-490c-b3f5-198498ffe70f"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2c990331-b6ca-4642-893a-be68f0d398d5"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("f31a293e-013d-46fd-9a94-ec390b42557c"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("9acdf58c-c37d-4026-a3f9-40fda186184b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("fd8e7f85-a80d-490f-8bab-607aa3a08db6"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("b79878e6-36d9-4efc-b3ff-a3c45b35ff21"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("25b4c01e-7f23-49e4-b001-684bcd4e9bd3"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("8382816f-1beb-4804-9698-3b486798b20a"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("17561c94-8636-4643-ba7a-9665653970b4"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2405ffc3-524e-4331-9e68-47a411d7b9b8"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a09828d8-4e1a-4638-aebd-a003bf68cdc1"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("6991af6a-6b58-4a9f-901b-d57486c81e57"),
+                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("2146faae-2e7c-4460-8d81-38f5d313012c"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("31c85cb0-949b-4dd1-a2bb-9e2caeca1efc"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("6a336418-3a21-4451-98b4-0094e07f66b0"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a950000c-9837-4d1b-b1ae-b9db230f8f1f"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("9521cde7-0467-4886-9455-2fb2a07c6ddb"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("30f9d9dc-1653-495c-99b7-b649c49f7930"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("baba5e6e-f92d-464d-a1b3-163a1637613c"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a364353c-d589-4a94-9c3b-3038113ea249"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("1569b1ab-e155-4c71-b8d6-5eabd7be3348"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("cf9ab10f-2094-496b-9018-96b9d2e1af76"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("7d843f02-91fb-41e0-a21a-283ccc64ba0f"),
+                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("8c9e1c76-2616-43a4-8c80-3e2e23b8ac4f"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("a3d2650a-3033-4deb-91d3-a8580a00c42b"),
+                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("87cdf191-876c-4270-92f9-4bb1fc2a7fe9"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("fbda401d-2f64-4fd3-aec9-5c7e8f7b0f89"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("3d19d971-88d0-4108-a335-24ac9e1dec50"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("076067bc-771e-4b59-a110-6cc3ccf8ecbe"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("a504d882-4f38-413e-bb28-fae1f2787150"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("68970775-000a-4125-98f6-f604e6d381d4"),
+                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("9f624258-a4ee-4879-a23f-b3d0479f2b1b"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("e84ca1ab-a382-4b4c-8714-b7d24c06c97b"),
+                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("d034b7e9-b5a2-42d7-95b7-c0c30207293d"),
+                            UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryFoodId = new Guid("47f3dd7b-503c-4fa9-9adf-609c0ac2002f"),
+                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
+                            CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodId = new Guid("85e621ed-0e0c-4d20-8891-51d311cea4a3"),
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -2037,9 +3833,6 @@ namespace Monhealth.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -2086,8 +3879,6 @@ namespace Monhealth.Identity.Migrations
 
                     b.HasKey("FoodId");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Foods");
@@ -2096,7 +3887,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2114,7 +3904,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -2132,7 +3921,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -2150,7 +3938,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish,MainDish",
@@ -2168,7 +3955,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -2186,7 +3972,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("8fa26c41-16b2-49f8-a284-856024a5f947"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2204,7 +3989,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("1387c20d-27a6-495b-a3a0-efbb715f6430"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -2222,7 +4006,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("ab2117f7-9940-44cb-b191-2dfabefac8c8"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -2240,7 +4023,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("455bb5ed-ed2c-4172-8831-2b8a08614198"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -2258,7 +4040,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("1140212e-cdb4-4f25-92f6-9b9407a71163"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -2276,7 +4057,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("ff1bc1f2-3515-4dfe-b271-8cabf205bbcf"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -2294,7 +4074,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("fa0d83ce-d0d7-414f-bd85-e4bc6402c0db"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -2312,7 +4091,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("77fe5e06-7fee-486d-a1a7-c031f2065490"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2330,7 +4108,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("86d88717-df08-4de6-b86d-870210864b46"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -2348,7 +4125,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2366,7 +4142,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7378ca5f-f1a8-4c23-a019-50af3012526f"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2384,7 +4159,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2402,7 +4176,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("42883b21-4cbd-40ce-850f-b0723f1766fe"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -2420,7 +4193,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("f6cf96c8-adc3-43e0-af5a-8b19623fed94"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2438,7 +4210,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("eac10b91-8509-4986-b689-7ee3a3757a18"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -2456,7 +4227,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("dca16637-cf90-402f-921f-5c60e99e4bfa"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -2474,7 +4244,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a2c5c215-f105-42f9-8b68-3219b5bcc2a9"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2492,7 +4261,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -2510,7 +4278,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("ddc8d8f2-261b-4c1d-9061-e482d3c8cef3"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2528,7 +4295,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -2546,7 +4312,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
-                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -2564,7 +4329,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("19bbab17-91c6-410f-b566-b509d067e76e"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -2582,7 +4346,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
-                            CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2600,7 +4363,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("de097440-db5c-4d91-bd55-76618d70599d"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -2618,7 +4380,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -2636,7 +4397,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2654,7 +4414,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c"),
-                            CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -2672,7 +4431,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -2690,7 +4448,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a3074169-6441-49cc-9ea7-79e240f6dda3"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -2708,7 +4465,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("0a47589f-d177-46f9-8a10-63fd6da9b611"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -2726,7 +4482,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("48113ca0-a1e7-4181-85fa-be6538a70873"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2744,7 +4499,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -2762,7 +4516,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2780,7 +4533,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2798,7 +4550,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -2816,7 +4567,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -2834,7 +4584,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -2852,7 +4601,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("83e6e455-3ae1-4f5c-8e44-9a5ae79ee31b"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2870,7 +4618,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2888,7 +4635,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("3222413a-e385-4a0b-9d07-2af7b0cb4276"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -2906,7 +4652,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("e0eec003-8384-412c-a307-b0185afdb0c7"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2924,7 +4669,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2942,7 +4686,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("da89578e-9470-4b18-af4f-0bdcc011882f"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2960,7 +4703,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("37a66f5c-437f-4520-90ec-4376e0093061"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -2978,7 +4720,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -2996,7 +4737,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -3014,7 +4754,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("fa445aa4-7b0d-4d47-8ba7-f919dd123637"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -3032,7 +4771,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3050,7 +4788,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3068,7 +4805,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3086,7 +4822,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish,MainDish",
@@ -3104,7 +4839,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("f41484a3-c7df-4530-b7d2-060390103985"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish,MainDish",
@@ -3122,7 +4856,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3140,7 +4873,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -3158,7 +4890,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("40f03f23-9341-4343-9bf8-fdfdb3b9f236"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3176,7 +4907,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3194,7 +4924,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3212,7 +4941,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3230,7 +4958,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("244e7e03-baaa-4dc4-aa10-d9d0dac410fe"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3248,7 +4975,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("51061170-597d-4289-a021-1e7dde88331f"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3266,7 +4992,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c137f014-34c2-4f0a-be52-7c2a5c64abae"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3284,7 +5009,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("5ff26461-880d-4b94-bfd0-e8badc77fe33"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3302,7 +5026,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("73016f70-ebb4-4583-aa12-7f3f4633ada4"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3320,7 +5043,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("0455b535-2662-43aa-bca2-3e75595fb181"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -3338,7 +5060,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3356,7 +5077,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("6e12f6cb-6695-4c7a-bfb0-cd4936ee1782"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3374,7 +5094,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3392,7 +5111,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3410,7 +5128,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -3428,7 +5145,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3446,7 +5162,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3464,7 +5179,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3482,7 +5196,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3500,7 +5213,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a53672e7-8593-4779-bd02-9f02ae81f915"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -3518,7 +5230,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("98006e54-c44e-4a81-aa99-d4bb95bfb89d"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3536,7 +5247,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("fb7d87aa-2bb8-4065-bd31-b54239057405"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3554,7 +5264,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("f0132626-5535-4f30-9af4-7e89e086aaaf"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3572,7 +5281,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3590,7 +5298,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7b8500af-d730-4138-9617-cba352faed4a"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -3608,7 +5315,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("dd1482e7-b3dd-4b17-80f6-5618a640c671"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3626,7 +5332,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("628d87df-0bde-417d-b8b5-5f8f5536410b"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3644,7 +5349,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3662,7 +5366,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3680,7 +5383,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("9122357a-179f-45f4-9106-67eea24d48ab"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -3698,7 +5400,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish,MainDish",
@@ -3716,7 +5417,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607"),
-                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -3734,7 +5434,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -3752,7 +5451,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("87225215-43af-49f2-a40b-a5ebb087d27b"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3770,7 +5468,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("23443efa-dc06-4e7a-949c-5c823ee6e575"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3788,7 +5485,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -3806,7 +5502,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3824,7 +5519,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -3842,7 +5536,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("da85064b-e528-4bfa-8a64-1fbe704f9af5"),
-                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3860,7 +5553,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("86bcbac3-fc75-46ed-8d0e-18c8c4860692"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3878,7 +5570,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a6ce6816-c6e1-4512-aeb6-d5d647815c1d"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3896,7 +5587,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("edb9d5d0-01f3-4607-a406-9e04bbff85fb"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3914,7 +5604,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -3932,7 +5621,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("d3a1c73d-ca5a-45ea-a7fa-d582f1253b79"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3950,7 +5638,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("adeb902f-fb34-44eb-aa60-76eaeb0ed70b"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -3968,7 +5655,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("3fa8cf38-d835-4279-a113-a8f44cd013e6"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -3986,7 +5672,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("d3392e5d-a48f-4b5a-968d-31b98bd47835"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -4004,7 +5689,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("ad6a860f-4a4a-4cb7-90fa-21c8f36c91ce"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -4022,7 +5706,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -4040,7 +5723,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("50c0adac-c878-4a21-8b5f-01478e7e4852"),
-                            CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish,MainDish",
@@ -4058,7 +5740,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -4076,7 +5757,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a23f6c85-1a80-4255-a9a1-d08c1d60e753"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -4094,7 +5774,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("b0f051be-5972-4e7a-a77d-47ec28d58993"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Snack",
@@ -4112,7 +5791,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("8da16f72-42a9-4da2-b217-811903e340c4"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -4130,7 +5808,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a5d484c6-9cc8-4d6e-a53c-5c8a2c20999b"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -4148,7 +5825,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Snack",
@@ -4166,7 +5842,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("b29dc622-e8ae-4471-8e22-5676aa5fa909"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4184,7 +5859,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("0f7f47a1-f122-4f58-9e24-40ece9323520"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -4202,7 +5876,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -4220,7 +5893,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c46676b3-cbcc-49e9-ad44-7d450a481a19"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -4238,7 +5910,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("597a11b3-31a0-4e70-8d2f-95465ee03e8b"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4256,7 +5927,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("4e46f955-4413-496f-97b4-968a38ee3e11"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Snack",
@@ -4274,7 +5944,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("644f32b3-897e-45b1-b4d7-aa8b9585a262"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4292,7 +5961,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -4310,7 +5978,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -4328,7 +5995,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a8de2767-4b0a-41db-b33b-2523f5be2e0c"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -4346,7 +6012,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("00333cd3-f43b-40af-855e-95aa8a636e4a"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4364,7 +6029,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("8d95f2a5-cdd0-4c79-8cd0-99ff05cad567"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4382,7 +6046,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7afe5fe6-3bcb-4354-86ea-e8d6a81aa9a2"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4400,7 +6063,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("ff348fc8-cd36-41c4-984f-a5884171f367"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4418,7 +6080,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7b3216ff-858e-423e-b8db-a85571aa5488"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -4436,7 +6097,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Snack",
@@ -4454,7 +6114,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("35cad577-0748-469f-8909-7dc013cf1c55"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4472,7 +6131,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("575e8bca-57e3-4d16-b380-545a046c9a4e"),
-                            CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4490,7 +6148,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("830df1fb-09f6-4e6e-95c3-e39051e3b2d8"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4508,7 +6165,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("9b98036c-2047-4700-bb13-b34a432bb999"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -4526,7 +6182,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("1aa49363-ab95-4565-9e27-1855702197fd"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -4544,7 +6199,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("98c908b5-dad8-4db4-8d60-c6157c53d2c0"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4562,7 +6216,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish,MainDish",
@@ -4580,7 +6233,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("857b3565-b170-4162-a97b-c0184c4258aa"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4598,7 +6250,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7cd76708-7312-445e-a392-14f0e806a786"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4616,7 +6267,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("642480b4-22c9-4350-a6ce-c052f99e60e3"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4634,7 +6284,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("10869d8c-14b9-4464-85ca-bf76fc4bf91d"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4652,7 +6301,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish,SideDish",
@@ -4670,7 +6318,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("9979963d-5c37-4fa9-955c-d1ecb5814607"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4688,7 +6335,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("845454d0-967a-4e48-aef3-bd8458775500"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -4706,7 +6352,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("6a88b8cb-dc82-4751-a2e4-23e5516d850b"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert,SideDish",
@@ -4724,7 +6369,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7729551a-e475-4079-aaa0-07c02efde2a5"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Snack",
@@ -4742,7 +6386,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Snack",
@@ -4760,7 +6403,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("49601ef1-2131-478f-a1de-f2e444602be3"),
-                            CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Drink",
@@ -4778,7 +6420,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("d3c360a2-441e-4700-a6ec-4310b5976901"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -4796,7 +6437,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("731974ef-495e-4c08-ba95-20589d60c20c"),
-                            CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Snack",
@@ -4814,7 +6454,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("cb693182-b5ff-4f2b-9a47-44ab84841843"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -4832,7 +6471,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -4850,7 +6488,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -4868,7 +6505,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("5f848972-c5ae-45fc-8ba2-103b24d8a23a"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -4886,7 +6522,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2ae82bfd-34db-4928-bfee-b60f4aec4460"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -4904,7 +6539,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c69f3300-4f1b-45ce-bdc3-ae45fec848a7"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -4922,7 +6556,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("6487a532-ff5e-4b77-b408-46c789608de9"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -4940,7 +6573,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("63045676-0e70-425f-aa96-e348a4e88c3a"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -4958,7 +6590,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("827829bf-71cd-4865-80af-1457e0091456"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -4976,7 +6607,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c5e3e4ed-0164-4917-a1ce-99679b971a22"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -4994,7 +6624,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("e7d4d8d6-6e9a-4c38-95f2-e9790f5bd2c2"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5012,7 +6641,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("fa1f0dc9-270a-4e77-881f-acb53ac1c91d"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5030,7 +6658,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("0ece5f0f-9fec-4f74-b948-90dce7ce6ce3"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5048,7 +6675,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7167f942-dc89-4f29-8022-588373aef45e"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5066,7 +6692,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("d65c7826-78c0-4991-b3b6-1e2b25437f61"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5084,7 +6709,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("90099162-15e0-4ef0-b93e-59d409678b63"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5102,7 +6726,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("e1a6ae3e-bbb3-4e7f-9d92-55bd38e6fa2f"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5120,7 +6743,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("9669cdf4-c133-476f-b2bd-f3c091346c52"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5138,7 +6760,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("61b2c4d9-6de2-4fb2-af3b-fe9fabee0bd4"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5156,7 +6777,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("af036922-79f3-45a7-b562-a6279520c0e6"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5174,7 +6794,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("00bc33fe-4cd5-47df-bd94-15ac9f93648c"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5192,7 +6811,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7b3935fa-e426-4dcd-b59f-2dbe8960956b"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5210,7 +6828,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("3426c7e8-055b-414f-84a3-eb9afdb1d33e"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5228,7 +6845,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("ea63d4c3-41f7-4f89-bf33-e8a16c5d6956"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5246,7 +6862,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a988cc73-072e-4af1-9b53-55fbf0f4fe79"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -5264,7 +6879,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2ee163f7-4463-44ec-b9e2-8a409c112db4"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -5282,7 +6896,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("01e60ae4-ff69-44d6-b4fd-aaf916e3a7e5"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5300,7 +6913,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("eec3d874-6331-4e33-bbe6-bf0cc4335b29"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -5318,7 +6930,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("90a605b6-843d-4cc1-8fe7-a016c76ee29c"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -5336,7 +6947,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("56513d2d-2472-4fa4-80bc-2f54002b187f"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5354,7 +6964,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2d821db4-3e99-4877-b979-bc82d34b3b01"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5372,7 +6981,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("29dfb5da-8818-40ff-bf66-7553521c2161"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5390,7 +6998,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("64e0dca1-abd5-4886-b124-ef0f4a44d0a6"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5408,7 +7015,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("4edcae53-7e30-42bb-8526-7686355f2268"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5426,7 +7032,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("0292d477-d63b-4904-a83b-2cd8cac39c14"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5444,7 +7049,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("b80c562a-e1d4-4117-a317-c06b5bae8950"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5462,7 +7066,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("99ec20c3-f2a7-4727-9d12-a30f92d256cd"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -5480,7 +7083,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("3dc2fa80-ab87-4e26-907b-3516611371b8"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5498,7 +7100,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2c990331-b6ca-4642-893a-be68f0d398d5"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -5516,7 +7117,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("f0e4a066-b920-4540-a035-1a5504ff1358"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -5534,7 +7134,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("c9cb635f-b21e-4b04-9ac9-84d01f2ef42b"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -5552,7 +7151,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("982d8f3e-f517-4bd2-87a8-48329fc9eb91"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5570,7 +7168,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("43d635e2-6f0c-4385-83d8-fedfd479d356"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5588,7 +7185,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("8ed85dc2-7654-4c48-81f9-19946a73f71d"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -5606,7 +7202,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("881ae045-1c9a-4e20-9160-0e8c14486be5"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5624,7 +7219,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("b42e9ba6-8aa7-419a-907f-ec7e21cb9337"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5642,7 +7236,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5660,7 +7253,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("e370081a-c0a6-4c00-b01c-7c52f953b7f1"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5678,7 +7270,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("9acdf58c-c37d-4026-a3f9-40fda186184b"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "SideDish",
@@ -5696,7 +7287,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("b79878e6-36d9-4efc-b3ff-a3c45b35ff21"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5714,7 +7304,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("8382816f-1beb-4804-9698-3b486798b20a"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5732,7 +7321,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2405ffc3-524e-4331-9e68-47a411d7b9b8"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5750,7 +7338,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5768,7 +7355,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("2146faae-2e7c-4460-8d81-38f5d313012c"),
-                            CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5786,7 +7372,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5804,7 +7389,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a950000c-9837-4d1b-b1ae-b9db230f8f1f"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5822,7 +7406,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("30f9d9dc-1653-495c-99b7-b649c49f7930"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5840,7 +7423,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a364353c-d589-4a94-9c3b-3038113ea249"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5858,7 +7440,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("cf9ab10f-2094-496b-9018-96b9d2e1af76"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5876,7 +7457,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("8c9e1c76-2616-43a4-8c80-3e2e23b8ac4f"),
-                            CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "MainDish",
@@ -5894,7 +7474,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("87cdf191-876c-4270-92f9-4bb1fc2a7fe9"),
-                            CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5912,7 +7491,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("3d19d971-88d0-4108-a335-24ac9e1dec50"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -5930,7 +7508,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("a504d882-4f38-413e-bb28-fae1f2787150"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -5948,7 +7525,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("9f624258-a4ee-4879-a23f-b3d0479f2b1b"),
-                            CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Dessert",
@@ -5966,7 +7542,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("d034b7e9-b5a2-42d7-95b7-c0c30207293d"),
-                            CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -5984,7 +7559,6 @@ namespace Monhealth.Identity.Migrations
                         new
                         {
                             FoodId = new Guid("85e621ed-0e0c-4d20-8891-51d311cea4a3"),
-                            CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DishType = "Soup",
@@ -6030,409 +7604,681 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("f4f1fcea-8a24-4cca-9ad3-8a730df2aa2b"),
+=======
+                            FoodAllergyId = new Guid("74257801-825d-4254-93d5-3023315cc81d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("967bbbdc-0c99-4ff3-964d-3786763a3660"),
+=======
+                            FoodAllergyId = new Guid("38a42452-e4c9-4c8d-a33e-674956de8f4f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("5bd21923-d210-4413-8637-2cd85efb21c6"),
+=======
+                            FoodAllergyId = new Guid("3e426379-6fb6-4bbe-802d-72d464d3482c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("9865341f-2db7-48bd-984e-cec5fb059d00"),
+=======
+                            FoodAllergyId = new Guid("f13e23a6-5f6f-4f78-bf17-8b9c8dafa0d3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("88376b1b-5a8a-4381-b343-643b46ea11b0"),
+=======
+                            FoodAllergyId = new Guid("c43c3f89-13b5-4daa-93b9-f83a8535a290"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("7378ca5f-f1a8-4c23-a019-50af3012526f")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("15453751-165c-4a26-8bfa-2c01ba36cef1"),
+=======
+                            FoodAllergyId = new Guid("ae156ff0-038c-4eb5-b200-8a030462e8f3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("7378ca5f-f1a8-4c23-a019-50af3012526f")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("3b473c10-eefa-4144-bde1-ac38a8b169e7"),
+=======
+                            FoodAllergyId = new Guid("cb73e49d-f5f6-4146-a5f7-dfc90c17dff5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("c2bea01a-5167-4996-a8f1-5166dacdc9e1"),
+=======
+                            FoodAllergyId = new Guid("7703d86d-e542-4cb4-afde-55faeb38fdeb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("19bbab17-91c6-410f-b566-b509d067e76e")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("975d8ed6-e04f-4426-abf7-b7b16e12f4c5"),
+=======
+                            FoodAllergyId = new Guid("5c123ed8-2314-444c-9339-c36c70939f93"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("03a5f6cc-e30a-4e1c-97e1-73261a2b99cc"),
+=======
+                            FoodAllergyId = new Guid("a3e3ca09-f2c5-4053-a47a-daf83e4612a6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("73d0f4ab-4af9-4c25-a8a9-a48d40a2bbe9"),
+=======
+                            FoodAllergyId = new Guid("7f8256a8-f5fe-4dad-8544-aa4fa430bf07"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("3dda12fc-235f-4c9d-a534-2f235631a169"),
+=======
+                            FoodAllergyId = new Guid("c4a3a365-a549-4a73-9040-1f012b5cac16"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("c9e6331b-1bab-4739-89bb-1fa07037f161"),
+=======
+                            FoodAllergyId = new Guid("53ef3a35-bc37-4a5f-b477-baa691f642d2"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("9962f6b7-2c04-4f19-940f-9bae311f1da6"),
+=======
+                            FoodAllergyId = new Guid("5faf5eee-d018-480a-ab49-dd1435241464"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("2b4ae06f-dd58-47c7-8163-e3c3bec56310"),
+=======
+                            FoodAllergyId = new Guid("f2628714-a0b1-49a8-bf69-e899246cbb7c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("d9971a41-4ea0-4ce2-9941-31c58c5e4051"),
+=======
+                            FoodAllergyId = new Guid("c360919b-0bed-4266-9536-eaa7d5a92f85"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("0c0b7444-e390-47d7-b4a7-c897641747eb"),
+=======
+                            FoodAllergyId = new Guid("667983f2-e255-451d-958c-d9d978e1399d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("3ca4358f-77f9-4e1f-a38a-1d67fa3b7b36"),
+=======
+                            FoodAllergyId = new Guid("ec809c7f-a066-4fff-8a2b-e78459b7b486"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("bb9451bf-4527-44e6-bfd0-b2fe6317dc13"),
+=======
+                            FoodAllergyId = new Guid("b2a44426-bd21-4526-ba2a-821542dea960"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("fa445aa4-7b0d-4d47-8ba7-f919dd123637")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("d58fcaaa-2636-4617-ba23-369741e15056"),
+=======
+                            FoodAllergyId = new Guid("0add5c47-1b6c-4e31-83b1-852e549f563b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("39508308-32e4-4919-beb3-1b5c4c575ac8"),
+=======
+                            FoodAllergyId = new Guid("d8f4bd3a-74a1-4c22-b82c-b708675e2db5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("f38785b9-44c5-41f5-95e8-d61dd880ae46"),
+=======
+                            FoodAllergyId = new Guid("4e1ad1b9-c87d-46ba-9074-9f0722e38227"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("f41484a3-c7df-4530-b7d2-060390103985")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("c79db71c-a64c-43be-8760-244d95ac1ca2"),
+=======
+                            FoodAllergyId = new Guid("5efabd25-93fb-4645-8194-0d5bd91db5d8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("a985b487-e16c-4e8d-90a5-d35aa04571bc"),
+=======
+                            FoodAllergyId = new Guid("883cf3fe-8aea-4570-9569-5d05d6f9d70b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("b401d571-5917-4faa-9bf4-689c8a33a4e4"),
+=======
+                            FoodAllergyId = new Guid("7df17922-491d-4c82-9bd4-dd81a0c6f8da"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("207355d9-15a4-40f4-9313-efc05a43e9d8"),
+=======
+                            FoodAllergyId = new Guid("6641b193-a378-4f6b-b145-db124ce269af"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("2d7edaec-652d-49fa-8a5a-b8e964930036"),
+=======
+                            FoodAllergyId = new Guid("00f9595b-144d-4960-aed1-f570b1e8dc0c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("5ff26461-880d-4b94-bfd0-e8badc77fe33")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("4e5f31e8-bf5c-4d3d-8592-8199e18cc0cc"),
+=======
+                            FoodAllergyId = new Guid("5d2b2b21-d256-4316-8735-0c69e0a4f5e3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("ace36d09-90ab-41ff-bf5e-99470b7710ae"),
+=======
+                            FoodAllergyId = new Guid("d7cbca13-7873-4954-bba3-609c7c3404f9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("24054b54-cc0b-442f-a672-99445cecb9df"),
+=======
+                            FoodAllergyId = new Guid("8168705a-83f0-47ba-a729-0a987fff3114"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("785f2eb6-0756-4431-8da6-7a78f9f25d52"),
+=======
+                            FoodAllergyId = new Guid("6fd84fdd-a8c1-4c51-ab6d-cafd6667deb5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("545b215c-d6c3-4dbd-a5a0-4d3cf6ff56e7"),
+=======
+                            FoodAllergyId = new Guid("252711c6-e9f7-4d4e-916f-80718cd28f80"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("a53672e7-8593-4779-bd02-9f02ae81f915")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("5784cbcd-a2f4-482a-872f-6e9a149eee6d"),
+=======
+                            FoodAllergyId = new Guid("5c4b37cc-2146-4e02-af5d-acf255874eb1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("d5a5c930-afa9-4596-817e-2cf6e976b164"),
+=======
+                            FoodAllergyId = new Guid("475712b4-b977-4534-a14a-cf80156d4578"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("dd1482e7-b3dd-4b17-80f6-5618a640c671")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("c2063b41-468e-4d33-96ac-6ad8ea44ece5"),
+=======
+                            FoodAllergyId = new Guid("f719a538-f496-40b7-8719-f1ec7291aa5a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("b99c2a48-0b54-4bfb-ae46-24f02006a290"),
+=======
+                            FoodAllergyId = new Guid("09897344-79bc-40f8-b1bf-6f3e74f3fbf7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("34738d76-31ec-4676-b1ea-c6c9df0cebb9"),
+=======
+                            FoodAllergyId = new Guid("5023dfd0-f0b9-47e6-b378-70309aeecd53"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("de66971f-c80b-4974-8c5f-707fb60b7d18"),
+=======
+                            FoodAllergyId = new Guid("a480c8b6-a738-46f9-b63b-c461536ac860"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("9de6d4d5-39aa-49b2-8900-5f8f0deffc63"),
+=======
+                            FoodAllergyId = new Guid("6bd9711e-f857-4c2d-a50b-e8b941f514c7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("10578e55-074c-48d3-b2c1-f02f8919fbe6"),
+=======
+                            FoodAllergyId = new Guid("9c918312-52a0-47d5-824b-d5e634b4bf4d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("edb9d5d0-01f3-4607-a406-9e04bbff85fb")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("67f9b65b-382e-4176-aa9e-c357a6ddfbf9"),
+=======
+                            FoodAllergyId = new Guid("2d65f1ab-37a1-421a-ab33-f8161a57eead"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("e5eee899-d39e-4ce2-bdbe-b5fe10f6a9ac"),
+=======
+                            FoodAllergyId = new Guid("a9b7fe83-8354-48b9-92eb-733ce2b2992b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("adeb902f-fb34-44eb-aa60-76eaeb0ed70b")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("02526e86-6518-4ac1-89e0-502fd89f692e"),
+=======
+                            FoodAllergyId = new Guid("5cd2ab9b-0c73-42ec-813a-bec25d52b474"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("3fa8cf38-d835-4279-a113-a8f44cd013e6")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("26ddc721-9e1f-4608-9471-dafb35c4cc13"),
+=======
+                            FoodAllergyId = new Guid("27b0a367-99e3-462e-98bc-1741dc7b2e17"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("d3392e5d-a48f-4b5a-968d-31b98bd47835")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("93fd915b-90bc-46b0-a798-ebe322c6ab85"),
+=======
+                            FoodAllergyId = new Guid("f93d7181-18d4-4ca4-b2df-c63d9dd6a483"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("14f1b41e-d844-441f-8259-0aeefa1994eb"),
+=======
+                            FoodAllergyId = new Guid("78ecf431-55ce-40ae-b6b6-8f7c1bc570be"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("50c0adac-c878-4a21-8b5f-01478e7e4852")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("3b99db0f-34fe-44eb-ad4a-9c88fe9ed482"),
+=======
+                            FoodAllergyId = new Guid("9fb04305-74ce-497b-99ff-c214a180725a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("a23f6c85-1a80-4255-a9a1-d08c1d60e753")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("4a112769-7eb3-4b47-90f0-7f0b67ed66eb"),
+=======
+                            FoodAllergyId = new Guid("8493ff0e-f0ad-42d7-85d2-9de945cfdaf7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("b0f051be-5972-4e7a-a77d-47ec28d58993")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("110c91c3-4180-4850-8137-449ca371f7d3"),
+=======
+                            FoodAllergyId = new Guid("b4a234d9-0fdb-4af1-a29a-9f238f2c5511"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("8da16f72-42a9-4da2-b217-811903e340c4")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("29463d49-81e9-4a52-9aa0-ed7ba92834f5"),
+=======
+                            FoodAllergyId = new Guid("e8aa10b6-17e6-4b92-8ef6-067a710550f3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("59988378-901f-4ec4-bd6c-9fdc28ca97a1")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("1e9157d4-f856-43eb-b6fa-d8989d98c113"),
+=======
+                            FoodAllergyId = new Guid("2634956c-dbf5-4692-8db9-0e1e9b54e838"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("98b3945a-9169-4581-b1a5-da82f2ebd8d4")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("e7a028d7-72d9-4dba-853a-54bdfa600146"),
+=======
+                            FoodAllergyId = new Guid("61b430be-7976-4e76-92bd-384957c96c8f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("4e46f955-4413-496f-97b4-968a38ee3e11")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("f0066b9d-2729-4564-9c7d-437a936a4431"),
+=======
+                            FoodAllergyId = new Guid("cf477223-8ada-4579-9cd7-119234d0d05c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("404a286a-90c5-4c54-8e27-3ddeba55ada3")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("86cbfcaf-8e55-4e6d-81d4-45ccb962d58f"),
+=======
+                            FoodAllergyId = new Guid("3ba0982a-d507-4d90-93cb-c8da7cc591c0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("d3c360a2-441e-4700-a6ec-4310b5976901")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("8bab1e9f-568a-4719-9537-2bb8f79285d8"),
+=======
+                            FoodAllergyId = new Guid("5c0f04cb-8e14-4601-b9b5-0e42ee0f3c12"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("731974ef-495e-4c08-ba95-20589d60c20c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("6aa459b3-ecb7-4a5e-9056-89e38fdf7e91"),
+=======
+                            FoodAllergyId = new Guid("4ee968e6-5836-49ea-8022-0809440e6dcb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("5f848972-c5ae-45fc-8ba2-103b24d8a23a")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("241d974b-a3a4-4dec-9cf3-d7c5530b799b"),
+=======
+                            FoodAllergyId = new Guid("34c41c53-bf1a-4ff8-a186-a6dcf0ca3041"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("63045676-0e70-425f-aa96-e348a4e88c3a")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("41458bd0-8927-4ba7-b0b6-ec81569f953a"),
+=======
+                            FoodAllergyId = new Guid("33b7717f-ca8c-4ff6-91c5-0ee02d2adb0a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("0ece5f0f-9fec-4f74-b948-90dce7ce6ce3")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("0c3568b0-649f-4dfc-8ea5-b9ca4c391804"),
+=======
+                            FoodAllergyId = new Guid("01e9df5f-bee8-4db6-9b29-03dd8b72c419"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("d65c7826-78c0-4991-b3b6-1e2b25437f61")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("4653f3ba-79d2-45e6-b82c-0582e9beee56"),
+=======
+                            FoodAllergyId = new Guid("2915fc84-78f3-494e-a3f1-110d445edf87"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("90099162-15e0-4ef0-b93e-59d409678b63")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("d6bcb385-abe2-4ae3-8add-01b3f2c82aea"),
+=======
+                            FoodAllergyId = new Guid("054c5677-b1af-4adf-95a5-d8fa0b82c981"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("9669cdf4-c133-476f-b2bd-f3c091346c52")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("12eeee54-c9e1-49b1-9106-efd9d1eedc11"),
+=======
+                            FoodAllergyId = new Guid("dd9fb6ad-f18f-434a-9fe0-21f7485577ac"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("9669cdf4-c133-476f-b2bd-f3c091346c52")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("447adb07-fae9-47ac-9ec9-eb65a6fa3e48"),
+=======
+                            FoodAllergyId = new Guid("89cb82f3-9bfe-4e35-9d1d-849df1ec7b29"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("61b2c4d9-6de2-4fb2-af3b-fe9fabee0bd4")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("76055bfd-a15f-4462-b0d9-3f153228210e"),
+=======
+                            FoodAllergyId = new Guid("984b7a6c-2487-4b79-9c23-ff47529d7fe4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("ea63d4c3-41f7-4f89-bf33-e8a16c5d6956")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("7b1eb975-7f8b-49bc-9dde-442cd4307f4d"),
+=======
+                            FoodAllergyId = new Guid("354312ed-a355-44bf-943e-e68d4ee1a0c5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("56513d2d-2472-4fa4-80bc-2f54002b187f")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("36761786-c4de-49ba-8303-38fee2045e2f"),
+=======
+                            FoodAllergyId = new Guid("1a152eff-bfda-406e-82aa-d2289a1dc196"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("2d821db4-3e99-4877-b979-bc82d34b3b01")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("73428ffa-0c7e-439d-baec-d83f4962156f"),
+=======
+                            FoodAllergyId = new Guid("4564b479-3210-4909-b09b-39399d285b8d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("2d821db4-3e99-4877-b979-bc82d34b3b01")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodAllergyId = new Guid("5a23a6ad-84cd-48c9-92dc-2ef37ef10bc4"),
+=======
+                            FoodAllergyId = new Guid("10b9fdec-d69f-4e95-8242-2a4a96fb03fa"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("a1ff09f1-9d02-40a8-84de-8da9aad67c58")
                         });
@@ -6467,667 +8313,1111 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("9d863764-9068-4574-bcb3-b65eb6ddf50e"),
+=======
+                            FoodPortionId = new Guid("5a43beb8-b707-4f32-a69a-f4b1a2a40c05"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("1808de3e-ae43-41a6-b9ce-bfe89131be5a")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("6db46280-eede-4f31-bf95-db5a38e2347c"),
+=======
+                            FoodPortionId = new Guid("0094aee0-56fb-4154-ac48-6bd0a9110634"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("40991196-f258-43f1-ac84-0381afa83477")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("461e8e78-0506-46ad-a226-897f795d257a"),
+=======
+                            FoodPortionId = new Guid("deba504d-2a8d-4d4c-a404-ce8cbea94529"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("28b06cf6-6367-4786-bccb-89c43dd3ce3a")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("1d021409-7f8d-4087-949c-895dd2bc5353"),
+=======
+                            FoodPortionId = new Guid("b67d9e03-af5d-4207-96bf-d9c5c642ff14"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("91524cc2-db22-4cab-abb7-700725232f1f")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("0820e0b8-9540-498b-b1a2-289dbcc63e21"),
+=======
+                            FoodPortionId = new Guid("9d2db9c6-0c41-40ca-a3e4-451fd1593ff8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("1b56833b-1ff5-4a90-aea9-074de2d0dd67")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("e9935cbc-e443-486d-82cc-cad4b740dc5b"),
+=======
+                            FoodPortionId = new Guid("5629b0bf-0548-4ea6-93be-7c77be450af7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("c605aa91-495e-4977-9876-b2a198ce356e")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("b99c33cb-932e-4942-adce-3fbfb3cac41b"),
+=======
+                            FoodPortionId = new Guid("0b448ea6-3a38-44b7-bfbf-7b26a3dd2ef1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("7be0e4d3-1e50-4de1-931d-08adb85f628b")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("3990631a-bac7-4d1c-b562-44773560d78f"),
+=======
+                            FoodPortionId = new Guid("3a95b590-5740-494a-b64d-ef29ea510c30"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("698c67ad-a726-435b-b9d2-c5690a79eb5a")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("450f99bd-aaac-4de6-88d0-a3fd666ab39e"),
+=======
+                            FoodPortionId = new Guid("dbdc3e1f-b4c7-4b86-897b-7daaed92adcb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("399eee61-90b5-464f-b3f7-7ddc1077ab0d")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("e2c8af95-ed1c-4431-a75b-382210e4da31"),
+=======
+                            FoodPortionId = new Guid("432d3371-dec5-4dfc-a873-8cfcf5f39ef4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("6f34350b-8f99-446e-9de9-e0c6277b10f3")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("ed7480b6-40fe-411b-91bc-5d4eb37ef2df"),
+=======
+                            FoodPortionId = new Guid("4f0c14c2-6ae4-4478-aee8-b2d123b90a7c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("8fa26c41-16b2-49f8-a284-856024a5f947"),
                             PortionId = new Guid("41ae956e-14fc-44af-bc6a-e5ba77661cee")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("027e8d79-1d8a-40e9-8204-3c738e6fc234"),
+=======
+                            FoodPortionId = new Guid("e6ed230d-34b3-403c-80a1-7de3958279d0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("1387c20d-27a6-495b-a3a0-efbb715f6430"),
                             PortionId = new Guid("a1589990-affa-4805-a1e0-73de1ffa8516")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("f2023aec-bf77-4f74-b33e-e4b77fe7be2b"),
+=======
+                            FoodPortionId = new Guid("226bb214-81cc-44ae-a516-87dd7e610c60"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
                             PortionId = new Guid("4e9013c8-d6f7-4740-80d5-e95d318873b9")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("7c3d6f67-1511-4131-9273-ce11c007453f"),
+=======
+                            FoodPortionId = new Guid("4b8f514b-6b5b-46a4-a04e-2198755de2c1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("eac10b91-8509-4986-b689-7ee3a3757a18"),
                             PortionId = new Guid("1bf9c3e0-7a2c-46f5-8187-82e5ad1af649")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("8b001f0c-fae8-414d-b44e-f851e5266e32"),
+=======
+                            FoodPortionId = new Guid("a2187e8f-d9f6-47bc-9968-55647329b5d6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("faec7c41-2e11-4092-8ab9-cc9c152d858f")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("afc455bd-507e-4269-ba77-262d7da426cf"),
+=======
+                            FoodPortionId = new Guid("033d526e-9510-47f8-9bed-cb4837b8a6c7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("36398f6d-0668-4d37-8850-9f9ee89b8b92")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("94e25359-4a82-4d92-96ed-44c7c709bffe"),
+=======
+                            FoodPortionId = new Guid("8cd19440-0565-42c1-91cb-9518bee25363"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("c6e853f0-06bd-4cda-8b43-cbe66fea98c8")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("efdaba1a-93b2-49c0-9f1e-3fca3d4e85c8"),
+=======
+                            FoodPortionId = new Guid("fbede8d8-7a79-4275-9ab2-0e0a6a03f8e3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
                             PortionId = new Guid("268e00a0-2da3-4e5c-8ea7-5ad8923cfd52")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("4a972cd0-5e75-447d-ba6a-05594ed5d029"),
+=======
+                            FoodPortionId = new Guid("967c8711-e4ea-4ae8-a72b-14f1196080f2"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("40bbc8c4-f383-4ae6-979a-3ac83c275881")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("1d52978c-d098-4fc2-935a-238042bf096c"),
+=======
+                            FoodPortionId = new Guid("95529156-8c39-4f1d-be14-24c3fdda048a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("26096793-894d-47c1-a06f-cf9133f8089d")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("05c432d8-be05-4cd9-b224-44656050f16e"),
+=======
+                            FoodPortionId = new Guid("f5580d9b-7949-4c31-a4bb-46b1cb50d364"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
                             PortionId = new Guid("de5d78a3-c5b1-4e2a-b9eb-f3757c999024")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("616238cc-325c-4647-8d17-0cc008dc473e"),
+=======
+                            FoodPortionId = new Guid("7c3c559b-54d0-4a21-9372-cb7c03353d54"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("de097440-db5c-4d91-bd55-76618d70599d"),
                             PortionId = new Guid("92e149ff-8491-48cf-a4e8-8106b1e95c4c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("54d95954-8ee6-4769-96a9-ba75cce1dcf3"),
+=======
+                            FoodPortionId = new Guid("2a4b3f4a-728c-4719-aa5a-4c22d7352300"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
                             PortionId = new Guid("3f77fd90-591c-45f3-8bbc-87d0bb49e461")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("fa551a24-db52-4a62-808f-db37244c50ac"),
+=======
+                            FoodPortionId = new Guid("0747934a-8d78-4a46-a722-14e87b106086"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
                             PortionId = new Guid("6792c392-3c86-4162-be91-4fc8646f861d")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("915abd42-084a-47f2-9d79-b9763f6e4351"),
+=======
+                            FoodPortionId = new Guid("55e05c1b-7a95-4447-9e70-449179d9009d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("48113ca0-a1e7-4181-85fa-be6538a70873"),
                             PortionId = new Guid("c4fc900f-5a92-4228-ac03-57285fff159e")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("899be69a-2408-4b09-9b56-2916ded9fe85"),
+=======
+                            FoodPortionId = new Guid("42209720-fbe9-445f-b774-e40215f224ce"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
                             PortionId = new Guid("cd0a9e6f-bf5b-40b3-bb6c-22ccb8e6ab6a")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("5c308399-9bd4-47fa-9526-631367ad52fd"),
+=======
+                            FoodPortionId = new Guid("9f8174a3-fa6e-4015-82ff-a89e80023635"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
                             PortionId = new Guid("a33065fe-80ad-4879-9333-424aadc6734f")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("f0c44c20-f868-41e1-96c3-c415da7b53ae"),
+=======
+                            FoodPortionId = new Guid("b8d1ddd4-3645-4e2a-8e8b-72181d430bc8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
                             PortionId = new Guid("eceaaa32-4023-4eab-abb6-9172c908f77c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("9b1b4511-990d-410e-ab25-ba1dd0b03fa6"),
+=======
+                            FoodPortionId = new Guid("f4b0f6d5-9c6e-4bce-ab0e-cf063588202d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
                             PortionId = new Guid("31e9bda5-8ec3-4444-a23a-908e84da6a14")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("a02c2ecd-2ab3-4825-ad35-e5614b658e42"),
+=======
+                            FoodPortionId = new Guid("0dd2831d-0548-46cf-8330-b258b98a9398"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
                             PortionId = new Guid("93984b54-2044-4ea9-8364-a03c6568e358")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("d07baa29-dca3-457e-9a1e-cac571ffb10d"),
+=======
+                            FoodPortionId = new Guid("c093c0d9-5766-43e1-aecf-c7c2f473825b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("da89578e-9470-4b18-af4f-0bdcc011882f"),
                             PortionId = new Guid("749b288c-112b-4b7b-8750-0daff63d9ab3")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("78f1da2a-1f8e-47be-9d85-4eff2f23a8ff"),
+=======
+                            FoodPortionId = new Guid("7405f0f8-98bd-4e23-a870-f27a7215bd71"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("37a66f5c-437f-4520-90ec-4376e0093061"),
                             PortionId = new Guid("1500876f-ef20-40de-baae-de0336bdc47b")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("7e6a848a-b7be-41e9-b7e7-75434f98cfc4"),
+=======
+                            FoodPortionId = new Guid("ceea2f97-d5d9-4e76-a55f-1b3908a8618a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d"),
                             PortionId = new Guid("24a4ed15-69e4-4fb5-8dd2-1695de52c264")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("d5de24d3-12d4-4581-b70c-1c2fe4c330da"),
+=======
+                            FoodPortionId = new Guid("395cf749-165b-40fe-952e-abd674ae8c46"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
                             PortionId = new Guid("bfc705ab-d7e9-44c9-9447-c0b39bc76ca1")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("529e2488-0e90-49a5-8ddc-56ca9f658964"),
+=======
+                            FoodPortionId = new Guid("90db596e-d217-4987-8cbd-dcf082fc415e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
                             PortionId = new Guid("b6623163-4c27-4d0c-99ef-12a67b87635f")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("696a54ee-eef3-4347-86c6-eaed2a93c2e1"),
+=======
+                            FoodPortionId = new Guid("c9a7d221-6a70-4281-abac-208dcfe6249b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("a88faa7c-6eab-4ecb-8a75-b078a9cf7834")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("f5247f14-e86d-407c-bf06-8f5ca73bb141"),
+=======
+                            FoodPortionId = new Guid("bba8651b-daaa-465b-970c-0c37e3feb40e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("218b9709-852d-4a1f-ad8b-c9410b49fea6")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("6a199a81-8991-4aae-9f26-e8c838f52eef"),
+=======
+                            FoodPortionId = new Guid("5a431ea3-a6ed-436b-ba27-47b20828a7ee"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("e5cc2785-6d62-4b5f-8fc1-e6ab45babd76")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("b17ca634-d4fe-47d0-837a-2f85d8146165"),
+=======
+                            FoodPortionId = new Guid("8a4869de-92ba-4175-9a5b-6819273cab64"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("fb7d87aa-2bb8-4065-bd31-b54239057405"),
                             PortionId = new Guid("22f0a09e-6816-410e-a5a2-c802103b089b")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("0628be77-96d8-4ad1-87c1-ddc2f10f7009"),
+=======
+                            FoodPortionId = new Guid("5b7ec847-be8a-4b0e-b1bc-4e8668d7ca55"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("9122357a-179f-45f4-9106-67eea24d48ab"),
                             PortionId = new Guid("5feca670-1f15-430d-9b04-7ac86a329a6c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("e4bbfc77-0464-4bc9-bcb2-eefad8687e9d"),
+=======
+                            FoodPortionId = new Guid("40e2a73f-eb71-49f7-8e49-f6cffe0704be"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("f483bb75-84f0-4ecc-8a06-f366a488c6bf")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("0e6a7fbb-143e-4e6f-8095-f2b58ce2887f"),
+=======
+                            FoodPortionId = new Guid("ce6a511c-05cc-4908-a665-bca08c3bf32f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("17c9d30f-bd85-4e58-bfc0-6b6d70b2e5fe")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("3ddccd80-cedf-4fee-be72-7fc5ebea3cc5"),
+=======
+                            FoodPortionId = new Guid("06abc476-b566-4875-a743-e4738809a16f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("52c86d57-0909-41c3-b513-e770e6f6d104")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("4809a035-1e9a-48e9-82ba-129517321dda"),
+=======
+                            FoodPortionId = new Guid("6817cada-041c-4d6a-a09d-42539268b03f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("87225215-43af-49f2-a40b-a5ebb087d27b"),
                             PortionId = new Guid("a9385e8a-e9b9-484f-beeb-bc35529cf91a")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("348c12e1-2b74-49fd-9638-ad00842cb19f"),
+=======
+                            FoodPortionId = new Guid("1c2db3fa-fae7-46fb-a3dd-650fe5907276"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("23443efa-dc06-4e7a-949c-5c823ee6e575"),
                             PortionId = new Guid("8a81e20e-ea16-4073-957e-29508a8f7419")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("5dcc0ed4-4532-4ac9-ade1-6b09a953c242"),
+=======
+                            FoodPortionId = new Guid("eb032fda-8512-453d-8427-ede31c3553b7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
                             PortionId = new Guid("84793ef9-fcd0-42df-ab0d-9380dfa18630")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("0774e2d4-e210-40d8-9811-82aec58a7a0b"),
+=======
+                            FoodPortionId = new Guid("8a7c01f9-176e-433c-bb78-b8bed338ce0b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("77fe5e06-7fee-486d-a1a7-c031f2065490"),
                             PortionId = new Guid("255ba0f6-14cc-4049-add8-138f27055b49")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("a89d9e68-e1fb-4dad-9a18-2fe4c2da85d2"),
+=======
+                            FoodPortionId = new Guid("ea96cc57-6aa4-4307-8a3d-b4711d37e36e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
                             PortionId = new Guid("f7b36043-9ca9-42c3-8a00-e9e235b56bb3")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("fcb3714e-35c9-4f67-b574-21c663752637"),
+=======
+                            FoodPortionId = new Guid("4b987994-15ea-40ea-acc4-cc417afc7c28"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
                             PortionId = new Guid("18809fb3-b78a-4f67-b9f9-8bb6ab95ab00")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("1a63a76d-85fa-475b-86bb-4f088dc20316"),
+=======
+                            FoodPortionId = new Guid("97b5cc6f-81b5-471b-ab4b-7e218ce1ebc2"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("cd0b1476-44a8-4350-a6a1-3de8747a5ebc")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("b21387a3-f77e-43d2-9656-152d24c8c2a0"),
+=======
+                            FoodPortionId = new Guid("25779b58-1484-40c1-9322-6387b1e071f3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("5afaa147-398e-4be8-b0d1-8dcabe6ed18c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("b1ff0bae-541a-4321-bb2a-86cbb9fb9d4c"),
+=======
+                            FoodPortionId = new Guid("f8733eac-4018-4030-84c0-0f488e0a250e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("d3850e1b-4780-490d-8c0c-ced1a9aa323b")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("ce4158e6-428c-45e6-a430-1f0528b559b5"),
+=======
+                            FoodPortionId = new Guid("cd89ca5c-b294-4ec1-a402-491af16363b0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("e09c493c-5806-4b14-bbef-e26e19e1d8d5")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("33e37324-be18-4521-8de2-9ec840be2d85"),
+=======
+                            FoodPortionId = new Guid("13ffe4d0-5db0-4bdd-b933-1b8815a6ef2a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("7b3216ff-858e-423e-b8db-a85571aa5488"),
                             PortionId = new Guid("5f7f859a-f20a-4f6c-8b8c-ecfbb1ff522e")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("1bafa4fc-2b10-40b6-bc1a-016b41c739a5"),
+=======
+                            FoodPortionId = new Guid("e4068941-351a-44db-8094-17daab1f3679"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("42883b21-4cbd-40ce-850f-b0723f1766fe"),
                             PortionId = new Guid("f0e8f9cd-d133-49cf-be7d-d427b630e05a")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("9566ccd4-00b1-4415-9c87-a40cb7312c2f"),
+=======
+                            FoodPortionId = new Guid("d0a4567e-252e-4508-bf1d-0d425dbb1a73"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
                             PortionId = new Guid("ef6b8c43-9ab5-497c-a9a8-e31f0a349527")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("f8e77c69-4583-4694-9037-6506c91cde02"),
+=======
+                            FoodPortionId = new Guid("64b0abb9-5076-489b-a62d-80b6bbb5dcf8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("845454d0-967a-4e48-aef3-bd8458775500"),
                             PortionId = new Guid("1cddc91d-209a-4948-8e9f-9017252d5423")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("03d2c6b3-ae7a-42c2-89eb-ed26d171eab3"),
+=======
+                            FoodPortionId = new Guid("3ff57cd6-ca3f-4fb0-abdf-cafffb29af86"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
                             PortionId = new Guid("d09266d3-9e7d-46a6-ad3a-7c608ec802d1")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("7cd95d26-10e8-4017-86c3-7eaf8a6eeb04"),
+=======
+                            FoodPortionId = new Guid("8d69dc0c-ac94-4e97-b8be-481bb1f76df0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("f0132626-5535-4f30-9af4-7e89e086aaaf"),
                             PortionId = new Guid("5384aebd-4eab-4a44-8cbb-7ec2c04f1401")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("ce6aaed5-735f-4865-bfd2-c30398c9e11e"),
+=======
+                            FoodPortionId = new Guid("971fa8c2-1df0-4ba1-8d9b-961f7d9bc0e7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c"),
                             PortionId = new Guid("222e1fa2-3910-42ac-9a5c-f371dded16eb")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("68b0e31b-3847-44da-a061-a79cc8d63630"),
+=======
+                            FoodPortionId = new Guid("3c3e5041-f401-4d43-939b-b28a53476195"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("eff728af-c8f0-4bb5-a985-d079cbadb6b5")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("677f5b72-4a78-4b30-bea1-0670a7c711a8"),
+=======
+                            FoodPortionId = new Guid("c4b00456-c471-4421-9d27-fa53c18262d8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a5dbb27a-4856-44be-a239-76eb073c3e41")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("d75e3850-5860-441c-aea6-608037d8ed38"),
+=======
+                            FoodPortionId = new Guid("ed690312-0cde-4375-93ca-b68f2e3596e0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a7936b9f-b6f8-4295-8b6e-6fe1b096f437")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("5ed51c79-0006-4882-a61f-d99989cfe736"),
+=======
+                            FoodPortionId = new Guid("edae8912-ef4e-43b9-be6c-de1b6d8fdf39"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a3074169-6441-49cc-9ea7-79e240f6dda3"),
                             PortionId = new Guid("e23d4491-73d1-45b5-8010-0385d7185c98")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("084e7695-fa2d-4cb3-b136-56a32e5c8718"),
+=======
+                            FoodPortionId = new Guid("33099672-571f-4d0e-af27-dd93601d53e2"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
                             PortionId = new Guid("bdd1ee1e-3a93-421f-855e-0993c7e6f767")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("433cfaed-88bb-45a6-8d3d-83c373fdee53"),
+=======
+                            FoodPortionId = new Guid("b2e0c292-503a-4a4f-9422-894ce5ca7204"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707"),
                             PortionId = new Guid("c4993d6a-a2e0-4ddd-821a-0629541e019c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("70c048b0-7977-4c7c-9641-a1591c603c22"),
+=======
+                            FoodPortionId = new Guid("4e5efbf3-0545-4f19-a2c6-33493826af45"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
                             PortionId = new Guid("5a1bc1cb-ed0b-49bf-9c1a-5494db962d27")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("95d9cb97-ddcc-4a78-bf3b-bf433a5e2d29"),
+=======
+                            FoodPortionId = new Guid("c2c63f32-7fba-4aed-9397-6dc3da43ab2d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
                             PortionId = new Guid("8ecbc063-8d6e-450d-af39-0ba28bc572bf")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("be344d02-43e0-4627-a0fb-e5320c028f5d"),
+=======
+                            FoodPortionId = new Guid("de1e3f1f-39a5-4ed1-a66f-f0652f1a966e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
                             PortionId = new Guid("16dc894a-746e-497e-a2c5-2d58f7f83c4d")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("413b60dd-3f2a-4de5-9206-956303bcf4a8"),
+=======
+                            FoodPortionId = new Guid("84bc96f7-812d-4ac3-92c9-f5575a5aa79b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
                             PortionId = new Guid("30f41ca6-c420-4f7d-9602-bf80735d5691")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("5b52fd02-5d8e-415c-9d51-25402d1a6eef"),
+=======
+                            FoodPortionId = new Guid("6ce73cc9-d549-4a55-bdda-7c837d7befae"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("1cf439ce-a31b-4b95-b092-b7f6edf8d40f")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("51471ac7-d913-4cad-bbbc-c6aea55ea31e"),
+=======
+                            FoodPortionId = new Guid("aa96d58a-f3a2-4dda-a715-69bdfb860b7c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("ad9ecd1e-40ec-414a-be69-b16e7013b377")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("602a9baf-42fc-45b4-90d8-a0134ab73845"),
+=======
+                            FoodPortionId = new Guid("e45ab445-5596-4778-9904-1acad57d67fe"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("1802caa2-cfe0-48e7-8580-29165f84387d")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("209ee798-55d6-453a-9354-328379c031df"),
+=======
+                            FoodPortionId = new Guid("1ee29fa8-8d87-4dee-a208-f621e6dfb2de"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("21e32570-7d64-4cec-b711-873185c76523")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("2266012a-c508-479f-892a-79a96f1e6f24"),
+=======
+                            FoodPortionId = new Guid("c92bbe97-40fb-4c85-9822-af8736e9e6fb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
                             PortionId = new Guid("9c276c0b-84b6-4216-8dbb-ae2034ac2176")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("d5fdfdf9-39cb-4b6c-b27a-1e8dcb402f4b"),
+=======
+                            FoodPortionId = new Guid("14081fc2-72b0-4ff3-895b-e424157fbcd9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("d9dad801-145a-419d-bbe2-408acf97a273")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("5b2e2926-6d38-42ff-943e-e6c38398cd1d"),
+=======
+                            FoodPortionId = new Guid("3804eede-0533-4be7-b5b6-b2ebfe12fadb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("bf0f7ca4-9089-4800-95d7-8d037d98b7fc")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("e4f1fead-3592-4b61-91c2-a4b03df436d7"),
+=======
+                            FoodPortionId = new Guid("c65a70e9-abce-4ee6-97c4-a24f0b89cbec"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("56681171-ccbd-4700-90bc-2233c1e661bb")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("3b2fd9f9-561b-4b8a-b02e-5132c18f4ab6"),
+=======
+                            FoodPortionId = new Guid("4dab2433-0804-4493-91ad-106c7c1ce3d8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("709578ca-672f-461e-995d-dc78aeda8c4c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("47e722ef-4aba-4011-8b08-9f5513240b4a"),
+=======
+                            FoodPortionId = new Guid("75441079-4707-4339-b375-d945ffaba870"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("f928b7a6-2558-478a-bc22-515516f4dc74")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("fc172613-41a3-4f83-9088-623248c87c63"),
+=======
+                            FoodPortionId = new Guid("f31964d0-033f-4be5-8ed9-28984dc3268f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("23ce32a0-6597-4b60-b35c-98073ff595c6")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("810afb50-6ec3-4910-a006-80c2699c36a6"),
+=======
+                            FoodPortionId = new Guid("3432500c-7ef2-4f90-9b5a-3a0d7c48928c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
                             PortionId = new Guid("bad70aff-4237-4c83-b412-460020a5ee44")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("28656ff9-69df-4dd5-8b02-ff25b1ceb6d0"),
+=======
+                            FoodPortionId = new Guid("3dbae271-2142-4c0a-abf0-daf8487ef930"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
                             PortionId = new Guid("59589114-7d6a-4c80-8681-db5c554ab38f")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("3f08ebce-c9bd-40d6-ac55-5389b029b803"),
+=======
+                            FoodPortionId = new Guid("50b65c1b-23b1-4902-8034-ffb5826c8919"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("c65d34ee-8c0c-43bb-9d4e-aa39955a4768")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("5f540e6d-4864-430c-9626-9bf11642df63"),
+=======
+                            FoodPortionId = new Guid("0c2cf9bf-940b-43ef-bce3-94865437b7c9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("f9bc9ae8-e42e-4e8b-84d3-f2bc36037552")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("24db1724-57f8-4211-98f7-86cb051ea688"),
+=======
+                            FoodPortionId = new Guid("803651de-9801-4de8-b9a8-3048122a3444"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("bd16f0ec-5ae1-42f4-a302-b4bce8f0db28")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("7a0dae3f-a27a-4f1b-86e7-013308dcd121"),
+=======
+                            FoodPortionId = new Guid("c7df1dfd-4759-4e89-a25c-540f98fc554c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("549d664a-eb1c-4b9a-8ad7-fab9e1482e5b")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("95e0b881-efed-41ef-81b7-74ebf05cdceb"),
+=======
+                            FoodPortionId = new Guid("cabfef1c-8a72-4931-ae1b-50449a7bb9fb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("e45c2156-a98c-4121-90b4-25097e8a5cd1")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("854cdc98-0ed6-4850-9958-5190990e9d0e"),
+=======
+                            FoodPortionId = new Guid("f828898f-543d-4eb3-ba65-c523153c71b8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("7b138bd4-4d3a-426c-9ab0-d66699b762d2")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("0db758ab-948a-40f8-9329-f9ac62b0550f"),
+=======
+                            FoodPortionId = new Guid("7c064e7f-daef-4cd4-b538-dc5d63db3cb6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
                             PortionId = new Guid("2892c25f-bd50-4bb4-a845-997395ef6693")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("a85f650b-e321-4773-980d-270a21d12793"),
+=======
+                            FoodPortionId = new Guid("f0d2c23d-e9c2-4cd0-a168-686b56544d6e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("03a92c0b-b7f6-4283-8109-a35898d5d3c5")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("f44d726e-0565-41c1-baed-71ad0679cd1a"),
+=======
+                            FoodPortionId = new Guid("f96de621-38d4-42c3-b9ed-aec99446a2b0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("fc245902-ef53-4363-b4ce-0e598e1dd4a4")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("2ddb4bc1-f68e-4ea6-adbe-7d46c635a731"),
+=======
+                            FoodPortionId = new Guid("e87ede8f-6259-44c0-b34f-53663ba08472"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("da254ee7-d229-4769-bad5-a617d09676d4")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("2a73e0e0-af29-4eb4-9192-cb955d919b4e"),
+=======
+                            FoodPortionId = new Guid("c2204102-a0af-452a-a463-5995593ae3da"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41"),
                             PortionId = new Guid("3d6d946f-8d9f-479a-b27e-3d78dc354db0")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("f06c0238-7388-483f-98d9-01925c78d9a5"),
+=======
+                            FoodPortionId = new Guid("0e90c119-5ac7-4902-97bd-5b7b201917b9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
                             PortionId = new Guid("424ebe64-6570-4d88-9052-08c06dc0a2c8")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("a8e4932e-dd73-44d5-8c60-ef6cc44c0561"),
+=======
+                            FoodPortionId = new Guid("be4a3b7b-0fc2-471e-8c1c-3739dddcdb53"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5adcb96d-70ef-403d-89c6-cc3aa807b6a7")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("df5898a1-d82a-4aed-86aa-b2cc02af422a"),
+=======
+                            FoodPortionId = new Guid("64c5a1a4-d7cd-4032-9779-820853d27fb1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5a9ac478-aa65-48ea-9387-1ad92f6c76b1")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("343b212f-9d84-4f25-ad8d-055416e24997"),
+=======
+                            FoodPortionId = new Guid("98d2b531-fe13-443a-b1d4-8458cbb6ab06"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("113f6a04-87c4-43c6-8263-920bd099c8e0")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("34f75e5d-014a-4014-8533-73fb8728d7e7"),
+=======
+                            FoodPortionId = new Guid("2732614e-d7c4-4ddf-aefc-9c529f00f0fe"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("d2e88505-bbd6-4af6-9a88-535896c5d587")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("3f2d8767-f649-4596-b72f-4f4c3df13895"),
+=======
+                            FoodPortionId = new Guid("ce97d794-7538-4a00-9920-f2993886af2d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("3f19ef5c-3c60-4a11-b1b3-5158859f1286")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("8fbfe9fb-47cd-46a2-8b2e-86720968685d"),
+=======
+                            FoodPortionId = new Guid("2c0ab3bc-ea44-49ff-80cd-7a1591468c77"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c"),
                             PortionId = new Guid("7e071bd6-6afa-483d-8688-28b31b9a8bef")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("5688954b-84e1-4e81-a0ff-13e391c0fb56"),
+=======
+                            FoodPortionId = new Guid("5f2b43ec-9d61-4820-819b-07382541a637"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607"),
                             PortionId = new Guid("d6c41cdb-4735-4b9e-85ae-1f48f33b7d6c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("819f103d-01fc-4ff5-9fcc-2d566267b6af"),
+=======
+                            FoodPortionId = new Guid("abbe2b18-a682-4ed8-9abf-3dc82667d33d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("a43d7637-6fc7-421b-86f1-f83e691431a4")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("02cb9893-3d65-4bb2-aa38-d0d316a62775"),
+=======
+                            FoodPortionId = new Guid("6c196f17-b6f4-4c41-a96f-9bea5cf9ea1e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("6e98f2be-9196-4c4e-8279-b02010f853f1")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("646d0fee-a3c7-44fa-a052-27047f0e775f"),
+=======
+                            FoodPortionId = new Guid("91dd07a8-6c9b-46fb-93b2-84579fcf1dab"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("e00ed683-11ff-4c21-8b1c-576b448726c9")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("2bbc01c3-1dbf-4412-b138-a0002aba5f3d"),
+=======
+                            FoodPortionId = new Guid("f53ee839-4b5a-4dfe-b953-46b8b0efe395"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("63d10d95-7983-455e-b920-29c1f0c88d85")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("9c47d42a-38a8-4755-abed-c6fef3bb16cf"),
+=======
+                            FoodPortionId = new Guid("537ebf28-8280-49e9-898c-ceb3846264fd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("919c7f66-53e5-46bd-b181-558f6052b953")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("6ba2a855-6b8c-452d-983d-503f1d3cd1db"),
+=======
+                            FoodPortionId = new Guid("3c0698bf-32d1-4359-873a-cbac9d418af1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("87409e4f-4bea-4bba-855d-a3bfbc2f9c20")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("c76af890-0a61-4aeb-a907-f325aa8618c8"),
+=======
+                            FoodPortionId = new Guid("6a480b5a-8a58-40ea-8238-274ad639fcca"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("26dcc6e0-67aa-40ed-b3d1-8a009c60a62c")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("2e2a8a19-5e6c-498f-8d13-c34b1631f8d9"),
+=======
+                            FoodPortionId = new Guid("270ae82b-9121-47ee-967e-936c3945d597"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("3c7d60d4-60da-4f51-9448-30877b126572")
                         },
                         new
                         {
+<<<<<<< HEAD
                             FoodPortionId = new Guid("2adfc82a-f269-4645-8e25-637388b263f9"),
+=======
+                            FoodPortionId = new Guid("63de745c-30fb-41a9-9c3d-68903c843fc3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("9c3399d1-72db-4e86-a518-2575033bb6a8")
                         });
@@ -7402,7 +9692,11 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0259c19a-25ed-420f-9091-03609bbe3c25"),
+=======
+                            NutritionId = new Guid("48df55d6-2e58-4692-be94-c41ac032486b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 130f,
                             Carbs = 28.2f,
@@ -7428,7 +9722,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("01f089dd-2c1c-40bf-8ac0-6478b49aebb0"),
+=======
+                            NutritionId = new Guid("bdcb2757-66e4-4bf6-b5c1-9e619e9ab539"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 22f,
                             Calories = 265f,
                             Carbs = 49f,
@@ -7454,7 +9752,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0bb5658c-f629-4e09-9512-298c73c87839"),
+=======
+                            NutritionId = new Guid("b63f156c-20d5-480d-aa0a-d81b4d4a825f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 5f,
                             Calories = 89f,
                             Carbs = 22.8f,
@@ -7480,7 +9782,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("e489a5fb-6095-4fe8-b7db-aae717242686"),
+=======
+                            NutritionId = new Guid("d338c732-30ac-4534-9f1a-f368e06720fd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 56f,
                             Calories = 155f,
                             Carbs = 1.1f,
@@ -7506,7 +9812,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("5c4b7c6f-71b9-464a-9ff5-f1412b43c6c2"),
+=======
+                            NutritionId = new Guid("6029901e-0468-4d04-b214-bf5d8e142c2d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 125f,
                             Calories = 42f,
                             Carbs = 5f,
@@ -7532,7 +9842,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("37233cae-37e9-4258-9607-0773f4ba8974"),
+=======
+                            NutritionId = new Guid("e468f0f8-3984-4364-9703-375b8f5ab85d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 50f,
                             Calories = 380f,
                             Carbs = 45f,
@@ -7558,7 +9872,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1f6b0855-9b72-403f-9cc1-b421cde65a45"),
+=======
+                            NutritionId = new Guid("07e50296-88eb-4028-8611-d2b123e7b180"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 6f,
                             Calories = 52f,
                             Carbs = 13.8f,
@@ -7584,7 +9902,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("88c9121b-d718-4caa-8bff-51e29c63dbdd"),
+=======
+                            NutritionId = new Guid("a2eecdf7-777d-4d7c-a4cc-ee2e9a89709c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 4f,
                             Calories = 110f,
                             Carbs = 24f,
@@ -7610,7 +9932,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("b3f1ad3b-9684-49f2-a7b6-13d088765fd5"),
+=======
+                            NutritionId = new Guid("1d22dae5-6bba-4b81-a386-b231879a8c89"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 16f,
                             Calories = 15f,
                             Carbs = 3.6f,
@@ -7636,7 +9962,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7bde5ddd-683c-4b3a-9607-fa373ffbca6e"),
+=======
+                            NutritionId = new Guid("45cc9a8b-377e-4364-85cb-e756bd7c8a04"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 5f,
                             Calories = 90f,
                             Carbs = 23f,
@@ -7662,7 +9992,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ddc8d45c-c16e-42fa-b06d-609996e661c0"),
+=======
+                            NutritionId = new Guid("dabdf081-38a7-4bcb-ae79-5282ea751ee3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 5f,
                             Calories = 89f,
                             Carbs = 22.8f,
@@ -7688,7 +10022,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("b2dde893-ac64-4faf-a76f-ce6f7b8082ad"),
+=======
+                            NutritionId = new Guid("f881c3fb-e3ef-444d-9be5-4ecac8ad5848"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 18f,
                             Calories = 68f,
                             Carbs = 14.3f,
@@ -7714,7 +10052,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("9eeefc40-9a5e-4d6a-9550-2e603ec3a04b"),
+=======
+                            NutritionId = new Guid("0e44c65d-0bea-4784-8f9b-cb5d6e5101cd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 440f,
                             Carbs = 50f,
@@ -7740,7 +10082,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("fe8cace9-caa9-4a01-b0ac-efc81c313a57"),
+=======
+                            NutritionId = new Guid("d32e7471-ee24-4eff-a779-7a124e4a9b3f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 50f,
                             Carbs = 11f,
@@ -7766,7 +10112,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("3c559a1e-a60b-404a-a402-9a07f3cda328"),
+=======
+                            NutritionId = new Guid("cd90f336-b586-429a-a5e3-718aec86cd82"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 80f,
                             Calories = 360f,
                             Carbs = 45f,
@@ -7792,7 +10142,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("bb17d1b9-73e4-44c3-9579-57158f6e510f"),
+=======
+                            NutritionId = new Guid("c90a3fbe-f107-4d50-8d38-17a67ebc64b0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 230f,
                             Carbs = 40f,
@@ -7818,7 +10172,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("b19f9224-e9bc-41cc-b538-dd8a922c8f4c"),
+=======
+                            NutritionId = new Guid("b29b5711-bc5d-4d8a-9307-651b1d839f30"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 450f,
                             Carbs = 50f,
@@ -7844,7 +10202,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("c5c75a5f-7a3f-4239-8202-5c043b197dab"),
+=======
+                            NutritionId = new Guid("1f8e4f5e-4f90-4436-be0c-d3a9da2d9e37"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 18f,
                             Carbs = 3.9f,
@@ -7870,7 +10232,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("de8aedda-0030-4a0b-a452-49e49e26112b"),
+=======
+                            NutritionId = new Guid("2bafd85b-a818-45dc-b139-156aa0595850"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 420f,
                             Carbs = 60f,
@@ -7896,7 +10262,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("a44a531f-0450-4fcb-9112-6a7dbdb27da4"),
+=======
+                            NutritionId = new Guid("34f9763d-9df2-4c43-8bdd-c661701485b9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 7f,
                             Calories = 30f,
                             Carbs = 7.6f,
@@ -7922,7 +10292,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("113f196b-edc6-433e-bde8-dc2f92965b8a"),
+=======
+                            NutritionId = new Guid("5f96dead-2d42-42cb-bde6-6ce2a2a301c4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 249f,
                             Carbs = 1.5f,
@@ -7948,7 +10322,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("d2d58e21-62da-4861-a70c-94c0326b9073"),
+=======
+                            NutritionId = new Guid("c47f4451-8740-4e19-b619-0971cf7d1a1f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 110f,
                             Carbs = 23f,
@@ -7974,7 +10352,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("2fbf24f3-7d1b-42e8-8f0d-3fed86d50746"),
+=======
+                            NutritionId = new Guid("4e119321-265d-4647-8338-7e4a456e18d8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 296f,
                             Carbs = 1.7f,
@@ -8000,7 +10382,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("8d36f7f1-bbc8-4fc9-b339-035e8fb153de"),
+=======
+                            NutritionId = new Guid("32a69996-9a05-43f4-adff-15bd0565b492"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 11f,
                             Calories = 165f,
                             Carbs = 0f,
@@ -8026,7 +10412,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("d5984916-5f3d-4ddd-a559-4b641444f910"),
+=======
+                            NutritionId = new Guid("926da454-48db-42a6-a630-f28a6a952704"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 2f,
                             Calories = 96f,
                             Carbs = 21f,
@@ -8052,7 +10442,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("e2da51d4-bbfe-4f7b-a7e2-d5764a2fe26a"),
+=======
+                            NutritionId = new Guid("4a3b3da3-c6f2-469c-911b-19f4be700c90"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 110f,
                             Calories = 59f,
                             Carbs = 4.7f,
@@ -8078,7 +10472,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("06981335-def3-4e0c-9d5e-23512402f474"),
+=======
+                            NutritionId = new Guid("db267365-f07f-4c95-bf8a-46de1039e791"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 201f,
                             Calories = 76f,
                             Carbs = 1.9f,
@@ -8104,7 +10502,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("4537546a-5e36-496c-8e4f-ed6125c08ec5"),
+=======
+                            NutritionId = new Guid("2d4071a2-3ede-4993-a93a-a87dae4b0b13"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 30f,
@@ -8130,7 +10532,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("3e155392-c2ef-48fa-be78-061d854910b3"),
+=======
+                            NutritionId = new Guid("fb4f94c0-81d2-4aea-8f3f-0c04ab201fff"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 11f,
                             Calories = 45f,
                             Carbs = 10.4f,
@@ -8156,7 +10562,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("60667c0c-bf9c-481c-9b1c-99b0e50807ab"),
+=======
+                            NutritionId = new Guid("f49bbf6d-a7b6-4aa1-a490-419d4d44dcd5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 33f,
                             Calories = 41f,
                             Carbs = 9.6f,
@@ -8182,7 +10592,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0f956a48-6d88-40d9-997a-4eaa1b7a10a1"),
+=======
+                            NutritionId = new Guid("060f1929-2248-4f06-961d-192dc04ac0d0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 150f,
                             Carbs = 18f,
@@ -8208,7 +10622,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("70945659-37a2-42d0-9049-798d72becb7e"),
+=======
+                            NutritionId = new Guid("830110ae-4010-49a1-b369-d1d79ddaf248"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 22f,
                             Calories = 265f,
                             Carbs = 49f,
@@ -8234,7 +10652,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ee372d9e-c596-4147-a0b9-58a1190bec51"),
+=======
+                            NutritionId = new Guid("5077f23a-8d0a-4b0b-ae0b-58f621081258"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 24f,
                             Calories = 19f,
                             Carbs = 3.7f,
@@ -8260,7 +10682,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("29d7bc3b-3b92-47ff-a196-191e8dec1584"),
+=======
+                            NutritionId = new Guid("76a11522-07ac-4a6f-b760-e0341385b6cf"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 11f,
                             Calories = 60f,
                             Carbs = 15f,
@@ -8286,7 +10712,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("60ece8d1-819a-40a9-91fa-779e3dcb1978"),
+=======
+                            NutritionId = new Guid("6950f3cd-5fb3-472c-8dd6-50386af2d36b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 77f,
                             Calories = 35f,
                             Carbs = 5.4f,
@@ -8312,7 +10742,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("4291acf0-e658-4ac3-a2e6-63fdf49b7f33"),
+=======
+                            NutritionId = new Guid("279fdc6e-86e7-47ef-a6b6-24e42c978adf"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 410f,
                             Carbs = 50f,
@@ -8338,7 +10772,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("fa810baa-c24f-42e7-9e76-8d1eeaf4945c"),
+=======
+                            NutritionId = new Guid("1eb25154-8e72-4e66-8450-17205116a969"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 120f,
                             Calories = 120f,
                             Carbs = 18f,
@@ -8364,7 +10802,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("4615cb0a-eac0-4a7f-abd3-174dd0176886"),
+=======
+                            NutritionId = new Guid("acd408e5-6076-46c7-8011-462633a017b6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 300f,
                             Carbs = 50f,
@@ -8390,7 +10832,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ffe687a2-3d50-4794-a0b0-166d6082da94"),
+=======
+                            NutritionId = new Guid("e3d4dec2-eba5-42bf-a553-dd1bcffec029"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 350f,
                             Carbs = 55f,
@@ -8416,7 +10862,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("f621c299-df5c-40a6-b82e-c86d14251d97"),
+=======
+                            NutritionId = new Guid("388b8288-2003-4bef-a573-fe31290de2c8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 2f,
                             Calories = 2f,
                             Carbs = 0f,
@@ -8442,7 +10892,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1a1231e7-77a6-476d-afa5-785e53db1d66"),
+=======
+                            NutritionId = new Guid("5b4169b4-1774-4004-b919-82358779ce8d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 60f,
                             Calories = 90f,
                             Carbs = 10f,
@@ -8468,7 +10922,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7b268151-df74-45a1-8304-4a0563abe622"),
+=======
+                            NutritionId = new Guid("4004b928-31c1-4d38-84d1-2c1124144ad8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 25f,
                             Calories = 54f,
                             Carbs = 6.3f,
@@ -8494,7 +10952,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1ce40b4d-f8c2-45f6-9a4a-d2ec7c76838a"),
+=======
+                            NutritionId = new Guid("ffb79b3f-5005-45bf-9557-40bec1497273"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 300f,
                             Carbs = 3f,
@@ -8520,7 +10982,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("68417d94-1154-481f-aca7-f81c8048ff86"),
+=======
+                            NutritionId = new Guid("fe4a9d95-dca5-4c31-bb31-bf2af40fc9c4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 50f,
                             Calories = 400f,
                             Carbs = 60f,
@@ -8546,7 +11012,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("054b38fd-d869-42c8-9a7b-c939cd80fbed"),
+=======
+                            NutritionId = new Guid("4cdf278b-aabe-4564-aed5-7471d0311f86"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 105f,
                             Calories = 13f,
                             Carbs = 2.2f,
@@ -8572,7 +11042,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("8b6f9e9c-c1ac-424c-84c7-7298e3286c5a"),
+=======
+                            NutritionId = new Guid("2b372b17-a479-4b6f-b401-947b3401d28d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 350f,
                             Carbs = 70f,
@@ -8598,7 +11072,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("5ca1b626-4be6-4418-bf86-1263c7b1c2a7"),
+=======
+                            NutritionId = new Guid("a2d8ddbc-4c68-4960-baf8-db27232a872c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 450f,
                             Carbs = 50f,
@@ -8624,7 +11102,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("79ca006a-0141-4070-aa32-252f1f3816d3"),
+=======
+                            NutritionId = new Guid("d18628ef-ab7b-4396-997f-445feb7f7be6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 35f,
                             Calories = 420f,
                             Carbs = 50f,
@@ -8650,7 +11132,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("288a57c9-ea64-4248-9bd5-c2f3471379b7"),
+=======
+                            NutritionId = new Guid("ba0921ad-0988-4163-adb0-b83d77dd167c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 3f,
                             Calories = 11f,
                             Carbs = 3.3f,
@@ -8676,7 +11162,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("a53c1a50-a4a3-42df-b702-d42bfb70bc93"),
+=======
+                            NutritionId = new Guid("d283cb8a-788c-4b97-b42d-b7b306e9bc07"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 400f,
                             Carbs = 45f,
@@ -8702,7 +11192,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ac9fd73d-041d-48d8-b747-4bee2920ca97"),
+=======
+                            NutritionId = new Guid("cfa7332b-da71-4d1a-847c-bd763d309ad4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 37f,
                             Calories = 53f,
                             Carbs = 13.3f,
@@ -8728,7 +11222,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("30692c29-de3c-4798-b0fc-25bad5bac1c7"),
+=======
+                            NutritionId = new Guid("c78b824c-7da4-41b5-98f5-e28072c9f6a3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 110f,
                             Calories = 64f,
                             Carbs = 9.4f,
@@ -8754,7 +11252,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7bec51da-e6af-4c02-ba3a-c288f5b2a100"),
+=======
+                            NutritionId = new Guid("ad4d436c-4b3c-45cc-9409-f7d5d819be6e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 300f,
                             Carbs = 40f,
@@ -8780,7 +11282,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("bb33e4ab-bf29-4961-b71a-1cef0419141a"),
+=======
+                            NutritionId = new Guid("4ded5bdb-11fd-4992-ac01-187a7db83eaa"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 20f,
                             Carbs = 4.6f,
@@ -8806,7 +11312,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("022a9884-f4c3-46f3-81b2-a70d2be7013c"),
+=======
+                            NutritionId = new Guid("c7d11ed5-039c-4455-820d-561ff3766be9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 3f,
                             Calories = 37f,
                             Carbs = 7.8f,
@@ -8832,7 +11342,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7f91e355-2a39-4ceb-b984-52aca80e0d9b"),
+=======
+                            NutritionId = new Guid("db6aa5a6-79d6-4ecb-8810-09d11daa05b9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 129f,
                             Calories = 322f,
                             Carbs = 3.6f,
@@ -8858,7 +11372,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("b429d4a1-8c2f-4544-86d7-e34cdf6bcbf5"),
+=======
+                            NutritionId = new Guid("c263bc0b-dae9-413c-9798-7291fb4f49dc"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 2f,
                             Calories = 17f,
                             Carbs = 0.2f,
@@ -8884,7 +11402,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("95f5b678-4622-4183-a026-84d0f9846fbc"),
+=======
+                            NutritionId = new Guid("3a95e364-363b-4f0a-bb80-967343777be5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 250f,
                             Carbs = 32f,
@@ -8910,7 +11432,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("bf01a408-1d07-4ebc-93b2-37ed32dfe790"),
+=======
+                            NutritionId = new Guid("9f914616-ffd6-48cf-8254-df64d4b31a99"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 70f,
                             Calories = 99f,
                             Carbs = 0.2f,
@@ -8936,7 +11462,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("c7dbccc5-6b54-4d84-b410-3e41030993b6"),
+=======
+                            NutritionId = new Guid("cceacd04-a44a-4263-a679-966487e07a60"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 81f,
                             Calories = 33f,
                             Carbs = 7f,
@@ -8962,7 +11492,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("20f5700d-e7cd-43df-93f4-857b47732485"),
+=======
+                            NutritionId = new Guid("846d081d-f961-40c9-a65f-55a29f5b3490"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 80f,
                             Calories = 380f,
                             Carbs = 50f,
@@ -8988,7 +11522,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("599f8e30-9284-4092-a48a-c41e0d2a6ee7"),
+=======
+                            NutritionId = new Guid("aa259b7b-8bbc-4e7a-98fc-3db19d92eaa5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 30f,
@@ -9014,7 +11552,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("f06ac189-0c7b-4618-a396-e4ee45237004"),
+=======
+                            NutritionId = new Guid("11b77840-7eb8-4d65-86dd-64ed5d9a6e79"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 50f,
                             Calories = 400f,
                             Carbs = 55f,
@@ -9040,7 +11582,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("9f1a67c3-b713-4d96-b351-df59c335003d"),
+=======
+                            NutritionId = new Guid("cb9d86ae-2cc0-45d9-a04b-280f2285d193"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 25f,
                             Carbs = 5.8f,
@@ -9066,7 +11612,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("751c0e5a-9718-44db-9dfc-a95057fe1a3d"),
+=======
+                            NutritionId = new Guid("6071ca2b-2bfa-4769-9dc1-59b011826f76"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 11f,
                             Calories = 337f,
                             Carbs = 0f,
@@ -9092,7 +11642,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("d0b98c96-eb1b-47bb-b23a-5c3fedd0f509"),
+=======
+                            NutritionId = new Guid("f9494b80-f1d1-4297-86aa-420b446bf3de"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 12f,
                             Calories = 239f,
                             Carbs = 0f,
@@ -9118,7 +11672,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("720c3418-11f7-4316-9002-20b03034bcb1"),
+=======
+                            NutritionId = new Guid("5c891947-e0d8-46f2-935e-e8d1871861c4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 300f,
                             Carbs = 2f,
@@ -9144,7 +11702,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("a98663d5-90ed-41e4-bc0f-9eaebb0da484"),
+=======
+                            NutritionId = new Guid("a47a4739-21d1-4d3c-853d-9835f91b7a40"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 290f,
                             Carbs = 0f,
@@ -9170,7 +11732,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("2da64fa3-a3b1-4677-9e61-894911c4a969"),
+=======
+                            NutritionId = new Guid("12cab362-8b02-4233-8145-4287ceb2f64a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 8f,
                             Calories = 250f,
                             Carbs = 0f,
@@ -9196,7 +11762,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1db2b96b-350c-45a3-b96f-d5ac5f83144f"),
+=======
+                            NutritionId = new Guid("5df9c056-9415-4ae4-9141-a578b4c62126"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 220f,
                             Carbs = 28f,
@@ -9222,7 +11792,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("a2245412-c511-4b41-a55f-68e4d2fe8920"),
+=======
+                            NutritionId = new Guid("56bdf3e5-ed29-4a78-b51e-992ce807d8f5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 200f,
                             Carbs = 25f,
@@ -9248,7 +11822,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("06426400-8dd0-41fb-bea0-889c9d4472ce"),
+=======
+                            NutritionId = new Guid("6844f44f-8f47-4a7f-bcf9-834ac623f98b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 160f,
                             Carbs = 30f,
@@ -9274,7 +11852,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0a1cfc83-54cb-4d43-81ec-ef89765ef47a"),
+=======
+                            NutritionId = new Guid("52e9dba3-787c-47f5-b48a-e0707fb24e58"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 230f,
                             Carbs = 40f,
@@ -9300,7 +11882,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("d04276b1-505e-4be8-adf0-caf3d2aaadb2"),
+=======
+                            NutritionId = new Guid("ef37a23d-ec28-46c6-a8b0-5eb985e77b61"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 9f,
                             Calories = 206f,
                             Carbs = 0f,
@@ -9326,7 +11912,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("9278cd1c-c8e2-4413-ab83-0a1fd2955c3b"),
+=======
+                            NutritionId = new Guid("edc79172-444d-4bc2-bf31-08d8cc8609a2"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 86f,
                             Carbs = 20.1f,
@@ -9352,7 +11942,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("bd1d45ca-58cd-4a32-8442-f3e75d038a3d"),
+=======
+                            NutritionId = new Guid("2683d149-c499-44ad-8afc-a2842605f8a8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 11f,
                             Calories = 77f,
                             Carbs = 17f,
@@ -9378,7 +11972,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("37b69401-b4ea-4941-baca-e930391aef7f"),
+=======
+                            NutritionId = new Guid("95d91e94-4329-40fe-8b5e-49be9d7d039e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 23f,
                             Calories = 40f,
                             Carbs = 9.3f,
@@ -9404,7 +12002,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("9a5fb5d9-dd41-4904-b409-cc48f5b08ead"),
+=======
+                            NutritionId = new Guid("52d6a9a7-c9e2-4075-887d-cbcb4d3715f4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 18f,
                             Calories = 14f,
                             Carbs = 3.4f,
@@ -9430,7 +12032,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("418381b7-9346-4fba-9c62-75f5c2328d0c"),
+=======
+                            NutritionId = new Guid("b8720d14-2558-4b28-b67c-31645a622f4f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 21f,
                             Calories = 92f,
                             Carbs = 3.1f,
@@ -9456,7 +12062,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("eec78cf7-17b5-4b00-887c-2968356182cb"),
+=======
+                            NutritionId = new Guid("381eeef7-fd3a-4f6f-868c-c759b692431d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 37f,
                             Calories = 31f,
                             Carbs = 7.1f,
@@ -9482,7 +12092,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("6089d267-7e0d-466d-87cc-e516fd633dfc"),
+=======
+                            NutritionId = new Guid("02aa6a30-7dac-4295-8807-10d59544e3da"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 150f,
                             Carbs = 30f,
@@ -9508,7 +12122,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("8e5fff18-6a63-443d-9fe9-716231ed9aba"),
+=======
+                            NutritionId = new Guid("cd9a4a66-a5f2-4470-9c25-b72fb8f9996c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 200f,
                             Carbs = 35f,
@@ -9534,7 +12152,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("a7da070d-2cee-4a8b-abff-2ffbc00a86b8"),
+=======
+                            NutritionId = new Guid("e183d71b-a0cb-4b03-98c4-1a317b8879a9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 60f,
                             Calories = 350f,
                             Carbs = 50f,
@@ -9560,7 +12182,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("c9661e6a-9c05-403a-ad15-183ac67b341a"),
+=======
+                            NutritionId = new Guid("636d9ae7-05cb-4611-b098-fd44c9cfa026"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 5f,
                             Calories = 66f,
                             Carbs = 16.5f,
@@ -9586,7 +12212,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("5d8887e1-bae8-4446-a532-1a8ce17d92f8"),
+=======
+                            NutritionId = new Guid("b17466cb-2dd6-4e27-81ef-a1cbd89ed8d4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 500f,
                             Calories = 245f,
                             Carbs = 0f,
@@ -9612,7 +12242,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("c6f32102-4717-4c7b-9028-dc60379c9c8d"),
+=======
+                            NutritionId = new Guid("68cbdd4c-65d4-4e26-b945-7b71b220f4ca"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 5f,
                             Calories = 28f,
                             Carbs = 4.8f,
@@ -9638,7 +12272,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("64ed0f82-1ce4-4c75-9787-07f613bb4444"),
+=======
+                            NutritionId = new Guid("d9d49580-f7e5-4561-839b-f79f730bb493"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 18f,
                             Calories = 20f,
                             Carbs = 4.3f,
@@ -9664,7 +12302,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("e28319d0-2c28-40e6-b57b-27235deb17fc"),
+=======
+                            NutritionId = new Guid("9e17ac38-c554-43d2-b68a-81aec891f607"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 260f,
                             Carbs = 42f,
@@ -9690,7 +12332,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("55d837c9-829b-4cdb-9312-ad0924442234"),
+=======
+                            NutritionId = new Guid("bd936d18-8452-4c19-96ef-e980f99abd5b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 40f,
                             Carbs = 10f,
@@ -9716,7 +12362,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("d7826a81-b560-4d74-9d3c-adebba8e794b"),
+=======
+                            NutritionId = new Guid("2459bc75-1063-42e1-9822-6ef7fe4a534d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 80f,
                             Calories = 55f,
                             Carbs = 2f,
@@ -9742,7 +12392,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("bcd168c2-5817-48f2-aa73-9aafcf2326a3"),
+=======
+                            NutritionId = new Guid("fcac9243-49fc-48e3-9ecf-11954a679f19"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 100f,
                             Carbs = 3f,
@@ -9768,7 +12422,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1f5f4e22-b6e3-4913-bfa0-143b07ff8d2e"),
+=======
+                            NutritionId = new Guid("87903907-9030-49c4-93db-20940098f3f4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 132f,
                             Carbs = 0f,
@@ -9794,7 +12452,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("d31d0ba2-a0f4-46c9-a4c7-7b0c50207060"),
+=======
+                            NutritionId = new Guid("826168fa-f3bf-49ca-95a7-ef1b78a758b1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 450f,
                             Carbs = 50f,
@@ -9820,7 +12482,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("3022c3b5-74c8-4e44-a94b-ab65ad25f0e7"),
+=======
+                            NutritionId = new Guid("fe2ffa52-248f-4cc2-87f2-5bf439c58101"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 86f,
                             Carbs = 20.1f,
@@ -9846,7 +12512,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("78146e09-3607-4e11-b648-0177f1bb80e8"),
+=======
+                            NutritionId = new Guid("02599936-fcf8-4872-bc87-957b4425dc9f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 59f,
                             Carbs = 15f,
@@ -9872,7 +12542,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("4af1108e-487a-4575-8bc7-7d2dd5b5f465"),
+=======
+                            NutritionId = new Guid("1caa2c49-927a-48f1-aa27-bd2ba9bb80f5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 120f,
                             Carbs = 25f,
@@ -9898,7 +12572,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("dc0f0e3e-8f57-4345-b075-b3026d66037e"),
+=======
+                            NutritionId = new Guid("47c1b061-01b8-4c2c-8bc9-72f22944215b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 140f,
                             Carbs = 25f,
@@ -9924,7 +12602,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("b3564bc8-4ec2-419a-90af-2d995b03db98"),
+=======
+                            NutritionId = new Guid("1f4c863a-56f6-44ec-94aa-9e716d1ba737"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 15f,
                             Carbs = 2.4f,
@@ -9950,7 +12632,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("26a4b77d-17c5-4378-be11-fb04f52b3153"),
+=======
+                            NutritionId = new Guid("ccc1dbcd-fa68-40be-a347-1f3ccec4391c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 13f,
                             Calories = 165f,
                             Carbs = 0f,
@@ -9976,7 +12662,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7da46021-27c3-488f-809d-b84323f906fc"),
+=======
+                            NutritionId = new Guid("7860091c-0ff0-4350-af65-cf33e49a0eaa"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 250f,
                             Carbs = 0f,
@@ -10002,7 +12692,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("c924b0d4-bdac-4d46-90f3-275b44687d00"),
+=======
+                            NutritionId = new Guid("7d85593e-4381-4287-b43c-41d7a9158255"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 12f,
                             Calories = 206f,
                             Carbs = 0f,
@@ -10028,7 +12722,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("bf31a58b-233c-406a-9435-241456cc9af0"),
+=======
+                            NutritionId = new Guid("b225b351-9da2-4b3a-80cf-3fe20b566998"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 70f,
                             Calories = 99f,
                             Carbs = 0.2f,
@@ -10054,7 +12752,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("8ef94686-c06d-4ef7-aba9-1588555bbd40"),
+=======
+                            NutritionId = new Guid("5a3134a2-b61d-4c0b-b93d-f7efdba881a7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 7f,
                             Calories = 242f,
                             Carbs = 0f,
@@ -10080,7 +12782,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("8d569bca-2f50-46ca-be37-9e091a9bea30"),
+=======
+                            NutritionId = new Guid("b815368e-04ea-43cc-9739-7dda7ce77257"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 12f,
                             Calories = 189f,
                             Carbs = 0f,
@@ -10106,7 +12812,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("99832128-c543-428c-b149-cb6c01dec783"),
+=======
+                            NutritionId = new Guid("be821e28-13c6-4e9a-bd06-fa8367f5dc9c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 277f,
                             Calories = 172f,
                             Carbs = 8.4f,
@@ -10132,7 +12842,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7534d262-4a0d-4b2e-a89c-7d06b3381a49"),
+=======
+                            NutritionId = new Guid("21a07c43-3a3f-4e20-87e4-77546f190387"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 110f,
                             Calories = 59f,
                             Carbs = 3.6f,
@@ -10158,7 +12872,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("37f2c3f1-60c8-49fa-934b-51df44491302"),
+=======
+                            NutritionId = new Guid("18619443-5333-4de0-adc9-86fcd145842f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 190f,
                             Carbs = 0f,
@@ -10184,7 +12902,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("b0f99473-7efc-49d6-84e8-d4ec5f67927b"),
+=======
+                            NutritionId = new Guid("f1388f54-3d67-468c-8025-7a4e31094257"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 11f,
                             Calories = 116f,
                             Carbs = 0f,
@@ -10210,7 +12932,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("e00c04fa-4d83-4606-b38e-84d1fff0d856"),
+=======
+                            NutritionId = new Guid("e10cada2-03a3-4c47-a6f7-4c4163935ad7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 350f,
                             Calories = 145f,
                             Carbs = 5.3f,
@@ -10236,7 +12962,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("628fcf1c-e90a-4e75-b4b4-ebc33a3a9812"),
+=======
+                            NutritionId = new Guid("c6b159ed-eae2-410c-be4d-9871fddab6a5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 18f,
                             Calories = 271f,
                             Carbs = 0f,
@@ -10262,7 +12992,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("12b27f98-1b0c-4a84-a2c7-158b0e904503"),
+=======
+                            NutritionId = new Guid("62f694ca-d4c6-4904-a9f6-187db6cb699e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 11f,
                             Calories = 117f,
                             Carbs = 0f,
@@ -10288,7 +13022,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ab5f2828-2fbd-481e-bd66-f8cc7f855467"),
+=======
+                            NutritionId = new Guid("dff26e90-b601-4276-9efa-cc5dfdb42f64"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 264f,
                             Calories = 576f,
                             Carbs = 22f,
@@ -10314,7 +13052,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("e3fdab01-ed54-4b7c-9c3f-c713d5124b9d"),
+=======
+                            NutritionId = new Guid("6dc63f4c-eee7-44f9-ae9b-fba0742556bd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 357f,
                             Calories = 145f,
                             Carbs = 4f,
@@ -10340,7 +13082,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("e625452b-31c2-4c7d-a061-334bdaee15b9"),
+=======
+                            NutritionId = new Guid("3d856e54-fe93-4906-a23d-4f06cc25480d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 417f,
                             Carbs = 1.4f,
@@ -10366,7 +13112,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1a72995a-6712-4b6d-aaca-aecc53be2c22"),
+=======
+                            NutritionId = new Guid("6fda2d41-7645-40a0-9388-ae3bfee5e3f9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 46f,
                             Calories = 559f,
                             Carbs = 14f,
@@ -10392,7 +13142,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("d1889a11-c819-41c8-82c7-ed5f3e7b9de8"),
+=======
+                            NutritionId = new Guid("e19984bb-16b4-46a8-bcb9-d6f92bf67119"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 25f,
                             Calories = 81f,
                             Carbs = 14f,
@@ -10418,7 +13172,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("4d898b35-ae9b-437b-8add-96a3ae3db979"),
+=======
+                            NutritionId = new Guid("c8c6b82e-4f65-44b4-a9eb-eb30a1d8569d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 120f,
                             Calories = 42f,
                             Carbs = 5f,
@@ -10444,7 +13202,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("cdba22c3-44f8-4e3b-85f4-8a46a568c70e"),
+=======
+                            NutritionId = new Guid("11d62ef5-65d9-4c14-a607-4ca055746bfd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 239f,
                             Carbs = 0f,
@@ -10470,7 +13232,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("6e7bc4d3-8d56-43ed-ac81-39f75471f15f"),
+=======
+                            NutritionId = new Guid("4ffe2f77-c9f2-4772-9325-c977fb50993e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 54f,
                             Calories = 389f,
                             Carbs = 66.3f,
@@ -10496,7 +13262,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("5ee54f63-eb1a-4561-9a84-9b15ff7b0ad3"),
+=======
+                            NutritionId = new Guid("439acf96-7a73-43c5-b391-0010c46ea381"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 99f,
                             Calories = 23f,
                             Carbs = 3.6f,
@@ -10522,7 +13292,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("14138fd0-70da-479d-8ee6-fcc4a6aa271d"),
+=======
+                            NutritionId = new Guid("283fd4d9-ba6d-4a19-9b68-ed0d14233a2e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 78f,
                             Calories = 584f,
                             Carbs = 20f,
@@ -10548,7 +13322,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("e240a907-a7c5-4a50-8b78-0c17adbca9de"),
+=======
+                            NutritionId = new Guid("484eb923-a582-44f3-9057-738707a3957a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 114f,
                             Calories = 19f,
                             Carbs = 3.4f,
@@ -10574,7 +13352,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("067668e9-682a-41a5-997e-414e5cdead98"),
+=======
+                            NutritionId = new Guid("8fc8d834-7df2-4d15-8fce-38d0174c33d0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 9f,
                             Calories = 57f,
                             Carbs = 15.2f,
@@ -10600,7 +13382,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("c63188b2-9084-4f28-a8ef-64b56250816c"),
+=======
+                            NutritionId = new Guid("cce3a53f-875c-4d65-b625-568368b59f3d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 16f,
                             Calories = 32f,
                             Carbs = 7.7f,
@@ -10626,7 +13412,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("cd1613d9-b664-4b31-bd0c-00234e6fe9f3"),
+=======
+                            NutritionId = new Guid("af594d49-a42f-4a79-924e-6d87f328b5c4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 25f,
                             Calories = 52f,
                             Carbs = 11.9f,
@@ -10652,7 +13442,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("4fd5d511-481f-480d-867d-bdd43c895204"),
+=======
+                            NutritionId = new Guid("27c1c905-86de-4ada-aa47-5cedc4325742"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 21f,
                             Calories = 26f,
                             Carbs = 6.5f,
@@ -10678,7 +13472,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1c4db134-cdfb-4d0c-abce-1313b40afbb0"),
+=======
+                            NutritionId = new Guid("62a22492-5566-4485-b477-7bdcc2e15d24"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 43f,
                             Calories = 142f,
                             Carbs = 34.6f,
@@ -10704,7 +13502,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("a36690f6-077d-4cac-9bbe-442cc15a3614"),
+=======
+                            NutritionId = new Guid("281ff0fd-ab82-4410-b2f9-66174124aff7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 24f,
                             Calories = 20f,
                             Carbs = 3.9f,
@@ -10730,7 +13532,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("753ffbed-8290-4523-bb97-0b96d07099a0"),
+=======
+                            NutritionId = new Guid("359238fc-324d-4eb3-a26b-effacf727b34"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 45f,
                             Calories = 31f,
                             Carbs = 7.4f,
@@ -10756,7 +13562,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("8f8f7785-66d3-4a33-8746-45d25a385e82"),
+=======
+                            NutritionId = new Guid("12f3fa14-d416-4acc-aa43-7570ae28075e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 34f,
                             Calories = 61f,
                             Carbs = 14.7f,
@@ -10782,7 +13592,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("bb5b30d6-e429-4b10-a951-b13d161b4abc"),
+=======
+                            NutritionId = new Guid("5185c458-8f94-4368-855d-3dc264f6ef22"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 8f,
                             Calories = 378f,
                             Carbs = 72.9f,
@@ -10808,7 +13622,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("2f46a081-53be-4ac2-b7a8-3cc51213fafa"),
+=======
+                            NutritionId = new Guid("ef3e60ae-6a2c-4a3f-afa1-180039dcd561"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 16f,
                             Calories = 27f,
                             Carbs = 5.2f,
@@ -10834,7 +13652,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("789e8b54-b27e-4a87-8c7b-b94249d1e952"),
+=======
+                            NutritionId = new Guid("c1bd5209-d45f-42ad-a08d-12f99e9c60f7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 70f,
                             Calories = 306f,
                             Carbs = 80f,
@@ -10860,7 +13682,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("a16f03d0-1070-4424-818b-60312f6cded4"),
+=======
+                            NutritionId = new Guid("31fed509-b9aa-4a6b-9c5f-69099c9a62c7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 47f,
                             Calories = 34f,
                             Carbs = 6.6f,
@@ -10886,7 +13712,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("f7c72414-b885-477b-840e-1ab35fd52907"),
+=======
+                            NutritionId = new Guid("0a81509c-b32f-4538-9cde-5b0e30dfeea9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 112f,
                             Carbs = 23.5f,
@@ -10912,7 +13742,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("eff43868-4807-4676-9f10-a8dc221152ed"),
+=======
+                            NutritionId = new Guid("e1aca4e9-1ad1-4644-86f0-539c7b02cf6e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 69f,
                             Carbs = 18.1f,
@@ -10938,7 +13772,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0a7dd015-a8cd-48f1-813a-7fe16da170f2"),
+=======
+                            NutritionId = new Guid("edf117be-4b2b-44fb-8c2c-8a362534c533"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 99f,
                             Calories = 23f,
                             Carbs = 3.6f,
@@ -10964,7 +13802,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("dc69f0f2-78b7-4a30-ab7a-bab9c5aa4d34"),
+=======
+                            NutritionId = new Guid("fe4db754-b820-4ba7-ba74-36eac6917bef"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 27f,
                             Calories = 132f,
                             Carbs = 23.7f,
@@ -10990,7 +13832,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ff530864-e584-48c2-a90f-ea88a3cb19ca"),
+=======
+                            NutritionId = new Guid("51f4524a-8111-4edd-8811-fdde1b300694"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 16f,
                             Calories = 43f,
                             Carbs = 9.6f,
@@ -11016,7 +13862,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0862dea3-9222-4d55-a571-726ff726d5f4"),
+=======
+                            NutritionId = new Guid("713c27bf-a853-42a3-a5a6-c4ea404bc816"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 25f,
                             Calories = 81f,
                             Carbs = 14.5f,
@@ -11042,7 +13892,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("04eb9bf1-7b10-4dbb-ba63-4833bb578344"),
+=======
+                            NutritionId = new Guid("4e506ffc-92bd-4b62-88fb-fc5dddbda56e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 33f,
                             Calories = 354f,
                             Carbs = 73.5f,
@@ -11068,7 +13922,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7a005c6c-ac36-49ff-b7cc-0f8418630da8"),
+=======
+                            NutritionId = new Guid("2eee9310-ce58-4211-95e6-da11df784cbf"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 55f,
                             Calories = 22f,
                             Carbs = 3.8f,
@@ -11094,7 +13952,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("56c2900f-4aeb-40dc-9e0e-9862adee3c0d"),
+=======
+                            NutritionId = new Guid("37c60223-e903-40ff-a059-a955a695d8d2"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 8f,
                             Calories = 110f,
                             Carbs = 23.4f,
@@ -11120,7 +13982,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("4a8dc893-613c-4645-b61c-708fe292533c"),
+=======
+                            NutritionId = new Guid("f1f25b1f-56d4-41c0-9360-4e0353e0031a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 99f,
                             Calories = 23f,
                             Carbs = 3.6f,
@@ -11146,7 +14012,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("4bb35338-65b5-42e7-9046-db4ed2497681"),
+=======
+                            NutritionId = new Guid("30e74de1-6633-4c84-a177-cfe32f900c9b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 27f,
                             Calories = 16f,
                             Carbs = 3.4f,
@@ -11172,7 +14042,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("4511f67c-6860-4015-8a66-a5ac7ef3cf62"),
+=======
+                            NutritionId = new Guid("1a610996-5789-4d2b-b4ef-f4a0c64dbc59"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 39f,
                             Calories = 20f,
                             Carbs = 3.8f,
@@ -11198,7 +14072,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("c8194a2c-e4cc-4582-bab5-b71b9a665444"),
+=======
+                            NutritionId = new Guid("f948ebf7-9a72-447d-a68e-0ea7969b11d3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 255f,
                             Calories = 534f,
                             Carbs = 28.9f,
@@ -11224,7 +14102,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("40f585fa-a6c3-4554-9448-8a2f03cc1616"),
+=======
+                            NutritionId = new Guid("a73f2c6d-c530-4ff2-a2a3-b980b768c282"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 107f,
                             Calories = 562f,
                             Carbs = 27.2f,
@@ -11250,7 +14132,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("128397e2-7b61-43eb-ad84-a6c7313485cf"),
+=======
+                            NutritionId = new Guid("d09adc4f-8d9c-445e-82de-4ec3118ff4d6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 14f,
                             Calories = 354f,
                             Carbs = 15.2f,
@@ -11276,7 +14162,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("d8e2459f-6333-480f-bfd1-d6e5c3641c49"),
+=======
+                            NutritionId = new Guid("b72648e0-c15e-44f4-af8e-36dba4e28002"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 12f,
                             Calories = 189f,
                             Carbs = 0f,
@@ -11302,7 +14192,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("993284fb-625c-4f2c-b522-05fba6c5a5dc"),
+=======
+                            NutritionId = new Guid("dec30f1f-7843-4091-a9bc-f468202a3264"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 85f,
                             Calories = 718f,
                             Carbs = 13.8f,
@@ -11328,7 +14222,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("9bb1d0ab-9a9e-4f37-804c-1d8db0624ee3"),
+=======
+                            NutritionId = new Guid("2ebf3665-692c-431d-bf4f-a24ceaf7d127"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 21f,
                             Calories = 83f,
                             Carbs = 19.9f,
@@ -11354,7 +14252,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("20eecb80-caf7-4218-974f-94252a856ab8"),
+=======
+                            NutritionId = new Guid("6d529129-3e2f-45be-9b7e-eacd49fc6008"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 6f,
                             Calories = 39f,
                             Carbs = 9.5f,
@@ -11380,7 +14282,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("e35e42a0-7e5f-40e0-a411-47a87ff85192"),
+=======
+                            NutritionId = new Guid("4862c9a3-c81d-46c6-86e4-7ec983e23890"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 83f,
                             Carbs = 18.7f,
@@ -11406,7 +14312,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("72c7172a-d8aa-4228-b639-a2db6e0448ae"),
+=======
+                            NutritionId = new Guid("ee2be429-6f09-4010-99a6-88cb3237a9ed"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 85f,
                             Carbs = 5f,
@@ -11432,7 +14342,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("2e382853-0622-42d4-80fe-fc159eae1d1c"),
+=======
+                            NutritionId = new Guid("71d8a61a-d343-4dc9-8a71-49d21b87a22f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 35f,
                             Carbs = 8f,
@@ -11458,7 +14372,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("a6bd89a7-6890-4a3b-9b6e-0b47372644b6"),
+=======
+                            NutritionId = new Guid("fca0f90f-cafa-4070-828f-d2509bd1587e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 40f,
                             Carbs = 9f,
@@ -11484,7 +14402,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("192a8bde-000e-4b7a-bfbf-ddfa2bc9bcab"),
+=======
+                            NutritionId = new Guid("52ed6ac0-bd29-4088-a497-1b5fe897a593"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 15f,
                             Carbs = 3.5f,
@@ -11510,7 +14432,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7b6ccec0-9312-4ccf-986f-1680eaa1581d"),
+=======
+                            NutritionId = new Guid("93d5cfe2-5c1b-4e53-b8b0-8cc0b481e048"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 70f,
                             Carbs = 6f,
@@ -11536,7 +14462,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("d7420a54-122a-40c9-b40a-1bed56dc7f6f"),
+=======
+                            NutritionId = new Guid("1c670756-0f5b-4262-acc0-d278b12dcb93"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -11562,7 +14492,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("b4e27134-6169-473f-ac8f-68b56e1ed8c4"),
+=======
+                            NutritionId = new Guid("2051a0b9-a73b-4aae-9c80-15dfe6cd6662"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 10f,
                             Calories = 90f,
                             Carbs = 15f,
@@ -11588,7 +14522,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1eeb65c4-617e-45f4-a163-87f13b014265"),
+=======
+                            NutritionId = new Guid("e2a0ed39-ae57-45c0-b1b2-b28c860c74e0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 120f,
                             Carbs = 15f,
@@ -11614,7 +14552,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("6b632b28-e063-4eae-b4b6-f3d46f54acd1"),
+=======
+                            NutritionId = new Guid("9904e697-b3cf-4661-ad5e-8bc897c2fdda"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 110f,
                             Carbs = 14f,
@@ -11640,7 +14582,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ca84fae9-05e3-47bd-b5e6-4bca35ee907a"),
+=======
+                            NutritionId = new Guid("25edbc23-2a59-4c92-b90e-a5e3df1dedfb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 120f,
                             Carbs = 18f,
@@ -11666,7 +14612,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("6bf5b4a2-6d43-4b29-83ec-584ca8c63f00"),
+=======
+                            NutritionId = new Guid("18535bbc-de8e-4a23-9dd5-00793a66c44c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 25f,
                             Calories = 105f,
                             Carbs = 15f,
@@ -11692,7 +14642,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("2f553925-14b0-4d98-b27c-f10642650b65"),
+=======
+                            NutritionId = new Guid("bfe9589c-b634-40a3-80b2-0a83354453e9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 110f,
                             Carbs = 15f,
@@ -11718,7 +14672,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("51d89c9e-55d2-4f00-ae1a-8642c7ab56b5"),
+=======
+                            NutritionId = new Guid("5025294b-33c3-492a-bb3f-8ad60c9b4965"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 95f,
                             Carbs = 15f,
@@ -11744,7 +14702,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0726cd55-0a92-460b-bcac-c8766c3d5800"),
+=======
+                            NutritionId = new Guid("177fc29e-6437-4707-8aa1-637cca81fcec"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 120f,
                             Carbs = 16f,
@@ -11770,7 +14732,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("26e014cb-ac22-4b58-8128-8a156103c6f2"),
+=======
+                            NutritionId = new Guid("b4a2be3a-5731-4051-9dbd-49af4b6db2ca"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 230f,
                             Carbs = 30f,
@@ -11796,7 +14762,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1c0471be-62e3-4eff-8ba7-399e4283d5bd"),
+=======
+                            NutritionId = new Guid("a65cb438-a1d7-4488-8895-e32d4399a02c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 200f,
                             Carbs = 25f,
@@ -11822,7 +14792,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("c4ede65b-2bd7-4753-a052-89616bbc8d1b"),
+=======
+                            NutritionId = new Guid("a1d0c82e-d633-44b3-8151-7285fd9c4bf4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 90f,
                             Carbs = 14f,
@@ -11848,7 +14822,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("74f9e241-b250-4846-8fe3-106306941384"),
+=======
+                            NutritionId = new Guid("000b08bc-5a38-4b12-988e-b34534b9a591"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 40f,
                             Carbs = 8f,
@@ -11874,7 +14852,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("9aa6d2b8-0241-4f49-916a-940427f8abc6"),
+=======
+                            NutritionId = new Guid("2d7a53ac-abe2-4e29-ba87-90f0119e6b29"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 8f,
@@ -11900,7 +14882,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ef48b767-172e-4126-abb6-4e6f8b0919c7"),
+=======
+                            NutritionId = new Guid("8e093bd4-f046-4191-9662-5aaeae27750f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 70f,
                             Carbs = 6f,
@@ -11926,7 +14912,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("157973bd-f504-4977-b0e7-2a86125e0f08"),
+=======
+                            NutritionId = new Guid("6f949ae6-daf0-4665-b0bf-24a202221a5e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 90f,
                             Carbs = 6f,
@@ -11952,7 +14942,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("92faebac-94fa-4a7f-96ff-c831be0e616b"),
+=======
+                            NutritionId = new Guid("5fc0b058-1b1e-4a40-bc27-3f7dab9c34d2"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 50f,
                             Calories = 60f,
                             Carbs = 8f,
@@ -11978,7 +14972,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("48bc8bab-ed62-488e-9ad1-ed641b41772b"),
+=======
+                            NutritionId = new Guid("7a95818d-1a6a-404d-b447-277dd7f76adb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -12004,7 +15002,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("704bc891-a6be-406a-8072-9cba5eb72a72"),
+=======
+                            NutritionId = new Guid("9af139a7-3f63-4a9b-97bd-2f9de5bdeeb6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 250f,
                             Carbs = 30f,
@@ -12030,7 +15032,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("967b4e89-86ed-4874-8f44-3ec5b237874e"),
+=======
+                            NutritionId = new Guid("19199d5d-bf5f-4eef-a813-e08c7250dca7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 40f,
                             Carbs = 8f,
@@ -12056,7 +15062,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("3af84e1d-98ae-44bb-ac9f-9457c79c4285"),
+=======
+                            NutritionId = new Guid("f7d192ea-ca4c-470e-9ff5-8e945120fd33"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -12082,7 +15092,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("af3d0908-0c11-47b7-9c26-810b86df24ad"),
+=======
+                            NutritionId = new Guid("2a8b01d0-c135-4d8a-9e2d-3d49da821b39"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 25f,
                             Calories = 70f,
                             Carbs = 6f,
@@ -12108,7 +15122,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("28bfa680-c221-4251-8a88-1c7dfe4b6d25"),
+=======
+                            NutritionId = new Guid("6ac0bbed-b47b-448e-be68-bf5d36158fbd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 280f,
                             Carbs = 30f,
@@ -12134,7 +15152,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("5b5abc08-19a5-4f2a-b509-2844ce755cb1"),
+=======
+                            NutritionId = new Guid("a9405008-935c-4a49-ba58-1fd0782450ea"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 220f,
                             Carbs = 12f,
@@ -12160,7 +15182,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("1a237573-5457-49bc-848a-e0a2efa26363"),
+=======
+                            NutritionId = new Guid("26b1011f-0300-4ef6-b0d8-7d86565cfe99"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 50f,
                             Calories = 40f,
                             Carbs = 7f,
@@ -12186,7 +15212,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("3b134f0b-11c6-4bb5-9e22-67a03570cbd8"),
+=======
+                            NutritionId = new Guid("6b31e323-1171-4be8-844d-f6fb2c42bf6b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -12212,7 +15242,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("2fd219a4-4ba4-4f66-bdbb-3c9c04d6bf41"),
+=======
+                            NutritionId = new Guid("7789026e-69f4-43e4-a8f4-a4b62a9694c6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 35f,
                             Calories = 28f,
                             Carbs = 6.5f,
@@ -12238,7 +15272,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("cfc13bca-d45b-44a3-9cf1-c4728a86404b"),
+=======
+                            NutritionId = new Guid("a06c5f6c-eb53-4a21-9fa9-ed9780bd9070"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 242f,
                             Carbs = 3.1f,
@@ -12264,7 +15302,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ef6ec668-8657-4bfc-b16b-4f9a75d3d189"),
+=======
+                            NutritionId = new Guid("463dcada-b8de-4f57-bffc-06af32756219"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 55f,
                             Calories = 35f,
                             Carbs = 7.1f,
@@ -12290,7 +15332,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("f9cdf0bd-46f5-4cfd-ba8c-e19196c73919"),
+=======
+                            NutritionId = new Guid("07c87e9f-15f4-4db7-9f48-d3a8ca7ee8d0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 16f,
                             Calories = 13f,
                             Carbs = 3.1f,
@@ -12316,7 +15362,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0eae9bc8-4e64-4be8-a84d-74d4a2263ba1"),
+=======
+                            NutritionId = new Guid("6914cbed-aa1e-46eb-ad2f-a20b8404a64d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 150f,
                             Calories = 23f,
                             Carbs = 4f,
@@ -12342,7 +15392,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("84e108f3-eba6-48b3-9512-3a200c893f42"),
+=======
+                            NutritionId = new Guid("a56f63bf-5dfe-4b7c-8309-0e6f254ba7cf"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 6f,
                             Calories = 46f,
                             Carbs = 11.4f,
@@ -12368,7 +15422,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("f3ea718b-183e-4860-b40d-7da2925065c6"),
+=======
+                            NutritionId = new Guid("ee3eca74-911a-4cc3-96ee-debbaa7e32c3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 22f,
                             Calories = 68f,
                             Carbs = 16.5f,
@@ -12394,7 +15452,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("3a90a29b-7c50-4e9b-8734-7d85f4635aba"),
+=======
+                            NutritionId = new Guid("e4f3b04c-f3c4-4312-a426-88590851c28b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 130f,
                             Calories = 23f,
                             Carbs = 4.1f,
@@ -12420,7 +15482,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("c3dc85ca-ecd7-404c-952d-3fcc41075199"),
+=======
+                            NutritionId = new Guid("d22950ce-1f68-4135-8960-304e942f3a32"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 165f,
                             Carbs = 1.1f,
@@ -12446,7 +15512,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("b95f1a93-df87-4f98-82fa-f492154ad398"),
+=======
+                            NutritionId = new Guid("83bc1864-a680-458a-8187-a67ecf5194ea"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 25f,
                             Carbs = 5.8f,
@@ -12472,7 +15542,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("8a5f0865-49c0-45b2-b0e9-5f828704d792"),
+=======
+                            NutritionId = new Guid("9e6ae65f-4649-4659-9997-e9eb68a7b6b1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 35f,
                             Calories = 22f,
                             Carbs = 4.4f,
@@ -12498,7 +15572,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("2dcb90e0-c886-4e52-a817-e2e66b942a28"),
+=======
+                            NutritionId = new Guid("9a36d6c8-1e66-4f64-8af6-44e45726e512"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 23f,
                             Carbs = 4.1f,
@@ -12524,7 +15602,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("a154e48a-3d13-4e6f-a8f1-d5acfb2f14ab"),
+=======
+                            NutritionId = new Guid("9130ab3a-fe63-4bfd-a20c-26026413e388"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 22.5f,
@@ -12550,7 +15632,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("87d7f9d1-28a5-498f-8356-b0d5d17d1e9d"),
+=======
+                            NutritionId = new Guid("1847ec52-f455-4d19-a006-6d4c3395d5b5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 16f,
                             Carbs = 3.7f,
@@ -12576,7 +15662,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("8a0c37d7-62c7-4ebf-9d43-3524280503dd"),
+=======
+                            NutritionId = new Guid("9e2d35f0-5664-458a-aca3-4e9c9760185a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 130f,
                             Calories = 23f,
                             Carbs = 4.1f,
@@ -12602,7 +15692,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7c6d229e-3cac-4919-a265-611fe124685e"),
+=======
+                            NutritionId = new Guid("c01cb772-c543-472e-a709-ccb19ac54b32"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 25f,
                             Calories = 150f,
                             Carbs = 2f,
@@ -12628,7 +15722,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ec68d0d0-3bd6-4f03-8fc5-98fcf7805977"),
+=======
+                            NutritionId = new Guid("3874b277-6e7c-480a-a2e8-b11abb69a92f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 50f,
                             Calories = 250f,
                             Carbs = 30f,
@@ -12654,7 +15752,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("b872833b-03b0-4bc6-96ef-47898c9b7a8d"),
+=======
+                            NutritionId = new Guid("344deac0-c0e1-4a71-bd86-9925ebf4de9e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 190f,
                             Carbs = 28f,
@@ -12680,7 +15782,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("79571000-96e7-454c-8ce8-da303f7e3769"),
+=======
+                            NutritionId = new Guid("9df86e2d-80a6-41c1-9110-62fd95f5d2eb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 170f,
                             Carbs = 23f,
@@ -12706,7 +15812,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("fcb1f234-955b-4c06-98c8-5ebd8c6f5fed"),
+=======
+                            NutritionId = new Guid("a18ff497-417c-4764-a019-20264afc8228"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 110f,
                             Carbs = 20f,
@@ -12732,7 +15842,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0af11c81-3aaf-421d-bb57-0c1da7f405fc"),
+=======
+                            NutritionId = new Guid("df8ff211-99b2-47f1-b0e5-29d04afbdc4b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 200f,
                             Carbs = 30f,
@@ -12758,7 +15872,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("69431a0a-e23c-4695-bed7-8b5000130ed1"),
+=======
+                            NutritionId = new Guid("9f2bef9c-876b-42ec-b6d2-a04d118a68bb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 80f,
                             Carbs = 17f,
@@ -12784,7 +15902,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("72543883-3958-47da-bbd6-d5dea58ca7ad"),
+=======
+                            NutritionId = new Guid("6a92903c-4324-4a06-b1a4-3680222e2b1f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 130f,
                             Carbs = 18f,
@@ -12810,7 +15932,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("ae6936fa-0bfc-4f76-90f1-8e8e28e41c85"),
+=======
+                            NutritionId = new Guid("b44624e5-8f49-40b3-897d-43ec0f3bffa4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 180f,
                             Carbs = 10f,
@@ -12836,7 +15962,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("21495824-e85c-4c61-a638-2fbf96516848"),
+=======
+                            NutritionId = new Guid("1d650acf-a04f-4013-924c-1715b74d5ca0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 150f,
                             Carbs = 18f,
@@ -12862,7 +15992,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("7c4bd532-ed2b-4632-9492-5436583b0deb"),
+=======
+                            NutritionId = new Guid("b2c03e78-3216-43ed-b6ee-858130b68659"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 15f,
                             Calories = 130f,
                             Carbs = 28f,
@@ -12888,7 +16022,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("6308db07-f2e6-4f8b-b9c3-73020b5aa9d1"),
+=======
+                            NutritionId = new Guid("e5ecc116-b423-4434-a2da-d7b26ddfde03"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 50f,
                             Carbs = 8.5f,
@@ -12914,7 +16052,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("0f662ec8-b8ea-420b-ac60-0188a28eb0d5"),
+=======
+                            NutritionId = new Guid("a87ebf04-1ebe-4dde-9757-b2e77c472a4d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 12f,
                             Calories = 73f,
                             Carbs = 18f,
@@ -12940,7 +16082,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("93a76cf3-a4a4-4a25-9513-9a6e3cfe5138"),
+=======
+                            NutritionId = new Guid("f4f72de5-b56f-4e5d-86eb-388dc0ed9600"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 9f,
                             Calories = 60f,
                             Carbs = 16f,
@@ -12966,7 +16112,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("5384bb91-4dcc-4802-be15-32a9d110397a"),
+=======
+                            NutritionId = new Guid("758bbf16-7bd1-4f50-8440-6bdba5c4b87e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 40f,
                             Calories = 52f,
                             Carbs = 13f,
@@ -12992,7 +16142,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("226b06aa-fa6d-48f0-9bfc-8aeaed21bb8e"),
+=======
+                            NutritionId = new Guid("7a0e88ae-655c-459b-86b2-474a03895966"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 20f,
                             Calories = 40f,
                             Carbs = 3f,
@@ -13018,7 +16172,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             NutritionId = new Guid("9dda7e53-b1d1-44de-9b34-0d5f79a041a3"),
+=======
+                            NutritionId = new Guid("c6eda08c-cad4-44c3-a3a4-65a9d797ba5a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             Calcium = 30f,
                             Calories = 130f,
                             Carbs = 6f,
@@ -14463,37 +17621,6 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("UserAllergies");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
-                {
-                    b.Property<Guid>("UserFoodId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Allergies")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Categories")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("UserFoodId");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("UserFoods");
-                });
-
             modelBuilder.Entity("Monhealth.Domain.UserSubscription", b =>
                 {
                     b.Property<Guid>("UserSubscriptionId")
@@ -15325,7 +18452,11 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("272aa93a-ecfb-4a1e-ab0a-38a11559ad2c"),
+=======
+                            WorkoutExerciseId = new Guid("e1c263af-3946-4a84-95ce-d7f0dfbefbbe"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15336,7 +18467,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8a0f2847-e808-446b-8b14-a63307912d66"),
+=======
+                            WorkoutExerciseId = new Guid("656a6d66-1cf5-4d23-b418-a502a8907dc5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -15347,7 +18482,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("106ae206-49db-4266-b94a-9b3335d3ebd9"),
+=======
+                            WorkoutExerciseId = new Guid("752f7f9b-a2a7-413c-9ba0-cb5e38c8a5a5"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -15358,7 +18497,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("1366d328-077b-48a3-a029-5efc85090d62"),
+=======
+                            WorkoutExerciseId = new Guid("ba1c82ec-8272-468f-8bea-737f1cdc4374"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15369,7 +18512,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("78f3fcb3-ec93-49e7-8a44-3215b1d7fc67"),
+=======
+                            WorkoutExerciseId = new Guid("ac336dec-f746-4164-ae31-a13c38434737"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("3100278d-eee7-4b89-b726-4b76daefabde"),
@@ -15380,7 +18527,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("9ddd4d37-94c9-48fe-9afc-aea4b7ae6181"),
+=======
+                            WorkoutExerciseId = new Guid("19a09ceb-63da-4d3f-a0c0-9098f010c040"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15391,7 +18542,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("70cacd44-4cde-4e44-9bb5-227f6dede9c4"),
+=======
+                            WorkoutExerciseId = new Guid("0babb25d-0e75-4ffc-b6f2-014f65118717"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
@@ -15402,7 +18557,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("15360ce5-091a-4bd2-b66b-ad5ec2f6b3f0"),
+=======
+                            WorkoutExerciseId = new Guid("dbfcfbb2-c945-4ef5-9fec-11999e1777c4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15413,7 +18572,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("d16f6a71-a17c-4daf-876d-72c5f7a8b6ad"),
+=======
+                            WorkoutExerciseId = new Guid("8859ba1c-eba1-41b6-9889-4f548badf228"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
@@ -15424,7 +18587,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("6d24ba82-86bb-4e1b-92da-2dc1b1f2d771"),
+=======
+                            WorkoutExerciseId = new Guid("d2bdf4d1-de24-4979-9907-f80ae3399c89"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("72206c5e-58f3-46f0-a8b1-031cbf599433"),
@@ -15435,7 +18602,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("b9994de3-ddc4-49f1-ab99-1d72b18c46c8"),
+=======
+                            WorkoutExerciseId = new Guid("1720977a-9f83-4825-ac94-6022f6fb103c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15446,7 +18617,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("fef86ef2-2213-4e5d-9c3b-4c73f050338d"),
+=======
+                            WorkoutExerciseId = new Guid("8ab9ac1a-196f-4452-9e60-95eb8031b5f2"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("d0dcad19-4c0c-447d-8e3c-092c6d4ad14c"),
@@ -15457,7 +18632,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("191f6296-12aa-45d3-8cb8-33c51bdac435"),
+=======
+                            WorkoutExerciseId = new Guid("75711c49-6d85-4c54-951f-6bee3a3252d1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bd80fdd3-c46c-4410-b126-51a11a8a2f5b"),
@@ -15468,7 +18647,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("1535d096-777d-4eac-b0cf-54a2a47e2e0e"),
+=======
+                            WorkoutExerciseId = new Guid("5e257846-860d-4e86-bdaf-280c7aa0b90a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15479,7 +18662,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("99d20779-bf1f-4737-85bc-6bd6a2d2768a"),
+=======
+                            WorkoutExerciseId = new Guid("6da6c772-983e-4d7a-bd5c-33bfce7d8c75"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ae6eaaa1-c8c4-4f97-afa4-4ceeea19d4b3"),
@@ -15490,7 +18677,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("f43249e4-d4bb-40f2-923a-10746b943bf0"),
+=======
+                            WorkoutExerciseId = new Guid("1a069914-97ad-4eae-993a-05f4aacf13ba"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -15501,7 +18692,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("5d244859-2718-4cfb-88d2-96f00651cc03"),
+=======
+                            WorkoutExerciseId = new Guid("8c721182-947c-4d92-b753-df760194c08d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15512,7 +18707,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("df79e90f-b09e-41d6-9820-1fe4479303a8"),
+=======
+                            WorkoutExerciseId = new Guid("a404f1be-0069-406c-97f9-758ea5089ae9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("72206c5e-58f3-46f0-a8b1-031cbf599433"),
@@ -15523,7 +18722,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("212e4714-ac81-4044-b78a-93dedb84b58d"),
+=======
+                            WorkoutExerciseId = new Guid("b44a63e4-92a9-44b9-9397-d09fdb96ba23"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -15534,7 +18737,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("e6a10193-ede9-4491-ba09-14872c6bf7f9"),
+=======
+                            WorkoutExerciseId = new Guid("99201413-ffe3-45d0-a1c6-46167f87b22f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -15545,7 +18752,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("541ee85d-9653-48ee-be3b-7c0770c80c02"),
+=======
+                            WorkoutExerciseId = new Guid("828941f2-9d76-45b8-ae5e-fdf32c985130"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -15556,7 +18767,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("b45c8876-5c37-41fc-9770-57a44c78ca53"),
+=======
+                            WorkoutExerciseId = new Guid("c3b9800c-937f-4876-8793-bf9d1289afc7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
@@ -15567,7 +18782,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("1b071d39-0d15-4d26-a891-9c0df516a858"),
+=======
+                            WorkoutExerciseId = new Guid("eb6646d5-ffe0-464e-83ad-b264b8883887"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("5cbc396e-381a-4d9f-9ad6-42b764deee3e"),
@@ -15578,7 +18797,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("0a7ca2ee-a07e-4c5c-89d7-629c0873ce66"),
+=======
+                            WorkoutExerciseId = new Guid("33fef13d-9f0f-4adb-8ee0-fc7bf3d5d7b9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -15589,7 +18812,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("0783bb95-196d-4183-bbe9-14e685d1ebec"),
+=======
+                            WorkoutExerciseId = new Guid("51f5b5b8-d145-4630-83d9-4e3991f65d9a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15600,7 +18827,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("3964198e-c13d-4ac1-8440-433a8092dfaf"),
+=======
+                            WorkoutExerciseId = new Guid("9f25ff68-0c27-44b1-852d-c970868440df"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15611,7 +18842,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("b22180a8-6b3e-4472-81ef-ec6a7df0cf95"),
+=======
+                            WorkoutExerciseId = new Guid("cb912446-170b-4d30-955c-a3ed08dd8b3c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -15622,7 +18857,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("7360841f-3b71-4711-8eac-b338cd39cd95"),
+=======
+                            WorkoutExerciseId = new Guid("dfa38403-ddd4-4ef3-b6b9-ab910881faff"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
@@ -15633,7 +18872,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("a0730c62-c861-469d-9396-349f9afa416a"),
+=======
+                            WorkoutExerciseId = new Guid("3f629a66-06c7-44e6-9d78-2540234326c4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15644,7 +18887,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("e1f3df4e-8c02-44e3-9eea-f4b4558eed5f"),
+=======
+                            WorkoutExerciseId = new Guid("940b7fe0-0f77-45a8-ac8b-00a5815c440e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -15655,7 +18902,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("58000330-65e9-41ed-b24a-16eab5c2fa4a"),
+=======
+                            WorkoutExerciseId = new Guid("228239bb-a61d-4f25-ba58-df85396beb57"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("1b2afb40-fb97-49ec-8fe3-81a17c6c9078"),
@@ -15666,7 +18917,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("65f28622-c557-4fb1-8943-421a17fd362d"),
+=======
+                            WorkoutExerciseId = new Guid("2d91075e-6c2f-435d-8ca6-4d63f2ad519e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("23842121-4834-4483-bfe2-2c244f5ecf76"),
@@ -15677,7 +18932,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("236de353-f551-44a9-8690-3ff757625c75"),
+=======
+                            WorkoutExerciseId = new Guid("ac79e543-110c-4fd0-bca1-f5925c520335"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15688,7 +18947,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("c09d8e00-abc0-4338-a928-b7098f42ec5b"),
+=======
+                            WorkoutExerciseId = new Guid("38351bd8-1d8b-4fcf-b9c2-4fd3d7e251db"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -15699,7 +18962,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("7ab004ab-0e78-4a43-8340-72c6419ac4f1"),
+=======
+                            WorkoutExerciseId = new Guid("1b6459b4-b46a-444d-9511-d7bb849ec436"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("faebde03-bab9-457b-9b45-a9fabd4760aa"),
@@ -15710,7 +18977,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("45f81a92-c774-4197-8b40-7102bbb3913a"),
+=======
+                            WorkoutExerciseId = new Guid("ea54b335-75f7-4bea-a466-8b30908c1ee3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -15721,7 +18992,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("c623b557-9e43-4f02-9b7b-8a495616e6ed"),
+=======
+                            WorkoutExerciseId = new Guid("cb1c9104-1d6f-4a25-9532-17b5da24f439"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
@@ -15732,7 +19007,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("89606598-4e5c-44d1-a177-7fdda720f654"),
+=======
+                            WorkoutExerciseId = new Guid("68ee13df-ccda-4158-8e39-43a3821ae8c4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -15743,7 +19022,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("614c1595-4a67-485a-aaad-e881b08e4389"),
+=======
+                            WorkoutExerciseId = new Guid("163973dd-b8bb-4db3-94a7-15cea696ad09"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
@@ -15754,7 +19037,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("43e37464-95f7-481b-b902-709401208f48"),
+=======
+                            WorkoutExerciseId = new Guid("6549eaf1-51fb-48b1-a97d-d46469f18369"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15765,7 +19052,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("1b64af2d-1724-4f03-a1f7-8e81e939586d"),
+=======
+                            WorkoutExerciseId = new Guid("9b35779a-34a2-46b5-8dec-7826d30e3218"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -15776,7 +19067,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("dcaaf308-bbb1-43ad-a6bc-4ca4535f6261"),
+=======
+                            WorkoutExerciseId = new Guid("8b8604d0-0bd3-46f5-b187-80b4d71b5c44"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -15787,7 +19082,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("927554dc-9e4d-468b-b82d-800a7eeebbf4"),
+=======
+                            WorkoutExerciseId = new Guid("dd6436fa-5237-4c6a-9502-f20148ac658b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -15798,7 +19097,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("3c547794-dca6-44ab-9476-0d69187f85e9"),
+=======
+                            WorkoutExerciseId = new Guid("8d2a2c46-280f-407f-888b-b05e09b37dbf"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -15809,7 +19112,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("7d61af05-7bb0-4855-9010-096689400958"),
+=======
+                            WorkoutExerciseId = new Guid("8f7f0f65-ea1d-410f-b8b6-88f69a682111"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -15820,7 +19127,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("65da3b60-92c0-4516-b703-c6c8c71296b7"),
+=======
+                            WorkoutExerciseId = new Guid("bde8ec58-486a-4779-853d-b026c7cdb41e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("1ff0ef05-4387-4483-8de3-0ef6d7724afd"),
@@ -15831,7 +19142,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("9ece4990-049e-4df0-af51-41de3cea57b6"),
+=======
+                            WorkoutExerciseId = new Guid("1eb076c2-d2c8-428a-8d91-f2592baf241b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -15842,7 +19157,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("d2c9cdb3-3348-4bda-a869-a5ece68c1a10"),
+=======
+                            WorkoutExerciseId = new Guid("0ad5a969-017a-4d4f-8484-bbe6c25fe30e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -15853,7 +19172,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("de0ad35e-7ee9-4335-b4db-caf30b0afbb8"),
+=======
+                            WorkoutExerciseId = new Guid("8c3d2d2f-8830-4178-93ab-286b40192099"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("7c38fc8f-8fd2-450e-8fa6-c4557f0e6e02"),
@@ -15864,7 +19187,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("ecf43e1b-1b01-40e1-9f47-8bf10bb0984c"),
+=======
+                            WorkoutExerciseId = new Guid("ed9e4d30-85c9-4924-8ba3-f6f232da44ad"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("58878826-775e-4d4c-8e1b-d5c95afc214d"),
@@ -15875,7 +19202,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("368aa94f-8e7f-4b0d-8410-3b93c641df34"),
+=======
+                            WorkoutExerciseId = new Guid("5170c819-2f9d-4d9d-9887-95d0bb265439"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -15886,7 +19217,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("725af597-bd85-4632-8550-44eb665c83c2"),
+=======
+                            WorkoutExerciseId = new Guid("10fa31c3-485b-4756-b38d-9924992dec09"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("9ba29558-e51b-4a1a-a1c4-b747967e32fb"),
@@ -15897,7 +19232,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("b475f928-3191-46e7-a8b7-3e9b265f7f5a"),
+=======
+                            WorkoutExerciseId = new Guid("b9bc860e-9d23-4c7c-8d38-e13aae5e2f84"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -15908,7 +19247,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("0b21a1a5-5c46-4969-a9da-6f097b31a56e"),
+=======
+                            WorkoutExerciseId = new Guid("1781a923-62d0-48d4-80a2-c4706aae23bb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("407ff857-d218-44a8-8d0f-0bfa5d53bf03"),
@@ -15919,7 +19262,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("662077a6-ac1f-4ed4-b84e-928425317fa0"),
+=======
+                            WorkoutExerciseId = new Guid("89be4c09-0de2-41d9-ad4f-3142142bc66a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -15930,7 +19277,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("48567d78-dddd-48bd-87a7-377caf82d30d"),
+=======
+                            WorkoutExerciseId = new Guid("51066d1e-76cd-47d5-9c3b-e51dfb479845"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -15941,7 +19292,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("241508fd-f117-4ed8-9f3c-08518f2e0baa"),
+=======
+                            WorkoutExerciseId = new Guid("eefe88d5-4613-48cd-b1fb-a07e179dc5a0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0a9e1fb3-9abf-4775-a75e-2bb13009a29d"),
@@ -15952,7 +19307,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("bf265c3f-c928-477f-b94f-135d127ff091"),
+=======
+                            WorkoutExerciseId = new Guid("340100f3-b1c9-40e7-93b6-bdbb3c5875d1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("b2e62599-1f8c-4fc2-9ca7-8ab7aa571d4e"),
@@ -15963,7 +19322,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("7308223b-d6a5-4524-9eb2-4d40207baa23"),
+=======
+                            WorkoutExerciseId = new Guid("b8239b53-7063-4f7a-9549-bd5937a903d3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -15974,7 +19337,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8bbb5057-fcf9-4be4-b879-5322f071b1d7"),
+=======
+                            WorkoutExerciseId = new Guid("f1748aa1-6f62-47f8-86ce-9477541fa0bd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 40,
                             ExerciseId = new Guid("07a4dbcd-635a-4a76-92d4-8127de619e6d"),
@@ -15985,7 +19352,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("af2de6fc-a7ce-4364-8abf-c39ba4b99739"),
+=======
+                            WorkoutExerciseId = new Guid("5ad1c417-ca6b-4f8e-996a-8ed9452f7bd7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -15996,7 +19367,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("41f84313-29df-4245-a81a-691a9b615a67"),
+=======
+                            WorkoutExerciseId = new Guid("f1638d10-df02-4344-89d3-fd65d3ae9c77"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -16007,7 +19382,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("5906af7e-0dae-4b87-a24d-d9b4992210a6"),
+=======
+                            WorkoutExerciseId = new Guid("c3f9ef75-51af-4f92-848f-4da41a141589"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -16018,7 +19397,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("65649fdb-f5fa-4b75-895f-22be5af3abc6"),
+=======
+                            WorkoutExerciseId = new Guid("9b7918ec-98c3-40f5-8599-82f1237f8bf1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -16029,7 +19412,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("036841ec-db99-48f1-a476-26c129605f20"),
+=======
+                            WorkoutExerciseId = new Guid("df33c13d-8167-4b72-97e8-4af1e0926bdd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("01dc4c46-e1ef-44bc-9f19-ecb283bf27ce"),
@@ -16040,7 +19427,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("11c502dd-29c4-4af9-aab0-0e61a375706f"),
+=======
+                            WorkoutExerciseId = new Guid("4d8db6e0-307a-423b-ba79-587586209787"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6badb5b5-ad99-4b89-80c6-e52d0f7cd7ba"),
@@ -16051,7 +19442,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("9362d2e9-1e56-4f11-a9fc-89c1c5dc7fc9"),
+=======
+                            WorkoutExerciseId = new Guid("bc824ae0-a0e9-4e36-982e-0dc5a89a832a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -16062,7 +19457,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("d279344b-2686-4c08-bbd6-337a6bb881e5"),
+=======
+                            WorkoutExerciseId = new Guid("015fbc59-888e-4963-87ef-78792814f176"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -16073,7 +19472,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("a10ac55c-b135-40a2-99c5-e8e7229576b2"),
+=======
+                            WorkoutExerciseId = new Guid("6c1b9fbd-85bf-450b-8c4c-9eec807f50c2"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -16084,7 +19487,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("a11b07b1-f468-4393-947e-6394d0b0e1aa"),
+=======
+                            WorkoutExerciseId = new Guid("003435e6-77ac-423f-8b45-4b935f96ee59"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -16095,7 +19502,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("afc9379c-850f-43be-b377-d587d8b7fa13"),
+=======
+                            WorkoutExerciseId = new Guid("21988503-073e-41d7-816f-9ed2d6904ea9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -16106,7 +19517,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("1d8a4c09-5edd-4875-b721-62b6e0aa5f0f"),
+=======
+                            WorkoutExerciseId = new Guid("e94015e5-2af2-4aa3-a678-31d78899b000"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -16117,7 +19532,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("fcfcf3fe-5f5f-4996-a681-2008f1903820"),
+=======
+                            WorkoutExerciseId = new Guid("28299f56-8c77-472f-a518-7d83a623ed3d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("93e22c77-001f-4825-8983-4ec5b643b7bb"),
@@ -16128,7 +19547,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("bf7f5fb5-b235-4c3e-9e7a-7e83f50ec992"),
+=======
+                            WorkoutExerciseId = new Guid("28c04efd-363c-4685-9bb8-c3c24bf44545"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("23842121-4834-4483-bfe2-2c244f5ecf76"),
@@ -16139,7 +19562,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("2aba9a53-5cb9-4a1e-a65e-ab0d6a600030"),
+=======
+                            WorkoutExerciseId = new Guid("d92fb870-52b9-48b9-be6f-b396affadfa9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("439db970-c7c8-4b3b-9a35-127d31d920dc"),
@@ -16150,7 +19577,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("a10c4d0a-5dc2-4c5b-92c7-d6c18e9017bd"),
+=======
+                            WorkoutExerciseId = new Guid("9d560275-748a-4873-ab4e-56c09e2823a8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("9ba29558-e51b-4a1a-a1c4-b747967e32fb"),
@@ -16161,7 +19592,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("b59c9fdf-4d9d-4470-a53e-8633da2ef727"),
+=======
+                            WorkoutExerciseId = new Guid("766fa39d-e671-4d14-9d13-700f1bca6a07"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0a280d32-de67-4a38-8f21-923243489eef"),
@@ -16172,7 +19607,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("0d29535a-c340-465a-8536-03a318fcc956"),
+=======
+                            WorkoutExerciseId = new Guid("4c8aae56-a007-4462-9b48-0a39a9779ebd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
@@ -16183,7 +19622,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("6e377180-3d6a-4226-b74d-b55f16ef7b9d"),
+=======
+                            WorkoutExerciseId = new Guid("71d8ef14-5a84-49ce-9c48-38325d32aaed"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("235f7494-3e7d-45a5-a31a-6d5449b1322d"),
@@ -16194,7 +19637,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("fa8f5bf8-1004-44c6-9538-53cddca7014e"),
+=======
+                            WorkoutExerciseId = new Guid("8a523ab6-44cc-4ad1-a092-446843a5f4c7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -16205,7 +19652,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("c9db85ed-e75f-43e3-86ef-b2c4213e6999"),
+=======
+                            WorkoutExerciseId = new Guid("d5b4c860-70ee-4bfd-a121-99f639255ff6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -16216,7 +19667,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("e4face0e-7a63-421a-aa61-f67a44ae0ce6"),
+=======
+                            WorkoutExerciseId = new Guid("2d003f6e-a018-44dc-91e4-7122a2aeade9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -16227,7 +19682,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("308c12c8-d968-4156-b5a3-ffd61b2033ec"),
+=======
+                            WorkoutExerciseId = new Guid("02c60966-8707-4f28-996f-26b83b77b599"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9fb83332-a8fc-4fcc-a015-2e784e2ab33b"),
@@ -16238,7 +19697,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("aae1049d-9528-4553-8ac2-df6646d44291"),
+=======
+                            WorkoutExerciseId = new Guid("918e5765-9cb8-4bea-b0a0-0f402a0c39e3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8b93dbb2-fc2b-4627-b79a-3ec45a7c6238"),
@@ -16249,7 +19712,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("43c2fdcf-c0c3-4577-b890-344b57f1eafe"),
+=======
+                            WorkoutExerciseId = new Guid("810d09e9-dba8-431f-a38b-27798d2a83d6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8619916d-a296-48a5-af89-f82a6a1cb26f"),
@@ -16260,7 +19727,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("9984bf89-30d9-4a79-a923-77e529275b94"),
+=======
+                            WorkoutExerciseId = new Guid("d62d27c2-6126-409c-9467-99e92255a710"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d4ebca3a-83ef-485b-9178-83d4eab9694c"),
@@ -16271,7 +19742,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("851ac44a-d3af-489d-ae34-d1469280dcfe"),
+=======
+                            WorkoutExerciseId = new Guid("038e1023-a302-4ee2-b34a-d47eb24f567d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -16282,7 +19757,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8316ce75-29b7-403c-9a65-c2924e6562b5"),
+=======
+                            WorkoutExerciseId = new Guid("3efbebfe-fae9-4eaf-84ef-e7e13b751447"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 10,
                             ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -16293,7 +19772,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("2fbe1d4e-925c-4bd3-93ea-a35665a50958"),
+=======
+                            WorkoutExerciseId = new Guid("b2208d42-5567-4e83-8c97-aad8150f3129"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6749cbc6-0e28-4163-95e8-7fb2a27c54cf"),
@@ -16304,7 +19787,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("3d777a66-3c91-475d-ac71-7018cdb0e2ae"),
+=======
+                            WorkoutExerciseId = new Guid("be20a58f-fb27-419a-9197-c9f50c43d97c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -16315,7 +19802,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("d8e8b176-1f47-43ba-b1be-9ecb03d44e30"),
+=======
+                            WorkoutExerciseId = new Guid("78afeffb-9b27-4cf5-85ce-b18e2be0291e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -16326,7 +19817,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("34ddd911-bf21-4dc6-9a6d-995eb49cbfad"),
+=======
+                            WorkoutExerciseId = new Guid("cda77b17-534d-410a-84ad-7796aa19eea9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d4ebca3a-83ef-485b-9178-83d4eab9694c"),
@@ -16337,7 +19832,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("c2709575-5d34-4657-9453-632e36e1dccb"),
+=======
+                            WorkoutExerciseId = new Guid("3ecb9711-9298-4df0-bfca-e2ae0f337bfb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -16348,7 +19847,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("b430e1f9-831d-466a-a045-ae218fcebcbf"),
+=======
+                            WorkoutExerciseId = new Guid("56716abf-cc22-4f73-b230-33bffd023fe7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0c011f92-425a-477c-84d4-3d6dc883119b"),
@@ -16359,7 +19862,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("f3f2544e-da5d-4edc-af38-f5c6d24b868a"),
+=======
+                            WorkoutExerciseId = new Guid("ac0e8cd5-3f4d-40cd-8103-791576e64f57"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f06a6d9b-ed14-46cd-9e56-145cd1fd3d7c"),
@@ -16370,7 +19877,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("ec4c139c-167a-4880-8425-de416a0e270a"),
+=======
+                            WorkoutExerciseId = new Guid("9f143e76-2df1-41c8-9739-c70567a19fdf"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -16381,7 +19892,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("f4a74730-b81c-49d2-8d48-5f39656f6564"),
+=======
+                            WorkoutExerciseId = new Guid("39320c4e-210c-46d5-9bf8-03bc49e02e5b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -16392,7 +19907,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("aaf5ac26-3aad-4e42-a73b-025c295aa260"),
+=======
+                            WorkoutExerciseId = new Guid("1fa75b24-9e75-4ff7-ad03-d4cae9caeb8f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
@@ -16403,7 +19922,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("677af4d6-d83f-42ea-8e07-30902996a985"),
+=======
+                            WorkoutExerciseId = new Guid("6c790245-95dc-4884-be21-93f10aa5d1ee"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -16414,7 +19937,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("c089b8d7-140b-4733-b6a5-cd5e8c4bd3a5"),
+=======
+                            WorkoutExerciseId = new Guid("eced95b1-699d-49fb-87ef-b86f2d50aa10"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -16425,7 +19952,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("fb987913-ef7d-44ac-bed0-6cedd96d79d4"),
+=======
+                            WorkoutExerciseId = new Guid("3cb677d6-b3fa-4c6f-9e36-b9e0452a0ad3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -16436,7 +19967,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("908179e7-1d47-4130-af07-b2e8ac8cf817"),
+=======
+                            WorkoutExerciseId = new Guid("a898adf9-8e7f-478d-b161-a4be8fc1b900"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -16447,7 +19982,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("80dfda4c-3a85-4130-9d3f-aec9b36dfccf"),
+=======
+                            WorkoutExerciseId = new Guid("f9194d3b-7c12-4e01-a5b5-6031870e1d5b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -16458,7 +19997,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("2cb5496d-c5ab-42b4-9e46-e53b29f9c30b"),
+=======
+                            WorkoutExerciseId = new Guid("dbf1bdcd-345a-409a-adeb-7c3d0b99651c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -16469,7 +20012,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("881f8bd1-2231-444e-a783-4200431faaf2"),
+=======
+                            WorkoutExerciseId = new Guid("c1ce4224-205b-415a-b25a-9fc09ac7f8e9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6ef8ed78-0d00-4271-bf9b-edf27a55ecab"),
@@ -16480,7 +20027,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("a2418e9a-df95-4a75-9d95-7f0f80fceba1"),
+=======
+                            WorkoutExerciseId = new Guid("0a3819f7-ae77-402f-b624-bdea1db0dc15"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0d816828-8a94-4dcb-a87c-b70b295a39b6"),
@@ -16491,7 +20042,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("6f74ea2e-57c6-44a4-993e-3cb62d053477"),
+=======
+                            WorkoutExerciseId = new Guid("01c86516-7b81-4bb6-a46e-5da43e9e33bb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9fb83332-a8fc-4fcc-a015-2e784e2ab33b"),
@@ -16502,7 +20057,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("84c03e7a-00c4-4044-aeba-309e9e058203"),
+=======
+                            WorkoutExerciseId = new Guid("e4c27761-7caf-4aa1-a776-effbc5c8ef7b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -16513,7 +20072,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("a97a6f09-69fe-4655-b6cd-653b2c8250d6"),
+=======
+                            WorkoutExerciseId = new Guid("858a63ae-844f-4f12-898b-b3af634e3152"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("256e23fa-03b1-4328-a325-512f0860d9b0"),
@@ -16524,7 +20087,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("be322a4e-2059-4c26-8e1b-2a17b8eb4fe8"),
+=======
+                            WorkoutExerciseId = new Guid("a79b2410-2efe-4828-b5c6-00538793c398"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -16535,7 +20102,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("1b6e19be-e365-4c90-abc5-79dde257ddf0"),
+=======
+                            WorkoutExerciseId = new Guid("25601c2b-8d9e-49ac-b89f-ac1791e5e808"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -16546,7 +20117,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("46268dbe-4002-4f5f-b8c7-45622d130167"),
+=======
+                            WorkoutExerciseId = new Guid("cab979aa-075b-42c0-9033-ff3e993db645"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("01e6141a-930e-4126-a2c6-7c32a2ccdd43"),
@@ -16557,7 +20132,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("c249a4e2-23b1-4e83-827a-f38009a06946"),
+=======
+                            WorkoutExerciseId = new Guid("a9995df9-8389-46ab-aa74-ccac2d6059b0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ac074f67-d4bf-4a7f-b7e3-d8d03bbb6704"),
@@ -16568,7 +20147,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8eeb6cb0-2207-43a9-adfe-7209ac03636a"),
+=======
+                            WorkoutExerciseId = new Guid("c6b1dbaa-5723-4558-b0f6-27e44f8da06e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -16579,7 +20162,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8b5d862f-e99f-4fa5-9ed8-e9bff1048b3a"),
+=======
+                            WorkoutExerciseId = new Guid("54a9055f-4f64-4aa0-8f8d-e4af4084bee7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -16590,7 +20177,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("2cc8a29d-60c3-4ac0-818f-4f52b6e811ab"),
+=======
+                            WorkoutExerciseId = new Guid("d6ec6193-447c-420d-92be-6416bde09332"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -16601,7 +20192,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("0ecdc5d5-3913-4c8f-b018-bfe62600f9f6"),
+=======
+                            WorkoutExerciseId = new Guid("a793b6f9-16b2-48ce-8a4d-0ad569aa2f84"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("01e6141a-930e-4126-a2c6-7c32a2ccdd43"),
@@ -16612,7 +20207,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("107289c6-8b6a-4700-8c18-2c9330cf848e"),
+=======
+                            WorkoutExerciseId = new Guid("41a72290-b062-467b-bb29-bbcd1e9cb658"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ac074f67-d4bf-4a7f-b7e3-d8d03bbb6704"),
@@ -16623,7 +20222,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("1ff0d1f9-b0f5-4067-9d6b-b300e2a6da87"),
+=======
+                            WorkoutExerciseId = new Guid("659da8b6-5bc5-49ef-ae12-7367cf7455e0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -16634,7 +20237,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("cf434d80-e571-423d-a9a6-106655699b46"),
+=======
+                            WorkoutExerciseId = new Guid("d535aafc-3439-4004-9a4b-3b7e6e31d406"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -16645,7 +20252,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("13884d60-a823-441c-b6fb-8783ff661100"),
+=======
+                            WorkoutExerciseId = new Guid("932ae6cb-ebc8-4485-bfd4-cae32ccdc739"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -16656,7 +20267,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("4664264f-888f-4d9f-9824-b00596ed76a1"),
+=======
+                            WorkoutExerciseId = new Guid("7bf59fc5-ce66-4c1a-9c27-0270cd984005"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -16667,7 +20282,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("b0e322c5-ab78-46a0-8e52-d3cedc02cd50"),
+=======
+                            WorkoutExerciseId = new Guid("b4b55041-3494-4abc-946f-bc42ca067143"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -16678,7 +20297,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("86c86c19-8778-4c5c-8a7e-cda0105c1c99"),
+=======
+                            WorkoutExerciseId = new Guid("e0a61aa9-fcde-4777-a9ea-e2f6ba93d08f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -16689,7 +20312,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("39d29761-2244-4cff-8bb2-363acd4cb439"),
+=======
+                            WorkoutExerciseId = new Guid("0c102961-10c1-42ee-9853-b6148250fbd4"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -16700,7 +20327,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("f4290bc8-a010-47ca-938b-14affdf30d6e"),
+=======
+                            WorkoutExerciseId = new Guid("de5a1986-76a1-4f06-b86c-dc11c00c85e8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -16711,7 +20342,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("57f5f293-63d5-45d9-91df-e743ad562c23"),
+=======
+                            WorkoutExerciseId = new Guid("8710d6e2-0cad-4b99-b3c0-8a6cc3177d27"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f06a6d9b-ed14-46cd-9e56-145cd1fd3d7c"),
@@ -16722,7 +20357,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("529e85dd-dd72-4185-932a-8f9c7d94f6a9"),
+=======
+                            WorkoutExerciseId = new Guid("36824229-c490-49e7-864a-85f7f5242dbd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("4834f1ce-41dc-4161-ac51-e03ca78b62b8"),
@@ -16733,7 +20372,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("85ab6c66-58a0-4fb1-9714-5d93ede0aa46"),
+=======
+                            WorkoutExerciseId = new Guid("abc1c60c-9a6e-4a91-9f80-28411e39d6a1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -16744,7 +20387,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("75d3caec-0d22-4e3b-b78f-f8fc12c17543"),
+=======
+                            WorkoutExerciseId = new Guid("67b913fa-0783-49cf-ac96-d38e721e9e59"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -16755,7 +20402,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("948fbd94-8f1e-4f9f-9f40-a0192fcb3c64"),
+=======
+                            WorkoutExerciseId = new Guid("8b4080ce-30dc-4eac-b2f3-d65a0947e55c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -16766,7 +20417,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8b9281af-b659-44b5-b798-7319e6393eaf"),
+=======
+                            WorkoutExerciseId = new Guid("870773c0-d324-4049-be64-81a3cfa24b69"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -16777,7 +20432,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("dc245821-9ed9-42f5-bbe8-fd7a44eb4d66"),
+=======
+                            WorkoutExerciseId = new Guid("ca07bed1-19a7-487a-ae36-5a198003dd6e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -16788,7 +20447,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("d503df3e-de33-49d0-9c80-9417d2319885"),
+=======
+                            WorkoutExerciseId = new Guid("0a3202ca-4ddd-489f-be74-035e66a67de1"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("3a5a57a3-3495-45ae-9ebe-708e4d513d0c"),
@@ -16799,7 +20462,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8fd31432-ce25-47ec-b917-4636e4805a8b"),
+=======
+                            WorkoutExerciseId = new Guid("cb434944-44ee-4651-ad85-5d45dc46ac73"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -16810,7 +20477,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("77de9938-ee2d-4e21-a032-11728ed2c64e"),
+=======
+                            WorkoutExerciseId = new Guid("ee69c6b3-b7ad-42f1-bc1c-a0ef1000e2c7"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d6b2c0d5-110f-4dff-9aa7-91da10a29dca"),
@@ -16821,7 +20492,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("fe0d181e-ed72-4656-a4c4-481f38629eff"),
+=======
+                            WorkoutExerciseId = new Guid("4954dc78-4cf0-4953-b5a5-21f4fb2bca89"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("13ca014d-8b75-414f-afe3-3d378ef7fa97"),
@@ -16832,7 +20507,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("1fb497f5-33c1-480a-956d-38478e1326e7"),
+=======
+                            WorkoutExerciseId = new Guid("03ad4890-adb1-42dc-87a7-7a43647395e3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("05c931df-c828-442e-aee1-56432cb772c7"),
@@ -16843,7 +20522,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("0ea818e2-82ee-4ce9-8a48-7c619b0ebac7"),
+=======
+                            WorkoutExerciseId = new Guid("7e35f955-155c-4969-a2e4-9984eb75d334"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -16854,7 +20537,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("149d7ff1-0a99-49ac-b10f-c84785e9b017"),
+=======
+                            WorkoutExerciseId = new Guid("6c907f6e-35e3-4762-b7ce-816e29670429"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -16865,7 +20552,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("0129266b-60e7-4630-8add-17d5efe5cb9f"),
+=======
+                            WorkoutExerciseId = new Guid("baa94498-c17e-4f9c-8ffb-bfd17039b568"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -16876,7 +20567,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("bd1e836e-0df5-467b-b82c-6c142571b880"),
+=======
+                            WorkoutExerciseId = new Guid("e7a9416a-6235-4639-be83-84d90f011494"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("22af0171-257b-43bc-9013-8985472a8c84"),
@@ -16887,7 +20582,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("bc6a125d-8371-4357-aceb-779908459be7"),
+=======
+                            WorkoutExerciseId = new Guid("38732cc1-9424-4427-9abd-e6085f2aa423"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6ffea500-ca35-4483-b049-d8593b2c8680"),
@@ -16898,7 +20597,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("dde2783e-5aa2-428f-85f4-b7fc276130c5"),
+=======
+                            WorkoutExerciseId = new Guid("6c0d82a9-a546-46d1-9ffb-4ce1b46b968a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("6d6b06e1-5ade-4dae-b442-7aa200661760"),
@@ -16909,7 +20612,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8bb56ac4-b34c-4c52-9c0f-24bd10f4d77f"),
+=======
+                            WorkoutExerciseId = new Guid("63ea0ca3-24ed-4f91-aad6-95799d7396c9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -16920,7 +20627,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("a24a7626-fe22-40de-9430-dcfd0c05efaf"),
+=======
+                            WorkoutExerciseId = new Guid("c2e1ac05-4290-49e8-a0e3-4a120744659d"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0a280d32-de67-4a38-8f21-923243489eef"),
@@ -16931,7 +20642,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("eb9b4acf-0184-4912-91a3-0b4e9ba97045"),
+=======
+                            WorkoutExerciseId = new Guid("6a14043d-5820-45bb-b287-f4e971de4e96"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -16942,7 +20657,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8253ba8d-e613-4264-80fe-b1e95644514f"),
+=======
+                            WorkoutExerciseId = new Guid("921c0c2b-9bfa-48d4-871c-46301fc32ec8"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("0d1e54fe-7a5f-4e0a-a59f-ee9f443718e0"),
@@ -16953,7 +20672,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("988fcd09-1bf3-4f14-8436-60b462bc408c"),
+=======
+                            WorkoutExerciseId = new Guid("60892c07-f648-4579-be0b-41a958b49095"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ae6eaaa1-c8c4-4f97-afa4-4ceeea19d4b3"),
@@ -16964,7 +20687,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("a439bac6-000c-445c-b9e7-56cd5e834c36"),
+=======
+                            WorkoutExerciseId = new Guid("b1f6876b-f411-4113-ab02-16148827cd2a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("d3d944c4-947d-4910-bb6e-636390e5b8d5"),
@@ -16975,7 +20702,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("777af7ec-a43a-4086-b5a7-bef589ae9a48"),
+=======
+                            WorkoutExerciseId = new Guid("a241085b-ca4d-4537-a0d9-30acc97fc8f9"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("f93d73ba-d1d6-4037-b51b-1fd005accff3"),
@@ -16986,7 +20717,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("2eea4d52-eb1f-448b-badf-dda7fce0c3b4"),
+=======
+                            WorkoutExerciseId = new Guid("6c65291b-f167-474f-a8bf-d4e3df4ec70c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -16997,7 +20732,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("47d15eb5-42d9-48c9-ab3d-32afa03c89e4"),
+=======
+                            WorkoutExerciseId = new Guid("58167dba-f886-425d-8fb9-608730cebe25"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -17008,7 +20747,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("e8c538e5-5f96-48ef-8b75-545c4746c9e7"),
+=======
+                            WorkoutExerciseId = new Guid("8b3d1fd0-ebdc-45ad-9b86-19ce218e8f81"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("385f13f7-79bf-437b-acac-745b50485b9f"),
@@ -17019,7 +20762,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("01af6c03-d0cb-48ce-86fc-dec25333c39c"),
+=======
+                            WorkoutExerciseId = new Guid("12d48672-184c-4e89-928d-7691b0bfe261"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -17030,7 +20777,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("35c63cb4-072c-41b4-94a9-3bef0b0ae234"),
+=======
+                            WorkoutExerciseId = new Guid("2a41d920-ddca-424a-befa-0792f05126ca"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -17041,7 +20792,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("2abcfffd-2321-49b6-9f90-19bd859e0dbe"),
+=======
+                            WorkoutExerciseId = new Guid("c506a816-7b9e-4cf7-abc3-74aabef6cd60"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -17052,7 +20807,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("09156dc5-d012-4fd2-9fad-e9466e81766e"),
+=======
+                            WorkoutExerciseId = new Guid("fb92977d-4271-4958-8e55-532f2c3326cd"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -17063,7 +20822,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("0546b826-e593-4f7a-a23f-3f93bca74a9f"),
+=======
+                            WorkoutExerciseId = new Guid("a235429c-9b75-4179-b138-0341e9d4909a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -17074,7 +20837,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("9ed27762-53a8-4db7-9106-1b3a53b1ca20"),
+=======
+                            WorkoutExerciseId = new Guid("137d96d4-2538-4e99-bf41-c55beec63579"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -17085,7 +20852,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("886d989f-a9b0-4751-a3e9-74ee21f92ef8"),
+=======
+                            WorkoutExerciseId = new Guid("74f405ef-c860-4171-a8be-dda33dbfa7df"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -17096,7 +20867,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("d41c3a7b-bcb5-4280-acf2-dcf32c40e03b"),
+=======
+                            WorkoutExerciseId = new Guid("bd8b1673-a85f-41df-9653-ff91b711cdc3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -17107,7 +20882,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("90342402-6340-4b26-aa03-36f7d0f36dd9"),
+=======
+                            WorkoutExerciseId = new Guid("8d8ae739-9a2e-4e81-b15a-f302d94eaee6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -17118,7 +20897,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("04a67a93-cbb2-4f32-94fc-35b20a475dfa"),
+=======
+                            WorkoutExerciseId = new Guid("60e1b212-d1cb-4c64-a1ed-dc93fce322de"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -17129,7 +20912,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("cfc5710f-a743-441f-9432-576c8ae344c8"),
+=======
+                            WorkoutExerciseId = new Guid("2d58b0ff-c12e-4553-9e52-5883a7059dbe"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -17140,7 +20927,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("127eda93-5e4b-4715-ae14-d3fb5e4f12e9"),
+=======
+                            WorkoutExerciseId = new Guid("4ebf9dd0-20a6-4a48-b5cb-fdf7dcddfcf0"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -17151,7 +20942,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("45bde23d-c225-4150-9290-5be8c382f433"),
+=======
+                            WorkoutExerciseId = new Guid("39003586-241a-4556-882d-7b5af4a4877e"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -17162,7 +20957,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("3b40ef56-235c-4c30-a616-1fbcdd9d201c"),
+=======
+                            WorkoutExerciseId = new Guid("abd889b3-8b8d-4803-ba29-f194b3a61b06"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -17173,7 +20972,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("6705ad0e-4178-445e-8d17-54476ec7d4e2"),
+=======
+                            WorkoutExerciseId = new Guid("fdd33129-ecc8-48b5-b595-119c0e96cff6"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -17184,7 +20987,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("1bb354b7-d132-4803-982b-d7272a57c918"),
+=======
+                            WorkoutExerciseId = new Guid("3cb7d732-f174-4680-a2ab-0ac312e4e49c"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -17195,7 +21002,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("c923823c-a2d8-47fe-af75-a30ddfcec49c"),
+=======
+                            WorkoutExerciseId = new Guid("840c6250-d4d2-40ae-9f6b-b6c08b5018cb"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("7c38fc8f-8fd2-450e-8fa6-c4557f0e6e02"),
@@ -17206,7 +21017,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("719f18da-f50e-49cd-a978-902c6cffc0f0"),
+=======
+                            WorkoutExerciseId = new Guid("ee268515-239d-4bec-9ab5-7b456f761e8b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("58878826-775e-4d4c-8e1b-d5c95afc214d"),
@@ -17217,7 +21032,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("33e235d3-fcf6-4f5e-b424-07a36f748181"),
+=======
+                            WorkoutExerciseId = new Guid("d1aa45de-9c81-43ba-bb36-54dc3640ec04"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("3a5a57a3-3495-45ae-9ebe-708e4d513d0c"),
@@ -17228,7 +21047,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("0ccb13ba-cc2f-4353-ae87-a880856c86ea"),
+=======
+                            WorkoutExerciseId = new Guid("123e23fb-ff71-4919-9ba1-dc5cfd4ca2ca"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2e787245-7612-41bc-9b75-7a4857282350"),
@@ -17239,7 +21062,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("4437c93f-bb76-422f-8ae6-cb1787b2c7fb"),
+=======
+                            WorkoutExerciseId = new Guid("bb38f9b2-ae96-4318-9063-523f9536712f"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -17250,7 +21077,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("8962eea6-47f8-43ad-aabf-7306e5274948"),
+=======
+                            WorkoutExerciseId = new Guid("4a6aca53-05ff-43a0-95ad-f31a70286cad"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("2696db05-e815-4c8b-870d-23c338479e95"),
@@ -17261,7 +21092,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("dcf4a670-1202-4639-bc85-40eab7b93289"),
+=======
+                            WorkoutExerciseId = new Guid("e546bf5d-b659-4915-8e4a-32a14499e31b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -17272,7 +21107,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("9a849974-ba9e-4e39-9c54-b0b48714ab88"),
+=======
+                            WorkoutExerciseId = new Guid("d863db6e-d9c4-41e2-aa52-80f326bc905a"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -17283,7 +21122,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("333a0d12-bc90-491c-9522-c0b8e2462226"),
+=======
+                            WorkoutExerciseId = new Guid("e5fbd625-3476-42d1-9f07-6c157f7b3b8b"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -17294,7 +21137,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("447dac0f-b036-4596-855b-df2c872f63f6"),
+=======
+                            WorkoutExerciseId = new Guid("a15a0a4d-071d-4ae6-a4ae-6e0fcd9f2971"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -17305,7 +21152,11 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
+<<<<<<< HEAD
                             WorkoutExerciseId = new Guid("dd4785e4-6cca-4729-8329-939adf674d91"),
+=======
+                            WorkoutExerciseId = new Guid("c3beccd9-4dcf-4122-9994-66e27c5e42f3"),
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("93e22c77-001f-4825-8983-4ec5b643b7bb"),
@@ -17484,7 +21335,11 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "b965ba3f-150b-4a58-af3c-ec1d234ae623",
+=======
+                            ConcurrencyStamp = "f640f369-5ab0-481e-b248-bde2706ab0b6",
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "asd@gmail.com",
@@ -17493,10 +21348,17 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAEMCdjqrcHoarzxAVMC+/ee5c++D2aEFf1pWd9Ut8k+PeB1MIwE0lyBkc5GebfBpYDg==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "e45c1bb5-2bd8-4612-ae89-b32df7e28d4e",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ5n7Edah6q8hQqHf6f9EM+7Z8zb1QfMorusk5XrWq617VFZfvZSIbEvGPQahEKvrA==",
+                            PhoneNumber = "0123456789",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "e97276f7-eb35-46ce-97a2-0350dad8eba4",
+>>>>>>> origin/HC-RecommendFood-Duy
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17507,7 +21369,11 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "c1831e4b-a915-44b1-9601-b40833d8a48a",
+=======
+                            ConcurrencyStamp = "ad612a3b-5c8f-4bb2-9db3-cd802e68f46e",
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "toanvan@gmail.com",
@@ -17516,10 +21382,17 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAEPahpicnaLu4nO8nICIi9/Vk6kRSq45C5EWNRKlpbInG1dRMwgF7VjkwZnFWOLs3lQ==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "43744c6e-4b12-4af3-a4e5-2765a1bcfe23",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAEEsCAEsHPXu6ubOiKLWD4T473hQIBqFN3vX5JY5Pto7MN94f7PL6aMfoh5SQNBh7yA==",
+                            PhoneNumber = "0792766979",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "a8d8aec7-c29b-4ec9-8182-e5a4176375ad",
+>>>>>>> origin/HC-RecommendFood-Duy
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17530,7 +21403,11 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "76bfe17e-18b0-4b6d-9dc1-789d749e9080",
+=======
+                            ConcurrencyStamp = "8a24ba67-6422-43dd-ad20-8e0959d56b8a",
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quocdai@gmail.com",
@@ -17539,10 +21416,17 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAELQvHrb5QCtegU7XjUnu1CVhGKq85OTTVW/1OjDDd5/SJrN6KybaK+QJSDpqIl9Hfg==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "f4bbfcac-fbea-4ffd-8ebb-82fb38adae52",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAEIvGb43WC2agLOsW2ZoNV03PeA4qINMMiUAm7k01aP+tzDdnqOyGSVwzigvPR8VoYg==",
+                            PhoneNumber = "0932748924",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "d7fa5094-2522-481b-8bf9-8935c7f41fa2",
+>>>>>>> origin/HC-RecommendFood-Duy
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17553,7 +21437,11 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "dc68c819-7040-4b55-b734-297ace65e1a3",
+=======
+                            ConcurrencyStamp = "4bc49510-160d-4672-868b-22f848dfab51",
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khaitoi@gmail.com",
@@ -17562,10 +21450,17 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAEHQijJncUrVcv1kH7XNB7qQilc3+bUL672nOt0GV++sBK18x6+24DFUsxiSX0FZfxQ==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "876efd84-3961-4bd2-8c1d-1d87e8410262",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAEIvGwSy8tHtAx8s8VmocJMI5jOuDZ0usRLw9ha+4Qjjgxo9rWc+r+z4bd4w2X3aV/g==",
+                            PhoneNumber = "0963122758",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "072d4aa0-2cb1-4652-b3f6-f10597b54e0c",
+>>>>>>> origin/HC-RecommendFood-Duy
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17576,7 +21471,11 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "892e553e-2262-4b59-a2f6-2dcc881a5f21",
+=======
+                            ConcurrencyStamp = "2c676bfa-04b6-4098-bf62-59843fe028a6",
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "duythunglungtinhiu@gmail.com",
@@ -17585,10 +21484,17 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAEMFrzCUXPu1cbLKEEpRlCjuiWcARr8oxfOIP1TAZh3ma1AikhnrchBVAjFez2PQikw==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "f9f3813a-3255-4065-839d-1404d1b1f6dd",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAEDyFL1tzawc4qvZeeCp4L/eI22uvObaOBrVNHrku1VJikuG80l0xQmG+je112YXS+Q==",
+                            PhoneNumber = "0555666612",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "4a163978-bd52-4f94-88c3-196bad2a181f",
+>>>>>>> origin/HC-RecommendFood-Duy
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17599,7 +21505,11 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "bd01eeae-67ed-4d12-975c-ec72b67018aa",
+=======
+                            ConcurrencyStamp = "07abdad7-2e35-46cc-bfac-c8705aba9d35",
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khanhpham@gmail.com",
@@ -17608,10 +21518,17 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAEKomsI+lpcwBvBwxrSHxvqbhFqfd2zx85dGUyb3wVA9k2cl1s1bX7Xhk3JrHQEGPdg==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "32eba612-1454-4b58-abed-ddc72b89e302",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAELkp9hcGqb2Kd30tT3GXOG4sEpkh4O5xa6CorAJic8dOACwbdvbqykXaViSt0D5Egg==",
+                            PhoneNumber = "0969998878",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "8f556075-6d38-41ec-967a-b99affd22aa3",
+>>>>>>> origin/HC-RecommendFood-Duy
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17622,7 +21539,11 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "d724efe1-a03f-4eb8-b1cb-1ce5de89c0e8",
+=======
+                            ConcurrencyStamp = "49fcad96-a8ac-41e3-9425-a529da02bd16",
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quangdalat@gmail.com",
@@ -17631,10 +21552,17 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAEF+IryXcTqzI2qzHM1x6pZS0E1ZsD9bt9ycIo5LXUuoDK9TlgAIgp9Bvr7PpTGyhpg==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "a18b5444-91b8-463e-8d8d-428750749f8f",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAEEg6WBB7M/hFpe1W+bIMLORKINuZA360gBqqF9Lwm2vhp3hs7rUx9I1s9mA/w128JA==",
+                            PhoneNumber = "0999777712",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "e945e2c3-19ae-426f-a425-a8965b27a4be",
+>>>>>>> origin/HC-RecommendFood-Duy
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17645,7 +21573,11 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("20041d5b-01e4-443f-9652-e39beb9748e5"),
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "92aa55aa-e6fd-426c-8837-5c2ee6e1d2ff",
+=======
+                            ConcurrencyStamp = "991ce3f9-fae1-4d8a-8861-1ff371db5848",
+>>>>>>> origin/HC-RecommendFood-Duy
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "consultant@gmail.com",
@@ -17654,10 +21586,17 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CONSULTANT@GMAIL.COM",
                             NormalizedUserName = "0987654321",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAECsc2FOBnn+XCVdHlv7hAs8PyVGLLZ33HREgpZCK4gZWe6/OOpIAHcryQ4CRBEW/vw==",
                             PhoneNumber = "0987654321",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "1f9f0efe-1349-4e1f-9d68-dfe23fb5b28f",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAECeYm8vMxR2aY3XadHBGspTiRyzs+ppPk8Qu14fimP1xYy2hTNRjFmxJiGXnQBkZFw==",
+                            PhoneNumber = "0987654321",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "6ceb6697-67d8-494f-a0c9-fa15644ff64c",
+>>>>>>> origin/HC-RecommendFood-Duy
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -17717,7 +21656,30 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Monhealth.Domain.Activity", b =>
+=======
+            modelBuilder.Entity("Monhealth.Core.UserCategory", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Category", "Category")
+                        .WithMany("UserCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Monhealth.Identity.Models.AppUser", "User")
+                        .WithMany("UserCategories")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.Activities", b =>
+>>>>>>> origin/HC-RecommendFood-Duy
                 {
                     b.HasOne("Monhealth.Domain.DailyActivity", "DailyActivity")
                         .WithMany("Activities")
@@ -17751,6 +21713,25 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("Consultant");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Monhealth.Domain.CategoryFood", b =>
+                {
+                    b.HasOne("Monhealth.Domain.Category", "Category")
+                        .WithMany("CategoryFoods")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Monhealth.Domain.Food", "Food")
+                        .WithMany("CategoryFoods")
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Food");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Certificate", b =>
@@ -17853,10 +21834,6 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
                 {
-                    b.HasOne("Monhealth.Domain.Category", "Category")
-                        .WithMany("Foods")
-                        .HasForeignKey("CategoryId");
-
                     b.HasOne("Monhealth.Identity.Models.AppUser", "AppUser")
                         .WithMany("Foods")
                         .HasForeignKey("UserId")
@@ -17864,8 +21841,6 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired();
 
                     b.Navigation("AppUser");
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.FoodAllergy", b =>
@@ -18062,17 +22037,6 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.UserFood", b =>
-                {
-                    b.HasOne("Monhealth.Identity.Models.AppUser", "User")
-                        .WithOne("UserFood")
-                        .HasForeignKey("Monhealth.Domain.UserFood", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Monhealth.Domain.UserSubscription", b =>
                 {
                     b.HasOne("Monhealth.Domain.Subscription", "Subscription")
@@ -18148,7 +22112,9 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Category", b =>
                 {
-                    b.Navigation("Foods");
+                    b.Navigation("CategoryFoods");
+
+                    b.Navigation("UserCategories");
 
                     b.Navigation("Workouts");
                 });
@@ -18182,6 +22148,8 @@ namespace Monhealth.Identity.Migrations
 
             modelBuilder.Entity("Monhealth.Domain.Food", b =>
                 {
+                    b.Navigation("CategoryFoods");
+
                     b.Navigation("FoodAllergies");
 
                     b.Navigation("FoodPortions");
@@ -18259,8 +22227,7 @@ namespace Monhealth.Identity.Migrations
 
                     b.Navigation("UserBookings");
 
-                    b.Navigation("UserFood")
-                        .IsRequired();
+                    b.Navigation("UserCategories");
 
                     b.Navigation("UserSubscriptions");
 

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Monhealth.Core;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Configurations;
@@ -37,7 +39,6 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Payment> Payments { get; set; }
-        public DbSet<UserFood> UserFoods { get; set; }
         public DbSet<Workout> Workouts { get; set; }
         public DbSet<WorkoutExercise> WorkoutExercises { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
@@ -49,6 +50,9 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<ScheduleTimeSlot> ScheduleTimeSlots { get; set; }
         public DbSet<TimeSlot> TimeSlots { get; set; }
         public DbSet<ScheduleException> ScheduleExceptions { get; set; }
+        public DbSet<CategoryFood> CategoryFoods { get; set; }
+        public DbSet<UserCategory> UserCategories { get; set; }
+        //public DbSet<ConsultantExpertise> ConsultantExpertises { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -95,20 +99,34 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(d => d.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<UserFood>(entity =>
-            {
-                entity.Property(e => e.Categories)
-                    .HasConversion(
-                      v => string.Join(',', v), // Chuyển từ List<string> thành chuỗi
-                      v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList() // Chuyển chuỗi thành List<string>
-                  );
+            // builder.Entity<UserFood>(entity =>
+            // {
+            //     entity.Property(e => e.Categories)
+            //         .HasConversion(
+            //           v => string.Join(',', v), // Chuyển từ List<string> thành chuỗi
+            //           v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList() // Chuyển chuỗi thành List<string>
+            //       );
 
-                entity.Property(e => e.Allergies)
-                    .HasConversion(
-                        v => string.Join(',', v),
-                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-                    );
-            });
+            //     entity.Property(e => e.Allergies)
+            //         .HasConversion(
+            //             v => string.Join(',', v),
+            //             v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+            //         );
+            // });
+            // Create Value Comparers for List<MealType> and List<DishType>
+
+            var mealTypeComparer = new ValueComparer<List<MealType>>(
+                (c1, c2) => c1.SequenceEqual(c2),
+                c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                c => c.ToList()
+            );
+
+            var dishTypeComparer = new ValueComparer<List<DishType>>(
+                (c1, c2) => c1.SequenceEqual(c2),
+                c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                c => c.ToList()
+            );
+
             builder.Entity<Food>(entity =>
             {
                 entity.Property(e => e.FoodType)
@@ -121,19 +139,21 @@ namespace Monhealth.Identity.Dbcontexts
 
                 entity.Property(e => e.MealType)
                     .HasConversion(
-                        v => string.Join(',', v.Select(x => x.ToString())), // Từ List<MealType> -> string
+                        v => string.Join(',', v.Select(x => x.ToString())),
                         v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                              .Select(x => Enum.Parse<MealType>(x)) // Từ string -> List<MealType>
+                              .Select(x => Enum.Parse<MealType>(x))
                               .ToList()
-                    );
+                    )
+                   .Metadata.SetValueComparer(mealTypeComparer);
 
                 entity.Property(e => e.DishType)
                     .HasConversion(
-                        v => string.Join(',', v.Select(x => x.ToString())), // Từ List<DishType> -> string
+                        v => string.Join(',', v.Select(x => x.ToString())),
                         v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                              .Select(x => Enum.Parse<DishType>(x)) // Từ string -> List<DishType>
+                              .Select(x => Enum.Parse<DishType>(x))
                               .ToList()
-                    );
+                    )
+                    .Metadata.SetValueComparer(dishTypeComparer);
             });
             builder.Entity<ScheduleTimeSlot>()
                 .HasOne(s => s.Status)
@@ -159,6 +179,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new SubscriptionConfiguration());
             builder.ApplyConfiguration(new FoodAllergyConfiguration());
             builder.ApplyConfiguration(new ExpertiseConfiguration());
+            builder.ApplyConfiguration(new CategoryFoodConfiguration());
         }
     }
 }
