@@ -33,6 +33,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
                 expertise.CreatedAt = DateTime.Now;
                 expertise.UpdatedAt = DateTime.Now;
                 _expertiseRepository.Add(expertise);
+                await _expertiseRepository.SaveChangeAsync();
 
             }
             // Create Consultant
@@ -45,13 +46,15 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             newConsultant.CreatedAt = DateTime.Now;
             newConsultant.UpdatedAt = DateTime.Now;
             _consultantRepository.Add(newConsultant);
+            await _consultantRepository.SaveChangeAsync();
 
             // Create Certificate
             var newCertificate = _mapper.Map<Domain.Certificate>(request.CreateConsultantDTO);
             newCertificate.CertificateId = Guid.NewGuid();
             newCertificate.ExpertiseId = expertise.ExpertiseId;
+            newCertificate.ConsultantId = newConsultant.ConsultantId;
             newCertificate.ImageUrls = JsonSerializer.Serialize(request.CreateConsultantDTO.Images);
-            newCertificate.Status = true;
+            newCertificate.IsVerified = false;
             newCertificate.CreatedAt = DateTime.Now;
             newCertificate.UpdatedAt = DateTime.Now;
             _certificateRepository.Add(newCertificate);

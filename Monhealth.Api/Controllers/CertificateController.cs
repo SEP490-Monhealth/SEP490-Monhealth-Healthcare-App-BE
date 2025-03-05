@@ -84,15 +84,15 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{certificateId:guid}/status")]
-        public async Task<ActionResult<ResultModel>> ChangeCertificateStatus(Guid certificateId)
+        [HttpPatch("{certificateId:guid}/isveryfied")]
+        public async Task<ActionResult<ResultModel>> ChangeCertificateIsVerified(Guid certificateId)
         {
-            await mediator.Send(new UpdateCertificateStatusCommand { CertificateId = certificateId });
+            await mediator.Send(new UpdateCertificateIsVerifiedCommand { CertificateId = certificateId });
             return new ResultModel
             {
                 Data = null,
                 Status = 200,
-                Message = "Cập nhập trạng thái thành công",
+                Message = "Xác minh chứng chỉ thành công",
                 Success = true,
             };
         }
