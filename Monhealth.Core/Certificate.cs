@@ -9,16 +9,16 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid CertificateId { get; set; }
-        public Guid? UserId { get; set; }
         public Guid? ExpertiseId { get; set; }
+        public Guid? ConsultantId { get; set; }
         public string CertificateName { get; set; } = string.Empty;
-        public string Images { get; set; } = string.Empty;
+        public string ImageUrls { get; set; } = string.Empty;
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
         public bool Status { get; set; }
 
-        [ForeignKey(nameof(UserId))]
-        public AppUser? User { get; set; }
+        [ForeignKey(nameof(ConsultantId))]
+        public Consultant? Consultant { get; set; }
 
         [ForeignKey(nameof(ExpertiseId))]
         public Expertise? Expertise { get; set; }

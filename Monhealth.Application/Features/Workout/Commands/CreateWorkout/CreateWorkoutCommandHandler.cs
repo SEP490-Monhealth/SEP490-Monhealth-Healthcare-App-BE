@@ -36,7 +36,7 @@ namespace Monhealth.Application.Features.Workout.Commands.CreateWorkout
             {
                 exercise.WorkoutId = workout.WorkoutId;
                 exercise.Order++;
-                exercise.Status = true;
+                exercise.IsCompleted = true;
             }
             workoutExcerciseRepository.AddRange(workoutExcercises);
             await workoutRepository.SaveChangeAsync(cancellationToken);

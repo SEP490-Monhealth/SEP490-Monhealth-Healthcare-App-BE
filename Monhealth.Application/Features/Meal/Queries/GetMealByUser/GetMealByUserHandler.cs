@@ -35,7 +35,8 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealByUser
 
                 foreach (var mealFood in meal.MealFoods)
                 {
-                    if(mealFood.Status){
+                    if(mealFood.IsCompleted)
+                    {
 
                     if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
                         continue;

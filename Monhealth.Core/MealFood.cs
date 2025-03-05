@@ -13,7 +13,7 @@ namespace Monhealth.Domain
         public Guid PortionId { get; set; }
         public int Quantity { get; set; }
         public bool IsRecommended { get; set; }
-        public bool Status { get; set; }
+        public bool IsCompleted { get; set; }
 
         [ForeignKey(nameof(FoodId))]
         public Food Food { get; set; }

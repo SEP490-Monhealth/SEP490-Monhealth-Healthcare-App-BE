@@ -59,7 +59,7 @@ namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
                         sugar = (mealFood.Food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
 
                         // Cộng dồn vào giá trị dinh dưỡng tổng cộng nếu Status == true
-                        if (mealFood.Status == true)
+                        if (mealFood.IsCompleted == true)
                         {
                             totalCalories += calories;
                             totalProtein += protein;
@@ -76,7 +76,7 @@ namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
                         MealFoodId = mealFood.MealFoodId,
                         FoodId = mealFood.FoodId,
                         FoodName = mealFood.Food?.FoodName ?? string.Empty,
-                        Status = mealFood.Status,
+                        Status = mealFood.IsCompleted,
                         Quantity = mealFood.Quantity,
                         Calories = calories, // Giá trị luôn được tính toán
                         Portion = new MealFoodPortion5

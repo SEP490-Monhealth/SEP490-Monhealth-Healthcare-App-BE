@@ -119,7 +119,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                         UpdatedAt = DateTime.Now,
                         PortionId = portionId,
                         IsRecommended = false,
-                        Status = false,
+                        IsCompleted = false,
                     };
                     _mealFoodRepository.Add(mealFood);
                 }
@@ -190,7 +190,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     {
                         throw new Exception($"Không tìm thấy Portion với PortionId: {mealFood.PortionId}");
                     }
-                    if (mealFood.Status == true)
+                    if (mealFood.IsCompleted == true)
                     {
                         var food = mealFood.Food;
                         var portionWeight = portion.PortionWeight;

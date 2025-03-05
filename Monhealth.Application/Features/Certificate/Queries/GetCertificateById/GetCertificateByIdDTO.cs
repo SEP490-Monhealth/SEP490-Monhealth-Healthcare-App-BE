@@ -1,11 +1,14 @@
-﻿using System.Text.Json.Serialization;
-using MediatR;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
-namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
+namespace Monhealth.Application.Features.Certificate.Queries.GetCertificateById
 {
-    public class CertificateCommand : IRequest<Unit>
+    public class GetCertificateByIdDTO
     {
-        public Guid UserId { get; set; } // FK 
         public Guid ExpertiseId { get; set; }
         public Guid? ConsultantId { get; set; }
         [JsonPropertyName("name")]
