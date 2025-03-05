@@ -53,7 +53,7 @@ namespace Monhealth.Application.Features.MealFood.Queries
                         Unit = portion.MeasurementUnit ?? string.Empty,
                     },
                     isRecommended = mf.IsRecommended,
-                    Status = mf.Status,
+                    Status = mf.IsCompleted,
                     CreatedAt = mf.CreatedAt,
                     UpdatedAt = mf.UpdatedAt
                 };

@@ -25,7 +25,6 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
         {
             var newActivity = _mapper.Map<Domain.Activity>(request.CreateActivityDTO);
             newActivity.ActivityId = Guid.NewGuid();
-            newActivity.Status = false;
             newActivity.CreatedAt = DateTime.Now;
             newActivity.UpdatedAt = DateTime.Now;
             _activityRepository.Add(newActivity);

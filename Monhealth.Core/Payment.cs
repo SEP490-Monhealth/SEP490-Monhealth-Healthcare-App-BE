@@ -7,13 +7,13 @@ namespace Monhealth.Domain
     public class Payment : BaseEntity
     {
         [Key]
-        public Guid PaymentId { get; set; } // PK
-        //public Guid BookingId { get; set; } // FK
-        public Guid SubscriptionId { get; set; } // FK
+        public Guid PaymentId { get; set; }
+        //public Guid BookingId { get; set; }
+        public Guid SubscriptionId { get; set; }
         public int Amount { get; set; }
         public string Status { get; set; } = string.Empty;
+
         [ForeignKey(nameof(SubscriptionId))]
         public Subscription Subscription { get; set; }
-
     }
 }

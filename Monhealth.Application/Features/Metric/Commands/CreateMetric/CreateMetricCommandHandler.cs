@@ -299,7 +299,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                         continue;
                     }
 
-                    if (mealFood.Status) // 🔹 Chỉ cập nhật nếu mealFood đã được đánh dấu là hợp lệ
+                    if (mealFood.IsCompleted) // 🔹 Chỉ cập nhật nếu mealFood đã được đánh dấu là hợp lệ
                     {
                         var portionWeight = portion.PortionWeight;
 

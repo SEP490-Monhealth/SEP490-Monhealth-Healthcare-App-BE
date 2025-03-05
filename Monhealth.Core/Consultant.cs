@@ -13,11 +13,14 @@ namespace Monhealth.Domain
         public Guid? ExpertiseId { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int? Experience { get; set; }
+        public double? RatingCount { get; set; }
+        public double? AverageRating { get; set; }
         public bool? Status { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         [ForeignKey(nameof(ExpertiseId))]
         public Expertise Expertise { get; set; }
+        public ICollection<Certificate> Certificates { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Monhealth.Application.Automapper
         public ExerciseProfile()
         {
             CreateMap<Exercise, ExerciseDto>()
-                .ForMember(dest => dest.Duration, opt => opt.MapFrom(src => src.WorkoutExercises.FirstOrDefault() != null ? src.WorkoutExercises.FirstOrDefault().Duration : 0))
+                .ForMember(dest => dest.Duration, opt => opt.MapFrom(src => src.WorkoutExercises.FirstOrDefault() != null ? src.WorkoutExercises.FirstOrDefault().DurationSeconds : 0))
                 .ForMember(dest => dest.Reps, opt => opt.MapFrom(src => src.WorkoutExercises.FirstOrDefault() != null ? src.WorkoutExercises.FirstOrDefault().Reps : 0));
             CreateMap<Exercise, GetAllExercisesDTO>();
             //.ForMember(dest => dest.CategoryName , opt => opt.MapFrom(src => src.Category.CategoryName)).ReverseMap();

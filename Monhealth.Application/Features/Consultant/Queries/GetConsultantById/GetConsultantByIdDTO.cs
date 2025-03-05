@@ -13,6 +13,8 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetConsultantById
         [JsonPropertyName("expertise")]
         public string? ExpertiseName { get; set; }
         public int? Experience { get; set; }
+        public double? RatingCount { get; set; }
+        public double? AverageRating { get; set; }
         public bool? Status { get; set; }
     }
 }

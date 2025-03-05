@@ -20,14 +20,15 @@ namespace Monhealth.Domain
         public float? Cholesterol { get; set; }
         public float? Sodium { get; set; }
         public float? Potassium { get; set; }
-        public float? Calcium {get; set;}
-        public float? Iron {get; set;}
+        public float? Calcium { get; set; }
+        public float? Iron { get; set; }
         public float? VitaminA { get; set; }
         public float? VitaminB1 { get; set; }
         public float? VitaminB2 { get; set; }
         public float? VitaminC { get; set; }
         public float? VitaminD { get; set; }
         public float? VitaminE { get; set; }
+
         [ForeignKey(nameof(FoodId))]
         public Food Food { get; set; }
     }

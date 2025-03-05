@@ -1,4 +1,5 @@
 ﻿using Monhealth.Domain.Common;
+using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,6 +19,8 @@ namespace Monhealth.Domain
         public float TotalFibers { get; set; }
         public float TotalSugars { get; set; }
 
+        [ForeignKey(nameof(UserId))]
+        public AppUser AppUser { get; set; }
         [ForeignKey(nameof(GoalId))]
         public Goal Goal { get; set; }
         public ICollection<Meal> Meals { get; set; }

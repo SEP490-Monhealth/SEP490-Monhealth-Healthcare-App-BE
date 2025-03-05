@@ -8,6 +8,7 @@ namespace Monhealth.Domain
         [Key]
         public Guid FoodAllergyId { get; set; }
         public Guid FoodId { get; set; }
+
         [ForeignKey(nameof(FoodId))]
         public Food Food { get; set; }
         public Guid AllergyId { get; set; }

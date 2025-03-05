@@ -12,9 +12,9 @@ namespace Monhealth.Domain
         public Guid WorkoutId { get; set; }
         public Guid ExerciseId { get; set; }
         public int Order { get; set; } = default!;
-        public int Duration { get; set; } = default!;
+        public int DurationSeconds { get; set; } = default!;
         public int Reps { get; set; } = default!;
-        public bool Status { get; set; }
+        public bool? IsCompleted { get; set; }
 
         [ForeignKey(nameof(WorkoutId))]
         public Workout Workout { get; set; }

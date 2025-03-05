@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
             var certificate = mapper.Map<Domain.Certificate>(request);
             if (imageUrls != null)
             {
-                certificate.Images = imageUrls;
+                certificate.ImageUrls = imageUrls;
             }
             certificate.Status = false;
             certificateRepository.Add(certificate);

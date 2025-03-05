@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Reflection.Emit;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Core.Enum;
@@ -89,6 +90,12 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(we => we.ExerciseId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<DailyMeal>()
+                .HasOne(d => d.Goal)
+                .WithMany(g => g.DailyMeals)
+                .HasForeignKey(d => d.GoalId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.Entity<UserFood>(entity =>
             {
                 entity.Property(e => e.Categories)
@@ -128,7 +135,7 @@ namespace Monhealth.Identity.Dbcontexts
                               .Select(x => Enum.Parse<DishType>(x)) // Từ string -> List<DishType>
                               .ToList()
                     );
-            });
+            });            
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());

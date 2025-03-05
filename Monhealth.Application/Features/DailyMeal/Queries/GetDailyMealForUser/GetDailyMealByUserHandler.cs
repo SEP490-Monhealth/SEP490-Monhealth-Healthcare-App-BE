@@ -55,7 +55,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                 {
                     if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty)
                         continue;
-                    if (mealFood.Status == true)
+                    if (mealFood.IsCompleted == true)
                     {
                         var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
                         if (portion == null)

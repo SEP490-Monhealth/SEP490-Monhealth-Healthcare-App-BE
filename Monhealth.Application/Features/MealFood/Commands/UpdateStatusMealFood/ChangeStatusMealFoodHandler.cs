@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateStatusMealFood
             if (mealFood == null) throw new Exception("MealFood không tồn tại");
 
             // Đổi trạng thái của MealFood
-            mealFood.Status = !mealFood.Status;
+            mealFood.IsCompleted = !mealFood.IsCompleted;
             _mealFoodRepository.Update(mealFood);
             await _mealFoodRepository.SaveChangeAsync();
 
@@ -68,7 +68,7 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateStatusMealFood
                 var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(relatedMeal.MealId);
 
                 // Chỉ tính giá trị dinh dưỡng của MealFood có status = true
-                foreach (var foodItem in mealFoods.Where(f => f.Status))
+                foreach (var foodItem in mealFoods.Where(f => (bool)f.IsCompleted))
                 {
                     var relatedPortion = await _portionRepository.GetByIdAsync(foodItem.PortionId);
                     if (relatedPortion == null) continue;
