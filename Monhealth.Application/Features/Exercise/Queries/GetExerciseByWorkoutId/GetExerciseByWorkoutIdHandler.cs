@@ -30,12 +30,12 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
 
             int totalWarmupDuration = exerciseWarmupList
                 .Sum(ex => ex.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0);
-
+            totalWarmupDuration *= 2; //warmUp x2 round
             var exercises = (List<Domain.Exercise>)await exerciseRepository.GetExercisesByWorkoutIdAsync(request.WorkoutId);
 
             int totalExerciseDuration = exercises
                 .Sum(ex => ex.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0);
-
+            totalExerciseDuration *= 3; // Exercise X3 round
             return new GetExerciseByWorkoutIdDto
             {
                 Warmup = workoutWarmup != null ? mapper.Map<List<ExerciseDto>>(exerciseWarmupList) : new List<ExerciseDto>(),

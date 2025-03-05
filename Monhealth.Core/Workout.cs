@@ -18,6 +18,8 @@ namespace Monhealth.Domain
         public DifficultyLevel DifficultyLevel { get; set; }
         public int Views { get; set; } = default!;
         public bool IsPublic { get; set; }
+        public float DurationMinutes { get; set; }
+        public float CaloriesBurned { get; set; }
         public bool Status { get; set; } = default!;
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }

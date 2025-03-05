@@ -123,6 +123,7 @@ namespace Monhealth.Identity.Repositories
             w.WorkoutType == Core.Enum.WorkoutType.Warmup
             && w.DifficultyLevel == workout.DifficultyLevel
             )
+                .Include(w => w.WorkoutExercises).ThenInclude(we => we.Exercise)
                 .OrderBy(e => e.WorkoutExercises.Where(we => we.WorkoutId == workout.WorkoutId).Min(we => we.Order))
                 .ToListAsync();
         }

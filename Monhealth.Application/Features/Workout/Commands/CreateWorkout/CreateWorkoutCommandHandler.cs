@@ -11,8 +11,6 @@ namespace Monhealth.Application.Features.Workout.Commands.CreateWorkout
         IUserRepository userRepository
 
         )
-
-
         : IRequestHandler<CreateWorkoutCommand, Guid>
     {
 
@@ -27,7 +25,10 @@ namespace Monhealth.Application.Features.Workout.Commands.CreateWorkout
             if (existWorkout) throw new Exception("Tên Bài tập này đã tồn tại");
 
             var workout = mapper.Map<Domain.Workout>(request);
+            //int durationTotal = 0;
+            //int caloriesBurnedTotoal = 0;
             workout.WorkoutId = Guid.NewGuid();
+
             workoutRepository.Add(workout);
 
             var workoutExcercises = mapper.Map<List<WorkoutExercise>>(request.Items);
@@ -37,8 +38,11 @@ namespace Monhealth.Application.Features.Workout.Commands.CreateWorkout
                 exercise.WorkoutId = workout.WorkoutId;
                 exercise.Order++;
                 exercise.IsCompleted = true;
+                // durationTotal = exercise.DurationSeconds + exercise.Reps * 2;
+
             }
             workoutExcerciseRepository.AddRange(workoutExcercises);
+
             await workoutRepository.SaveChangeAsync(cancellationToken);
             return workout.WorkoutId;
         }
