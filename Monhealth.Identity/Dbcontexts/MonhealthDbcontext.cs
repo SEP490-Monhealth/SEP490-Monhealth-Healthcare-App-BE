@@ -1,5 +1,4 @@
-﻿using System.Reflection.Emit;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Core.Enum;
@@ -135,7 +134,14 @@ namespace Monhealth.Identity.Dbcontexts
                               .Select(x => Enum.Parse<DishType>(x)) // Từ string -> List<DishType>
                               .ToList()
                     );
-            });            
+            });
+            builder.Entity<ScheduleTimeSlot>()
+                .HasOne(s => s.Status)
+                .WithMany()
+                 .HasForeignKey(s => s.ScheduleTimeSlotId)
+                 .OnDelete(DeleteBehavior.NoAction); // Prevent cyclic delete paths
+
+
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());
@@ -152,6 +158,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new WorkoutExerciseConfiguration());
             builder.ApplyConfiguration(new SubscriptionConfiguration());
             builder.ApplyConfiguration(new FoodAllergyConfiguration());
+            builder.ApplyConfiguration(new ExpertiseConfiguration());
         }
     }
 }

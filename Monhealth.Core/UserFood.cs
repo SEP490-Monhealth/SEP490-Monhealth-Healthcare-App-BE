@@ -8,7 +8,6 @@ namespace Monhealth.Domain
     public class UserFood : TimeEntity
     {
         [Key]
-
         public Guid UserFoodId { get; set; }
         public Guid UserId { get; set; }
         public List<string> Categories { get; set; }
