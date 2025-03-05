@@ -82,7 +82,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             _goalCalculator.CreateCalculateGoal(newGoal, request.CreateMetricDTO, newMetric.Tdee);
             newGoal.GoalId = Guid.NewGuid();
             var checkStatus = await _goalRepository.CheckStatusGoal(request.CreateMetricDTO.UserId);
-            if(checkStatus != null)
+            if (checkStatus != null)
             {
                 checkStatus.Status = GoalStatus.Abandoned;
                 _goalRepository.Update(newGoal);
@@ -246,7 +246,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                     IsRecommended = true,
-                    Status = true
                 };
 
                 _mealFoodRepository.Add(mealFood);
