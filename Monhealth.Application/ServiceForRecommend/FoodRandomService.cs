@@ -78,41 +78,50 @@ namespace Monhealth.Application.ServiceForRecommend
         {
             _logger.LogInformation($"🔍 Bắt đầu tạo {mealType} cho user {userId}...");
 
-            // 🔹 Lấy tỷ lệ các thành phần món ăn dựa trên GoalType của user
+            // 🔹 Lấy tỷ lệ món ăn dựa trên CaloriesTarget
             var (mainDishRatio, sideDishRatio, soupRatio, dessertRatio, snackRatio) =
                 await GetMealRatiosAsync(userId, mealType, activityLevel);
 
-            // 🔹 Lấy món chính
+            // 🔹 Kiểm tra tổng calorie của bữa ăn
+            float totalMealCalories = allocation.Calories;
+
+            // 🔹 Lấy món chính trước, đây là món quan trọng nhất
             var mainDish = await GetRandomDishWithPortionAsync(mealType, DishType.MainDish, userId, allocation, mainDishRatio);
-            if (mainDish == null)
+            float currentCalories = mainDish?.Food?.Calories ?? 0;
+
+            // 🔹 Nếu món chính chiếm gần hết calorie => Giảm các món khác
+            if (currentCalories >= totalMealCalories * 0.8f)
             {
-                _logger.LogWarning($"⚠️ Không tìm thấy món chính cho {mealType}.");
+                sideDishRatio *= 0.5f;
+                soupRatio *= 0.5f;
+                dessertRatio *= 0.5f;
+                snackRatio *= 0.5f;
             }
 
-            // 🔹 Lấy món phụ nếu có
+            // 🔹 Lấy các món khác, nhưng chỉ nếu còn đủ calorie
             DishDTO? sideDish = null;
-            if (sideDishRatio > 0)
+            if (sideDishRatio > 0 && currentCalories < totalMealCalories * 0.95f)
             {
                 sideDish = await GetRandomDishWithPortionAsync(mealType, DishType.SideDish, userId, allocation, sideDishRatio, mainDish);
+                currentCalories += sideDish?.Food?.Calories ?? 0;
             }
 
-            // 🔹 Lấy soup nếu có
             DishDTO? soup = null;
-            if (soupRatio > 0)
+            if (soupRatio > 0 && currentCalories < totalMealCalories * 0.95f)
             {
                 soup = await GetRandomDishWithPortionAsync(mealType, DishType.Soup, userId, allocation, soupRatio);
+                currentCalories += soup?.Food?.Calories ?? 0;
             }
 
-            // 🔹 Lấy món tráng miệng nếu có
             DishDTO? dessert = null;
-            if (dessertRatio > 0)
+            if (dessertRatio > 0 && currentCalories < totalMealCalories * 0.95f)
             {
                 dessert = await GetRandomDishWithPortionAsync(mealType, DishType.Dessert, userId, allocation, dessertRatio);
+                currentCalories += dessert?.Food?.Calories ?? 0;
             }
 
-            // 🔹 Lấy snack nếu có
             DishDTO? snack = null;
-            if (snackRatio > 0)
+            if (snackRatio > 0 && currentCalories < totalMealCalories * 0.95f)
             {
                 snack = await GetRandomDishWithPortionAsync(mealType, DishType.Snack, userId, allocation, snackRatio);
             }
@@ -127,101 +136,113 @@ namespace Monhealth.Application.ServiceForRecommend
             };
         }
 
-        private async Task<(float mainDish, float sideDish, float soup, float dessert, float snack)>
-     GetMealRatiosAsync(Guid userId, MealType mealType, float activityLevel)
-        {
-            // 🔹 Lấy GoalType từ Database để xác định loại chế độ ăn
-            var goalType = await _goalService.GetGoalTypeByUserIdAsync(userId);
 
+
+        private async Task<(float mainDish, float sideDish, float soup, float dessert, float snack)>
+ GetMealRatiosAsync(Guid userId, MealType mealType, float activityLevel)
+        {
+            // 🔹 Lấy GoalType từ Database
+            var goalType = await _goalService.GetGoalTypeByUserIdAsync(userId);
             if (goalType == null)
             {
                 throw new Exception($"❌ Không tìm thấy GoalType cho user {userId}");
             }
 
-            // 🔹 Phân bổ tỷ lệ khẩu phần ăn theo từng GoalType
+            // 🔹 Lấy tổng lượng calories cần nạp của user
+            var caloriesTotal = await _goalService.GetCaloriesTotalByUserIdAsync(userId);
+            if (caloriesTotal <= 0)
+            {
+                throw new Exception($"❌ Lượng CaloriesTotal không hợp lệ cho user {userId}");
+            }
+
+            // 🔹 Điều chỉnh lượng calories theo `GoalType`
+            float caloriesTarget = goalType switch
+            {
+                GoalType.WeightLoss => caloriesTotal - Random.Shared.Next(100, 200), // Giảm 100-200 calories
+                GoalType.WeightGain => caloriesTotal + Random.Shared.Next(100, 200), // Tăng 100-200 calories
+                GoalType.Maintenance => caloriesTotal + Random.Shared.Next(-50, 50), // Giữ nguyên hoặc chênh lệch ±50 calories
+                _ => caloriesTotal
+            };
+
+            // 🔹 Xác định tỷ lệ khẩu phần ăn theo từng bữa và GoalType
             return mealType switch
             {
                 MealType.Breakfast => goalType switch
                 {
-                    GoalType.WeightLoss => (0.70f, 0.20f, 0.10f, 0f, 0f),  // 70% Main, 20% Side, 10% Soup
-                    GoalType.Maintenance => (0.60f, 0.25f, 0.15f, 0f, 0f), // 60% Main, 25% Side, 15% Soup
-                    GoalType.WeightGain => (0.75f, 0.15f, 0.10f, 0f, 0f),  // 75% Main, 15% Side, 10% Soup
+                    GoalType.WeightLoss => (0.70f, 0.20f, 0.10f, 0f, 0f),
+                    GoalType.Maintenance => (0.60f, 0.25f, 0.15f, 0f, 0f),
+                    GoalType.WeightGain => (0.75f, 0.15f, 0.10f, 0f, 0f),
                     _ => (1f, 0f, 0f, 0f, 0f)
                 },
 
                 MealType.Lunch => goalType switch
                 {
-                    GoalType.WeightLoss => (0.60f, 0.25f, 0.10f, 0.05f, 0f),  // 60% Main, 25% Side, 10% Soup, 5% Dessert
-                    GoalType.Maintenance => (0.55f, 0.20f, 0.15f, 0.05f, 0.05f), // 55% Main, 20% Side, 15% Soup, 5% Dessert, 5% Snack
-                    GoalType.WeightGain => (0.65f, 0.20f, 0.10f, 0f, 0.05f),  // 65% Main, 20% Side, 10% Soup, 5% Snack
+                    GoalType.WeightLoss => (0.60f, 0.25f, 0.10f, 0.05f, 0f),
+                    GoalType.Maintenance => (0.55f, 0.20f, 0.15f, 0.05f, 0.05f),
+                    GoalType.WeightGain => (0.65f, 0.20f, 0.10f, 0f, 0.05f),
                     _ => (0.55f, 0.3f, 0.1f, 0.05f, 0f)
                 },
 
                 MealType.Dinner => goalType switch
                 {
-                    GoalType.WeightLoss => (0.50f, 0.30f, 0.20f, 0f, 0f),  // 50% Main, 30% Side, 20% Soup
-                    GoalType.Maintenance => (0.50f, 0.25f, 0.15f, 0f, 0.05f), // 50% Main, 25% Side, 15% Soup, 5% Snack
-                    GoalType.WeightGain => (0.50f, 0.30f, 0.20f, 0f, 0f),  // 50% Main, 30% Side, 20% Soup
+                    GoalType.WeightLoss => (0.50f, 0.30f, 0.20f, 0f, 0f),
+                    GoalType.Maintenance => (0.50f, 0.25f, 0.15f, 0f, 0.05f),
+                    GoalType.WeightGain => (0.50f, 0.30f, 0.20f, 0f, 0f),
                     _ => (0.6f, 0.3f, 0.1f, 0f, 0f)
                 },
 
                 MealType.Snack => goalType switch
                 {
-                    GoalType.WeightLoss => (0f, 0f, 0f, 0f, 1.0f),  // 100% Snack
-                    GoalType.Maintenance => (0f, 0f, 0f, 0.50f, 0.50f), // 50% Dessert, 50% Snack
-                    GoalType.WeightGain => (0f, 0f, 0f, 0f, 1.0f),  // 100% Snack
+                    GoalType.WeightLoss => (0f, 0f, 0f, 0f, 1.0f),
+                    GoalType.Maintenance => (0f, 0f, 0f, 0.50f, 0.50f),
+                    GoalType.WeightGain => (0f, 0f, 0f, 0f, 1.0f),
                     _ => (0.8f, 0.2f, 0f, 0f, 0f)
                 },
 
-                _ => (1f, 0f, 0f, 0f, 0f) // Mặc định nếu MealType không hợp lệ
+                _ => (1f, 0f, 0f, 0f, 0f) // Mặc định
             };
         }
 
 
 
+
         private async Task<DishDTO?> GetRandomDishWithPortionAsync(
-            MealType mealType, DishType dishType, Guid userId,
-            MealAllocationDTO allocation, float ratio, DishDTO? mainDish = null)
+     MealType mealType, DishType dishType, Guid userId,
+     MealAllocationDTO allocation, float ratio, DishDTO? mainDish = null)
         {
-            _logger.LogInformation($"🔍 Đang tìm món ăn {dishType} cho {mealType}...");
+            _logger.LogInformation($"🔍 Đang tìm món ăn {dishType} cho {mealType} với tỷ lệ {ratio * 100}%...");
 
-            var mealTypeList = new List<MealType> { MealType.Breakfast, MealType.Lunch, MealType.Dinner, MealType.Snack };
-            var dishTypeList = new List<DishType> { DishType.MainDish, DishType.SideDish, DishType.Soup, DishType.Dessert, DishType.Drink };
-
-            // ✅ Chuyển `List<MealType>` thành `List<string>`
-            var mealTypeStringList = mealTypeList.Select(mt => mt.ToString()).ToList();
-            var dishTypeStringList = dishTypeList.Select(dt => dt.ToString()).ToList();
-
-            var filteredFoods = await _foodFilterService.GetFilterFoodAsync(
+            // 🔹 Lấy danh sách món ăn từ FoodFilterService
+            var foodItems = await _foodFilterService.GetFilterFoodAsync(
                 userId, 1, 100,
-                mealTypeStringList,  // ✅ Đã chuyển thành `List<string>`
-                dishTypeStringList   // ✅ Đã chuyển thành `List<string>`
+                new List<string> { mealType.ToString() },
+                new List<string> { dishType.ToString() }
             );
 
-            if (filteredFoods == null || !filteredFoods.Items.Any())
+            if (foodItems == null || !foodItems.Items.Any())
             {
                 _logger.LogWarning($"⚠️ Không có món ăn nào phù hợp với {mealType} - {dishType}.");
                 return null;
             }
 
-            _logger.LogInformation($"✅ Số món ăn phù hợp: {filteredFoods.Items.Count()}");
+            // 🔹 Tính calorie tối đa cho món ăn này
+            float maxCalories = allocation.Calories * ratio;
 
-            var foodList = filteredFoods.Items.Select(f => new FoodDTO123
-            {
-                FoodId = f.FoodId,
-                FoodName = f.FoodName,
-                FoodType = f.FoodType
-            }).ToList();
+            // 🔹 Chọn món ăn có calorie <= maxCalories
+            var selectedFood = foodItems.Items
+                .Where(f => f.Calories <= maxCalories)
+                .OrderBy(_ => Guid.NewGuid())
+                .FirstOrDefault();
 
-            var selectedFood = SelectWeightedRandom(foodList, mealType, dishType, mainDish);
             if (selectedFood == null)
             {
-                _logger.LogWarning($"⚠️ Không tìm thấy món {dishType} phù hợp cho {mealType}.");
+                _logger.LogWarning($"⚠️ Không tìm thấy món {dishType} phù hợp trong khoảng {maxCalories} kcal.");
                 return null;
             }
 
-            return new DishDTO { Food = selectedFood };
+            return new DishDTO { Food = ConvertToFoodDTO123(selectedFood) };
         }
+
 
         private FoodDTO123? SelectWeightedRandom(List<FoodDTO123> foodList, MealType mealType, DishType dishType, DishDTO? mainDish = null)
         {
@@ -269,6 +290,17 @@ namespace Monhealth.Application.ServiceForRecommend
 
             return allowedTypes.ToList();
         }
+        private FoodDTO123 ConvertToFoodDTO123(FoodFilterDTO foodFilterDTO)
+        {
+            return new FoodDTO123
+            {
+                FoodId = foodFilterDTO.FoodId,
+                FoodName = foodFilterDTO.FoodName,
+                FoodType = foodFilterDTO.FoodType,
+                Calories = foodFilterDTO.Calories // Nếu có thuộc tính này
+            };
+        }
+
     }
 }
 
@@ -303,6 +335,7 @@ public class FoodDTO123
     public Guid FoodId { get; set; }
     public string FoodName { get; set; } = string.Empty;
     public List<FoodType> FoodType { get; set; } = [];
+    public float Calories { get; set; }
 }
 
 // public class PortionDTO

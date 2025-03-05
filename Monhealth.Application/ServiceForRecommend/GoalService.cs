@@ -31,6 +31,19 @@ namespace Monhealth.Application.Services
 
             return goal.GoalType;
         }
+        public async Task<float> GetCaloriesTotalByUserIdAsync(Guid userId)
+        {
+            // 🔍 Truy vấn mục tiêu của user từ database
+            var goal = await _goalRepository.GetByUserIdAsync(userId);
+
+            if (goal == null)
+            {
+                _logger.LogWarning($"⚠️ Không tìm thấy Goal cho user {userId}. Sử dụng mặc định: 2000 Calories.");
+                return 2000f; // 🔹 Mặc định nếu không có dữ liệu
+            }
+
+            return goal.CaloriesGoal; // 🔹 Trả về tổng Calories của user
+        }
 
         /// <summary>
         /// Lấy Activity Level của người dùng
