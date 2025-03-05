@@ -22,7 +22,7 @@ namespace Monhealth.Identity.Configurations
             var drinks = Guid.Parse("f63dd434-9796-46ab-95ad-759bfac51e26");
             var fermented = Guid.Parse("fc7f66aa-8c09-46db-a679-be440e3ed91f");
             var fruits = Guid.Parse("19fe32e8-9e15-486b-9398-f0116cd5019a");
-            var fastfood = Guid.Parse("bd21fd3f-8b19-4756-9da8-8ea32fc646d6");
+            var fastFood = Guid.Parse("bd21fd3f-8b19-4756-9da8-8ea32fc646d6");
 
             builder.HasData(
 
@@ -653,7 +653,7 @@ namespace Monhealth.Identity.Configurations
             new Food
             {
                 FoodId = Guid.Parse("65c7b876-87e2-4307-ab76-c72ca277b78c"),
-                // CategoryId = fastfood,
+                // CategoryId = fastFood,
                 UserId = userId,
                 FoodType = [FoodType.Carbs, FoodType.Protein],
                 MealType = [MealType.Breakfast, MealType.Lunch, MealType.Snack],
@@ -2950,25 +2950,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 147
-            new Food
-            {
-                FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
-                // CategoryId = grains,
-                UserId = userId,
-                FoodType = [FoodType.Protein],
-                MealType = [MealType.Snack, MealType.Breakfast],
-                DishType = [DishType.Snack],
-                FoodName = "Hạt lanh",
-                FoodDescription = "Hạt lanh là nguồn tuyệt vời cung cấp omega-3, chất xơ và lignans, giúp bảo vệ tim mạch và giảm viêm. Hạt lanh có thể thêm vào các món sinh tố, salad hoặc dùng để nướng bánh",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 147
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
+            //     // CategoryId = grains,
+            //     UserId = userId,
+            //     FoodType = [FoodType.Protein],
+            //     MealType = [MealType.Snack, MealType.Breakfast],
+            //     DishType = [DishType.Snack],
+            //     FoodName = "Hạt lanh",
+            //     FoodDescription = "Hạt lanh là nguồn tuyệt vời cung cấp omega-3, chất xơ và lignans, giúp bảo vệ tim mạch và giảm viêm. Hạt lanh có thể thêm vào các món sinh tố, salad hoặc dùng để nướng bánh",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 148
             new Food

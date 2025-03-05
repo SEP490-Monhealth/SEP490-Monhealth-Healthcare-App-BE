@@ -4246,34 +4246,34 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 147
-            new Nutrition
-            {
-                NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
-                Calories = 534,
-                Protein = 18.3f,
-                Carbs = 28.9f,
-                Fiber = 27.3f,
-                Sugar = 1.6f,
-                Fat = 42.2f,
-                SaturatedFat = 3.7f,
-                UnsaturatedFat = 38.5f,
-                Cholesterol = 0,
-                Sodium = 30,
-                Potassium = 813,
-                Calcium = 255,
-                Iron = 5.7f,
-                VitaminA = 0,
-                VitaminB1 = 0.41f,
-                VitaminB2 = 0.16f,
-                VitaminC = 0.6f,
-                VitaminD = 0,
-                VitaminE = 0.3f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 147
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
+            //     Calories = 534,
+            //     Protein = 18.3f,
+            //     Carbs = 28.9f,
+            //     Fiber = 27.3f,
+            //     Sugar = 1.6f,
+            //     Fat = 42.2f,
+            //     SaturatedFat = 3.7f,
+            //     UnsaturatedFat = 38.5f,
+            //     Cholesterol = 0,
+            //     Sodium = 30,
+            //     Potassium = 813,
+            //     Calcium = 255,
+            //     Iron = 5.7f,
+            //     VitaminA = 0,
+            //     VitaminB1 = 0.41f,
+            //     VitaminB2 = 0.16f,
+            //     VitaminC = 0.6f,
+            //     VitaminD = 0,
+            //     VitaminE = 0.3f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 148
             new Nutrition

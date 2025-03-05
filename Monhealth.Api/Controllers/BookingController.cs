@@ -102,7 +102,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{bookingId:guid}")]
+        [HttpPatch("{bookingId:guid}/completed")]
         public async Task<ActionResult<ResultModel>> UpdateBookingStatus([FromRoute] Guid bookingId)
         {
             var result = await mediator.Send(new UpdateBookingStatusCommand { BookingId = bookingId });
@@ -123,7 +123,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("cancel/{bookingId:guid}")]
+        [HttpPatch("{bookingId:guid}/cancel")]
         public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId)
         {
             var result = await mediator.Send(new UpdateBookingCancelCommand { BookingId = bookingId });

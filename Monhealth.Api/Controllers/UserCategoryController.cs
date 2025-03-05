@@ -6,7 +6,7 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/userCategories")]
+    [Route("api/v1/user-categories")]
     [ApiController]
     public class UserCategoryController : ControllerBase
     {
@@ -15,6 +15,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Addy([FromBody] CreateUserCategoryRequest request)
         {

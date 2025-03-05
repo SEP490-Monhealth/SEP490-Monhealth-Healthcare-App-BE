@@ -5,7 +5,7 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/userAllergies")]
+    [Route("api/v1/user-allergies")]
     [ApiController]
     public class UserAllergyController : ControllerBase
     {
@@ -14,6 +14,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+        
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Add([FromBody] CreateUserAllergyRequest request)
         {

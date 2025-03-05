@@ -13,7 +13,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
 
             var workoutDtos = new List<WorkoutDto>();
             Domain.Workout warmupWorkout = null;
-            List<Domain.Exercise> exerciseWramupList = null;
+            List<Domain.Exercise> exerciseWarmupList = null;
 
             foreach (var workout in paginatedWorkout.Items)
             {
@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
                 }
                 if (warmupWorkout != null)
                 {
-                    exerciseWramupList = (List<Domain.Exercise>?)await exerciseRepository.GetExercisesByWorkoutIdAsync(warmupWorkout.WorkoutId);
+                    exerciseWarmupList = (List<Domain.Exercise>?)await exerciseRepository.GetExercisesByWorkoutIdAsync(warmupWorkout.WorkoutId);
                 }
                 workoutDtos.Add(new WorkoutDto
                 {
@@ -37,7 +37,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
                     WorkoutName = workout.WorkoutName,
                     WorkoutDescription = workout.WorkoutDescription,
                     DifficultyLevel = workout.DifficultyLevel,
-                    Exercises = (workout.WorkoutExercises?.Count() ?? 0) + (exerciseWramupList?.Count() ?? 0), // Handle null lists
+                    Exercises = (workout.WorkoutExercises?.Count() ?? 0) + (exerciseWarmupList?.Count() ?? 0), // Handle null lists
                     Duration = ((workout.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0) * 3) + ((warmupWorkout?.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0) * 2), // Handle null values safely
 
                     CaloriesBurned = (float)(((workout.WorkoutExercises?.Sum(we =>
