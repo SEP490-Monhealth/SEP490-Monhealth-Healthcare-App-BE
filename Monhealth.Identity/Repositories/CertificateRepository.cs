@@ -37,7 +37,7 @@ namespace Monhealth.Identity.Repositories
 
             if (status.HasValue)
             {
-                query = query.Where(s => s.Status == status.Value);
+                query = query.Where(s => s.IsVerified == status.Value);
             }
             int totalItems = await query.CountAsync();
 

@@ -14,7 +14,7 @@ namespace Monhealth.Domain
         public string ImageUrls { get; set; } = string.Empty;
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
-        public bool Status { get; set; }
+        public bool IsVerified { get; set; }
 
         [ForeignKey(nameof(ConsultantId))]
         public Consultant? Consultant { get; set; }

@@ -2358,11 +2358,11 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("IssueDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -2399,6 +2399,9 @@ namespace Monhealth.Identity.Migrations
 
                     b.Property<Guid?>("ExpertiseId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("IsVerified")
+                        .HasColumnType("bit");
 
                     b.Property<double?>("RatingCount")
                         .HasColumnType("float");

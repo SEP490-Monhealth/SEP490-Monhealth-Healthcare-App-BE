@@ -15,6 +15,7 @@ namespace Monhealth.Domain
         public int? Experience { get; set; }
         public double? RatingCount { get; set; }
         public double? AverageRating { get; set; }
+        public bool IsVerified { get; set; }
         public bool? Status { get; set; }
 
         [ForeignKey(nameof(UserId))]
