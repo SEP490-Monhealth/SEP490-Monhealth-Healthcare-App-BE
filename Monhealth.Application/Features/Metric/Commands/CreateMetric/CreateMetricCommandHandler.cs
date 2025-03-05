@@ -92,7 +92,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             newGoal.UpdatedAt = DateTime.Now;
             _goalRepository.Add(newGoal);
             #endregion
-            await _goalRepository.SaveChangeAsync();
             // Tạo Reminder
             #region Reminder Creation
             Guid? userId = request.CreateMetricDTO.UserId;

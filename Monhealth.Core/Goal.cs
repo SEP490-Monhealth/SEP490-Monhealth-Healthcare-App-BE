@@ -27,9 +27,9 @@ namespace Monhealth.Domain
         public GoalStatus Status { get; set; }
 
         [ForeignKey(nameof(UserId))]
-        public AppUser AppUser { get; set; }
-        public ICollection<DailyMeal> DailyMeals { get; set; }
-        public ICollection<DailyActivity> DailyActivities { get; set; }
-        public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; }
+        public AppUser AppUser { get; set; } = null!;
+        public ICollection<DailyMeal> DailyMeals { get; set; } = [];
+        public ICollection<DailyActivity> DailyActivities { get; set; }=[];
+        public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; }=[];
     }
 }

@@ -59,7 +59,11 @@ namespace Monhealth.Application.Services
 
             return metric.ActivityLevel;
         }
-
+        //
+        public async Task<Goal> GetGoalsByUserIdAsync(Guid userId)
+        {
+             return await _goalRepository.GetByUserIdAsync(userId);
+        }
         /// <summary>
         /// Tính toán phân bổ bữa ăn (calories, protein, carbs, fat).
         /// </summary>
