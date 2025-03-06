@@ -2,7 +2,7 @@
 {
     public enum ScheduleType
     {
-        Recurring,
-        OneTime
+        OneTime,
+        Recurring
     }
 }

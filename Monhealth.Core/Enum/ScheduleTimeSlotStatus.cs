@@ -1,6 +1,6 @@
 ﻿namespace Monhealth.Domain.Enum
 {
-    public enum ScheduleTimeSlot
+    public enum ScheduleTimeSlotStatus
     {
         Available,
         Unavailable,

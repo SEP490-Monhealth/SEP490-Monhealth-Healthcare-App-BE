@@ -1758,17 +1758,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            //#region CategoryFood 146
-            //builder.HasData(
-            //new CategoryFood
-            //{
-            //    CategoryFoodId = Guid.NewGuid(),
-            //    CategoryId = vegetables,  // Rau má - Category: Vegetables
-            //    FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),  // Rau má
-            //    CreatedAt = today,
-            //    UpdatedAt = today
-            //});
-            //#endregion
+            // #region CategoryFood 146
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = vegetables,  // Rau má - Category: Vegetables
+            //     FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),  // Rau má
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 147
             builder.HasData(

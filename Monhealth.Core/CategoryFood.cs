@@ -9,6 +9,7 @@ public class CategoryFood : TimeEntity
     public Guid CategoryId { get; set; }
     public Guid FoodId { get; set; }
     [ForeignKey(nameof(CategoryId))]
+
     public Category Category { get; set; }
     [ForeignKey(nameof(FoodId))]
     public Food Food { get; set; }
