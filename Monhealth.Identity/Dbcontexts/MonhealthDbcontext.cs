@@ -155,11 +155,11 @@ namespace Monhealth.Identity.Dbcontexts
                     )
                     .Metadata.SetValueComparer(dishTypeComparer);
             });
-            builder.Entity<ScheduleTimeSlot>()
-                .HasOne(s => s.Status)
-                .WithMany()
-                 .HasForeignKey(s => s.ScheduleTimeSlotId)
-                 .OnDelete(DeleteBehavior.NoAction); // Prevent cyclic delete paths
+            //builder.Entity<ScheduleTimeSlot>()
+            //    .HasOne(s => s.Status)
+            //    .WithMany()
+            //     .HasForeignKey(s => s.ScheduleTimeSlotId)
+            //     .OnDelete(DeleteBehavior.NoAction); // Prevent cyclic delete paths
 
 
             builder.ApplyConfiguration(new RoleConfiguration());
