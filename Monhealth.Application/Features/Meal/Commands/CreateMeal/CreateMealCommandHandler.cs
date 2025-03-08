@@ -13,7 +13,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
         private readonly IFoodPortionRepository _foodPortionRepository;
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IGoalRepository _goalRepository;
-        private readonly IAllergyRepository _allergyRepository;
         private readonly IFoodRepository _foodRepository;
 
         public CreateMealCommandHandler(
@@ -23,7 +22,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             IFoodPortionRepository foodPortionRepository,
             IDailyMealRepository dailyMealRepository,
             IGoalRepository goalRepository,
-            IAllergyRepository allergyRepository,
             IFoodRepository foodRepository)
         {
             _mealRepository = mealRepository;
@@ -32,7 +30,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             _foodPortionRepository = foodPortionRepository;
             _dailyMealRepository = dailyMealRepository;
             _goalRepository = goalRepository;
-            _allergyRepository = allergyRepository;
             _foodRepository = foodRepository;
         }
 

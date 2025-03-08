@@ -49,25 +49,24 @@ namespace Monhealth.Application.ServiceForRecommend
             var allergyIds = userAllergyIds?.Select(a => a.AllergyId).ToList() ?? new List<Guid>();
 
             // 🟢 Lấy danh mục mà User đã chọn
-            var userCategories = await _userCategoryRepository
-                .GetUserCategoryByUserId(userId);
-            var categoryIds = userCategories?.Select(c => c.CategoryId).ToList() ?? new List<Guid>();
+            // var userCategories = await _userCategoryRepository
+            //     .GetUserCategoryByUserId(userId);
+            // var categoryIds = userCategories?.Select(c => c.CategoryId).ToList() ?? new List<Guid>();
 
-            if (!categoryIds.Any())
-            {
-                _logger.LogInformation("User {UserId} did not select any categories. Returning empty result.", userId);
-                return new PageResult<FoodFilterDTO>
-                {
-                    CurrentPage = pageNumber,
-                    TotalPages = 0,
-                    TotalItems = 0,
-                    Items = new List<FoodFilterDTO>()
-                };
-            }
+            // if (!categoryIds.Any())
+            // {
+            //     _logger.LogInformation("User {UserId} did not select any categories. Returning empty result.", userId);
+            //     return new PageResult<FoodFilterDTO>
+            //     {
+            //         CurrentPage = pageNumber,
+            //         TotalPages = 0,
+            //         TotalItems = 0,
+            //         Items = new List<FoodFilterDTO>()
+            //     };
+            // }
 
             // 🟢 Lọc danh sách món ăn
             var query = _foodRepository.GetAll()
-                .Where(f => f.CategoryFoods.Any(fc => categoryIds.Contains(fc.CategoryId))) // Lọc theo danh mục
                 .Where(f => !f.FoodAllergies.Any(fa => allergyIds.Contains(fa.AllergyId))); // Loại bỏ món có dị ứng
 
 

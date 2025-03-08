@@ -41,6 +41,11 @@ namespace Monhealth.Identity.Repositories
             return await _context.Goals.Where(u => u.UserId == userId).OrderByDescending(g => g.CreatedAt).ToListAsync();
         }
 
+        public async Task<Goal> GetCurrentGoalByUserIdAsync(Guid userId)
+        {
+            return await _context.Goals.Where(u => u.UserId == userId).OrderByDescending(g => g.CreatedAt).FirstOrDefaultAsync(default) ?? null!;
+        }
+
         public async Task<GoalType?> GetGoalTypeByUserIdAsync(Guid userId)
         {
             var goal = await _context.Goals

@@ -36,7 +36,8 @@ namespace Monhealth.Identity.Services
         }
 
         private (float calories, float protein, float carbs, float fats) CreateCalculateMacros(
-            float tdee, string goalType, float caloriesRatio, float currentWeight, float targetWeight, float activityLevel)
+            float tdee, string goalType, float caloriesRatio, float currentWeight,
+            float targetWeight, float activityLevel)
         {
             // Kiểm tra hợp lệ Calories Ratio
             if (caloriesRatio < 0.7f || caloriesRatio > 1.3f)
@@ -50,58 +51,30 @@ namespace Monhealth.Identity.Services
             float calories = tdee * caloriesRatio;
             float proteinPercentage, carbsPercentage, fatPercentage;
 
-            if (activityLevel < 1.725f)
+            switch (goalType)
             {
-                switch (goalType)
-                {
-                    case "WeightLoss":
-                        proteinPercentage = 0.3f;
-                        carbsPercentage = 0.45f;
-                        fatPercentage = 0.25f;
-                        break;
+                case "WeightLoss":
+                    proteinPercentage = 0.35f;
+                    carbsPercentage = 0.3f;
+                    fatPercentage = 0.35f;
+                    break;
 
-                    case "WeightGain":
-                        proteinPercentage = 0.25f;
-                        carbsPercentage = 0.55f;
-                        fatPercentage = 0.2f;
-                        break;
+                case "WeightGain":
+                    proteinPercentage = 0.25f;
+                    carbsPercentage = 0.45f;
+                    fatPercentage = 0.3f;
+                    break;
 
-                    case "Maintenance":
-                        proteinPercentage = 0.25f;
-                        carbsPercentage = 0.5f;
-                        fatPercentage = 0.25f;
-                        break;
+                case "Maintenance":
+                    proteinPercentage = 0.20f;
+                    carbsPercentage = 0.5f;
+                    fatPercentage = 0.3f;
+                    break;
 
-                    default:
-                        throw new Exception("Loại mục tiêu không hợp lệ");
-                }
+                default:
+                    throw new Exception("Loại mục tiêu không hợp lệ");
             }
-            else
-            {
-                switch (goalType)
-                {
-                    case "WeightLoss":
-                        proteinPercentage = 0.35f; //35%
-                        carbsPercentage = 0.4f; //40%
-                        fatPercentage = 0.25f; //25%
-                        break;
 
-                    case "WeightGain":
-                        proteinPercentage = 0.3f; //30%
-                        carbsPercentage = 0.5f; //50%
-                        fatPercentage = 0.2f; //20%
-                        break;
-
-                    case "Maintenance":
-                        proteinPercentage = 0.3f; //30%
-                        carbsPercentage = 0.5f; //50%
-                        fatPercentage = 0.2f; //20%
-                        break;
-
-                    default:
-                        throw new Exception("Loại mục tiêu không hợp lệ");
-                }
-            }
 
             // Tính Macro từ Calories
             float protein = calories * proteinPercentage / 4;

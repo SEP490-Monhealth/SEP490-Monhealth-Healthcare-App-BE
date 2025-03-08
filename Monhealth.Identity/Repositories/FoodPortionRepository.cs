@@ -1,11 +1,7 @@
-﻿using Monhealth.Application.Contracts.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -13,6 +9,11 @@ namespace Monhealth.Identity.Repositories
     {
         public FoodPortionRepository(MonhealthDbcontext context) : base(context)
         {
+        }
+
+        public async Task<FoodPortion> GetByFoodIdAsync(Guid foodId)
+        {
+            return await _context.FoodPortions.FirstOrDefaultAsync(fp => fp.FoodId == foodId);
         }
     }
 }

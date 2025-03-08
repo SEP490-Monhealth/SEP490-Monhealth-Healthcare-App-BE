@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.Extensions.Logging;
 using Monhealth.Core;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
@@ -14,7 +15,7 @@ namespace Monhealth.Identity.Dbcontexts
     {
         public MonhealthDbcontext(DbContextOptions<MonhealthDbcontext> options) : base(options)
         {
-
+                 
         }
 
         public DbSet<Metric> Metrics { get; set; }
@@ -161,7 +162,37 @@ namespace Monhealth.Identity.Dbcontexts
             //     .HasForeignKey(s => s.ScheduleTimeSlotId)
             //     .OnDelete(DeleteBehavior.NoAction); // Prevent cyclic delete paths
 
+            builder.Entity<Food>(entity =>
+            {
+                // Configure FoodType as List<string> and log the configuration
+                entity.Property(e => e.FoodType)
+                    .HasConversion(
+                        v => string.Join(',', v.Select(x => x.ToString())), // Convert List<FoodType> to string
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                            .Select(x => Enum.Parse<FoodType>(x)) // Convert string back to List<FoodType>
+                            .ToList()
+                    );
 
+                // Configure MealType with ValueComparer and log the configuration
+                entity.Property(e => e.MealType)
+                    .HasConversion(
+                        v => string.Join(',', v.Select(x => x.ToString())), // Convert List<MealType> to string
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                            .Select(x => Enum.Parse<MealType>(x)) // Convert string back to List<MealType>
+                            .ToList()
+                    )
+                    .Metadata.SetValueComparer(mealTypeComparer); // Set ValueComparer
+
+                // Configure DishType with ValueComparer and log the configuration
+                entity.Property(e => e.DishType)
+                    .HasConversion(
+                        v => string.Join(',', v.Select(x => x.ToString())), // Convert List<DishType> to string
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                            .Select(x => Enum.Parse<DishType>(x)) // Convert string back to List<DishType>
+                            .ToList()
+                    )
+                    .Metadata.SetValueComparer(dishTypeComparer); // Set ValueComparer
+            });
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());

@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
+using Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFunction;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Models.Identity;
 using Monhealth.Identity.BackGroundServiceForWaterReminder;
@@ -97,6 +98,8 @@ namespace Monhealth.Identity
             services.AddScoped<IDailyActivityRepository, DailyActivityRepository>();
             services.AddScoped<ICategoryFoodRepository , CategoryFoodRepository>();
             services.AddScoped<IUserCategoryRepository,UserCategoryRepository>();
+            services.AddScoped<CreateMealForTypeHandler>();
+            services.AddScoped<FilterFoodListHandler>();
             // Đăng ký Background Service
             // Add Authentication
             services.AddAuthentication(options =>

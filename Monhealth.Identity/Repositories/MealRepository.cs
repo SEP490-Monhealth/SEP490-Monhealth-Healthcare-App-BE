@@ -12,6 +12,12 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+        public async Task<Meal> AddAsync()
+        {
+           var meal = new Meal();
+           return await Task.FromResult(meal);
+        }
+
         public async Task<List<Meal>> GetAllMealFoodForMeal(Guid MealId)
         {
             return await _context.Meals.Where(m => m.MealId == MealId)

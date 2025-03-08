@@ -1,6 +1,7 @@
 using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Meal.Commands.CreateMeal;
 using Monhealth.Application.Features.Meal.Commands.DeleteMeal;
 using Monhealth.Application.Features.Meal.Queries.GetAllMeals;
@@ -97,6 +98,31 @@ namespace Monhealth.Api.Controllers
                     Message = "Tạo bữa ăn thành công",
                     Status = 201,
                     Data = new { mealId = result } // Trả về mealId
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo bữa ăn thất bại",
+                Status = 400,
+            });
+        }
+        [HttpPost]
+        [Route("RecommendMeal/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> AddMealRecommend(Guid userId)
+        {
+            var meal = await _mediator.
+            Send(new CreateRecommendMealCommand() { UserId = userId });
+
+            if (meal != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo bữa ăn thành công",
+                    Status = 201,
+                    Data = new { mealId = meal } // Trả về mealId
                 });
             }
 

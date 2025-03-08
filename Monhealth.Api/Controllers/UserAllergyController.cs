@@ -1,3 +1,4 @@
+using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
@@ -10,11 +11,14 @@ namespace Monhealth.Api.Controllers
     public class UserAllergyController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public UserAllergyController(IMediator mediator)
+        private readonly ILogger<UserAllergyController> _logger;
+        public UserAllergyController(IMediator mediator,
+        ILogger<UserAllergyController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
-        
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Add([FromBody] CreateUserAllergyRequest request)
         {
@@ -36,5 +40,44 @@ namespace Monhealth.Api.Controllers
                 Status = 400,
             });
         }
+        [HttpGet("{userId:guid}/FoodAllergies")]
+        public async Task<ActionResult<ResultModel>> GetByFoodByUserId(Guid userId)
+        {
+            try
+            {
+                var goal = await _mediator.Send(new FilterFoodListQuery { UserId = userId });
+
+                if (goal == null )
+                {
+                    _logger.LogWarning($"Không tìm thấy dữ liệu thức ăn cho người dùng có ID {userId}");
+                    return new ResultModel
+                    {
+                        Success = false,
+                        Status = (int)HttpStatusCode.NotFound,
+                        Message = "Không tìm thấy dữ liệu thức ăn cho người dùng."
+                    };
+                }
+
+                return new ResultModel
+                {
+                    Success = true,
+                    Status = (int)HttpStatusCode.OK,
+                    Data = goal
+                };
+            }
+            catch (Exception ex)
+            {
+                // Log lỗi chi tiết và trả về lỗi server
+                _logger.LogError(ex, "Đã xảy ra lỗi khi xử lý yêu cầu GetByFoodByUserId");
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.InternalServerError,
+                    Message = "Đã xảy ra lỗi khi xử lý yêu cầu."
+                };
+            }
+        }
+
+
     }
 }

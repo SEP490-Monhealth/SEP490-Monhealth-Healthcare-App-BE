@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCompletedCommand;
-using Monhealth.Application.Features.Goals.Commands.DeleteCommand;
 using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
 using Monhealth.Application.Features.Goals.Queries.GetAllGoals;
 using Monhealth.Application.Features.Goals.Queries.GetExerciseByGoalId;
@@ -43,6 +43,26 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetById(Guid goalId)
         {
             var goal = await _mediator.Send(new GetGoalByIdQuery() { GoalId = goalId });
+            if (goal == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Mục tiêu không tồn tại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Data = goal
+            };
+        }
+        [HttpGet("{userId:guid}/recommend")]
+        public async Task<ActionResult<ResultModel>> GetByGoalByUserId(Guid userId)
+        {
+            var goal = await _mediator.Send(new CheckGoalTypeQuery { UserId = userId });
             if (goal == null)
             {
                 return new ResultModel
