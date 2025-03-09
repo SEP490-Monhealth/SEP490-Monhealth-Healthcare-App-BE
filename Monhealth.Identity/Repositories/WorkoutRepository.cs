@@ -66,6 +66,13 @@ namespace Monhealth.Identity.Repositories
             return await _context.Workouts.Include(w => w.WorkoutExercises).ThenInclude(we => we.Exercise).FirstOrDefaultAsync(w => w.WorkoutId == workoutId);
         }
 
+        public async Task<List<Workout>> GetWorkoutsByUser(Guid userId)
+        {
+            IQueryable<Workout> queries = _context.Workouts.Where(f => f.UserId == userId).Include(f => f.Category).
+            Include(f => f.WorkoutExercises).ThenInclude(we => we.Exercise).AsQueryable();
+            return await queries.ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);

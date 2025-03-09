@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Workout.Commands.CreateWorkout;
 using Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries;
 using Monhealth.Application.Features.Workout.Queries.GetWorkoutByIdQueries;
@@ -36,6 +37,26 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true,
             };
+        }
+        [HttpPut]
+        [Route("{workoutId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateWorkout(Guid workoutId, [FromBody] UpdateWorkoutRequest request)
+        {
+            var command = new UpdateWorkoutHandler(workoutId, request);
+            var result = await mediator.Send(command);
+            if (result == null )
+                return new ResultModel
+                {
+                    Message = "Cập nhật bài tập thất bại",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(new ResultModel
+            {
+                Message = "Cập nhật bài tập thành công",
+                Success = true,
+                Status = 204,
+            });
         }
 
         [HttpPost]
