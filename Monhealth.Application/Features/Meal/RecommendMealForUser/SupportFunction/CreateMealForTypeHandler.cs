@@ -69,7 +69,7 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
             .FirstOrDefault(mf => mf.FoodId == carbsFood.FoodId);
 
 
-            float mealCaloriesOfCarbs = mealCalories * 0.6f;
+            float mealCaloriesOfCarbs = mealCalories * 0.4f;
             if (existingMealFoodCarbs == null)
             {
                 var totalFoodCalories = (carbsFood.Nutrition.Carbs * 4)
@@ -136,7 +136,7 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
             var existingMealFoodProtein = proteinFood.MealFoods
             .FirstOrDefault(mf => mf.FoodId == proteinFood.FoodId);
 
-            float mealCaloriesOfProteins = mealCalories * 0.4f;
+            float mealCaloriesOfProteins = mealCalories * 0.6f;
 
             if (existingMealFoodProtein == null)
             {
