@@ -1,6 +1,6 @@
 namespace Monhealth.Core.Enum
 {
-    public enum SubscriptionStatus
+    public enum UserSubscriptionStatus
     {
         Active,
         Expired

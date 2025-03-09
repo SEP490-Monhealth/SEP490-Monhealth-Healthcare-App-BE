@@ -10,11 +10,11 @@ namespace Monhealth.Domain
         [Key]
         public Guid UserAllergyId { get; set; }
         public Guid UserId { get; set; }
-        public Allergy Allergy { get; set; }
+        public Guid AllergyId { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
-        public Guid AllergyId { get; set; }
         [ForeignKey(nameof(AllergyId))]
+        public Allergy Allergy { get; set; }
     }
 }
