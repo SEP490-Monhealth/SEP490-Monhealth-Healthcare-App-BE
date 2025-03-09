@@ -4,6 +4,7 @@ using Monhealth.Core.Enum;
 using Microsoft.Extensions.Logging;
 using Monhealth.Domain.Enum;
 using Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFunction;
+using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
@@ -92,7 +93,7 @@ namespace Monhealth.Application
             // Tạo các bữa ăn cho 3 ngày
             var currentDate = DateTime.Now.Date;
             var mealIds = new List<Guid>();
-
+            
             for (int dayOffset = 0; dayOffset < 3; dayOffset++)
             {
                 var targetDate = currentDate.AddDays(dayOffset);
@@ -109,9 +110,9 @@ namespace Monhealth.Application
                 }
 
                 // Tạo bữa ăn mới nếu không tồn tại
-                var breakfast = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Breakfast, mealCalories.First(m => m.MealType == MealType.Breakfast).Calories, targetDate, request.UserId);
-                var lunch = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Lunch, mealCalories.First(m => m.MealType == MealType.Lunch).Calories, targetDate, request.UserId);
-                var dinner = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Dinner, mealCalories.First(m => m.MealType == MealType.Dinner).Calories, targetDate, request.UserId);
+                var breakfast = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Breakfast,breakfastCalories, targetDate, request.UserId);
+                var lunch = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Lunch, lunchCalories, targetDate, request.UserId);
+                var dinner = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Dinner, dinnerCalories, targetDate, request.UserId);
 
                 // Log the meal creation
                 _logger.LogInformation($"Created meals for {MealType.Breakfast}, {MealType.Lunch}, and {MealType.Dinner} on {targetDate.ToShortDateString()}.");
