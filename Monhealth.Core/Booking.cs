@@ -14,7 +14,7 @@ namespace Monhealth.Domain
         public Guid? ConsultantId { get; set; }
         public DateTime Date { get; set; }
         public string? Notes { get; set; } = string.Empty;
-
+        public string CancellationReason { get; set; } = string.Empty;
         public BookingStatus Status { get; set; }
         [ForeignKey(nameof(UserId)), Column(Order = 0)]
         public AppUser? User { get; set; }

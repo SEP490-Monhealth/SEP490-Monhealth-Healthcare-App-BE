@@ -6,6 +6,8 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertise
     {
         [JsonPropertyName("expertise")]
         public string ExpertiseName { get; set; } = string.Empty;
+        [JsonPropertyName("description")]
+        public string ExpertiseDescription { get; set; } = null!;
         [JsonPropertyName("certificate")]
         public string CertificateName { get; set; } = string.Empty;
         public DateTime? IssueDate { get; set; }

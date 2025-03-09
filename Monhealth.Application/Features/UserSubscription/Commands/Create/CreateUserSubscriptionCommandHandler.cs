@@ -21,6 +21,8 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 ExpiresAt = DateTime.Now.AddDays(Duration),
                 SubscriptionId = request.SubscriptionId,
                 UserId = request.UserId,
+                Status = request.Status,
+                StartAt = request.StartAt,
                 UpdatedAt = DateTime.Now,
             };
 

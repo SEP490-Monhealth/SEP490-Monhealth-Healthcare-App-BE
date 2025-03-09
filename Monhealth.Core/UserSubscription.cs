@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Common;
+﻿using Monhealth.Core.Enum;
+using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,6 +13,8 @@ namespace Monhealth.Domain
         public Guid UserId { get; set; }
         public Guid SubscriptionId { get; set; }
         public DateTime ExpiresAt { get; set; }
+        public string StartAt { get; set; } = string.Empty;
+        public Status Status { get; set; }
         [ForeignKey("UserId")]
         public AppUser User { get; set; }
         [ForeignKey("SubscriptionId")]

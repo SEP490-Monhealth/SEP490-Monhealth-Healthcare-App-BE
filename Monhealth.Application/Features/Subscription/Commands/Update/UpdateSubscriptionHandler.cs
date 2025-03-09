@@ -17,6 +17,9 @@ namespace Monhealth.Application.Features.Subscription.Commands.Update
             var id =await _subscriptionRepository.GetByIdAsync(request.SubscriptionId);
             id.SubscriptionName = request.Request.SubscriptionName;
             id.Price = request.Request.Price;
+            id.DurationDays = request.Request.DurationDays;
+            id.Features = request.Request.Features;
+            id.SubscriptionDescription = request.Request.SubscriptionDescription;
             _subscriptionRepository.Update(id);
             await _subscriptionRepository.SaveChangeAsync();
             return true;

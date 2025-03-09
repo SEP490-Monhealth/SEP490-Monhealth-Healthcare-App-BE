@@ -11,6 +11,8 @@ namespace Monhealth.Domain
         public Guid? ExpertiseId { get; set; }
         public Guid? ConsultantId { get; set; }
         public string CertificateName { get; set; } = string.Empty;
+        public string CertificateNumber  { get; set; } = string.Empty;
+        public string IssueBy { get; set; } = null!;
         public string ImageUrls { get; set; } = string.Empty;
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }

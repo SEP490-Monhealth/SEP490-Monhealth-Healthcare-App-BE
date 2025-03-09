@@ -4,6 +4,6 @@
     {
         public DateTime Date { get; set; }
         public string? Notes { get; set; } = string.Empty;
-
+        public string CancellationReason { get; set; } = null!;
     }
 }

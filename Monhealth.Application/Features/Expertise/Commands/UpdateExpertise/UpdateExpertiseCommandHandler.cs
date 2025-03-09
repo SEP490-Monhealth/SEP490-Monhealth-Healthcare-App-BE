@@ -33,7 +33,7 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertise
             _expertiseRepository.Update(updateExpertise);
 
             // Update Certificate
-            var certificates = await _certificateRepository.GetCertificateByExpertiseId(request.ExpertiseId);
+            // var certificates = await _certificateRepository.GetCertificateByExpertiseId(request.ExpertiseId);
             //foreach (var certificate in certificates)
             //{
             //    certificate.CertificateName = request.UpdateExpertiseDTO.CertificateName;

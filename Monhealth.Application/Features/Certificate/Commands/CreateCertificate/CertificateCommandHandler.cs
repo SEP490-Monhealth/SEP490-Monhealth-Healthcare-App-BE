@@ -10,7 +10,8 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
     {
         public async Task<Unit> Handle(CertificateCommand request, CancellationToken cancellationToken)
         {
-            var isNameExist = await certificateRepository.AnyAsync(c => c.CertificateName == request.CertificateName);
+            var isNameExist = await certificateRepository
+            .AnyAsync(c => c.CertificateName == request.CertificateName);
             if (isNameExist) throw new BadRequestException("Tên chứng chỉ đã tồn tại");
             // var urlLists = string.Join(",", request.Images);
             string imageUrls = JsonSerializer.Serialize(request.Images);

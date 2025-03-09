@@ -18,7 +18,11 @@ namespace Monhealth.Application.Features.Subscription.Commands.Create
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 SubscriptionName = request.SubscriptionName,
-                Price = request.Price
+                Price = request.Price,
+                DurationDays = request.DurationDays,
+                SubscriptionDescription = request.SubscriptionDescription,
+                Features = request.Features,
+                Status = true
             };
             _subscriptionRepository.Add(model);
             await _subscriptionRepository.SaveChangeAsync();

@@ -6,5 +6,7 @@ namespace Monhealth.Application.Features.Expertise.Queries.GetExpertiseById
     {
         [JsonPropertyName("name")]
         public string ExpertiseName { get; set; } = string.Empty;
+        [JsonPropertyName("description")]
+        public string ExpertiseDescription { get; set; } = null!;
     }
 }
