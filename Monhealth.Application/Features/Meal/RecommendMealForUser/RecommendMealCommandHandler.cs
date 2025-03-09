@@ -93,7 +93,7 @@ namespace Monhealth.Application
             // Tạo các bữa ăn cho 3 ngày
             var currentDate = DateTime.Now.Date;
             var mealIds = new List<Guid>();
-            
+
             for (int dayOffset = 0; dayOffset < 3; dayOffset++)
             {
                 var targetDate = currentDate.AddDays(dayOffset);
@@ -110,7 +110,7 @@ namespace Monhealth.Application
                 }
 
                 // Tạo bữa ăn mới nếu không tồn tại
-                var breakfast = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Breakfast,breakfastCalories, targetDate, request.UserId);
+                var breakfast = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Breakfast, breakfastCalories, targetDate, request.UserId);
                 var lunch = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Lunch, lunchCalories, targetDate, request.UserId);
                 var dinner = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Dinner, dinnerCalories, targetDate, request.UserId);
 
@@ -129,12 +129,14 @@ namespace Monhealth.Application
             }
 
             // Cập nhật thông tin DailyMeal và MealFood cho 3 ngày
+            // Cập nhật thông tin DailyMeal và MealFood cho 3 ngày
             foreach (var mealId in mealIds)
             {
                 var meal = await _mealRepository.GetByIdAsync(mealId);
                 var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(meal.CreatedAt.Value, userId);
                 var goal = await _goalRepository.GetByUserIdAsync(userId);
 
+                // Kiểm tra nếu không tìm thấy DailyMeal cho ngày hiện tại
                 if (dailyMeal == null)
                 {
                     dailyMeal = new Monhealth.Domain.DailyMeal
@@ -151,33 +153,57 @@ namespace Monhealth.Application
                         TotalSugars = 0
                     };
                     _dailyMealRepository.Add(dailyMeal);
-                    await _dailyMealRepository.SaveChangeAsync();
+                    await _dailyMealRepository.SaveChangeAsync();  // Lưu DailyMeal và lấy DailyMealId
+                }
+                else
+                {
+                    dailyMeal.TotalCalories = 0;
+                    dailyMeal.TotalProteins = 0;
+                    dailyMeal.TotalCarbs = 0;
+                    dailyMeal.TotalFats = 0;
+                    dailyMeal.TotalFibers = 0;
+                    dailyMeal.TotalSugars = 0;
                 }
 
+
+                // Gán DailyMealId cho bữa ăn
+                meal.DailyMealId = dailyMeal.DailyMealId;
+                _mealRepository.Update(meal);
+
+                // Lấy các MealFood của bữa ăn
                 var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
                 foreach (var mealFood in mealFoods)
                 {
                     var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
-                    if (portion == null) throw new Exception("Portion not found.");
+                    if (portion == null)
+                    {
+                        throw new Exception($"Không tìm thấy Portion với PortionId: {mealFood.PortionId}");
+                    }
 
-                    var food = mealFood.Food;
-                    var portionWeight = portion.PortionWeight;
+                    // Nếu món ăn đã hoàn thành, tính toán dinh dưỡng
+                    if (mealFood.IsCompleted == true)
+                    {
+                        var food = mealFood.Food;
+                        var portionWeight = portion.PortionWeight;
 
-                    dailyMeal.TotalCalories += food.Nutrition.Calories / 100 * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalProteins += food.Nutrition.Protein / 100 * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalCarbs += food.Nutrition.Carbs / 100 * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalFats += food.Nutrition.Fat / 100 * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalFibers += food.Nutrition.Fiber / 100 * (mealFood.Quantity * portionWeight);
-                    dailyMeal.TotalSugars += food.Nutrition.Sugar / 100 * (mealFood.Quantity * portionWeight);
+                        // Cập nhật dinh dưỡng vào DailyMeal
+                        dailyMeal.TotalCalories += (food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalProteins += (food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalCarbs += (food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalFats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalFibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
+                        dailyMeal.TotalSugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
 
-                    // Log information about each meal food
-                    _logger.LogInformation($"MealFood added: FoodId = {food.FoodId}, Quantity = {mealFood.Quantity}, PortionWeight = {portionWeight}, Calories = {food.Nutrition.Calories}");
+                        _logger.LogInformation($"Updated daily meal total for {food.FoodId}: Calories = {food.Nutrition.Calories}, Quantity = {mealFood.Quantity}");
+                    }
                 }
+
+                // Cập nhật lại thông tin DailyMeal sau khi tính toán
                 dailyMeal.UpdatedAt = DateTime.Now;
                 await _dailyMealRepository.SaveChangeAsync();
             }
+
             return mealIds.First();
         }
-
     }
 }
