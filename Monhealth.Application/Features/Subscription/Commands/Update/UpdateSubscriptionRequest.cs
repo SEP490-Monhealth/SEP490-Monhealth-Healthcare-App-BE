@@ -11,7 +11,7 @@ namespace Monhealth.Application.Features.Subscription.Commands.Update
         public string SubscriptionDescription { get; set; } = null!;
         public int Price { get; set; }
         public int DurationDays { get; set; }
-        public string Features { get; set; } = null!;
+        public List<string> Features { get; set; } = null!;
         public int MaxBookings { get; set; }
     }
 }

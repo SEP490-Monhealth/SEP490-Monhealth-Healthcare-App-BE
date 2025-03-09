@@ -13,7 +13,7 @@ namespace Monhealth.Application.Features.Subscription.Commands.Create
 
         public async Task<Unit> Handle(CreateSubscriptionCommand request, CancellationToken cancellationToken)
         {
-            var model = new Monhealth.Domain.Subscription
+            var model = new Domain.Subscription
             {
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,

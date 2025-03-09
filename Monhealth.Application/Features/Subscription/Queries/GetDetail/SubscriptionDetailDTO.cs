@@ -11,7 +11,7 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetDetail
         public string SubscriptionDescription { get; set; } = string.Empty;
         public int Price { get; set; }
         public int DurationDays { get; set; }
-        public string Features { get; set; } = string.Empty;
+        public List<string> Features { get; set; } = [];
         public int MaxBookings { get; set; }
         public bool Status { get; set; }
     }

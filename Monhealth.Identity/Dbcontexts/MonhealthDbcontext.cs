@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Text.Json;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
 using Monhealth.Core;
 using Monhealth.Core.Enum;
@@ -15,7 +17,7 @@ namespace Monhealth.Identity.Dbcontexts
     {
         public MonhealthDbcontext(DbContextOptions<MonhealthDbcontext> options) : base(options)
         {
-                 
+
         }
 
         public DbSet<Metric> Metrics { get; set; }
@@ -193,6 +195,18 @@ namespace Monhealth.Identity.Dbcontexts
                     )
                     .Metadata.SetValueComparer(dishTypeComparer); // Set ValueComparer
             });
+            var stringListConverter = new ValueConverter<List<string>, string>(
+        v => JsonSerializer.Serialize(v, (JsonSerializerOptions?)null),  // Convert List<string> -> string
+        v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions?)null) ?? new List<string>() // Convert string -> List<string>
+             );
+            builder.Entity<Subscription>()
+                .Property(s => s.Features)
+                .HasConversion(stringListConverter)
+                .Metadata.SetValueComparer(new ValueComparer<List<string>>(
+                    (c1, c2) => c1.SequenceEqual(c2),
+                    c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                    c => c.ToList()
+                ));
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());

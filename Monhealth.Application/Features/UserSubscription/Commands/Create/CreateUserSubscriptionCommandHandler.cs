@@ -14,18 +14,15 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
 
         public async Task<Unit> Handle(CreateUserSubscriptionCommand request, CancellationToken cancellationToken)
         {
-            int Duration = request.Duration;
-            var model = new Monhealth.Domain.UserSubscription
+            var model = new Domain.UserSubscription
             {
-                CreatedAt = DateTime.Now,
-                ExpiresAt = DateTime.Now.AddDays(Duration),
                 SubscriptionId = request.SubscriptionId,
                 UserId = request.UserId,
-                Status = request.Status,
-                StartAt = request.StartAt,
+                StartedAt = request.StartedAt,
+                Status = Core.Enum.UserSubscriptionStatus.Active,
+                CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };
-
             _userSubscriptionRepository.Add(model);
             await _userSubscriptionRepository.SaveChangeAsync();
             return Unit.Value;

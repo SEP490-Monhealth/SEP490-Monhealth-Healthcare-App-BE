@@ -12,7 +12,7 @@ namespace Monhealth.Domain
         public Guid UserSubscriptionId { get; set; }
         public Guid UserId { get; set; }
         public Guid SubscriptionId { get; set; }
-        public string StartAt { get; set; } = string.Empty; // StartedAt
+        public DateTime StartedAt { get; set; }  // StartedAt
         public DateTime ExpiresAt { get; set; }
         public UserSubscriptionStatus Status { get; set; }
 
