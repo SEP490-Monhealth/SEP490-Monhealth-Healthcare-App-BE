@@ -16,7 +16,7 @@ namespace Monhealth.Identity.Configurations
             #region Subscription 1
             new Subscription
             {
-                SubscriptionId = Guid.Parse("af7f853b-8c5e-42dc-96e9-be1522ccce82"),
+                SubscriptionId = Guid.NewGuid(),
                 SubscriptionName = "Gói Cơ Bản",
                 SubscriptionDescription = "Gói dịch vụ miễn phí với các tính năng cơ bản để theo dõi sức khỏe và dinh dưỡng",
                 Price = 0,
@@ -34,7 +34,7 @@ namespace Monhealth.Identity.Configurations
             #region Subscription 2
             new Subscription
             {
-                SubscriptionId = Guid.Parse("af7f853b-8c5e-42dc-96e9-be1522ccce82"),
+                SubscriptionId = Guid.NewGuid(),
                 SubscriptionName = "Gói Nâng Cao",
                 SubscriptionDescription = "Gói dịch vụ nâng cao với đầy đủ tính năng dinh dưỡng và tập luyện cá nhân hóa",
                 Price = 249000,
@@ -52,7 +52,7 @@ namespace Monhealth.Identity.Configurations
             #region Subscription 3
             new Subscription
             {
-                SubscriptionId = Guid.Parse("af7f853b-8c5e-42dc-96e9-be1522ccce82"),
+                SubscriptionId = Guid.NewGuid(),
                 SubscriptionName = "Gói Cơ Bản",
                 SubscriptionDescription = "Gói dịch vụ cao cấp bao gồm tư vấn cá nhân từ chuyên gia dinh dưỡng và thể hình",
                 Price = 899000,

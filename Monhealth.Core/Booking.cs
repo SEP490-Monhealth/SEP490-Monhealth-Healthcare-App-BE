@@ -13,8 +13,8 @@ namespace Monhealth.Domain
         public Guid? UserId { get; set; }
         public Guid? ConsultantId { get; set; }
         public DateTime Date { get; set; }
-        public string? Notes { get; set; } = string.Empty;
-        public string? CancellationReason { get; set; } = string.Empty;
+        public string? Notes { get; set; }
+        public string? CancellationReason { get; set; } 
         public BookingStatus Status { get; set; }
 
         [ForeignKey(nameof(UserId)), Column(Order = 0)]
