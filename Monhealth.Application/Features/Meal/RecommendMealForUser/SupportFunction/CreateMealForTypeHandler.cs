@@ -69,12 +69,13 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
             .FirstOrDefault(mf => mf.FoodId == carbsFood.FoodId);
 
 
-
+            float mealCaloriesOfCarbs = mealCalories * 0.6f;
             if (existingMealFoodCarbs == null)
             {
-                var totalFoodCalories = (carbsFood.Nutrition.Carbs * 4) + (carbsFood.Nutrition.Protein * 4) + (carbsFood.Nutrition.Fat * 9);
-                var currentPortionWeight = carbsFood.FoodPortions.FirstOrDefault()?.Portion?.PortionWeight ?? 0f;
-                var portionWeight = (mealCalories / totalFoodCalories) * 100;
+                var totalFoodCalories = (carbsFood.Nutrition.Carbs * 4)
+                + (carbsFood.Nutrition.Protein * 4)
+                + (carbsFood.Nutrition.Fat * 9);
+                var portionWeight = (mealCaloriesOfCarbs / totalFoodCalories) * 100;
                 Portion portion = new Portion();
 
                 portion = new Portion
@@ -135,14 +136,14 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
             var existingMealFoodProtein = proteinFood.MealFoods
             .FirstOrDefault(mf => mf.FoodId == proteinFood.FoodId);
 
+            float mealCaloriesOfProteins = mealCalories * 0.4f;
 
             if (existingMealFoodProtein == null)
             {
                 var totalFoodCalories = (proteinFood.Nutrition.Carbs * 4)
                 + (proteinFood.Nutrition.Protein * 4)
                 + (proteinFood.Nutrition.Fat * 9);
-                var currentPortionWeight = proteinFood.FoodPortions.FirstOrDefault()?.Portion?.PortionWeight ?? 0f;
-                var portionWeight = (mealCalories / totalFoodCalories) * 100;
+                var portionWeight = (mealCaloriesOfProteins / totalFoodCalories) * 100;
 
                 var portion = new Portion();
 
