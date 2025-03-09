@@ -23,7 +23,7 @@ namespace Monhealth.Domain
         public float WaterIntakesGoal { get; set; }
         public float CaloriesBurnedGoal { get; set; }
         public float DurationGoal { get; set; }
-        public float StepsGoal { get; set; }
+        // public float StepsGoal { get; set; }
         public GoalStatus Status { get; set; }
 
         [ForeignKey(nameof(UserId))]
