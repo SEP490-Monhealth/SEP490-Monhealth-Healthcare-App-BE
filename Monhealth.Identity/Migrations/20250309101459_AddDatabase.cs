@@ -874,7 +874,7 @@ namespace Monhealth.Identity.Migrations
                     ConsultantId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CertificateName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CertificateNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IssueBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IssuedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrls = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IssueDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ExpiryDate = table.Column<DateTime>(type: "datetime2", nullable: true),

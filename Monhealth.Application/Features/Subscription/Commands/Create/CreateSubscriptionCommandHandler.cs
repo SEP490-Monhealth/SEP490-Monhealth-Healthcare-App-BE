@@ -18,10 +18,11 @@ namespace Monhealth.Application.Features.Subscription.Commands.Create
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 SubscriptionName = request.SubscriptionName,
+                SubscriptionDescription = request.SubscriptionDescription,
                 Price = request.Price,
                 DurationDays = request.DurationDays,
-                SubscriptionDescription = request.SubscriptionDescription,
                 Features = request.Features,
+                MaxBookings = request.MaxBookings,
                 Status = true
             };
             _subscriptionRepository.Add(model);

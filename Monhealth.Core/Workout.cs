@@ -21,10 +21,11 @@ namespace Monhealth.Domain
         public float DurationMinutes { get; set; }
         public float CaloriesBurned { get; set; }
         public bool Status { get; set; } = default!;
-        [ForeignKey(nameof(CategoryId))]
-        public Category Category { get; set; }
+
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
+        [ForeignKey(nameof(CategoryId))]
+        public Category Category { get; set; }
         public ICollection<WorkoutExercise> WorkoutExercises { get; set; }
         public ICollection<Activity> Activities { get; set; }
     }

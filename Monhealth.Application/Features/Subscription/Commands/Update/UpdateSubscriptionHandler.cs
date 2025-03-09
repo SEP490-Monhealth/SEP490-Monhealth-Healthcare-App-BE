@@ -14,12 +14,13 @@ namespace Monhealth.Application.Features.Subscription.Commands.Update
 
         public async Task<bool> Handle(UpdateSubscriptionCommand request, CancellationToken cancellationToken)
         {
-            var id =await _subscriptionRepository.GetByIdAsync(request.SubscriptionId);
+            var id = await _subscriptionRepository.GetByIdAsync(request.SubscriptionId);
             id.SubscriptionName = request.Request.SubscriptionName;
+            id.SubscriptionDescription = request.Request.SubscriptionDescription;
             id.Price = request.Request.Price;
             id.DurationDays = request.Request.DurationDays;
             id.Features = request.Request.Features;
-            id.SubscriptionDescription = request.Request.SubscriptionDescription;
+            id.MaxBookings = request.Request.MaxBookings;
             _subscriptionRepository.Update(id);
             await _subscriptionRepository.SaveChangeAsync();
             return true;

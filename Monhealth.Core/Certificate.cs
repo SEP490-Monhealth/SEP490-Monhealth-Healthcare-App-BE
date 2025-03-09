@@ -11,16 +11,15 @@ namespace Monhealth.Domain
         public Guid? ExpertiseId { get; set; }
         public Guid? ConsultantId { get; set; }
         public string CertificateName { get; set; } = string.Empty;
-        public string CertificateNumber  { get; set; } = string.Empty;
-        public string IssueBy { get; set; } = null!;
+        public string CertificateNumber { get; set; } = string.Empty;
         public string ImageUrls { get; set; } = string.Empty;
-        public DateTime? IssueDate { get; set; }
+        public DateTime IssueDate { get; set; }
+        public string IssuedBy { get; set; } = null!;
         public DateTime? ExpiryDate { get; set; }
         public bool IsVerified { get; set; }
 
         [ForeignKey(nameof(ConsultantId))]
         public Consultant? Consultant { get; set; }
-
         [ForeignKey(nameof(ExpertiseId))]
         public Expertise? Expertise { get; set; }
     }

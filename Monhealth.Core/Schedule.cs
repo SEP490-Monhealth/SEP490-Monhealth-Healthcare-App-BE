@@ -8,11 +8,12 @@ namespace Monhealth.Domain
     public class Schedule : TimeEntity
     {
         [Key]
-        public Guid ScheduleId { get; set; } // PK 
-        public Guid ConsultantId { get; set; } // FK 
+        public Guid ScheduleId { get; set; }
+        public Guid ConsultantId { get; set; }
         public ScheduleType ScheduleType { get; set; }
         public RecurringDay RecurringDay { get; set; }
         public DateOnly SpecificDate { get; set; }
+
         [ForeignKey(nameof(ConsultantId))]
         public Consultant Consultant { get; set; }
         public ICollection<ScheduleException>? ScheduleExceptions { get; set; }

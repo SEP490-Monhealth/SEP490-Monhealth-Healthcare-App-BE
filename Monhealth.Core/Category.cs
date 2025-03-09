@@ -14,7 +14,6 @@ namespace Monhealth.Domain
                 public string? CategoryDescription { get; set; } = string.Empty;
                 public string? ImageUrl { get; set; } = string.Empty;
 
-                public string? Image { get; set; } = string.Empty;
                 public ICollection<CategoryFood> CategoryFoods { get; set; } = [];
                 public ICollection<Workout> Workouts { get; set; } = [];
                 public ICollection<UserCategory> UserCategories { get; set; } = [];

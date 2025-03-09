@@ -16,6 +16,7 @@ namespace Monhealth.Domain
         public bool IsRecurring { get; set; }
         public bool IsDrunk { get; set; }
         public bool Status { get; set; }
+
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
     }

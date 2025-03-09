@@ -10,6 +10,7 @@ namespace Monhealth.Core
         public Guid UserCategoryId { get; set; }
         public Guid UserId { get; set; }
         public Guid CategoryId { get; set; }
+
         [ForeignKey(nameof(UserId))]
         public AppUser User { get; set; } = null!;
         [ForeignKey(nameof(CategoryId))]

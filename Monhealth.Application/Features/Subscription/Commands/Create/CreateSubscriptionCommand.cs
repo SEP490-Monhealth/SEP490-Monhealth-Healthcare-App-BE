@@ -7,11 +7,12 @@ namespace Monhealth.Application.Features.Subscription.Commands.Create
     {
         [JsonPropertyName("name")]
         public string SubscriptionName { get; set; } = string.Empty;
-        public int Price { get; set; }
         [JsonPropertyName("description")]
         public string SubscriptionDescription { get; set; } = null!;
+        public int Price { get; set; }
         public int DurationDays { get; set; }
         public string Features { get; set; } = null!;
+        public int MaxBookings { get; set; }
         public bool Status { get; set; }
     }
 }

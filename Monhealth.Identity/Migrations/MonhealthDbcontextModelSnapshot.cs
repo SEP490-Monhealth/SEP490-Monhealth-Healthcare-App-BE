@@ -2361,7 +2361,7 @@ namespace Monhealth.Identity.Migrations
                     b.Property<bool>("IsVerified")
                         .HasColumnType("bit");
 
-                    b.Property<string>("IssueBy")
+                    b.Property<string>("IssuedBy")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

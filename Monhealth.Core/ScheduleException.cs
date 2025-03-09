@@ -11,6 +11,7 @@ namespace Monhealth.Domain
         public Guid? ScheduleId { get; set; }
         public DateOnly Date { get; set; }
         public string? Reason { get; set; }
+
         [ForeignKey(nameof(ScheduleId))]
         public Schedule? Schedule { get; set; }
     }

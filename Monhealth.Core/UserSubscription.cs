@@ -12,9 +12,10 @@ namespace Monhealth.Domain
         public Guid UserSubscriptionId { get; set; }
         public Guid UserId { get; set; }
         public Guid SubscriptionId { get; set; }
+        public string StartAt { get; set; } = string.Empty; // StartedAt
         public DateTime ExpiresAt { get; set; }
-        public string StartAt { get; set; } = string.Empty;
-        public Status Status { get; set; }
+        public UserSubscriptionStatus Status { get; set; }
+
         [ForeignKey("UserId")]
         public AppUser User { get; set; }
         [ForeignKey("SubscriptionId")]

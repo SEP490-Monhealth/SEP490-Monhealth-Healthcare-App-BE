@@ -12,6 +12,7 @@ namespace Monhealth.Domain
         public Guid? ScheduleId { get; set; }
         public Guid? TimeSlotId { get; set; }
         public ScheduleTimeSlotStatus Status { get; set; }
+
         [ForeignKey(nameof(ScheduleId))]
         public Schedule? Schedule { get; set; }
         [ForeignKey(nameof(TimeSlotId))]
