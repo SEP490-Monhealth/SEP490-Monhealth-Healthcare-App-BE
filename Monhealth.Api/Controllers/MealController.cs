@@ -108,8 +108,9 @@ namespace Monhealth.Api.Controllers
                 Status = 400,
             });
         }
+
         [HttpPost]
-        [Route("RecommendMeal/{userId:guid}")]
+        [Route("{userId:guid}/meal-recommend")]
         public async Task<ActionResult<ResultModel>> AddMealRecommend(Guid userId)
         {
             var meal = await _mediator.
