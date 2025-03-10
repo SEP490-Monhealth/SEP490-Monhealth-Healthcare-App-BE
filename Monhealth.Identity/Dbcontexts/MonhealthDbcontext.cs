@@ -55,6 +55,8 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<ScheduleException> ScheduleExceptions { get; set; }
         public DbSet<CategoryFood> CategoryFoods { get; set; }
         public DbSet<UserCategory> UserCategories { get; set; }
+        public DbSet<Wallet> Wallets { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
         //public DbSet<ConsultantExpertise> ConsultantExpertises { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
