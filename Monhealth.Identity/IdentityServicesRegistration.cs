@@ -85,6 +85,7 @@ namespace Monhealth.Identity
             services.AddScoped<IExpertiseRepository, ExpertiseRepository>();
             services.AddScoped<IConsultantRepository, ConsultantRepository>();
             services.AddScoped<ICertificateRepository, CertificateRepository>();
+            services.AddScoped<IWalletRepository, WalletRepository>();
             // Đăng ký MediatR
             services.AddScoped<WaterReminderResetService>();
             services.AddScoped<IDailyWaterIntakesRepository, DailyWaterIntakesRepository>();
