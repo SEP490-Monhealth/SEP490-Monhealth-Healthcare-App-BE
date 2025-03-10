@@ -40,7 +40,6 @@ namespace Monhealth.Application.Features.Food.AddFood
                 FoodName = request.FoodName,
                 MealType = request.MealType,
                 DishType = request.DishType,
-                FoodType = request.FoodType,
                 FoodDescription = request.FoodDescription,
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,

@@ -11,7 +11,7 @@ namespace Monhealth.Domain
                 [Key]
                 public Guid FoodId { get; set; }
                 public Guid UserId { get; set; }
-                public List<FoodType> FoodType { get; set; } = [];
+                // public List<FoodType> FoodType { get; set; } = [];
                 public List<MealType> MealType { get; set; } = [];
                 public List<DishType> DishType { get; set; } = [];
                 public string FoodName { get; set; } = string.Empty;

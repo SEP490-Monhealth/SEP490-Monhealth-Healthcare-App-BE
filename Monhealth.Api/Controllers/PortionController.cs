@@ -8,6 +8,7 @@ using Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion;
 using Monhealth.Application.Features.Portions.Queries.GetPortionById;
 using Monhealth.Application.Features.Portions.Queries.GetPortionsByFoodId;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -58,6 +59,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpGet("food/{foodId}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetPortionsByFoodId(Guid foodId)
         {
             var portion = await _mediator.Send(new GetPortionsByFoodIdQuery() { FoodId = foodId });
@@ -80,6 +82,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> CreateFoodPortion([FromBody] CreatePortionCommand createPortion)
         {
             var create = await _mediator.Send(createPortion);

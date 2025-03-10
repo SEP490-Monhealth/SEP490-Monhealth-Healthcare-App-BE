@@ -6,6 +6,7 @@ using Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries;
 using Monhealth.Application.Features.Workout.Queries.GetWorkoutByIdQueries;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -14,6 +15,7 @@ namespace Monhealth.Api.Controllers
     public class WorkoutController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllWorkouts(int page = 1, int limit = 10, string? category = null, string? search = null, DifficultyLevel? difficulty = null, bool? popular = null, bool? status = null)
         {
             var workouts = await mediator.Send(new GetAllWorkoutQuery(page, limit, category, search, difficulty, popular, status));
@@ -27,6 +29,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{workoutId:guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetWorkoutById([FromRoute] Guid workoutId)
         {
             var workouts = await mediator.Send(new GetWorkoutByIdQuery(workoutId));
@@ -44,7 +47,7 @@ namespace Monhealth.Api.Controllers
         {
             var command = new UpdateWorkoutHandler(workoutId, request);
             var result = await mediator.Send(command);
-            if (result == null )
+            if (result == null)
                 return new ResultModel
                 {
                     Message = "Cập nhật bài tập thất bại",

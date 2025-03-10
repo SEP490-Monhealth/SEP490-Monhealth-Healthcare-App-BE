@@ -8,6 +8,7 @@ using Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId;
 using Monhealth.Application.Features.Nutrition.Queries.GetNutritionDetail;
 using Monhealth.Application.Features.Nutrition.UpdateNutrition;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -61,6 +62,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("food/{foodId:Guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetNutritionByFoodIdDetail(Guid foodId)
         {
             var queries = await _mediator.

@@ -10,6 +10,7 @@ using Monhealth.Application.Features.Exercise.Queries.GetExerciseByUserId;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -38,6 +39,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{exerciseId:guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetExerciseById(Guid exerciseId)
         {
             var exercise = await _mediator.Send(new GetExerciseByIdQuery { ExerciseId = exerciseId });
@@ -82,6 +84,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("workout/{workoutId:guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetExerciseByWorkoutId([FromRoute] Guid workoutId)
         {
             var exercise = await _mediator.Send(new GetExerciseByWorkoutIdQuery() { WorkoutId = workoutId });
@@ -104,6 +107,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> CreateExercise(CreateExerciseDTO createExerciseDTO)
         {
             var command = new CreateExerciseCommand(createExerciseDTO);
