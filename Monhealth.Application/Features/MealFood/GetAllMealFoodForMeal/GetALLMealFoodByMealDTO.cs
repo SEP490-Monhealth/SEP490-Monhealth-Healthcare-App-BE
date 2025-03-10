@@ -29,7 +29,7 @@ namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
         public Guid FoodId { get; set; }
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
-        public bool Status { get; set; }
+        public bool IsCompleted { get; set; }
         public int Quantity { get; set; }
         public float Calories { get; set; }
         public MealFoodPortion5 Portion { get; set; }

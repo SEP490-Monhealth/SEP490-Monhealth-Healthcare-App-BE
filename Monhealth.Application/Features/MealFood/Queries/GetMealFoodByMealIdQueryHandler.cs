@@ -52,8 +52,8 @@ namespace Monhealth.Application.Features.MealFood.Queries
                         Weight = portion.PortionWeight,
                         Unit = portion.MeasurementUnit ?? string.Empty,
                     },
-                    isRecommended = mf.IsRecommended,
-                    Status = mf.IsCompleted,
+                    IsRecommended = mf.IsRecommended,
+                    IsCompleted = mf.IsCompleted,
                     CreatedAt = mf.CreatedAt,
                     UpdatedAt = mf.UpdatedAt
                 };

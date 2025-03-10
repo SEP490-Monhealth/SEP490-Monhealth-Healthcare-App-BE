@@ -76,7 +76,7 @@ namespace Monhealth.Application.Features.MealFood.GetAllMealFoodForMeal
                         MealFoodId = mealFood.MealFoodId,
                         FoodId = mealFood.FoodId,
                         FoodName = mealFood.Food?.FoodName ?? string.Empty,
-                        Status = mealFood.IsCompleted,
+                        IsCompleted = mealFood.IsCompleted,
                         Quantity = mealFood.Quantity,
                         Calories = calories, // Giá trị luôn được tính toán
                         Portion = new MealFoodPortion5
