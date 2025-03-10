@@ -32,7 +32,6 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
             var dishTypesToFilter = new List<int> {
                 (int)DishType.MainDish,
                 (int)DishType.SideDish,
-                (int)DishType.Drink
             };
 
             var allFoods = await _foodRepository.GetAll().Include(f => f.FoodPortions)
@@ -45,13 +44,14 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
             _logger.LogInformation($"Total foods fetched from repository: {allFoods.Count}");
 
             var filteredFoods = allFoods
-                .Where(f =>
-                    (mealTypesToFilter == null || !mealTypesToFilter.Any() || mealTypesToFilter.All(mt => f.MealType.Select(fmt => (int)fmt).Contains(mt)) &&
-                    (dishTypesToFilter == null || !dishTypesToFilter.Any() || dishTypesToFilter.All(mt => f.DishType.Select(fmt => (int)fmt).Contains(mt)))
-                ))
-                .ToList();
+     .Where(f =>
+         (mealTypesToFilter == null || !mealTypesToFilter.Any() || f.MealType.Select(fmt => (int)fmt).Any(mt => mealTypesToFilter.Contains(mt))) &&
+         (dishTypesToFilter == null || !dishTypesToFilter.Any() || f.DishType.Select(fmt => (int)fmt).Any(dt => dishTypesToFilter.Contains(dt)))
+     )
+     .ToList();
 
-            return allFoods;
+
+            return filteredFoods;
         }
     }
 }

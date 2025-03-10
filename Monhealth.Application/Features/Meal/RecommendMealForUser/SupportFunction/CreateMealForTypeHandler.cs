@@ -232,7 +232,7 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
 
             // Chọn món phụ (Vegetables)
             var vegetableFood = selectedFoods
-                .Where(f => f.Nutrition.Fiber > 2) // Điều kiện chọn rau (có nhiều chất xơ)
+                .Where(f => f.Nutrition.Fiber > 3.0f) // Điều kiện chọn rau (có nhiều chất xơ)
                 .OrderBy(f => rd.Next())
                 .FirstOrDefault();
         
