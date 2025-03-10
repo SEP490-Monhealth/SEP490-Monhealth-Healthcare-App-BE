@@ -35,28 +35,36 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
         public async Task<Guid> Handle(CreateMealCommand request, CancellationToken cancellationToken)
         {
-
             var userId = request.CreateMeal.UserId;
-            var currentDate1 = DateTime.Now.Date.Day;
-            var mealTypeString = request.CreateMeal.MealType.ToString();
+            var currentDate = DateTime.Now.Date.Day; // Lấy toàn bộ ngày, không chỉ số ngày
+            if (request.CreateMeal.MealType == null)
+            {
+                throw new ArgumentException("MealType không được để trống.");
+            }
 
-            // Kiểm tra loại bữa ăn hợp lệ
-            var validMealTypes = new HashSet<string> { "Breakfast", "Lunch", "Dinner", "Snack" };
-            if (!validMealTypes.Contains(mealTypeString))
+            var mealTypeString = request.CreateMeal.MealType.ToString();
+            
+            if (!Enum.TryParse(mealTypeString, out MealType mealTypeEnum) ||
+                          !Enum.IsDefined(typeof(MealType), mealTypeEnum))
+            {
                 throw new ArgumentException("MealType phải là một trong các giá trị: Breakfast, Lunch, Dinner, Snack");
+            }
 
             // Kiểm tra bữa ăn đã tồn tại trong ngày hiện tại
-            var mealTypeEnum = Enum.Parse<MealType>(mealTypeString);
-            var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, mealTypeEnum, currentDate1);
+            var existingMeal = await _mealRepository.GetByUserIdAndMealType(userId, mealTypeEnum, currentDate);
+            Console.WriteLine(existingMeal != null ? $"Meal exists: {existingMeal.MealId}" : "Meal not found");
+
             Monhealth.Domain.Meal model;
 
             if (existingMeal != null)
             {
+                Console.WriteLine("Updating existing meal...");
                 model = existingMeal;
                 model.UpdatedAt = DateTime.Now;
             }
             else
             {
+                Console.WriteLine("Creating new meal...");
                 model = new Monhealth.Domain.Meal
                 {
                     UserId = userId,
@@ -64,9 +72,12 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 };
+
                 _mealRepository.Add(model);
-                await _mealRepository.SaveChangeAsync();
             }
+
+            await _mealRepository.SaveChangeAsync();
+
 
             foreach (var item in request.CreateMeal.Items)
             {
@@ -107,7 +118,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 }
                 else
                 {
-                    var mealFood = new Monhealth.Domain.MealFood
+                    var mealFood = new Domain.MealFood
                     {
                         MealId = model.MealId,
                         FoodId = item.FoodId,
@@ -131,10 +142,10 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 }
             }
 
-            var currentDate = DateTime.Now.Date;
-            var mealsForDay = await _mealRepository.GetMealByUserAndDate(currentDate, userId);
+            var currentDate1 = DateTime.Now.Date;
+            var mealsForDay = await _mealRepository.GetMealByUserAndDate(currentDate1, userId);
 
-            var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(currentDate, userId);
+            var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(currentDate1, userId);
             var goal = await _goalRepository.GetByUserIdAsync(userId);
 
             if (goal == null)
@@ -144,11 +155,11 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
             if (dailyMeal == null)
             {
-                dailyMeal = new Monhealth.Domain.DailyMeal
+                dailyMeal = new Domain.DailyMeal
                 {
                     GoalId = goal.GoalId,
                     UserId = userId,
-                    CreatedAt = currentDate,
+                    CreatedAt = currentDate1,
                     UpdatedAt = DateTime.Now,
                     TotalCalories = 0,
                     TotalProteins = 0,

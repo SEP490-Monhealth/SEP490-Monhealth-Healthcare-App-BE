@@ -14,8 +14,8 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Meal> AddAsync()
         {
-           var meal = new Meal();
-           return await Task.FromResult(meal);
+            var meal = new Meal();
+            return await Task.FromResult(meal);
         }
 
         public async Task<List<Meal>> GetAllMealFoodForMeal(Guid MealId)
@@ -58,7 +58,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<Meal> GetByUserIdAndMealType(Guid userId, MealType mealType, int date)
         {
             return await _context.Meals.FirstOrDefaultAsync
-            (m => m.UserId == userId && m.MealType.Equals(mealType.ToString())
+            (m => m.UserId == userId && m.MealType == mealType
             && m.CreatedAt.Value.Date.Day == date);
         }
 
