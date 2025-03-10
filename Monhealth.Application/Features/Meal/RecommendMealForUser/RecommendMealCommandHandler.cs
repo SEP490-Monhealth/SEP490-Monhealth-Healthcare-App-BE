@@ -4,7 +4,6 @@ using Monhealth.Core.Enum;
 using Microsoft.Extensions.Logging;
 using Monhealth.Domain.Enum;
 using Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFunction;
-using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
@@ -57,7 +56,8 @@ namespace Monhealth.Application
             _logger.LogInformation($"Total calories for the user: {totalCalories}");
 
             float breakfastCalories = 0f, lunchCalories = 0f, dinnerCalories = 0f;
-            switch (userGoal.GoalType)
+            var goalType = userGoal.GoalType;
+            switch (goalType)
             {
                 case GoalType.WeightLoss:
                     breakfastCalories = totalCalories * 0.20f;
@@ -110,9 +110,9 @@ namespace Monhealth.Application
                 }
 
                 // Tạo bữa ăn mới nếu không tồn tại
-                var breakfast = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Breakfast, breakfastCalories, targetDate, request.UserId);
-                var lunch = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Lunch, lunchCalories, targetDate, request.UserId);
-                var dinner = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Dinner, dinnerCalories, targetDate, request.UserId);
+                var breakfast = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Breakfast, breakfastCalories, targetDate, request.UserId, goalType);
+                var lunch = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Lunch, lunchCalories, targetDate, request.UserId, goalType);
+                var dinner = await _createMealForTypeHandler.CreateMealForType(foodList, MealType.Dinner, dinnerCalories, targetDate, request.UserId, goalType);
 
                 // Log the meal creation
                 _logger.LogInformation($"Created meals for {MealType.Breakfast}, {MealType.Lunch}, and {MealType.Dinner} on {targetDate.ToShortDateString()}.");
@@ -155,15 +155,15 @@ namespace Monhealth.Application
                     _dailyMealRepository.Add(dailyMeal);
                     await _dailyMealRepository.SaveChangeAsync();  // Lưu DailyMeal và lấy DailyMealId
                 }
-                else
-                {
-                    dailyMeal.TotalCalories = 0;
-                    dailyMeal.TotalProteins = 0;
-                    dailyMeal.TotalCarbs = 0;
-                    dailyMeal.TotalFats = 0;
-                    dailyMeal.TotalFibers = 0;
-                    dailyMeal.TotalSugars = 0;
-                }
+                // else
+                // {
+                //     dailyMeal.TotalCalories = 0;
+                //     dailyMeal.TotalProteins = 0;
+                //     dailyMeal.TotalCarbs = 0;
+                //     dailyMeal.TotalFats = 0;
+                //     dailyMeal.TotalFibers = 0;
+                //     dailyMeal.TotalSugars = 0;
+                // }
 
 
                 // Gán DailyMealId cho bữa ăn
