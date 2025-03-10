@@ -31,7 +31,8 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
             };
             var dishTypesToFilter = new List<int> {
                 (int)DishType.MainDish,
-                 (int)DishType.SideDish
+                (int)DishType.SideDish,
+                (int)DishType.Drink
             };
 
             var allFoods = await _foodRepository.GetAll().Include(f => f.FoodPortions)
