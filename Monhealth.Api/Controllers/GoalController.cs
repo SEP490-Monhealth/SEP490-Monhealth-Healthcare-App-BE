@@ -12,6 +12,7 @@ using Monhealth.Application.Features.Goals.Queries.GetNutritionByGoalId;
 using Monhealth.Application.Features.Goals.Queries.GetWaterByGoalId;
 using Monhealth.Application.Features.Goals.Queries.GetWeightByGoalId;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -59,26 +60,27 @@ namespace Monhealth.Api.Controllers
                 Data = goal
             };
         }
-        [HttpGet("{userId:guid}/recommend")]
-        public async Task<ActionResult<ResultModel>> GetByGoalByUserId(Guid userId)
-        {
-            var goal = await _mediator.Send(new CheckGoalTypeQuery { UserId = userId });
-            if (goal == null)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Mục tiêu không tồn tại"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Data = goal
-            };
-        }
+
+        // [HttpGet("{userId:guid}/recommend")]
+        // public async Task<ActionResult<ResultModel>> GetByGoalByUserId(Guid userId)
+        // {
+        //     var goal = await _mediator.Send(new CheckGoalTypeQuery { UserId = userId });
+        //     if (goal == null)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Message = "Mục tiêu không tồn tại"
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = (int)HttpStatusCode.OK,
+        //         Data = goal
+        //     };
+        // }
 
         [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
@@ -125,6 +127,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/nutrition")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetNutrionByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetNutritionByGoalIdQuery() { UserId = userId });

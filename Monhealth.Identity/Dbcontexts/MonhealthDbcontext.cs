@@ -134,13 +134,13 @@ namespace Monhealth.Identity.Dbcontexts
 
             builder.Entity<Food>(entity =>
             {
-                entity.Property(e => e.FoodType)
-                    .HasConversion(
-                        v => string.Join(',', v.Select(x => x.ToString())), // Từ List<FoodType> -> string
-                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                              .Select(x => Enum.Parse<FoodType>(x)) // Từ string -> List<FoodType>
-                              .ToList()
-                    );
+                // entity.Property(e => e.FoodType)
+                //     .HasConversion(
+                //         v => string.Join(',', v.Select(x => x.ToString())), // Từ List<FoodType> -> string
+                //         v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                //               .Select(x => Enum.Parse<FoodType>(x)) // Từ string -> List<FoodType>
+                //               .ToList()
+                //     );
 
                 entity.Property(e => e.MealType)
                     .HasConversion(
@@ -169,13 +169,13 @@ namespace Monhealth.Identity.Dbcontexts
             builder.Entity<Food>(entity =>
             {
                 // Configure FoodType as List<string> and log the configuration
-                entity.Property(e => e.FoodType)
-                    .HasConversion(
-                        v => string.Join(',', v.Select(x => x.ToString())), // Convert List<FoodType> to string
-                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                            .Select(x => Enum.Parse<FoodType>(x)) // Convert string back to List<FoodType>
-                            .ToList()
-                    );
+                // entity.Property(e => e.FoodType)
+                //     .HasConversion(
+                //         v => string.Join(',', v.Select(x => x.ToString())), // Convert List<FoodType> to string
+                //         v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                //             .Select(x => Enum.Parse<FoodType>(x)) // Convert string back to List<FoodType>
+                //             .ToList()
+                //     );
 
                 // Configure MealType with ValueComparer and log the configuration
                 entity.Property(e => e.MealType)

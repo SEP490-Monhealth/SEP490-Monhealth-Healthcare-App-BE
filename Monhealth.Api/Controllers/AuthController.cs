@@ -4,6 +4,7 @@ using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Contracts.Phone;
 using Monhealth.Application.Models;
 using Monhealth.Application.Models.Identity;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 using System.Security.Claims;
 
@@ -23,6 +24,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPost]
         [Route("login")]
+        [SwaggerOperation(Summary = "Done")]
         [AllowAnonymous]
         public async Task<ActionResult<ResultModel>> Login([FromBody] AuthenRequest request)
         {
@@ -53,6 +55,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("me")]
+        [SwaggerOperation(Summary = "Done")]
         [Authorize]
         public async Task<ActionResult<ResultModel>> GetInformationOfUser()
         {

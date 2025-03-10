@@ -27,6 +27,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddSwaggerGen(options =>
 {
+    options.EnableAnnotations();
+
     options.AddSecurityDefinition("ApiKey", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
         Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,

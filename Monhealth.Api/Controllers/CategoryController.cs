@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -56,6 +57,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{type}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetCategoriesByType(CategoryType type)
         {
             var categories = await _mediator.Send(new GetCategoriesByTypeQuery { CategoryType = type });

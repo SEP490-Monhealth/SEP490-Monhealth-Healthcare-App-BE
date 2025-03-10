@@ -19,7 +19,6 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForUser
             if (existingFood != null) throw new Exception("Món ăn đã tồn tại");
             food.DishType = request.RequestData.DishType;
             food.MealType = request.RequestData.MealType;
-            food.FoodType = request.RequestData.FoodType;
             food.FoodName = request.RequestData.FoodName;
             food.FoodDescription = request.RequestData.FoodDescription;
             food.UpdatedAt = DateTime.Now;

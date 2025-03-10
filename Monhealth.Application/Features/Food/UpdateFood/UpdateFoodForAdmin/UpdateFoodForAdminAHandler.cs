@@ -30,7 +30,6 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
             food.UpdatedAt = DateTime.Now;
             food.DishType = request.RequestData.DishType;
             food.MealType = request.RequestData.MealType;
-            food.FoodType = request.RequestData.FoodType;
             var categoryName = request.RequestData.Category;
             if (categoryName != null)
             {

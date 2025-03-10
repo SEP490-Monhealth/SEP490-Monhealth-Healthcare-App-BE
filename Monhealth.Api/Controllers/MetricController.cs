@@ -7,6 +7,7 @@ using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Features.Metric.Queries.GetMetricByUserId;
 using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -35,6 +36,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetMetricByUserId(Guid userId)
         {
             var metric = await _mediator.Send(new GetMetricByUserIdQuery() { UserId = userId });
@@ -67,7 +69,9 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+
         [HttpPost]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateMetricDTO metricRequest)
         {
             var command = new CreateMetricCommand(metricRequest);

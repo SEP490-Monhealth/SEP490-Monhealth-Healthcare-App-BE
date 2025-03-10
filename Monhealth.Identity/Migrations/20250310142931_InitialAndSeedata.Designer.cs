@@ -12,8 +12,8 @@ using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Migrations
 {
     [DbContext(typeof(MonhealthDbcontext))]
-    [Migration("20250310073246_InitialDB")]
-    partial class InitialDB
+    [Migration("20250310142931_InitialAndSeedata")]
+    partial class InitialAndSeedata
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -583,7 +583,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            CategoryFoodId = new Guid("15d23aa7-be20-4ed6-a734-e0a3a28b7435"),
+                            CategoryFoodId = new Guid("954e6fa9-7369-4680-8b05-97fb6de663e1"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
@@ -591,7 +591,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("4894f6ad-937e-4d13-938e-77a1fd3da639"),
+                            CategoryFoodId = new Guid("a475f15f-07e1-4728-9d73-9fe922bee270"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
@@ -599,7 +599,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("714b332f-f134-455d-8a3a-dcb93596b24b"),
+                            CategoryFoodId = new Guid("39ee4301-6c60-4829-98f8-495265128a82"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
@@ -607,7 +607,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d6f45ca8-baaf-46a5-9ae1-6f14147cecd1"),
+                            CategoryFoodId = new Guid("be1a55f6-d1a7-4585-870e-1f3a38894ed3"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
@@ -615,7 +615,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("4964b789-7a7a-47ce-bed5-0cd3751dbec0"),
+                            CategoryFoodId = new Guid("d84c123d-2b57-488a-87c9-d31c9d60f1cb"),
                             CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
@@ -623,7 +623,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("c8a49a11-3160-40bc-84d1-7e191ee674ea"),
+                            CategoryFoodId = new Guid("333cca80-8e93-4b91-9f7e-6fe924934027"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("8fa26c41-16b2-49f8-a284-856024a5f947"),
@@ -631,7 +631,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("1fa88574-5c1a-45b6-af33-76d4c8808bd5"),
+                            CategoryFoodId = new Guid("c6c72f0c-fe8b-4af5-b754-cfcb6dea4bcb"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("1387c20d-27a6-495b-a3a0-efbb715f6430"),
@@ -639,7 +639,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("9c3948df-b274-40b2-9a72-13a488a167eb"),
+                            CategoryFoodId = new Guid("6473ec03-72d4-4f49-be91-4284fb503bb5"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("ab2117f7-9940-44cb-b191-2dfabefac8c8"),
@@ -647,7 +647,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("87ca79fe-da01-48e8-a213-8cf8119a6396"),
+                            CategoryFoodId = new Guid("92ba22b3-08b7-4151-95fc-e8b9f977a664"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("455bb5ed-ed2c-4172-8831-2b8a08614198"),
@@ -655,7 +655,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("2691d587-9fb6-4988-a18a-828c33d8510d"),
+                            CategoryFoodId = new Guid("6a7fc4b2-dd13-431d-8ebe-1263e3375f82"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("1140212e-cdb4-4f25-92f6-9b9407a71163"),
@@ -663,7 +663,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("afefe146-6716-4cf9-bb18-77fb86aa04ed"),
+                            CategoryFoodId = new Guid("d68b79fb-f2fc-422b-8e5f-dd899372b321"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("ff1bc1f2-3515-4dfe-b271-8cabf205bbcf"),
@@ -671,7 +671,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d4963a33-174c-43a6-85b7-87c9981b9f88"),
+                            CategoryFoodId = new Guid("bf48f521-dfb3-4015-ba37-52d613bcbd71"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("fa0d83ce-d0d7-414f-bd85-e4bc6402c0db"),
@@ -679,7 +679,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("47b09005-9ce1-47fc-8699-e5c8b44a111e"),
+                            CategoryFoodId = new Guid("e02b34c7-e47b-4f55-8db8-298f37ef2ce2"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("77fe5e06-7fee-486d-a1a7-c031f2065490"),
@@ -687,7 +687,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("21f1714e-e094-4f73-9b96-f793932b9182"),
+                            CategoryFoodId = new Guid("651bd1ac-bfdb-46b3-a127-34f6f67b425f"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("86d88717-df08-4de6-b86d-870210864b46"),
@@ -695,7 +695,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d79ff1c7-89f8-4f08-9a0b-a892681e3a59"),
+                            CategoryFoodId = new Guid("2eed1fec-5717-4d53-bfcc-6a155f4dda71"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
@@ -703,7 +703,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e11e5930-3129-4f9a-95bc-a2d89172c39d"),
+                            CategoryFoodId = new Guid("d237c31a-a7f3-4aee-8a6d-1827312a3f6f"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7378ca5f-f1a8-4c23-a019-50af3012526f"),
@@ -711,7 +711,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("4f17728a-eb35-400f-be97-61b7c125b676"),
+                            CategoryFoodId = new Guid("aaf647e8-75db-4eda-bdc9-9af71a8d47c1"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
@@ -719,7 +719,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a38838c2-0b62-455a-be6e-96395c8432af"),
+                            CategoryFoodId = new Guid("51a80c33-de65-4073-87ba-dc33ea4f8625"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("42883b21-4cbd-40ce-850f-b0723f1766fe"),
@@ -727,7 +727,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("4ef5ca28-7dc8-479b-87e6-4954e04900ff"),
+                            CategoryFoodId = new Guid("794718be-84fc-4a1c-a14e-9a0b3ab0737b"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("f6cf96c8-adc3-43e0-af5a-8b19623fed94"),
@@ -735,7 +735,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e363b366-d216-414b-862d-384b53471064"),
+                            CategoryFoodId = new Guid("646f85bd-a647-4117-a471-f9bd27e78b23"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("eac10b91-8509-4986-b689-7ee3a3757a18"),
@@ -743,7 +743,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("6adb9486-b05f-4691-b19b-802d9626a9fb"),
+                            CategoryFoodId = new Guid("bc6dda65-a664-4d85-9d62-b766da2cdf86"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("dca16637-cf90-402f-921f-5c60e99e4bfa"),
@@ -751,7 +751,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e195477f-6e1a-49be-8214-cee446368f93"),
+                            CategoryFoodId = new Guid("ce59ddf6-f105-41b0-ae5b-ae01c8b44b11"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a2c5c215-f105-42f9-8b68-3219b5bcc2a9"),
@@ -759,7 +759,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("dd4a30d7-63b2-4736-97cf-a6421add0071"),
+                            CategoryFoodId = new Guid("956776c7-b98c-4903-acdd-df0664c8f517"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
@@ -767,7 +767,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ecbb7da7-1148-4067-b541-348f33336dcc"),
+                            CategoryFoodId = new Guid("d789206a-649a-4b0b-a34b-48e9dacc724d"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("ddc8d8f2-261b-4c1d-9061-e482d3c8cef3"),
@@ -775,7 +775,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("c932a1c3-9697-4c6b-992b-682899c55d2a"),
+                            CategoryFoodId = new Guid("501215d5-7e31-4211-8c10-81b53d8fd8af"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
@@ -783,7 +783,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("36593430-a526-44b4-8a6f-0ce2979ae174"),
+                            CategoryFoodId = new Guid("2104e108-09d1-4f55-8867-820c1d2302cd"),
                             CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
@@ -791,7 +791,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ae80dadf-f06b-4cac-9442-31c036364111"),
+                            CategoryFoodId = new Guid("a89f1e16-1ffa-42d6-aaa2-a1db8d19678e"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("19bbab17-91c6-410f-b566-b509d067e76e"),
@@ -799,7 +799,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("6e6358d6-a930-4ee1-b0e4-05ba9c003881"),
+                            CategoryFoodId = new Guid("22a957ed-6a0c-46c8-9f91-10ffbe1584c7"),
                             CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
@@ -807,7 +807,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("8434f1d0-867a-465c-bc82-c94239f385e7"),
+                            CategoryFoodId = new Guid("2a67dbcc-0d4f-43da-8347-346193cb8ce0"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("de097440-db5c-4d91-bd55-76618d70599d"),
@@ -815,7 +815,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f0ad5806-54bd-4aeb-ad8a-ad7315c88827"),
+                            CategoryFoodId = new Guid("49ffa4ab-4971-44a9-a781-d11b8bbcc6be"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
@@ -823,7 +823,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("bc7ff890-672f-4fd2-af29-a3e1d1ffed69"),
+                            CategoryFoodId = new Guid("0a2ea2eb-58aa-4d51-8f0c-937bf1882e24"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
@@ -831,7 +831,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("358e5ae4-e79d-458f-99f2-aed4fe04e8c3"),
+                            CategoryFoodId = new Guid("57eb9ecb-fcdf-48fd-87d8-8ec94ce43448"),
                             CategoryId = new Guid("bd21fd3f-8b19-4756-9da8-8ea32fc646d6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c"),
@@ -839,7 +839,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e1a63439-b792-4693-b9c6-d93dc16f6a22"),
+                            CategoryFoodId = new Guid("ccc4e71e-df1e-4699-82d7-8286b141d11f"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
@@ -847,7 +847,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("498b79b5-de83-464b-852a-3f4d8fc10300"),
+                            CategoryFoodId = new Guid("a975085f-a015-4250-9fda-b4c1294fde9e"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a3074169-6441-49cc-9ea7-79e240f6dda3"),
@@ -855,7 +855,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("bf62d47e-dd11-4ce2-a11b-111ab227ec62"),
+                            CategoryFoodId = new Guid("c61a4b91-a816-4fc3-887a-34827829efb6"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("0a47589f-d177-46f9-8a10-63fd6da9b611"),
@@ -863,7 +863,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f9ae9f99-d3a7-4acf-9d62-ab24f42c4489"),
+                            CategoryFoodId = new Guid("d3d262e6-9dc4-44f4-9706-5f184683e912"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("48113ca0-a1e7-4181-85fa-be6538a70873"),
@@ -871,7 +871,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("3528b20a-c04c-4d8c-aa1f-1e662f6faf8a"),
+                            CategoryFoodId = new Guid("7b92834c-9755-4645-ae85-bca6beff0520"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
@@ -879,7 +879,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("425b96f4-28ae-4da1-a483-12230db181bc"),
+                            CategoryFoodId = new Guid("68267ad5-9bce-4176-a85e-dda002d6d6c1"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
@@ -887,7 +887,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("3308c181-7e93-401a-8013-618f6515129f"),
+                            CategoryFoodId = new Guid("08505dd7-9d67-42c0-8b8a-12089aefc7ab"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
@@ -895,7 +895,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("30dbdd92-f7ef-4377-bc17-ee5f5f5d8121"),
+                            CategoryFoodId = new Guid("ee2a3cc8-9267-44b3-a037-524b17ab0ddd"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
@@ -903,7 +903,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("0c64d99d-1d7d-4767-91ad-af01d42600c4"),
+                            CategoryFoodId = new Guid("1d30d641-fcf8-47eb-b532-83d8720f5500"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
@@ -911,7 +911,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("25cb2318-b1c4-402d-9c08-f4cded68993b"),
+                            CategoryFoodId = new Guid("c0f9baeb-d952-4199-8640-0cb2c69b9626"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
@@ -919,7 +919,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e66ea154-4655-42c5-a80c-1f3742a62d74"),
+                            CategoryFoodId = new Guid("a779b39d-8400-43f8-85ed-6a321e723a3e"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("83e6e455-3ae1-4f5c-8e44-9a5ae79ee31b"),
@@ -927,7 +927,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("8f944701-f02a-4065-adee-28bde3ca3c1e"),
+                            CategoryFoodId = new Guid("22635ada-b58a-40d9-ad1f-267dc83d6be0"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
@@ -935,7 +935,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("9b0b5a6f-b39d-4e97-8be0-7b20922fc343"),
+                            CategoryFoodId = new Guid("730dc8e7-c1ef-4909-9e8b-8c5da74a4bfc"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("3222413a-e385-4a0b-9d07-2af7b0cb4276"),
@@ -943,7 +943,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("35a90f15-eef5-4c74-904c-58ad74aa989c"),
+                            CategoryFoodId = new Guid("a0932700-f4c1-47be-b3ef-43e52c02d35e"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("e0eec003-8384-412c-a307-b0185afdb0c7"),
@@ -951,7 +951,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d39311e0-11e8-4461-b449-489a0b4203c6"),
+                            CategoryFoodId = new Guid("6bcb5b8c-79a1-4ec3-a017-f36f0bdb565a"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
@@ -959,7 +959,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("21b3f31a-0f4b-42b8-bcc8-3345d68d02db"),
+                            CategoryFoodId = new Guid("548c4684-9a42-4d30-887f-13e4d6a9ce43"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("da89578e-9470-4b18-af4f-0bdcc011882f"),
@@ -967,7 +967,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("db1995f6-3d11-42f3-a9ea-ca4fa9d98ed7"),
+                            CategoryFoodId = new Guid("f635b184-11ea-4ecd-8347-9bdb9ba6f787"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("37a66f5c-437f-4520-90ec-4376e0093061"),
@@ -975,7 +975,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d801c22e-d826-4fe9-bd00-dbceaed50b76"),
+                            CategoryFoodId = new Guid("a7360d00-a035-4bc9-addd-22acdbc0b3c7"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
@@ -983,7 +983,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("dcce2186-0b2c-42bf-8ca7-ac3c46031e3b"),
+                            CategoryFoodId = new Guid("c2b9038f-dbfd-4430-9c0a-038cfd54f09d"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
@@ -991,7 +991,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("aef5d9ef-967c-45d9-a08c-5f82cc355ea0"),
+                            CategoryFoodId = new Guid("72d4f0e6-3d09-419a-9ec4-5fcbdeb10fae"),
                             CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("fa445aa4-7b0d-4d47-8ba7-f919dd123637"),
@@ -999,7 +999,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("219097a0-bf73-4894-95de-fa2b8129d2ab"),
+                            CategoryFoodId = new Guid("cea0e35b-22d7-40f2-a7c9-44575ac37cb9"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d"),
@@ -1007,7 +1007,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("31f3883e-26ff-4a72-b1ea-3137b1210d7b"),
+                            CategoryFoodId = new Guid("8de73308-a5dc-4cbd-8560-0862370eb5b9"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
@@ -1015,7 +1015,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a2e32292-f8d7-491e-8a2e-88fcfa7690b5"),
+                            CategoryFoodId = new Guid("a4c855ed-f26d-486d-9eda-f915d0f70b07"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
@@ -1023,7 +1023,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("c93694ab-f42e-4cbc-a51a-8df956010476"),
+                            CategoryFoodId = new Guid("728aab76-ba66-4c40-bba8-c578fef2b6eb"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
@@ -1031,7 +1031,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("15467c09-f199-495b-838a-0d7c3a90fd8b"),
+                            CategoryFoodId = new Guid("f577a159-129e-4f82-8413-ee4ddfb77a0f"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("f41484a3-c7df-4530-b7d2-060390103985"),
@@ -1039,7 +1039,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("90c37b70-b50c-464a-b515-4b9017889881"),
+                            CategoryFoodId = new Guid("63f01bbc-e01f-4819-bc75-15fc009f6ddc"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
@@ -1047,7 +1047,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a8e4ee0a-34b2-41eb-ab1d-8c917c37d6a6"),
+                            CategoryFoodId = new Guid("a775c54d-d195-4899-97a0-8e65214a7b74"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
@@ -1055,7 +1055,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("2eabfe7d-36e6-4b83-99a3-4a3a3d926991"),
+                            CategoryFoodId = new Guid("aba50b37-d755-445d-bbc6-543bf026f879"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("40f03f23-9341-4343-9bf8-fdfdb3b9f236"),
@@ -1063,7 +1063,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("05d95b33-dbca-45b6-8276-f5158868a1c6"),
+                            CategoryFoodId = new Guid("c04babc7-f67f-4f7c-9599-fdfc756bcf73"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
@@ -1071,7 +1071,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("3c2a0d73-22b5-4dad-86b1-422106334e26"),
+                            CategoryFoodId = new Guid("73e87e32-6595-4b5d-a931-bd22d5af442b"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41"),
@@ -1079,7 +1079,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("3dc470ad-43f0-43e2-a156-6a0f88b0ef23"),
+                            CategoryFoodId = new Guid("c7ee8d04-d469-4969-935f-b55af42c0c6b"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
@@ -1087,7 +1087,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("af6456cc-e71a-4c62-876f-bb075d41b728"),
+                            CategoryFoodId = new Guid("859e12ed-4b0c-4832-a051-c1e9da87875f"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("244e7e03-baaa-4dc4-aa10-d9d0dac410fe"),
@@ -1095,7 +1095,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("cb8ff763-2572-47a3-ad79-e92acc14d2c8"),
+                            CategoryFoodId = new Guid("f7466b63-11e7-41a3-952f-43669ede702d"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("51061170-597d-4289-a021-1e7dde88331f"),
@@ -1103,7 +1103,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ed087445-7204-4e6d-a5d8-8d293f1ab7a2"),
+                            CategoryFoodId = new Guid("b07373f3-7a5b-465f-b6ae-8404df46a9d3"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c137f014-34c2-4f0a-be52-7c2a5c64abae"),
@@ -1111,7 +1111,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("721bd8a3-9901-45a0-9c9d-bd9ed068ec3f"),
+                            CategoryFoodId = new Guid("62226c5a-d167-4bca-ab15-730df074a094"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("5ff26461-880d-4b94-bfd0-e8badc77fe33"),
@@ -1119,7 +1119,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("6060d495-7233-41d3-bf29-8ad5a28cdff0"),
+                            CategoryFoodId = new Guid("3418ec70-c9fb-465f-bcae-b4c0ea82e92b"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("73016f70-ebb4-4583-aa12-7f3f4633ada4"),
@@ -1127,7 +1127,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("3376bc4a-04e0-4182-b58d-8e48b0df30e2"),
+                            CategoryFoodId = new Guid("32402b56-dfea-41cb-bd25-3c00d4f27491"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("0455b535-2662-43aa-bca2-3e75595fb181"),
@@ -1135,7 +1135,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("2893e226-3848-4001-b924-e980205260f9"),
+                            CategoryFoodId = new Guid("2280edaa-7484-4779-8e54-206ad8864d67"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
@@ -1143,7 +1143,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("651e4004-c5dc-4ab3-9fd4-c58904885e6f"),
+                            CategoryFoodId = new Guid("abfd3c68-0b78-451c-a694-c1dc1c6d1637"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("6e12f6cb-6695-4c7a-bfb0-cd4936ee1782"),
@@ -1151,7 +1151,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d964fe0d-18ad-4182-aac7-6cb207e6b859"),
+                            CategoryFoodId = new Guid("d9e20e41-cfc5-4d4d-9444-96a46cc27359"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
@@ -1159,7 +1159,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e106f4c6-2adf-4a86-b6e0-7f6886512f8c"),
+                            CategoryFoodId = new Guid("2e9a3c23-e6b7-447c-947d-458e49a02cb2"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
@@ -1167,7 +1167,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("41a96d47-f020-4c10-ba3c-4053e582d03f"),
+                            CategoryFoodId = new Guid("2b615523-7c62-4934-ab51-e453cae8f4c8"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7"),
@@ -1175,7 +1175,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("be9e375e-d7b5-4ea1-a74f-86ab17b86151"),
+                            CategoryFoodId = new Guid("eb62ccd7-4dc7-4ab3-9c57-19486a525e2c"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
@@ -1183,7 +1183,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("1cdbbd7d-955c-4f30-af77-49748331e939"),
+                            CategoryFoodId = new Guid("bc06be4f-aca7-4fb6-8e73-44a6d009317e"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
@@ -1191,7 +1191,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("386c34fd-5984-4739-bef3-0691c098247f"),
+                            CategoryFoodId = new Guid("a2f3dc82-7a1a-45b8-bf31-c7c01873d59d"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
@@ -1199,7 +1199,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("7f2071bf-d6ba-43cc-b72d-da5b58d4e6de"),
+                            CategoryFoodId = new Guid("7d91bc58-1e2d-406e-8d21-eea3d1d08e39"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
@@ -1207,7 +1207,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("c9ba2eb3-26e3-45a9-876f-ed019ccb74a1"),
+                            CategoryFoodId = new Guid("6e745cd3-52c7-4fec-82cf-922152c414ea"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a53672e7-8593-4779-bd02-9f02ae81f915"),
@@ -1215,7 +1215,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("5516660c-5599-4f77-98b0-6091e641178a"),
+                            CategoryFoodId = new Guid("28276ec0-7d1e-47d4-8132-1afd67e5d6ee"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("98006e54-c44e-4a81-aa99-d4bb95bfb89d"),
@@ -1223,7 +1223,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("3828d42b-b8e7-45f4-8c67-db431cfd4b28"),
+                            CategoryFoodId = new Guid("6e88b869-2d26-4d31-9f6e-52095afee674"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("fb7d87aa-2bb8-4065-bd31-b54239057405"),
@@ -1231,7 +1231,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("83dac086-32c5-4a4f-9eab-9a619f193e84"),
+                            CategoryFoodId = new Guid("04fdd6ba-33c5-4cca-b8db-7302a8313372"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("f0132626-5535-4f30-9af4-7e89e086aaaf"),
@@ -1239,7 +1239,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("02bd8336-c4ba-44f4-a2de-57c1f828fdf7"),
+                            CategoryFoodId = new Guid("49290dfd-55a7-49cb-b870-5660bbd590a9"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707"),
@@ -1247,7 +1247,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("2a434647-165f-498d-97d2-d0a47b6a8dd2"),
+                            CategoryFoodId = new Guid("61014ac9-1872-4722-beed-8aae71adeca2"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7b8500af-d730-4138-9617-cba352faed4a"),
@@ -1255,7 +1255,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ccc912fd-2b89-4371-a71e-47f68163b99d"),
+                            CategoryFoodId = new Guid("32ce667c-7cbf-4fbd-94ce-ba91c3cef8e1"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("dd1482e7-b3dd-4b17-80f6-5618a640c671"),
@@ -1263,7 +1263,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("8b9bc84b-c844-4f72-bea5-06e2b6072b60"),
+                            CategoryFoodId = new Guid("bea4c06c-a13b-462e-8236-66a2cfe55af9"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("628d87df-0bde-417d-b8b5-5f8f5536410b"),
@@ -1271,7 +1271,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("8b45234b-5466-44f9-a664-c458bdaa551c"),
+                            CategoryFoodId = new Guid("1a5ad0d1-c9c5-404a-aa43-4b41e29d56ab"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
@@ -1279,7 +1279,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e0e8aadd-21e1-446c-8965-7a5a557413a2"),
+                            CategoryFoodId = new Guid("572809b7-83ce-4d06-890e-78b2f6dd0da7"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea"),
@@ -1287,7 +1287,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("98148326-d7b2-4034-bef0-00713cc81a8d"),
+                            CategoryFoodId = new Guid("555d7cfd-8257-4757-ba6f-cacba2076095"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("9122357a-179f-45f4-9106-67eea24d48ab"),
@@ -1295,7 +1295,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("adb68782-9895-4c8b-9829-ec5bf3d1f447"),
+                            CategoryFoodId = new Guid("f407c3cb-870f-4554-a6b8-9f338c1d3c67"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c"),
@@ -1303,7 +1303,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("872523fa-5c4a-4ce4-8883-f8739e261628"),
+                            CategoryFoodId = new Guid("b00ca720-e77d-4fd7-ae5d-8a333db2d864"),
                             CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607"),
@@ -1311,7 +1311,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f1b0002f-696b-46bd-8ea5-8e656cf252a4"),
+                            CategoryFoodId = new Guid("afca2370-b331-4d93-a663-bb0ff62f6c00"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
@@ -1319,7 +1319,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("771c0513-51f2-4084-81af-879194880b0c"),
+                            CategoryFoodId = new Guid("132df5a1-1507-4063-985e-2bc1126110fd"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("87225215-43af-49f2-a40b-a5ebb087d27b"),
@@ -1327,7 +1327,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("71093b53-cbb4-4e11-a7ab-9c91bc8943ea"),
+                            CategoryFoodId = new Guid("84906e78-a8be-4a1d-9ff8-1bd7fdf13428"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("23443efa-dc06-4e7a-949c-5c823ee6e575"),
@@ -1335,7 +1335,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a166d10a-cd18-4fe2-b4bc-5d7bcee338d7"),
+                            CategoryFoodId = new Guid("8f05ade7-90f3-4f31-a455-33448573fe1c"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
@@ -1343,7 +1343,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("4c0905ef-662e-4991-9230-6c0a72e216be"),
+                            CategoryFoodId = new Guid("0e41ab7b-897c-49a4-aabb-2e9a16732056"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
@@ -1351,7 +1351,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a0e94afb-2816-4f23-8ef6-43b2e89ce805"),
+                            CategoryFoodId = new Guid("98a364e2-4a3c-4e51-ae23-641fdfd98485"),
                             CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
@@ -1359,7 +1359,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("601aec71-4f53-45c2-a3e7-aaa82370f173"),
+                            CategoryFoodId = new Guid("5d699d4c-84c3-4065-ae28-f111f4606287"),
                             CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("da85064b-e528-4bfa-8a64-1fbe704f9af5"),
@@ -1367,7 +1367,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("271ef840-d84a-4c6e-9826-f981960353b7"),
+                            CategoryFoodId = new Guid("4b65369c-1cb4-4947-9970-a875d255e3ac"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("86bcbac3-fc75-46ed-8d0e-18c8c4860692"),
@@ -1375,7 +1375,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a4cffbf8-028e-445b-b13e-019f47366e4c"),
+                            CategoryFoodId = new Guid("635669f6-c0a5-43d0-8249-f8286b2b8343"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a6ce6816-c6e1-4512-aeb6-d5d647815c1d"),
@@ -1383,7 +1383,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d4811b98-be9c-40a9-b669-2bbd57a962f7"),
+                            CategoryFoodId = new Guid("5eef44b4-0174-443a-9963-f08aae9c24e4"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("edb9d5d0-01f3-4607-a406-9e04bbff85fb"),
@@ -1391,7 +1391,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("15798ee5-bb2b-4449-b62c-0dac013e2c4d"),
+                            CategoryFoodId = new Guid("a2d08e7a-523e-4424-94cb-ee8f1e2355e8"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
@@ -1399,7 +1399,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f3639810-3530-4728-8521-8d5e7da00592"),
+                            CategoryFoodId = new Guid("e776d035-18b1-4a7f-8bae-e0524ece76bb"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("d3a1c73d-ca5a-45ea-a7fa-d582f1253b79"),
@@ -1407,7 +1407,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("303c69a7-6516-43f0-8d70-fd2ed3c80ff5"),
+                            CategoryFoodId = new Guid("f7a4caf8-12f6-421b-98f7-20d7c73388fd"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("adeb902f-fb34-44eb-aa60-76eaeb0ed70b"),
@@ -1415,7 +1415,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("580f6c16-a078-48de-80b8-742146d687d3"),
+                            CategoryFoodId = new Guid("8d53585d-2f13-41a0-bd96-9abd0a8cb11f"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("3fa8cf38-d835-4279-a113-a8f44cd013e6"),
@@ -1423,7 +1423,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("7b937c93-61aa-46f5-bb4b-55ff0970809b"),
+                            CategoryFoodId = new Guid("a7e6d706-1351-4967-871b-5349107e03ca"),
                             CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("d3392e5d-a48f-4b5a-968d-31b98bd47835"),
@@ -1431,7 +1431,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("6553e7cc-1c95-4ecf-b27f-67c3c956601f"),
+                            CategoryFoodId = new Guid("9858b652-104d-4fd1-99af-21c26365c4d5"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("ad6a860f-4a4a-4cb7-90fa-21c8f36c91ce"),
@@ -1439,7 +1439,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("b1c8594b-d266-4a6f-87b1-c2174606ccd2"),
+                            CategoryFoodId = new Guid("cd1f6389-6776-4d85-9956-5c24f0cad823"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
@@ -1447,7 +1447,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("6430d981-4c61-498a-ba25-95d748acdd12"),
+                            CategoryFoodId = new Guid("1eff9e44-3653-4588-a2e7-367ddcf3c980"),
                             CategoryId = new Guid("22ee062d-4904-4c64-a783-74b3e142aac7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("50c0adac-c878-4a21-8b5f-01478e7e4852"),
@@ -1455,7 +1455,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("6ac927cc-3b98-4144-93ed-db2fb8d4d1c8"),
+                            CategoryFoodId = new Guid("547bc3cd-68ab-4526-aafd-1e86efa41d6e"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
@@ -1463,7 +1463,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("535c8848-b38f-4800-b958-3ce1a1096f8e"),
+                            CategoryFoodId = new Guid("b4cd120f-4eb2-4c03-ab70-da31ce5a760c"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a23f6c85-1a80-4255-a9a1-d08c1d60e753"),
@@ -1471,7 +1471,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e2365fd7-4d0f-4144-8fa7-80713e56e115"),
+                            CategoryFoodId = new Guid("b749b3eb-6e25-4242-9b01-ef4dc994c4b5"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("b0f051be-5972-4e7a-a77d-47ec28d58993"),
@@ -1479,7 +1479,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("fc7d269b-20ed-499b-87ea-5fdfc94303fa"),
+                            CategoryFoodId = new Guid("5c0b3cbc-9774-48ab-b000-1fe11c841697"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("8da16f72-42a9-4da2-b217-811903e340c4"),
@@ -1487,7 +1487,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("64a05d64-63fa-4c69-9187-2ae163b1425c"),
+                            CategoryFoodId = new Guid("81a9e437-f931-4598-8056-078cdd527f42"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a5d484c6-9cc8-4d6e-a53c-5c8a2c20999b"),
@@ -1495,7 +1495,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e1a0b417-2960-48f2-a748-fd0032fd4dee"),
+                            CategoryFoodId = new Guid("3f824633-4f2f-4054-8d28-ec257cdedc00"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
@@ -1503,7 +1503,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ce73bddc-be66-496b-bdad-a64299eff65d"),
+                            CategoryFoodId = new Guid("9e4cb3e1-e37f-43a8-a3da-0ad76e763376"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("b29dc622-e8ae-4471-8e22-5676aa5fa909"),
@@ -1511,7 +1511,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("482a9739-42d4-4417-a107-74d389ca3391"),
+                            CategoryFoodId = new Guid("ea3f6608-2a64-4bc8-853a-215524f681a3"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("0f7f47a1-f122-4f58-9e24-40ece9323520"),
@@ -1519,7 +1519,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("8d0237d7-4be5-4a1f-a1f2-ebed7bfadc3d"),
+                            CategoryFoodId = new Guid("fcea04e9-8057-47a3-b746-1490354e3690"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("98b3945a-9169-4581-b1a5-da82f2ebd8d4"),
@@ -1527,7 +1527,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("120bcced-a3f6-4d98-8545-6f32ae2ab2b6"),
+                            CategoryFoodId = new Guid("2bfa2ba7-d143-4799-9295-eb6a623806e4"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c46676b3-cbcc-49e9-ad44-7d450a481a19"),
@@ -1535,7 +1535,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("0edd7a32-85bf-4dc1-a351-b50a30445c3e"),
+                            CategoryFoodId = new Guid("02288997-7659-4ca2-8315-109eba535bd9"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("597a11b3-31a0-4e70-8d2f-95465ee03e8b"),
@@ -1543,7 +1543,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("638e7fa5-4b45-4533-ac82-7d142319ca35"),
+                            CategoryFoodId = new Guid("370a564e-3dbe-4c52-9413-7177afa4b637"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("4e46f955-4413-496f-97b4-968a38ee3e11"),
@@ -1551,7 +1551,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("b4110ae0-dbf1-4a79-b31f-435403ff3da7"),
+                            CategoryFoodId = new Guid("1ac76294-8ac5-4072-a64f-278793bba341"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("644f32b3-897e-45b1-b4d7-aa8b9585a262"),
@@ -1559,7 +1559,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("50acfbdd-7656-41a4-ba5d-17929977bed7"),
+                            CategoryFoodId = new Guid("b5362667-a119-4991-a192-0291e548dcdc"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
@@ -1567,7 +1567,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("6fb7e909-bc06-47d1-a6f3-f8bd54310337"),
+                            CategoryFoodId = new Guid("f930de28-e3e2-4d81-b744-e4dd8787716d"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
@@ -1575,7 +1575,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("dd79396c-028c-47e6-9227-bf87d0d36efc"),
+                            CategoryFoodId = new Guid("3821c2fd-510a-425d-8675-c1e13dda9ccd"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a8de2767-4b0a-41db-b33b-2523f5be2e0c"),
@@ -1583,7 +1583,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("cd726d45-0db1-47a4-834a-021295341041"),
+                            CategoryFoodId = new Guid("fb3a303e-6f00-436d-9e0d-f9e24cb550b7"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("00333cd3-f43b-40af-855e-95aa8a636e4a"),
@@ -1591,7 +1591,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("b899e83e-5dbb-4b96-89b3-210880ba167d"),
+                            CategoryFoodId = new Guid("006d4379-630d-4cfa-a057-921347286100"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("8d95f2a5-cdd0-4c79-8cd0-99ff05cad567"),
@@ -1599,7 +1599,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("b73c57e3-bbb0-4f0d-bb84-1f031c9cc6c3"),
+                            CategoryFoodId = new Guid("15f3bbf7-c037-45a9-ac84-9363b5eedcfc"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7afe5fe6-3bcb-4354-86ea-e8d6a81aa9a2"),
@@ -1607,7 +1607,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("23f2af45-ffd5-48bb-822d-9947f17d8eee"),
+                            CategoryFoodId = new Guid("b4269110-c444-4fe4-a6d6-97c0310c2d94"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("ff348fc8-cd36-41c4-984f-a5884171f367"),
@@ -1615,7 +1615,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("9144d45e-997a-429d-aabc-7f9098e05195"),
+                            CategoryFoodId = new Guid("0bb277e4-442c-4dd8-84fb-7f2826f7e3d9"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7b3216ff-858e-423e-b8db-a85571aa5488"),
@@ -1623,7 +1623,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("60812bb7-b831-41da-9de0-749a43403adb"),
+                            CategoryFoodId = new Guid("dd500c65-8a0b-493f-aca1-275433b039d7"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
@@ -1631,7 +1631,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("929359f8-4433-450f-a371-49f34d99c7d6"),
+                            CategoryFoodId = new Guid("905d75b5-f919-41a2-8196-6803a7511883"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("35cad577-0748-469f-8909-7dc013cf1c55"),
@@ -1639,7 +1639,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("afc448ac-e0dc-4880-8819-ea6931ee5ec7"),
+                            CategoryFoodId = new Guid("e022959a-6708-416b-af80-d7900ecda6d5"),
                             CategoryId = new Guid("fc7f66aa-8c09-46db-a679-be440e3ed91f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("575e8bca-57e3-4d16-b380-545a046c9a4e"),
@@ -1647,7 +1647,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ca70c687-03bc-45aa-a7b6-36e615ff63f2"),
+                            CategoryFoodId = new Guid("bd9b3061-92f6-429e-9963-d7ae385658e2"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("830df1fb-09f6-4e6e-95c3-e39051e3b2d8"),
@@ -1655,7 +1655,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("912df593-3992-4115-bd91-df3728ba5b34"),
+                            CategoryFoodId = new Guid("a9a5c59f-658d-4ee6-9657-61939fc890dd"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("9b98036c-2047-4700-bb13-b34a432bb999"),
@@ -1663,7 +1663,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("052171f8-7597-46bb-933d-76c377248a23"),
+                            CategoryFoodId = new Guid("fbe7767a-f4d5-4f63-b1f8-3b99aa5fc162"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("1aa49363-ab95-4565-9e27-1855702197fd"),
@@ -1671,7 +1671,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("b3e7d700-639d-4b38-937c-392c648a280e"),
+                            CategoryFoodId = new Guid("3a113654-af70-4498-91ad-e5799316dc41"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("98c908b5-dad8-4db4-8d60-c6157c53d2c0"),
@@ -1679,7 +1679,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("b05dc78b-621a-4dd0-a853-5e66410a9df2"),
+                            CategoryFoodId = new Guid("34fce944-42c3-4e39-9648-991d2b61e357"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
@@ -1687,7 +1687,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("8987941d-0a98-4f02-9b9b-b620af1aa751"),
+                            CategoryFoodId = new Guid("60f419db-ec7a-4f68-86c2-01eac0c98c55"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("857b3565-b170-4162-a97b-c0184c4258aa"),
@@ -1695,7 +1695,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d5311d91-8399-4186-a615-eb18825bdd43"),
+                            CategoryFoodId = new Guid("495468d3-4678-447d-a5cc-28daec74b4ee"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7cd76708-7312-445e-a392-14f0e806a786"),
@@ -1703,7 +1703,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("60850aa8-d0bf-4904-a311-6a3080008a02"),
+                            CategoryFoodId = new Guid("4f187fd1-1459-4a2f-9ba6-1dce1dd65e3e"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("642480b4-22c9-4350-a6ce-c052f99e60e3"),
@@ -1711,7 +1711,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("42df7255-1bdb-4873-b0cd-58a6776856f5"),
+                            CategoryFoodId = new Guid("4b571cc2-4de8-4038-8e7b-e8b53de68e91"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("10869d8c-14b9-4464-85ca-bf76fc4bf91d"),
@@ -1719,7 +1719,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("3a59e772-0d1b-43a2-a07d-cd18a08e150d"),
+                            CategoryFoodId = new Guid("034c1409-126c-47cf-ab2a-2a874efde47c"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
@@ -1727,7 +1727,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("49674818-138c-4387-af1c-5e8c4b4533a1"),
+                            CategoryFoodId = new Guid("7e0ae9a5-2ee5-4505-b111-6a44b2f02032"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("9979963d-5c37-4fa9-955c-d1ecb5814607"),
@@ -1735,7 +1735,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("8bd36de1-e0ea-467d-b537-8347673a1794"),
+                            CategoryFoodId = new Guid("2cbabd1c-f14c-4793-8ec4-ca48460fd7f8"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("6a88b8cb-dc82-4751-a2e4-23e5516d850b"),
@@ -1743,7 +1743,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d17a258a-bc67-4554-b0d5-13b2b2253d2b"),
+                            CategoryFoodId = new Guid("47138f8b-96f7-4955-bbb5-c792e79dd87a"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
@@ -1751,7 +1751,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("55f3843f-42ce-4488-8951-23af273e0072"),
+                            CategoryFoodId = new Guid("84cb8941-a01d-48ef-a30f-200957d25b8d"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("845454d0-967a-4e48-aef3-bd8458775500"),
@@ -1759,7 +1759,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("304c4c1b-cc49-403e-b82a-b7db0211ba49"),
+                            CategoryFoodId = new Guid("3f28c360-2822-44e0-9a72-4a2103ba14b7"),
                             CategoryId = new Guid("f63dd434-9796-46ab-95ad-759bfac51e26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("49601ef1-2131-478f-a1de-f2e444602be3"),
@@ -1767,7 +1767,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("2294d8e3-4f87-4614-94a8-c6bab4dce241"),
+                            CategoryFoodId = new Guid("1061b60a-b269-4cd0-99d0-31f1dbea5d3b"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("d3c360a2-441e-4700-a6ec-4310b5976901"),
@@ -1775,7 +1775,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("68509787-b71d-43ae-bc14-d24aa5f54ce0"),
+                            CategoryFoodId = new Guid("78aa9f46-9b67-4978-8ef4-501225a372d1"),
                             CategoryId = new Guid("fe3a3546-b294-4665-9c82-092d4ab5a187"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("731974ef-495e-4c08-ba95-20589d60c20c"),
@@ -1783,7 +1783,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("88c72307-5876-4762-8541-2ed0074f17b6"),
+                            CategoryFoodId = new Guid("47c6a6ff-3623-4c2d-aa6f-c4c16fcef799"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("cb693182-b5ff-4f2b-9a47-44ab84841843"),
@@ -1791,7 +1791,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f4888965-bbe0-4924-a7be-68061a0fdb7c"),
+                            CategoryFoodId = new Guid("e0553d3b-ed4c-4215-bdf9-3b6f041184b0"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
@@ -1799,7 +1799,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("4512116b-f9f7-47ce-bec9-634488f8f2c9"),
+                            CategoryFoodId = new Guid("97055ce8-15c5-42cb-9ac6-139ca5dcd36b"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
@@ -1807,7 +1807,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("455f8c04-23d3-43c6-a2cb-7692cfe2bbb4"),
+                            CategoryFoodId = new Guid("df91d4b0-3be4-4916-810f-ac6073822166"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("5f848972-c5ae-45fc-8ba2-103b24d8a23a"),
@@ -1815,7 +1815,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d5e75e6e-8100-4107-8b91-bff638ae8687"),
+                            CategoryFoodId = new Guid("c67c90ae-e330-409b-b50b-c4e8180ce181"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2ae82bfd-34db-4928-bfee-b60f4aec4460"),
@@ -1823,7 +1823,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("36b63e1c-5873-41d0-a93c-53a96ece71ab"),
+                            CategoryFoodId = new Guid("ea3e0fbc-d46d-4f79-aa3b-173afb2cabd7"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c69f3300-4f1b-45ce-bdc3-ae45fec848a7"),
@@ -1831,7 +1831,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ef503d29-6770-42e4-9b46-d21970674b7f"),
+                            CategoryFoodId = new Guid("5e16b43d-de40-486b-913d-9bd10b698af3"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("6487a532-ff5e-4b77-b408-46c789608de9"),
@@ -1839,7 +1839,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("8ffb5dd7-d892-4ad5-9ced-8e64213e53e7"),
+                            CategoryFoodId = new Guid("1806a4ef-d3b0-41b0-9732-b05855167a0a"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("63045676-0e70-425f-aa96-e348a4e88c3a"),
@@ -1847,7 +1847,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ad67f685-4914-4129-a36d-18d26a128582"),
+                            CategoryFoodId = new Guid("263d021c-a5bc-4c96-b713-711e5fae5436"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("827829bf-71cd-4865-80af-1457e0091456"),
@@ -1855,7 +1855,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("248903d9-107c-4800-b681-b8c35db9d4b5"),
+                            CategoryFoodId = new Guid("04b116ab-fdb1-4d5c-a226-305c587345c5"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c5e3e4ed-0164-4917-a1ce-99679b971a22"),
@@ -1863,7 +1863,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ead90a11-e87b-4fa0-8faa-496114d19301"),
+                            CategoryFoodId = new Guid("379cb5fd-7eaf-44c7-a21e-2c8e17e905b1"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("e7d4d8d6-6e9a-4c38-95f2-e9790f5bd2c2"),
@@ -1871,7 +1871,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e97ce185-4857-44aa-8652-f5bd08ed0830"),
+                            CategoryFoodId = new Guid("9922b190-0779-4618-aff2-905e8cadee1a"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("fa1f0dc9-270a-4e77-881f-acb53ac1c91d"),
@@ -1879,7 +1879,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a6b0ab54-f031-4a73-9237-266d13ca2085"),
+                            CategoryFoodId = new Guid("1331f18a-4453-4ecd-93c7-762583b4e155"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("0ece5f0f-9fec-4f74-b948-90dce7ce6ce3"),
@@ -1887,7 +1887,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("7cbee0b9-8b29-4810-bc2f-c0c1e9c02a38"),
+                            CategoryFoodId = new Guid("b5869488-a431-40e1-a2ee-518b366f05c2"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7167f942-dc89-4f29-8022-588373aef45e"),
@@ -1895,7 +1895,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f9664a97-2076-4afd-83db-b002e0e8a92d"),
+                            CategoryFoodId = new Guid("37aee403-a705-403d-9e69-474f6d89dc4c"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("d65c7826-78c0-4991-b3b6-1e2b25437f61"),
@@ -1903,7 +1903,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("4b5c9192-751f-442a-9bbf-6f14f3f5d553"),
+                            CategoryFoodId = new Guid("09161fde-0087-499c-b5a3-a41ffa7fdde2"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("90099162-15e0-4ef0-b93e-59d409678b63"),
@@ -1911,7 +1911,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d50de293-142c-4e6d-b5f8-f9dad5d3ad62"),
+                            CategoryFoodId = new Guid("547d9782-7a49-4c59-800e-9a90acd667df"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("e1a6ae3e-bbb3-4e7f-9d92-55bd38e6fa2f"),
@@ -1919,7 +1919,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("497e56fe-1816-410c-b50f-5ded4bb9f9ac"),
+                            CategoryFoodId = new Guid("99a61daf-d31a-4ec4-9ee4-0530822bbffd"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("9669cdf4-c133-476f-b2bd-f3c091346c52"),
@@ -1927,7 +1927,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("bd331ed8-7597-4e01-9a53-9b98ffd580ef"),
+                            CategoryFoodId = new Guid("cd124de4-a86a-44a9-9f7b-8908a102f8cd"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("61b2c4d9-6de2-4fb2-af3b-fe9fabee0bd4"),
@@ -1935,7 +1935,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d82b470f-fe9e-4296-b16a-f12920132de0"),
+                            CategoryFoodId = new Guid("3d51ab7d-13a0-471c-b0ca-820a124ae5b9"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("af036922-79f3-45a7-b562-a6279520c0e6"),
@@ -1943,7 +1943,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("21c2ecf8-2c53-42dd-8972-8d72476ee26a"),
+                            CategoryFoodId = new Guid("b9a9f255-cbb8-4e3b-9d9c-5b381f9b7e7e"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("00bc33fe-4cd5-47df-bd94-15ac9f93648c"),
@@ -1951,7 +1951,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("bc11c3ee-54c2-4f2e-be86-5165f8d4f03a"),
+                            CategoryFoodId = new Guid("dfefe928-5ba6-4595-9c77-ea1bbfff17d4"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7b3935fa-e426-4dcd-b59f-2dbe8960956b"),
@@ -1959,7 +1959,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("054ef585-0231-46f6-b96e-cb3f50aed241"),
+                            CategoryFoodId = new Guid("340ec57a-7054-4883-ac3f-ca8726affbf9"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("3426c7e8-055b-414f-84a3-eb9afdb1d33e"),
@@ -1967,7 +1967,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("fcc30125-ea52-4dd2-b318-dd9cc681d2c1"),
+                            CategoryFoodId = new Guid("0f1e801f-4bab-41a1-aa68-7196fba72543"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("ea63d4c3-41f7-4f89-bf33-e8a16c5d6956"),
@@ -1975,7 +1975,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f512a52f-8530-4747-b4ca-5bf0974d069e"),
+                            CategoryFoodId = new Guid("cdbc5f27-0c00-4dbf-9ec9-af7a8c6e7719"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("b42e9ba6-8aa7-419a-907f-ec7e21cb9337"),
@@ -1983,7 +1983,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("27a78a1f-b4f1-46ef-97e5-f9fdc47874bd"),
+                            CategoryFoodId = new Guid("18bd4e90-a9b1-4598-94f1-e6a7184dd4e6"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("99ec20c3-f2a7-4727-9d12-a30f92d256cd"),
@@ -1991,7 +1991,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f03c44fa-7578-4fd6-ba4a-0477eb016a3a"),
+                            CategoryFoodId = new Guid("f23cd732-02be-4730-ab81-6d4ca0571dcf"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
@@ -1999,7 +1999,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("168c4b69-0982-4532-ad35-20cfb291ce79"),
+                            CategoryFoodId = new Guid("97021d0f-b7e8-4380-8d88-2e4e50f99ff6"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2c990331-b6ca-4642-893a-be68f0d398d5"),
@@ -2007,7 +2007,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e5ef5311-7457-44c0-a1cc-d0fd1133f3cc"),
+                            CategoryFoodId = new Guid("cfc46306-eea2-4311-8bda-e15009dca0d3"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("f0e4a066-b920-4540-a035-1a5504ff1358"),
@@ -2015,7 +2015,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("c2205750-b6c2-4b9e-b547-20f34660420f"),
+                            CategoryFoodId = new Guid("400c4d64-b11e-4dda-b2a1-783f1858565a"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("c9cb635f-b21e-4b04-9ac9-84d01f2ef42b"),
@@ -2023,7 +2023,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("701016c7-2b61-4d52-80fd-953206233601"),
+                            CategoryFoodId = new Guid("1b3fd201-95a6-4869-8e62-c2c56e3d5b18"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2d821db4-3e99-4877-b979-bc82d34b3b01"),
@@ -2031,7 +2031,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("c87c41e1-a899-41cb-9f7e-c4a9c32c102c"),
+                            CategoryFoodId = new Guid("36300a9a-d912-4f2e-a1dd-2602fe919b97"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("29dfb5da-8818-40ff-bf66-7553521c2161"),
@@ -2039,7 +2039,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("7af3276d-25cf-4c8a-8a3b-de1a18e216a4"),
+                            CategoryFoodId = new Guid("16812a8b-a132-4a56-bf76-5389c038ce88"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("64e0dca1-abd5-4886-b124-ef0f4a44d0a6"),
@@ -2047,7 +2047,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("782d42d6-b379-487a-8d7b-6faaca2c2111"),
+                            CategoryFoodId = new Guid("b7fcb912-fbfe-4cdd-8ee5-c708a83f76a8"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("881ae045-1c9a-4e20-9160-0e8c14486be5"),
@@ -2055,7 +2055,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("20c7bde0-9fd2-435c-82bb-79b16fe80190"),
+                            CategoryFoodId = new Guid("0554e931-a08e-4bbc-83f1-c7803db80bd4"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("0292d477-d63b-4904-a83b-2cd8cac39c14"),
@@ -2063,7 +2063,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a98564d0-6912-4e9b-88f3-f93b757917e0"),
+                            CategoryFoodId = new Guid("6989d4fa-b487-4cd0-9a88-76a76ce49bd2"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("b80c562a-e1d4-4117-a317-c06b5bae8950"),
@@ -2071,7 +2071,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a257101f-0171-4800-9545-c0835def253a"),
+                            CategoryFoodId = new Guid("3b716121-0e95-41c0-a24c-7714569e5e08"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("3dc2fa80-ab87-4e26-907b-3516611371b8"),
@@ -2079,7 +2079,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ed85683b-a2cd-4a4e-a1b4-8575a33be8aa"),
+                            CategoryFoodId = new Guid("8ca95b0c-2d87-4b37-a190-f2d41b40132a"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2c990331-b6ca-4642-893a-be68f0d398d5"),
@@ -2087,7 +2087,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("68dee60b-5bdb-46aa-bbde-a8bf3c6645b3"),
+                            CategoryFoodId = new Guid("7def0671-306d-4efd-a0a4-9da6de8bc027"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("9acdf58c-c37d-4026-a3f9-40fda186184b"),
@@ -2095,7 +2095,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("287e754c-fd75-4fcb-936c-04f14cdab4dc"),
+                            CategoryFoodId = new Guid("a1c2bd3a-6a59-4a0a-a601-c0ee0c4b94a0"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("f0e4a066-b920-4540-a035-1a5504ff1358"),
@@ -2103,7 +2103,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("17e880b5-c3b8-41e8-9f56-81634bdf0a9b"),
+                            CategoryFoodId = new Guid("d0abfe1b-7d59-483f-8272-17c925c55412"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
@@ -2111,7 +2111,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("b755edb8-847d-4c24-973b-a1e65f217d2b"),
+                            CategoryFoodId = new Guid("d5f922e2-2b67-4aed-b8a1-810c3a527fac"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7b3935fa-e426-4dcd-b59f-2dbe8960956b"),
@@ -2119,7 +2119,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ff679c96-13ee-41df-a29c-50aa35a23114"),
+                            CategoryFoodId = new Guid("240bffac-6740-47a4-8ebb-97d221a4f1ec"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("4edcae53-7e30-42bb-8526-7686355f2268"),
@@ -2127,7 +2127,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("8b6b2611-c134-4117-9c8c-ffb86c8b0b98"),
+                            CategoryFoodId = new Guid("8e57d8b0-2158-4249-8db7-9c5192f67a82"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("8ed85dc2-7654-4c48-81f9-19946a73f71d"),
@@ -2135,7 +2135,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("e8962a4a-cbea-4c7f-be33-229fe83773a0"),
+                            CategoryFoodId = new Guid("78d0a265-6871-47d6-8849-7c1199048f6b"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("881ae045-1c9a-4e20-9160-0e8c14486be5"),
@@ -2143,7 +2143,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("4e7deb7f-81f0-4835-a5d5-efde68cb0ee1"),
+                            CategoryFoodId = new Guid("7ede0ded-425d-4eed-a601-6e40c3792984"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("b80c562a-e1d4-4117-a317-c06b5bae8950"),
@@ -2151,7 +2151,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("7530e552-7d6c-4c2d-b37b-c083f160dd89"),
+                            CategoryFoodId = new Guid("722801b2-7a20-479c-8416-06a85efa19f6"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
@@ -2159,7 +2159,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("32f7a23c-b747-45bb-bbb6-c1ac779b0753"),
+                            CategoryFoodId = new Guid("7971ae78-7779-4d1e-afa8-4354f9c77efe"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2c990331-b6ca-4642-893a-be68f0d398d5"),
@@ -2167,7 +2167,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("76bb1dba-d3d2-4210-954a-9a1a1a4d2158"),
+                            CategoryFoodId = new Guid("f662f0ab-5e81-4f8f-8333-712f38228388"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("9acdf58c-c37d-4026-a3f9-40fda186184b"),
@@ -2175,7 +2175,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("941fa1ba-dc13-49cb-8880-3c5a88b5c6dd"),
+                            CategoryFoodId = new Guid("4167e2ef-2117-4a1d-9bad-b3635c339a3b"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("b79878e6-36d9-4efc-b3ff-a3c45b35ff21"),
@@ -2183,7 +2183,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("3c0a7dd5-5204-441d-a001-93e30112a587"),
+                            CategoryFoodId = new Guid("5251aa76-def0-49ba-bb4e-386ef2360f96"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("8382816f-1beb-4804-9698-3b486798b20a"),
@@ -2191,7 +2191,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("39bda8dc-d753-4d98-bb91-00b76939007a"),
+                            CategoryFoodId = new Guid("25c51ce2-5d98-4478-802d-fae7bb170795"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2405ffc3-524e-4331-9e68-47a411d7b9b8"),
@@ -2199,7 +2199,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("945968fb-c31a-4836-977e-6f4eaad2804d"),
+                            CategoryFoodId = new Guid("1cbb3b71-3d89-41e1-b207-a6804e889f22"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),
@@ -2207,7 +2207,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("298d6cff-65e7-4d8b-8260-989fac151a45"),
+                            CategoryFoodId = new Guid("0a22e641-3544-4f22-96e8-15705c084d75"),
                             CategoryId = new Guid("78651ea5-2013-4e50-a55f-714de91a712d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("2146faae-2e7c-4460-8d81-38f5d313012c"),
@@ -2215,7 +2215,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("20002e5d-f9d2-4007-a5c1-1d438a2a9fb8"),
+                            CategoryFoodId = new Guid("d9428aa4-5d1c-4a71-a12c-2a91df31ca73"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"),
@@ -2223,7 +2223,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("b9188225-5a84-49bb-a31b-bfd1d95e0d59"),
+                            CategoryFoodId = new Guid("46d7c104-006d-4aa1-9d7f-85073ebc667a"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a950000c-9837-4d1b-b1ae-b9db230f8f1f"),
@@ -2231,7 +2231,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("fc6b9df1-d147-4ec8-b096-4a63e42a8bed"),
+                            CategoryFoodId = new Guid("2c046cbd-77d1-47e1-a5d1-04038e6a2215"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("30f9d9dc-1653-495c-99b7-b649c49f7930"),
@@ -2239,7 +2239,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("254dcf6d-2146-4ee5-9ae6-ba5fcef0b999"),
+                            CategoryFoodId = new Guid("d29cd8e6-4ec6-44c7-af7d-12021b48632e"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a364353c-d589-4a94-9c3b-3038113ea249"),
@@ -2247,7 +2247,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("ce07708e-a337-464d-ac2d-82eb37ff6b4d"),
+                            CategoryFoodId = new Guid("f02e7f09-f561-48ad-8182-b26f645014b7"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("cf9ab10f-2094-496b-9018-96b9d2e1af76"),
@@ -2255,7 +2255,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("a8a535e7-b3b3-48c5-b95c-f2b247a4c18a"),
+                            CategoryFoodId = new Guid("54138e14-404d-4a9b-95c4-e22bee4965c3"),
                             CategoryId = new Guid("4c35b262-4c08-4624-900b-e22ba8988c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("8c9e1c76-2616-43a4-8c80-3e2e23b8ac4f"),
@@ -2263,7 +2263,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f0c83add-c40f-424f-bd9f-fcf5f97057ed"),
+                            CategoryFoodId = new Guid("63a833ac-ed89-43d0-a4ec-93bd97141270"),
                             CategoryId = new Guid("6d3beea0-5f00-4a8a-ab52-d5774e3c5770"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("87cdf191-876c-4270-92f9-4bb1fc2a7fe9"),
@@ -2271,7 +2271,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("f929c067-921c-4c4b-93c6-f612b5ee587b"),
+                            CategoryFoodId = new Guid("63b510a1-50b2-4759-ab4a-28b5afa6a7e8"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("3d19d971-88d0-4108-a335-24ac9e1dec50"),
@@ -2279,7 +2279,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("d54fbac5-12e3-477a-a6e5-4a553a294481"),
+                            CategoryFoodId = new Guid("64e50028-feb8-424e-a027-4063286236df"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("a504d882-4f38-413e-bb28-fae1f2787150"),
@@ -2287,7 +2287,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("6da40368-5e90-4179-8712-fbb21171d079"),
+                            CategoryFoodId = new Guid("dc360254-5cac-4fa0-ad4b-fc3b5d41f161"),
                             CategoryId = new Guid("19fe32e8-9e15-486b-9398-f0116cd5019a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("9f624258-a4ee-4879-a23f-b3d0479f2b1b"),
@@ -2295,7 +2295,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("b477799d-f8b4-4d9a-bdc7-4c13ff849107"),
+                            CategoryFoodId = new Guid("36d744fb-1154-491e-a36d-61f9cff21738"),
                             CategoryId = new Guid("ee39be57-cf88-4420-8e19-606b2ed4dc6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("d034b7e9-b5a2-42d7-95b7-c0c30207293d"),
@@ -2303,7 +2303,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            CategoryFoodId = new Guid("9b44c2d8-ece3-4804-800e-74e4934d63ca"),
+                            CategoryFoodId = new Guid("9700fe11-a9f4-498a-9380-5cd08334df79"),
                             CategoryId = new Guid("99052f16-54f5-4456-80f8-1691db7c90f2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodId = new Guid("85e621ed-0e0c-4d20-8891-51d311cea4a3"),
@@ -3876,10 +3876,6 @@ namespace Monhealth.Identity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FoodType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsPublic")
                         .HasColumnType("bit");
 
@@ -3917,7 +3913,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cơm là món ăn chủ yếu trong bữa ăn Việt Nam, cung cấp tinh bột quan trọng. Cơm thường ăn kèm với các món mặn như thịt, cá và rau, tạo nên một bữa ăn đầy đủ dinh dưỡng, bổ sung năng lượng cho cơ thể",
                             FoodName = "Cơm",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -3934,7 +3929,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Bánh mì là món ăn nhanh, phổ biến với lớp vỏ giòn và nhân phong phú như thịt nướng, pate, trứng. Đây là lựa chọn lý tưởng cho bữa sáng hoặc bữa ăn nhẹ, dễ dàng mang theo và rất tiện lợi",
                             FoodName = "Bánh mì",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner,Snack",
                             Status = true,
@@ -3951,7 +3945,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Chuối là trái cây ngọt, dễ ăn, cung cấp vitamin C và kali. Chuối rất tốt cho hệ tiêu hóa và tim mạch. Món này thường được ăn trực tiếp, làm sinh tố hoặc chế biến thành các món tráng miệng như chè",
                             FoodName = "Chuối",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -3968,7 +3961,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish,MainDish",
                             FoodDescription = "Trứng gà luộc là món ăn đơn giản, giàu protein, vitamin B12 và khoáng chất. Trứng gà thường được ăn sáng hoặc dùng làm món phụ trong bữa ăn chính, giúp cung cấp năng lượng và duy trì sức khỏe",
                             FoodName = "Trứng gà luộc",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -3985,7 +3977,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Sữa tươi không đường là nguồn cung cấp canxi và protein giúp xương chắc khỏe. Nó cũng hỗ trợ phát triển cơ bắp, cung cấp vitamin A và D. Sữa tươi là thức uống bổ dưỡng cho bữa sáng hoặc giữa các bữa ăn",
                             FoodName = "Sữa tươi không đường",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4002,7 +3993,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún bò Huế là món ăn nổi tiếng với nước dùng đậm đà từ xương bò, mắm ruốc, và gia vị đặc trưng. Món này kết hợp bún, thịt bò, giò heo và rau sống, tạo nên hương vị thơm ngon, hấp dẫn cho bữa ăn",
                             FoodName = "Bún bò huế",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4019,7 +4009,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Táo là trái cây giàu vitamin C và chất xơ, tốt cho tiêu hóa và hệ tim mạch. Táo có thể ăn trực tiếp hoặc làm sinh tố, salad, giúp tăng cường sức khỏe và cung cấp năng lượng tự nhiên cho cơ thể",
                             FoodName = "Táo",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -4036,7 +4025,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Bún là món ăn phổ biến ở Việt Nam, được chế biến từ gạo. Bún có thể kết hợp với các loại thịt, cá, hoặc rau, tạo thành những món như bún riêu, bún chả, bún bò Huế, mang lại hương vị đặc trưng",
                             FoodName = "Bún",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4053,7 +4041,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Dưa chuột là rau quả tươi mát, giúp giải nhiệt và làm đẹp da. Dưa chuột có thể ăn sống, làm salad, hoặc chế biến thành món xào và canh, rất thích hợp trong các bữa ăn hằng ngày để thanh lọc cơ thể",
                             FoodName = "Dưa chuột",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner,Snack",
                             Status = true,
@@ -4070,7 +4057,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Chuối tây là trái cây ngọt, dễ ăn, giàu kali và vitamin. Chuối tây thường được ăn trực tiếp hoặc làm tráng miệng, sinh tố, chè. Đây là món ăn bổ dưỡng và dễ tiêu hóa, thích hợp cho mọi lứa tuổi",
                             FoodName = "Chuối tây",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4087,7 +4073,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Chuối tiêu là trái cây ngọt nhẹ, giàu kali và vitamin C, giúp hỗ trợ tiêu hóa và cung cấp năng lượng. Chuối tiêu có thể ăn trực tiếp hoặc chế biến thành các món tráng miệng như chè chuối hấp",
                             FoodName = "Chuối tiêu",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4104,7 +4089,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Ổi là trái cây giàu vitamin C, giúp tăng cường hệ miễn dịch và làm đẹp da. Ổi có thể ăn trực tiếp hoặc làm sinh tố, nước ép, rất tốt cho sức khỏe, đặc biệt là trong việc hỗ trợ tiêu hóa",
                             FoodName = "Ổi",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4121,7 +4105,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cơm tấm sườn là món ăn phổ biến ở miền Nam Việt Nam, bao gồm cơm tấm mềm mịn ăn kèm với sườn nướng và các loại rau sống. Món này mang lại hương vị đậm đà và đầy đủ dinh dưỡng",
                             FoodName = "Cơm tấm sườn",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4138,7 +4121,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Thanh long là trái cây ngọt, mát, chứa nhiều vitamin C và khoáng chất, giúp tăng cường sức đề kháng và làm đẹp da. Thanh long có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng",
                             FoodName = "Thanh long",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4155,7 +4137,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún riêu cua là món ăn nổi tiếng với nước dùng chua ngọt, kết hợp với cua, bún và các loại rau sống. Món ăn này mang hương vị đặc trưng và bổ dưỡng, phù hợp cho bữa trưa hoặc tối",
                             FoodName = "Bún riêu cua",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4172,7 +4153,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh bao là món ăn đơn giản, với lớp vỏ mềm mịn và nhân thịt heo hoặc trứng. Đây là món ăn nhanh gọn, thường được ăn sáng hoặc làm món phụ trong các bữa ăn chính",
                             FoodName = "Bánh bao",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4189,7 +4169,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún thịt nướng là món ăn gồm bún mềm, thịt nướng thơm ngon và các loại rau sống. Món này có thể ăn kèm với nước mắm pha, tạo thành một bữa ăn vừa thanh mát vừa đầy đủ dinh dưỡng",
                             FoodName = "Bún thịt nướng",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4206,7 +4185,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Cà chua là thực phẩm giàu vitamin C và chất xơ, có tác dụng làm đẹp da và hỗ trợ tiêu hóa. Cà chua có thể ăn sống, làm salad, hoặc chế biến thành các món xào, canh",
                             FoodName = "Cà chua",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4223,7 +4201,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Xôi mặn là món ăn từ gạo nếp, kết hợp với thịt, lạp xưởng hoặc trứng. Món này thường được ăn vào buổi sáng hoặc trong các dịp đặc biệt, rất bổ dưỡng và dễ ăn",
                             FoodName = "Xôi mặn",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch",
                             Status = true,
@@ -4240,7 +4217,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Dưa hấu là trái cây giải nhiệt, chứa nhiều nước và vitamin C. Đây là món ăn lý tưởng trong mùa hè, giúp cung cấp nước và dưỡng chất cho cơ thể, có thể ăn trực tiếp hoặc làm sinh tố",
                             FoodName = "Dưa hấu",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -4257,7 +4233,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Chả lụa là món ăn được làm từ thịt heo xay nhuyễn, cuộn chặt và hấp chín. Món này thường dùng trong các bữa ăn chính, bánh mì hoặc cơm, mang lại hương vị ngọt mềm, thơm ngon",
                             FoodName = "Chả lụa",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4274,7 +4249,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cơm gạo lức được làm từ gạo lức chưa xay xát hoàn toàn, giàu chất xơ và dinh dưỡng. Món này cung cấp năng lượng lâu dài, tốt cho sức khỏe và rất phổ biến trong các bữa ăn hàng ngày",
                             FoodName = "Cơm gạo lức",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4291,7 +4265,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Xúc xích là món ăn làm từ thịt xay (thường là thịt heo hoặc bò), tẩm gia vị và nhồi vào ruột lợn, sau đó luộc hoặc nướng. Xúc xích dễ dàng chế biến và là món ăn nhanh gọn cho bữa sáng hoặc bữa phụ",
                             FoodName = "Xúc xích",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4308,7 +4281,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Ức gà là phần thịt ít mỡ, giàu protein và dễ chế biến. Món ức gà có thể nướng, xào, hấp hoặc luộc, cung cấp năng lượng và dưỡng chất cho cơ thể, phù hợp với bữa trưa hoặc tối",
                             FoodName = "Ức gà",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4325,7 +4297,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Bắp luộc là món ăn đơn giản nhưng bổ dưỡng, chứa nhiều chất xơ và vitamin. Bắp luộc có thể ăn trực tiếp hoặc làm món ăn kèm trong bữa ăn, đặc biệt là vào mùa hè",
                             FoodName = "Bắp luộc",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Snack,Breakfast,Lunch",
                             Status = true,
@@ -4342,7 +4313,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Sữa chua là món ăn từ sữa lên men, chứa nhiều vi khuẩn có lợi cho hệ tiêu hóa. Sữa chua có thể ăn trực tiếp hoặc làm thành các món tráng miệng, bổ dưỡng và dễ tiêu hóa",
                             FoodName = "Sữa chua",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -4359,7 +4329,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Đậu hũ là món ăn được làm từ đậu nành, giàu protein thực vật. Đậu hũ có thể chế biến theo nhiều cách như chiên, nấu canh hoặc xào, mang lại hương vị thanh nhẹ và tốt cho sức khỏe",
                             FoodName = "Đậu hũ",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4376,7 +4345,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh bao chay là món ăn làm từ bột mì, nhân là các loại rau củ, đậu hũ hoặc nấm. Đây là món ăn phù hợp cho những người ăn chay, với hương vị nhẹ nhàng và bổ dưỡng",
                             FoodName = "Bánh bao chay",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4393,7 +4361,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Nước cam là thức uống từ cam tươi, cung cấp vitamin C và chất chống oxy hóa. Nước cam là lựa chọn tuyệt vời để giải khát và bổ sung dưỡng chất cho cơ thể, đặc biệt trong mùa lạnh",
                             FoodName = "Nước cam",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4410,7 +4377,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Cà rốt là rau củ giàu vitamin A, giúp cải thiện thị lực và sức khỏe da. Cà rốt có thể ăn sống, làm salad, hoặc chế biến thành các món xào, canh hoặc nước ép",
                             FoodName = "Cà rốt",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4427,7 +4393,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cháo lòng là món ăn sáng phổ biến, được làm từ cháo gạo nấu với các loại nội tạng heo như lòng, gan, dồi. Món này có vị đậm đà, thường ăn kèm với hành lá, rau thơm và gia vị",
                             FoodName = "Cháo lòng",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4444,7 +4409,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Bánh mì sandwich là món ăn nhanh với lớp bánh mì mềm, nhân có thể là thịt, rau, trứng hoặc phô mai. Đây là lựa chọn lý tưởng cho bữa sáng hoặc bữa phụ, dễ dàng mang theo khi đi làm hoặc đi học",
                             FoodName = "Bánh mì sandwich",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Snack",
                             Status = true,
@@ -4461,7 +4425,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Nước dừa là thức uống mát từ nước bên trong quả dừa, giúp giải nhiệt và bổ sung khoáng chất. Nó cũng rất tốt cho làn da và hệ tiêu hóa, thích hợp để uống trong mùa hè",
                             FoodName = "Nước dừa",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -4478,7 +4441,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Xoài là trái cây ngọt, thơm, giàu vitamin C và chất xơ. Xoài có thể ăn trực tiếp hoặc làm sinh tố, chè, mang lại hương vị tươi mát và bổ dưỡng",
                             FoodName = "Xoài",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4495,7 +4457,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau muống là loại rau lá xanh phổ biến ở Việt Nam, có thể xào, luộc hoặc làm canh. Rau muống giàu vitamin, khoáng chất và chất xơ, giúp hỗ trợ tiêu hóa và giải nhiệt",
                             FoodName = "Rau muống",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -4512,7 +4473,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún chả là món ăn đặc sản Hà Nội, gồm bún, thịt chả nướng, và rau sống. Món ăn này có nước mắm pha chua ngọt, tạo thành bữa ăn ngon miệng, đậm đà và rất dễ ăn",
                             FoodName = "Bún chả",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -4529,7 +4489,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Sữa hộp Milo là thức uống bổ dưỡng chứa nhiều vitamin và khoáng chất, phù hợp cho trẻ em và người lớn. Milo có hương vị ngọt ngào, thường được uống vào bữa sáng hoặc giữa các bữa ăn",
                             FoodName = "Sữa hộp milo",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4546,7 +4505,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh canh là món ăn nổi bật với nước dùng đậm đà, có thể làm từ bún hoặc bánh canh, ăn kèm với các loại thịt như cua, tôm, hoặc giò heo. Món này rất phổ biến ở miền Trung và Nam Việt Nam",
                             FoodName = "Bánh canh",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4563,7 +4521,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Hủ tiếu là món ăn gồm mì hoặc bún ăn kèm với nước dùng thơm ngon và các loại thịt như tôm, gà, hoặc heo. Món này phổ biến ở miền Nam Việt Nam và rất dễ ăn, thích hợp cho bữa sáng hoặc bữa tối",
                             FoodName = "Hủ tíu",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4580,7 +4537,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Cà phê là thức uống quen thuộc, có thể uống đen hoặc thêm sữa, với hương vị đậm đà và kích thích tinh thần. Cà phê thường được uống vào buổi sáng hoặc trong suốt cả ngày để duy trì sự tỉnh táo",
                             FoodName = "Cà phê",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4597,7 +4553,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Cà phê sữa là thức uống phổ biến ở Việt Nam, được pha chế từ cà phê đen đặc kết hợp với sữa đặc ngọt. Món này có vị đắng nhẹ kết hợp với ngọt béo, thích hợp để uống vào buổi sáng để khởi đầu ngày mới",
                             FoodName = "Cà phê sữa",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4614,7 +4569,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Sữa đậu nành là thức uống từ đậu nành xay nhuyễn, giàu protein và vitamin. Đây là món ăn sáng phổ biến, bổ dưỡng, có thể uống nóng hoặc lạnh, đặc biệt tốt cho người ăn chay và những người muốn bổ sung dưỡng chất từ thực vật",
                             FoodName = "Sữa đậu nành",
-                            FoodType = "Drink,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4631,7 +4585,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt kho tiêu là món ăn đơn giản nhưng thơm ngon, thường làm từ thịt ba chỉ hoặc thịt heo kho với tiêu, nước dừa và gia vị. Món này có vị mặn ngọt đậm đà, ăn cùng với cơm trắng rất hợp",
                             FoodName = "Thịt kho tiêu",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -4648,7 +4601,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún xào là món ăn ngon miệng với bún xào cùng các loại rau và thịt hoặc tôm. Món này thường được chế biến nhanh, có vị thơm, ngọt từ các nguyên liệu kết hợp, thường ăn vào bữa trưa hoặc tối",
                             FoodName = "Bún xào",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4665,7 +4617,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Cải thìa là loại rau xanh giàu vitamin và khoáng chất, có thể chế biến theo nhiều cách như xào, luộc hoặc nấu canh. Cải thìa giúp giải nhiệt và tốt cho hệ tiêu hóa, thường dùng trong các bữa ăn gia đình",
                             FoodName = "Cải thìa",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4682,7 +4633,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Xôi bắp là món ăn sáng đơn giản, được làm từ gạo nếp và bắp, có vị ngọt tự nhiên của ngô. Món này dễ ăn, cung cấp năng lượng cho cả ngày dài, thường được ăn kèm với thịt hoặc các món mặn khác",
                             FoodName = "Xôi bắp",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch",
                             Status = true,
@@ -4699,7 +4649,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Phở bò tái là món phở nổi tiếng với nước dùng trong, đậm đà từ xương bò, ăn kèm với thịt bò tái và bánh phở mềm. Món ăn này rất phổ biến vào buổi sáng ở Việt Nam, mang lại cảm giác ấm cúng và no lâu",
                             FoodName = "Phở bò tái",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4716,7 +4665,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Phở gà là món ăn nhẹ nhàng, nước dùng thơm từ gà, ăn kèm với bánh phở và thịt gà. Món này có thể ăn vào buổi sáng hoặc bữa tối, rất thanh đạm nhưng đầy đủ dinh dưỡng",
                             FoodName = "Phở gà",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4733,7 +4681,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Nước chanh là thức uống giải khát tuyệt vời, giúp cung cấp vitamin C, giải nhiệt và làm đẹp da. Món này có thể uống vào bất kỳ thời gian nào trong ngày, đặc biệt là trong mùa hè",
                             FoodName = "Nước chanh",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -4750,7 +4697,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh mì thịt trứng là món ăn nhanh, với bánh mì mềm, nhân thịt nướng và trứng chiên. Đây là món ăn sáng phổ biến, đơn giản nhưng đầy đủ dinh dưỡng, dễ ăn và tiện lợi",
                             FoodName = "Bánh mì thịt trứng",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4767,7 +4713,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Quýt là trái cây ngọt, chứa nhiều vitamin C và giúp tăng cường hệ miễn dịch. Quýt có thể ăn trực tiếp hoặc làm nước ép, rất tốt cho sức khỏe, đặc biệt là giúp giải nhiệt trong mùa hè",
                             FoodName = "Quýt",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -4784,7 +4729,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Sữa chua nha đam là món tráng miệng được làm từ sữa chua và nha đam tươi, giúp làm đẹp da và hỗ trợ tiêu hóa. Món này mát, dễ ăn và rất tốt cho sức khỏe, đặc biệt là trong thời tiết nóng",
                             FoodName = "Sữa chua nha đam",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -4801,7 +4745,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh xèo là món ăn truyền thống với vỏ bánh giòn, nhân tôm, thịt heo, giá đỗ và các loại rau. Món này thường được ăn kèm với nước mắm chua ngọt và rau sống, tạo nên hương vị đậm đà, hấp dẫn",
                             FoodName = "Bánh xèo",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -4818,7 +4761,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Ớt chuông là loại rau quả giàu vitamin C, giúp tăng cường sức khỏe và làm đẹp da. Ớt chuông có thể ăn sống, xào, hoặc làm salad, mang lại hương vị tươi mát và màu sắc đẹp mắt cho bữa ăn",
                             FoodName = "Ớt chuông",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4835,7 +4777,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Nấm kim châm là loại nấm có thân dài và mỏng, thường được dùng trong các món canh, xào hoặc salad. Nấm kim châm giàu chất xơ và khoáng chất, rất tốt cho sức khỏe, đặc biệt là hệ tiêu hóa",
                             FoodName = "Nấm kim châm",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4852,7 +4793,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish,MainDish",
                             FoodDescription = "Lòng đỏ trứng gà là phần chứa nhiều chất béo, protein và vitamin, rất tốt cho sự phát triển của cơ thể. Lòng đỏ trứng gà thường được sử dụng trong các món ăn như trứng bác, bánh hoặc các món ăn kèm",
                             FoodName = "Lòng đỏ trứng gà",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4869,7 +4809,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish,MainDish",
                             FoodDescription = "Lòng trắng trứng gà chứa nhiều protein và ít chất béo, rất tốt cho sức khỏe. Lòng trắng trứng có thể chế biến thành các món như trứng luộc, trứng chưng, hoặc làm nguyên liệu trong các món ăn khác",
                             FoodName = "Lòng trắng trứng gà",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4886,7 +4825,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Hoành thánh là món ăn từ bột mì, nhân thịt hoặc tôm, thường được nấu trong nước dùng thơm ngon. Món này có thể ăn trong các bữa sáng hoặc bữa tối, mang lại cảm giác ấm cúng và bổ dưỡng",
                             FoodName = "Hoành thánh",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4903,7 +4841,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Tôm là hải sản giàu protein, omega-3 và vitamin, rất tốt cho sức khỏe tim mạch. Tôm có thể chế biến thành nhiều món ăn như xào, hấp, hoặc nấu canh, tạo hương vị tươi ngon cho bữa ăn",
                             FoodName = "Tôm",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4920,7 +4857,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Đậu bắp là loại rau quả giàu vitamin C và chất xơ, giúp hỗ trợ tiêu hóa và làm đẹp da. Đậu bắp có thể ăn luộc, xào hoặc làm canh, là món ăn bổ dưỡng cho các bữa ăn gia đình",
                             FoodName = "Đậu bắp",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4937,7 +4873,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh canh cua là món ăn đặc trưng với nước dùng đậm đà từ cua, ăn kèm với bánh canh mềm và các loại rau. Món này rất phổ biến ở miền Nam và mang lại hương vị thơm ngon, bổ dưỡng",
                             FoodName = "Bánh canh cua",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4954,7 +4889,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh bèo là món ăn dân dã của miền Trung, gồm bánh làm từ bột gạo, thường được phủ lên trên các loại tôm, thịt hoặc mỡ hành. Món này có thể ăn kèm với nước mắm chua ngọt",
                             FoodName = "Bánh bèo",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -4971,7 +4905,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún mắm là món ăn nổi bật với nước dùng từ mắm, kết hợp với bún và các loại hải sản như tôm, cá. Đây là món ăn đặc sản của miền Tây, mang lại hương vị đậm đà và rất thơm ngon",
                             FoodName = "Bún mắm",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -4988,7 +4921,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Cải thảo là loại rau xanh, thường được dùng trong các món xào, nấu canh hoặc làm gỏi. Cải thảo chứa nhiều vitamin và khoáng chất, giúp hỗ trợ tiêu hóa và cải thiện sức khỏe",
                             FoodName = "Cải thảo",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5005,7 +4937,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt vịt là nguồn protein giàu chất dinh dưỡng, có thể chế biến thành nhiều món như vịt nướng, vịt kho hoặc vịt luộc. Món thịt vịt thường có hương vị đặc trưng, đậm đà và thích hợp cho các bữa ăn gia đình",
                             FoodName = "Thịt vịt",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5022,7 +4953,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt gà là nguồn protein nhẹ nhàng, giàu dinh dưỡng. Thịt gà có thể chế biến thành nhiều món như gà kho, gà luộc, hoặc gà xào. Đây là lựa chọn phổ biến trong các bữa ăn hàng ngày",
                             FoodName = "Thịt gà",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5039,7 +4969,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt kho trứng là món ăn quen thuộc với thịt heo kho cùng trứng luộc, mang hương vị mặn ngọt đậm đà. Món này thường ăn kèm với cơm trắng, rất ngon miệng và bổ dưỡng",
                             FoodName = "Thịt kho trứng",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5056,7 +4985,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Sườn non là phần thịt heo mềm, có thể chế biến thành nhiều món như sườn nướng, sườn kho hoặc sườn xào chua ngọt. Món sườn non rất thích hợp cho các bữa cơm gia đình, có vị đậm đà và dễ ăn",
                             FoodName = "Sườn non",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5073,7 +5001,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Thịt heo bằm là nguyên liệu dễ chế biến, thường được dùng trong các món như thịt heo bằm xào rau, làm nhân cho các món bánh bao hoặc canh. Món này có hương vị mềm mại và giàu dinh dưỡng",
                             FoodName = "Thịt heo bằm",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5090,7 +5017,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cơm chiên trứng là món ăn đơn giản nhưng ngon miệng, được làm từ cơm nguội xào cùng trứng, có thể thêm các loại rau và thịt tùy thích. Món này phù hợp cho bữa trưa hoặc tối nhanh gọn và đầy đủ dinh dưỡng",
                             FoodName = "Cơm chiên trứng",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5107,7 +5033,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cháo sườn là món ăn sáng phổ biến, với cháo mềm mịn kết hợp cùng sườn heo kho hoặc hầm. Món này có vị ngọt tự nhiên từ xương, thường ăn kèm với hành lá, rau thơm và gia vị",
                             FoodName = "Cháo sườn",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5124,7 +5049,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh bột lọc là món ăn đặc trưng của miền Trung, gồm vỏ bánh làm từ bột năng, nhân tôm hoặc thịt, sau đó hấp chín. Món này thường ăn kèm với nước mắm chua ngọt và rau sống",
                             FoodName = "Bánh bột lọc",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5141,7 +5065,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh bao xá xíu là món bánh mềm mịn, với nhân thịt heo xá xíu thơm ngon. Món này rất phổ biến trong các bữa sáng hoặc bữa ăn nhanh gọn, giàu protein và dễ tiêu hóa",
                             FoodName = "Bánh bao xá xíu",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5158,7 +5081,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Cá hồi là loại hải sản giàu omega-3, tốt cho sức khỏe tim mạch. Cá hồi có thể chế biến thành nhiều món như nướng, hấp, hoặc làm sushi, mang lại hương vị tươi ngon và bổ dưỡng",
                             FoodName = "Cá hồi",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5175,7 +5097,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Khoai lang là một loại củ giàu vitamin và chất xơ, có thể chế biến thành các món như khoai lang luộc, chiên, hoặc làm món xào. Món này cung cấp năng lượng và rất tốt cho sức khỏe",
                             FoodName = "Khoai lang",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5192,7 +5113,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Khoai tây là nguồn cung cấp tinh bột và vitamin C. Khoai tây có thể chế biến thành nhiều món như khoai tây chiên, luộc, nghiền hoặc nướng, rất phổ biến trong các bữa ăn gia đình",
                             FoodName = "Khoai tây",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5209,7 +5129,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Hành tây là loại củ gia vị phổ biến, mang lại hương vị thơm ngon cho các món xào, canh hoặc salad. Hành tây có tác dụng tốt cho sức khỏe tim mạch và giúp cải thiện hệ tiêu hóa",
                             FoodName = "Hành tây",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5226,7 +5145,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Bầu là loại rau quả mát, chứa nhiều vitamin và khoáng chất. Bầu có thể chế biến thành các món canh, xào hoặc làm gỏi, giúp thanh nhiệt và hỗ trợ tiêu hóa",
                             FoodName = "Bầu",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5243,7 +5161,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Mực là hải sản giàu protein và khoáng chất, có thể chế biến thành các món xào, hấp, hoặc nướng. Mực có vị ngọt tự nhiên, giúp bổ sung dinh dưỡng và rất dễ ăn",
                             FoodName = "Mực",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5260,7 +5177,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Đậu que là loại rau quả giàu vitamin và chất xơ, có thể chế biến thành các món xào, luộc hoặc nấu canh. Đậu que giúp tăng cường hệ tiêu hóa và cung cấp năng lượng cho cơ thể",
                             FoodName = "Đậu que",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5277,7 +5193,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh ướt là món ăn nhẹ làm từ bột gạo, có kết cấu mềm mịn, thường được ăn kèm với thịt heo, chả lụa và rau sống. Món này có thể được rưới nước mắm chua ngọt, mang lại hương vị thơm ngon và thanh mát",
                             FoodName = "Bánh ướt",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch",
                             Status = true,
@@ -5294,7 +5209,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh cuốn là món ăn làm từ bột gạo, nhân thường là thịt băm, nấm hoặc trứng. Bánh cuốn mềm mịn, ăn kèm với nước mắm và rau sống, thường được dùng trong bữa sáng hoặc bữa phụ",
                             FoodName = "Bánh cuốn",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch",
                             Status = true,
@@ -5311,7 +5225,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Canh bún là món ăn nổi bật với nước dùng ngọt từ xương, kết hợp với bún, thịt heo hoặc tôm. Món này thường ăn kèm với rau sống và gia vị, mang lại hương vị đậm đà và dễ ăn",
                             FoodName = "Canh bún",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5328,7 +5241,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Vải là trái cây ngọt, chứa nhiều vitamin C và khoáng chất. Vải có thể ăn trực tiếp hoặc làm sinh tố, chè, mang lại hương vị tươi mát và bổ dưỡng, đặc biệt trong mùa hè",
                             FoodName = "Vải",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -5345,7 +5257,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Cá khô là món ăn truyền thống, có thể làm từ nhiều loại cá, chế biến bằng cách phơi khô. Cá khô có vị mặn, thơm, thường được ăn kèm với cơm trắng hoặc làm nguyên liệu cho các món canh",
                             FoodName = "Cá khô",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5362,7 +5273,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Nấm đùi gà có hình dạng giống đùi gà, thịt nấm mềm và thơm. Món này thường được dùng trong các món xào, nấu canh hoặc làm salad, rất giàu dinh dưỡng và dễ chế biến",
                             FoodName = "Nấm đùi gà",
-                            FoodType = "Vegetables,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5379,7 +5289,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Mướp là loại rau quả mát, chứa nhiều nước và vitamin. Mướp có thể chế biến thành canh, xào hoặc làm món gỏi, giúp thanh nhiệt, giải độc và tốt cho hệ tiêu hóa",
                             FoodName = "Mướp",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5396,7 +5305,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh bao trứng cút là món bánh bao với nhân thịt heo hoặc đậu xanh, kèm trứng cút. Bánh có vỏ mềm, nhân thơm ngon, thường được ăn sáng hoặc làm món ăn phụ trong các bữa ăn chính",
                             FoodName = "Bánh bao trứng cút",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5413,7 +5321,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Trà tắc là thức uống giải khát phổ biến, được làm từ trà xanh kết hợp với nước cốt chanh tươi và mật ong. Trà tắc giúp giải nhiệt, thanh lọc cơ thể và mang lại cảm giác sảng khoái",
                             FoodName = "Trà tắc",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -5430,7 +5337,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish,MainDish",
                             FoodDescription = "Đậu hũ non là món ăn được làm từ đậu nành, có kết cấu mềm mịn. Đậu hũ non có thể chế biến thành các món xào, canh hoặc ăn kèm với siro, là món ăn dễ tiêu hóa và rất bổ dưỡng",
                             FoodName = "Đậu hũ non",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5447,7 +5353,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Nem chua là món ăn đặc sản, được làm từ thịt heo xay nhuyễn, gia vị và gói trong lá chuối, lên men tự nhiên. Món này có vị chua nhẹ, thơm ngon, thường ăn kèm với tỏi, ớt hoặc rau sống",
                             FoodName = "Nem chua",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5464,7 +5369,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Cá ngừ là loại hải sản giàu omega-3 và protein, có thể chế biến thành nhiều món như cá ngừ nướng, cá ngừ kho hoặc làm sushi. Món này rất bổ dưỡng và dễ dàng chế biến",
                             FoodName = "Cá ngừ",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5481,7 +5385,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Phở bò viên là món phở nổi tiếng với nước dùng trong, đậm đà từ xương bò, ăn kèm với bánh phở mềm và bò viên. Món này mang lại hương vị thơm ngon, phổ biến cho bữa sáng",
                             FoodName = "Phở bò viên",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5498,7 +5401,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Khoai lang luộc là món ăn đơn giản nhưng giàu dinh dưỡng, cung cấp vitamin A, chất xơ và khoáng chất. Khoai lang có thể ăn trực tiếp hoặc dùng làm món ăn kèm trong các bữa chính",
                             FoodName = "Khoai lang luộc",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Breakfast,Snack,Lunch,Dinner",
                             Status = true,
@@ -5515,7 +5417,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Đu đủ là trái cây ngọt, giàu vitamin C và enzym papain, giúp tiêu hóa tốt. Đu đủ có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng, rất tốt cho sức khỏe và làn da",
                             FoodName = "Đu đủ",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -5532,7 +5433,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cháo đậu đỏ là món ăn nhẹ nhàng, làm từ đậu đỏ và gạo, có tác dụng bổ máu, thanh nhiệt. Món này có thể ăn vào buổi sáng hoặc tối, rất bổ dưỡng và dễ tiêu hóa",
                             FoodName = "Cháo đậu đỏ",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5549,7 +5449,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Chè đậu đen là món tráng miệng phổ biến, làm từ đậu đen nấu nhừ, kết hợp với đường và có thể thêm nước cốt dừa. Món này ngọt mát, giúp thanh nhiệt và rất tốt cho sức khỏe",
                             FoodName = "Chè đậu đen",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -5566,7 +5465,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Dưa cải chua là món ăn lên men, được làm từ cải thảo hoặc cải bẹ, mang vị chua nhẹ. Món này thường ăn kèm với cơm, giúp hỗ trợ tiêu hóa và bổ sung lợi khuẩn cho hệ tiêu hóa",
                             FoodName = "Dưa cải chua",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5583,7 +5481,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Ức gà nướng là món ăn ít mỡ, giàu protein, có thể được ướp gia vị và nướng chín. Món này thường được ăn kèm với rau củ hoặc cơm, là lựa chọn tốt cho bữa ăn nhẹ nhàng nhưng đầy đủ dinh dưỡng",
                             FoodName = "Ức gà nướng",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5600,7 +5497,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt bò nạc là phần thịt ít mỡ, giàu protein và sắt, có thể chế biến thành các món như bò xào, nướng hoặc làm súp. Món ăn này cung cấp năng lượng và dưỡng chất cho cơ thể, thích hợp cho các bữa chính",
                             FoodName = "Thịt bò nạc",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5617,7 +5513,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cá hồi nướng là món ăn bổ dưỡng, giàu omega-3 và protein, thường được ướp gia vị trước khi nướng. Món này có hương vị ngọt tự nhiên, thích hợp ăn kèm với rau sống hoặc cơm",
                             FoodName = "Cá hồi nướng",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5634,7 +5529,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Tôm hấp là món ăn đơn giản, dễ chế biến, giữ nguyên vị ngọt của tôm. Món này thường được ăn kèm với muối tiêu chanh hoặc nước mắm chua ngọt, thích hợp cho bữa ăn nhẹ",
                             FoodName = "Tôm hấp",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5651,7 +5545,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt lợn nạc là phần thịt ít mỡ, dễ chế biến thành các món như xào, kho hoặc nướng. Món này cung cấp protein và chất sắt, thường được ăn trong các bữa chính",
                             FoodName = "Thịt lợn nạc",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5668,7 +5561,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cá thu nướng là món ăn thơm ngon, giàu protein và omega-3. Cá thu thường được ướp gia vị rồi nướng, tạo nên món ăn đậm đà và bổ dưỡng cho bữa tối",
                             FoodName = "Cá thu nướng",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5685,7 +5577,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Đậu nành luộc là món ăn nhẹ, giàu protein và vitamin. Đậu nành có thể ăn trực tiếp hoặc chế biến thành các món như đậu hũ, giúp bổ sung dinh dưỡng cho cơ thể",
                             FoodName = "Đậu nành luộc",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5702,7 +5593,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Sữa chua Hy Lạp là loại sữa chua đặc, chứa nhiều probiotics giúp hỗ trợ tiêu hóa. Món này có thể ăn trực tiếp hoặc kết hợp với trái cây tươi, mang lại cảm giác ngon miệng và bổ dưỡng",
                             FoodName = "Sữa chua Hy Lạp",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -5719,7 +5609,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Ức vịt nướng là món ăn ngon miệng, thịt vịt mềm và mọng nước khi được ướp gia vị và nướng chín. Món này có thể ăn kèm với cơm hoặc rau sống, mang lại hương vị đậm đà",
                             FoodName = "Ức vịt nướng",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5736,7 +5625,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Cá ngừ đóng hộp là món ăn tiện lợi, giàu protein và omega-3. Món này có thể ăn trực tiếp, làm salad hoặc kèm với cơm, rất dễ chế biến và thích hợp cho bữa ăn nhanh",
                             FoodName = "Cá ngừ đóng hộp",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5753,7 +5641,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish,MainDish",
                             FoodDescription = "Đậu hũ chiên là món ăn phổ biến trong các bữa ăn chay, có kết cấu giòn bên ngoài và mềm mịn bên trong. Món này có thể ăn kèm với các loại nước chấm hoặc xào với rau củ",
                             FoodName = "Đậu hũ chiên",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -5770,7 +5657,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bò bít tết là món ăn từ thịt bò nạc, được nướng hoặc áp chảo đến độ chín vừa phải. Món này thường được ăn kèm với khoai tây chiên hoặc rau sống, mang lại hương vị đậm đà, rất thích hợp cho bữa tối",
                             FoodName = "Bò bít tết",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5787,7 +5673,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cá hồi hun khói là món ăn giàu omega-3, có hương vị đậm đà và thơm ngon từ quá trình hun khói. Món này thường được ăn kèm với bánh mì hoặc làm thành salad, rất bổ dưỡng và dễ ăn",
                             FoodName = "Cá hồi hun khói",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5804,7 +5689,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Snack",
                             FoodDescription = "Hạt hạnh nhân là loại hạt giàu chất béo lành mạnh, vitamin E và protein. Hạnh nhân có thể ăn trực tiếp, làm snack hoặc thêm vào các món salad, mang lại lợi ích cho sức khỏe tim mạch",
                             FoodName = "Hạt hạnh nhân",
-                            FoodType = "Snack,Protein",
                             IsPublic = true,
                             MealType = "Snack",
                             Status = true,
@@ -5821,7 +5705,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Đậu hũ sốt cà là món ăn chay nhẹ nhàng, với đậu hũ mềm mịn ăn kèm với sốt cà chua đậm đà. Món này cung cấp protein thực vật và rất dễ chế biến, phù hợp cho các bữa ăn chay hoặc ăn kiêng",
                             FoodName = "Đậu hũ sốt cà",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5838,7 +5721,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt lợn xông khói có vị mặn ngọt, được chế biến bằng cách xông khói để tạo hương vị đặc trưng. Món này có thể ăn kèm với cơm, salad hoặc làm nhân cho bánh mì",
                             FoodName = "Thịt lợn xông khói",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5855,7 +5737,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Snack",
                             FoodDescription = "Hạt bí ngô là món snack bổ dưỡng, giàu magiê và kẽm, có thể ăn trực tiếp hoặc rắc lên salad. Món này giúp tăng cường hệ miễn dịch và rất tốt cho sức khỏe tim mạch",
                             FoodName = "Hạt bí ngô",
-                            FoodType = "Snack,Protein",
                             IsPublic = true,
                             MealType = "Snack",
                             Status = true,
@@ -5872,7 +5753,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Đậu hà lan luộc là món ăn giàu protein và chất xơ, có thể ăn trực tiếp hoặc chế biến thành salad. Món này có vị ngọt tự nhiên, rất bổ dưỡng và dễ chế biến",
                             FoodName = "Đậu Hà Lan luộc",
-                            FoodType = "Protein,Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5889,7 +5769,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt gà quay là món ăn có lớp da giòn, thịt mềm, được ướp gia vị rồi quay chín. Món này thường được ăn kèm với cơm hoặc rau sống, rất ngon miệng và dễ ăn",
                             FoodName = "Thịt gà quay",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5906,7 +5785,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Sữa bò tươi là thức uống bổ dưỡng, cung cấp canxi, vitamin D và protein. Sữa bò có thể uống trực tiếp hoặc làm nguyên liệu cho các món sinh tố, mang lại nhiều lợi ích cho sức khỏe xương",
                             FoodName = "Sữa bò tươi",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -5923,7 +5801,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Yến mạch là ngũ cốc giàu chất xơ và vitamin, giúp giảm cholesterol và hỗ trợ tiêu hóa. Món yến mạch có thể nấu cháo hoặc làm sinh tố, thích hợp cho bữa sáng bổ dưỡng",
                             FoodName = "Yến mạch",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -5940,7 +5817,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Cải bó xôi là rau xanh giàu vitamin A, C và chất sắt. Món cải bó xôi có thể ăn sống trong salad, xào hoặc nấu canh, giúp tăng cường sức khỏe xương và cải thiện hệ miễn dịch",
                             FoodName = "Cải bó xôi",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5957,7 +5833,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Snack",
                             FoodDescription = "Hạt hướng dương là loại hạt giàu vitamin E, chất béo lành mạnh và protein. Hạt có thể ăn trực tiếp như món snack hoặc thêm vào salad, rất tốt cho sức khỏe tim mạch và giúp cung cấp năng lượng",
                             FoodName = "Hạt hướng dương",
-                            FoodType = "Snack,Protein",
                             IsPublic = true,
                             MealType = "Snack",
                             Status = true,
@@ -5974,7 +5849,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau mồng tơi là loại rau xanh giàu vitamin A và chất sắt, có thể chế biến thành các món xào, luộc hoặc canh. Món rau này giúp thanh nhiệt, giải độc và tốt cho hệ tiêu hóa",
                             FoodName = "Rau mồng tơi",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -5991,7 +5865,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Lê là trái cây ngọt mát, giàu vitamin C và chất xơ, giúp cải thiện hệ tiêu hóa và làm đẹp da. Lê có thể ăn trực tiếp hoặc làm sinh tố, chè, mang lại hương vị tươi mát và bổ dưỡng",
                             FoodName = "Lê",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6008,7 +5881,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Dâu tây là trái cây ngọt, chứa nhiều vitamin C và chất chống oxy hóa, giúp làm đẹp da và tăng cường sức đề kháng. Dâu tây có thể ăn trực tiếp, làm sinh tố, hoặc chế biến thành các món tráng miệng",
                             FoodName = "Dâu tây",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6025,7 +5897,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Mâm xôi là trái cây giàu vitamin C và chất chống oxy hóa, có tác dụng tốt cho hệ miễn dịch và làn da. Mâm xôi có thể ăn trực tiếp hoặc làm sinh tố, chè, tráng miệng",
                             FoodName = "Mâm xôi",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6042,7 +5913,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Bí đỏ là loại rau quả giàu vitamin A và C, giúp cải thiện thị lực và sức khỏe da. Bí đỏ có thể chế biến thành các món canh, xào, hoặc làm sinh tố, là món ăn bổ dưỡng cho cả gia đình",
                             FoodName = "Bí đỏ",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6059,7 +5929,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Khoai môn là loại củ giàu tinh bột và vitamin C, có thể chế biến thành các món xào, luộc, làm chè hoặc làm nhân bánh. Món khoai môn rất bổ dưỡng và dễ tiêu hóa",
                             FoodName = "Khoai môn",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6076,7 +5945,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Măng tây là loại rau giàu vitamin K và chất chống oxy hóa, tốt cho sức khỏe tim mạch và hệ xương. Măng tây có thể xào, nấu canh hoặc ăn sống, rất bổ dưỡng và dễ chế biến",
                             FoodName = "Măng tây",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6093,7 +5961,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Bắp cải tím là loại rau giàu vitamin C và chất xơ, có thể chế biến thành salad, xào hoặc nấu canh. Món bắp cải tím giúp giải độc, hỗ trợ tiêu hóa và tốt cho sức khỏe tim mạch",
                             FoodName = "Bắp cải tím",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6110,7 +5977,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Kiwi là trái cây giàu vitamin C, chất xơ và chất chống oxy hóa. Kiwi giúp cải thiện hệ tiêu hóa, tăng cường sức đề kháng và làm đẹp da. Món này có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng",
                             FoodName = "Kiwi",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6127,7 +5993,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Snack",
                             FoodDescription = "Hạt kê là loại hạt giàu protein, chất xơ và khoáng chất như sắt và magiê. Hạt kê có thể nấu cháo, làm bánh hoặc thêm vào các món salad, là lựa chọn bổ dưỡng cho các bữa ăn nhẹ",
                             FoodName = "Hạt kê",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -6144,7 +6009,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Măng khô là món ăn được làm từ măng tươi phơi khô, có thể chế biến thành các món canh hoặc xào. Măng khô có vị ngọt tự nhiên, giòn và là món ăn bổ dưỡng trong các bữa ăn gia đình",
                             FoodName = "Măng khô",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6161,7 +6025,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rong biển khô là thực phẩm giàu vitamin, khoáng chất và chất xơ, rất tốt cho sức khỏe. Món rong biển có thể dùng làm salad, súp, hoặc làm nhân cho sushi, rất phổ biến trong ẩm thực châu Á",
                             FoodName = "Rong biển khô",
-                            FoodType = "Vegetables,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6178,7 +6041,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Bông cải xanh (súp lơ) là loại rau chứa nhiều vitamin C, vitamin K và chất chống oxy hóa. Bông cải xanh có thể xào, luộc hoặc làm món canh, là món ăn bổ dưỡng giúp cải thiện sức khỏe",
                             FoodName = "Bông cải xanh",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6195,7 +6057,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Gạo lứt là loại gạo nguyên hạt, giàu chất xơ, vitamin và khoáng chất. Món gạo lứt có thể ăn kèm với các món thịt hoặc rau, giúp duy trì năng lượng lâu dài và rất tốt cho hệ tiêu hóa",
                             FoodName = "Gạo lứt",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -6212,7 +6073,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Nho là trái cây ngọt, giàu vitamin C và chất chống oxy hóa, có tác dụng tăng cường sức đề kháng và làm đẹp da. Nho có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng",
                             FoodName = "Nho",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6229,7 +6089,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau cải bó xôi là loại rau xanh chứa nhiều vitamin A, C và chất sắt. Món cải bó xôi có thể ăn sống trong salad, xào hoặc nấu canh, rất bổ dưỡng và tốt cho sức khỏe xương",
                             FoodName = "Rau cải bó xôi",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6246,7 +6105,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish,MainDish",
                             FoodDescription = "Đậu đen là nguồn cung cấp protein thực vật và chất xơ tuyệt vời, giúp cải thiện hệ tiêu hóa. Đậu đen có thể nấu cháo, chè hoặc làm các món xào, rất bổ dưỡng cho sức khỏe",
                             FoodName = "Đậu đen",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6263,7 +6121,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Củ cải đường là loại củ chứa nhiều vitamin C và khoáng chất, giúp cải thiện sức khỏe tim mạch và huyết áp. Món củ cải đường có thể ăn sống, xào hoặc nấu canh, mang lại lợi ích cho cơ thể",
                             FoodName = "Củ cải đường",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6280,7 +6137,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Đậu Hà Lan là loại rau giàu vitamin, khoáng chất và chất xơ, giúp hỗ trợ hệ tiêu hóa và tăng cường miễn dịch. Đậu Hà Lan có thể ăn trực tiếp, làm salad hoặc nấu canh",
                             FoodName = "Đậu Hà Lan",
-                            FoodType = "Protein,Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6297,7 +6153,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Lúa mạch là ngũ cốc giàu chất xơ và protein, có thể chế biến thành cháo, bánh hoặc thêm vào các món salad. Lúa mạch giúp cải thiện tiêu hóa và cung cấp năng lượng bền vững cho cơ thể",
                             FoodName = "Lúa mạch",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Snack",
                             Status = true,
@@ -6314,7 +6169,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau dền đỏ là loại rau xanh giàu vitamin C và chất xơ, giúp hỗ trợ tiêu hóa và tăng cường miễn dịch. Rau dền đỏ có thể xào, nấu canh hoặc làm món gỏi, rất bổ dưỡng",
                             FoodName = "Rau dền đỏ",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6331,7 +6185,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish,SideDish",
                             FoodDescription = "Mì gạo lứt được làm từ gạo lứt nguyên hạt, giàu chất xơ và vitamin. Món mì này có thể chế biến thành các món xào, soup hoặc ăn kèm với thịt, rất tốt cho sức khỏe và giúp giảm cholesterol",
                             FoodName = "Mì gạo lứt",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6348,7 +6201,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau chân vịt (cải bó xôi) là loại rau giàu vitamin A, C và chất sắt, giúp tăng cường sức khỏe xương và hỗ trợ miễn dịch. Rau chân vịt có thể ăn sống trong salad, xào hoặc nấu canh",
                             FoodName = "Rau chân vịt",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6365,7 +6217,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Củ cải trắng là loại rau củ giàu vitamin C và chất xơ, giúp thanh nhiệt và giải độc cơ thể. Món củ cải trắng có thể ăn sống, xào hoặc nấu canh, mang lại hương vị thanh mát và bổ dưỡng",
                             FoodName = "Củ cải trắng",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6382,7 +6233,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert,SideDish",
                             FoodDescription = "Rau má là loại rau mát, giúp thanh nhiệt, giải độc và làm đẹp da. Rau má có thể ăn sống trong salad hoặc nấu canh, rất tốt cho sức khỏe và có tác dụng làm dịu cơ thể trong mùa hè",
                             FoodName = "Rau má",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6399,7 +6249,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Snack",
                             FoodDescription = "Hạt dẻ cười là loại hạt giàu chất béo lành mạnh, vitamin E và khoáng chất, giúp bảo vệ tim mạch và cung cấp năng lượng. Hạt dẻ cười có thể ăn trực tiếp hoặc thêm vào các món tráng miệng, salad",
                             FoodName = "Hạt dẻ cười",
-                            FoodType = "Snack,Protein",
                             IsPublic = true,
                             MealType = "Snack",
                             Status = true,
@@ -6416,7 +6265,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Drink",
                             FoodDescription = "Dừa tươi là thức uống giải khát tuyệt vời, giàu vitamin C và khoáng chất. Nước dừa cung cấp độ ẩm và giúp thanh nhiệt, rất tốt cho làn da và sức khỏe hệ tiêu hóa",
                             FoodName = "Dừa tươi",
-                            FoodType = "Drink",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6433,7 +6281,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cá thu là loại hải sản giàu omega-3 và protein, rất tốt cho sức khỏe tim mạch. Cá thu có thể nướng, chiên hoặc kho, mang lại hương vị thơm ngon và bổ dưỡng cho bữa ăn",
                             FoodName = "Cá thu",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6450,7 +6297,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Snack",
                             FoodDescription = "Hạt mắc ca là loại hạt giàu chất béo lành mạnh, vitamin E và khoáng chất, giúp cải thiện sức khỏe tim mạch. Hạt có thể ăn trực tiếp hoặc thêm vào salad, rất bổ dưỡng và dễ tiêu hóa",
                             FoodName = "Hạt mắc ca",
-                            FoodType = "Snack",
                             IsPublic = true,
                             MealType = "Snack",
                             Status = true,
@@ -6467,7 +6313,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Hồng xiêm là trái cây ngọt, có hương vị đặc trưng, giàu vitamin C và khoáng chất. Món này có thể ăn trực tiếp hoặc chế biến thành các món tráng miệng, sinh tố, rất tốt cho sức khỏe",
                             FoodName = "Hồng xiêm",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6484,7 +6329,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Đào là trái cây ngọt, mọng nước, chứa nhiều vitamin C và chất chống oxy hóa. Món này có thể ăn trực tiếp, làm sinh tố hoặc chế biến thành các món tráng miệng, giúp tăng cường sức đề kháng",
                             FoodName = "Đào",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6501,7 +6345,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Lựu là trái cây giàu vitamin C, chất chống oxy hóa và khoáng chất. Món này có thể ăn trực tiếp hoặc làm nước ép, giúp cải thiện hệ miễn dịch và làm đẹp da",
                             FoodName = "Lựu",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -6518,7 +6361,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Súp cua là món ăn nhẹ với nước dùng từ cua, mang hương vị ngọt tự nhiên và bổ dưỡng. Món này thường được ăn vào bữa sáng hoặc bữa tối, rất giàu protein và khoáng chất",
                             FoodName = "Súp cua",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6535,7 +6377,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh bí đỏ là món ăn thanh mát, giàu vitamin A và C. Canh bí đỏ có thể nấu với thịt heo hoặc tôm, mang lại hương vị ngọt tự nhiên, bổ dưỡng và dễ tiêu hóa",
                             FoodName = "Canh bí đỏ",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6552,7 +6393,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh rau củ là món ăn nhẹ nhàng, giàu vitamin và chất xơ, thích hợp cho các bữa ăn dinh dưỡng. Các loại rau như cà rốt, khoai tây, đậu que được nấu chung tạo thành món canh thơm ngon, dễ ăn",
                             FoodName = "Canh rau củ",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6569,7 +6409,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh bí đao là món canh mát, giúp giải nhiệt và thanh lọc cơ thể. Bí đao có thể nấu với tôm, thịt heo hoặc cá, mang lại hương vị thanh đạm và rất bổ dưỡng cho sức khỏe",
                             FoodName = "Canh bí đao",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6586,7 +6425,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh cua mồng tơi là món ăn dân dã, có vị ngọt từ cua và mồng tơi. Món này không chỉ thơm ngon mà còn rất bổ dưỡng, đặc biệt tốt cho hệ tiêu hóa và làn da",
                             FoodName = "Canh cua mồng tơi",
-                            FoodType = "Protein,Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6603,7 +6441,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh nấm là món ăn nhẹ, bổ dưỡng, giàu vitamin và chất xơ. Nấm có thể kết hợp với rau củ hoặc thịt để tạo ra món canh thơm ngon, rất phù hợp cho bữa ăn thanh đạm",
                             FoodName = "Canh nấm",
-                            FoodType = "Vegetables,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6620,7 +6457,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cháo gà là món ăn nhẹ, với cháo mịn và thịt gà chín mềm, thường ăn kèm với hành lá, rau thơm và gia vị. Món này dễ tiêu hóa, phù hợp cho bữa sáng hoặc khi bạn cảm thấy mệt mỏi",
                             FoodName = "Cháo gà",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -6637,7 +6473,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cháo sườn non là món ăn thơm ngon, với cháo được nấu từ xương sườn heo, có vị ngọt tự nhiên từ xương. Món này thường được ăn kèm với hành phi và gia vị, thích hợp cho bữa sáng",
                             FoodName = "Cháo sườn non",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -6654,7 +6489,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cháo thịt bằm là món cháo có thịt heo xay nhuyễn, nấu cùng với gạo và gia vị. Món này bổ dưỡng, dễ ăn và dễ tiêu hóa, thích hợp cho bữa sáng hoặc bữa ăn nhẹ",
                             FoodName = "Cháo thịt bằm",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -6671,7 +6505,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún chả cá là món ăn với bún, chả cá chiên hoặc hấp và nước dùng từ cá. Món ăn này có vị ngọt tự nhiên từ cá, rất phổ biến ở miền Trung và Nam Việt Nam",
                             FoodName = "Bún chả cá",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6688,7 +6521,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún gà là món ăn thanh mát với bún, thịt gà luộc hoặc xé nhỏ và nước dùng thơm ngon. Đây là món ăn nhẹ nhàng, thích hợp cho bữa sáng hoặc bữa trưa",
                             FoodName = "Bún gà",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6705,7 +6537,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún hải sản là món ăn đậm đà với bún, nước dùng từ hải sản và các loại hải sản như tôm, cua, mực. Món này có hương vị đặc trưng và rất bổ dưỡng",
                             FoodName = "Bún hải sản",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6722,7 +6553,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bún ốc là món ăn nổi bật với nước dùng chua ngọt từ ốc và gia vị, kết hợp với bún và các loại rau sống. Món này có vị thơm ngon, thích hợp cho bữa trưa hoặc tối",
                             FoodName = "Bún ốc",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6739,7 +6569,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cháo vịt là món cháo nấu với thịt vịt, có vị ngọt tự nhiên từ thịt và xương vịt. Món này thường được ăn vào bữa sáng hoặc bữa tối, giúp cung cấp năng lượng và dưỡng chất",
                             FoodName = "Cháo vịt",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -6756,7 +6585,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh mì chả cá là món ăn sáng quen thuộc, với bánh mì mềm, nhân chả cá chiên thơm ngon và rau sống. Món này rất phổ biến ở Việt Nam, tiện lợi và dễ ăn",
                             FoodName = "Bánh mì chả cá",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -6773,7 +6601,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Mì Quảng là món đặc sản của miền Trung, gồm mì gạo, nước dùng đậm đà, tôm, thịt hoặc trứng, và rau sống. Món ăn này có vị đặc trưng và rất thích hợp cho bữa sáng hoặc trưa",
                             FoodName = "Mì Quảng",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6790,7 +6617,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Miến gà là món ăn nhẹ với miến mềm, nước dùng thơm ngon từ gà, ăn kèm với thịt gà xé nhỏ. Món này rất dễ ăn, thích hợp cho bữa sáng hoặc bữa trưa nhẹ nhàng",
                             FoodName = "Miến gà",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6807,7 +6633,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Súp rau củ là món canh thanh đạm với các loại rau củ như cà rốt, khoai tây, đậu que, nấu trong nước dùng nhẹ nhàng. Món này bổ dưỡng, dễ tiêu hóa và thích hợp cho các bữa ăn thanh mát",
                             FoodName = "Súp rau củ",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6824,7 +6649,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Súp bò hầm là món ăn có nước dùng đậm đà từ xương bò, với thịt bò mềm và rau củ đi kèm. Món này cung cấp năng lượng và dưỡng chất, rất phù hợp cho bữa tối",
                             FoodName = "Súp bò hầm",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6841,7 +6665,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Súp gà nấm là món ăn nhẹ nhàng với nước dùng từ gà và nấm, giúp thanh nhiệt và dễ tiêu hóa. Món này thường ăn vào bữa sáng hoặc khi cần bồi bổ cơ thể",
                             FoodName = "Súp gà nấm",
-                            FoodType = "Protein,Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6858,7 +6681,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Súp hải sản là món ăn đậm đà với nước dùng từ hải sản như tôm, cua, mực, nấu cùng với rau củ và gia vị. Món này rất bổ dưỡng và thích hợp cho các bữa ăn chính",
                             FoodName = "Súp hải sản",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6875,7 +6697,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau xào là món ăn đơn giản với rau củ được xào nhanh với gia vị. Món này thường sử dụng các loại rau như cải thảo, cải ngọt, giúp cung cấp vitamin và khoáng chất cho cơ thể",
                             FoodName = "Rau xào",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6892,7 +6713,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau luộc là món ăn thanh mát, giúp bổ sung vitamin và khoáng chất, rất tốt cho sức khỏe. Các loại rau như rau muống, rau ngót thường được luộc và ăn kèm với nước mắm hoặc gia vị",
                             FoodName = "Rau luộc",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6909,7 +6729,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cơm gà xối mỡ là món ăn đặc trưng với cơm trắng ăn kèm thịt gà chiên giòn, đậm đà với lớp mỡ giòn rụm. Món này thường được ăn kèm với dưa leo và rau sống",
                             FoodName = "Cơm gà xối mỡ",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6926,7 +6745,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Salad rau là món ăn nhẹ, là sự kết hợp của các loại rau tươi như xà lách, cà chua, dưa leo, trộn với nước sốt chua ngọt hoặc dầu olive. Món này bổ dưỡng, giàu vitamin và chất xơ",
                             FoodName = "Salad rau",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -6943,7 +6761,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau muống luộc là món ăn đơn giản, dễ làm, rất phổ biến ở Việt Nam. Rau muống luộc có thể ăn kèm với nước mắm tỏi ớt hoặc làm món ăn phụ trong bữa cơm, giúp thanh nhiệt và bổ sung dưỡng chất",
                             FoodName = "Rau muống luộc",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6960,7 +6777,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh chua cá là món ăn đậm đà với nước dùng chua ngọt, thường làm từ cá và các loại rau như giá đỗ, ngò rí, ăn kèm với bún. Món này thanh mát, giải nhiệt và rất bổ dưỡng",
                             FoodName = "Canh chua cá",
-                            FoodType = "Protein,Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -6977,7 +6793,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh mì ốp la là món ăn sáng phổ biến với bánh mì giòn, nhân trứng ốp la và có thể kèm thịt, rau. Đây là món ăn nhanh gọn, dễ dàng và bổ dưỡng",
                             FoodName = "Bánh mì ốp la",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch",
                             Status = true,
@@ -6994,7 +6809,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bò kho là món ăn với thịt bò hầm mềm mịn, nước dùng đậm đà với gia vị thơm ngon. Món này thường ăn kèm với bánh mì hoặc bún, là bữa ăn đầy đủ và ấm áp",
                             FoodName = "Bò kho",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -7011,7 +6825,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh rau ngót là món canh thanh mát, có vị ngọt tự nhiên từ rau ngót. Món này thường được nấu với thịt hoặc tôm, giúp giải nhiệt và bổ sung dinh dưỡng cho cơ thể",
                             FoodName = "Canh rau ngót",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7028,7 +6841,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh cải xanh là món canh nhẹ, giàu vitamin và khoáng chất, thường được nấu với thịt heo hoặc tôm. Đây là món ăn bổ dưỡng, dễ tiêu hóa và thích hợp cho các bữa ăn thanh đạm",
                             FoodName = "Canh cải xanh",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7045,7 +6857,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh củ quả là món canh với nhiều loại rau củ như cà rốt, khoai tây, đậu hà lan, nấu trong nước dùng nhẹ nhàng. Món này cung cấp nhiều vitamin và chất xơ, rất tốt cho sức khỏe",
                             FoodName = "Canh củ quả",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7062,7 +6873,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt heo kho là món ăn với thịt heo được kho mềm, thấm đẫm gia vị mặn ngọt. Món này thường ăn kèm với cơm trắng, tạo thành một bữa ăn đậm đà và bổ dưỡng",
                             FoodName = "Thịt heo kho",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7079,7 +6889,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau muống xào tỏi là món ăn phổ biến, với rau muống tươi xào cùng tỏi và gia vị. Món này có vị đậm đà, thơm ngon, rất thích hợp ăn kèm với cơm trắng",
                             FoodName = "Rau muống xào tỏi",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7096,7 +6905,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh bầu là món canh thanh mát, với bầu nấu cùng nước dùng nhẹ nhàng từ xương hoặc thịt. Món canh này có tác dụng giải nhiệt, rất thích hợp trong những ngày hè nóng bức",
                             FoodName = "Canh bầu",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7113,7 +6921,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Rau cải xanh là loại rau giàu vitamin A, C và chất xơ, có thể chế biến thành các món xào, luộc hoặc nấu canh. Món rau cải xanh cung cấp nhiều dưỡng chất và giúp thanh nhiệt cho cơ thể",
                             FoodName = "Rau cải xanh",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7130,7 +6937,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Mận là trái cây ngọt, mọng nước, chứa nhiều vitamin C và chất chống oxy hóa, giúp tăng cường sức đề kháng và làm đẹp da. Mận có thể ăn trực tiếp hoặc làm sinh tố, chè",
                             FoodName = "Mận",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -7147,7 +6953,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Chôm chôm là trái cây ngọt, có vỏ đỏ hoặc vàng, mọng nước và giàu vitamin C. Món này rất thích hợp trong mùa hè, giúp giải nhiệt và bổ sung dinh dưỡng",
                             FoodName = "Chôm chôm",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -7164,7 +6969,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh cải ngọt là món ăn nhẹ nhàng, với cải ngọt nấu trong nước dùng, có thể kết hợp với thịt heo hoặc tôm. Món canh này bổ dưỡng, dễ tiêu hóa và giúp thanh nhiệt",
                             FoodName = "Canh cải ngọt",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7181,7 +6985,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Thịt gà kho là món ăn đậm đà với thịt gà kho trong gia vị như nước mắm, tiêu, và gia vị khác. Món này có thể ăn kèm với cơm trắng, mang lại hương vị ngon miệng và bổ dưỡng",
                             FoodName = "Thịt gà kho",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7198,7 +7001,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Bắp cải luộc là món ăn thanh mát, dễ làm, chứa nhiều vitamin và khoáng chất. Bắp cải luộc có thể ăn kèm với nước mắm hoặc làm món ăn phụ trong bữa ăn chính",
                             FoodName = "Bắp cải luộc",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7215,7 +7017,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh mùng tơi mướp là món canh mát, giải nhiệt, giúp bổ sung dưỡng chất và hỗ trợ tiêu hóa. Món này thường được nấu với thịt hoặc tôm, mang lại hương vị thanh đạm và bổ dưỡng",
                             FoodName = "Canh mùng tơi mướp",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7232,7 +7033,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh rau dền là món ăn nhẹ nhàng, thanh mát, thường được nấu với thịt hoặc tôm. Rau dền chứa nhiều vitamin và khoáng chất, giúp cải thiện sức khỏe và hỗ trợ tiêu hóa",
                             FoodName = "Canh rau dền",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7249,7 +7049,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cơm chiên là món ăn phổ biến, được làm từ cơm nguội chiên cùng với thịt, trứng và rau củ. Món này thường ăn kèm với dưa leo hoặc salad, rất dễ ăn và tiện lợi",
                             FoodName = "Cơm chiên",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7266,7 +7065,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh mướp là món ăn thanh mát với mướp nấu trong nước dùng nhẹ nhàng từ xương hoặc thịt. Món canh này có tác dụng giải nhiệt, rất thích hợp vào mùa hè",
                             FoodName = "Canh mướp",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7283,7 +7081,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "SideDish",
                             FoodDescription = "Cải ngọt luộc là món rau luộc đơn giản, dễ làm, giàu vitamin và chất xơ. Món này thường ăn kèm với nước mắm chua ngọt hoặc làm món ăn phụ trong các bữa ăn chính",
                             FoodName = "Cải ngọt luộc",
-                            FoodType = "Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7300,7 +7097,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cá kho là món ăn đậm đà với cá kho trong nước mắm, tiêu và các gia vị khác. Món này có thể ăn kèm với cơm trắng, mang lại hương vị mặn ngọt và rất bổ dưỡng",
                             FoodName = "Cá kho",
-                            FoodType = "Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7317,7 +7113,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh mì chả lụa là món ăn sáng phổ biến, với bánh mì giòn và nhân chả lụa thơm ngon. Món này đơn giản, dễ ăn và thích hợp cho bữa sáng hoặc bữa phụ",
                             FoodName = "Bánh mì chả lụa",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch,Dinner",
                             Status = true,
@@ -7334,7 +7129,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cơm chiên dương châu là món cơm chiên với các loại rau củ, tôm, thịt, trứng, mang đến hương vị đậm đà và đầy đủ dinh dưỡng. Món này thích hợp cho bữa trưa hoặc tối",
                             FoodName = "Cơm chiên dương châu",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7351,7 +7145,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cơm rang là món ăn phổ biến, làm từ cơm nguội chiên với gia vị và các nguyên liệu như thịt, rau, trứng. Món này nhanh gọn, dễ chế biến và có thể ăn kèm với dưa leo hoặc salad",
                             FoodName = "Cơm rang",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7368,7 +7161,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cháo đậu xanh là món ăn nhẹ, dễ tiêu hóa, được làm từ đậu xanh và gạo, có tác dụng bổ máu và thanh nhiệt. Món này có thể ăn vào bữa sáng hoặc tối, rất bổ dưỡng",
                             FoodName = "Cháo đậu xanh",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7385,7 +7177,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Mì xào thập cẩm là món ăn với mì, các loại rau củ và thịt, xào chung với gia vị đậm đà. Món này dễ chế biến và là bữa ăn nhanh gọn nhưng đầy đủ dưỡng chất",
                             FoodName = "Mì xào thập cẩm",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7402,7 +7193,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Súp khoai tây là món canh ngon và bổ dưỡng, với khoai tây nấu mềm trong nước dùng nhẹ nhàng. Món này thích hợp cho bữa tối, mang lại cảm giác ấm áp và dễ tiêu hóa",
                             FoodName = "Súp khoai tây",
-                            FoodType = "Carbs",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7419,7 +7209,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh cuốn thịt bằm là món ăn được làm từ bột gạo, nhân thịt bằm, mộc nhĩ và gia vị, ăn kèm với nước mắm chua ngọt và rau sống. Món này rất phổ biến ở miền Bắc Việt Nam",
                             FoodName = "Bánh cuốn thịt bằm",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Breakfast,Lunch",
                             Status = true,
@@ -7436,7 +7225,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bò xào rau củ là món ăn ngon với thịt bò thái mỏng xào nhanh với các loại rau củ như ớt, hành tây, cà rốt. Món này cung cấp nhiều vitamin và protein, thích hợp cho bữa tối bổ dưỡng",
                             FoodName = "Bò xào rau củ",
-                            FoodType = "Protein,Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7453,7 +7241,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Cơm gà là món ăn đơn giản với cơm trắng ăn kèm thịt gà luộc hoặc chiên, thường được dùng kèm với nước mắm, rau sống và canh. Món này ngon miệng, dễ chế biến và bổ dưỡng",
                             FoodName = "Cơm gà",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7470,7 +7257,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "MainDish",
                             FoodDescription = "Bánh hỏi là món ăn với bánh phở mềm, thường được ăn kèm với thịt nướng hoặc chả, và nước mắm pha. Món này có vị thanh nhẹ, rất phổ biến trong các bữa ăn ở miền Trung",
                             FoodName = "Bánh hỏi",
-                            FoodType = "Carbs,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7487,7 +7273,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh bí đỏ nấu tôm là món canh nhẹ, thanh mát, với bí đỏ nấu mềm kết hợp với tôm. Món canh này giàu vitamin A và protein, giúp bổ dưỡng và dễ tiêu hóa",
                             FoodName = "Canh bí đỏ nấu tôm",
-                            FoodType = "Vegetables,Protein",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7504,7 +7289,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Măng cụt là trái cây ngọt, mọng nước, chứa nhiều vitamin C và khoáng chất. Món này có thể ăn trực tiếp hoặc làm nước ép, mang lại cảm giác giải nhiệt và bổ sung dinh dưỡng",
                             FoodName = "Măng cụt",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -7521,7 +7305,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Nhãn là trái cây ngọt, mọng nước, chứa nhiều vitamin C và giúp tăng cường sức đề kháng. Nhãn có thể ăn trực tiếp hoặc làm sinh tố, tráng miệng, rất tốt cho sức khỏe",
                             FoodName = "Nhãn",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -7538,7 +7321,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Dessert",
                             FoodDescription = "Cam là trái cây giàu vitamin C, giúp tăng cường miễn dịch và làm đẹp da. Cam có thể ăn trực tiếp hoặc làm nước ép, giúp giải nhiệt và bổ sung dinh dưỡng cho cơ thể",
                             FoodName = "Cam",
-                            FoodType = "Dessert",
                             IsPublic = true,
                             MealType = "Snack,Breakfast",
                             Status = true,
@@ -7555,7 +7337,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh hẹ tôm là món canh thanh mát, với tôm và hẹ nấu chung trong nước dùng thơm ngon. Món này giúp bổ sung protein và vitamin, rất dễ ăn và thích hợp cho các bữa ăn nhẹ",
                             FoodName = "Canh hẹ tôm",
-                            FoodType = "Protein,Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7572,7 +7353,6 @@ namespace Monhealth.Identity.Migrations
                             DishType = "Soup",
                             FoodDescription = "Canh thịt bò hầm là món canh đậm đà, với thịt bò hầm mềm cùng các gia vị và rau củ. Món này bổ dưỡng, cung cấp nhiều protein và khoáng chất, thích hợp cho bữa tối hoặc bữa chính",
                             FoodName = "Canh thịt bò hầm",
-                            FoodType = "Protein,Vegetables",
                             IsPublic = true,
                             MealType = "Lunch,Dinner",
                             Status = true,
@@ -7612,409 +7392,409 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            FoodAllergyId = new Guid("47bacab0-85e1-4599-95b1-1173714fb907"),
+                            FoodAllergyId = new Guid("d57b49d8-624f-469d-adbe-e92d08ed8dd8"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("eab92fe8-4d65-425f-b2af-787bb1f994b3"),
+                            FoodAllergyId = new Guid("c6cfa8f6-f03b-41e5-9d2a-3cbc86dfc069"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a66ccfb4-b132-45e7-8b3a-725dddac8754"),
+                            FoodAllergyId = new Guid("049ca400-718c-417a-9a13-fd5d9648fe4c"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("5856d127-d048-48c9-850e-adf181716617"),
+                            FoodAllergyId = new Guid("b708358f-deb3-49b1-94ba-3ff5f8bb9458"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("b6f7c9ca-9d38-4bcd-af17-e60250afe755"),
+                            FoodAllergyId = new Guid("58f803d0-4b79-4751-91db-ab30846b6ddd"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("7378ca5f-f1a8-4c23-a019-50af3012526f")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("dc286150-90c7-49d0-8b88-22073663d174"),
+                            FoodAllergyId = new Guid("23db0ed3-6ee6-48d3-a6e7-f179bc6dbba4"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("7378ca5f-f1a8-4c23-a019-50af3012526f")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("c1d39581-1bd3-4cbd-b4ed-8311bb4d1cf8"),
+                            FoodAllergyId = new Guid("7b65990b-d8a7-48a7-af40-c2a5206c6e41"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("c668fc1b-2610-4501-b7a8-428ad466e554"),
+                            FoodAllergyId = new Guid("98fb8c6a-7b2f-4797-867e-bac183600f20"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("19bbab17-91c6-410f-b566-b509d067e76e")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("203a6f8e-dc71-4f20-8d94-7627ad8c511e"),
+                            FoodAllergyId = new Guid("e15c60e1-6573-4879-995c-151b161be5ed"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a65f015f-4266-47cc-9f9b-edbd41c48eca"),
+                            FoodAllergyId = new Guid("8ece4d30-a01e-450a-855c-d3fdf9b7e2a5"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("e720df5a-7c04-4df2-a1f8-876dd5919072"),
+                            FoodAllergyId = new Guid("ddb0be10-af6d-4197-bc22-c5ab523081f1"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("13a0dfbb-11b2-4e34-ac2d-3438377a379e"),
+                            FoodAllergyId = new Guid("2a8ba426-dcfb-4b12-8887-0777e3838471"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("c1dadd0f-1ae3-4a4e-b408-520c311ca345"),
+                            FoodAllergyId = new Guid("69bc8a68-c302-4135-804b-a39da64434ee"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("8e286297-c926-4fbc-a71e-2c9127cd2a6b"),
+                            FoodAllergyId = new Guid("20d85d43-8440-4cb4-aaaa-27c02ee46b2f"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("08d77cda-8904-4291-8a81-22bbfe20fc3c"),
+                            FoodAllergyId = new Guid("eec56dc8-2752-473a-a156-98ac4aa0bac2"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("3335a4b0-e55b-4dc9-af65-88a626f5c770"),
+                            FoodAllergyId = new Guid("158d10dd-cfda-4462-b84d-c1007d7d0290"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("bad56474-8b91-4dc4-acb1-50877aed1713"),
+                            FoodAllergyId = new Guid("483a939d-4ecd-483e-b17d-6666f84a2288"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("47f7c5ad-db59-4ada-bc32-6c308401b0b6"),
+                            FoodAllergyId = new Guid("5fada9ca-1977-4765-a7de-29ccc2d8525f"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("f8231e10-867f-4d4c-8dd3-c8e31dda93ce"),
+                            FoodAllergyId = new Guid("2ed620cd-aaf8-4499-801d-236e551eadcc"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("fa445aa4-7b0d-4d47-8ba7-f919dd123637")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("882cd391-2c6e-42c3-9528-5c294c79d48a"),
+                            FoodAllergyId = new Guid("1fb15d69-d5a6-4b59-bfaf-eba10f58dd5b"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("b0991ede-b671-40f1-a673-a67704aec2c2"),
+                            FoodAllergyId = new Guid("8f3a1fb4-2e75-4b61-8a59-1385b639f5e4"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("e4d9d918-3ff6-4a41-bc04-ae00dd7b6b7c"),
+                            FoodAllergyId = new Guid("eb443471-ae60-453c-8836-ce68c8beabc0"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("f41484a3-c7df-4530-b7d2-060390103985")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("706015ef-a89e-4d7c-861d-3c4e8f1f2548"),
+                            FoodAllergyId = new Guid("4e1f1093-c4af-401e-a55a-d20b40e2a04b"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("4900ed01-f356-4563-b9a5-276b48b06295"),
+                            FoodAllergyId = new Guid("727ac5fd-f26f-40f6-882a-0d0c7bc1b5dc"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("adca1062-bc08-43f4-b2c6-b441ccbb0c8c"),
+                            FoodAllergyId = new Guid("a011a26d-3157-413d-8adc-952ac2859ee3"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("1a293cb1-a2d2-49cd-be7a-4b520e98f3fe"),
+                            FoodAllergyId = new Guid("65b53b02-e680-40fd-8663-f122fef0e94e"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("3b784fc5-d6f1-4931-a653-0f61850c85e2"),
+                            FoodAllergyId = new Guid("0b6dca32-3101-4b51-995b-038adca9bdd6"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("5ff26461-880d-4b94-bfd0-e8badc77fe33")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("9e45986c-da76-4d8b-b4a0-8aa3eda6f0f1"),
+                            FoodAllergyId = new Guid("d7232312-be09-4d06-9353-5ca693839cca"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("cc745362-d07e-4037-88a5-0028a003f4ef"),
+                            FoodAllergyId = new Guid("ebab4f6b-726e-4bce-b881-5bff00a32dc3"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("e0a1be43-eea8-4dac-9b5c-c9dfb697789c"),
+                            FoodAllergyId = new Guid("db21801b-93a8-4e27-9f7b-af9c7bc34a41"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("87834c30-c488-4fd3-a2f8-7fb3980e3dfa"),
+                            FoodAllergyId = new Guid("dd3c2dd8-4988-4e0a-b22d-27007d6f380d"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("faf19891-525a-4308-9222-992e83de7ce7")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("30053f48-4b8d-4368-8df2-d75f36af42d1"),
+                            FoodAllergyId = new Guid("23e07b80-376a-4f50-a66e-c78f67f268ce"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("a53672e7-8593-4779-bd02-9f02ae81f915")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("daa6090a-3a17-48d5-ad01-1b3eb5111f0b"),
+                            FoodAllergyId = new Guid("d9ef7e46-227c-4856-bbf3-cf24fdb0b6ac"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a245a34c-5527-4518-b827-084b9d86d53b"),
+                            FoodAllergyId = new Guid("6180549f-a5b0-4bcb-a491-f9843a5a50e3"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("dd1482e7-b3dd-4b17-80f6-5618a640c671")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a81fcb8d-acab-4818-9be6-bf95f151ccef"),
+                            FoodAllergyId = new Guid("ca32ca4b-6e42-4dae-a222-ac8c7ae4c908"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("7433ee6d-fbdc-4726-92eb-4f1dce977710"),
+                            FoodAllergyId = new Guid("5a33c738-104a-4f2e-a29e-348665045f85"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("ef8b0ee3-a4d5-4883-af63-33c83d102bea")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("df0f255b-b23d-40b2-9002-ea008da28cd5"),
+                            FoodAllergyId = new Guid("a0653eec-f64d-47d8-a79e-0472ffbe119b"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("af999c51-eb86-405a-ab93-2698aeee9072"),
+                            FoodAllergyId = new Guid("0feebfde-9df6-48a3-bb64-5dd013b713aa"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("4834c8e2-580d-4a3e-9c06-5c6b1930a2f0"),
+                            FoodAllergyId = new Guid("3e42bd17-a3ac-430a-9caf-187182eadffa"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("dc3088c8-e408-4d3b-a290-f377f62346b2"),
+                            FoodAllergyId = new Guid("6672d37c-e98a-495b-9d5d-d65648b92f61"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("edb9d5d0-01f3-4607-a406-9e04bbff85fb")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("1406e0bb-a950-4899-af77-2a73ca395a1a"),
+                            FoodAllergyId = new Guid("a33c9256-37fc-4c2d-a800-5368719e9f7e"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("034de308-6613-4256-ab48-075909bf2c25"),
+                            FoodAllergyId = new Guid("760b015d-3ac2-4fa6-ad11-d95269bf78b3"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("adeb902f-fb34-44eb-aa60-76eaeb0ed70b")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("5c4c319c-29f1-4392-8dc7-f2a7b24c6b5c"),
+                            FoodAllergyId = new Guid("27d5e2db-8e6a-416a-b805-fd4aa26b494c"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("3fa8cf38-d835-4279-a113-a8f44cd013e6")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("4fd3ddb5-18c4-4804-9ae1-04544d39c880"),
+                            FoodAllergyId = new Guid("b1d19eb3-93f3-4dec-a184-7c94a53e555a"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("d3392e5d-a48f-4b5a-968d-31b98bd47835")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("aa948fc4-b060-4caa-b936-6b0851c961b7"),
+                            FoodAllergyId = new Guid("741f1622-528d-45cb-b172-a633108e8d32"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("78912574-3420-4b62-a320-174df8b5c5c6"),
+                            FoodAllergyId = new Guid("778a106f-5e69-4f65-b697-41e10f08b1d3"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("50c0adac-c878-4a21-8b5f-01478e7e4852")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("6ffda256-6b58-449f-a344-c806de748393"),
+                            FoodAllergyId = new Guid("1473d8eb-bb85-493a-8483-c1fa5930e9b7"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("a23f6c85-1a80-4255-a9a1-d08c1d60e753")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("88cd3e68-0766-4a8b-b9c3-0547975ad3a7"),
+                            FoodAllergyId = new Guid("5370076d-45f3-4a94-8c86-c963a572b854"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("b0f051be-5972-4e7a-a77d-47ec28d58993")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("5edc6962-c16b-4e05-a562-5e5a63b20c7a"),
+                            FoodAllergyId = new Guid("ed2f547f-21c6-47f9-8e12-257dee5d62e5"),
                             AllergyId = new Guid("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                             FoodId = new Guid("8da16f72-42a9-4da2-b217-811903e340c4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("4cc0be6f-21ce-41bf-8785-caf3c60b28ca"),
+                            FoodAllergyId = new Guid("b187a9e6-9321-4d1c-a780-2c8e37d3386f"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("59988378-901f-4ec4-bd6c-9fdc28ca97a1")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("58839b54-daff-4de8-97e7-71ebffdbd867"),
+                            FoodAllergyId = new Guid("693657de-cf46-4b80-8815-593c3ad9dd0b"),
                             AllergyId = new Guid("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                             FoodId = new Guid("98b3945a-9169-4581-b1a5-da82f2ebd8d4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("957a6190-7c58-47d5-9dc3-f609656624f8"),
+                            FoodAllergyId = new Guid("60b74c9e-e29f-47c5-937c-47d6d0830689"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("4e46f955-4413-496f-97b4-968a38ee3e11")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("10e94a1d-10a3-444a-98fb-faa3068d37d2"),
+                            FoodAllergyId = new Guid("91d77a44-9f15-4563-8948-26cfd2edc8af"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("404a286a-90c5-4c54-8e27-3ddeba55ada3")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("6a5c61ac-408e-421c-b25f-b6fba9491f0a"),
+                            FoodAllergyId = new Guid("422b1303-3d59-44a5-8147-9295db7f1087"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("d3c360a2-441e-4700-a6ec-4310b5976901")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("7232420e-3739-49a2-b761-9267ca104187"),
+                            FoodAllergyId = new Guid("12df21be-5038-42d3-b9b3-0c02eaf4e488"),
                             AllergyId = new Guid("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                             FoodId = new Guid("731974ef-495e-4c08-ba95-20589d60c20c")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("6a310fd3-da1b-433a-90db-ba7999de3024"),
+                            FoodAllergyId = new Guid("e8aba7e2-d337-44b2-9555-d28574e8046a"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("5f848972-c5ae-45fc-8ba2-103b24d8a23a")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("95b2af9c-9866-42d0-8292-e9cab4e3c9da"),
+                            FoodAllergyId = new Guid("bd5a75d7-dddd-4d13-9fe8-eac65f889247"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("63045676-0e70-425f-aa96-e348a4e88c3a")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("3a251b9d-5e87-4a8b-bb42-ea298ffe83b5"),
+                            FoodAllergyId = new Guid("b9cd4443-a25f-42c7-aa21-5f8680e96fa4"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("0ece5f0f-9fec-4f74-b948-90dce7ce6ce3")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("37e3c959-bcc7-466a-a5f1-b3412cabd424"),
+                            FoodAllergyId = new Guid("15e52a21-4979-4005-9377-84c0f7c8423a"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("d65c7826-78c0-4991-b3b6-1e2b25437f61")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a8e13e10-1f36-4ecd-b8cc-21ecffe56665"),
+                            FoodAllergyId = new Guid("85e32f78-0bd0-48b0-9255-5e591d6f51c2"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("90099162-15e0-4ef0-b93e-59d409678b63")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("f5a71723-298f-45e7-8269-4abb563396f0"),
+                            FoodAllergyId = new Guid("8e2369ec-e1f3-4a6d-9ca9-6b5b4decfb44"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("9669cdf4-c133-476f-b2bd-f3c091346c52")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("298ae1bb-0b66-4655-9a10-fd25dfd545ce"),
+                            FoodAllergyId = new Guid("4472deb4-8f79-4b33-adf8-daaca36b8026"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("9669cdf4-c133-476f-b2bd-f3c091346c52")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("b6261f3a-90c9-43c7-9ccf-74ca4250c1e9"),
+                            FoodAllergyId = new Guid("d7c2ebb5-662d-4111-972b-e61a56fd86a4"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("61b2c4d9-6de2-4fb2-af3b-fe9fabee0bd4")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("89e5f41a-6449-4ddf-85b0-bdcb2f186ae2"),
+                            FoodAllergyId = new Guid("62d8fae9-781d-453d-be68-186a2813f34c"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("ea63d4c3-41f7-4f89-bf33-e8a16c5d6956")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("f34f29e0-18bd-4968-8d68-3548dc6b8b7f"),
+                            FoodAllergyId = new Guid("9169cc36-1f6a-44d0-a989-9cbb52ab0e71"),
                             AllergyId = new Guid("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                             FoodId = new Guid("56513d2d-2472-4fa4-80bc-2f54002b187f")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("722a6958-f15b-43f3-8278-d56768de961e"),
+                            FoodAllergyId = new Guid("49f29ea2-a5fb-4ef8-87b3-1fff134a3c6d"),
                             AllergyId = new Guid("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                             FoodId = new Guid("2d821db4-3e99-4877-b979-bc82d34b3b01")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("c0bd3f34-0b5e-40a7-80f1-5852b140629f"),
+                            FoodAllergyId = new Guid("433964dd-6cc3-499c-b2d6-9ebfa89e2449"),
                             AllergyId = new Guid("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                             FoodId = new Guid("2d821db4-3e99-4877-b979-bc82d34b3b01")
                         },
                         new
                         {
-                            FoodAllergyId = new Guid("a2060df9-c229-4100-a1eb-76740b7ab01d"),
+                            FoodAllergyId = new Guid("cfde02cc-8133-4b35-bcb7-368af26bb7a7"),
                             AllergyId = new Guid("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                             FoodId = new Guid("a1ff09f1-9d02-40a8-84de-8da9aad67c58")
                         });
@@ -8049,667 +7829,667 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            FoodPortionId = new Guid("a0c8e25f-535b-43e3-8863-9dd2ac6239a7"),
+                            FoodPortionId = new Guid("cc5e4a45-5f95-4ccb-bed9-fbbdbf863e56"),
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("1808de3e-ae43-41a6-b9ce-bfe89131be5a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4abd3239-db08-4efa-a2c3-a554946e8b9b"),
+                            FoodPortionId = new Guid("c4996cdb-93e8-48a4-8a6e-753cc75480ce"),
                             FoodId = new Guid("599cfc95-4108-4dcc-9c5a-077173251f8b"),
                             PortionId = new Guid("40991196-f258-43f1-ac84-0381afa83477")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e89a84ca-f3d3-47a6-a133-1879386898f6"),
+                            FoodPortionId = new Guid("3512fee3-645e-4523-8623-f85d29101375"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("28b06cf6-6367-4786-bccb-89c43dd3ce3a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cdb9e73e-aca9-4b81-8aff-b993465f0d6f"),
+                            FoodPortionId = new Guid("22ea3187-a8eb-4b5f-9405-8866a733799c"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("91524cc2-db22-4cab-abb7-700725232f1f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ae56aca6-c980-47db-9675-8ac47df673f9"),
+                            FoodPortionId = new Guid("c7d68b70-3183-4555-8c55-565969f8262f"),
                             FoodId = new Guid("a989c8db-7506-467f-8aba-dce042f68eea"),
                             PortionId = new Guid("1b56833b-1ff5-4a90-aea9-074de2d0dd67")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("391fbbaa-b1be-43fd-aa4d-28401bf4c52d"),
+                            FoodPortionId = new Guid("69195bcb-1722-4274-8026-dc6c8341b73c"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("c605aa91-495e-4977-9876-b2a198ce356e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3c0e04f4-f3c0-4c0c-abe9-2bebab617256"),
+                            FoodPortionId = new Guid("e44833b5-2011-4894-af63-1ee3f8dddc73"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("7be0e4d3-1e50-4de1-931d-08adb85f628b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3022cdc2-4b13-41c4-a139-263bed178f01"),
+                            FoodPortionId = new Guid("9fda40f4-c6c8-4270-9267-b3e0501c5e37"),
                             FoodId = new Guid("c42e7f00-ea31-430a-ac28-8d6e749b7eca"),
                             PortionId = new Guid("698c67ad-a726-435b-b9d2-c5690a79eb5a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("757028f4-c639-4a4e-8703-16891b175937"),
+                            FoodPortionId = new Guid("ce6a049a-12f6-457a-b5bf-6340354c684a"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("399eee61-90b5-464f-b3f7-7ddc1077ab0d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e5e5477d-906e-4abe-9474-6d4d6f8b1dfc"),
+                            FoodPortionId = new Guid("b275ae13-3120-4d3e-aee2-bdff9d88d185"),
                             FoodId = new Guid("021b651c-bb01-4965-95bc-3532fbacad3d"),
                             PortionId = new Guid("6f34350b-8f99-446e-9de9-e0c6277b10f3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fdd679ef-0579-45c7-8afe-f13b86960f7e"),
+                            FoodPortionId = new Guid("bab106d3-a9d6-4e55-bd3a-6bcbed73fd2d"),
                             FoodId = new Guid("8fa26c41-16b2-49f8-a284-856024a5f947"),
                             PortionId = new Guid("41ae956e-14fc-44af-bc6a-e5ba77661cee")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("afede9b1-cc09-4ad7-8e27-d9af4fb7d689"),
+                            FoodPortionId = new Guid("9509fe6d-9de6-4976-be95-47576af71a2c"),
                             FoodId = new Guid("1387c20d-27a6-495b-a3a0-efbb715f6430"),
                             PortionId = new Guid("a1589990-affa-4805-a1e0-73de1ffa8516")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("9729f41b-770d-49d3-87ce-30bfc4e60217"),
+                            FoodPortionId = new Guid("73741c28-79fc-4d69-bf73-591da23203cc"),
                             FoodId = new Guid("7dba3127-1fd5-426f-ac21-5ffd5fa8cc42"),
                             PortionId = new Guid("4e9013c8-d6f7-4740-80d5-e95d318873b9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2df2416e-e4e7-42b7-a3be-0fac88595b8e"),
+                            FoodPortionId = new Guid("e882453e-710c-48a7-916f-0e0f724c083c"),
                             FoodId = new Guid("eac10b91-8509-4986-b689-7ee3a3757a18"),
                             PortionId = new Guid("1bf9c3e0-7a2c-46f5-8187-82e5ad1af649")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1ee12c10-7e75-4f93-b535-129ed1269eba"),
+                            FoodPortionId = new Guid("d72c0bd1-310b-4554-92df-ed9ba81c6e0d"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("faec7c41-2e11-4092-8ab9-cc9c152d858f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("247c824a-6f54-40a0-a5d0-9072b6a8a209"),
+                            FoodPortionId = new Guid("508f49f5-9abd-4d7a-9c30-0bc80276c6db"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("36398f6d-0668-4d37-8850-9f9ee89b8b92")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("082c1dff-2fa4-4f2f-baee-cf4fb71ffbe6"),
+                            FoodPortionId = new Guid("06fa10b1-dba6-4c64-a0af-7fec16127780"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("c6e853f0-06bd-4cda-8b43-cbe66fea98c8")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("608278a8-b8dd-4bdd-9074-59f5a991dc98"),
+                            FoodPortionId = new Guid("e317b446-3184-4139-9875-0da79077fc23"),
                             FoodId = new Guid("c2a6e33a-917f-4c09-a5e3-6b8a9c12a25f"),
                             PortionId = new Guid("268e00a0-2da3-4e5c-8ea7-5ad8923cfd52")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d0505fa8-9c0f-44f0-a191-12cfad4aef98"),
+                            FoodPortionId = new Guid("02055c6f-8e0c-4b79-a258-5f0e2bab98e2"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("40bbc8c4-f383-4ae6-979a-3ac83c275881")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cb33ab9d-c79b-4dc3-a28f-4e970b7d048c"),
+                            FoodPortionId = new Guid("5199b508-fc46-4e74-b65e-59f97545b34a"),
                             FoodId = new Guid("a17722bf-899e-40e9-8e54-ae2fc8a34f44"),
                             PortionId = new Guid("26096793-894d-47c1-a06f-cf9133f8089d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("5c62b788-cb53-40a8-a945-3b44fe3f58c7"),
+                            FoodPortionId = new Guid("f0277902-a01f-450c-b328-5cbc4958abf8"),
                             FoodId = new Guid("21a4b410-e26d-444b-8b99-bf8b490e5dcf"),
                             PortionId = new Guid("de5d78a3-c5b1-4e2a-b9eb-f3757c999024")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("30a98f09-482f-4491-a1e4-37c1af52a17c"),
+                            FoodPortionId = new Guid("203beace-24ec-4be7-86b2-32ccc909f32f"),
                             FoodId = new Guid("de097440-db5c-4d91-bd55-76618d70599d"),
                             PortionId = new Guid("92e149ff-8491-48cf-a4e8-8106b1e95c4c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("82862b3d-2e10-4aa6-8506-8ab9cc691932"),
+                            FoodPortionId = new Guid("bed73e83-cb2d-402c-a0e7-bcd19903a797"),
                             FoodId = new Guid("2f8f9f4c-cd2a-482a-ac48-18c2e06f73bc"),
                             PortionId = new Guid("3f77fd90-591c-45f3-8bbc-87d0bb49e461")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("556bcec9-348b-48d7-8d1f-3fd710b8ff3b"),
+                            FoodPortionId = new Guid("2b5f0ebd-617e-4756-a70c-2d19950fb462"),
                             FoodId = new Guid("a47b1646-3576-46f0-a3b6-763a9c3f889b"),
                             PortionId = new Guid("6792c392-3c86-4162-be91-4fc8646f861d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("71b35e0c-7f32-40d9-ad52-a1a43dfb7d0d"),
+                            FoodPortionId = new Guid("01405c50-6aaa-4284-a062-854a2d675dc8"),
                             FoodId = new Guid("48113ca0-a1e7-4181-85fa-be6538a70873"),
                             PortionId = new Guid("c4fc900f-5a92-4228-ac03-57285fff159e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1cae147f-2fd2-4b01-a9c1-d39bf11e4a69"),
+                            FoodPortionId = new Guid("feb2f2e9-fa0c-4292-8045-17f4904b2252"),
                             FoodId = new Guid("f77e03de-4ed3-41ca-8fa1-0a4947c67384"),
                             PortionId = new Guid("cd0a9e6f-bf5b-40b3-bb6c-22ccb8e6ab6a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f929d667-f4d9-40ac-bacd-ad56b07ec4ac"),
+                            FoodPortionId = new Guid("afda1fd6-5755-4637-a371-93f9131d618b"),
                             FoodId = new Guid("d4df84f2-2d79-41e6-b313-28e89e3785ba"),
                             PortionId = new Guid("a33065fe-80ad-4879-9333-424aadc6734f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fbe40379-7655-4f68-9a9a-aacfe1e427fe"),
+                            FoodPortionId = new Guid("78842e0f-39b0-419a-9906-73e9297a6b00"),
                             FoodId = new Guid("6c3f28ec-f25a-4471-ba9b-f46568e1ccee"),
                             PortionId = new Guid("eceaaa32-4023-4eab-abb6-9172c908f77c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("036a52d6-22e1-40f2-bff0-fd8ac70b5f2d"),
+                            FoodPortionId = new Guid("55492f54-3ad1-474b-864c-208f58eb69fb"),
                             FoodId = new Guid("2ebaa4b7-3477-46a8-a375-e7a80b1db5b0"),
                             PortionId = new Guid("31e9bda5-8ec3-4444-a23a-908e84da6a14")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7999cde3-b878-4d5b-ac11-76f98e62bfe6"),
+                            FoodPortionId = new Guid("9ad4dbfe-9ad7-4ba0-ab60-22a1e909351a"),
                             FoodId = new Guid("94097f31-9a0e-41a3-b44f-4bb7c6b7c756"),
                             PortionId = new Guid("93984b54-2044-4ea9-8364-a03c6568e358")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("2f17f2ab-4bde-4c4c-a0df-5a3ade40a35f"),
+                            FoodPortionId = new Guid("590d6f43-e801-46a4-8e0a-fcd8a8dd0596"),
                             FoodId = new Guid("da89578e-9470-4b18-af4f-0bdcc011882f"),
                             PortionId = new Guid("749b288c-112b-4b7b-8750-0daff63d9ab3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e57a57ac-c1a1-4eba-9837-1470f2d40c99"),
+                            FoodPortionId = new Guid("aef75da9-2603-4493-8122-2071584651c4"),
                             FoodId = new Guid("37a66f5c-437f-4520-90ec-4376e0093061"),
                             PortionId = new Guid("1500876f-ef20-40de-baae-de0336bdc47b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("7fd05d34-dea0-410d-bd95-539c07054f7d"),
+                            FoodPortionId = new Guid("5e3e8ef9-600a-426a-9d5a-f82c3b80cbb7"),
                             FoodId = new Guid("05cfce09-72b4-482d-adcd-c0718015be3d"),
                             PortionId = new Guid("24a4ed15-69e4-4fb5-8dd2-1695de52c264")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c5466941-282e-4bfa-967b-7069d4fba8ba"),
+                            FoodPortionId = new Guid("1708af7f-ac51-4a2f-866b-26b24fb9478e"),
                             FoodId = new Guid("0fba6ca5-e0a0-4b13-b265-aa37af1b055c"),
                             PortionId = new Guid("bfc705ab-d7e9-44c9-9447-c0b39bc76ca1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("b890a579-53c5-4ca7-91a6-44c4c9ab4a12"),
+                            FoodPortionId = new Guid("195bbbc5-b789-4327-9383-db846e1a4a31"),
                             FoodId = new Guid("dfa879e8-d77d-4199-b07b-16b37f1cbde1"),
                             PortionId = new Guid("b6623163-4c27-4d0c-99ef-12a67b87635f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("0ddfeca6-d92e-4d94-8c84-fe8e7065320b"),
+                            FoodPortionId = new Guid("0c875057-3df3-445f-aa61-c304b1837c79"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("a88faa7c-6eab-4ecb-8a75-b078a9cf7834")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("84ffdb3c-6685-40d3-9fee-d943d3dc9038"),
+                            FoodPortionId = new Guid("51923781-4b09-4f49-a6e5-7138f4b173ab"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("218b9709-852d-4a1f-ad8b-c9410b49fea6")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bc796350-cb8a-4394-8f0e-0a3e8067c73d"),
+                            FoodPortionId = new Guid("f181808e-7428-4cbd-9dd5-811e8cd57944"),
                             FoodId = new Guid("30355638-a0e2-4126-93ae-beb7aa9b5758"),
                             PortionId = new Guid("e5cc2785-6d62-4b5f-8fc1-e6ab45babd76")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("08304743-a0fa-4504-bae7-4460f9a5e501"),
+                            FoodPortionId = new Guid("e168b772-5afc-4d69-b411-c337bb030b8a"),
                             FoodId = new Guid("fb7d87aa-2bb8-4065-bd31-b54239057405"),
                             PortionId = new Guid("22f0a09e-6816-410e-a5a2-c802103b089b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fc6fe756-8b8e-402d-b94c-25ffc0088a52"),
+                            FoodPortionId = new Guid("152bb600-714e-4e68-89e9-970b5b9fe42a"),
                             FoodId = new Guid("9122357a-179f-45f4-9106-67eea24d48ab"),
                             PortionId = new Guid("5feca670-1f15-430d-9b04-7ac86a329a6c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("70869a11-3ab1-4cbf-8ea9-5dd3f6cc0f99"),
+                            FoodPortionId = new Guid("b71f8ffa-2d08-4127-8eef-2f6582a6257d"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("f483bb75-84f0-4ecc-8a06-f366a488c6bf")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("63a3b291-6e87-4e4b-b850-919f393c7158"),
+                            FoodPortionId = new Guid("a6a9d058-a044-4e1b-b841-01bba540b5d9"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("17c9d30f-bd85-4e58-bfc0-6b6d70b2e5fe")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("dd48cedb-aa42-4700-86d8-c812166c4361"),
+                            FoodPortionId = new Guid("b1c76ea8-5de2-43f0-a453-da4f421a05c5"),
                             FoodId = new Guid("81c3c321-4d4d-4e56-93ca-5dac5e69adb4"),
                             PortionId = new Guid("52c86d57-0909-41c3-b513-e770e6f6d104")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("380f14ff-e0f6-4944-b631-7e04d534b570"),
+                            FoodPortionId = new Guid("ac5e112a-1ff1-4951-9b7e-d5cb91229417"),
                             FoodId = new Guid("87225215-43af-49f2-a40b-a5ebb087d27b"),
                             PortionId = new Guid("a9385e8a-e9b9-484f-beeb-bc35529cf91a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("dce5d8c7-9766-4546-9792-68ebada726dc"),
+                            FoodPortionId = new Guid("09142de5-a91c-4469-897e-7c8c769a01a0"),
                             FoodId = new Guid("23443efa-dc06-4e7a-949c-5c823ee6e575"),
                             PortionId = new Guid("8a81e20e-ea16-4073-957e-29508a8f7419")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("0ed782a8-205e-4521-b278-2c09d5f7df67"),
+                            FoodPortionId = new Guid("49d0cde8-973d-48e2-937b-204f70cbcb15"),
                             FoodId = new Guid("08b5c5da-4b0c-48f3-98fc-33420bdf8163"),
                             PortionId = new Guid("84793ef9-fcd0-42df-ab0d-9380dfa18630")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bbb7e555-4881-4131-adb7-ae2b179cb487"),
+                            FoodPortionId = new Guid("7d829053-ec3b-4846-8d33-1e486068726f"),
                             FoodId = new Guid("77fe5e06-7fee-486d-a1a7-c031f2065490"),
                             PortionId = new Guid("255ba0f6-14cc-4049-add8-138f27055b49")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ca76aee7-4bcc-407e-afc2-6298e1d78173"),
+                            FoodPortionId = new Guid("d3a0b9f3-10a2-4a3d-af55-00d76be3aac8"),
                             FoodId = new Guid("6a48ebe2-443c-4c78-9f96-de8ccfbd77db"),
                             PortionId = new Guid("f7b36043-9ca9-42c3-8a00-e9e235b56bb3")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("31cff14d-2c36-4148-8ec6-bc6b27df155e"),
+                            FoodPortionId = new Guid("a300e788-f50a-4e4d-859e-fd2584dae14a"),
                             FoodId = new Guid("2600b6c1-8365-47ae-adc7-e7de2ccb18ad"),
                             PortionId = new Guid("18809fb3-b78a-4f67-b9f9-8bb6ab95ab00")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("798db6ac-73c6-4bc9-8bc8-00cac0b61156"),
+                            FoodPortionId = new Guid("0d72ae1d-153a-48f8-8cb0-e49eaf2e0bce"),
                             FoodId = new Guid("85822a08-7189-4e08-8f55-25c73698af92"),
                             PortionId = new Guid("cd0b1476-44a8-4350-a6a1-3de8747a5ebc")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("079fe493-cdc8-4747-a672-878aa5d2f43a"),
+                            FoodPortionId = new Guid("5f8e61ee-1389-4197-b37c-fbb2d96a10ca"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("5afaa147-398e-4be8-b0d1-8dcabe6ed18c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("489eab6b-e07d-4e11-a83c-ffd0127e80ee"),
+                            FoodPortionId = new Guid("268646e0-6c00-4bf1-93d9-d7e6aa0880b0"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("d3850e1b-4780-490d-8c0c-ced1a9aa323b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("48b232a1-f5ee-4d8f-ac9d-b9b527eaf59c"),
+                            FoodPortionId = new Guid("da07dfb0-d64a-450f-8223-09b6831ab6dc"),
                             FoodId = new Guid("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
                             PortionId = new Guid("e09c493c-5806-4b14-bbef-e26e19e1d8d5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("de73aa68-717b-494d-bdce-79e7c682e59e"),
+                            FoodPortionId = new Guid("99257ba1-86c2-468b-81f4-ded5447a62fe"),
                             FoodId = new Guid("7b3216ff-858e-423e-b8db-a85571aa5488"),
                             PortionId = new Guid("5f7f859a-f20a-4f6c-8b8c-ecfbb1ff522e")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c0001064-f375-4a4a-8fbf-b30d7f87190f"),
+                            FoodPortionId = new Guid("d8c533c8-bf45-4bf6-ac0e-a5fb05fe9f1b"),
                             FoodId = new Guid("42883b21-4cbd-40ce-850f-b0723f1766fe"),
                             PortionId = new Guid("f0e8f9cd-d133-49cf-be7d-d427b630e05a")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("10a037f0-0f94-4fd1-90aa-854ae4045d36"),
+                            FoodPortionId = new Guid("1e42cd7b-dddb-40aa-878f-3e8766d0f9e8"),
                             FoodId = new Guid("e7221c53-2ea1-485f-ac33-bddf3dc47ae9"),
                             PortionId = new Guid("ef6b8c43-9ab5-497c-a9a8-e31f0a349527")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c83c0345-60a5-4d34-b175-659738f5d702"),
+                            FoodPortionId = new Guid("6ec65403-0f60-434c-8057-494ae42940a4"),
                             FoodId = new Guid("845454d0-967a-4e48-aef3-bd8458775500"),
                             PortionId = new Guid("1cddc91d-209a-4948-8e9f-9017252d5423")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1ce0f0f1-8da4-419a-91bc-0ba13ce809ee"),
+                            FoodPortionId = new Guid("bc2123fb-7cb9-49f7-a5ae-815bdd0b032f"),
                             FoodId = new Guid("a41a3bc6-0f34-409f-9045-0807fbb4469b"),
                             PortionId = new Guid("d09266d3-9e7d-46a6-ad3a-7c608ec802d1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ae9c5bfd-c767-4919-a107-919bff6c2254"),
+                            FoodPortionId = new Guid("4a0c39e4-f195-4b68-af47-4db6dc209126"),
                             FoodId = new Guid("f0132626-5535-4f30-9af4-7e89e086aaaf"),
                             PortionId = new Guid("5384aebd-4eab-4a44-8cbb-7ec2c04f1401")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fcf8e3b3-0282-4187-bfff-551730035344"),
+                            FoodPortionId = new Guid("b768c51d-6c31-47cf-b4b4-3aa50e96fc70"),
                             FoodId = new Guid("65c7b876-87e2-4307-ab76-c72ca277b78c"),
                             PortionId = new Guid("222e1fa2-3910-42ac-9a5c-f371dded16eb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a6277839-a739-4162-a300-f46066b31489"),
+                            FoodPortionId = new Guid("64d444f9-f06d-4847-ab90-81494716b712"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("eff728af-c8f0-4bb5-a985-d079cbadb6b5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a03fe639-4290-4bfe-907c-59f3aad0993d"),
+                            FoodPortionId = new Guid("a16f49e4-8ae4-4358-b8ff-3a1bc4a524c8"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a5dbb27a-4856-44be-a239-76eb073c3e41")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("93d75342-9f45-4a80-800a-bdeaa01642a6"),
+                            FoodPortionId = new Guid("d7eb8dc6-fbac-48df-ae75-1b5ca6b12f59"),
                             FoodId = new Guid("74181cd5-4b0b-48a9-9042-16d8789483d4"),
                             PortionId = new Guid("a7936b9f-b6f8-4295-8b6e-6fe1b096f437")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("02f67ba2-5b70-4379-8c53-3bba1b70fb47"),
+                            FoodPortionId = new Guid("8545c34b-2e4b-45d9-a32e-a150a1fb5dfb"),
                             FoodId = new Guid("a3074169-6441-49cc-9ea7-79e240f6dda3"),
                             PortionId = new Guid("e23d4491-73d1-45b5-8010-0385d7185c98")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f662554c-7bd8-4386-b4cf-8f8d299dbedf"),
+                            FoodPortionId = new Guid("3b205e90-d0df-4f13-9ab8-676d38edad04"),
                             FoodId = new Guid("d30f804f-c59b-4a59-bf4c-5196b302d1ed"),
                             PortionId = new Guid("bdd1ee1e-3a93-421f-855e-0993c7e6f767")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bed0063f-46ba-4a58-96f2-264eee58a6f1"),
+                            FoodPortionId = new Guid("1f402f58-be33-41bc-acba-fb9da60982cf"),
                             FoodId = new Guid("7268b449-cb54-4f3d-9709-f42b9966d707"),
                             PortionId = new Guid("c4993d6a-a2e0-4ddd-821a-0629541e019c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1c24218d-72b2-4565-b128-81320e49ec40"),
+                            FoodPortionId = new Guid("6d7127b2-62f3-4c9f-9fae-29f7a886edc5"),
                             FoodId = new Guid("77243d82-a633-4fe8-84c9-61a4b6cd4428"),
                             PortionId = new Guid("5a1bc1cb-ed0b-49bf-9c1a-5494db962d27")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("0a3a912f-9836-4a8c-842f-8f75b44c485b"),
+                            FoodPortionId = new Guid("6660cf8f-b541-4ad2-b81c-10a0acc373ec"),
                             FoodId = new Guid("48b3d9d3-1ea4-4c96-a3e0-68268d108d2b"),
                             PortionId = new Guid("8ecbc063-8d6e-450d-af39-0ba28bc572bf")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a95b9b95-7f0d-40b9-9d4d-a1ae6acf265b"),
+                            FoodPortionId = new Guid("99bb0515-5da4-4204-b9e4-3571a8a8b6b3"),
                             FoodId = new Guid("df4de54d-ff6c-4db0-9169-b3a0f6eb0865"),
                             PortionId = new Guid("16dc894a-746e-497e-a2c5-2d58f7f83c4d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("219c7bae-de86-4a2b-ae85-12b60904269c"),
+                            FoodPortionId = new Guid("79519224-4af6-4bb8-8b38-f8a180d6042e"),
                             FoodId = new Guid("dc8adf68-02d5-4668-ab6e-74d7ce44bae1"),
                             PortionId = new Guid("30f41ca6-c420-4f7d-9602-bf80735d5691")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("40082150-6b26-4c69-ad62-da77c3757c74"),
+                            FoodPortionId = new Guid("947b3259-7058-4d47-9e08-785cc32fd163"),
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("1cf439ce-a31b-4b95-b092-b7f6edf8d40f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("764e8b17-c93a-4ff5-baee-69803b7e0218"),
+                            FoodPortionId = new Guid("d0f89a43-8313-48f2-afe6-5c339fb0ffc9"),
                             FoodId = new Guid("fc85f2de-9aae-4ff4-a829-e01662a42976"),
                             PortionId = new Guid("ad9ecd1e-40ec-414a-be69-b16e7013b377")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6a5e98ef-a651-4acc-8d2c-b83e13e1def6"),
+                            FoodPortionId = new Guid("2958cbb4-46bc-4dae-b5ef-0189184f338b"),
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("1802caa2-cfe0-48e7-8580-29165f84387d")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("d4a9e087-e84e-436e-9c19-e0bbab0d8e3f"),
+                            FoodPortionId = new Guid("697f0aa1-47ef-4c20-9480-157e1a5f0e98"),
                             FoodId = new Guid("afe0a180-0077-4fdf-89e8-9513c6132f92"),
                             PortionId = new Guid("21e32570-7d64-4cec-b711-873185c76523")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("66acc6fb-557f-4361-a494-efd4fc87b337"),
+                            FoodPortionId = new Guid("8502597e-af4c-41ed-9c69-c641dd4bdf2f"),
                             FoodId = new Guid("16066b9b-e61f-4354-803b-e2f9c9f5a5db"),
                             PortionId = new Guid("9c276c0b-84b6-4216-8dbb-ae2034ac2176")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("3965026e-641c-4fb8-9807-2394a61d9664"),
+                            FoodPortionId = new Guid("f3bedf9c-4e8b-4c14-8daf-c290dcc18713"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("d9dad801-145a-419d-bbe2-408acf97a273")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c5ae0745-746f-463f-adf4-cbba6abda019"),
+                            FoodPortionId = new Guid("501247f3-861a-428e-972d-0519ddf5f0e8"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("bf0f7ca4-9089-4800-95d7-8d037d98b7fc")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6f4706d2-998a-401b-9702-43bc475753d6"),
+                            FoodPortionId = new Guid("4709b1b7-c07a-45ee-8b0e-79efec31d084"),
                             FoodId = new Guid("e7468877-17ed-4bb9-9956-5e3cf6a58bde"),
                             PortionId = new Guid("56681171-ccbd-4700-90bc-2233c1e661bb")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4285cb7f-a581-4c7b-ada9-4735d848e266"),
+                            FoodPortionId = new Guid("dc7a47a5-9c66-403e-bcf0-e4b0197dc4d2"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("709578ca-672f-461e-995d-dc78aeda8c4c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("95b4fdff-1ffa-46ef-9bea-03c8282ddcb6"),
+                            FoodPortionId = new Guid("d7bf08b6-505d-4b3c-b55a-107f2554ef85"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("f928b7a6-2558-478a-bc22-515516f4dc74")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("84993913-7858-4aaa-9a7a-2975ccb1f711"),
+                            FoodPortionId = new Guid("9698d29b-bb18-4f56-a2a4-9f95b6455f95"),
                             FoodId = new Guid("4d640470-857a-4765-905f-e49e98a281a1"),
                             PortionId = new Guid("23ce32a0-6597-4b60-b35c-98073ff595c6")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4df63473-c89a-451a-8424-7c0c0e1b2c7e"),
+                            FoodPortionId = new Guid("b97cc4c5-a3c2-4955-8eba-fd733ad0df19"),
                             FoodId = new Guid("5ebbc839-81e6-496f-9e4d-8d90d732a906"),
                             PortionId = new Guid("bad70aff-4237-4c83-b412-460020a5ee44")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("02dd1476-dee5-412e-a09d-4851081d63a4"),
+                            FoodPortionId = new Guid("830a144a-4430-4868-bfdc-a95f39167eba"),
                             FoodId = new Guid("75e6c0f1-a11a-4e2c-a59e-bbe2930c5ebb"),
                             PortionId = new Guid("59589114-7d6a-4c80-8681-db5c554ab38f")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fe18df74-eaca-4824-9d94-eaeafd989bd8"),
+                            FoodPortionId = new Guid("7e358b94-18b6-47a1-a886-41548f7a3ebf"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("c65d34ee-8c0c-43bb-9d4e-aa39955a4768")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("a7ab15d2-c722-4125-85e8-de6d077750fc"),
+                            FoodPortionId = new Guid("a66891de-048e-4e76-b47e-48a4b89d70af"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("f9bc9ae8-e42e-4e8b-84d3-f2bc36037552")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("c72d679b-2c6f-48ee-8ee5-114969d69dd8"),
+                            FoodPortionId = new Guid("9904e68d-e0b5-4b20-8ca2-22f04211948c"),
                             FoodId = new Guid("16bf44f2-711d-4b64-a409-995c6b0c13ce"),
                             PortionId = new Guid("bd16f0ec-5ae1-42f4-a302-b4bce8f0db28")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("79be8008-dbc8-47dd-9910-c9d54bffe1e5"),
+                            FoodPortionId = new Guid("6a2739cd-889d-401f-93fb-5ecdf70aa377"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("549d664a-eb1c-4b9a-8ad7-fab9e1482e5b")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bd6f0402-41e8-48cb-8f60-bfb992dda8d4"),
+                            FoodPortionId = new Guid("5dcd2acb-dd58-454f-9aed-5c1e588b3deb"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("e45c2156-a98c-4121-90b4-25097e8a5cd1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("ef5ff848-a4df-45bc-87eb-b83115777028"),
+                            FoodPortionId = new Guid("96e5dc7a-78e3-4de1-9f44-21adffacd538"),
                             FoodId = new Guid("58fe08ca-5c52-4847-800e-b9970c3782f0"),
                             PortionId = new Guid("7b138bd4-4d3a-426c-9ab0-d66699b762d2")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4772a20c-17ae-41ab-9a67-9aa96f5501fd"),
+                            FoodPortionId = new Guid("439c0558-7ce7-4667-a29a-07122df1cf96"),
                             FoodId = new Guid("1d0feb2f-0735-4333-87ce-09e22304ad0d"),
                             PortionId = new Guid("2892c25f-bd50-4bb4-a845-997395ef6693")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f2a09030-ea20-4fcc-8bfe-8d56b6864086"),
+                            FoodPortionId = new Guid("c152f0a8-0f0c-412d-9cdb-79ec4f71d17b"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("03a92c0b-b7f6-4283-8109-a35898d5d3c5")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6433992d-e215-4de4-8764-7661ff663b5c"),
+                            FoodPortionId = new Guid("51d99361-bbc8-4df2-9285-7123d0b18aea"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("fc245902-ef53-4363-b4ce-0e598e1dd4a4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6c7be1c2-5d60-436c-935a-3ea508d039bc"),
+                            FoodPortionId = new Guid("d740b269-21e5-4e40-a7db-360a516d09d8"),
                             FoodId = new Guid("a782e478-d5c5-4da6-b809-180b48ad08c3"),
                             PortionId = new Guid("da254ee7-d229-4769-bad5-a617d09676d4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("93947779-d4ae-47fd-aa2e-e85748ec2ac8"),
+                            FoodPortionId = new Guid("287e8f8f-b0f6-4cda-80b1-71c1fb848ab2"),
                             FoodId = new Guid("c16aac77-64ee-476d-a646-a3029da83e41"),
                             PortionId = new Guid("3d6d946f-8d9f-479a-b27e-3d78dc354db0")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("808374d8-6d5f-432c-b96f-4b24af720948"),
+                            FoodPortionId = new Guid("9cc144eb-03fa-4f5a-b85c-0288efc64a33"),
                             FoodId = new Guid("d4e129d5-27c2-494f-8b9c-3485c3a8ea3c"),
                             PortionId = new Guid("424ebe64-6570-4d88-9052-08c06dc0a2c8")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("05cb79ec-41db-4e1a-8a7f-ca42fbbb3f1f"),
+                            FoodPortionId = new Guid("8a570eab-0b5b-4a11-9fec-64af0af1aaf8"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5adcb96d-70ef-403d-89c6-cc3aa807b6a7")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("67c62c3b-fd19-46db-a690-42ce783ef7bc"),
+                            FoodPortionId = new Guid("0d0e8288-a7fc-4df6-9cfc-a0fee2fd0d83"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("5a9ac478-aa65-48ea-9387-1ad92f6c76b1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("cfed302c-51e0-4edb-97f0-7b4a6b5b0fdd"),
+                            FoodPortionId = new Guid("c81de99e-c427-4fc3-82ac-770bed7fd00b"),
                             FoodId = new Guid("8893c58d-06fd-4c34-9e77-2f50779642dd"),
                             PortionId = new Guid("113f6a04-87c4-43c6-8263-920bd099c8e0")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8f8d03b0-d3c1-4c47-a090-4cf3dadcf56c"),
+                            FoodPortionId = new Guid("7f83f8df-1898-49eb-9add-a80101a365e9"),
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("d2e88505-bbd6-4af6-9a88-535896c5d587")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("e9298be6-dccf-44fc-9ce0-9fab75c80a4a"),
+                            FoodPortionId = new Guid("f9f800b9-6949-4d97-baa6-1d70ee6f0df2"),
                             FoodId = new Guid("80ba2672-d26a-4703-98f0-d246a50f92f1"),
                             PortionId = new Guid("3f19ef5c-3c60-4a11-b1b3-5158859f1286")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("36a72f40-1ba1-4c72-b9ca-11e53354f03d"),
+                            FoodPortionId = new Guid("ecd685c3-aeb9-4ad8-897c-a982d0e0c853"),
                             FoodId = new Guid("22d1cbad-a884-400c-b681-30b17d98bf1c"),
                             PortionId = new Guid("7e071bd6-6afa-483d-8688-28b31b9a8bef")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("8d7f4137-268d-45ae-98e8-a78f1eb14876"),
+                            FoodPortionId = new Guid("f4adf6dc-7f4a-4a25-b817-b34a680aeee9"),
                             FoodId = new Guid("c81a404a-ec10-428e-acec-dd56ec1d3607"),
                             PortionId = new Guid("d6c41cdb-4735-4b9e-85ae-1f48f33b7d6c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("f7d1639f-feaf-42eb-9966-a14e0114d26f"),
+                            FoodPortionId = new Guid("c1b3b62a-5a83-4e1b-952c-8d9d59e9f6dc"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("a43d7637-6fc7-421b-86f1-f83e691431a4")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("fe380201-46c4-4ab6-bbec-d1d1f9306a9b"),
+                            FoodPortionId = new Guid("db56489d-383c-4628-8aeb-7254a6aca5ff"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("6e98f2be-9196-4c4e-8279-b02010f853f1")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("1fa81dcc-df83-4da7-9bdb-c7b965d1ad53"),
+                            FoodPortionId = new Guid("d64765a7-bba1-4882-9b14-015503a8b0f5"),
                             FoodId = new Guid("55bd2b96-0e5f-4be4-acae-25f5e3e25244"),
                             PortionId = new Guid("e00ed683-11ff-4c21-8b1c-576b448726c9")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("6970996b-bc76-4629-93c9-50577b274179"),
+                            FoodPortionId = new Guid("dd6f8138-8f47-4381-a5f7-3db8a275b874"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("63d10d95-7983-455e-b920-29c1f0c88d85")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4c38e7c2-91b3-42dc-bdb3-95ebda23bbaf"),
+                            FoodPortionId = new Guid("d4ff5f9f-3f79-45f5-981b-a9f305e3699a"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("919c7f66-53e5-46bd-b181-558f6052b953")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("4ad4c701-dbf3-401d-a826-40e58ed3b48e"),
+                            FoodPortionId = new Guid("7c78c593-90a0-4c2a-9636-f6f041312ffa"),
                             FoodId = new Guid("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
                             PortionId = new Guid("87409e4f-4bea-4bba-855d-a3bfbc2f9c20")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("bae0ab2b-a92d-4de4-9685-89d3ef0a27f0"),
+                            FoodPortionId = new Guid("a72349e0-5c48-40d0-9476-db386bb583ec"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("26dcc6e0-67aa-40ed-b3d1-8a009c60a62c")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("db66cb13-cf2e-4b7f-8cb5-61e456214c3b"),
+                            FoodPortionId = new Guid("1ce7e9cb-61dc-4023-83d9-0da590b446a2"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("3c7d60d4-60da-4f51-9448-30877b126572")
                         },
                         new
                         {
-                            FoodPortionId = new Guid("5460f44f-cc78-47e2-9bbc-ee0188a11766"),
+                            FoodPortionId = new Guid("c9f5b4f6-394f-46ab-8bf7-95ecf7b7af9e"),
                             FoodId = new Guid("2e641c82-56f7-480d-b216-63723b5a5e7d"),
                             PortionId = new Guid("9c3399d1-72db-4e86-a518-2575033bb6a8")
                         });
@@ -8981,7 +8761,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            NutritionId = new Guid("263fb199-c848-4026-8562-2bc314a77ce4"),
+                            NutritionId = new Guid("a6c0aadf-d045-42ec-9f25-bdaeaf21ad5e"),
                             Calcium = 10f,
                             Calories = 130f,
                             Carbs = 28.2f,
@@ -9007,7 +8787,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("fc787f3a-1346-4e29-8986-72061578259c"),
+                            NutritionId = new Guid("1c7680e4-f5d7-41de-8ad7-2e39099d277b"),
                             Calcium = 22f,
                             Calories = 265f,
                             Carbs = 49f,
@@ -9033,7 +8813,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f0258143-3b37-4f0d-84a6-ae27835ebe82"),
+                            NutritionId = new Guid("be11db1f-9cd1-457e-93ea-82d447d3ec05"),
                             Calcium = 5f,
                             Calories = 89f,
                             Carbs = 22.8f,
@@ -9059,7 +8839,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("40e9fdbd-bf83-488b-8186-8f16217f58e1"),
+                            NutritionId = new Guid("31b69e42-1d33-4299-830c-e26fc4ce6b9f"),
                             Calcium = 56f,
                             Calories = 155f,
                             Carbs = 1.1f,
@@ -9085,7 +8865,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("ae0eea4d-39e8-4255-ade1-656a1ab7d0b6"),
+                            NutritionId = new Guid("c11992d5-cee8-4326-9a61-82ad462bb6ad"),
                             Calcium = 125f,
                             Calories = 42f,
                             Carbs = 5f,
@@ -9111,7 +8891,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f11e127b-50ef-4f22-b107-4cb8df14c5f6"),
+                            NutritionId = new Guid("646a893e-8219-4a43-b194-698e8a7585ca"),
                             Calcium = 50f,
                             Calories = 380f,
                             Carbs = 45f,
@@ -9137,7 +8917,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d7d9a912-3789-4b71-8702-27f0516e5ba8"),
+                            NutritionId = new Guid("ee5a89dd-a8c0-4773-ba5c-09d4f88c2309"),
                             Calcium = 6f,
                             Calories = 52f,
                             Carbs = 13.8f,
@@ -9163,7 +8943,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c58b90d3-f562-489b-b054-fb189aaac426"),
+                            NutritionId = new Guid("e99c3d5e-cc57-4041-9e8d-45e72f61dec5"),
                             Calcium = 4f,
                             Calories = 110f,
                             Carbs = 24f,
@@ -9189,7 +8969,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("231196a0-8ded-42bf-8d59-08ecd3f87731"),
+                            NutritionId = new Guid("0238c67c-c48a-4023-8fa2-fafec8e77057"),
                             Calcium = 16f,
                             Calories = 15f,
                             Carbs = 3.6f,
@@ -9215,7 +8995,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c098c93a-ebed-4ef1-89e8-631689f446c4"),
+                            NutritionId = new Guid("05a38971-bdd9-47fc-8455-adcf52460c8b"),
                             Calcium = 5f,
                             Calories = 90f,
                             Carbs = 23f,
@@ -9241,7 +9021,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7a9dc1d2-e3c1-451a-82a7-05f97ff006b2"),
+                            NutritionId = new Guid("255a2ad6-9b75-4282-bd0c-4da6908e36dd"),
                             Calcium = 5f,
                             Calories = 89f,
                             Carbs = 22.8f,
@@ -9267,7 +9047,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("91a7d575-bf2d-4b36-aa19-9d813033da40"),
+                            NutritionId = new Guid("ed6d8eda-8f37-4da2-a7df-f34b541469c8"),
                             Calcium = 18f,
                             Calories = 68f,
                             Carbs = 14.3f,
@@ -9293,7 +9073,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bbdb6cd1-52e0-423c-a106-cfaaa15e2729"),
+                            NutritionId = new Guid("89bf9a05-1379-41d2-b149-868b2c56f9f6"),
                             Calcium = 30f,
                             Calories = 440f,
                             Carbs = 50f,
@@ -9319,7 +9099,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cfb599d6-18d7-4fed-9318-672c74fbe295"),
+                            NutritionId = new Guid("4bbca8aa-dfb2-4056-a2ce-681928cd894a"),
                             Calcium = 10f,
                             Calories = 50f,
                             Carbs = 11f,
@@ -9345,7 +9125,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c166a459-864c-44dc-99d9-f56f8425871b"),
+                            NutritionId = new Guid("e5f8d477-5880-4e0e-9151-6f0e7f565944"),
                             Calcium = 80f,
                             Calories = 360f,
                             Carbs = 45f,
@@ -9371,7 +9151,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("90c539bc-678c-4e73-b0f5-13a681e3ba82"),
+                            NutritionId = new Guid("48d03123-960e-4388-8b0a-cdbce6064bde"),
                             Calcium = 20f,
                             Calories = 230f,
                             Carbs = 40f,
@@ -9397,7 +9177,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("dc6079fd-0720-4157-89c3-c6142dbbf96e"),
+                            NutritionId = new Guid("05afc301-a039-46e2-b745-22e064ea1daf"),
                             Calcium = 40f,
                             Calories = 450f,
                             Carbs = 50f,
@@ -9423,7 +9203,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b307ad68-0add-44df-afbd-5e24f96fd1ee"),
+                            NutritionId = new Guid("9a61fde3-9255-4ec1-98e6-e625ab5e28e6"),
                             Calcium = 10f,
                             Calories = 18f,
                             Carbs = 3.9f,
@@ -9449,7 +9229,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("193eef52-322d-4558-9258-7207b5988d92"),
+                            NutritionId = new Guid("744cde8f-ce5a-4271-b411-f511210920d4"),
                             Calcium = 30f,
                             Calories = 420f,
                             Carbs = 60f,
@@ -9475,7 +9255,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3c7dda77-04ae-4769-a163-59a4075041c0"),
+                            NutritionId = new Guid("1928d2bb-943b-4578-a906-19ad57e6f989"),
                             Calcium = 7f,
                             Calories = 30f,
                             Carbs = 7.6f,
@@ -9501,7 +9281,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("922f30b6-9d43-4035-9635-04135a3e3610"),
+                            NutritionId = new Guid("1ac13d88-be56-4913-807a-5ff3b22c4a73"),
                             Calcium = 40f,
                             Calories = 249f,
                             Carbs = 1.5f,
@@ -9527,7 +9307,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bfa81020-4cd1-4a24-a825-d7162532cf59"),
+                            NutritionId = new Guid("b1ccda96-066a-4cbb-82e9-3ea89564e2e0"),
                             Calcium = 10f,
                             Calories = 110f,
                             Carbs = 23f,
@@ -9553,7 +9333,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("72fc6044-d75d-48ac-b30d-1b10549d7646"),
+                            NutritionId = new Guid("81104331-f47b-48f7-8f20-d7f06d0e8f35"),
                             Calcium = 20f,
                             Calories = 296f,
                             Carbs = 1.7f,
@@ -9579,7 +9359,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("40d9e31e-dc93-4b5c-8367-33a67fb1441c"),
+                            NutritionId = new Guid("a9cd664b-dcab-4d66-ab08-29d988cb844b"),
                             Calcium = 11f,
                             Calories = 165f,
                             Carbs = 0f,
@@ -9605,7 +9385,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8344b7ce-5245-4749-adab-0ee0537e3d9f"),
+                            NutritionId = new Guid("0dfc6b16-d134-42ab-a8c8-2671b53e2e6d"),
                             Calcium = 2f,
                             Calories = 96f,
                             Carbs = 21f,
@@ -9631,7 +9411,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("462b1080-3347-4b20-aa18-46d3dd01b71d"),
+                            NutritionId = new Guid("0edb584f-830a-423e-b6d1-16cc9b4b2dc5"),
                             Calcium = 110f,
                             Calories = 59f,
                             Carbs = 4.7f,
@@ -9657,7 +9437,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9b16c064-1884-40a7-a2aa-d260d927a614"),
+                            NutritionId = new Guid("6c954230-4dc8-4c80-8939-f7c1f0d7d9e6"),
                             Calcium = 201f,
                             Calories = 76f,
                             Carbs = 1.9f,
@@ -9683,7 +9463,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("063b991a-d697-4426-be79-a347a5dc8ba0"),
+                            NutritionId = new Guid("a4ddcac2-7870-40ef-9ceb-372bc215d598"),
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 30f,
@@ -9709,7 +9489,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("dfb35b53-6248-4bd0-a291-6c8d82988253"),
+                            NutritionId = new Guid("3644d0f0-3d39-4c55-abd5-13409865caca"),
                             Calcium = 11f,
                             Calories = 45f,
                             Carbs = 10.4f,
@@ -9735,7 +9515,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c24d4b1f-2477-40a7-b9f8-eb4424dc0bec"),
+                            NutritionId = new Guid("fc5d2054-bea2-4866-9c8e-0d7f07f8c3c2"),
                             Calcium = 33f,
                             Calories = 41f,
                             Carbs = 9.6f,
@@ -9761,7 +9541,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f30d25dc-e0eb-43e9-b426-0ffe790a536b"),
+                            NutritionId = new Guid("c27c091c-c70f-4659-9169-eee49f0e75e0"),
                             Calcium = 30f,
                             Calories = 150f,
                             Carbs = 18f,
@@ -9787,7 +9567,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f1830eac-ecab-4195-b67f-99b27111263e"),
+                            NutritionId = new Guid("9beed9e1-195a-46b8-baaf-572c88349d36"),
                             Calcium = 22f,
                             Calories = 265f,
                             Carbs = 49f,
@@ -9813,7 +9593,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8b8aa47f-3ea0-4a76-a662-38e54405b13b"),
+                            NutritionId = new Guid("d6e9e9e0-54b8-4fb3-b141-4557edea1497"),
                             Calcium = 24f,
                             Calories = 19f,
                             Carbs = 3.7f,
@@ -9839,7 +9619,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7a7d87b1-1984-4e20-8551-b07cff980bf6"),
+                            NutritionId = new Guid("89bc58d2-dfdd-49ce-95c2-f9a27c1e8b79"),
                             Calcium = 11f,
                             Calories = 60f,
                             Carbs = 15f,
@@ -9865,7 +9645,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("55c52463-5318-47e7-9633-1cc981d80824"),
+                            NutritionId = new Guid("44076ca2-e381-44c6-90fa-eda6b598306b"),
                             Calcium = 77f,
                             Calories = 35f,
                             Carbs = 5.4f,
@@ -9891,7 +9671,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("47325b17-a1b2-4649-a700-8187d751b2d3"),
+                            NutritionId = new Guid("4c439e1c-1644-42fd-83bf-0c58bb3ccbbd"),
                             Calcium = 40f,
                             Calories = 410f,
                             Carbs = 50f,
@@ -9917,7 +9697,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f370440a-32c7-4189-98fa-96409c690702"),
+                            NutritionId = new Guid("0f972167-f3b1-415d-bbff-5f85821d0e6e"),
                             Calcium = 120f,
                             Calories = 120f,
                             Carbs = 18f,
@@ -9943,7 +9723,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4cd92d0b-7711-40a9-bfee-dbc930ff3c99"),
+                            NutritionId = new Guid("ab40c55c-682e-428b-8f93-93b64931cdf7"),
                             Calcium = 40f,
                             Calories = 300f,
                             Carbs = 50f,
@@ -9969,7 +9749,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0c53a7bf-3114-424c-81d5-e0bdba750043"),
+                            NutritionId = new Guid("e89778b1-022e-4729-8d74-d3820602e7c1"),
                             Calcium = 40f,
                             Calories = 350f,
                             Carbs = 55f,
@@ -9995,7 +9775,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("53e58207-ad39-4b56-9660-8c7c567a4ced"),
+                            NutritionId = new Guid("f79b1845-7d40-4fb3-8510-815d3f687c28"),
                             Calcium = 2f,
                             Calories = 2f,
                             Carbs = 0f,
@@ -10021,7 +9801,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("910b7c70-086f-41a8-9bd0-62c490a0d21e"),
+                            NutritionId = new Guid("0735e9a1-5fb5-45c0-bfb0-fc655d8ee744"),
                             Calcium = 60f,
                             Calories = 90f,
                             Carbs = 10f,
@@ -10047,7 +9827,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("759029fc-22a7-4d36-ba06-8a6a8d7fcd04"),
+                            NutritionId = new Guid("d82965ef-ef37-4f30-8a2c-eef1da3578f6"),
                             Calcium = 25f,
                             Calories = 54f,
                             Carbs = 6.3f,
@@ -10073,7 +9853,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5f512f36-85de-47c3-9228-4954db822bd2"),
+                            NutritionId = new Guid("a207081b-3431-4b12-a104-f88b3702bb2b"),
                             Calcium = 30f,
                             Calories = 300f,
                             Carbs = 3f,
@@ -10099,7 +9879,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8ce45d23-e191-4c53-aa8b-6e4915f811d4"),
+                            NutritionId = new Guid("792636c8-40d6-4d2c-bbad-584252d0b4e3"),
                             Calcium = 50f,
                             Calories = 400f,
                             Carbs = 60f,
@@ -10125,7 +9905,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a82df456-1498-4b76-b74e-3bc0a17f20ba"),
+                            NutritionId = new Guid("8880a387-9ffe-496f-afe0-10d01072f698"),
                             Calcium = 105f,
                             Calories = 13f,
                             Carbs = 2.2f,
@@ -10151,7 +9931,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("91d96573-897e-46e8-a8d0-8a21b5747af9"),
+                            NutritionId = new Guid("fbc7a41d-efe7-4320-b4f8-e81f4f622f47"),
                             Calcium = 15f,
                             Calories = 350f,
                             Carbs = 70f,
@@ -10177,7 +9957,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("3663a916-f0f7-42a3-b406-0db58799d3d3"),
+                            NutritionId = new Guid("a4bbe6bf-ea74-4d65-90a7-7c4b5ee9e5f2"),
                             Calcium = 40f,
                             Calories = 450f,
                             Carbs = 50f,
@@ -10203,7 +9983,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e338ffca-8a80-4c82-bbfb-f5402fd8173e"),
+                            NutritionId = new Guid("fe2c1e50-39e2-41e3-b396-2e3351fcd25e"),
                             Calcium = 35f,
                             Calories = 420f,
                             Carbs = 50f,
@@ -10229,7 +10009,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("01e6ab2b-6dc6-4b01-9940-0dfca29f24d1"),
+                            NutritionId = new Guid("02bd2d2a-d9de-49b9-9d44-7e3afbcc5eab"),
                             Calcium = 3f,
                             Calories = 11f,
                             Carbs = 3.3f,
@@ -10255,7 +10035,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8defa016-ffd9-4083-979d-15a8545a5625"),
+                            NutritionId = new Guid("9439eac9-4b53-499a-a430-7b48b2f1eecf"),
                             Calcium = 30f,
                             Calories = 400f,
                             Carbs = 45f,
@@ -10281,7 +10061,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c9f11c53-7776-4a56-b7d2-462329baf4c5"),
+                            NutritionId = new Guid("41425946-922d-4933-a346-60e41d3c7ee7"),
                             Calcium = 37f,
                             Calories = 53f,
                             Carbs = 13.3f,
@@ -10307,7 +10087,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5c9d07b3-60bd-41b4-8f42-dc1990270ec6"),
+                            NutritionId = new Guid("7650cb38-075a-4986-a7da-f2c19b15f27b"),
                             Calcium = 110f,
                             Calories = 64f,
                             Carbs = 9.4f,
@@ -10333,7 +10113,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c59e487f-306f-437e-9c07-2da81eff590c"),
+                            NutritionId = new Guid("cfec1a51-176e-4db8-a3b9-aeccb2b86d05"),
                             Calcium = 30f,
                             Calories = 300f,
                             Carbs = 40f,
@@ -10359,7 +10139,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("542c03fa-d4d3-4594-b2ab-6f6426f97e1f"),
+                            NutritionId = new Guid("7db581bc-a972-42ba-a8fc-67838e238d0a"),
                             Calcium = 10f,
                             Calories = 20f,
                             Carbs = 4.6f,
@@ -10385,7 +10165,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e305737a-77e6-4747-be45-028dd9fced12"),
+                            NutritionId = new Guid("50e97fdf-3d32-40db-904c-61547b730073"),
                             Calcium = 3f,
                             Calories = 37f,
                             Carbs = 7.8f,
@@ -10411,7 +10191,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("21a59f14-f84b-4247-a2f5-97d17bfb8492"),
+                            NutritionId = new Guid("046f7710-7a9c-470f-841a-1c5a1da096c4"),
                             Calcium = 129f,
                             Calories = 322f,
                             Carbs = 3.6f,
@@ -10437,7 +10217,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0276be7b-f8fd-4a9c-b0b7-3eb1781c6402"),
+                            NutritionId = new Guid("e1e6119e-e7a1-4f2b-94b3-038705f0f75c"),
                             Calcium = 2f,
                             Calories = 17f,
                             Carbs = 0.2f,
@@ -10463,7 +10243,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0e24570d-67f3-44a6-9a1c-55d7201d01ca"),
+                            NutritionId = new Guid("e532c4b5-e74a-416d-96dc-9cdb1481b652"),
                             Calcium = 20f,
                             Calories = 250f,
                             Carbs = 32f,
@@ -10489,7 +10269,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9b45e05c-d18c-4fce-873b-701b41049203"),
+                            NutritionId = new Guid("2da0f8b4-b470-45d5-a5e1-a860759b2c68"),
                             Calcium = 70f,
                             Calories = 99f,
                             Carbs = 0.2f,
@@ -10515,7 +10295,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("19da1693-74ef-4834-b1a7-9a71f7c2235d"),
+                            NutritionId = new Guid("5a28e10b-beb8-44e0-becc-b4262a3b9b98"),
                             Calcium = 81f,
                             Calories = 33f,
                             Carbs = 7f,
@@ -10541,7 +10321,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("409503ed-3d5f-4263-9d9c-e173f61d80c4"),
+                            NutritionId = new Guid("560a9d61-853a-4213-b290-edd66e7a5d2e"),
                             Calcium = 80f,
                             Calories = 380f,
                             Carbs = 50f,
@@ -10567,7 +10347,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1cdb5fb6-37b4-4a77-963d-51fed40f64da"),
+                            NutritionId = new Guid("b31ad05d-074d-43e2-86f1-071d4af232ab"),
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 30f,
@@ -10593,7 +10373,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0936943b-6f43-4f81-966c-21ff8aab8206"),
+                            NutritionId = new Guid("4e1b877e-ccbf-4325-957f-341a7be3a784"),
                             Calcium = 50f,
                             Calories = 400f,
                             Carbs = 55f,
@@ -10619,7 +10399,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d09c1cf2-7e54-41aa-b58c-d13536064336"),
+                            NutritionId = new Guid("b467b299-76d7-4e1d-9010-93f6b0d4618f"),
                             Calcium = 40f,
                             Calories = 25f,
                             Carbs = 5.8f,
@@ -10645,7 +10425,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c1818803-edac-4b4b-bb70-cc8cac1c38b6"),
+                            NutritionId = new Guid("2b94ef7a-ca86-4e52-a170-d4ce9bb132be"),
                             Calcium = 11f,
                             Calories = 337f,
                             Carbs = 0f,
@@ -10671,7 +10451,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d38a7c84-034e-4ecc-a44b-805857e26d4d"),
+                            NutritionId = new Guid("656d3dc5-75ec-4138-b9c8-bf91d90d12a7"),
                             Calcium = 12f,
                             Calories = 239f,
                             Carbs = 0f,
@@ -10697,7 +10477,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cc18f397-54c4-49f3-bfb9-75781d090232"),
+                            NutritionId = new Guid("bea955ee-6035-4f24-8b85-5eb1d732ebb5"),
                             Calcium = 30f,
                             Calories = 300f,
                             Carbs = 2f,
@@ -10723,7 +10503,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("76588c50-74e4-446c-814f-48162a10118b"),
+                            NutritionId = new Guid("69f07f8d-8dd4-46c3-b5fd-720d96d9d940"),
                             Calcium = 10f,
                             Calories = 290f,
                             Carbs = 0f,
@@ -10749,7 +10529,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5d41475f-4ef4-4ae7-bd55-710173eb7022"),
+                            NutritionId = new Guid("9b90d667-736a-4b1d-8ae1-fb596a9a7d00"),
                             Calcium = 8f,
                             Calories = 250f,
                             Carbs = 0f,
@@ -10775,7 +10555,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("2771ba91-5d21-46da-a9ea-a6e66a64e400"),
+                            NutritionId = new Guid("990b6c17-2774-4a12-8361-a1140b0a19d9"),
                             Calcium = 20f,
                             Calories = 220f,
                             Carbs = 28f,
@@ -10801,7 +10581,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0afc46ea-bbed-4c4e-9bc0-63ca78832f4f"),
+                            NutritionId = new Guid("aa16f6e0-c58c-4d3b-a680-0c31632b061c"),
                             Calcium = 20f,
                             Calories = 200f,
                             Carbs = 25f,
@@ -10827,7 +10607,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9637a6d0-3b0b-450f-a09c-282fc7776f87"),
+                            NutritionId = new Guid("1cca1eab-6815-4d32-a8f7-c1be0bc5acb3"),
                             Calcium = 10f,
                             Calories = 160f,
                             Carbs = 30f,
@@ -10853,7 +10633,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c26a2419-69ef-433f-a38f-532f3021b976"),
+                            NutritionId = new Guid("7b2d0e28-3d5f-4aeb-bc3f-6ec6a5ce7790"),
                             Calcium = 20f,
                             Calories = 230f,
                             Carbs = 40f,
@@ -10879,7 +10659,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("eb688c77-6d59-4fe1-9fc1-941b8fefd49d"),
+                            NutritionId = new Guid("b742c6bc-a201-4dd7-96f5-56eecc2c964d"),
                             Calcium = 9f,
                             Calories = 206f,
                             Carbs = 0f,
@@ -10905,7 +10685,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9f705fea-2f60-4943-8aea-0c277b9487ab"),
+                            NutritionId = new Guid("f3f461ee-720b-40d7-8280-134575c55fe9"),
                             Calcium = 30f,
                             Calories = 86f,
                             Carbs = 20.1f,
@@ -10931,7 +10711,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("41efc493-400b-48cc-98c6-99930328b6fd"),
+                            NutritionId = new Guid("f357bc7a-db67-45dd-a138-3ac19298d7c4"),
                             Calcium = 11f,
                             Calories = 77f,
                             Carbs = 17f,
@@ -10957,7 +10737,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c858ee8d-82d5-42c2-aa99-7f5bb9890956"),
+                            NutritionId = new Guid("ee3c00d4-78b1-4778-8be5-292eb237e945"),
                             Calcium = 23f,
                             Calories = 40f,
                             Carbs = 9.3f,
@@ -10983,7 +10763,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c8d7b936-5af9-45cb-81c3-2b3cd0207170"),
+                            NutritionId = new Guid("a37dc2fc-4287-4389-9702-5f7bafaf0cc3"),
                             Calcium = 18f,
                             Calories = 14f,
                             Carbs = 3.4f,
@@ -11009,7 +10789,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6bfc4e79-4df1-4f8f-9b88-96b3d0e154c4"),
+                            NutritionId = new Guid("d7a51709-0f3d-4b38-b0bf-02d1a3613d74"),
                             Calcium = 21f,
                             Calories = 92f,
                             Carbs = 3.1f,
@@ -11035,7 +10815,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a6325606-fd32-49b6-8380-dd6ba1824ae6"),
+                            NutritionId = new Guid("dad4ea1d-8e20-4b11-a43d-0acdccbedd48"),
                             Calcium = 37f,
                             Calories = 31f,
                             Carbs = 7.1f,
@@ -11061,7 +10841,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("dd522a5d-bde1-498d-b3a4-21161c18c0e7"),
+                            NutritionId = new Guid("a6981a53-c30e-4f0c-8506-29d44dfccf18"),
                             Calcium = 10f,
                             Calories = 150f,
                             Carbs = 30f,
@@ -11087,7 +10867,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e31148b9-a0ca-45f6-9fa8-d39e2fd99316"),
+                            NutritionId = new Guid("3116f4d2-353f-45a9-860f-8f4ac5061f5c"),
                             Calcium = 20f,
                             Calories = 200f,
                             Carbs = 35f,
@@ -11113,7 +10893,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("24345387-9727-4b42-a96a-ebe42afa8867"),
+                            NutritionId = new Guid("709502ed-505f-4dc4-b60a-5299922859e9"),
                             Calcium = 60f,
                             Calories = 350f,
                             Carbs = 50f,
@@ -11139,7 +10919,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e9082116-65c7-44d6-a5a0-d98a5a7ed9e6"),
+                            NutritionId = new Guid("46158074-2cf6-4226-9894-e72c0c04d85b"),
                             Calcium = 5f,
                             Calories = 66f,
                             Carbs = 16.5f,
@@ -11165,7 +10945,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0f86299e-ce7e-4533-b1bf-2357c6daae55"),
+                            NutritionId = new Guid("8e5d1a94-44c3-43e6-9597-b15d50472134"),
                             Calcium = 500f,
                             Calories = 245f,
                             Carbs = 0f,
@@ -11191,7 +10971,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("66818bd7-669c-4b05-bd82-e4c78e3e078c"),
+                            NutritionId = new Guid("f2ad7818-1cff-42da-a77e-4b144fdc2544"),
                             Calcium = 5f,
                             Calories = 28f,
                             Carbs = 4.8f,
@@ -11217,7 +10997,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("96b82cef-5dd1-48af-9dea-241e749559d1"),
+                            NutritionId = new Guid("ac138407-2bab-4555-9721-ff6f26e16e24"),
                             Calcium = 18f,
                             Calories = 20f,
                             Carbs = 4.3f,
@@ -11243,7 +11023,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("870a765d-a924-4842-99d0-8841cc51d2b8"),
+                            NutritionId = new Guid("7e14448e-ac2d-4bcd-924b-5606a09a927d"),
                             Calcium = 30f,
                             Calories = 260f,
                             Carbs = 42f,
@@ -11269,7 +11049,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("641a9b82-1c9d-4f69-9e7e-86da553616de"),
+                            NutritionId = new Guid("13724e67-94b3-4101-ae5b-f7c155c9a905"),
                             Calcium = 10f,
                             Calories = 40f,
                             Carbs = 10f,
@@ -11295,7 +11075,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8cfd68ea-5a1e-47f0-8891-eb0745ee02b4"),
+                            NutritionId = new Guid("ce33e6c5-2dd9-4b6f-8ce7-091ae6dc58e0"),
                             Calcium = 80f,
                             Calories = 55f,
                             Carbs = 2f,
@@ -11321,7 +11101,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b67ad825-f35b-4dec-8246-202298407f71"),
+                            NutritionId = new Guid("5a372024-e589-4fa0-9070-d0f67565451c"),
                             Calcium = 10f,
                             Calories = 100f,
                             Carbs = 3f,
@@ -11347,7 +11127,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f0dbacab-c910-4f43-a9ba-7e95bbab08bc"),
+                            NutritionId = new Guid("126f9ff6-71c7-4934-b898-b9636f3c83df"),
                             Calcium = 10f,
                             Calories = 132f,
                             Carbs = 0f,
@@ -11373,7 +11153,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("14640284-4139-4f61-bdd7-3a8d0a253edb"),
+                            NutritionId = new Guid("862051f0-0a96-45a1-8263-f2893a934ee2"),
                             Calcium = 40f,
                             Calories = 450f,
                             Carbs = 50f,
@@ -11399,7 +11179,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("810effc0-e2b1-43fc-8a2e-dc9dcf82a897"),
+                            NutritionId = new Guid("902eeaaf-9aac-471c-92b6-2f6256032b81"),
                             Calcium = 30f,
                             Calories = 86f,
                             Carbs = 20.1f,
@@ -11425,7 +11205,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("76365d7a-9bfb-4d6e-b180-d90ac3e7bdc8"),
+                            NutritionId = new Guid("02f4ed21-39ad-40be-b128-175c28c6efc4"),
                             Calcium = 20f,
                             Calories = 59f,
                             Carbs = 15f,
@@ -11451,7 +11231,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("2a5bf21c-3ad0-4356-a463-5fb10a06e0fc"),
+                            NutritionId = new Guid("38b829c8-0e05-44a9-a9ca-0107f17363a6"),
                             Calcium = 30f,
                             Calories = 120f,
                             Carbs = 25f,
@@ -11477,7 +11257,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("feaf8452-06a5-4279-9e9e-70816788d120"),
+                            NutritionId = new Guid("1feaa9df-cbd9-4a06-b43c-1e86ac19001a"),
                             Calcium = 40f,
                             Calories = 140f,
                             Carbs = 25f,
@@ -11503,7 +11283,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("12f57b8e-7e6f-4d58-ac8b-10488d561cc8"),
+                            NutritionId = new Guid("86257818-dfa1-47ae-b0e1-cda8940a0a30"),
                             Calcium = 40f,
                             Calories = 15f,
                             Carbs = 2.4f,
@@ -11529,7 +11309,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8a05849c-1da7-4a8f-92e5-9c352cd7bde5"),
+                            NutritionId = new Guid("3408f1a6-ebd7-4eff-8caf-d9ada93be4ae"),
                             Calcium = 13f,
                             Calories = 165f,
                             Carbs = 0f,
@@ -11555,7 +11335,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b9adcdb8-d0d6-4cd9-9c47-9857560b33e2"),
+                            NutritionId = new Guid("4a79d0c0-7d80-42f2-b5ee-d9e1e2cdcd3d"),
                             Calcium = 20f,
                             Calories = 250f,
                             Carbs = 0f,
@@ -11581,7 +11361,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1d521323-aa2a-4961-b61c-a1e8d6c811dc"),
+                            NutritionId = new Guid("f62c1e68-6d91-4c81-87a2-ea04a30d7416"),
                             Calcium = 12f,
                             Calories = 206f,
                             Carbs = 0f,
@@ -11607,7 +11387,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5d379247-f454-412b-a649-4a44335e4a6e"),
+                            NutritionId = new Guid("7fddb76e-40fb-4e44-b423-97964495e8f5"),
                             Calcium = 70f,
                             Calories = 99f,
                             Carbs = 0.2f,
@@ -11633,7 +11413,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e8e5ef2c-e9f8-46ca-ad3b-f9508210a362"),
+                            NutritionId = new Guid("f97ebf2a-4520-4f7a-a794-2ae9043c2348"),
                             Calcium = 7f,
                             Calories = 242f,
                             Carbs = 0f,
@@ -11659,7 +11439,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e39b4b6f-ec5f-4789-8973-553766788595"),
+                            NutritionId = new Guid("40be2f32-2f6c-41b5-af5b-dbe721c6bc6d"),
                             Calcium = 12f,
                             Calories = 189f,
                             Carbs = 0f,
@@ -11685,7 +11465,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("91e49757-bfc8-4dd8-a666-db9e1d6ecfae"),
+                            NutritionId = new Guid("0188e65c-ad14-4f1b-81c1-1d976d91c6f0"),
                             Calcium = 277f,
                             Calories = 172f,
                             Carbs = 8.4f,
@@ -11711,7 +11491,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("ff2b9273-93c6-4a9f-9646-511485bd5a5c"),
+                            NutritionId = new Guid("a9b51fc0-2bf9-42bf-8f5f-38b91c23240f"),
                             Calcium = 110f,
                             Calories = 59f,
                             Carbs = 3.6f,
@@ -11737,7 +11517,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("127e4188-0874-4f2c-a84d-56a6e42ed3b0"),
+                            NutritionId = new Guid("a0da4d38-ae37-479a-ad3f-55ed8fb2cbb7"),
                             Calcium = 15f,
                             Calories = 190f,
                             Carbs = 0f,
@@ -11763,7 +11543,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("96f3383f-02cb-4858-9946-db9980b97671"),
+                            NutritionId = new Guid("bfc00e95-0c56-41c6-8a81-c26b0432eccd"),
                             Calcium = 11f,
                             Calories = 116f,
                             Carbs = 0f,
@@ -11789,7 +11569,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0fbe57ee-ca3f-4b0e-aacc-35488d9679d2"),
+                            NutritionId = new Guid("b6838ab4-be60-4aac-8750-4b1844e4ca26"),
                             Calcium = 350f,
                             Calories = 145f,
                             Carbs = 5.3f,
@@ -11815,7 +11595,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4339f8bc-ce20-46c4-b409-f8f6f1cd089d"),
+                            NutritionId = new Guid("e7f471ee-6c5e-40d0-87c5-dd2b9c4164e2"),
                             Calcium = 18f,
                             Calories = 271f,
                             Carbs = 0f,
@@ -11841,7 +11621,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("2355ed36-536c-43dc-8199-c8c19769947b"),
+                            NutritionId = new Guid("c3d33437-d114-4fc9-8174-0e78c70025a8"),
                             Calcium = 11f,
                             Calories = 117f,
                             Carbs = 0f,
@@ -11867,7 +11647,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cbd32a94-4ddc-4609-9b65-8aa0fce8e9c7"),
+                            NutritionId = new Guid("cffb6d0e-208d-497d-b55f-3654cc5265a1"),
                             Calcium = 264f,
                             Calories = 576f,
                             Carbs = 22f,
@@ -11893,7 +11673,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c6a21b2b-a419-48b6-afb4-eb4df5f7d664"),
+                            NutritionId = new Guid("a44d9b75-8813-4ace-9192-af607b70945e"),
                             Calcium = 357f,
                             Calories = 145f,
                             Carbs = 4f,
@@ -11919,7 +11699,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("96bbf245-f946-4281-8eda-2aa2f6351d81"),
+                            NutritionId = new Guid("ef634193-510f-45bd-ba71-4db8e3e0dbff"),
                             Calcium = 15f,
                             Calories = 417f,
                             Carbs = 1.4f,
@@ -11945,7 +11725,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8614ee77-55f2-4dbf-a774-4f6b74749cd8"),
+                            NutritionId = new Guid("ad0c5de9-6f66-4869-81a0-dcb9026d0ac4"),
                             Calcium = 46f,
                             Calories = 559f,
                             Carbs = 14f,
@@ -11971,7 +11751,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("49da553e-d2c2-484d-9399-0e38f862a361"),
+                            NutritionId = new Guid("58f72d75-e308-4a98-9107-1870bc1412ce"),
                             Calcium = 25f,
                             Calories = 81f,
                             Carbs = 14f,
@@ -11997,7 +11777,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("22cc6907-f878-41e2-9739-288b88233672"),
+                            NutritionId = new Guid("ba1265f3-200c-412f-bfd7-c67bf88e4309"),
                             Calcium = 120f,
                             Calories = 42f,
                             Carbs = 5f,
@@ -12023,7 +11803,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("37182737-415c-49e9-8c07-ed68dd4dac83"),
+                            NutritionId = new Guid("64e7571a-82a7-4aaf-97be-1a1c1f41691a"),
                             Calcium = 15f,
                             Calories = 239f,
                             Carbs = 0f,
@@ -12049,7 +11829,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7948dd64-72c8-4577-82a6-3fffe845a7d5"),
+                            NutritionId = new Guid("00893363-3703-4b0a-bb87-676dadaa562c"),
                             Calcium = 54f,
                             Calories = 389f,
                             Carbs = 66.3f,
@@ -12075,7 +11855,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1f9a1744-f314-4e01-8de0-ff5b02fedc12"),
+                            NutritionId = new Guid("62703176-1688-41ab-a7bc-973ce1755699"),
                             Calcium = 99f,
                             Calories = 23f,
                             Carbs = 3.6f,
@@ -12101,7 +11881,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("46b7775e-4bc1-469c-8057-6df2015b8b33"),
+                            NutritionId = new Guid("32466420-5011-4de8-aa0a-5e6e034be8ca"),
                             Calcium = 78f,
                             Calories = 584f,
                             Carbs = 20f,
@@ -12127,7 +11907,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b42dfcad-99f8-4b36-b0a8-4a53ff1c6600"),
+                            NutritionId = new Guid("dc2fd1f9-f95e-4bfd-bb20-2ba48f39463b"),
                             Calcium = 114f,
                             Calories = 19f,
                             Carbs = 3.4f,
@@ -12153,7 +11933,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("79d7b733-9640-4eb5-966c-f887ccd14eab"),
+                            NutritionId = new Guid("e67da98b-e0fc-41c0-a634-5d39390432d6"),
                             Calcium = 9f,
                             Calories = 57f,
                             Carbs = 15.2f,
@@ -12179,7 +11959,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("2274c18a-24d7-4be5-b059-ce0530f9b436"),
+                            NutritionId = new Guid("56f28215-4375-4b9f-963c-108b68d40505"),
                             Calcium = 16f,
                             Calories = 32f,
                             Carbs = 7.7f,
@@ -12205,7 +11985,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0506e896-4a85-4907-acbd-3d2a453dc7fb"),
+                            NutritionId = new Guid("1ecdc605-dad0-491a-b8a7-60cb2f0f6e73"),
                             Calcium = 25f,
                             Calories = 52f,
                             Carbs = 11.9f,
@@ -12231,7 +12011,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0d4f4f8f-64e1-4450-8332-dd20a30a66b4"),
+                            NutritionId = new Guid("3ff2a5b1-e068-412b-844d-db327c83689f"),
                             Calcium = 21f,
                             Calories = 26f,
                             Carbs = 6.5f,
@@ -12257,7 +12037,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("262e7181-78f1-4967-9344-f4c8cfd1d603"),
+                            NutritionId = new Guid("33884d06-a390-42f9-aa51-e7baec790f1a"),
                             Calcium = 43f,
                             Calories = 142f,
                             Carbs = 34.6f,
@@ -12283,7 +12063,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("695b78e8-6fce-463d-b140-5293494d2862"),
+                            NutritionId = new Guid("768c2c13-d247-453b-bb63-41ef7b5c8cc9"),
                             Calcium = 24f,
                             Calories = 20f,
                             Carbs = 3.9f,
@@ -12309,7 +12089,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c294b6ef-4584-44e3-96ba-494e9406446b"),
+                            NutritionId = new Guid("4e3c5322-30f1-489b-8a13-4012d47c8eaf"),
                             Calcium = 45f,
                             Calories = 31f,
                             Carbs = 7.4f,
@@ -12335,7 +12115,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a82760a6-8847-41e8-ab02-bea58a614cc6"),
+                            NutritionId = new Guid("c98ef10d-7c3d-428b-ac29-8b50341317a4"),
                             Calcium = 34f,
                             Calories = 61f,
                             Carbs = 14.7f,
@@ -12361,7 +12141,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f6500926-ab48-4314-ad30-fc01c06e4da6"),
+                            NutritionId = new Guid("a7a9ad6c-3d10-41ea-b30c-e5ef8abce911"),
                             Calcium = 8f,
                             Calories = 378f,
                             Carbs = 72.9f,
@@ -12387,7 +12167,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7d9cbf86-9b8d-4b64-9864-c1afff956f42"),
+                            NutritionId = new Guid("eda89068-dfb4-476d-ba8f-869d22a9ec0c"),
                             Calcium = 16f,
                             Calories = 27f,
                             Carbs = 5.2f,
@@ -12413,7 +12193,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9e029ddb-b9de-4cb1-82e9-959c335564a0"),
+                            NutritionId = new Guid("a2c2523b-845d-457e-a8d1-b56626b513ec"),
                             Calcium = 70f,
                             Calories = 306f,
                             Carbs = 80f,
@@ -12439,7 +12219,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("49364b6c-a547-40b1-a9e7-f6d52e844e3f"),
+                            NutritionId = new Guid("fa7dadba-19a1-4497-9ff3-28e28bc6c31c"),
                             Calcium = 47f,
                             Calories = 34f,
                             Carbs = 6.6f,
@@ -12465,7 +12245,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f99effb4-1474-4058-9ccd-fea3b81302ba"),
+                            NutritionId = new Guid("00db0a7b-65a7-45d8-bdc2-e1e557bac4b6"),
                             Calcium = 10f,
                             Calories = 112f,
                             Carbs = 23.5f,
@@ -12491,7 +12271,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5b4227a8-2d8c-44c8-9c00-4fb9df5466c9"),
+                            NutritionId = new Guid("5efcb35e-b40d-469d-b8cb-755c9bf2e4cc"),
                             Calcium = 10f,
                             Calories = 69f,
                             Carbs = 18.1f,
@@ -12517,7 +12297,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b0a6f1cd-c452-40db-a7dd-b4730e8ba7c8"),
+                            NutritionId = new Guid("2020fd9b-fd90-48b7-b557-cf1c62b1307d"),
                             Calcium = 99f,
                             Calories = 23f,
                             Carbs = 3.6f,
@@ -12543,7 +12323,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("db433982-9cbb-4665-9c96-25eb3b34ea53"),
+                            NutritionId = new Guid("c4414558-6d34-4cfd-83ef-a34d192d80a3"),
                             Calcium = 27f,
                             Calories = 132f,
                             Carbs = 23.7f,
@@ -12569,7 +12349,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bfc2be8d-9b28-4e87-8daa-b0390cca4d46"),
+                            NutritionId = new Guid("aef0eca4-c5bc-409b-8d61-225044377ac9"),
                             Calcium = 16f,
                             Calories = 43f,
                             Carbs = 9.6f,
@@ -12595,7 +12375,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1996ab63-a0e7-4081-93ee-ce65f2665989"),
+                            NutritionId = new Guid("2de95167-56b0-466c-9585-4c87714b880f"),
                             Calcium = 25f,
                             Calories = 81f,
                             Carbs = 14.5f,
@@ -12621,7 +12401,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a14eca16-637f-413e-97d5-e8aa03f3d2aa"),
+                            NutritionId = new Guid("d6967bef-1c3a-48a2-9452-78f637b32985"),
                             Calcium = 33f,
                             Calories = 354f,
                             Carbs = 73.5f,
@@ -12647,7 +12427,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c10cf699-dab0-4a39-8163-86a45b2e7fc8"),
+                            NutritionId = new Guid("9650caf3-9eea-4111-ae7c-cb264dbdc189"),
                             Calcium = 55f,
                             Calories = 22f,
                             Carbs = 3.8f,
@@ -12673,7 +12453,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("81993d91-9a73-4ad3-9203-36369db5836e"),
+                            NutritionId = new Guid("4dadf73a-bca4-4679-a0a2-94b3049586a4"),
                             Calcium = 8f,
                             Calories = 110f,
                             Carbs = 23.4f,
@@ -12699,7 +12479,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6cc54446-5c2e-4408-b49b-35eae92124f7"),
+                            NutritionId = new Guid("59accf19-4597-4a7d-92a4-9ecedb69e057"),
                             Calcium = 99f,
                             Calories = 23f,
                             Carbs = 3.6f,
@@ -12725,7 +12505,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("437fdfbe-18b7-4d72-ae3e-7885e49c55b9"),
+                            NutritionId = new Guid("c5bf4d68-1f19-4d20-bc75-d05818be912d"),
                             Calcium = 27f,
                             Calories = 16f,
                             Carbs = 3.4f,
@@ -12751,7 +12531,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bac8af90-b13e-446f-a5d9-7cd08439b0c6"),
+                            NutritionId = new Guid("1deba976-20c7-460e-a3f6-e936a0c91eab"),
                             Calcium = 39f,
                             Calories = 20f,
                             Carbs = 3.8f,
@@ -12777,7 +12557,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9945c9b6-8e83-44a0-b9f8-f526b6dd8645"),
+                            NutritionId = new Guid("393b66f8-b85a-41b5-bd2f-b62cf520f8af"),
                             Calcium = 107f,
                             Calories = 562f,
                             Carbs = 27.2f,
@@ -12803,7 +12583,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("f4bc7e4c-9aca-4c1f-886a-3ccd05132a37"),
+                            NutritionId = new Guid("be81cc5a-1767-4c95-8d49-c12d7a905e3d"),
                             Calcium = 14f,
                             Calories = 354f,
                             Carbs = 15.2f,
@@ -12829,7 +12609,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d7ff7645-0ff7-445b-9e3e-e5cc0619ee21"),
+                            NutritionId = new Guid("6a0f26c4-3a95-49d6-9c7c-aced24bb726d"),
                             Calcium = 12f,
                             Calories = 189f,
                             Carbs = 0f,
@@ -12855,7 +12635,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7972f9f1-922b-4da8-90dc-cbe8f8569f7d"),
+                            NutritionId = new Guid("3cac56ed-97ff-42b4-88c9-2cda164ec045"),
                             Calcium = 85f,
                             Calories = 718f,
                             Carbs = 13.8f,
@@ -12881,7 +12661,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("312d7149-9208-4eb3-936b-13f8601a96b4"),
+                            NutritionId = new Guid("88fecd2f-a87c-4c88-b764-bdc67a974178"),
                             Calcium = 21f,
                             Calories = 83f,
                             Carbs = 19.9f,
@@ -12907,7 +12687,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("4f2c0baa-abf6-4168-a519-68bb4e7db418"),
+                            NutritionId = new Guid("695fbe28-3a95-4d3c-bb8f-ff61d01cb749"),
                             Calcium = 6f,
                             Calories = 39f,
                             Carbs = 9.5f,
@@ -12933,7 +12713,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e7f405fc-431e-4cfd-a914-76f9a47ae89b"),
+                            NutritionId = new Guid("30776cf0-4e37-46be-aa8e-7831a28a11ac"),
                             Calcium = 10f,
                             Calories = 83f,
                             Carbs = 18.7f,
@@ -12959,7 +12739,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("dcdd3636-9edd-4977-9c1c-a88ef64a70ab"),
+                            NutritionId = new Guid("f0447eba-d00e-4cfd-92ff-dcf598bcbd00"),
                             Calcium = 20f,
                             Calories = 85f,
                             Carbs = 5f,
@@ -12985,7 +12765,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("003b542c-7494-4fa6-96bf-c05294af7c3a"),
+                            NutritionId = new Guid("d46f643a-f5d3-4856-b85f-2db4a8d3ecb9"),
                             Calcium = 20f,
                             Calories = 35f,
                             Carbs = 8f,
@@ -13011,7 +12791,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("02d3e80d-d0cc-431d-99bb-cb593e24d1b9"),
+                            NutritionId = new Guid("bcb4677d-fc8e-4335-a918-08cf012d4080"),
                             Calcium = 30f,
                             Calories = 40f,
                             Carbs = 9f,
@@ -13037,7 +12817,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("544a6724-aed4-4e3e-bf2f-1de3f98edfdd"),
+                            NutritionId = new Guid("ca64c4d1-34a0-47bb-8063-784d5101960a"),
                             Calcium = 20f,
                             Calories = 15f,
                             Carbs = 3.5f,
@@ -13063,7 +12843,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("239fed80-97c8-4722-bbf3-1f8d223252db"),
+                            NutritionId = new Guid("a84eb0a9-7862-46e6-bdb3-0a121b4a1d93"),
                             Calcium = 40f,
                             Calories = 70f,
                             Carbs = 6f,
@@ -13089,7 +12869,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("00841b99-120d-44da-a1a1-218c0ecaac96"),
+                            NutritionId = new Guid("e7468d98-fa3b-426b-afab-94cf184db216"),
                             Calcium = 15f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -13115,7 +12895,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7e96695c-95f9-4582-910c-14b0220fd56c"),
+                            NutritionId = new Guid("7ebf0b56-fc78-4e8f-80c4-f000092f768d"),
                             Calcium = 10f,
                             Calories = 90f,
                             Carbs = 15f,
@@ -13141,7 +12921,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1be0a519-5a67-4afb-b5ee-bf77b6fa3986"),
+                            NutritionId = new Guid("7b5f68ea-db7c-487d-b201-ab3e6e67d4ca"),
                             Calcium = 15f,
                             Calories = 120f,
                             Carbs = 15f,
@@ -13167,7 +12947,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("67acabfb-7e7a-4e5d-b271-77aea397e67d"),
+                            NutritionId = new Guid("26724656-7085-4af3-a558-e7a09e35dac4"),
                             Calcium = 15f,
                             Calories = 110f,
                             Carbs = 14f,
@@ -13193,7 +12973,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("2abbe5cc-1c9c-4bf5-802e-d6e1e840d6b4"),
+                            NutritionId = new Guid("49407d20-a740-4a4f-ab91-fed34e13f24b"),
                             Calcium = 30f,
                             Calories = 120f,
                             Carbs = 18f,
@@ -13219,7 +12999,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("9e2e18a9-4dda-47f0-8296-b90bb77a50f5"),
+                            NutritionId = new Guid("404848bc-dc38-41de-bff9-1356629a0207"),
                             Calcium = 25f,
                             Calories = 105f,
                             Carbs = 15f,
@@ -13245,7 +13025,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c9c66db9-4a12-41e3-a687-0ed3ce64bf73"),
+                            NutritionId = new Guid("a63fca3c-b443-4fbf-94a4-1b8b67115463"),
                             Calcium = 30f,
                             Calories = 110f,
                             Carbs = 15f,
@@ -13271,7 +13051,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("eb8468ee-e14f-4b4c-b36f-299e004617cb"),
+                            NutritionId = new Guid("492d32c5-16ad-4777-b2f0-d282caa517fa"),
                             Calcium = 30f,
                             Calories = 95f,
                             Carbs = 15f,
@@ -13297,7 +13077,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("1565e11c-acc6-49e6-a45e-23a94982a678"),
+                            NutritionId = new Guid("3850f6e3-5f24-4af1-8299-53c4b0bd7a95"),
                             Calcium = 20f,
                             Calories = 120f,
                             Carbs = 16f,
@@ -13323,7 +13103,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e27e5746-8b53-4268-835a-906eea294850"),
+                            NutritionId = new Guid("68ab2d76-e4cd-4b0d-b64f-25040d356411"),
                             Calcium = 40f,
                             Calories = 230f,
                             Carbs = 30f,
@@ -13349,7 +13129,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("652f2d7f-d434-42c4-824e-98978f4e1f53"),
+                            NutritionId = new Guid("aa7d8548-6e02-46fc-bf10-fd9192d8d781"),
                             Calcium = 30f,
                             Calories = 200f,
                             Carbs = 25f,
@@ -13375,7 +13155,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c599aee0-de6f-4f52-be42-a8c6c3cc9c27"),
+                            NutritionId = new Guid("877312fa-a186-4ba9-b690-6ff3a2fc4ecd"),
                             Calcium = 15f,
                             Calories = 90f,
                             Carbs = 14f,
@@ -13401,7 +13181,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d12c0563-60c2-4781-9132-f692cd4a0742"),
+                            NutritionId = new Guid("34f72b62-2ae9-4ed8-ae26-6063b273083c"),
                             Calcium = 30f,
                             Calories = 40f,
                             Carbs = 8f,
@@ -13427,7 +13207,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("27c43965-68f7-40c5-b98b-9a9f47c99897"),
+                            NutritionId = new Guid("6fa28ad8-1ae4-48c1-905d-b6a4aed6ef45"),
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 8f,
@@ -13453,7 +13233,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("2d20629e-c80b-4947-a382-3af9e82664fb"),
+                            NutritionId = new Guid("4fd87ff6-8471-4cc3-a7ec-2499ecb2c850"),
                             Calcium = 15f,
                             Calories = 70f,
                             Carbs = 6f,
@@ -13479,7 +13259,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bf8ba46b-6ec3-44da-ade2-7d69e2facdbf"),
+                            NutritionId = new Guid("b76465f1-bd05-4957-a025-1306f26dafa7"),
                             Calcium = 30f,
                             Calories = 90f,
                             Carbs = 6f,
@@ -13505,7 +13285,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("13ed1b21-a0f8-453c-a882-518dd9100ed0"),
+                            NutritionId = new Guid("f9c0b502-bf60-4f54-9aee-e556e07215c9"),
                             Calcium = 50f,
                             Calories = 60f,
                             Carbs = 8f,
@@ -13531,7 +13311,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5f8f40f3-5187-469e-b0aa-b4d693d0b20d"),
+                            NutritionId = new Guid("7f4b7321-1189-4197-a7b2-89b53516fbd0"),
                             Calcium = 40f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -13557,7 +13337,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("76c626f5-1f3e-491c-90d3-5656dd7be198"),
+                            NutritionId = new Guid("4950de62-22b3-4fd2-a4df-2a2fe97c73dd"),
                             Calcium = 20f,
                             Calories = 250f,
                             Carbs = 30f,
@@ -13583,7 +13363,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("c049cccd-5e80-4025-bcc6-34111bb90935"),
+                            NutritionId = new Guid("77fcd278-2aaa-478e-b034-e1bdd8c5ed1f"),
                             Calcium = 40f,
                             Calories = 40f,
                             Carbs = 8f,
@@ -13609,7 +13389,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("bf1f9c11-2385-4660-8f70-53420cb9d4a9"),
+                            NutritionId = new Guid("f98797bd-07a9-4dc7-8aa5-cf231589b9ad"),
                             Calcium = 40f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -13635,7 +13415,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("84b53fc0-0c66-4272-af1a-62aa3bf3ea87"),
+                            NutritionId = new Guid("0429c133-784e-4be4-8016-d77fefa12a36"),
                             Calcium = 25f,
                             Calories = 70f,
                             Carbs = 6f,
@@ -13661,7 +13441,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("78c3a459-acce-428f-a062-91b7449af895"),
+                            NutritionId = new Guid("5666d8ed-3207-44a2-b011-f6a41d7be230"),
                             Calcium = 40f,
                             Calories = 280f,
                             Carbs = 30f,
@@ -13687,7 +13467,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7af46dc7-104c-48c7-8785-e484ac2fe217"),
+                            NutritionId = new Guid("33a31f6a-666e-4068-b04f-d885a5569440"),
                             Calcium = 30f,
                             Calories = 220f,
                             Carbs = 12f,
@@ -13713,7 +13493,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("948c85e0-04d1-42a7-b3d9-b08de3577a2a"),
+                            NutritionId = new Guid("fe9bdd7b-55f7-4405-9638-e897e2fd258d"),
                             Calcium = 50f,
                             Calories = 40f,
                             Carbs = 7f,
@@ -13739,7 +13519,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d7b9dad6-006c-47d3-b6bf-37e1c929a267"),
+                            NutritionId = new Guid("afd0820c-a618-445a-910d-3c907252fd88"),
                             Calcium = 40f,
                             Calories = 30f,
                             Carbs = 6f,
@@ -13765,7 +13545,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("68a568db-96b3-4e72-8b6e-305e177bb4a3"),
+                            NutritionId = new Guid("cb38eb0b-cf41-48e8-b7ae-76ba9fe06aed"),
                             Calcium = 35f,
                             Calories = 28f,
                             Carbs = 6.5f,
@@ -13791,7 +13571,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d6e65e0b-1760-4476-b649-fbab19b2b2f7"),
+                            NutritionId = new Guid("495bca51-82a8-4a83-bd1e-5c0af166a4f1"),
                             Calcium = 15f,
                             Calories = 242f,
                             Carbs = 3.1f,
@@ -13817,7 +13597,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("82aebf26-7bf5-4def-b965-a5e61dcc29f0"),
+                            NutritionId = new Guid("1c6f7ba9-afa1-42ef-b60c-953481d4d2db"),
                             Calcium = 55f,
                             Calories = 35f,
                             Carbs = 7.1f,
@@ -13843,7 +13623,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("484be262-f0b5-4e92-9e9c-a752274df221"),
+                            NutritionId = new Guid("03def40d-2cba-4f1a-89a3-5c97ca88312f"),
                             Calcium = 16f,
                             Calories = 13f,
                             Carbs = 3.1f,
@@ -13869,7 +13649,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("fbbb19b8-fdf4-464d-8207-64d2626444e9"),
+                            NutritionId = new Guid("b5c63506-bded-4711-be91-8a6aedcd1f66"),
                             Calcium = 150f,
                             Calories = 23f,
                             Carbs = 4f,
@@ -13895,7 +13675,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b5db5899-448a-443e-a9a3-ffa1f89d54ab"),
+                            NutritionId = new Guid("b44b7be6-37ee-4321-a38a-3f6bf67d0362"),
                             Calcium = 6f,
                             Calories = 46f,
                             Carbs = 11.4f,
@@ -13921,7 +13701,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6c76de08-3462-49e5-8214-c7be58ed1c3a"),
+                            NutritionId = new Guid("9e04a20e-e0f8-49df-8fc8-b3ebfaa49b9a"),
                             Calcium = 22f,
                             Calories = 68f,
                             Carbs = 16.5f,
@@ -13947,7 +13727,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("abedd118-3bbf-45cd-99d6-7dcc37471f09"),
+                            NutritionId = new Guid("ee4feca8-34b5-4558-b817-7725efcdfc86"),
                             Calcium = 130f,
                             Calories = 23f,
                             Carbs = 4.1f,
@@ -13973,7 +13753,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("d41cf43b-a19d-46af-92e3-a0249a21cf08"),
+                            NutritionId = new Guid("10f2faba-7308-42b0-8d20-fdbbe2ef3e69"),
                             Calcium = 15f,
                             Calories = 165f,
                             Carbs = 1.1f,
@@ -13999,7 +13779,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0557e394-ee71-425a-9162-26b29e7589fe"),
+                            NutritionId = new Guid("5e1fb9de-c630-49cf-9012-da2c6b72834d"),
                             Calcium = 40f,
                             Calories = 25f,
                             Carbs = 5.8f,
@@ -14025,7 +13805,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("2e721775-c417-4014-a3e0-b69f53bc7184"),
+                            NutritionId = new Guid("1e0c75d7-f7bc-45ed-9577-03b7c804cc81"),
                             Calcium = 35f,
                             Calories = 22f,
                             Carbs = 4.4f,
@@ -14051,7 +13831,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7716b3e5-0240-4a23-b914-940007da5e79"),
+                            NutritionId = new Guid("b1e4e7cb-a023-4349-833e-b15d3f5bcae6"),
                             Calcium = 40f,
                             Calories = 23f,
                             Carbs = 4.1f,
@@ -14077,7 +13857,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8ff40c44-3050-4971-8686-c71754ab180e"),
+                            NutritionId = new Guid("5fb97d66-5008-4c45-b75b-3935c0ff093d"),
                             Calcium = 20f,
                             Calories = 150f,
                             Carbs = 22.5f,
@@ -14103,7 +13883,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("62146eec-7f54-4322-a998-b8ea8eff4a53"),
+                            NutritionId = new Guid("cc1537c8-4715-42af-b5e9-c66438b00785"),
                             Calcium = 20f,
                             Calories = 16f,
                             Carbs = 3.7f,
@@ -14129,7 +13909,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("19498b8f-6aa4-4242-99e2-39288a400f82"),
+                            NutritionId = new Guid("323892c8-47c6-4aa3-95bb-2e59248a2e00"),
                             Calcium = 130f,
                             Calories = 23f,
                             Carbs = 4.1f,
@@ -14155,7 +13935,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("a1faf492-eae3-4f75-9041-a6dbfa65e331"),
+                            NutritionId = new Guid("55cabab3-fb43-4470-a3f6-f70af808e728"),
                             Calcium = 25f,
                             Calories = 150f,
                             Carbs = 2f,
@@ -14181,7 +13961,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("6bc5811a-9c57-4a1f-b752-7a95bcf02a11"),
+                            NutritionId = new Guid("35664160-444d-4648-bdae-7eb4327af6b3"),
                             Calcium = 50f,
                             Calories = 250f,
                             Carbs = 30f,
@@ -14207,7 +13987,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("faa65aa0-7a27-4158-885c-120ab1aa8c2b"),
+                            NutritionId = new Guid("fc5245f3-4579-457d-94ab-2e21e35f81e3"),
                             Calcium = 40f,
                             Calories = 190f,
                             Carbs = 28f,
@@ -14233,7 +14013,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("67d9f8ff-ae43-4ab5-a92b-899729106e4d"),
+                            NutritionId = new Guid("2c257989-7e82-4288-abda-6e886a4d3a74"),
                             Calcium = 20f,
                             Calories = 170f,
                             Carbs = 23f,
@@ -14259,7 +14039,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("5bbd959e-2ec6-4dcb-96b2-855d91d549fa"),
+                            NutritionId = new Guid("539c061c-d895-4739-8b4e-f3fbfd257285"),
                             Calcium = 40f,
                             Calories = 110f,
                             Carbs = 20f,
@@ -14285,7 +14065,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("cf8b415b-f5b8-4432-a2df-09d859115dd5"),
+                            NutritionId = new Guid("a051c810-3b8a-4159-8625-10cbd46377d0"),
                             Calcium = 40f,
                             Calories = 200f,
                             Carbs = 30f,
@@ -14311,7 +14091,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8958ed6b-b796-40fd-b677-233d459a1d91"),
+                            NutritionId = new Guid("067ec5a4-0b31-43ba-a7dc-473fa09f85b5"),
                             Calcium = 15f,
                             Calories = 80f,
                             Carbs = 17f,
@@ -14337,7 +14117,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b6da8122-90ac-41b1-921d-0bef469e80db"),
+                            NutritionId = new Guid("61a2c7c0-01a4-41a5-9787-cbc01b1bc7be"),
                             Calcium = 30f,
                             Calories = 130f,
                             Carbs = 18f,
@@ -14363,7 +14143,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("215bef66-d1b8-4ea8-ac50-2f7b87e310eb"),
+                            NutritionId = new Guid("ea1d511b-2986-4c3d-bf6f-9561cdb9fad5"),
                             Calcium = 30f,
                             Calories = 180f,
                             Carbs = 10f,
@@ -14389,7 +14169,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("67c880cb-3ee1-48e8-9e25-8841bcd7d209"),
+                            NutritionId = new Guid("cf204998-f3d2-49c6-8012-36a5f7bab92b"),
                             Calcium = 30f,
                             Calories = 150f,
                             Carbs = 18f,
@@ -14415,7 +14195,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("b4d288a1-46e8-4204-a11b-239ad4c0acfa"),
+                            NutritionId = new Guid("a5eaa7ab-1971-4c33-9062-9e1b59938a1c"),
                             Calcium = 15f,
                             Calories = 130f,
                             Carbs = 28f,
@@ -14441,7 +14221,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("e3bf5827-e067-46fc-a6e5-67bfefa7891d"),
+                            NutritionId = new Guid("fd4cfe15-de6d-454a-9f0d-ed6fc0164710"),
                             Calcium = 40f,
                             Calories = 50f,
                             Carbs = 8.5f,
@@ -14467,7 +14247,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("07ea6e9f-6e34-4c2b-b7d5-fb545f12028e"),
+                            NutritionId = new Guid("e446956d-8633-4952-8de8-2f1213eac135"),
                             Calcium = 12f,
                             Calories = 73f,
                             Carbs = 18f,
@@ -14493,7 +14273,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("179e3b56-4b95-4e1e-b69a-f55bc3353c96"),
+                            NutritionId = new Guid("16452463-076a-4d5d-88e1-d9ea08b2f8b7"),
                             Calcium = 9f,
                             Calories = 60f,
                             Carbs = 16f,
@@ -14519,7 +14299,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("8a8d9cc8-bf41-4c4a-b81b-acb6ebc5c97d"),
+                            NutritionId = new Guid("b1b43e41-ae52-411d-b54b-06898729ca26"),
                             Calcium = 40f,
                             Calories = 52f,
                             Carbs = 13f,
@@ -14545,7 +14325,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("7cde5193-f6d4-4156-92c5-f8bdf56fcc9b"),
+                            NutritionId = new Guid("6f59f7ba-3570-4707-a48a-791929123696"),
                             Calcium = 20f,
                             Calories = 40f,
                             Carbs = 3f,
@@ -14571,7 +14351,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            NutritionId = new Guid("0fc9d7ab-737e-4aaf-945e-97803caaab0e"),
+                            NutritionId = new Guid("2d855d1f-d2d7-4c43-8d64-dda701ac344f"),
                             Calcium = 30f,
                             Calories = 130f,
                             Carbs = 6f,
@@ -15973,7 +15753,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            SubscriptionId = new Guid("6aeed0ec-82c3-452d-8a06-367bcbae65b9"),
+                            SubscriptionId = new Guid("3323e7cd-6102-424e-abd2-f355598cf65a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DurationDays = 0,
@@ -15988,7 +15768,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            SubscriptionId = new Guid("cec5835e-e175-4640-9f9c-dee13690bdb9"),
+                            SubscriptionId = new Guid("ca3f7f6c-2932-4c3e-bbb6-ea07b9aaf27e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DurationDays = 30,
@@ -16003,7 +15783,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            SubscriptionId = new Guid("d84c571d-2aa5-4613-915b-d2260221b6c6"),
+                            SubscriptionId = new Guid("036858b7-a737-45fc-accb-724d3a4fad63"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             DurationDays = 30,
@@ -17069,7 +16849,7 @@ namespace Monhealth.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            WorkoutExerciseId = new Guid("a75990ae-79eb-4d4b-95f8-e6ec705ada4d"),
+                            WorkoutExerciseId = new Guid("c667d02e-31b8-4215-8f3a-8cf8ead6c7f4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17080,7 +16860,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("663b8aa3-1a0c-4341-a8ca-e43890a2f33f"),
+                            WorkoutExerciseId = new Guid("fa0fae3c-0c25-47d5-977d-5b6ea66a7627"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -17091,7 +16871,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("77a27e77-9a52-482f-9fa4-2178ca019ab2"),
+                            WorkoutExerciseId = new Guid("68b24cf9-1d07-4a59-84e1-c9b15967faad"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -17102,7 +16882,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6bb5c481-b928-4567-a5e6-2985bc0560c4"),
+                            WorkoutExerciseId = new Guid("a0346b81-c716-42c3-9944-1fb5333e9be6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17113,7 +16893,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7e709e59-9afb-456c-8272-da5369a00ad6"),
+                            WorkoutExerciseId = new Guid("4857ed5f-c258-49e3-84cc-4588afe12855"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("3100278d-eee7-4b89-b726-4b76daefabde"),
@@ -17124,7 +16904,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a782be98-0378-4d57-a3f0-00166afd8abc"),
+                            WorkoutExerciseId = new Guid("d7cd82b7-c3be-47e1-be04-ac08957d0e5d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -17135,7 +16915,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4ac7fa36-06fa-4957-97d2-42666fe7c6e5"),
+                            WorkoutExerciseId = new Guid("9b3be529-ffb5-40af-a244-fa30b43ff5f7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
@@ -17146,7 +16926,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ba18687c-ee35-42c2-a65e-97038c50e52f"),
+                            WorkoutExerciseId = new Guid("ccdef841-8b93-473e-90bc-33dc83de7139"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17157,7 +16937,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0ac88b6d-bc91-49dd-924b-125b8e9c8546"),
+                            WorkoutExerciseId = new Guid("241652ef-be35-4cb1-bff8-3f50ff88939d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
@@ -17168,7 +16948,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("10dcdc3b-4e3e-4e6f-bcd6-689106148375"),
+                            WorkoutExerciseId = new Guid("bd4811ee-7b91-48ae-9c92-ff950191e759"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("72206c5e-58f3-46f0-a8b1-031cbf599433"),
@@ -17179,7 +16959,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fd057ff3-1a4f-4cb8-bd2e-c13a8ea69a0d"),
+                            WorkoutExerciseId = new Guid("9dd1f6bc-92fb-43d9-ad47-33ee36a79b98"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17190,7 +16970,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("00d13e45-749d-4326-9a0e-ead7c34209f1"),
+                            WorkoutExerciseId = new Guid("34892492-0aec-4691-83af-84c7e27e38b9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("d0dcad19-4c0c-447d-8e3c-092c6d4ad14c"),
@@ -17201,7 +16981,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2611d541-1dea-45d7-8ab9-777c6858a9b7"),
+                            WorkoutExerciseId = new Guid("8c5ba12a-9d16-41a8-b483-1addd478675a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bd80fdd3-c46c-4410-b126-51a11a8a2f5b"),
@@ -17212,7 +16992,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("78fbcd24-80a2-45e3-a007-76e5d290b70c"),
+                            WorkoutExerciseId = new Guid("fc42fa4b-7f71-48ec-8d03-673cef6e70af"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17223,7 +17003,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1fc2e380-a8a6-40b1-a764-1db4bcc81b66"),
+                            WorkoutExerciseId = new Guid("7c166ba6-2953-4056-b7ef-8ff0d4eb3e3e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ae6eaaa1-c8c4-4f97-afa4-4ceeea19d4b3"),
@@ -17234,7 +17014,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("aa7fdc85-27f1-43a6-88cb-976772cbb736"),
+                            WorkoutExerciseId = new Guid("30591b36-8ee2-4812-820d-fbc54fd4a3a4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -17245,7 +17025,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("38e05a91-7316-4242-aa9c-ed742998c6fe"),
+                            WorkoutExerciseId = new Guid("a9c06f92-b242-49f0-9c2f-777fab4a2518"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17256,7 +17036,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9d53fcc1-cd0b-4a14-80c3-cda2f419fb6a"),
+                            WorkoutExerciseId = new Guid("597fc1f7-325c-40c0-b6a0-e9ab98c663da"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("72206c5e-58f3-46f0-a8b1-031cbf599433"),
@@ -17267,7 +17047,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("88bdb076-1146-418a-9775-0c5f256de175"),
+                            WorkoutExerciseId = new Guid("d9ca9e7c-280b-4bba-8de4-2a59205c876c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -17278,7 +17058,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("351a42a4-5589-47fa-8ae9-35eb16626a0a"),
+                            WorkoutExerciseId = new Guid("2fb227f9-f00e-41ce-9c0c-16940b3454d7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -17289,7 +17069,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("33d3d4fc-853f-4897-a56d-ebcdeb4f74b3"),
+                            WorkoutExerciseId = new Guid("f96e5890-9211-4d06-80d1-2188bfaf432c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -17300,7 +17080,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3f861e80-8501-4e26-8ae6-5f9804dd2e71"),
+                            WorkoutExerciseId = new Guid("d1def406-e4a4-4e2e-a3b7-95a2cf55adf0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
@@ -17311,7 +17091,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6a98e653-86da-4470-a801-d673e374de9a"),
+                            WorkoutExerciseId = new Guid("a744d91e-85f3-446e-bd72-6d3bfe72da05"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("5cbc396e-381a-4d9f-9ad6-42b764deee3e"),
@@ -17322,7 +17102,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c878ac2b-dd8b-410b-8cb8-5cf292af7773"),
+                            WorkoutExerciseId = new Guid("9f0c0895-b58f-4bc6-8863-755890a8d80b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -17333,7 +17113,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4754e865-bff0-4e13-a855-cf59bd449e5d"),
+                            WorkoutExerciseId = new Guid("94782616-d5e7-450f-aee2-9a3cb4096704"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -17344,7 +17124,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cd01386f-9a06-4402-9c29-481649cc719d"),
+                            WorkoutExerciseId = new Guid("926bff71-c42b-4fde-bd8c-91acc7374466"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17355,7 +17135,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d3e44f0d-52ed-4e31-a406-7b7d0aaa19b9"),
+                            WorkoutExerciseId = new Guid("8a79a6f4-f997-447d-b3c3-552171f84f17"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -17366,7 +17146,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fc8ef3f1-b185-4dab-9301-72ffd305ee7e"),
+                            WorkoutExerciseId = new Guid("2cd5c41e-ebec-4e11-a622-aff0bee0c36c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
@@ -17377,7 +17157,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("09684644-69d7-442a-b199-ddb19b26bcfc"),
+                            WorkoutExerciseId = new Guid("3180ee5b-b12b-4f24-bbe0-e9f60f9b6ed3"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -17388,7 +17168,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("13bc2ab1-5ad2-4004-81cc-3223e11fbe18"),
+                            WorkoutExerciseId = new Guid("e6f7932f-1432-40bc-9ad1-4c48aca91546"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -17399,7 +17179,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("afa10c44-0c1d-4b2c-840f-3a5810dd4565"),
+                            WorkoutExerciseId = new Guid("32f43e40-0ed4-4a74-be9c-cd79ccd78d59"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("1b2afb40-fb97-49ec-8fe3-81a17c6c9078"),
@@ -17410,7 +17190,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("51c5b157-8605-48a8-95f1-75a159920313"),
+                            WorkoutExerciseId = new Guid("1a3a5661-e1ff-4376-99a2-a580625d2a0d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("23842121-4834-4483-bfe2-2c244f5ecf76"),
@@ -17421,7 +17201,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6e9e0329-86fd-4a1b-a6d0-722a41e4f01b"),
+                            WorkoutExerciseId = new Guid("00da4590-b962-4260-a51e-93848029c048"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -17432,7 +17212,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c3719885-f654-4e0d-b4a5-5bac70df7060"),
+                            WorkoutExerciseId = new Guid("3e32ff49-ea42-46c1-8d65-1539a6151fad"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -17443,7 +17223,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cecd622a-15d3-4597-af2f-cd82ba25dec0"),
+                            WorkoutExerciseId = new Guid("645d0eb8-8e16-41d3-bc56-49d84b1d352f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("faebde03-bab9-457b-9b45-a9fabd4760aa"),
@@ -17454,7 +17234,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2c1f1db4-da07-427e-b7b2-986265ce4629"),
+                            WorkoutExerciseId = new Guid("57e33a3e-73aa-45cc-81a9-4f5bf5a8d008"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -17465,7 +17245,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("68234ec1-449d-4cb7-84b4-f09ee895f2bf"),
+                            WorkoutExerciseId = new Guid("7841d856-e62f-43cb-b8f2-d146c76608f6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
@@ -17476,7 +17256,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0fcba937-3106-445e-8e14-cb8a3251ea86"),
+                            WorkoutExerciseId = new Guid("fc9af841-e29a-4b1e-be3c-85b26caad15a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -17487,7 +17267,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d3c0eb1d-267f-459a-93a8-b75232308544"),
+                            WorkoutExerciseId = new Guid("561a0bf9-07d8-411f-81c3-c9e1e1f4aaa4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
@@ -17498,7 +17278,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e4475f2d-d4c2-41d8-b218-03b5d3a76167"),
+                            WorkoutExerciseId = new Guid("3a9c4462-3a48-403b-9ade-b2f7066f71d0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17509,7 +17289,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("07240d5d-0b5e-472e-9568-2f3ced1773c8"),
+                            WorkoutExerciseId = new Guid("df8237bf-e325-4613-aef0-ae37da59a2cd"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -17520,7 +17300,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3e2e9ebb-b26f-4cf3-af58-4f82227d20d5"),
+                            WorkoutExerciseId = new Guid("01a59fbd-8b5a-4de0-9b64-e11aa3d3a766"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -17531,7 +17311,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("04141687-3f0e-4b25-aeb0-cc5904ec05a7"),
+                            WorkoutExerciseId = new Guid("da10e4a8-1822-48f9-9246-9073d6ca2f34"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -17542,7 +17322,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b75841a3-8ed2-40eb-9b8c-be484615ee7d"),
+                            WorkoutExerciseId = new Guid("1dbb159e-c7ba-4ced-aecb-56b481d62c59"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -17553,7 +17333,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5304e45a-9c0f-4654-9d5e-971697d43c7f"),
+                            WorkoutExerciseId = new Guid("a95e551a-2c0b-4ca6-8a0c-eb4ceee9fa39"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -17564,7 +17344,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c1c06e67-8872-49c7-9ff5-2499a94092be"),
+                            WorkoutExerciseId = new Guid("85e1d241-49c1-47ad-b351-025c32c8ef2d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("1ff0ef05-4387-4483-8de3-0ef6d7724afd"),
@@ -17575,7 +17355,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8b29dacf-e809-4767-a1c2-cc3b42814f44"),
+                            WorkoutExerciseId = new Guid("7e3ae263-c86e-4300-9883-7a63d2128e46"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -17586,7 +17366,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6232c0fc-fda2-43c2-9c29-49e4937c1da0"),
+                            WorkoutExerciseId = new Guid("85dc2a81-c37f-4efa-9639-d7177f671b39"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -17597,7 +17377,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e6995f50-d89e-4d7e-adcd-18ef8616e5fa"),
+                            WorkoutExerciseId = new Guid("4ffb2520-acce-485b-a3d0-8b1b5c55c8af"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("7c38fc8f-8fd2-450e-8fa6-c4557f0e6e02"),
@@ -17608,7 +17388,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4d27d369-9a13-4c67-abea-adc9335c7941"),
+                            WorkoutExerciseId = new Guid("1f8ed0d7-ab1d-4ccc-98e3-4734869a8d76"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("58878826-775e-4d4c-8e1b-d5c95afc214d"),
@@ -17619,7 +17399,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d1abc543-6a1c-49b6-bab3-4d32f80f593a"),
+                            WorkoutExerciseId = new Guid("6cf9ff2e-23a2-471b-b07b-908a7f534922"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -17630,7 +17410,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("89d3d82a-573f-4e2f-84ad-5e18249ae062"),
+                            WorkoutExerciseId = new Guid("aa006eb8-d09f-4a2a-9274-6fb114804d2e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("9ba29558-e51b-4a1a-a1c4-b747967e32fb"),
@@ -17641,7 +17421,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b8561447-3032-4218-95fa-891022353456"),
+                            WorkoutExerciseId = new Guid("a6e54c20-f5c2-41e0-a79d-325beceb3bef"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17652,7 +17432,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1450480d-f28f-45a3-b98f-a79e335990c8"),
+                            WorkoutExerciseId = new Guid("9e7b9c49-21ee-46f6-9c10-9b2c7cdf08d4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("407ff857-d218-44a8-8d0f-0bfa5d53bf03"),
@@ -17663,7 +17443,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e2aa8fab-e039-4e43-bec2-09158f057d3a"),
+                            WorkoutExerciseId = new Guid("5620cad3-c0f5-455a-9d48-67f75b5d58ff"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -17674,7 +17454,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a5922a16-c82b-4a96-9422-423ee3393600"),
+                            WorkoutExerciseId = new Guid("9a8cab41-b1e9-4f96-b7d9-a46b956e792e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -17685,7 +17465,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("61c82ace-6e1c-4234-b148-9900b60df25b"),
+                            WorkoutExerciseId = new Guid("c779184b-8e4c-4436-a147-0bf001dfe8af"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0a9e1fb3-9abf-4775-a75e-2bb13009a29d"),
@@ -17696,7 +17476,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("37336c05-d129-4f20-b62c-d959590556b9"),
+                            WorkoutExerciseId = new Guid("5cea4a51-e5bb-41fb-bc4b-a8b4e5c54e96"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("b2e62599-1f8c-4fc2-9ca7-8ab7aa571d4e"),
@@ -17707,7 +17487,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6d696b7d-033b-4cee-9f3d-03a384dc99dd"),
+                            WorkoutExerciseId = new Guid("eb73dc63-98d5-4e3a-94f9-3455a3b0ba76"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -17718,7 +17498,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cbdd2270-3f93-434a-a073-31a90fe533ff"),
+                            WorkoutExerciseId = new Guid("1902d274-31db-4862-9f91-c58962f1d07c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 40,
                             ExerciseId = new Guid("07a4dbcd-635a-4a76-92d4-8127de619e6d"),
@@ -17729,7 +17509,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4097d4af-afe5-4f54-acaa-0cc6ccea11fc"),
+                            WorkoutExerciseId = new Guid("f652e974-70c8-4931-9868-c73c58e103e0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -17740,7 +17520,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f369d180-73fd-4b3c-a4c9-e1971c4c155f"),
+                            WorkoutExerciseId = new Guid("d2524f1f-3193-4196-81d2-eab9248e7c0f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -17751,7 +17531,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6599ebd8-27af-410e-aacb-5f3789ba174f"),
+                            WorkoutExerciseId = new Guid("d8ba5a13-750d-4f1e-ae51-f99d6eeb0109"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -17762,7 +17542,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a4b6e92a-3480-46a7-a78c-38f3f1782700"),
+                            WorkoutExerciseId = new Guid("c0b76a7b-62ed-4747-804b-3f0d920a32f9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -17773,7 +17553,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("471c55d5-6741-43ac-836d-813ea1cb8d17"),
+                            WorkoutExerciseId = new Guid("67faed2c-b0fd-463b-9bd5-00967ae3ff5e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("01dc4c46-e1ef-44bc-9f19-ecb283bf27ce"),
@@ -17784,7 +17564,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e27a217e-a504-476c-9e2c-3fdc6f9406e3"),
+                            WorkoutExerciseId = new Guid("a84f5ca4-5aae-4a6c-8ffb-bc382d0aa7b5"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6badb5b5-ad99-4b89-80c6-e52d0f7cd7ba"),
@@ -17795,7 +17575,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c403f730-390e-4da3-8dfb-0ee28e1a6ca2"),
+                            WorkoutExerciseId = new Guid("47b37f3d-febb-43ea-992c-498d20f76ed8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -17806,7 +17586,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("152254bf-c370-43d1-868e-588894924cd5"),
+                            WorkoutExerciseId = new Guid("0f0dfb6a-50e8-421d-8b48-8a07b98d3198"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -17817,7 +17597,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("16031006-cd3d-4b27-96aa-7a97ac60c2ec"),
+                            WorkoutExerciseId = new Guid("b25433be-ca1e-4260-aa0f-cd41e31794c0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -17828,7 +17608,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7c3ecf15-60ac-46f2-8e35-ce81a1a2b454"),
+                            WorkoutExerciseId = new Guid("ba81578a-535d-48e4-b303-2489f1f6f20b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -17839,7 +17619,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ee0214a8-f842-4c03-9430-7eb6f4ffd8cc"),
+                            WorkoutExerciseId = new Guid("9b64f955-7e48-473a-ac82-5579a4e64855"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -17850,7 +17630,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c75c5c4f-7869-4c79-ac3b-9db1971a4618"),
+                            WorkoutExerciseId = new Guid("8f9958e2-8ccc-45d0-b9a8-f30687ca2554"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -17861,7 +17641,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b5ea14f5-e614-4845-baf2-fc24be62fa2a"),
+                            WorkoutExerciseId = new Guid("818682f1-4807-4176-b1da-27fe63c09acd"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("93e22c77-001f-4825-8983-4ec5b643b7bb"),
@@ -17872,7 +17652,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0c3d48e6-e5bf-4f33-bcb7-51a19e853a79"),
+                            WorkoutExerciseId = new Guid("e5d9a851-688f-4276-a007-fa4ead336a0f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("23842121-4834-4483-bfe2-2c244f5ecf76"),
@@ -17883,7 +17663,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("686e5e82-06b8-460e-b6f1-68ba77ea6182"),
+                            WorkoutExerciseId = new Guid("99a94d95-a6d3-4e87-8223-ad7263da5b53"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("439db970-c7c8-4b3b-9a35-127d31d920dc"),
@@ -17894,7 +17674,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9413bc49-aa82-4b0f-b1e9-7caaa9a52bb9"),
+                            WorkoutExerciseId = new Guid("eec647e3-6987-4fe9-aad4-9542ac4c7300"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("9ba29558-e51b-4a1a-a1c4-b747967e32fb"),
@@ -17905,7 +17685,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e38fd069-385f-4d9e-93cd-3b43e2bd558e"),
+                            WorkoutExerciseId = new Guid("cfe4e449-5df0-4507-9fdc-8bb27356379d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0a280d32-de67-4a38-8f21-923243489eef"),
@@ -17916,7 +17696,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cccac80f-5387-4c80-ac57-3467fd7039cb"),
+                            WorkoutExerciseId = new Guid("976226e7-a89a-4b4a-94dd-313680bf247b"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
@@ -17927,7 +17707,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cb106ee1-384e-4b06-beca-12ff9dfa2571"),
+                            WorkoutExerciseId = new Guid("be1b0b9f-8889-4a81-9831-13b5f0c42750"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("235f7494-3e7d-45a5-a31a-6d5449b1322d"),
@@ -17938,7 +17718,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f862ef4b-a849-4171-afbe-6e7af3721fe5"),
+                            WorkoutExerciseId = new Guid("438f61d4-d02d-4d04-84a9-281ff1506748"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -17949,7 +17729,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8882df97-d82f-4a7f-b5bf-47771fbb4807"),
+                            WorkoutExerciseId = new Guid("6fa0926e-4ae7-4d84-ae1d-4f3149464f5e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -17960,7 +17740,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8905e7a3-05d2-4796-94b3-b06c157a39af"),
+                            WorkoutExerciseId = new Guid("bbf35c9b-fb5c-426c-b5cf-a933a81224ad"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -17971,7 +17751,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("606a176f-7af0-46e9-a3bb-34e98f13c31f"),
+                            WorkoutExerciseId = new Guid("9ce7ef17-9e62-4a99-8212-cf4022f3910f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9fb83332-a8fc-4fcc-a015-2e784e2ab33b"),
@@ -17982,7 +17762,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("33d00624-a162-45cd-a6ff-0caf7974f622"),
+                            WorkoutExerciseId = new Guid("db77a739-4707-4edd-b595-3545fb22d5e4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8b93dbb2-fc2b-4627-b79a-3ec45a7c6238"),
@@ -17993,7 +17773,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b3f244ed-96d4-4083-932b-52eb55536162"),
+                            WorkoutExerciseId = new Guid("b6174672-5684-4701-b4f9-f44cc0c78364"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8619916d-a296-48a5-af89-f82a6a1cb26f"),
@@ -18004,7 +17784,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f735c224-7a14-4632-8738-140064ed487d"),
+                            WorkoutExerciseId = new Guid("a22fb435-46c6-4e12-9c4f-fe8c6ca6eefa"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d4ebca3a-83ef-485b-9178-83d4eab9694c"),
@@ -18015,7 +17795,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fba397ff-50f7-49c6-a3d3-285fe8a63072"),
+                            WorkoutExerciseId = new Guid("d2fdddc6-082d-46a6-aeaa-d29fabe55f98"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9dac0527-8042-462b-8f23-7a6b503efc68"),
@@ -18026,7 +17806,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("41d43b03-64c2-424a-8109-bae111071f41"),
+                            WorkoutExerciseId = new Guid("e73bcc13-3987-4122-bbfb-155d8d8beb74"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 10,
                             ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -18037,7 +17817,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("63fdef24-4335-49c8-abb7-eeb253f6ece7"),
+                            WorkoutExerciseId = new Guid("a66320ad-9a30-4f2b-a231-82287acd46ec"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6749cbc6-0e28-4163-95e8-7fb2a27c54cf"),
@@ -18048,7 +17828,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("42234a16-7ac3-48a0-b47d-b2a55691c89b"),
+                            WorkoutExerciseId = new Guid("1621513c-40de-47c1-9637-58b5eb048ade"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -18059,7 +17839,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("650c3658-898c-430b-b5cf-f6f64679c60a"),
+                            WorkoutExerciseId = new Guid("f60bbed6-8468-427a-b52f-c9fd2a4f9ab2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -18070,7 +17850,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("da191cf2-4681-4c12-a5d6-f42f1453ddc3"),
+                            WorkoutExerciseId = new Guid("66292843-977b-4f35-acbf-09d119f27fb6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d4ebca3a-83ef-485b-9178-83d4eab9694c"),
@@ -18081,7 +17861,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("320e2f3c-c3ac-4b7d-873f-5da75b9fbb18"),
+                            WorkoutExerciseId = new Guid("19d1913e-4833-4dda-b2ac-b45473285740"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -18092,7 +17872,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("20418bf8-38af-4fc1-8c1a-1de151fffb34"),
+                            WorkoutExerciseId = new Guid("8822ade4-faba-4acd-935e-1b8666f36118"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0c011f92-425a-477c-84d4-3d6dc883119b"),
@@ -18103,7 +17883,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0535045a-ff7c-4f65-b6ac-2d7587e38894"),
+                            WorkoutExerciseId = new Guid("7907775e-61bb-4aee-ae2a-29b9a3325298"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f06a6d9b-ed14-46cd-9e56-145cd1fd3d7c"),
@@ -18114,7 +17894,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ede5a72e-4516-4fc7-a63f-69444c9037a6"),
+                            WorkoutExerciseId = new Guid("e15481ae-31fc-47cc-a9de-7ef92c0137a4"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -18125,7 +17905,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("969a383d-94cd-441b-96da-e19987c6cda0"),
+                            WorkoutExerciseId = new Guid("ea7af3c5-e78d-4e66-ae18-f02b455a7ba8"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -18136,7 +17916,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5b91976f-47c3-43cc-9c65-309b2686d9e2"),
+                            WorkoutExerciseId = new Guid("3e953ffd-ef0d-4f53-b300-5bd1e62ebf3d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("c076c867-b379-4889-9428-5bc1ae76cbc7"),
@@ -18147,7 +17927,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f47ebe33-bca7-4ae0-8c6f-1eedcd53c0ed"),
+                            WorkoutExerciseId = new Guid("efe0d62d-48ca-4cf7-90af-4fb47ab28167"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -18158,7 +17938,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0ba6e593-d387-4619-9325-c55a04027743"),
+                            WorkoutExerciseId = new Guid("cf7d9798-03a5-459d-8a7b-b389f52ff1c9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -18169,7 +17949,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e5d393df-9bc4-40e0-b6d0-da2d2689e09e"),
+                            WorkoutExerciseId = new Guid("65550528-0138-4db5-b5d3-30d339b0fa89"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -18180,7 +17960,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ef386d97-b524-42ab-8527-3dd515379858"),
+                            WorkoutExerciseId = new Guid("1bc53502-a3d9-45d0-8ae3-28eade91d7bf"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("30be3b2d-bf46-4e90-8139-41411971cefc"),
@@ -18191,7 +17971,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a126cd58-a6e2-42bb-8962-514ec56f02dd"),
+                            WorkoutExerciseId = new Guid("a81cc1f8-43a3-4e71-b6a0-37bce59c4d0e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4e76715f-6578-41d8-8315-cdb23340fb5a"),
@@ -18202,7 +17982,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a9751515-e58c-4319-9fea-91d14503f240"),
+                            WorkoutExerciseId = new Guid("36f7cac9-1011-402a-a571-11e789099601"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -18213,7 +17993,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fc92d413-8006-4ebf-b116-91f962a398d8"),
+                            WorkoutExerciseId = new Guid("548e1e6d-1a18-45ee-81ab-6210c656a6a9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6ef8ed78-0d00-4271-bf9b-edf27a55ecab"),
@@ -18224,7 +18004,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5ffd1a89-a2e1-45f4-9e9f-6b49ec3af2a5"),
+                            WorkoutExerciseId = new Guid("28210ab1-33f7-4a12-9c97-e35989cbfed1"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0d816828-8a94-4dcb-a87c-b70b295a39b6"),
@@ -18235,7 +18015,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1763add6-3123-423d-aadd-1df1ef5cd8a5"),
+                            WorkoutExerciseId = new Guid("c3194e3b-7184-4b0b-a195-725110c6dc25"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("9fb83332-a8fc-4fcc-a015-2e784e2ab33b"),
@@ -18246,7 +18026,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4df7b31c-6ea6-47b5-bdeb-379436932789"),
+                            WorkoutExerciseId = new Guid("e4374122-1992-40ec-a6b1-ac783fef0a9c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -18257,7 +18037,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("38139b7c-b986-4bfe-9d9a-d9e19f431d04"),
+                            WorkoutExerciseId = new Guid("833dbc72-d407-4b20-99aa-afc14c858c05"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("256e23fa-03b1-4328-a325-512f0860d9b0"),
@@ -18268,7 +18048,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("307f7269-48f8-4bbb-b3f8-a104a8faa949"),
+                            WorkoutExerciseId = new Guid("14d2c84c-30c2-438d-9e63-12f035158d25"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -18279,7 +18059,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("89de9107-cf6a-4bb8-910c-70bd3fbb3cb1"),
+                            WorkoutExerciseId = new Guid("d3ccf511-0a97-4281-925b-485d738a7aa2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -18290,7 +18070,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7a4e1590-46a8-4910-961f-8d48b1715bc5"),
+                            WorkoutExerciseId = new Guid("930c1479-e032-455f-8a18-e74ad0afb641"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("01e6141a-930e-4126-a2c6-7c32a2ccdd43"),
@@ -18301,7 +18081,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fb9b537d-8e88-4eb8-b134-5f632aa81add"),
+                            WorkoutExerciseId = new Guid("ccc00729-949e-4744-ba88-855e4879e45f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ac074f67-d4bf-4a7f-b7e3-d8d03bbb6704"),
@@ -18312,7 +18092,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8de7daf4-7fb5-4158-859f-383b8ea25c00"),
+                            WorkoutExerciseId = new Guid("eeaee8f2-e69f-4bbf-b0cd-c3b78753105a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -18323,7 +18103,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1143cea1-c53e-43ea-bc6f-38de848035b2"),
+                            WorkoutExerciseId = new Guid("33ee970e-2c91-478e-ac2d-1abccfa8edca"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -18334,7 +18114,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5551c2ac-bf7b-4b2e-af77-ae62da2cc049"),
+                            WorkoutExerciseId = new Guid("9ddc252d-1c45-470f-b994-c3ea30c73377"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -18345,7 +18125,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6d0abd9a-bfba-41dd-88dd-696934a111d6"),
+                            WorkoutExerciseId = new Guid("184945b4-a173-4e69-8303-dab1e2a79d58"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("01e6141a-930e-4126-a2c6-7c32a2ccdd43"),
@@ -18356,7 +18136,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d69d14da-20b2-455f-81a4-21151e919946"),
+                            WorkoutExerciseId = new Guid("3c060454-758c-4e04-a0b6-0343e25fbbf2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ac074f67-d4bf-4a7f-b7e3-d8d03bbb6704"),
@@ -18367,7 +18147,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("64d83f01-1fa9-4752-bb18-d15c6e7bf6ad"),
+                            WorkoutExerciseId = new Guid("04ad9a9c-bad9-49e3-96c1-75e08bf32bff"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -18378,7 +18158,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ae9d3ca5-e054-49a3-a6ba-9ac75c1c0b05"),
+                            WorkoutExerciseId = new Guid("fda198a0-ad53-4f74-86c5-a8035149316c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -18389,7 +18169,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9228275e-296b-4116-b34a-c947ff4b85cc"),
+                            WorkoutExerciseId = new Guid("7fb636f2-924b-40c1-b1cd-70796294484a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -18400,7 +18180,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("6f4fcfe3-cae5-4823-9add-2ed268bd6c60"),
+                            WorkoutExerciseId = new Guid("13170f83-af54-4d5e-ad93-9451909ab62c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -18411,7 +18191,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("18ff326f-4a44-4a7b-bd58-b885e9f53007"),
+                            WorkoutExerciseId = new Guid("78401b2e-2926-4e4f-84e1-ea8bbb1a1ca2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -18422,7 +18202,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b504fd05-127d-4215-bfb1-f0f97e50138a"),
+                            WorkoutExerciseId = new Guid("5f311e68-63f6-4f73-b71c-fab72072f4b3"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -18433,7 +18213,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("222c3a08-9dba-4397-b9ff-aeb25bcb8eeb"),
+                            WorkoutExerciseId = new Guid("6fe341d3-8c90-49cb-8f8e-49d3d3bb05c6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
@@ -18444,7 +18224,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("edb86f31-3ae8-41d6-84c4-5c8a33d11c31"),
+                            WorkoutExerciseId = new Guid("cb7d836e-9ee2-4361-a7e6-174d00594e6d"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a4c84cac-058f-472a-8b81-a00c025eace4"),
@@ -18455,7 +18235,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1a12516a-7cf1-4281-a4e2-6e2efca58bc4"),
+                            WorkoutExerciseId = new Guid("36c0308a-1221-46f3-81d6-a756d89bce74"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f06a6d9b-ed14-46cd-9e56-145cd1fd3d7c"),
@@ -18466,7 +18246,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8113757c-0fda-4131-a7af-bbdb1977d5c4"),
+                            WorkoutExerciseId = new Guid("bf03000a-50af-4277-a5d9-f7093346bcce"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("4834f1ce-41dc-4161-ac51-e03ca78b62b8"),
@@ -18477,7 +18257,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("fb5c961d-3c63-4429-ab7e-6c4173f0977f"),
+                            WorkoutExerciseId = new Guid("a1a8283f-cccf-4046-86c8-28a9b69c779a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -18488,7 +18268,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("f1f0e6f3-2a2b-4838-ac52-22088fbc6b48"),
+                            WorkoutExerciseId = new Guid("ee5bb5d1-675b-4deb-a667-a57458f023a6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -18499,7 +18279,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ce350a14-1fb3-4660-be97-a96b41d8667a"),
+                            WorkoutExerciseId = new Guid("035bd8c4-a071-4454-ac5f-aa19f5aaae2e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -18510,7 +18290,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("006f0db2-f1ae-4c0b-8fba-077567820fb1"),
+                            WorkoutExerciseId = new Guid("e3db4c82-6914-4a50-8d40-f253a46a1824"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -18521,7 +18301,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9e92da44-8e6a-428a-8d74-f2600390f88e"),
+                            WorkoutExerciseId = new Guid("72e91def-c258-4d75-a8b2-870d96f0e507"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("8fad349a-913c-42dd-8bba-c1bc267918e9"),
@@ -18532,7 +18312,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("68bb085c-fbc7-47c6-8045-2a9ff428df68"),
+                            WorkoutExerciseId = new Guid("e89ce364-c02c-4c16-99fe-9fd2089f9c26"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("3a5a57a3-3495-45ae-9ebe-708e4d513d0c"),
@@ -18543,7 +18323,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("55bf53f1-5655-4db0-bcc7-ce3dca653476"),
+                            WorkoutExerciseId = new Guid("a131d967-56b1-4fe2-a0ad-4e786d2f70e1"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
@@ -18554,7 +18334,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("9292023e-4417-43c6-8f6f-36d6bad0431c"),
+                            WorkoutExerciseId = new Guid("98a05377-35ec-46e0-9355-7b98b629f89f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d6b2c0d5-110f-4dff-9aa7-91da10a29dca"),
@@ -18565,7 +18345,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("00b6f07b-ceb6-4c3f-8959-f065fcb7df4f"),
+                            WorkoutExerciseId = new Guid("b561b7cb-76ff-4659-a5ce-7a1f6be83010"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("13ca014d-8b75-414f-afe3-3d378ef7fa97"),
@@ -18576,7 +18356,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c672fe60-f821-4ce5-85d7-08f71bbdd9ec"),
+                            WorkoutExerciseId = new Guid("317ccefc-4ed8-4c98-9684-76f5076041bd"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("05c931df-c828-442e-aee1-56432cb772c7"),
@@ -18587,7 +18367,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0dd415b5-5db4-47e8-b241-92ad9dd9c8b0"),
+                            WorkoutExerciseId = new Guid("a8a79c65-06cc-4276-8b36-613fc60f1c92"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -18598,7 +18378,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1aa722a0-6a98-4373-af12-bfc5437dedfa"),
+                            WorkoutExerciseId = new Guid("e0ac1571-ac9e-43ca-be7b-877468f6cbc7"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -18609,7 +18389,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("becde6fb-1178-4bab-a5cc-e1503d41119b"),
+                            WorkoutExerciseId = new Guid("3b3e0af6-0976-4fe5-a118-dbe288fd08bf"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -18620,7 +18400,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("2545b545-fc32-493d-bc60-c15f9830a4b8"),
+                            WorkoutExerciseId = new Guid("be8940bf-1253-46de-9eeb-a412d9c3d0d6"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("22af0171-257b-43bc-9013-8985472a8c84"),
@@ -18631,7 +18411,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("a87a0e7a-1e4a-4843-88e4-68b6c4f47a84"),
+                            WorkoutExerciseId = new Guid("db082086-2d00-4bce-ad90-4a109a5cf288"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("6ffea500-ca35-4483-b049-d8593b2c8680"),
@@ -18642,7 +18422,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("873def4f-20fd-436a-b006-076a17785b31"),
+                            WorkoutExerciseId = new Guid("d82c88d6-eedf-41c3-8abb-e96eea98a4fe"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("6d6b06e1-5ade-4dae-b442-7aa200661760"),
@@ -18653,7 +18433,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7e9c0c0b-fac8-436d-93bf-4c660fc54db9"),
+                            WorkoutExerciseId = new Guid("8fb36d3c-14b4-45ca-96b2-1ac0f209682c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -18664,7 +18444,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("85bde40b-b5d9-424f-9150-53bf9b45add1"),
+                            WorkoutExerciseId = new Guid("14fa10a5-091c-41a0-b499-bdef4b1b3a85"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0a280d32-de67-4a38-8f21-923243489eef"),
@@ -18675,7 +18455,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("73373ecf-becb-4845-a423-ca32175687d0"),
+                            WorkoutExerciseId = new Guid("f886425e-3cb3-4918-956f-4d82f0d1e482"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -18686,7 +18466,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("51a0f499-c244-4b7d-9950-6d373e0f480a"),
+                            WorkoutExerciseId = new Guid("a1196ead-0c69-49f2-962c-4b106944e1cd"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("0d1e54fe-7a5f-4e0a-a59f-ee9f443718e0"),
@@ -18697,7 +18477,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cbfe8812-a637-4f9f-af38-8236724f5e21"),
+                            WorkoutExerciseId = new Guid("8a2efc8a-2ea9-4af2-a4bb-1ea40e5c4b77"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ae6eaaa1-c8c4-4f97-afa4-4ceeea19d4b3"),
@@ -18708,7 +18488,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cf39d8ba-2cd1-4142-a419-0bfd9597d84b"),
+                            WorkoutExerciseId = new Guid("a0d20969-67b0-4519-858b-c3dbcfa1de85"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("d3d944c4-947d-4910-bb6e-636390e5b8d5"),
@@ -18719,7 +18499,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("8db30483-14d7-41ac-bfa7-74de1c6fc602"),
+                            WorkoutExerciseId = new Guid("330feef8-f493-40c7-8b33-f1f72b96b490"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 20,
                             ExerciseId = new Guid("f93d73ba-d1d6-4037-b51b-1fd005accff3"),
@@ -18730,7 +18510,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("671cbafb-fc77-450c-872b-a77c4ebb0372"),
+                            WorkoutExerciseId = new Guid("ef4db14c-8423-4eed-9aaa-8bec47d420dc"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
@@ -18741,7 +18521,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b905171a-79f3-44e7-b684-38c6292c0848"),
+                            WorkoutExerciseId = new Guid("23e73631-ba8f-47ec-b103-0542d4875174"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
@@ -18752,7 +18532,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("b94d52e3-8da8-41fc-9fa2-441004887490"),
+                            WorkoutExerciseId = new Guid("89917925-7f4f-48d6-8144-e91bdcc494fe"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("385f13f7-79bf-437b-acac-745b50485b9f"),
@@ -18763,7 +18543,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ab2bd360-86cb-4774-a15f-5cff686c506f"),
+                            WorkoutExerciseId = new Guid("b38d57ec-bd0e-4b5a-ba82-c16d1a7fa9e3"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("0b702969-cd49-412a-94a1-4f0027ec77d7"),
@@ -18774,7 +18554,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ef699503-3bc4-4cc2-aa01-542d0975e283"),
+                            WorkoutExerciseId = new Guid("4a85086c-1b2a-4891-8d93-0ccf76428306"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -18785,7 +18565,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("45ea3a70-6446-4bc6-a916-9baf622b00ef"),
+                            WorkoutExerciseId = new Guid("06268e72-58f0-4b3c-bc60-f445e8a97e63"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -18796,7 +18576,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("4527ac16-df61-4019-adff-2c62663432c1"),
+                            WorkoutExerciseId = new Guid("9dfca913-e98f-4954-94ba-d2752a5c91dd"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -18807,7 +18587,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e43ca4e2-f9be-40a2-84cc-618910cecc27"),
+                            WorkoutExerciseId = new Guid("7a6eb68b-8f8f-49cb-907f-f678ffd5f68c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("587228d2-b0a2-46d4-8f0b-e728a3726993"),
@@ -18818,7 +18598,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ece52e2c-a5f6-45a8-a428-65114d499312"),
+                            WorkoutExerciseId = new Guid("fb236d07-ab21-4bcf-8b45-0b674c4c9c2c"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
@@ -18829,7 +18609,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("7e110cae-7013-4b72-b7e1-e6c3c8800d8d"),
+                            WorkoutExerciseId = new Guid("356f541d-806f-445e-956d-de40dcc2bc9f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -18840,7 +18620,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d578bffc-9d40-49f2-bf0d-48290756deae"),
+                            WorkoutExerciseId = new Guid("96ec7563-18cc-4b54-b290-34f448560d06"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("ca76bd88-8267-4e05-afce-8765546c20f5"),
@@ -18851,7 +18631,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("0f8d5b91-6f0d-4613-a18c-e1ec37bdd930"),
+                            WorkoutExerciseId = new Guid("11021419-657a-46e9-93fe-b434bbc2b352"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
@@ -18862,7 +18642,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e6fdb093-7d06-4218-89ef-35a131585753"),
+                            WorkoutExerciseId = new Guid("fa0d3fce-be9f-4630-bdf5-9ff28a38dce9"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -18873,7 +18653,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("405ab1ac-bd1b-4c38-b0a2-b614a58be679"),
+                            WorkoutExerciseId = new Guid("ea5840d9-0cb1-45af-9a53-1cd81616506f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
@@ -18884,7 +18664,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("cecfb524-dfe1-4577-ac87-7a12b4143f5d"),
+                            WorkoutExerciseId = new Guid("7fcaf175-2bf5-40b2-9eec-3967247fcc25"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 60,
                             ExerciseId = new Guid("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
@@ -18895,7 +18675,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ac78290f-7137-4862-8a75-123cc6cfd50e"),
+                            WorkoutExerciseId = new Guid("50a8c8c2-a776-4b05-9cea-df1baa0be8ec"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
@@ -18906,7 +18686,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("532a5ad4-7d7e-4b6d-9445-43e78787ccf3"),
+                            WorkoutExerciseId = new Guid("53bf8592-bc90-4743-9218-5e54890d3dc0"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
@@ -18917,7 +18697,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("45f12a7e-8c4b-49c4-b87f-619e13ebb0ac"),
+                            WorkoutExerciseId = new Guid("cd159df6-4e1a-4d30-b9bb-c5515e65bf72"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("bc06f6c3-3625-438b-9563-3406e50612ee"),
@@ -18928,7 +18708,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("076b918d-cc76-4531-8655-b8feea01a800"),
+                            WorkoutExerciseId = new Guid("23812e81-947e-47df-8e7e-d50261f695e2"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2da27966-24d6-4159-9a70-968e20c4036d"),
@@ -18939,7 +18719,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("34d8019d-16c2-4633-9739-af2a615817df"),
+                            WorkoutExerciseId = new Guid("bce4a5b5-84a5-4299-b9ef-2d1e250cd61e"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("7c38fc8f-8fd2-450e-8fa6-c4557f0e6e02"),
@@ -18950,7 +18730,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("00911e0b-ca22-48ab-98c4-10de588d21e5"),
+                            WorkoutExerciseId = new Guid("f68f17a8-65f0-4d60-9177-bf90c5351b24"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("58878826-775e-4d4c-8e1b-d5c95afc214d"),
@@ -18961,7 +18741,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("d8693cc4-440a-4f4a-9942-a5ed6e19a5ea"),
+                            WorkoutExerciseId = new Guid("1d53a9f4-27c0-45e8-a076-aa8219b97200"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("3a5a57a3-3495-45ae-9ebe-708e4d513d0c"),
@@ -18972,7 +18752,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("ef9eb693-2cf5-464b-bed2-94bf79647e3f"),
+                            WorkoutExerciseId = new Guid("13dd04ac-0b08-4325-a648-d2d6a07bfe9f"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("2e787245-7612-41bc-9b75-7a4857282350"),
@@ -18983,7 +18763,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("c8b5b004-b52f-42ea-a61a-90f7a13d126f"),
+                            WorkoutExerciseId = new Guid("fd89afaf-9986-452c-a784-a9ec05816447"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("efbcb7f9-3585-4a1b-8700-871547b7e857"),
@@ -18994,7 +18774,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("13996136-677b-4aca-a930-b53342f9f2cc"),
+                            WorkoutExerciseId = new Guid("6b6394df-2b05-46aa-8865-cbeba1a61b55"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 30,
                             ExerciseId = new Guid("2696db05-e815-4c8b-870d-23c338479e95"),
@@ -19005,7 +18785,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("5ada101a-9797-4288-9593-c2b690b1e604"),
+                            WorkoutExerciseId = new Guid("e015f29e-02a9-42e7-823a-d0244573355a"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
@@ -19016,7 +18796,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("1330cb9d-aa47-4da4-aa7a-0968ac2173e0"),
+                            WorkoutExerciseId = new Guid("751800cd-a1e2-4ea0-a717-59234e3b7a42"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
@@ -19027,7 +18807,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("e5cdde6b-bf5b-4409-8df1-461a57c29f5b"),
+                            WorkoutExerciseId = new Guid("4b758e01-8658-4551-9975-f83eac8b6133"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
@@ -19038,7 +18818,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("3e764fe6-705d-44cc-9fc2-20bb414a03dc"),
+                            WorkoutExerciseId = new Guid("caaad380-c8a2-419d-8cf4-8e8f0c86ed14"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
@@ -19049,7 +18829,7 @@ namespace Monhealth.Identity.Migrations
                         },
                         new
                         {
-                            WorkoutExerciseId = new Guid("911968b4-07d6-417f-8baf-d46654a49563"),
+                            WorkoutExerciseId = new Guid("be0d15bb-932f-4e3a-942d-3d2a3c48dda5"),
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DurationSeconds = 0,
                             ExerciseId = new Guid("93e22c77-001f-4825-8983-4ec5b643b7bb"),
@@ -19228,7 +19008,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c8177cac-5015-40b1-b884-5d62fd198c6f",
+                            ConcurrencyStamp = "b9fac664-efff-4723-ab0e-6b22bc45a33d",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "asd@gmail.com",
@@ -19237,10 +19017,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASD@GMAIL.COM",
                             NormalizedUserName = "ASD",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDqps5nxc0eej84C6WVmJtLxlaYh/Gu0xwDWJKBzNH5+Sp8Z1lvMcnvmKlP2dOL+rA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH1iwouG4UkHGpaV2rPoydXm4ngDTLEzShnMrdwWNgYzQ+oXZnzyE/DLLjbwfhrLew==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8ea1c0c1-4785-4294-b2f8-243e7812e9a2",
+                            SecurityStamp = "04df9b26-2b29-4885-b246-cda9fcca2bbb",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -19251,7 +19031,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("9d7e87a9-b070-4607-a0b0-2d2322aece9b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "975c8fce-4a25-4980-b4ca-de75ec1d1a9a",
+                            ConcurrencyStamp = "10af9439-eedf-47f3-bbb2-d9cae73d716e",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "toanvan@gmail.com",
@@ -19260,10 +19040,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TOANVAN@GMAIL.COM",
                             NormalizedUserName = "VIPRO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPxIZPmMDrcUhVh+cJZVM1A59wvSJkeLEbKyRRL3x2UgmYLiitfAvSaXGA+8l09Tfw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJbdv1o0fHDq3M/zYhbor3fh3wA2SOZzYkRdUsRnnZipHRTFyV07KbdrEml76S/Ocw==",
                             PhoneNumber = "0792766979",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e9812c77-b1fa-4455-a7bd-29169c9e25c5",
+                            SecurityStamp = "3cf559a6-a308-4723-88f4-194711b65c08",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -19274,7 +19054,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("277ea066-d041-40ff-9dae-6271dbd6fd87"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "55e76466-b563-433a-9dd4-e3064424e108",
+                            ConcurrencyStamp = "03122b4f-a3c7-40f2-a7b3-e5ea6f5e56f6",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quocdai@gmail.com",
@@ -19283,10 +19063,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUOCDAI@GMAIL.COM",
                             NormalizedUserName = "DAINQ115",
-                            PasswordHash = "AQAAAAIAAYagAAAAECtSLLq89y3hyYn/PCQkInsxoSb+2fntqEM8HVr4mi7Kf92CfNbMxBqGBEs/fz9F7g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM3Prjz19HQrqtHpJodX42H8nWA42QtRVdwcHeG9+Rp6bi1ADDPR+LVXa+9eXQuaRw==",
                             PhoneNumber = "0932748924",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a4d4df5c-82bd-4f12-b376-69aadc0be83c",
+                            SecurityStamp = "5acefa74-5d7a-4a81-9249-d684d847f6e0",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -19297,7 +19077,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("3b1a8845-765f-4d91-984a-4e8a9d7d376e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b56156df-9c48-4642-ac47-cffca876ef68",
+                            ConcurrencyStamp = "4a0e796c-8c55-4083-84eb-bca287a6dfa6",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khaitoi@gmail.com",
@@ -19306,10 +19086,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHAITOI@GMAIL.COM",
                             NormalizedUserName = "XAUTRAI123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAN0YfGtsOcJd4wUvp/495HZDQXt+7UCbWZmY9jIvAG62DH7T2bkmNQFm82q5wbqkw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDI9OIdMn+Dab4V0Wt1vOt/Yoec9bGVoymfWADWDy6EiKaE406WBRXG3ylmLb7f7SQ==",
                             PhoneNumber = "0963122758",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c6d72490-e3b3-462c-b7e4-51c47ac0fbff",
+                            SecurityStamp = "75b96698-5b95-46b9-b3d2-eccef834cd5a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -19320,7 +19100,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("1246b8e5-af73-4aa3-bdef-b8815e21a78b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2a9941f6-926e-4ab1-9be1-982aa0d1ce8f",
+                            ConcurrencyStamp = "5305321e-c0ba-4e6c-a043-0942e43acffd",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "duythunglungtinhiu@gmail.com",
@@ -19329,10 +19109,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DUYTHUNGLUNGTINHIU",
                             NormalizedUserName = "DUYPRO113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBS7b39/DN9AaOOJEeE4waCA9f50118WKFErtiH8QsQlkW0QRny/VSswEta6EAeJUA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIStyAJwxBvEwNe2r8N7x7NA0AdIToM5Joikm/QMOOn5sh8IKnzqnk0g8zwX07n1bw==",
                             PhoneNumber = "0555666612",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cdefa82e-f9a7-46ea-839e-715ae582c369",
+                            SecurityStamp = "fa82d832-6586-4c3d-aa2f-5901d503a787",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -19343,7 +19123,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("0075ba2c-f60d-4f75-b9f1-f71579bc4fd2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "adee8705-ab03-4653-9b2c-b9dfd16464f7",
+                            ConcurrencyStamp = "5af551cb-7fde-4ad0-b598-ad0616996f87",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "khanhpham@gmail.com",
@@ -19352,10 +19132,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KHANHPHAM@GMAIL.COM",
                             NormalizedUserName = "KUEM113",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIX84QPT2lh7cz4ncdMtROirtgONYFD6TLvHZn7ptV5mFZzJPK0ebBqrc+FDiFB5Ew==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO+B1KIohJo0oFY6k3wKiEBBhLqoRk4yO3ulDIXiMkpSfIIuImDePE3QQ0JoRMvFcw==",
                             PhoneNumber = "0969998878",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8045de71-244a-4b0e-819e-6d6b38659c90",
+                            SecurityStamp = "b554baf5-bb0c-436f-8d45-8281b8b55aeb",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -19366,7 +19146,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b9de2c36-7558-424c-beb1-6374079a1ea8",
+                            ConcurrencyStamp = "36f4962b-6c8c-4ff1-8c91-55f9382d2aa3",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "quangdalat@gmail.com",
@@ -19375,10 +19155,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "QUANGDALAT@GMAIL.COM",
                             NormalizedUserName = "QUANGSPA009",
-                            PasswordHash = "AQAAAAIAAYagAAAAENLt4TH1wQ5bV2vFGQLpJfw9BqMBu/TvOro9GjijvBE0IwsyXZUx0bA51W0UyhDqGA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHhvAtTlIaYzzyypYaLpFrJS9I0RrRl5+PUbxEVMzGzR7aNCImIpLUKrE3drBBYNZg==",
                             PhoneNumber = "0999777712",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "09a488e9-19a8-4c92-b890-dd66def60408",
+                            SecurityStamp = "8b5a3330-b277-41ba-b22b-509c3c4c501a",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -19389,7 +19169,7 @@ namespace Monhealth.Identity.Migrations
                         {
                             Id = new Guid("20041d5b-01e4-443f-9652-e39beb9748e5"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ac0b20d3-3c21-4f90-86c2-163af39ca9dd",
+                            ConcurrencyStamp = "12d83f05-a797-49f2-b93b-852591c6089f",
                             CreatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = new Guid("3026595f-1414-4b74-be8f-11b7f6e7f4f6"),
                             Email = "consultant@gmail.com",
@@ -19398,10 +19178,10 @@ namespace Monhealth.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CONSULTANT@GMAIL.COM",
                             NormalizedUserName = "0987654321",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB3jyMhKJi2CB+Xilcwc8etuxrlybVbif/iC9BIuWISvLOHk0M0gauXRVqUvm/DRPQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJEE6kza1taRmlPGwIYKzCbc6AcoUcWpQAPVRXOARgEsjp529WFhus+1h2zJcYjaXQ==",
                             PhoneNumber = "0987654321",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "361ad41c-243b-4506-a28e-a8231747b62a",
+                            SecurityStamp = "85f24fef-370e-47f6-8a63-485aa6ef6aad",
                             Status = true,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(2025, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
