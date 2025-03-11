@@ -107,6 +107,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> CreateExercise(CreateExerciseDTO createExerciseDTO)
         {
             var command = new CreateExerciseCommand(createExerciseDTO);

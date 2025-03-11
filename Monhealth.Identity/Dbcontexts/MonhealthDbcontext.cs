@@ -227,6 +227,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new FoodAllergyConfiguration());
             builder.ApplyConfiguration(new ExpertiseConfiguration());
             builder.ApplyConfiguration(new CategoryFoodConfiguration());
+            builder.ApplyConfiguration(new ConsultantConfiguration());
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetWorkoutByIdQueries
                 WorkoutDescription = workout.WorkoutDescription,
                 DifficultyLevel = workout.DifficultyLevel,
                 Exercises = (workout.WorkoutExercises?.Count() ?? 0) + (exerciseWramupList?.Count() ?? 0), // Handle null lists
-                Duration = ((workout.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0) * 3) + ((warmupWorkout?.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0) * 2), // Handle null values safely
+                DurationMinutes = ((workout.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0) * 3) + ((warmupWorkout?.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0) * 2), // Handle null values safely
 
                 CaloriesBurned = (float)(((workout.WorkoutExercises?.Sum(we =>
                     (we?.Exercise?.CaloriesPerMinute ?? 0) * ((we?.DurationSeconds ?? 0) / 60.0) +

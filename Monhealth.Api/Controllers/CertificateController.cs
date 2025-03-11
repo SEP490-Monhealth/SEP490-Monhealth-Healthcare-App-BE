@@ -84,7 +84,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{certificateId:guid}/isveryfied")]
+        [HttpPatch("{certificateId:guid}/verify")]
         public async Task<ActionResult<ResultModel>> ChangeCertificateIsVerified(Guid certificateId)
         {
             await mediator.Send(new UpdateCertificateIsVerifiedCommand { CertificateId = certificateId });
