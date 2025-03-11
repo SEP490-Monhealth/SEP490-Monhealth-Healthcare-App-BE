@@ -1,24 +1,82 @@
 ﻿using MediatR;
+using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 namespace Monhealth.Application.Features.Schedule.Commands.Create
 {
-    public class CreateScheduleCommandHandler : IRequestHandler<CreateScheduleCommand, Unit>
+    public class CreateScheduleCommandHandler(ITimeSlotRepository timeSlotRepository, IScheduleRepository scheduleRepository, IScheduleTimeSlotRepository scheduleTimeSlotRepository) : IRequestHandler<CreateScheduleCommand, Unit>
     {
-        public Task<Unit> Handle(CreateScheduleCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateScheduleCommand request, CancellationToken cancellationToken)
         {
             var schedules = new List<Domain.Schedule>();
+            var allTimeSlotsToAdd = new List<TimeSlot>();
+            var allScheduleTimeSlotsToAdd = new List<ScheduleTimeSlot>();
             foreach (var scheduleDto in request.Schedules)
             {
-                var newSchedule = new Domain.Schedule
+                //check has shedule by recuring type
+                var existingSchedule = await scheduleRepository.GetScheduleAsync(request.ConsultantId, request.ScheduleType, (RecurringDay)scheduleDto.RecurringDay);
+
+                Domain.Schedule scheduleToUse;
+                if (existingSchedule != null)
                 {
-                    ConsultantId = Guid.NewGuid(),
-                    ScheduleType = request.ScheduleType,
-                    RecurringDay = scheduleDto.RecurringDay,
-                    SpecificDate = scheduleDto.SpecificDate,
-                };
+                    scheduleToUse = existingSchedule;
+                }
+                else
+                {
+                    scheduleToUse = new Domain.Schedule
+                    {
+                        ScheduleId = Guid.NewGuid(),
+                        ConsultantId = request.ConsultantId,
+                        ScheduleType = request.ScheduleType,
+                        RecurringDay = scheduleDto.RecurringDay,
+                        SpecificDate = scheduleDto.SpecificDate,
+                    };
+                    schedules.Add(scheduleToUse);
+                }
 
                 //check TimeSlot existed in Db
-                var existingTimeSlots =
+                var existingTimeSlots = await timeSlotRepository.GetExistTimeSlotByListTimeAsync(scheduleDto.TimeSlots);
+
+                //create new timeslot 
+                var newTimeSlots = scheduleDto.TimeSlots
+                .Where(ts => !existingTimeSlots.Any(ets => ets.StartTime == ts))
+                .Select(ts => new TimeSlot { TimeSlotId = Guid.NewGuid(), StartTime = ts, CreatedAt = DateTime.Now })
+                .ToList();
+
+                allTimeSlotsToAdd.AddRange(newTimeSlots);
+
+
+                var allTimeSlots = existingTimeSlots.Concat(newTimeSlots).ToList();
+
+                //add ScheduleTimeSlot table
+                var existingScheduleTimeSlotIds = await scheduleTimeSlotRepository.GetTimslotIdsByScheduleId(scheduleToUse.ScheduleId);
+
+                var scheduleTimeSlots = allTimeSlots
+                    .Where(ts => !existingScheduleTimeSlotIds.Contains(ts.TimeSlotId)) //only add when it not exist
+                    .Select(ts =>
+                    new ScheduleTimeSlot
+                    {
+                        ScheduleId = scheduleToUse.ScheduleId,
+                        TimeSlotId = ts.TimeSlotId,
+                        Status = ScheduleTimeSlotStatus.Available,
+                        CreatedAt = DateTime.Now
+                    }
+                ).ToList();
+
+                allScheduleTimeSlotsToAdd.AddRange(scheduleTimeSlots);
+
             }
+            if (schedules.Any())
+                scheduleRepository.AddRange(schedules);
+
+            if (allTimeSlotsToAdd.Any())
+                timeSlotRepository.AddRange(allTimeSlotsToAdd);
+
+            if (allScheduleTimeSlotsToAdd.Any())
+                scheduleTimeSlotRepository.AddRange(allScheduleTimeSlotsToAdd);
+
+            await scheduleRepository.SaveChangeAsync();
+            return Unit.Value;
         }
     }
 }

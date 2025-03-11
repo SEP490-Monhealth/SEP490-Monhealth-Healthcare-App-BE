@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Repositories
 {
@@ -8,6 +9,14 @@ namespace Monhealth.Identity.Repositories
     {
         public ScheduleRepository(MonhealthDbcontext context) : base(context)
         {
+        }
+
+        public async Task<Schedule> GetScheduleAsync(Guid consultantId, ScheduleType scheduleType, RecurringDay recurringDay)
+        {
+            return await _context.Schedules.Include(s => s.ScheduleTimeSlots).ThenInclude(st => st.TimeSlot)
+                    .FirstOrDefaultAsync(s => s.ConsultantId == consultantId
+                    && s.ScheduleType == scheduleType
+                    && s.RecurringDay == recurringDay);
         }
 
         public async Task<List<Schedule>> GetSchedulesByUser(Guid userId, DateOnly? Date)

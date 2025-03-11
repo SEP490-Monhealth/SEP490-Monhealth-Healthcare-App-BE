@@ -1,5 +1,4 @@
 using AutoMapper;
-using Monhealth.Application.Features.Schedule.Commands.Create;
 using Monhealth.Application.Features.Schedule.Queries.GetAll;
 using Monhealth.Application.Features.Schedule.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetById;
@@ -16,7 +15,6 @@ namespace Monhealth.Application.Automapper
               .ReverseMap();
 
             CreateMap<GetScheduleByUserDTO, Schedule>().ReverseMap();
-            CreateMap<ScheduleRequest, Schedule>();
         }
 
 

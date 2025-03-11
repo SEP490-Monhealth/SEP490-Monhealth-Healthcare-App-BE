@@ -1,4 +1,5 @@
-﻿using Monhealth.Application.Contracts.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -11,6 +12,12 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-
+        public async Task<List<Guid>> GetTimslotIdsByScheduleId(Guid scheduleId)
+        {
+            return await _context.ScheduleTimeSlots
+                .Where(st => st.ScheduleId == scheduleId)
+                .Select(st => st.TimeSlotId ?? Guid.Empty)
+                .ToListAsync();
+        }
     }
 }

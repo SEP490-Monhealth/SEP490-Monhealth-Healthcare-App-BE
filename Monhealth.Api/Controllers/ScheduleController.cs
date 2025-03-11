@@ -86,23 +86,23 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ResultModel> Create(ScheduleRequest request)
+        public async Task<ResultModel> Create([FromBody] CreateScheduleCommand request)
         {
             var create = await _mediator.Send(request);
-            if (create == true)
-            {
-                return new ResultModel
-                {
-                    Message = "Tạo lịch thành công",
-                    Status = 201,
-                    Success = true
-                };
-            }
+            //if (create == true)
+            //{
+            //    return new ResultModel
+            //    {
+            //        Message = "Tạo lịch thành công",
+            //        Status = 201,
+            //        Success = true
+            //    };
+            //}
             return new ResultModel
             {
-                Message = "Tạo lịch thất bại",
-                Status = (int)HttpStatusCode.BadRequest,
-                Success = false
+                Message = "Tạo lịch thành công",
+                Status = (int)HttpStatusCode.OK,
+                Success = true
             };
         }
 
