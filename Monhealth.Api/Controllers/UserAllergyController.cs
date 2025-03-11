@@ -19,35 +19,14 @@ namespace Monhealth.Api.Controllers
             _logger = logger;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<ResultModel>> Add([FromBody] CreateUserAllergyRequest request)
-        {
-            var result = await _mediator.Send(request);
-            if (result != null)
-            {
-                return Ok(new ResultModel
-                {
-                    Success = true,
-                    Message = "Tạo Dị ứng người dùng thành công",
-                    Status = 201,
-                });
-            }
-
-            return BadRequest(new ResultModel
-            {
-                Success = false,
-                Message = "Tạo dị ứng người dùng thất bại",
-                Status = 400,
-            });
-        }
-        [HttpGet("{userId:guid}/FoodAllergies")]
+        [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetByFoodByUserId(Guid userId)
         {
             try
             {
                 var goal = await _mediator.Send(new FilterFoodListQuery { UserId = userId });
 
-                if (goal == null )
+                if (goal == null)
                 {
                     _logger.LogWarning($"Không tìm thấy dữ liệu thức ăn cho người dùng có ID {userId}");
                     return new ResultModel
@@ -78,6 +57,26 @@ namespace Monhealth.Api.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> Add([FromBody] CreateUserAllergyRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo Dị ứng người dùng thành công",
+                    Status = 201,
+                });
+            }
 
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo dị ứng người dùng thất bại",
+                Status = 400,
+            });
+        }
     }
 }

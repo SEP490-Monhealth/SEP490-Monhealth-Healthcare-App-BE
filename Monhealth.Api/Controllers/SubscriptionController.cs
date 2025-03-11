@@ -7,6 +7,7 @@ using Monhealth.Application.Features.Subscription.Queries.GetAll;
 using Monhealth.Application.Features.Subscription.Queries.GetDetail;
 using Monhealth.Application.Features.UserSubscription.Commands.Create;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -22,6 +23,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAll()
         {
             var metrics = await _mediator.Send(new GetAllSubscriptionQuery());
