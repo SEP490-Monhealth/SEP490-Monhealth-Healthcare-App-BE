@@ -36,7 +36,7 @@ namespace Monhealth.Identity.Repositories
                 {
                     BookingId = b.BookingId,
                     UserId = b.UserId,
-                    Date = b.Date,
+                    //Date = b.Date,
                     Notes = b.Notes,
                     Status = b.Status,
                     CreatedAt = b.CreatedAt,
@@ -56,7 +56,7 @@ namespace Monhealth.Identity.Repositories
                        BookingId = b.BookingId,
                        UserId = b.UserId,
                        ConsultantId = b.ConsultantId,
-                       Date = b.Date,
+                       // Date = b.Date,
                        Notes = b.Notes,
                        Status = b.Status,
                        CreatedAt = b.CreatedAt,
