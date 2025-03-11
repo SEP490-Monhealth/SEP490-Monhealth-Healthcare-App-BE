@@ -44,6 +44,7 @@ namespace Monhealth.Identity.Repositories
                     .FirstOrDefaultAsync(s => s.ConsultantId == consultantId
                     && s.ScheduleType == scheduleType
                     && s.RecurringDay == recurringDay);
+
         }
 
         public async Task<Schedule> GetScheduleByIdAsync(Guid ScheduleId)
@@ -59,6 +60,8 @@ namespace Monhealth.Identity.Repositories
             {
                 // query = query.Where(s => s.Date == Date.Value);
             }
+            query = query.Include(s => s.ScheduleTimeSlots)
+                .ThenInclude(st => st.TimeSlot);
             return await query.ToListAsync();
         }
 
