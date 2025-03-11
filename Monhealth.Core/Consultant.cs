@@ -23,6 +23,6 @@ namespace Monhealth.Domain
         [ForeignKey(nameof(ExpertiseId))]
         public Expertise Expertise { get; set; }
         public ICollection<Certificate> Certificates { get; set; }
-        public ICollection<Wallet> Wallets { get; set; }
+        public Wallet Wallet { get; set; }
     }
 }
