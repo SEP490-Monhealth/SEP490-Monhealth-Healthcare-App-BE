@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Monhealth.Domain
 {
     public class Wallet : TimeEntity
     {
+        [Key]
         public Guid WalletId { get; set; }
         public Guid ConsultantId { get; set; }
         public float Balance { get; set; }

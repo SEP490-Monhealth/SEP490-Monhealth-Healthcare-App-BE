@@ -1,14 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Monhealth.Domain.Common;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Monhealth.Domain.Enum;
 
-namespace Monhealth.Domain
+namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionById
 {
-    public class Transaction : TimeEntity
+    public class GetTransactionByIdDTO
     {
-        [Key]
-        public Guid TransactionId { get; set; }
         public Guid WalletId { get; set; }
         public Guid BookingId { get; set; }
         public TransactionType TransactionType { get; set; }
@@ -17,10 +17,5 @@ namespace Monhealth.Domain
         public float? BalanceBefore { get; set; }
         public float? BalanceAfter { get; set; }
         public StatusTransaction? Status { get; set; }
-
-        [ForeignKey(nameof(WalletId))]
-        public Wallet Wallet { get; set; }
-        [ForeignKey(nameof(BookingId))]
-        public Booking Booking { get; set; }
     }
 }
