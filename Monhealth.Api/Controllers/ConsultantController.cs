@@ -153,7 +153,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật tư vấn viên thành công"
             });
         }
-        [HttpPatch("{consultantId}/veryfied")]
+        [HttpPatch("{consultantId}/verify")]
         public async Task<ActionResult<ResultModel>> VeryfiedConsultant(Guid consultantId)
         {
             var consultant = await _mediator.Send(new VeryfiedConsultantCommand() { ConsultantId = consultantId });
