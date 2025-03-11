@@ -1,10 +1,11 @@
 using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models.Paging;
 
 namespace Monhealth.Application.Features.Schedule.Queries.GetAll
 {
-    public class GetAllScheduleQueryHandler : IRequestHandler<GetAllScheduleQuery, List<ScheduleDTO>>
+    public class GetAllScheduleQueryHandler : IRequestHandler<GetAllScheduleQuery, PageResult<ScheduleDTO>>
     {
         private readonly IMapper _mapper;
         private readonly IScheduleRepository _scheduleRepository;
@@ -14,11 +15,30 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
             _mapper = mapper;
             _scheduleRepository = scheduleRepository;
         }
-
-        public async Task<List<ScheduleDTO>> Handle(GetAllScheduleQuery request, CancellationToken cancellationToken)
+        async Task<PageResult<ScheduleDTO>> IRequestHandler<GetAllScheduleQuery, PageResult<ScheduleDTO>>.Handle(GetAllScheduleQuery request, CancellationToken cancellationToken)
         {
-            var queries = await _scheduleRepository.GetAllAsync();
-            return _mapper.Map<List<ScheduleDTO>>(queries);
+            var queries = await _scheduleRepository.GetAllScheduleAsync(request.Page, request.Limit, request.ConsultantId, request.Date);
+            var result = queries.Items.Select(s => new ScheduleDTO
+            {
+                ScheduleId = s.ScheduleId,
+                ConsultantId = s.ConsultantId,
+                ScheduleType = s.ScheduleType,
+                RecurringDay = s.RecurringDay,
+                SpecificDate = s.SpecificDate,
+                Items = s.ScheduleTimeSlots.Select(st => new TimeSlotDto
+                {
+                    StartTime = st.TimeSlot.StartTime,
+                    Status = st.Status,
+                }
+                ).ToList()
+            }).ToList();
+            return new PageResult<ScheduleDTO>
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(queries.TotalCount / (double)request.Limit),
+                TotalItems = queries.TotalCount,
+                Items = result
+            };
         }
     }
 }

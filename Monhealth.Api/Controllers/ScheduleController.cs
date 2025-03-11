@@ -23,9 +23,15 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllMetrics()
+        public async Task<ActionResult<ResultModel>> GetAllSchedule(int page = 1, int limit = 10, Guid? consultantId = null, DateOnly? date = null)
         {
-            var scheduleList = await _mediator.Send(new GetAllScheduleQuery());
+            var scheduleList = await _mediator.Send(new GetAllScheduleQuery
+            {
+                Page = page,
+                Limit = limit,
+                ConsultantId = consultantId,
+                Date = date
+            });
 
             return new ResultModel
             {
