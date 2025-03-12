@@ -1,15 +1,14 @@
-﻿using System.Text.Json;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Microsoft.Extensions.Logging;
 using Monhealth.Core;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Configurations;
 using Monhealth.Identity.Models;
+using System.Text.Json;
 
 namespace Monhealth.Identity.Dbcontexts
 {
@@ -225,6 +224,8 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new FoodAllergyConfiguration());
             builder.ApplyConfiguration(new ExpertiseConfiguration());
             builder.ApplyConfiguration(new CategoryFoodConfiguration());
+            builder.ApplyConfiguration(new TimeSlotConfiguration());
+
         }
     }
 }
