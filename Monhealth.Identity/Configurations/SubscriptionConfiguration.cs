@@ -53,7 +53,7 @@ namespace Monhealth.Identity.Configurations
             new Subscription
             {
                 SubscriptionId = Guid.NewGuid(),
-                SubscriptionName = "Gói Cơ Bản",
+                SubscriptionName = "Gói Cao Cấp",
                 SubscriptionDescription = "Gói dịch vụ cao cấp bao gồm tư vấn cá nhân từ chuyên gia dinh dưỡng và thể hình",
                 Price = 899000,
                 DurationDays = 30,

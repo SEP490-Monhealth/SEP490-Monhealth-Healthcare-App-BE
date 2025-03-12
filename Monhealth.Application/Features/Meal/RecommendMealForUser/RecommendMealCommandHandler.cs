@@ -129,7 +129,6 @@ namespace Monhealth.Application
             }
 
             // Cập nhật thông tin DailyMeal và MealFood cho 3 ngày
-            // Cập nhật thông tin DailyMeal và MealFood cho 3 ngày
             foreach (var mealId in mealIds)
             {
                 var meal = await _mealRepository.GetByIdAsync(mealId);
