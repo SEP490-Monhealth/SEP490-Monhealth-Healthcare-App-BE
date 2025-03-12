@@ -3,7 +3,7 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayOfWeek
 {
-    public class GetAllTimeSlotForDayOfWeekHandler(ITimeSlotRepository timeSlotRepository) : IRequestHandler<GetAllTimeSlotForDayOfWeekQueries, Dictionary<int, List<string>>>
+    public class GetAllTimeSlotForDayOfWeekHandler(ITimeSlotRepository timeSlotRepository) : IRequestHandler<GetAllTimeSlotForDayOfWeekQueries, List<DayTimeSlotDto>>
     {
 
         private static readonly Dictionary<int, List<TimeOnly>> DefaultTimeSlotRules = new()
@@ -17,18 +17,20 @@ namespace Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayO
         { 6, new List<TimeOnly> { new(9,0), new(10,0), new(11,0) } }  // Saturday
          };
 
-        public async Task<Dictionary<int, List<string>>> Handle(GetAllTimeSlotForDayOfWeekQueries request, CancellationToken cancellationToken)
+        public async Task<List<DayTimeSlotDto>> Handle(GetAllTimeSlotForDayOfWeekQueries request, CancellationToken cancellationToken)
         {
             var timeslotLists = await timeSlotRepository.GetAllAsync();
-            var timeSlotByDays = DefaultTimeSlotRules.ToDictionary(
-                    rule => rule.Key,
-                    rule => timeslotLists
-                    .Where(ts => rule.Value.Contains(ts.StartTime))
-                    .OrderBy(ts => ts.StartTime)
-                    .Select(ts => ts.StartTime.ToString(@"hh\:mm"))
-                    .ToList()
+            var timeSlotByDays = DefaultTimeSlotRules.Select(rule => new DayTimeSlotDto
+            {
+                DayOfWeek = rule.Key,
+                TimeSlots = timeslotLists
+                .Where(ts => rule.Value.Contains(ts.StartTime))
+                .OrderBy(ts => ts.StartTime)
+                .Select(ts => ts.StartTime.ToString(@"hh\:mm"))
+                .ToList()
+            }).ToList();
 
-                );
+
             return timeSlotByDays;
         }
     }

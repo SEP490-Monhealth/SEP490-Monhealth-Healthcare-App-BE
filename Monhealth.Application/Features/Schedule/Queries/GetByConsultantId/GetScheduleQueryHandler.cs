@@ -25,13 +25,13 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
             {
                 ScheduleId = s.ScheduleId,
                 ConsultantId = s.ConsultantId,
-                ScheduleType = s.ScheduleType.ToString(),
-                RecurringDay = s.RecurringDay.ToString(),
+                ScheduleType = s.ScheduleType,
+                RecurringDay = s.RecurringDay,
                 SpecificDate = s.SpecificDate,
-                Items = s.ScheduleTimeSlots.Select(st => new TimeSlotDto
+                TimeSlots = s.ScheduleTimeSlots.Select(st => new TimeSlotDto
                 {
                     StartTime = st.TimeSlot.StartTime,
-                    Status = st.Status.ToString(),
+                    Status = st.Status,
                 }
              ).ToList()
             }).ToList();

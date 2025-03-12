@@ -18,20 +18,23 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
         async Task<PageResult<ScheduleDTO>> IRequestHandler<GetAllScheduleQuery, PageResult<ScheduleDTO>>.Handle(GetAllScheduleQuery request, CancellationToken cancellationToken)
         {
             var queries = await _scheduleRepository.GetAllScheduleAsync(request.Page, request.Limit, request.ConsultantId, request.Date);
-            var result = queries.Items.Select(s => new ScheduleDTO
-            {
-                ScheduleId = s.ScheduleId,
-                ConsultantId = s.ConsultantId,
-                ScheduleType = s.ScheduleType.ToString(),
-                RecurringDay = s.RecurringDay.ToString(),
-                SpecificDate = s.SpecificDate,
-                Items = s.ScheduleTimeSlots.Select(st => new TimeSlotDto
+            var result = queries.Items
+                .Select(s => new ScheduleDTO
                 {
-                    StartTime = st.TimeSlot.StartTime,
-                    Status = st.Status.ToString(),
-                }
+                    ScheduleId = s.ScheduleId,
+                    ConsultantId = s.ConsultantId,
+                    ScheduleType = s.ScheduleType,
+                    RecurringDay = s.RecurringDay,
+                    SpecificDate = s.SpecificDate,
+                    TimeSlots = s.ScheduleTimeSlots
+                    .OrderBy(st => st.TimeSlot.StartTime)
+                    .Select(st => new TimeSlotDto
+                    {
+                        StartTime = st.TimeSlot.StartTime,
+                        Status = st.Status,
+                    }
                 ).ToList()
-            }).ToList();
+                }).ToList();
             return new PageResult<ScheduleDTO>
             {
                 CurrentPage = request.Page,
