@@ -6,6 +6,7 @@ namespace Monhealth.Application.Features.Allergy.Commands.UpdateAllergy
     {
         public Guid AllergyId { get; set; }
         public UpdateAllergyRequest Request { get; set; }
+
         public UpdateAllergyRequestHandler(Guid allergyId, UpdateAllergyRequest request)
         {
             AllergyId = allergyId;

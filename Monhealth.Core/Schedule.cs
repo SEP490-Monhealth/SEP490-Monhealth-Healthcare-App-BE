@@ -11,8 +11,8 @@ namespace Monhealth.Domain
         public Guid ScheduleId { get; set; }
         public Guid ConsultantId { get; set; }
         public ScheduleType ScheduleType { get; set; }
-        public RecurringDay RecurringDay { get; set; }
-        public DateOnly SpecificDate { get; set; }
+        public RecurringDay? RecurringDay { get; set; }
+        public DateOnly? SpecificDate { get; set; }
 
         [ForeignKey(nameof(ConsultantId))]
         public Consultant Consultant { get; set; }

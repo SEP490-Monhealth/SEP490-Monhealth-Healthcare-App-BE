@@ -23,9 +23,15 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllMetrics()
+        public async Task<ActionResult<ResultModel>> GetAllSchedule(int page = 1, int limit = 10, Guid? consultantId = null, DateOnly? date = null)
         {
-            var scheduleList = await _mediator.Send(new GetAllScheduleQuery());
+            var scheduleList = await _mediator.Send(new GetAllScheduleQuery
+            {
+                Page = page,
+                Limit = limit,
+                ConsultantId = consultantId,
+                Date = date
+            });
 
             return new ResultModel
             {
@@ -65,7 +71,7 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, [FromQuery] DateOnly? date = null)
         {
             var queries = await _mediator.
-            Send(new GetScheduleByUserQuery { UserId = consultantId, Date = date });
+            Send(new GetScheduleByConsultantIdQuery { ConsultantId = consultantId, Date = date });
 
             if (queries == null)
             {
@@ -86,23 +92,23 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ResultModel> Create(ScheduleRequest request)
+        public async Task<ResultModel> Create([FromBody] CreateScheduleCommand request)
         {
             var create = await _mediator.Send(request);
-            if (create == true)
-            {
-                return new ResultModel
-                {
-                    Message = "Tạo lịch thành công",
-                    Status = 201,
-                    Success = true
-                };
-            }
+            //if (create == true)
+            //{
+            //    return new ResultModel
+            //    {
+            //        Message = "Tạo lịch thành công",
+            //        Status = 201,
+            //        Success = true
+            //    };
+            //}
             return new ResultModel
             {
-                Message = "Tạo lịch thất bại",
-                Status = (int)HttpStatusCode.BadRequest,
-                Success = false
+                Message = "Tạo lịch thành công",
+                Status = (int)HttpStatusCode.OK,
+                Success = true
             };
         }
 

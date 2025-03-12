@@ -1,8 +1,11 @@
-﻿namespace Monhealth.Application.Features.Schedule.Commands.Create
+﻿using Monhealth.Domain.Enum;
+
+namespace Monhealth.Application.Features.Schedule.Commands.Create
 {
     public class CreateScheduleDto
     {
-        public DateOnly? Date { get; set; }
-        public TimeOnly? Time { get; set; }
+        public RecurringDay? RecurringDay { get; set; }
+        public DateOnly? SpecificDate { get; set; }
+        public List<TimeOnly> TimeSlots { get; set; }
     }
 }
