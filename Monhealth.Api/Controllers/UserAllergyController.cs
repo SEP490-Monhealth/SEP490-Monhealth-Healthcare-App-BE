@@ -19,7 +19,7 @@ namespace Monhealth.Api.Controllers
             _logger = logger;
         }
 
-        [HttpGet("user/{userId:guid}")]
+        [HttpGet]
         public async Task<ActionResult<ResultModel>> GetByFoodByUserId(Guid userId)
         {
             try

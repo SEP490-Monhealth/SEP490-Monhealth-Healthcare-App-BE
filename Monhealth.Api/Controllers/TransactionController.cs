@@ -1,12 +1,6 @@
 ﻿using System.Net;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
-using Monhealth.Application.Features.Consultant.Commands.DeleteConsultant;
-using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
-using Monhealth.Application.Features.Consultant.Queries.GetConsultantById;
-using Monhealth.Application.Features.Exercise.Commands.UpdateExercise;
 using Monhealth.Application.Features.Transaction.Commands.CreateTransaction;
 using Monhealth.Application.Features.Transaction.Commands.DeleteTransaction;
 using Monhealth.Application.Features.Transaction.Commands.UpdateTransaction;
@@ -33,17 +27,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
-        [HttpGet("{transactionId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetTransactionById(Guid transactionId)
-        {
-            var transaction = await mediator.Send(new GetTransactionByIdQuery { TransactionId = transactionId });
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = transaction
-            });
-        }
+
         [HttpGet("consultant/{consultantId:guid}")]
         public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId)
         {
@@ -55,6 +39,19 @@ namespace Monhealth.Api.Controllers
                 Data = transaction
             });
         }
+
+        [HttpGet("{transactionId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetTransactionById(Guid transactionId)
+        {
+            var transaction = await mediator.Send(new GetTransactionByIdQuery { TransactionId = transactionId });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = transaction
+            });
+        }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateTransaction([FromBody] CreateTransactionDTO createTransactionDTO)
         {
@@ -64,18 +61,19 @@ namespace Monhealth.Api.Controllers
             {
                 return new ResultModel
                 {
-                    Message = "Tạo thanh toán thành công",
+                    Message = "Tạo giao dịch thành công",
                     Status = 201,
                     Success = true
                 };
             }
             return new ResultModel
             {
-                Message = "Tạo thanh toán thất bại",
+                Message = "Tạo giao dịch thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };
         }
+
         [HttpPut("{transactionId}")]
         public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid transactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
         {
@@ -97,6 +95,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật giao dịch thành công"
             };
         }
+
         [HttpDelete("{transactionId}")]
         public async Task<ActionResult<ResultModel>> DeleteTransaction(Guid transactionId)
         {

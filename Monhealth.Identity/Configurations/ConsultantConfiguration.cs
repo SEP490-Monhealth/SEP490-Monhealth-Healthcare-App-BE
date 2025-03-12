@@ -12,6 +12,7 @@ namespace Monhealth.Identity.Configurations
 
             builder.HasData(
 
+            #region Consultant 1
             new Consultant
             {
                 ConsultantId = Guid.Parse("122dc7df-16de-49a3-ab83-5299686f6203"),
@@ -25,7 +26,9 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 UpdatedAt = today,
                 CreatedAt = today,
-            });
+            }
+            #endregion
+            );
         }
     }
 }

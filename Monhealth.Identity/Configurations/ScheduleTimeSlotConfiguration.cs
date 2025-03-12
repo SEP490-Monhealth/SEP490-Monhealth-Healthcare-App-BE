@@ -101,7 +101,7 @@ namespace Monhealth.Identity.Configurations
             new ScheduleTimeSlot
             {
                 ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("ddcb76f3-e4a2-4ee3-a90c-44792a2c023d"),
+                ScheduleId = Guid.Parse("17e9439c-fc1c-4309-bbac-2a0a2eab2a7d"),
                 TimeSlotId = Guid.Parse("8a0f1db6-8007-487d-96e3-67e49f697767"),
                 Status = ScheduleTimeSlotStatus.Available,
                 CreatedAt = today,
@@ -185,7 +185,7 @@ namespace Monhealth.Identity.Configurations
             new ScheduleTimeSlot
             {
                 ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("ddcb76f3-e4a2-4ee3-a90c-44792a2c023d"),
+                ScheduleId = Guid.Parse("5b988823-2ed9-4835-a0ae-f73c125f589a"),
                 TimeSlotId = Guid.Parse("8a0f1db6-8007-487d-96e3-67e49f697767"),
                 Status = ScheduleTimeSlotStatus.Available,
                 CreatedAt = today,
@@ -269,7 +269,7 @@ namespace Monhealth.Identity.Configurations
             new ScheduleTimeSlot
             {
                 ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("ddcb76f3-e4a2-4ee3-a90c-44792a2c023d"),
+                ScheduleId = Guid.Parse("afb3cb6e-3844-49e6-aa7f-d40a819fd7ca"),
                 TimeSlotId = Guid.Parse("8a0f1db6-8007-487d-96e3-67e49f697767"),
                 Status = ScheduleTimeSlotStatus.Available,
                 CreatedAt = today,
@@ -353,7 +353,7 @@ namespace Monhealth.Identity.Configurations
             new ScheduleTimeSlot
             {
                 ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("ddcb76f3-e4a2-4ee3-a90c-44792a2c023d"),
+                ScheduleId = Guid.Parse("2794c45b-08fb-428c-b863-37059ef29d1f"),
                 TimeSlotId = Guid.Parse("8a0f1db6-8007-487d-96e3-67e49f697767"),
                 Status = ScheduleTimeSlotStatus.Available,
                 CreatedAt = today,
@@ -437,7 +437,7 @@ namespace Monhealth.Identity.Configurations
             new ScheduleTimeSlot
             {
                 ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("ddcb76f3-e4a2-4ee3-a90c-44792a2c023d"),
+                ScheduleId = Guid.Parse("7640d26b-ea65-4901-b9fc-e78bed626fcb"),
                 TimeSlotId = Guid.Parse("c366221c-1be4-4ffe-9271-e1357f3cf8e3"),
                 Status = ScheduleTimeSlotStatus.Available,
                 CreatedAt = today,
@@ -497,7 +497,7 @@ namespace Monhealth.Identity.Configurations
             new ScheduleTimeSlot
             {
                 ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("ddcb76f3-e4a2-4ee3-a90c-44792a2c023d"),
+                ScheduleId = Guid.Parse("02d9b5f6-5fdd-4f07-a9a0-ff468d661c05"),
                 TimeSlotId = Guid.Parse("c366221c-1be4-4ffe-9271-e1357f3cf8e3"),
                 Status = ScheduleTimeSlotStatus.Available,
                 CreatedAt = today,

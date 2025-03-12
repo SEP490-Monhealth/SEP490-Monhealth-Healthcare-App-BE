@@ -37,14 +37,14 @@ namespace Monhealth.Api.Controllers
             {
                 return new ResultModel
                 {
-                    Message = "Tạo bài tập thành công",
+                    Message = "Tạo khung giờ thành công",
                     Status = 201,
                     Success = true
                 };
             }
             return new ResultModel
             {
-                Message = "Tạo bài tập thất bại",
+                Message = "Tạo khung giờ thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };
@@ -102,7 +102,5 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
-
-
     }
 }

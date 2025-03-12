@@ -228,6 +228,8 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new CategoryFoodConfiguration());
             builder.ApplyConfiguration(new ConsultantConfiguration());
 
+            builder.ApplyConfiguration(new WalletConfiguration());
+
             builder.ApplyConfiguration(new TimeSlotConfiguration());
             builder.ApplyConfiguration(new ScheduleConfiguration());
             builder.ApplyConfiguration(new ScheduleTimeSlotConfiguration());

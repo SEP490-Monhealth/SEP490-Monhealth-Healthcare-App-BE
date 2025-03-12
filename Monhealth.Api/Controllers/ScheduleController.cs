@@ -42,11 +42,11 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{scheduleId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetScheduleDetail(Guid scheduleId)
+        [Route("consultant/{consultantId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, [FromQuery] DateOnly? date = null)
         {
             var queries = await _mediator.
-            Send(new GetDetailScheduleQuery { ScheduleId = scheduleId });
+            Send(new GetScheduleByConsultantIdQuery { ConsultantId = consultantId, Date = date });
 
             if (queries == null)
             {
@@ -67,11 +67,11 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("consultant/{consultantId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, [FromQuery] DateOnly? date = null)
+        [Route("{scheduleId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetScheduleDetail(Guid scheduleId)
         {
             var queries = await _mediator.
-            Send(new GetScheduleByConsultantIdQuery { ConsultantId = consultantId, Date = date });
+            Send(new GetDetailScheduleQuery { ScheduleId = scheduleId });
 
             if (queries == null)
             {
