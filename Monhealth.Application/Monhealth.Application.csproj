@@ -20,7 +20,6 @@
     <Folder Include="Features\Timeslot\Commands\" />
     <Folder Include="Features\Timeslot\Queries\" />
     <Folder Include="Features\UserFood\Queries\" />
-    <Folder Include="Features\Workout\Queries\GetWorkoutByUserIdQueries\" />
   </ItemGroup>
 
 </Project>

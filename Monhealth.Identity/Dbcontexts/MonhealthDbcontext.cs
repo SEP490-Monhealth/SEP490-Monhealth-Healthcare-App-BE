@@ -89,7 +89,7 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasOne(we => we.Workout)
                 .WithMany(w => w.WorkoutExercises)
                 .HasForeignKey(we => we.WorkoutId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<WorkoutExercise>()
                 .HasOne(we => we.Exercise)

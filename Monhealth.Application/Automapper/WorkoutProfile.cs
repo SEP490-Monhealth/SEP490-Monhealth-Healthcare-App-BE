@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Monhealth.Application.Features.Workout.Commands.CreateWorkout;
 using Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries;
+using Monhealth.Application.Features.Workout.Queries.GetWorkoutByUserIdQueries;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Automapper
@@ -19,6 +20,10 @@ namespace Monhealth.Application.Automapper
                 .ForMember(dest => dest.Exercises, opt => opt.MapFrom(src => src.WorkoutExercises.Count))
                 .ForMember(dest => dest.DurationMinutes, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => we.DurationSeconds + we.Reps * 2)))
                 .ForMember(dest => dest.CaloriesBurned, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => (we.Exercise.CaloriesPerMinute * (we.DurationSeconds / 60)) + we.Exercise.CaloriesPerMinute * (we.Reps * 2 / 60))));
+            CreateMap<Workout, GetWorkoutByUserIdDTO>()
+                .ForMember(dest => dest.Exercises, opt => opt.MapFrom(src => src.WorkoutExercises.Count))
+                .ForMember(dest => dest.DurationMinutes, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => we.DurationSeconds + we.Reps * 2)))
+                .ForMember(dest => dest.CaloriesBurned, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => (we.Exercise.CaloriesPerMinute * (we.DurationSeconds / 60)) + we.Exercise.CaloriesPerMinute * (we.Reps * 2 / 60)))); ;
         }
     }
 }
