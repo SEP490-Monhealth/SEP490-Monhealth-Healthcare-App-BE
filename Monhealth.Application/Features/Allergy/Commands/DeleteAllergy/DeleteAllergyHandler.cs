@@ -1,4 +1,3 @@
-
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -16,10 +15,10 @@ namespace Monhealth.Application.Features.Allergy.Commands.DeleteAllergy
         public async Task<bool> Handle(DeleteAllergyRequest request, CancellationToken cancellationToken)
         {
             var allergyId = await _allergyRepository.GetByIdAsync(request.AllergyId);
-            if(allergyId == null) throw new Exception("Triệu chứng không tồn tại. ");
+            if (allergyId == null) throw new Exception("Triệu chứng không tồn tại. ");
             _allergyRepository.Remove(allergyId);
             await _allergyRepository.SaveChangeAsync();
-            return true; 
+            return true;
         }
     }
 }

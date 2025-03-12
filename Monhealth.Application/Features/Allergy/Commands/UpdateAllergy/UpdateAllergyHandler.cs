@@ -14,12 +14,12 @@ namespace Monhealth.Application.Features.Allergy.Commands.UpdateAllergy
 
         public async Task<bool> Handle(UpdateAllergyRequestHandler request, CancellationToken cancellationToken)
         {
-             var allergyId = await _allergyRepository.GetByIdAsync(request.AllergyId);
-             allergyId.AllergyName = request.Request.Name;
-             allergyId.AllergyDescription = request.Request.Description;
-             _allergyRepository.Update(allergyId);
-             await _allergyRepository.SaveChangeAsync();
-             return true;
+            var allergyId = await _allergyRepository.GetByIdAsync(request.AllergyId);
+            allergyId.AllergyName = request.Request.Name;
+            allergyId.AllergyDescription = request.Request.Description;
+            _allergyRepository.Update(allergyId);
+            await _allergyRepository.SaveChangeAsync();
+            return true;
         }
     }
 }

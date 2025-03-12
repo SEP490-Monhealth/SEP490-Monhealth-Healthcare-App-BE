@@ -6,8 +6,8 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
     {
         public Guid ScheduleId { get; set; }
         public Guid ConsultantId { get; set; }
-        public ScheduleType ScheduleType { get; set; }
-        public RecurringDay? RecurringDay { get; set; }
+        public string ScheduleType { get; set; }
+        public string? RecurringDay { get; set; }
         public DateOnly? SpecificDate { get; set; }
         public List<TimeSlotDto> Items { get; set; }
     }

@@ -26,14 +26,14 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetById
             {
                 ScheduleId = schedule.ScheduleId,
                 ConsultantId = schedule.ConsultantId,
-                ScheduleType = schedule.ScheduleType,
-                RecurringDay = schedule.RecurringDay,
+                ScheduleType = schedule.ScheduleType.ToString(),
+                RecurringDay = schedule.RecurringDay.ToString(),
                 SpecificDate = schedule.SpecificDate,
                 // Nếu có các thông tin liên quan khác từ ScheduleTimeSlots, bạn có thể ánh xạ thêm ở đây.
                 Items = schedule.ScheduleTimeSlots.Select(st => new TimeSlotDto
                 {
                     StartTime = st.TimeSlot.StartTime,
-                    Status = st.Status
+                    Status = st.Status.ToString(),
                 }).ToList()
             };
 
