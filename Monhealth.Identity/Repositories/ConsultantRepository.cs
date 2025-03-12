@@ -83,9 +83,9 @@ namespace Monhealth.Identity.Repositories
             return await _context.Consultants.FirstOrDefaultAsync(c => c.UserId == userId);
         }
 
-        public async Task<int> SaveChangeAsync()
+        public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
-            return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

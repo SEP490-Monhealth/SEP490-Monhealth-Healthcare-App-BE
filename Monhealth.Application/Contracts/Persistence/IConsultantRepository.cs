@@ -8,6 +8,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, bool? status);
         Task<Consultant> GetConsultantById(Guid consultantId);
         Task<Consultant> GetConsultantByUserId(Guid? userId);
-        Task<int> SaveChangeAsync();
+        Task<int> SaveChangeAsync(CancellationToken cancellationToken);
     }
 }
