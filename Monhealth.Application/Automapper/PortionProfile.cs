@@ -4,11 +4,6 @@ using Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion;
 using Monhealth.Application.Features.Portions.Queries.GetPortionById;
 using Monhealth.Application.Features.Portions.Queries.GetPortionsByFoodId;
 using Monhealth.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monhealth.Application.Automapper
 {

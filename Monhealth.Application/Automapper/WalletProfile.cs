@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Monhealth.Application.Features.Wallet.Queries.GetAllWallets;
 using Monhealth.Application.Features.Wallet.Queries.GetWalletByConsultantId;
 using Monhealth.Application.Features.Wallet.Queries.GetWalletById;

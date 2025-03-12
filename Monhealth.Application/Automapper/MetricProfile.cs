@@ -10,7 +10,6 @@ using Monhealth.Application.Features.Metric.Queries.GetMetricDetail;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetNutritionDetail;
 using Monhealth.Domain;
-using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Automapper
 {
