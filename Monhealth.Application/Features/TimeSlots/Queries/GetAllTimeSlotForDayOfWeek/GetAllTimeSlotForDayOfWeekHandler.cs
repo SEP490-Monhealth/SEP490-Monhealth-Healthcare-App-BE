@@ -7,15 +7,15 @@ namespace Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayO
     {
 
         private static readonly Dictionary<int, List<TimeOnly>> DefaultTimeSlotRules = new()
-    {
-        { 0, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Sunday
-        { 1, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Monday
-        { 2, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Tuesday
-        { 3, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Wednesday
-        { 4, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Thursday
-        { 5, new List<TimeOnly> { new(9,0), new(10,0), new(11,0), new(14,0), new(15,0) } }, // Friday
-        { 6, new List<TimeOnly> { new(9,0), new(10,0), new(11,0) } }  // Saturday
-         };
+        {
+            { 0, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Sunday
+            { 1, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Monday
+            { 2, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Tuesday
+            { 3, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Wednesday
+            { 4, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Thursday
+            { 5, new List<TimeOnly> { new(9,0), new(10,0), new(11,0), new(14,0), new(15,0) } }, // Friday
+            { 6, new List<TimeOnly> { new(9,0), new(10,0), new(11,0) } }  // Saturday
+        };
 
         public async Task<List<DayTimeSlotDto>> Handle(GetAllTimeSlotForDayOfWeekQueries request, CancellationToken cancellationToken)
         {

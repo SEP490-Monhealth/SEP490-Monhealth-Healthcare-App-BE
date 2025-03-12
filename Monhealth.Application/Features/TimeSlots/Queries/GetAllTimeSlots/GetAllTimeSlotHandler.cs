@@ -11,8 +11,6 @@ namespace Monhealth.Application.Features.TimeSlots.Queries.GetAllTimSlots
             var timeSlots = await timeSlotRepository.GetAllAsync();
 
             return mapper.Map<List<TimeSlotDto>>(timeSlots);
-
-
         }
     }
 }
