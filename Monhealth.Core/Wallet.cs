@@ -14,11 +14,11 @@ namespace Monhealth.Domain
         [Key]
         public Guid WalletId { get; set; }
         public Guid ConsultantId { get; set; }
-        public float Balance { get; set; }
-        public bool Status { get; set; }
+        public float? Balance { get; set; }
+        public bool Status { get; set; } = false;
 
         [ForeignKey(nameof(ConsultantId))]
-        public Consultant Consultant { get; set; }
-        public ICollection<Transaction> Transactions { get; set; }
+        public Consultant? Consultant { get; set; }
+        public ICollection<Transaction>? Transactions { get; set; }
     }
 }

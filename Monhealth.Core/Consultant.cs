@@ -15,14 +15,14 @@ namespace Monhealth.Domain
         public int Experience { get; set; }
         public double? RatingCount { get; set; }
         public double? AverageRating { get; set; }
-        public bool IsVerified { get; set; }
-        public bool Status { get; set; }
+        public bool IsVerified { get; set; } = false;
+        public bool Status { get; set; } = false;
 
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         [ForeignKey(nameof(ExpertiseId))]
-        public Expertise Expertise { get; set; }
-        public ICollection<Certificate> Certificates { get; set; }
-        public Wallet Wallet { get; set; }
+        public Expertise? Expertise { get; set; }
+        public ICollection<Certificate>? Certificates { get; set; }
+        public Wallet? Wallet { get; set; }
     }
 }
