@@ -314,6 +314,29 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<(Food, Food)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
+        {
+            var proteinFood = await _context.Foods
+                .Include(f=>f.Nutrition)
+                .Where(f => (f.Nutrition.Protein*4/((f.Nutrition.Carbs*4)+ (f.Nutrition.Protein*4) + (f.Nutrition.Fat*9))) > 0.5
+                            && !allergiesIds.Any(al=>f.FoodAllergies.Any(fa=>fa.AllergyId==al)))
+                .OrderBy(f => Guid.NewGuid())
+                .FirstOrDefaultAsync();
+
+            var carbFood = await _context.Foods
+                .Include(f=>f.Nutrition)
+                .Where(f => (f.Nutrition.Carbs*4/((f.Nutrition.Carbs*4)+ (f.Nutrition.Protein*4) + (f.Nutrition.Fat*9))) > 0.5
+                            && !allergiesIds.Any(al=>f.FoodAllergies.Any(fa=>fa.AllergyId==al)))                .OrderBy(f => Guid.NewGuid())
+                .FirstOrDefaultAsync();
+
+                if(proteinFood==null || carbFood==null)
+                {
+                    throw new Exception("Not enough food to recommend");
+                }
+
+            return (proteinFood, carbFood);
+        }
+
         public Task<int> GetTotalFoodCountAsync()
         {
             return _context.Foods.CountAsync();

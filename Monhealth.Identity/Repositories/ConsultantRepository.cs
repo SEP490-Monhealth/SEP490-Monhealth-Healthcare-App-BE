@@ -23,6 +23,8 @@ namespace Monhealth.Identity.Repositories
                     Status = c.Status,
                     Bio = c.Bio,
                     Experience = c.Experience,
+                    RatingCount = c.RatingCount,
+                    AverageRating = c.AverageRating,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
                     AppUser = new AppUser
@@ -63,6 +65,8 @@ namespace Monhealth.Identity.Repositories
                     Status = c.Status,
                     Bio = c.Bio,
                     Experience = c.Experience,
+                    RatingCount = c.RatingCount,
+                    AverageRating = c.AverageRating,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
                     AppUser = new AppUser

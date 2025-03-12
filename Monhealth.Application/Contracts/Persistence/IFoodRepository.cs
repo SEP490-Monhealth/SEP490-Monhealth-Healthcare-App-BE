@@ -44,5 +44,8 @@ namespace Monhealth.Application.Contracts.Persistence
         //Get All Food
         IQueryable<Food> GetAll();
 
+        Task<(Food, Food)> GetRandomProteinAndCarbFood(
+            List<Guid> allergiesIds
+        );
     }
 }

@@ -65,6 +65,10 @@ namespace Monhealth.Identity.Repositories
         public async Task<AppUser> GetUserByUserId(Guid userId)
         {
             return await _context.Users
+                .AsNoTracking()
+                .AsSplitQuery()
+                .Include(u=>u.Goals)
+                .Include(u=>u.UserAllergies).ThenInclude(ua=>ua.Allergy)
                 .FirstOrDefaultAsync(u => u.Id == userId);
         }
 
