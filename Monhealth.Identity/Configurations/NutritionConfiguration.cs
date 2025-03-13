@@ -4072,46 +4072,44 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-
-
-            #region Nutrition 141
-            new Nutrition
-            {
-                NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),
-                Calories = 354,
-                Protein = 12.5f,
-                Carbs = 73.5f,
-                Fiber = 17.3f,
-                Sugar = 0.8f,
-                Fat = 2.3f,
-                SaturatedFat = 0.5f,
-                UnsaturatedFat = 1.8f,
-                Cholesterol = 0,
-                Sodium = 9,
-                Potassium = 452,
-                Calcium = 33,
-                Iron = 3.6f,
-                VitaminA = 22f,
-                VitaminB1 = 0.27f,
-                VitaminB2 = 0.16f,
-                VitaminC = 0,
-                VitaminD = 0,
-                VitaminE = 0.2f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 141
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"), // Lúa mạch
+            //     Calories = 354,
+            //     Protein = 12.5f,
+            //     Carbs = 73.5f,
+            //     Fiber = 17.3f,
+            //     Sugar = 0.8f,
+            //     Fat = 2.3f,
+            //     SaturatedFat = 0.5f,
+            //     UnsaturatedFat = 1.8f,
+            //     Cholesterol = 0,
+            //     Sodium = 9,
+            //     Potassium = 452,
+            //     Calcium = 33,
+            //     Iron = 3.6f,
+            //     VitaminA = 22f,
+            //     VitaminB1 = 0.27f,
+            //     VitaminB2 = 0.16f,
+            //     VitaminC = 0,
+            //     VitaminD = 0,
+            //     VitaminE = 0.2f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 142
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("10869d8c-14b9-4464-85ca-bf76fc4bf91d"),
-                Calories = 22,
-                Protein = 2.1f,
-                Carbs = 3.8f,
-                Fiber = 2.2f,
+                FoodId = Guid.Parse("10869d8c-14b9-4464-85ca-bf76fc4bf91d"), // Rau dền đỏ
+                Calories = 23,
+                Protein = 2.5f,
+                Carbs = 4.2f,
+                Fiber = 2.6f,
                 Sugar = 0.4f,
                 Fat = 0.3f,
                 SaturatedFat = 0,
@@ -4136,13 +4134,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
+                FoodId = Guid.Parse("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"), // Mì gạo lứt
                 Calories = 110,
-                Protein = 2.5f,
-                Carbs = 23.4f,
-                Fiber = 1.9f,
-                Sugar = 0.3f,
-                Fat = 0.6f,
+                Protein = 3.5f,
+                Carbs = 22,
+                Fiber = 2.5f,
+                Sugar = 0.2f,
+                Fat = 0.9f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.5f,
                 Cholesterol = 0,
@@ -4165,7 +4163,7 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("9979963d-5c37-4fa9-955c-d1ecb5814607"),
+                FoodId = Guid.Parse("9979963d-5c37-4fa9-955c-d1ecb5814607"), // Rau chân vịt
                 Calories = 23,
                 Protein = 2.9f,
                 Carbs = 3.6f,
@@ -4194,12 +4192,12 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("845454d0-967a-4e48-aef3-bd8458775500"),
-                Calories = 16,
+                FoodId = Guid.Parse("845454d0-967a-4e48-aef3-bd8458775500"), // Củ cải trắng
+                Calories = 18,
                 Protein = 0.6f,
-                Carbs = 3.4f,
+                Carbs = 4.1f,
                 Fiber = 1.6f,
-                Sugar = 1.8f,
+                Sugar = 2.5f,
                 Fat = 0.1f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.1f,
@@ -4223,13 +4221,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("6a88b8cb-dc82-4751-a2e4-23e5516d850b"),
-                Calories = 20,
-                Protein = 2f,
-                Carbs = 3.8f,
-                Fiber = 1.2f,
-                Sugar = 0.3f,
-                Fat = 0.2f,
+                FoodId = Guid.Parse("6a88b8cb-dc82-4751-a2e4-23e5516d850b"), // Rau má
+                Calories = 32,
+                Protein = 2,
+                Carbs = 6.3f,
+                Fiber = 2f,
+                Sugar = 0.5f,
+                Fat = 0.3f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.2f,
                 Cholesterol = 0,
@@ -4252,7 +4250,7 @@ namespace Monhealth.Identity.Configurations
             // new Nutrition
             // {
             //     NutritionId = Guid.NewGuid(),
-            //     FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"),
+            //     FoodId = Guid.Parse("7729551a-e475-4079-aaa0-07c02efde2a5"), // Hạt lanh
             //     Calories = 534,
             //     Protein = 18.3f,
             //     Carbs = 28.9f,
@@ -4277,46 +4275,46 @@ namespace Monhealth.Identity.Configurations
             // },
             // #endregion
 
-            #region Nutrition 148
-            new Nutrition
-            {
-                NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
-                Calories = 562,
-                Protein = 20.3f,
-                Carbs = 27.2f,
-                Fiber = 10.3f,
-                Sugar = 7.7f,
-                Fat = 45.4f,
-                SaturatedFat = 5.6f,
-                UnsaturatedFat = 39.8f,
-                Cholesterol = 0,
-                Sodium = 1,
-                Potassium = 1025,
-                Calcium = 107,
-                Iron = 4f,
-                VitaminA = 26f,
-                VitaminB1 = 0.87f,
-                VitaminB2 = 0.16f,
-                VitaminC = 5.4f,
-                VitaminD = 0,
-                VitaminE = 2.9f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 148
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"), // Hạt dẻ cười
+            //     Calories = 562,
+            //     Protein = 20.3f,
+            //     Carbs = 27.2f,
+            //     Fiber = 10.3f,
+            //     Sugar = 7.7f,
+            //     Fat = 45.4f,
+            //     SaturatedFat = 5.6f,
+            //     UnsaturatedFat = 39.8f,
+            //     Cholesterol = 0,
+            //     Sodium = 1,
+            //     Potassium = 1025,
+            //     Calcium = 107,
+            //     Iron = 4f,
+            //     VitaminA = 26f,
+            //     VitaminB1 = 0.87f,
+            //     VitaminB2 = 0.16f,
+            //     VitaminC = 5.4f,
+            //     VitaminD = 0,
+            //     VitaminE = 2.9f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 149
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("49601ef1-2131-478f-a1de-f2e444602be3"),
+                FoodId = Guid.Parse("49601ef1-2131-478f-a1de-f2e444602be3"), // Dừa tươi
                 Calories = 354,
                 Protein = 3.3f,
-                Carbs = 15.2f,
-                Fiber = 9f,
+                Carbs = 15,
+                Fiber = 9,
                 Sugar = 6.2f,
-                Fat = 33.5f,
+                Fat = 33,
                 SaturatedFat = 29.7f,
                 UnsaturatedFat = 3.8f,
                 Cholesterol = 0,
@@ -4339,13 +4337,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("d3c360a2-441e-4700-a6ec-4310b5976901"),
-                Calories = 189,
-                Protein = 19,
+                FoodId = Guid.Parse("d3c360a2-441e-4700-a6ec-4310b5976901"), // Cá thu
+                Calories = 190,
+                Protein = 20,
                 Carbs = 0,
                 Fiber = 0,
                 Sugar = 0,
-                Fat = 13f,
+                Fat = 12,
                 SaturatedFat = 4.3f,
                 UnsaturatedFat = 8.7f,
                 Cholesterol = 75,
@@ -4364,46 +4362,46 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 151
-            new Nutrition
-            {
-                NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
-                Calories = 718,
-                Protein = 7.9f,
-                Carbs = 13.8f,
-                Fiber = 8.6f,
-                Sugar = 4.6f,
-                Fat = 75.8f,
-                SaturatedFat = 12.1f,
-                UnsaturatedFat = 63.7f,
-                Cholesterol = 0,
-                Sodium = 5,
-                Potassium = 363,
-                Calcium = 85,
-                Iron = 2.5f,
-                VitaminA = 0,
-                VitaminB1 = 0.21f,
-                VitaminB2 = 0.16f,
-                VitaminC = 1.1f,
-                VitaminD = 0,
-                VitaminE = 0.6f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 151
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"), // Hạt mắc ca
+            //     Calories = 718,
+            //     Protein = 7.9f,
+            //     Carbs = 13.8f,
+            //     Fiber = 8.6f,
+            //     Sugar = 4.6f,
+            //     Fat = 75.8f,
+            //     SaturatedFat = 12.1f,
+            //     UnsaturatedFat = 63.7f,
+            //     Cholesterol = 0,
+            //     Sodium = 5,
+            //     Potassium = 363,
+            //     Calcium = 85,
+            //     Iron = 2.5f,
+            //     VitaminA = 0,
+            //     VitaminB1 = 0.21f,
+            //     VitaminB2 = 0.16f,
+            //     VitaminC = 1.1f,
+            //     VitaminD = 0,
+            //     VitaminE = 0.6f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 152
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("cb693182-b5ff-4f2b-9a47-44ab84841843"),
-                Calories = 83,
-                Protein = 0.4f,
-                Carbs = 19.9f,
-                Fiber = 5.3f,
-                Sugar = 14.7f,
-                Fat = 0.4f,
+                FoodId = Guid.Parse("cb693182-b5ff-4f2b-9a47-44ab84841843"), // Hồng xiêm
+                Calories = 70,
+                Protein = 0.6f,
+                Carbs = 19,
+                Fiber = 3.6f,
+                Sugar = 13,
+                Fat = 0.2f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.3f,
                 Cholesterol = 0,
@@ -4426,10 +4424,10 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("aaeb8b86-48b3-454c-a299-ec5a627f7047"),
+                FoodId = Guid.Parse("aaeb8b86-48b3-454c-a299-ec5a627f7047"), // Đào
                 Calories = 39,
                 Protein = 0.9f,
-                Carbs = 9.5f,
+                Carbs = 10,
                 Fiber = 1.5f,
                 Sugar = 8.4f,
                 Fat = 0.3f,
@@ -4455,12 +4453,12 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"),
+                FoodId = Guid.Parse("5d84fcf7-a1ad-4c81-97ea-a0babdaf2bdf"), // Lựu
                 Calories = 83,
                 Protein = 1.7f,
-                Carbs = 18.7f,
+                Carbs = 19,
                 Fiber = 4,
-                Sugar = 13.7f,
+                Sugar = 14,
                 Fat = 1.2f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 1.1f,
@@ -4484,13 +4482,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("5f848972-c5ae-45fc-8ba2-103b24d8a23a"),
-                Calories = 85,
-                Protein = 12,
-                Carbs = 5,
+                FoodId = Guid.Parse("5f848972-c5ae-45fc-8ba2-103b24d8a23a"), // Súp cua
+                Calories = 90,
+                Protein = 6,
+                Carbs = 10,
                 Fiber = 0.5f,
                 Sugar = 1,
-                Fat = 2,
+                Fat = 3,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 1.5f,
                 Cholesterol = 30,
@@ -4513,13 +4511,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("2ae82bfd-34db-4928-bfee-b60f4aec4460"),
-                Calories = 35,
-                Protein = 1,
-                Carbs = 8,
-                Fiber = 1.5f,
+                FoodId = Guid.Parse("2ae82bfd-34db-4928-bfee-b60f4aec4460"), // Canh bí đỏ
+                Calories = 30,
+                Protein = 1.5f,
+                Carbs = 6,
+                Fiber = 1,
                 Sugar = 3,
-                Fat = 0.5f,
+                Fat = 0.3f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.4f,
                 Cholesterol = 0,
@@ -4542,13 +4540,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("c69f3300-4f1b-45ce-bdc3-ae45fec848a7"),
-                Calories = 40,
-                Protein = 2,
-                Carbs = 9,
-                Fiber = 2.5f,
-                Sugar = 3,
-                Fat = 0.5f,
+                FoodId = Guid.Parse("c69f3300-4f1b-45ce-bdc3-ae45fec848a7"), // Canh rau củ
+                Calories = 25,
+                Protein = 1.3f,
+                Carbs = 5,
+                Fiber = 1.5f,
+                Sugar = 2,
+                Fat = 0.2f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.4f,
                 Cholesterol = 0,
@@ -4571,13 +4569,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("6487a532-ff5e-4b77-b408-46c789608de9"),
+                FoodId = Guid.Parse("6487a532-ff5e-4b77-b408-46c789608de9"), // Canh bí đao
                 Calories = 15,
-                Protein = 1,
-                Carbs = 3.5f,
-                Fiber = 1,
-                Sugar = 2,
-                Fat = 0.1f,
+                Protein = 0.8f,
+                Carbs = 3,
+                Fiber = 0.8f,
+                Sugar = 1.5f,
+                Fat = 0.2f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.1f,
                 Cholesterol = 0,
@@ -4600,13 +4598,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("63045676-0e70-425f-aa96-e348a4e88c3a"),
-                Calories = 70,
-                Protein = 7,
-                Carbs = 6,
-                Fiber = 2,
+                FoodId = Guid.Parse("63045676-0e70-425f-aa96-e348a4e88c3a"), // Canh cua mồng tơi
+                Calories = 40,
+                Protein = 4,
+                Carbs = 4,
+                Fiber = 1.5f,
                 Sugar = 1,
-                Fat = 2,
+                Fat = 1,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 1.5f,
                 Cholesterol = 35,
@@ -4629,13 +4627,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("827829bf-71cd-4865-80af-1457e0091456"),
-                Calories = 30,
+                FoodId = Guid.Parse("827829bf-71cd-4865-80af-1457e0091456"), // Canh nấm
+                Calories = 35,
                 Protein = 2,
-                Carbs = 6,
-                Fiber = 2,
-                Sugar = 1,
-                Fat = 0.5f,
+                Carbs = 5,
+                Fiber = 1.5f,
+                Sugar = 2,
+                Fat = 1,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.4f,
                 Cholesterol = 0,
@@ -4658,12 +4656,12 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("c5e3e4ed-0164-4917-a1ce-99679b971a22"),
-                Calories = 90,
+                FoodId = Guid.Parse("c5e3e4ed-0164-4917-a1ce-99679b971a22"), // Cháo gà
+                Calories = 120,
                 Protein = 6,
-                Carbs = 15,
+                Carbs = 20,
                 Fiber = 0.5f,
-                Sugar = 1,
+                Sugar = 0.5f,
                 Fat = 2,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 1.5f,
@@ -4687,13 +4685,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("e7d4d8d6-6e9a-4c38-95f2-e9790f5bd2c2"),
-                Calories = 120,
-                Protein = 8,
-                Carbs = 15,
+                FoodId = Guid.Parse("e7d4d8d6-6e9a-4c38-95f2-e9790f5bd2c2"), // Cháo sườn non
+                Calories = 130,
+                Protein = 7,
+                Carbs = 20,
                 Fiber = 0.5f,
-                Sugar = 1,
-                Fat = 4,
+                Sugar = 0.5f,
+                Fat = 3,
                 SaturatedFat = 1,
                 UnsaturatedFat = 3,
                 Cholesterol = 30,
@@ -4716,13 +4714,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("fa1f0dc9-270a-4e77-881f-acb53ac1c91d"),
-                Calories = 110,
-                Protein = 7,
-                Carbs = 14,
+                FoodId = Guid.Parse("fa1f0dc9-270a-4e77-881f-acb53ac1c91d"), // Cháo thịt băm
+                Calories = 125,
+                Protein = 6,
+                Carbs = 20,
                 Fiber = 0.5f,
-                Sugar = 1,
-                Fat = 4,
+                Sugar = 0.5f,
+                Fat = 2.5f,
                 SaturatedFat = 1,
                 UnsaturatedFat = 3,
                 Cholesterol = 25,
@@ -4745,13 +4743,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("0ece5f0f-9fec-4f74-b948-90dce7ce6ce3"),
-                Calories = 120,
+                FoodId = Guid.Parse("0ece5f0f-9fec-4f74-b948-90dce7ce6ce3"), // Bún chả cá
+                Calories = 270,
                 Protein = 15,
-                Carbs = 18,
-                Fiber = 1,
+                Carbs = 40,
+                Fiber = 1.5f,
                 Sugar = 2,
-                Fat = 3,
+                Fat = 6,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 2.5f,
                 Cholesterol = 35,
@@ -4774,13 +4772,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("7167f942-dc89-4f29-8022-588373aef45e"),
-                Calories = 105,
-                Protein = 10f,
-                Carbs = 15,
-                Fiber = 1,
+                FoodId = Guid.Parse("7167f942-dc89-4f29-8022-588373aef45e"), // Bún gà
+                Calories = 260,
+                Protein = 14,
+                Carbs = 40,
+                Fiber = 1.5f,
                 Sugar = 2,
-                Fat = 3,
+                Fat = 5,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 2.5f,
                 Cholesterol = 30,
@@ -4803,13 +4801,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("d65c7826-78c0-4991-b3b6-1e2b25437f61"),
-                Calories = 110,
-                Protein = 14,
-                Carbs = 15,
-                Fiber = 1,
+                FoodId = Guid.Parse("d65c7826-78c0-4991-b3b6-1e2b25437f61"), // Bún hải sản
+                Calories = 280,
+                Protein = 16,
+                Carbs = 40,
+                Fiber = 1.5f,
                 Sugar = 2,
-                Fat = 3,
+                Fat = 6,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 2.5f,
                 Cholesterol = 40,
@@ -4832,13 +4830,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("90099162-15e0-4ef0-b93e-59d409678b63"),
-                Calories = 95,
+                FoodId = Guid.Parse("90099162-15e0-4ef0-b93e-59d409678b63"), // Bún ốc
+                Calories = 250,
                 Protein = 12,
-                Carbs = 15,
-                Fiber = 1,
+                Carbs = 40,
+                Fiber = 1.5f,
                 Sugar = 2,
-                Fat = 2,
+                Fat = 4,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 1.5f,
                 Cholesterol = 35,
@@ -4861,13 +4859,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("e1a6ae3e-bbb3-4e7f-9d92-55bd38e6fa2f"),
-                Calories = 120,
-                Protein = 10f,
-                Carbs = 16,
+                FoodId = Guid.Parse("e1a6ae3e-bbb3-4e7f-9d92-55bd38e6fa2f"), // Cháo vịt
+                Calories = 130,
+                Protein = 7,
+                Carbs = 20,
                 Fiber = 0.5f,
-                Sugar = 1,
-                Fat = 4,
+                Sugar = 0.5f,
+                Fat = 3.5f,
                 SaturatedFat = 1,
                 UnsaturatedFat = 3,
                 Cholesterol = 40,
@@ -4890,13 +4888,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("9669cdf4-c133-476f-b2bd-f3c091346c52"),
-                Calories = 230,
-                Protein = 15,
-                Carbs = 30f,
-                Fiber = 1,
-                Sugar = 3,
-                Fat = 7,
+                FoodId = Guid.Parse("9669cdf4-c133-476f-b2bd-f3c091346c52"), // Bánh mì chả cá
+                Calories = 300,
+                Protein = 14,
+                Carbs = 45,
+                Fiber = 2,
+                Sugar = 4,
+                Fat = 8,
                 SaturatedFat = 1.5f,
                 UnsaturatedFat = 5.5f,
                 Cholesterol = 35,
@@ -4919,13 +4917,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("61b2c4d9-6de2-4fb2-af3b-fe9fabee0bd4"),
-                Calories = 200,
-                Protein = 10f,
-                Carbs = 25,
+                FoodId = Guid.Parse("61b2c4d9-6de2-4fb2-af3b-fe9fabee0bd4"), // Mì Quảng
+                Calories = 320,
+                Protein = 15,
+                Carbs = 50,
                 Fiber = 2,
                 Sugar = 3,
-                Fat = 8,
+                Fat = 7,
                 SaturatedFat = 1.5f,
                 UnsaturatedFat = 6.5f,
                 Cholesterol = 35,
@@ -4948,13 +4946,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("af036922-79f3-45a7-b562-a6279520c0e6"),
-                Calories = 90,
-                Protein = 8,
-                Carbs = 14,
-                Fiber = 1,
-                Sugar = 2,
-                Fat = 2,
+                FoodId = Guid.Parse("af036922-79f3-45a7-b562-a6279520c0e6"), // Miến gà
+                Calories = 250,
+                Protein = 12,
+                Carbs = 40,
+                Fiber = 1.5f,
+                Sugar = 1,
+                Fat = 5,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 1.5f,
                 Cholesterol = 25,
@@ -4977,11 +4975,11 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("00bc33fe-4cd5-47df-bd94-15ac9f93648c"),
-                Calories = 40,
+                FoodId = Guid.Parse("00bc33fe-4cd5-47df-bd94-15ac9f93648c"), // Súp rau củ
+                Calories = 50,
                 Protein = 2,
-                Carbs = 8,
-                Fiber = 2.5f,
+                Carbs = 10,
+                Fiber = 2,
                 Sugar = 3,
                 Fat = 0.5f,
                 SaturatedFat = 0.1f,
@@ -5006,13 +5004,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("7b3935fa-e426-4dcd-b59f-2dbe8960956b"),
-                Calories = 150,
-                Protein = 12,
-                Carbs = 8,
-                Fiber = 1,
+                FoodId = Guid.Parse("7b3935fa-e426-4dcd-b59f-2dbe8960956b"), // Súp bò hầm
+                Calories = 120,
+                Protein = 10,
+                Carbs = 10,
+                Fiber = 1.5f,
                 Sugar = 2,
-                Fat = 8,
+                Fat = 5,
                 SaturatedFat = 3,
                 UnsaturatedFat = 5,
                 Cholesterol = 40,
@@ -5035,13 +5033,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("3426c7e8-055b-414f-84a3-eb9afdb1d33e"),
-                Calories = 70,
+                FoodId = Guid.Parse("3426c7e8-055b-414f-84a3-eb9afdb1d33e"), // Súp gà nấm
+                Calories = 100,
                 Protein = 6,
-                Carbs = 6,
+                Carbs = 8,
                 Fiber = 1,
-                Sugar = 2,
-                Fat = 3,
+                Sugar = 1.5f,
+                Fat = 4,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 2.5f,
                 Cholesterol = 25,
@@ -5064,12 +5062,12 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("ea63d4c3-41f7-4f89-bf33-e8a16c5d6956"),
-                Calories = 90,
-                Protein = 12,
-                Carbs = 6,
+                FoodId = Guid.Parse("ea63d4c3-41f7-4f89-bf33-e8a16c5d6956"), // Súp hải sản
+                Calories = 110,
+                Protein = 9,
+                Carbs = 10,
                 Fiber = 1,
-                Sugar = 2,
+                Sugar = 1.5f,
                 Fat = 3,
                 SaturatedFat = 1,
                 UnsaturatedFat = 2,
@@ -5093,13 +5091,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("a988cc73-072e-4af1-9b53-55fbf0f4fe79"),
-                Calories = 60,
-                Protein = 3,
-                Carbs = 8,
+                FoodId = Guid.Parse("a988cc73-072e-4af1-9b53-55fbf0f4fe79"), // Rau xào
+                Calories = 70,
+                Protein = 2.5f,
+                Carbs = 7,
                 Fiber = 3,
                 Sugar = 2,
-                Fat = 3,
+                Fat = 3.5f,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 2.5f,
                 Cholesterol = 0,
@@ -5122,13 +5120,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("2ee163f7-4463-44ec-b9e2-8a409c112db4"),
+                FoodId = Guid.Parse("2ee163f7-4463-44ec-b9e2-8a409c112db4"), // Rau luộc
                 Calories = 30,
                 Protein = 2,
                 Carbs = 6,
-                Fiber = 2.5f,
+                Fiber = 3,
                 Sugar = 2,
-                Fat = 0.5f,
+                Fat = 0.2f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.4f,
                 Cholesterol = 0,
@@ -5151,13 +5149,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("01e60ae4-ff69-44d6-b4fd-aaf916e3a7e5"),
-                Calories = 250,
-                Protein = 14,
-                Carbs = 30f,
+                FoodId = Guid.Parse("01e60ae4-ff69-44d6-b4fd-aaf916e3a7e5"), // Cơm gà xối mỡ
+                Calories = 350,
+                Protein = 20,
+                Carbs = 45,
                 Fiber = 1,
-                Sugar = 3,
-                Fat = 10f,
+                Sugar = 1,
+                Fat = 10,
                 SaturatedFat = 3,
                 UnsaturatedFat = 7,
                 Cholesterol = 45,
@@ -5180,13 +5178,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("eec3d874-6331-4e33-bbe6-bf0cc4335b29"),
-                Calories = 40,
-                Protein = 2,
+                FoodId = Guid.Parse("eec3d874-6331-4e33-bbe6-bf0cc4335b29"), // Salad rau
+                Calories = 45,
+                Protein = 1.5f,
                 Carbs = 8,
                 Fiber = 3,
-                Sugar = 2,
-                Fat = 0.5f,
+                Sugar = 4,
+                Fat = 1.5f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.4f,
                 Cholesterol = 0,
@@ -5209,13 +5207,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("90a605b6-843d-4cc1-8fe7-a016c76ee29c"),
-                Calories = 30,
-                Protein = 2,
-                Carbs = 6,
-                Fiber = 2.5f,
-                Sugar = 1,
-                Fat = 0.5f,
+                FoodId = Guid.Parse("90a605b6-843d-4cc1-8fe7-a016c76ee29c"), // Rau muống luộc
+                Calories = 20,
+                Protein = 2.5f,
+                Carbs = 3,
+                Fiber = 2,
+                Sugar = 0.8f,
+                Fat = 0.2f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.4f,
                 Cholesterol = 0,
@@ -5238,12 +5236,12 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("56513d2d-2472-4fa4-80bc-2f54002b187f"),
+                FoodId = Guid.Parse("56513d2d-2472-4fa4-80bc-2f54002b187f"), // Canh chua cá
                 Calories = 70,
-                Protein = 10f,
+                Protein = 8,
                 Carbs = 6,
-                Fiber = 1,
-                Sugar = 2,
+                Fiber = 1.5f,
+                Sugar = 3,
                 Fat = 2,
                 SaturatedFat = 0.5f,
                 UnsaturatedFat = 1.5f,
@@ -5267,10 +5265,10 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("2d821db4-3e99-4877-b979-bc82d34b3b01"),
-                Calories = 280,
-                Protein = 10f,
-                Carbs = 30f,
+                FoodId = Guid.Parse("2d821db4-3e99-4877-b979-bc82d34b3b01"), // Bánh mì ốp la
+                Calories = 330,
+                Protein = 12,
+                Carbs = 40,
                 Fiber = 2,
                 Sugar = 3,
                 Fat = 15,
@@ -5296,13 +5294,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("29dfb5da-8818-40ff-bf66-7553521c2161"),
+                FoodId = Guid.Parse("29dfb5da-8818-40ff-bf66-7553521c2161"), // Bò kho
                 Calories = 220,
-                Protein = 15,
-                Carbs = 12,
-                Fiber = 1.5f,
-                Sugar = 3,
-                Fat = 12,
+                Protein = 20,
+                Carbs = 15,
+                Fiber = 2,
+                Sugar = 5,
+                Fat = 10,
                 SaturatedFat = 4,
                 UnsaturatedFat = 8,
                 Cholesterol = 50,
@@ -5325,13 +5323,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("64e0dca1-abd5-4886-b124-ef0f4a44d0a6"),
-                Calories = 40,
-                Protein = 3,
-                Carbs = 7,
+                FoodId = Guid.Parse("64e0dca1-abd5-4886-b124-ef0f4a44d0a6"), // Canh rau ngót
+                Calories = 30,
+                Protein = 2,
+                Carbs = 5,
                 Fiber = 2,
-                Sugar = 1,
-                Fat = 1,
+                Sugar = 1.5f,
+                Fat = 0.5f,
                 SaturatedFat = 0.2f,
                 UnsaturatedFat = 0.8f,
                 Cholesterol = 0,
@@ -5354,12 +5352,12 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("4edcae53-7e30-42bb-8526-7686355f2268"),
-                Calories = 30,
+                FoodId = Guid.Parse("4edcae53-7e30-42bb-8526-7686355f2268"), // Canh cải xanh
+                Calories = 25,
                 Protein = 2,
-                Carbs = 6,
-                Fiber = 2.5f,
-                Sugar = 2,
+                Carbs = 4,
+                Fiber = 2,
+                Sugar = 1,
                 Fat = 0.5f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.4f,
@@ -5383,13 +5381,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("0292d477-d63b-4904-a83b-2cd8cac39c14"),
-                Calories = 28,
-                Protein = 1.2f,
-                Carbs = 6.5f,
-                Fiber = 1.5f,
-                Sugar = 3.2f,
-                Fat = 0.3f,
+                FoodId = Guid.Parse("0292d477-d63b-4904-a83b-2cd8cac39c14"), // Canh củ quả
+                Calories = 40,
+                Protein = 1.5f,
+                Carbs = 8,
+                Fiber = 2,
+                Sugar = 3,
+                Fat = 0.5f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.2f,
                 Cholesterol = 0,
@@ -5412,13 +5410,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("b80c562a-e1d4-4117-a317-c06b5bae8950"),
-                Calories = 242,
-                Protein = 22.5f,
-                Carbs = 3.1f,
-                Fiber = 0.5f,
-                Sugar = 1.2f,
-                Fat = 17.2f,
+                FoodId = Guid.Parse("b80c562a-e1d4-4117-a317-c06b5bae8950"), // Thịt heo kho
+                Calories = 250,
+                Protein = 20,
+                Carbs = 8,
+                Fiber = 0,
+                Sugar = 5,
+                Fat = 15,
                 SaturatedFat = 6.5f,
                 UnsaturatedFat = 10.5f,
                 Cholesterol = 70,
@@ -5441,13 +5439,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("99ec20c3-f2a7-4727-9d12-a30f92d256cd"),
-                Calories = 35,
-                Protein = 2.4f,
-                Carbs = 7.1f,
-                Fiber = 2.5f,
-                Sugar = 0.9f,
-                Fat = 0.6f,
+                FoodId = Guid.Parse("99ec20c3-f2a7-4727-9d12-a30f92d256cd"), // Rau muống xào tỏi
+                Calories = 70,
+                Protein = 3,
+                Carbs = 6,
+                Fiber = 2,
+                Sugar = 1,
+                Fat = 4,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.5f,
                 Cholesterol = 0,
@@ -5470,13 +5468,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("3dc2fa80-ab87-4e26-907b-3516611371b8"),
-                Calories = 13,
-                Protein = 0.6f,
-                Carbs = 3.1f,
-                Fiber = 0.5f,
-                Sugar = 1.5f,
-                Fat = 0.1f,
+                FoodId = Guid.Parse("3dc2fa80-ab87-4e26-907b-3516611371b8"), // Canh bầu
+                Calories = 25,
+                Protein = 1,
+                Carbs = 5,
+                Fiber = 1.5f,
+                Sugar = 2,
+                Fat = 0.3f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.1f,
                 Cholesterol = 0,
@@ -5499,13 +5497,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("2c990331-b6ca-4642-893a-be68f0d398d5"),
-                Calories = 23,
-                Protein = 2,
+                FoodId = Guid.Parse("2c990331-b6ca-4642-893a-be68f0d398d5"), // Rau cải xanh
+                Calories = 25,
+                Protein = 2.5f,
                 Carbs = 4,
-                Fiber = 2.1f,
+                Fiber = 2.5f,
                 Sugar = 1,
-                Fat = 0.4f,
+                Fat = 0.3f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.3f,
                 Cholesterol = 0,
@@ -5528,12 +5526,12 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("f0e4a066-b920-4540-a035-1a5504ff1358"),
+                FoodId = Guid.Parse("f0e4a066-b920-4540-a035-1a5504ff1358"), // Mận
                 Calories = 46,
                 Protein = 0.7f,
-                Carbs = 11.4f,
+                Carbs = 11,
                 Fiber = 1.4f,
-                Sugar = 9.9f,
+                Sugar = 10,
                 Fat = 0.3f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.3f,
@@ -5557,13 +5555,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("c9cb635f-b21e-4b04-9ac9-84d01f2ef42b"),
-                Calories = 68,
+                FoodId = Guid.Parse("c9cb635f-b21e-4b04-9ac9-84d01f2ef42b"), // Chôm chôm
+                Calories = 82,
                 Protein = 0.9f,
-                Carbs = 16.5f,
-                Fiber = 0.9f,
-                Sugar = 15,
-                Fat = 0.2f,
+                Carbs = 20,
+                Fiber = 1.3f,
+                Sugar = 14,
+                Fat = 0.3f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.2f,
                 Cholesterol = 0,
@@ -5586,13 +5584,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("982d8f3e-f517-4bd2-87a8-48329fc9eb91"),
-                Calories = 23,
-                Protein = 1.6f,
-                Carbs = 4.1f,
-                Fiber = 2.2f,
-                Sugar = 1.3f,
-                Fat = 0.4f,
+                FoodId = Guid.Parse("982d8f3e-f517-4bd2-87a8-48329fc9eb91"), // Canh cải ngọt
+                Calories = 25,
+                Protein = 1.8f,
+                Carbs = 4,
+                Fiber = 1.5f,
+                Sugar = 1,
+                Fat = 0.3f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.3f,
                 Cholesterol = 0,
@@ -5615,13 +5613,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("43d635e2-6f0c-4385-83d8-fedfd479d356"),
-                Calories = 165,
-                Protein = 31,
-                Carbs = 1.1f,
-                Fiber = 0.2f,
-                Sugar = 0.5f,
-                Fat = 3.6f,
+                FoodId = Guid.Parse("43d635e2-6f0c-4385-83d8-fedfd479d356"), // Thịt gà kho
+                Calories = 210,
+                Protein = 25,
+                Carbs = 6,
+                Fiber = 0,
+                Sugar = 3,
+                Fat = 10,
                 SaturatedFat = 1,
                 UnsaturatedFat = 2.6f,
                 Cholesterol = 85,
@@ -5644,12 +5642,12 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("8ed85dc2-7654-4c48-81f9-19946a73f71d"),
+                FoodId = Guid.Parse("8ed85dc2-7654-4c48-81f9-19946a73f71d"), // Bắp cải luộc
                 Calories = 25,
                 Protein = 1.3f,
-                Carbs = 5.8f,
+                Carbs = 5,
                 Fiber = 2.5f,
-                Sugar = 3.2f,
+                Sugar = 2.8f,
                 Fat = 0.1f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.1f,
@@ -5673,13 +5671,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("881ae045-1c9a-4e20-9160-0e8c14486be5"),
-                Calories = 22,
-                Protein = 1,
-                Carbs = 4.4f,
+                FoodId = Guid.Parse("881ae045-1c9a-4e20-9160-0e8c14486be5"), // Canh mùng tơi mướp
+                Calories = 30,
+                Protein = 1.5f,
+                Carbs = 5,
                 Fiber = 2,
-                Sugar = 1.2f,
-                Fat = 0.3f,
+                Sugar = 2,
+                Fat = 0.5f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.2f,
                 Cholesterol = 0,
@@ -5702,13 +5700,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("b42e9ba6-8aa7-419a-907f-ec7e21cb9337"),
-                Calories = 23,
+                FoodId = Guid.Parse("b42e9ba6-8aa7-419a-907f-ec7e21cb9337"), // Canh rau dền
+                Calories = 30,
                 Protein = 2,
-                Carbs = 4.1f,
-                Fiber = 2,
-                Sugar = 1.5f,
-                Fat = 0.3f,
+                Carbs = 5,
+                Fiber = 2.5f,
+                Sugar = 1,
+                Fat = 0.5f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.2f,
                 Cholesterol = 0,
@@ -5731,13 +5729,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
-                Calories = 150,
-                Protein = 3,
-                Carbs = 22.5f,
-                Fiber = 1,
-                Sugar = 1.5f,
-                Fat = 6.5f,
+                FoodId = Guid.Parse("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"), // Cơm chiên
+                Calories = 180,
+                Protein = 4,
+                Carbs = 35,
+                Fiber = 0.5f,
+                Sugar = 0.5f,
+                Fat = 3,
                 SaturatedFat = 1,
                 UnsaturatedFat = 5.5f,
                 Cholesterol = 25,
@@ -5760,13 +5758,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("e370081a-c0a6-4c00-b01c-7c52f953b7f1"),
-                Calories = 16,
-                Protein = 0.6f,
-                Carbs = 3.7f,
-                Fiber = 0.8f,
-                Sugar = 2.5f,
-                Fat = 0.1f,
+                FoodId = Guid.Parse("e370081a-c0a6-4c00-b01c-7c52f953b7f1"), // Canh mướp
+                Calories = 20,
+                Protein = 0.8f,
+                Carbs = 4,
+                Fiber = 1.5f,
+                Sugar = 2,
+                Fat = 0.2f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.1f,
                 Cholesterol = 0,
@@ -5789,13 +5787,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("9acdf58c-c37d-4026-a3f9-40fda186184b"),
-                Calories = 23,
-                Protein = 2.1f,
-                Carbs = 4.1f,
-                Fiber = 2,
-                Sugar = 1.2f,
-                Fat = 0.3f,
+                FoodId = Guid.Parse("9acdf58c-c37d-4026-a3f9-40fda186184b"), // Cải ngọt luộc
+                Calories = 20,
+                Protein = 1.8f,
+                Carbs = 3.5f,
+                Fiber = 1.5f,
+                Sugar = 1,
+                Fat = 0.2f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.2f,
                 Cholesterol = 0,
@@ -5818,13 +5816,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("b79878e6-36d9-4efc-b3ff-a3c45b35ff21"),
-                Calories = 150,
-                Protein = 23,
-                Carbs = 2,
-                Fiber = 0.5f,
-                Sugar = 1,
-                Fat = 7,
+                FoodId = Guid.Parse("b79878e6-36d9-4efc-b3ff-a3c45b35ff21"), // Cá kho
+                Calories = 180,
+                Protein = 20,
+                Carbs = 5,
+                Fiber = 0,
+                Sugar = 3,
+                Fat = 10,
                 SaturatedFat = 1.5f,
                 UnsaturatedFat = 5.5f,
                 Cholesterol = 50,
@@ -5847,13 +5845,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("8382816f-1beb-4804-9698-3b486798b20a"),
-                Calories = 250,
-                Protein = 10f,
-                Carbs = 30f,
-                Fiber = 2,
-                Sugar = 2,
-                Fat = 10f,
+                FoodId = Guid.Parse("8382816f-1beb-4804-9698-3b486798b20a"), // Bánh mì chả lụa
+                Calories = 320,
+                Protein = 15,
+                Carbs = 48,
+                Fiber = 3,
+                Sugar = 4,
+                Fat = 9,
                 SaturatedFat = 3,
                 UnsaturatedFat = 7,
                 Cholesterol = 25,
@@ -5876,13 +5874,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("2405ffc3-524e-4331-9e68-47a411d7b9b8"),
-                Calories = 190,
-                Protein = 5,
-                Carbs = 28,
-                Fiber = 1.5f,
-                Sugar = 2,
-                Fat = 6,
+                FoodId = Guid.Parse("2405ffc3-524e-4331-9e68-47a411d7b9b8"), // Cơm chiên dương châu
+                Calories = 380,
+                Protein = 16,
+                Carbs = 60,
+                Fiber = 3,
+                Sugar = 3,
+                Fat = 10,
                 SaturatedFat = 1.5f,
                 UnsaturatedFat = 4.5f,
                 Cholesterol = 30,
@@ -5901,46 +5899,46 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 204
-            new Nutrition
-            {
-                NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),
-                Calories = 170,
-                Protein = 4,
-                Carbs = 23,
-                Fiber = 1,
-                Sugar = 1,
-                Fat = 7,
-                SaturatedFat = 1,
-                UnsaturatedFat = 6,
-                Cholesterol = 15,
-                Sodium = 350,
-                Potassium = 150,
-                Calcium = 20,
-                Iron = 0.7f,
-                VitaminA = 50,
-                VitaminB1 = 0.05f,
-                VitaminB2 = 0.05f,
-                VitaminC = 0,
-                VitaminD = 0,
-                VitaminE = 0.2f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 204
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("a1ff09f1-9d02-40a8-84de-8da9aad67c58"), // Cơm rang
+            //     Calories = 170,
+            //     Protein = 4,
+            //     Carbs = 23,
+            //     Fiber = 1,
+            //     Sugar = 1,
+            //     Fat = 7,
+            //     SaturatedFat = 1,
+            //     UnsaturatedFat = 6,
+            //     Cholesterol = 15,
+            //     Sodium = 350,
+            //     Potassium = 150,
+            //     Calcium = 20,
+            //     Iron = 0.7f,
+            //     VitaminA = 50,
+            //     VitaminB1 = 0.05f,
+            //     VitaminB2 = 0.05f,
+            //     VitaminC = 0,
+            //     VitaminD = 0,
+            //     VitaminE = 0.2f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 205
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("2146faae-2e7c-4460-8d81-38f5d313012c"),
-                Calories = 110,
-                Protein = 5.2f,
-                Carbs = 20f,
-                Fiber = 3,
-                Sugar = 1.5f,
-                Fat = 1.5f,
+                FoodId = Guid.Parse("2146faae-2e7c-4460-8d81-38f5d313012c"), // Cháo đậu xanh
+                Calories = 180,
+                Protein = 8,
+                Carbs = 35,
+                Fiber = 6,
+                Sugar = 1,
+                Fat = 1,
                 SaturatedFat = 0.2f,
                 UnsaturatedFat = 1.3f,
                 Cholesterol = 0,
@@ -5959,46 +5957,46 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 206
-            new Nutrition
-            {
-                NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"),
-                Calories = 200,
-                Protein = 7.5f,
-                Carbs = 30f,
-                Fiber = 2,
-                Sugar = 3,
-                Fat = 7,
-                SaturatedFat = 1.5f,
-                UnsaturatedFat = 5.5f,
-                Cholesterol = 20,
-                Sodium = 600,
-                Potassium = 200,
-                Calcium = 40,
-                Iron = 1.2f,
-                VitaminA = 100,
-                VitaminB1 = 0.1f,
-                VitaminB2 = 0.1f,
-                VitaminC = 10f,
-                VitaminD = 0,
-                VitaminE = 0.5f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 206
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"), // Mì xào thập cẩm
+            //     Calories = 200,
+            //     Protein = 7.5f,
+            //     Carbs = 30f,
+            //     Fiber = 2,
+            //     Sugar = 3,
+            //     Fat = 7,
+            //     SaturatedFat = 1.5f,
+            //     UnsaturatedFat = 5.5f,
+            //     Cholesterol = 20,
+            //     Sodium = 600,
+            //     Potassium = 200,
+            //     Calcium = 40,
+            //     Iron = 1.2f,
+            //     VitaminA = 100,
+            //     VitaminB1 = 0.1f,
+            //     VitaminB2 = 0.1f,
+            //     VitaminC = 10f,
+            //     VitaminD = 0,
+            //     VitaminE = 0.5f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 207
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("a950000c-9837-4d1b-b1ae-b9db230f8f1f"),
-                Calories = 80,
-                Protein = 2,
-                Carbs = 17,
-                Fiber = 2,
-                Sugar = 1.5f,
-                Fat = 0.5f,
+                FoodId = Guid.Parse("a950000c-9837-4d1b-b1ae-b9db230f8f1f"), // Súp khoai tây
+                Calories = 150,
+                Protein = 4,
+                Carbs = 25,
+                Fiber = 3,
+                Sugar = 3,
+                Fat = 5,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.4f,
                 Cholesterol = 0,
@@ -6017,46 +6015,46 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 208
-            new Nutrition
-            {
-                NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("30f9d9dc-1653-495c-99b7-b649c49f7930"),
-                Calories = 130,
-                Protein = 6,
-                Carbs = 18,
-                Fiber = 1,
-                Sugar = 1,
-                Fat = 4.5f,
-                SaturatedFat = 1.5f,
-                UnsaturatedFat = 3,
-                Cholesterol = 20,
-                Sodium = 500,
-                Potassium = 180,
-                Calcium = 30,
-                Iron = 1.2f,
-                VitaminA = 50,
-                VitaminB1 = 0.1f,
-                VitaminB2 = 0.1f,
-                VitaminC = 2,
-                VitaminD = 0,
-                VitaminE = 0.3f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 208
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("30f9d9dc-1653-495c-99b7-b649c49f7930"), // Bánh cuốn thịt bằm
+            //     Calories = 130,
+            //     Protein = 6,
+            //     Carbs = 18,
+            //     Fiber = 1,
+            //     Sugar = 1,
+            //     Fat = 4.5f,
+            //     SaturatedFat = 1.5f,
+            //     UnsaturatedFat = 3,
+            //     Cholesterol = 20,
+            //     Sodium = 500,
+            //     Potassium = 180,
+            //     Calcium = 30,
+            //     Iron = 1.2f,
+            //     VitaminA = 50,
+            //     VitaminB1 = 0.1f,
+            //     VitaminB2 = 0.1f,
+            //     VitaminC = 2,
+            //     VitaminD = 0,
+            //     VitaminE = 0.3f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 209
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("a364353c-d589-4a94-9c3b-3038113ea249"),
-                Calories = 180,
-                Protein = 20f,
-                Carbs = 10f,
-                Fiber = 2,
-                Sugar = 3,
-                Fat = 8,
+                FoodId = Guid.Parse("a364353c-d589-4a94-9c3b-3038113ea249"), // Bò xào rau củ
+                Calories = 280,
+                Protein = 25,
+                Carbs = 15,
+                Fiber = 5,
+                Sugar = 5,
+                Fat = 12,
                 SaturatedFat = 2.5f,
                 UnsaturatedFat = 5.5f,
                 Cholesterol = 55,
@@ -6075,46 +6073,46 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 210
-            new Nutrition
-            {
-                NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("cf9ab10f-2094-496b-9018-96b9d2e1af76"),
-                Calories = 150,
-                Protein = 10.5f,
-                Carbs = 18,
-                Fiber = 1,
-                Sugar = 1.5f,
-                Fat = 4,
-                SaturatedFat = 1,
-                UnsaturatedFat = 3,
-                Cholesterol = 40,
-                Sodium = 400,
-                Potassium = 250,
-                Calcium = 30,
-                Iron = 1,
-                VitaminA = 40,
-                VitaminB1 = 0.1f,
-                VitaminB2 = 0.1f,
-                VitaminC = 5,
-                VitaminD = 0,
-                VitaminE = 0.3f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 210
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("cf9ab10f-2094-496b-9018-96b9d2e1af76"), // Cơm gà
+            //     Calories = 150,
+            //     Protein = 10.5f,
+            //     Carbs = 18,
+            //     Fiber = 1,
+            //     Sugar = 1.5f,
+            //     Fat = 4,
+            //     SaturatedFat = 1,
+            //     UnsaturatedFat = 3,
+            //     Cholesterol = 40,
+            //     Sodium = 400,
+            //     Potassium = 250,
+            //     Calcium = 30,
+            //     Iron = 1,
+            //     VitaminA = 40,
+            //     VitaminB1 = 0.1f,
+            //     VitaminB2 = 0.1f,
+            //     VitaminC = 5,
+            //     VitaminD = 0,
+            //     VitaminE = 0.3f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 211
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("8c9e1c76-2616-43a4-8c80-3e2e23b8ac4f"),
-                Calories = 130,
-                Protein = 4,
-                Carbs = 28,
+                FoodId = Guid.Parse("8c9e1c76-2616-43a4-8c80-3e2e23b8ac4f"), // Bánh hỏi
+                Calories = 200,
+                Protein = 5,
+                Carbs = 40,
                 Fiber = 1,
-                Sugar = 1.5f,
-                Fat = 0.5f,
+                Sugar = 1,
+                Fat = 2,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.4f,
                 Cholesterol = 0,
@@ -6137,13 +6135,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("87cdf191-876c-4270-92f9-4bb1fc2a7fe9"),
-                Calories = 50,
-                Protein = 3.5f,
-                Carbs = 8.5f,
-                Fiber = 1.5f,
-                Sugar = 3.5f,
-                Fat = 1,
+                FoodId = Guid.Parse("87cdf191-876c-4270-92f9-4bb1fc2a7fe9"), // Canh bí đỏ nấu tôm
+                Calories = 110,
+                Protein = 10,
+                Carbs = 15,
+                Fiber = 3,
+                Sugar = 5,
+                Fat = 2,
                 SaturatedFat = 0.2f,
                 UnsaturatedFat = 0.8f,
                 Cholesterol = 40,
@@ -6166,13 +6164,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("3d19d971-88d0-4108-a335-24ac9e1dec50"),
-                Calories = 73,
-                Protein = 0.6f,
-                Carbs = 18,
-                Fiber = 1.5f,
-                Sugar = 15,
-                Fat = 0.6f,
+                FoodId = Guid.Parse("3d19d971-88d0-4108-a335-24ac9e1dec50"), // Măng cụt
+                Calories = 65,
+                Protein = 0.5f,
+                Carbs = 16,
+                Fiber = 6,
+                Sugar = 14,
+                Fat = 0.5f,
                 SaturatedFat = 0.1f,
                 UnsaturatedFat = 0.5f,
                 Cholesterol = 0,
@@ -6195,13 +6193,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("a504d882-4f38-413e-bb28-fae1f2787150"),
-                Calories = 60,
-                Protein = 0.9f,
+                FoodId = Guid.Parse("a504d882-4f38-413e-bb28-fae1f2787150"), // Nhãn
+                Calories = 65,
+                Protein = 1.2f,
                 Carbs = 16,
-                Fiber = 1,
+                Fiber = 1.3f,
                 Sugar = 13,
-                Fat = 0.1f,
+                Fat = 0.3f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.1f,
                 Cholesterol = 0,
@@ -6224,12 +6222,12 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("9f624258-a4ee-4879-a23f-b3d0479f2b1b"),
-                Calories = 52,
-                Protein = 1,
-                Carbs = 13,
-                Fiber = 2.4f,
-                Sugar = 9.4f,
+                FoodId = Guid.Parse("9f624258-a4ee-4879-a23f-b3d0479f2b1b"), // Cam
+                Calories = 65,
+                Protein = 1.3f,
+                Carbs = 16,
+                Fiber = 3.5f,
+                Sugar = 13,
                 Fat = 0.2f,
                 SaturatedFat = 0,
                 UnsaturatedFat = 0.2f,
@@ -6253,13 +6251,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("d034b7e9-b5a2-42d7-95b7-c0c30207293d"),
-                Calories = 40,
-                Protein = 6,
-                Carbs = 3,
-                Fiber = 1,
-                Sugar = 1.5f,
-                Fat = 1.5f,
+                FoodId = Guid.Parse("d034b7e9-b5a2-42d7-95b7-c0c30207293d"), // Canh hẹ tôm
+                Calories = 80,
+                Protein = 8,
+                Carbs = 5,
+                Fiber = 1.5f,
+                Sugar = 1,
+                Fat = 2,
                 SaturatedFat = 0.3f,
                 UnsaturatedFat = 1.2f,
                 Cholesterol = 30,
@@ -6282,13 +6280,13 @@ namespace Monhealth.Identity.Configurations
             new Nutrition
             {
                 NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("85e621ed-0e0c-4d20-8891-51d311cea4a3"),
-                Calories = 130,
-                Protein = 200f,
-                Carbs = 6,
-                Fiber = 1.5f,
-                Sugar = 2,
-                Fat = 4.5f,
+                FoodId = Guid.Parse("85e621ed-0e0c-4d20-8891-51d311cea4a3"), // Canh thịt bò hầm
+                Calories = 180,
+                Protein = 20,
+                Carbs = 10,
+                Fiber = 2.5f,
+                Sugar = 3,
+                Fat = 8,
                 SaturatedFat = 1.5f,
                 UnsaturatedFat = 3,
                 Cholesterol = 50,

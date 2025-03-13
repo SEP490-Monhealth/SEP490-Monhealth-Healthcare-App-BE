@@ -469,14 +469,14 @@ namespace Monhealth.Identity.Configurations
             // },
             // #endregion
 
-            #region FoodAllergy 50
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
-                AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
-            },
-            #endregion
+            // #region FoodAllergy 50
+            // new FoodAllergy
+            // {
+            //     FoodAllergyId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
+            //     AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
+            // },
+            // #endregion
 
             #region FoodAllergy 51
             new FoodAllergy
@@ -487,14 +487,14 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 52
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
-                AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
-            },
-            #endregion
+            // #region FoodAllergy 52
+            // new FoodAllergy
+            // {
+            //     FoodAllergyId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
+            //     AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
+            // },
+            // #endregion
 
             #region FoodAllergy 53
             new FoodAllergy
@@ -595,17 +595,17 @@ namespace Monhealth.Identity.Configurations
                 FoodAllergyId = Guid.NewGuid(),
                 FoodId = Guid.Parse("2d821db4-3e99-4877-b979-bc82d34b3b01"),
                 AllergyId = Guid.Parse("ea406418-19d1-43dc-96a2-9abf97b9d2a5")
-            },
-            #endregion
-
-            #region FoodAllergy 63
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),
-                AllergyId = Guid.Parse("91df2b87-a28d-4e89-a779-d4220d68a0f8")
             }
             #endregion
+
+            // #region FoodAllergy 63
+            // new FoodAllergy
+            // {
+            //     FoodAllergyId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),
+            //     AllergyId = Guid.Parse("91df2b87-a28d-4e89-a779-d4220d68a0f8")
+            // }
+            // #endregion
             );
         }
     }

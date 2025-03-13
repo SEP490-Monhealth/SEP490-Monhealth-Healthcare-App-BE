@@ -1699,17 +1699,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 141
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = cereal,  // Lúa mạch - Category: Cereal
-                FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),  // Lúa mạch
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 141
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = cereal,  // Lúa mạch - Category: Cereal
+            //     FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),  // Lúa mạch
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 142
             builder.HasData(
@@ -1771,17 +1771,17 @@ namespace Monhealth.Identity.Configurations
             // });
             // #endregion
 
-            #region CategoryFood 147
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = grains,  // Hạt lanh - Category: Grains
-                FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),  // Hạt lanh
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 147
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = grains,  // Hạt lanh - Category: Grains
+            //     FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),  // Hạt lanh
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 148
             builder.HasData(
@@ -1819,17 +1819,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 151
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = grains,  // Hạt mắc ca - Category: Grains
-                FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),  // Hạt mắc ca
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 151
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = grains,  // Hạt mắc ca - Category: Grains
+            //     FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),  // Hạt mắc ca
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 152
             builder.HasData(
@@ -2455,17 +2455,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 204
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = cereal,  // Cơm rang - Category: Cereal
-                FoodId = Guid.Parse("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),  // Cơm rang
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 204
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = cereal,  // Cơm rang - Category: Cereal
+            //     FoodId = Guid.Parse("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),  // Cơm rang
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 205
             builder.HasData(
@@ -2479,17 +2479,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 206
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = cereal,  // Mì xào thập cẩm - Category: Cereal
-                FoodId = Guid.Parse("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"),  // Mì xào thập cẩm
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 206
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = cereal,  // Mì xào thập cẩm - Category: Cereal
+            //     FoodId = Guid.Parse("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"),  // Mì xào thập cẩm
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 207
             builder.HasData(
@@ -2503,17 +2503,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 208
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = cereal,  // Bánh cuốn thịt bằm - Category: Cereal
-                FoodId = Guid.Parse("30f9d9dc-1653-495c-99b7-b649c49f7930"),  // Bánh cuốn thịt bằm
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 208
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = cereal,  // Bánh cuốn thịt bằm - Category: Cereal
+            //     FoodId = Guid.Parse("30f9d9dc-1653-495c-99b7-b649c49f7930"),  // Bánh cuốn thịt bằm
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 209
             builder.HasData(
@@ -2527,17 +2527,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 210
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = meat,  // Cơm gà - Category: Meat
-                FoodId = Guid.Parse("cf9ab10f-2094-496b-9018-96b9d2e1af76"),  // Cơm gà
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 210
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = meat,  // Cơm gà - Category: Meat
+            //     FoodId = Guid.Parse("cf9ab10f-2094-496b-9018-96b9d2e1af76"),  // Cơm gà
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 211
             builder.HasData(

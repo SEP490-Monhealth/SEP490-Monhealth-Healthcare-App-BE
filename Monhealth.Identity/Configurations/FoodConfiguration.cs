@@ -2830,25 +2830,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 141
-            new Food
-            {
-                FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),
-                // CategoryId = cereal,
-                UserId = userId,
-                // FoodType = [FoodType.Carbs, FoodType.Protein],
-                MealType = [MealType.Breakfast, MealType.Snack],
-                DishType = [DishType.SideDish],
-                FoodName = "Lúa mạch",
-                FoodDescription = "Lúa mạch là ngũ cốc giàu chất xơ và protein, có thể chế biến thành cháo, bánh hoặc thêm vào các món salad. Lúa mạch giúp cải thiện tiêu hóa và cung cấp năng lượng bền vững cho cơ thể",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 141
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("642480b4-22c9-4350-a6ce-c052f99e60e3"),
+            //     // CategoryId = cereal,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Carbs, FoodType.Protein],
+            //     MealType = [MealType.Breakfast, MealType.Snack],
+            //     DishType = [DishType.SideDish],
+            //     FoodName = "Lúa mạch",
+            //     FoodDescription = "Lúa mạch là ngũ cốc giàu chất xơ và protein, có thể chế biến thành cháo, bánh hoặc thêm vào các món salad. Lúa mạch giúp cải thiện tiêu hóa và cung cấp năng lượng bền vững cho cơ thể",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 142
             new Food
@@ -2970,25 +2970,25 @@ namespace Monhealth.Identity.Configurations
             // },
             // #endregion
 
-            #region Food 148
-            new Food
-            {
-                FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
-                // CategoryId = grains,
-                UserId = userId,
-                // FoodType = [FoodType.Snack, FoodType.Protein],
-                MealType = [MealType.Snack],
-                DishType = [DishType.Snack],
-                FoodName = "Hạt dẻ cười",
-                FoodDescription = "Hạt dẻ cười là loại hạt giàu chất béo lành mạnh, vitamin E và khoáng chất, giúp bảo vệ tim mạch và cung cấp năng lượng. Hạt dẻ cười có thể ăn trực tiếp hoặc thêm vào các món tráng miệng, salad",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 148
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("404a286a-90c5-4c54-8e27-3ddeba55ada3"),
+            //     // CategoryId = grains,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Snack, FoodType.Protein],
+            //     MealType = [MealType.Snack],
+            //     DishType = [DishType.Snack],
+            //     FoodName = "Hạt dẻ cười",
+            //     FoodDescription = "Hạt dẻ cười là loại hạt giàu chất béo lành mạnh, vitamin E và khoáng chất, giúp bảo vệ tim mạch và cung cấp năng lượng. Hạt dẻ cười có thể ăn trực tiếp hoặc thêm vào các món tráng miệng, salad",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 149
             new Food
@@ -3030,25 +3030,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 151
-            new Food
-            {
-                FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
-                // CategoryId = grains,
-                UserId = userId,
-                // FoodType = [FoodType.Snack],
-                MealType = [MealType.Snack],
-                DishType = [DishType.Snack],
-                FoodName = "Hạt mắc ca",
-                FoodDescription = "Hạt mắc ca là loại hạt giàu chất béo lành mạnh, vitamin E và khoáng chất, giúp cải thiện sức khỏe tim mạch. Hạt có thể ăn trực tiếp hoặc thêm vào salad, rất bổ dưỡng và dễ tiêu hóa",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 151
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("731974ef-495e-4c08-ba95-20589d60c20c"),
+            //     // CategoryId = grains,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Snack],
+            //     MealType = [MealType.Snack],
+            //     DishType = [DishType.Snack],
+            //     FoodName = "Hạt mắc ca",
+            //     FoodDescription = "Hạt mắc ca là loại hạt giàu chất béo lành mạnh, vitamin E và khoáng chất, giúp cải thiện sức khỏe tim mạch. Hạt có thể ăn trực tiếp hoặc thêm vào salad, rất bổ dưỡng và dễ tiêu hóa",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 152
             new Food
@@ -4090,25 +4090,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 204
-            new Food
-            {
-                FoodId = Guid.Parse("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),
-                // CategoryId = cereal,
-                UserId = userId,
-                // FoodType = [FoodType.Carbs, FoodType.Protein],
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cơm rang",
-                FoodDescription = "Cơm rang là món ăn phổ biến, làm từ cơm nguội chiên với gia vị và các nguyên liệu như thịt, rau, trứng. Món này nhanh gọn, dễ chế biến và có thể ăn kèm với dưa leo hoặc salad",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 204
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("a1ff09f1-9d02-40a8-84de-8da9aad67c58"),
+            //     // CategoryId = cereal,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Carbs, FoodType.Protein],
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.MainDish],
+            //     FoodName = "Cơm rang",
+            //     FoodDescription = "Cơm rang là món ăn phổ biến, làm từ cơm nguội chiên với gia vị và các nguyên liệu như thịt, rau, trứng. Món này nhanh gọn, dễ chế biến và có thể ăn kèm với dưa leo hoặc salad",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 205
             new Food
@@ -4130,25 +4130,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 206
-            new Food
-            {
-                FoodId = Guid.Parse("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"),
-                // CategoryId = cereal,
-                UserId = userId,
-                // FoodType = [FoodType.Carbs, FoodType.Protein],
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Mì xào thập cẩm",
-                FoodDescription = "Mì xào thập cẩm là món ăn với mì, các loại rau củ và thịt, xào chung với gia vị đậm đà. Món này dễ chế biến và là bữa ăn nhanh gọn nhưng đầy đủ dưỡng chất",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 206
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("7a253877-3c54-4fcf-bb05-d9f4e14d5b64"),
+            //     // CategoryId = cereal,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Carbs, FoodType.Protein],
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.MainDish],
+            //     FoodName = "Mì xào thập cẩm",
+            //     FoodDescription = "Mì xào thập cẩm là món ăn với mì, các loại rau củ và thịt, xào chung với gia vị đậm đà. Món này dễ chế biến và là bữa ăn nhanh gọn nhưng đầy đủ dưỡng chất",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 207
             new Food
@@ -4170,25 +4170,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 208
-            new Food
-            {
-                FoodId = Guid.Parse("30f9d9dc-1653-495c-99b7-b649c49f7930"),
-                // CategoryId = cereal,
-                UserId = userId,
-                // FoodType = [FoodType.Carbs, FoodType.Protein],
-                MealType = [MealType.Breakfast, MealType.Lunch],
-                DishType = [DishType.MainDish],
-                FoodName = "Bánh cuốn thịt bằm",
-                FoodDescription = "Bánh cuốn thịt bằm là món ăn được làm từ bột gạo, nhân thịt bằm, mộc nhĩ và gia vị, ăn kèm với nước mắm chua ngọt và rau sống. Món này rất phổ biến ở miền Bắc Việt Nam",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 208
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("30f9d9dc-1653-495c-99b7-b649c49f7930"),
+            //     // CategoryId = cereal,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Carbs, FoodType.Protein],
+            //     MealType = [MealType.Breakfast, MealType.Lunch],
+            //     DishType = [DishType.MainDish],
+            //     FoodName = "Bánh cuốn thịt bằm",
+            //     FoodDescription = "Bánh cuốn thịt bằm là món ăn được làm từ bột gạo, nhân thịt bằm, mộc nhĩ và gia vị, ăn kèm với nước mắm chua ngọt và rau sống. Món này rất phổ biến ở miền Bắc Việt Nam",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 209
             new Food
@@ -4210,25 +4210,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 210
-            new Food
-            {
-                FoodId = Guid.Parse("cf9ab10f-2094-496b-9018-96b9d2e1af76"),
-                // CategoryId = meat,
-                UserId = userId,
-                // FoodType = [FoodType.Carbs, FoodType.Protein],
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish],
-                FoodName = "Cơm gà",
-                FoodDescription = "Cơm gà là món ăn đơn giản với cơm trắng ăn kèm thịt gà luộc hoặc chiên, thường được dùng kèm với nước mắm, rau sống và canh. Món này ngon miệng, dễ chế biến và bổ dưỡng",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 210
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("cf9ab10f-2094-496b-9018-96b9d2e1af76"),
+            //     // CategoryId = meat,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Carbs, FoodType.Protein],
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.MainDish],
+            //     FoodName = "Cơm gà",
+            //     FoodDescription = "Cơm gà là món ăn đơn giản với cơm trắng ăn kèm thịt gà luộc hoặc chiên, thường được dùng kèm với nước mắm, rau sống và canh. Món này ngon miệng, dễ chế biến và bổ dưỡng",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 211
             new Food
