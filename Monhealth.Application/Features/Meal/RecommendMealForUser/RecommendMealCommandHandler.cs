@@ -80,9 +80,20 @@ namespace Monhealth.Application
         private async Task<Meal> CreateMealForType(MealType mealType, AppUser user)
         {
             // Get Random First
-            var (proteinFood, carbFood) = await _foodRepository.GetRandomProteinAndCarbFood([]);
-            var totalCaloriesDaily = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault()?.CaloriesGoal ?? 0;
+            var (proteinFood, carbFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood([]);
+            var userGoal = user.Goals?.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
 
+            if (userGoal == null)
+            {
+                throw new Exception("Không tìm thấy mục tiêu cho người dùng.");
+            }
+
+            var totalCaloriesDaily = userGoal.CaloriesGoal;
+            if (proteinFood == null || carbFood == null || vegetableFood == null)
+            {
+                // Xử lý khi không có thực phẩm phù hợp được tìm thấy
+                throw new Exception("Không tìm thấy thực phẩm phù hợp để tạo bữa ăn.");
+            }
             var mealCalories = mealType switch
             {
                 MealType.Breakfast => user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault()?.GoalType switch
@@ -110,15 +121,21 @@ namespace Monhealth.Application
             };
 
             //check them goal type va meal type
-            var (proteinCalories, carbsCalories) = (mealCalories * 0.40f, mealCalories * 0.60f);
+            // var (proteinCalories, carbsCalories) = (mealCalories * 0.40f, mealCalories * 0.60f);
+
+            // Phân bổ calo cho protein, carbs và rau
+            var proteinCalories = mealCalories * 0.40f; // Protein chiếm 40% calo
+            var carbsCalories = mealCalories * 0.50f;  // Carbs chiếm 50% calo
+            var vegetableCalories = mealCalories * 0.10f; // Rau chiếm 10% calo (hoặc tùy điều chỉnh)
 
             var proteinWeight = 100 * (proteinFood.Nutrition.Calories / proteinCalories);
             var carbWeight = 100 * (carbFood.Nutrition.Calories / carbsCalories);
             // luu tam vao de check sau do moi luu db
-
+            var vegetableWeight = 100 * (vegetableFood.Nutrition.Calories / vegetableCalories);
             // Create Meal
             Guid proteinPortionId = Guid.NewGuid();
             Guid carbPortionId = Guid.NewGuid();
+            Guid vegetablePortionId = Guid.NewGuid();
             _portionRepository.Add(new()
             {
                 CreatedAt = DateTime.Now,
@@ -134,10 +151,21 @@ namespace Monhealth.Application
             {
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                PortionWeight = proteinWeight,
+                PortionWeight = carbWeight,
                 CreatedBy = user.Id,
                 UpdatedBy = user.Id,
                 PortionId = carbPortionId,
+                PortionSize = "phan",
+                MeasurementUnit = "gram"
+            });
+            _portionRepository.Add(new Portion
+            {
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                PortionWeight = vegetableWeight,
+                CreatedBy = user.Id,
+                UpdatedBy = user.Id,
+                PortionId = vegetablePortionId,
                 PortionSize = "phan",
                 MeasurementUnit = "gram"
             });
@@ -162,6 +190,12 @@ namespace Monhealth.Application
                         Quantity = 1,
                         IsCompleted = false,
                         PortionId = carbPortionId
+                    },
+                    new MealFood{
+                        FoodId = vegetableFood.FoodId,
+                        Quantity = 1,
+                        IsCompleted = false,
+                        PortionId = vegetablePortionId,
                     }
                 }
             };
