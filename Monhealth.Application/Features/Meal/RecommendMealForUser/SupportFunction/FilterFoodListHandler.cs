@@ -4,7 +4,7 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Core.Enum;
 namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFunction
 {
-    public class FilterFoodListHandler
+public class FilterFoodListHandler
     {
         private readonly IUserAllergyRepository _userAllergyRepository;
         private readonly ILogger<FilterFoodListHandler> _logger;
@@ -17,7 +17,6 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
             _userAllergyRepository = userAllergyRepository;
             _logger = logger;
         }
-
 
         public async Task<List<Domain.Food>> FilterFoodListQueryHandler(Guid userId)
         {
@@ -49,8 +48,6 @@ namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFuncti
          (dishTypesToFilter == null || !dishTypesToFilter.Any() || f.DishType.Select(fmt => (int)fmt).Any(dt => dishTypesToFilter.Contains(dt)))
      )
      .ToList();
-
-
             return filteredFoods;
         }
     }
