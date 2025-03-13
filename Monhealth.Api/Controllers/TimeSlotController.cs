@@ -49,8 +49,6 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-
-
         [HttpGet("{timeSlotId:guid}")]
         public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek([FromRoute] Guid timeSlotId)
         {

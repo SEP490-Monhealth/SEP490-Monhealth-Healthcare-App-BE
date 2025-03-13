@@ -160,7 +160,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("/time-slots")]
+        [HttpGet("schedules/time-slots")]
         public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek()
         {
             var results = await _mediator.Send(new GetAllTimeSlotForDayOfWeekQueries());
