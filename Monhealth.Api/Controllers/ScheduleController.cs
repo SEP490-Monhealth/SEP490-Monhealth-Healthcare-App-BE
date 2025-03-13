@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Schedule.Commands.Create;
 using Monhealth.Application.Features.Schedule.Commands.Delete;
 using Monhealth.Application.Features.Schedule.Commands.Update;
-using Monhealth.Application.Features.Schedule.Commands.UpdateScheduleStatus;
 using Monhealth.Application.Features.Schedule.Queries.GetAll;
 using Monhealth.Application.Features.Schedule.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetById;
+using Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayOfWeek;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -160,24 +160,16 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{scheduleId:guid}/status")]
-        public async Task<ActionResult<ResultModel>> UpdateScheduleStatus([FromRoute] Guid scheduleId)
+        [HttpGet("/time-slots")]
+        public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek()
         {
-            var result = await _mediator.Send(new UpdateScheduleStatusCommand { ScheduleId = scheduleId });
-            if (!result)
-            {
-                return new ResultModel
-                {
-                    Message = "Cập nhật lịch thất bại",
-                    Success = false,
-                    Data = null
-                };
-            }
+            var results = await _mediator.Send(new GetAllTimeSlotForDayOfWeekQueries());
+
             return new ResultModel
             {
-                Message = "Cập nhập trạng thái thành công",
+                Data = results,
                 Status = (int)HttpStatusCode.OK,
-                Success = true
+                Success = true,
             };
         }
     }

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.TimeSlots.Commands.CreateTimeSlots;
 using Monhealth.Application.Features.TimeSlots.Commands.DeleteTimSlots;
 using Monhealth.Application.Features.TimeSlots.Commands.UpdateTimeSlots;
-using Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayOfWeek;
 using Monhealth.Application.Features.TimeSlots.Queries.GetAllTimSlots;
 using Monhealth.Application.Features.TimeSlots.Queries.GetTimeSlotById;
 using Monhealth.Application.Models;
@@ -50,18 +49,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet("getTimeSlot")]
-        public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek()
-        {
-            var results = await mediator.Send(new GetAllTimeSlotForDayOfWeekQueries());
 
-            return new ResultModel
-            {
-                Data = results,
-                Status = (int)HttpStatusCode.OK,
-                Success = true,
-            };
-        }
 
         [HttpGet("{timeSlotId:guid}")]
         public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek([FromRoute] Guid timeSlotId)

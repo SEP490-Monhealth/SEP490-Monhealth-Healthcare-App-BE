@@ -102,6 +102,8 @@ namespace Monhealth.Identity
             services.AddScoped<IUserCategoryRepository, UserCategoryRepository>();
             services.AddScoped<ITimeSlotRepository, TimeSlotRepository>();
             services.AddScoped<IScheduleTimeSlotRepository, ScheduleTimeSlotRepository>();
+            services.AddScoped<IScheduleExceptionRepository, ScheduleExceptionRepository>();
+
             services.AddScoped<CreateMealForTypeHandler>();
             services.AddScoped<FilterFoodListHandler>();
             // Đăng ký Background Service
