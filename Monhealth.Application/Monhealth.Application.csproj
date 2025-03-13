@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Activity\Queries\" />
     <Folder Include="Features\Timeslot\Commands\" />
     <Folder Include="Features\Timeslot\Queries\" />
     <Folder Include="Features\UserFood\Queries\" />

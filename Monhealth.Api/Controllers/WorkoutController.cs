@@ -2,7 +2,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
+using Monhealth.Application.Features.Exercise.Commands.ChangeStatusExercise;
 using Monhealth.Application.Features.Exercise.Commands.DeleteExercise;
+using Monhealth.Application.Features.Workout.Commands.ChangeStatusWorkout;
 using Monhealth.Application.Features.Workout.Commands.CreateWorkout;
 using Monhealth.Application.Features.Workout.Commands.DeleteWorkout;
 using Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries;
@@ -120,6 +122,27 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Message = "Xóa workout thành công"
+            };
+        }
+        [HttpPatch("{workoutId}/status")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusWorkout(Guid workoutId)
+        {
+            var command = new ChangeStatusWorkoutCommand { WorkoutId = workoutId };
+            var changeStatus = await mediator.Send(command);
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy workout"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Thay đổi trạng thái thành công"
             };
         }
     }
