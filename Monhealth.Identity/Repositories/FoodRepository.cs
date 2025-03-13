@@ -314,80 +314,84 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        public async Task<(Food?, Food?, Food?)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
+        public async Task<(Food?, Food?, Food?,Food?)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
         {
+            Random random = new Random();
+            int foodNumberOfMeal = random.Next(2);
+            Food? proteinFood = null!;
+            Food? carbFood = null!;
+            Food? balanceFood = null!;
+            switch (foodNumberOfMeal)
+            {
+                case 0:
+                    {
+                        proteinFood = await _context.Foods
+                           .Include(f => f.Nutrition)
+                           .Where(f =>
+                               f.Nutrition.Protein * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5 &&
+                               f.Nutrition.Carbs * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.3 &&
+                               f.Nutrition.Fiber * 9 > 5.0f &&
+                               !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                           )
+                           .OrderBy(f => Guid.NewGuid())
+                           .FirstOrDefaultAsync();
+
+                        carbFood = await _context.Foods
+                           .Include(f => f.Nutrition)
+                           .Where(f =>
+                               f.Nutrition.Protein * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.3 &&
+                               f.Nutrition.Carbs * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5 &&
+                               f.Nutrition.Fiber * 9 > 5.0f &&
+                               !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                           )
+                           .OrderBy(f => Guid.NewGuid())
+                           .FirstOrDefaultAsync();
+                        break;
+                    }
+                case 1:
+                    {
+                        balanceFood = await _context.Foods
+                           .Include(f => f.Nutrition)
+                           .Where(f =>
+                               f.Nutrition.Protein * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
+                               f.Nutrition.Carbs * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
+                               (f.Nutrition.Protein * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9)) +
+                               (f.Nutrition.Carbs * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9)) >= 0.6 &&
+                               !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                           )
+                           .OrderBy(f => Guid.NewGuid())
+                           .FirstOrDefaultAsync();
+                        break;
+                    }
+            }
 
 
-            var proteinFood = await _context.Foods
-                     .Include(f => f.Nutrition)
-                     .Where(f => f.Nutrition.Protein * 4 /
-                     (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5
-                     && f.Nutrition.Carbs * 4 /
-                     (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.3
-                     && f.Nutrition.Fiber * 9 > 5.0f
-                     && !allergiesIds.Any(al => f.FoodAllergies.
-              Any(fa => fa.AllergyId == al))
-                                )
-                     .OrderBy(f => Guid.NewGuid())
-                     .FirstOrDefaultAsync();
-
-            var carbFood = await _context.Foods
-                .Include(f => f.Nutrition)
-                .Where(f => f.Nutrition.Protein * 4 /
-                     (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.3
-                     && f.Nutrition.Carbs * 4 /
-                     (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5
-                     && f.Nutrition.Fiber * 9 > 5.0f
-                     && !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al)))
-
-           .OrderBy(f => Guid.NewGuid())
-                .FirstOrDefaultAsync();
-            // loc mon an Balanced (Protein >= 30 and carbs  >= 30 and (Protein +Carbs) >= 60 )
-
-            var balancedFood = await _context.Foods
-            .Include(f => f.Nutrition)
-            .Where(f => f.Nutrition.Protein * 4 /
-                     (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 //(ProteinRatio)
-                     && f.Nutrition.Carbs * 4 /
-                     (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 //(CarbsRatio)
-                     && (f.Nutrition.Protein * 4
-                     / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4
-                     + f.Nutrition.Fat * 9))
-                     + (f.Nutrition.Carbs * 4
-                     / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4
-                     + f.Nutrition.Fat * 9)) >= 0.6    //(ProteinRatio + CarbsRatio)
-             && !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al)))
-
-             .OrderBy(f => Guid.NewGuid())
-             .FirstOrDefaultAsync();
-
-            //them mon rau
             var vegetableFood = await _context.Foods
-            .Include(f => f.Nutrition)
-            .Where(f => f.Nutrition.Carbs * 4  //(CarbsRatio)
-            / (f.Nutrition.Carbs * 4 + f.Nutrition.Protein * 4 + f.Nutrition.Fat * 9) < 0.2
-            && f.Nutrition.Protein * 4 //(ProteinRatio)
-            /(f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9 ) < 0.1
-            && f.Nutrition.SaturatedFat< 0.0f  
-            && f.Nutrition.Cholesterol < 0.0f
-            || f.Nutrition.VitaminC >= 0.1f
-            || f.Nutrition.VitaminA >= 0.1f
-            && !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al)))
-         
-             .OrderBy(f => Guid.NewGuid())
-             .FirstOrDefaultAsync();
+                .Include(f => f.Nutrition)
+                .Where(f =>
+                    (f.Nutrition.Carbs * 4 /
+                    (f.Nutrition.Carbs * 4 + f.Nutrition.Protein * 4 + f.Nutrition.Fat * 9) < 0.2) &&
+                    (f.Nutrition.Protein * 4 /
+                    (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.1) &&
+                    f.Nutrition.SaturatedFat < 0.0f &&
+                    f.Nutrition.Cholesterol < 0.0f ||
+                    f.Nutrition.VitaminC >= 0.1f ||
+                    f.Nutrition.VitaminA >= 0.1f &&
+                    !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                )
+                .OrderBy(f => Guid.NewGuid())
+                .FirstOrDefaultAsync();
 
 
-            if (proteinFood == null || carbFood == null || balancedFood == null || vegetableFood == null)
-            {
-                throw new Exception("Not enough food to recommend");
-            }
-            if (balancedFood != null)
-            {
-                return (balancedFood, null, vegetableFood);
-            }
-
-            return (proteinFood, carbFood, vegetableFood);
+            return (proteinFood, carbFood,balanceFood, vegetableFood);
         }
 
         public Task<int> GetTotalFoodCountAsync()

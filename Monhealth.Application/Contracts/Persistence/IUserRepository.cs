@@ -11,6 +11,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<int> SaveChangesAsync();
         Task<bool> IsPhoneNumberDuplicateAsync(string phoneNumber);
         Task<bool> IsEmailDuplicatedAsync(string email);
+        Task<AppUser>GetUserByIdAsync(Guid userId);
         
     }
 }
