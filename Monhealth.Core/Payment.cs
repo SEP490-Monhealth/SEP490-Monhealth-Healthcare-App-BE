@@ -10,8 +10,8 @@ namespace Monhealth.Domain
         [Key]
         public Guid PaymentId { get; set; }
         //public Guid BookingId { get; set; }
-        public Guid SubscriptionId { get; set; }
         public Guid UserId { get; set; }
+        public Guid SubscriptionId { get; set; }
         public int Amount { get; set; }
         public string Status { get; set; } = string.Empty;
 

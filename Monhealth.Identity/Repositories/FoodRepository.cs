@@ -314,6 +314,86 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<(Food?, Food?, Food?,Food?)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
+        {
+            Random random = new Random();
+            int foodNumberOfMeal = random.Next(2);
+            Food? proteinFood = null!;
+            Food? carbFood = null!;
+            Food? balanceFood = null!;
+            switch (foodNumberOfMeal)
+            {
+                case 0:
+                    {
+                        proteinFood = await _context.Foods
+                           .Include(f => f.Nutrition)
+                           .Where(f =>
+                               f.Nutrition.Protein * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5 &&
+                               f.Nutrition.Carbs * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.3 &&
+                               f.Nutrition.Fiber * 9 > 5.0f &&
+                               !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                           )
+                           .OrderBy(f => Guid.NewGuid())
+                           .FirstOrDefaultAsync();
+
+                        carbFood = await _context.Foods
+                           .Include(f => f.Nutrition)
+                           .Where(f =>
+                               f.Nutrition.Protein * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.3 &&
+                               f.Nutrition.Carbs * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5 &&
+                               f.Nutrition.Fiber * 9 > 5.0f &&
+                               !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                           )
+                           .OrderBy(f => Guid.NewGuid())
+                           .FirstOrDefaultAsync();
+                        break;
+                    }
+                case 1:
+                    {
+                        balanceFood = await _context.Foods
+                           .Include(f => f.Nutrition)
+                           .Where(f =>
+                               f.Nutrition.Protein * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
+                               f.Nutrition.Carbs * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
+                               (f.Nutrition.Protein * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9)) +
+                               (f.Nutrition.Carbs * 4 /
+                               (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9)) >= 0.6 &&
+                               !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                           )
+                           .OrderBy(f => Guid.NewGuid())
+                           .FirstOrDefaultAsync();
+                        break;
+                    }
+            }
+
+
+            var vegetableFood = await _context.Foods
+                .Include(f => f.Nutrition)
+                .Where(f =>
+                    (f.Nutrition.Carbs * 4 /
+                    (f.Nutrition.Carbs * 4 + f.Nutrition.Protein * 4 + f.Nutrition.Fat * 9) < 0.2) &&
+                    (f.Nutrition.Protein * 4 /
+                    (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.1) &&
+                    f.Nutrition.SaturatedFat < 0.0f &&
+                    f.Nutrition.Cholesterol < 0.0f ||
+                    f.Nutrition.VitaminC >= 0.1f ||
+                    f.Nutrition.VitaminA >= 0.1f &&
+                    !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                )
+                .OrderBy(f => Guid.NewGuid())
+                .FirstOrDefaultAsync();
+
+
+            return (proteinFood, carbFood,balanceFood, vegetableFood);
+        }
+
         public Task<int> GetTotalFoodCountAsync()
         {
             return _context.Foods.CountAsync();
