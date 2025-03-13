@@ -14,9 +14,11 @@ namespace Monhealth.Domain
         public int Rating { get; set; }
         public string Comment { get; set; } = string.Empty;
 
-        [ForeignKey(nameof(BookingId))]
-        public Booking Booking { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public AppUser User { get; set; }
         [ForeignKey(nameof(ConsultantId))]
         public Consultant Consultant { get; set; }
+        [ForeignKey(nameof(BookingId))]
+        public Booking Booking { get; set; }
     }
 }

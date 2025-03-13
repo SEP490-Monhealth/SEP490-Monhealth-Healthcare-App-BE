@@ -14,6 +14,7 @@ namespace Monhealth.Domain
         public Guid UserId { get; set; }
         public int Amount { get; set; }
         public string Status { get; set; } = string.Empty;
+
         [ForeignKey(nameof(UserId))]
         public AppUser User { get; set; }
         [ForeignKey(nameof(SubscriptionId))]

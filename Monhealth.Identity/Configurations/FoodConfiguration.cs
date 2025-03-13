@@ -1129,45 +1129,45 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 56
-            new Food
-            {
-                FoodId = Guid.Parse("a782e478-d5c5-4da6-b809-180b48ad08c3"),
-                // CategoryId = meat,
-                UserId = userId,
-                // FoodType = [FoodType.Protein],
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish, DishType.MainDish],
-                FoodName = "Lòng đỏ trứng gà",
-                FoodDescription = "Lòng đỏ trứng gà là phần chứa nhiều chất béo, protein và vitamin, rất tốt cho sự phát triển của cơ thể. Lòng đỏ trứng gà thường được sử dụng trong các món ăn như trứng bác, bánh hoặc các món ăn kèm",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 56
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("a782e478-d5c5-4da6-b809-180b48ad08c3"),
+            //     // CategoryId = meat,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Protein],
+            //     MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.SideDish, DishType.MainDish],
+            //     FoodName = "Lòng đỏ trứng gà",
+            //     FoodDescription = "Lòng đỏ trứng gà là phần chứa nhiều chất béo, protein và vitamin, rất tốt cho sự phát triển của cơ thể. Lòng đỏ trứng gà thường được sử dụng trong các món ăn như trứng bác, bánh hoặc các món ăn kèm",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
-            #region Food 57
-            new Food
-            {
-                FoodId = Guid.Parse("f41484a3-c7df-4530-b7d2-060390103985"),
-                // CategoryId = meat,
-                UserId = userId,
-                // FoodType = [FoodType.Protein],
-                MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish, DishType.MainDish],
-                FoodName = "Lòng trắng trứng gà",
-                FoodDescription = "Lòng trắng trứng gà chứa nhiều protein và ít chất béo, rất tốt cho sức khỏe. Lòng trắng trứng có thể chế biến thành các món như trứng luộc, trứng chưng, hoặc làm nguyên liệu trong các món ăn khác",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 57
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("f41484a3-c7df-4530-b7d2-060390103985"),
+            //     // CategoryId = meat,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Protein],
+            //     MealType = [MealType.Breakfast, MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.SideDish, DishType.MainDish],
+            //     FoodName = "Lòng trắng trứng gà",
+            //     FoodDescription = "Lòng trắng trứng gà chứa nhiều protein và ít chất béo, rất tốt cho sức khỏe. Lòng trắng trứng có thể chế biến thành các món như trứng luộc, trứng chưng, hoặc làm nguyên liệu trong các món ăn khác",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 58
             new Food
@@ -1830,25 +1830,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 91
-            new Food
-            {
-                FoodId = Guid.Parse("c81a404a-ec10-428e-acec-dd56ec1d3607"),
-                // CategoryId = fermented,
-                UserId = userId,
-                // FoodType = [FoodType.Protein],
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.MainDish, DishType.SideDish],
-                FoodName = "Nem chua",
-                FoodDescription = "Nem chua là món ăn đặc sản, được làm từ thịt heo xay nhuyễn, gia vị và gói trong lá chuối, lên men tự nhiên. Món này có vị chua nhẹ, thơm ngon, thường ăn kèm với tỏi, ớt hoặc rau sống",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 91
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("c81a404a-ec10-428e-acec-dd56ec1d3607"),
+            //     // CategoryId = fermented,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Protein],
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.MainDish, DishType.SideDish],
+            //     FoodName = "Nem chua",
+            //     FoodDescription = "Nem chua là món ăn đặc sản, được làm từ thịt heo xay nhuyễn, gia vị và gói trong lá chuối, lên men tự nhiên. Món này có vị chua nhẹ, thơm ngon, thường ăn kèm với tỏi, ớt hoặc rau sống",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 92
             new Food
@@ -2250,25 +2250,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 112
-            new Food
-            {
-                FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),
-                // CategoryId = grains,
-                UserId = userId,
-                // FoodType = [FoodType.Snack, FoodType.Protein],
-                MealType = [MealType.Snack],
-                DishType = [DishType.Snack],
-                FoodName = "Hạt hạnh nhân",
-                FoodDescription = "Hạt hạnh nhân là loại hạt giàu chất béo lành mạnh, vitamin E và protein. Hạnh nhân có thể ăn trực tiếp, làm snack hoặc thêm vào các món salad, mang lại lợi ích cho sức khỏe tim mạch",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 112
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),
+            //     // CategoryId = grains,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Snack, FoodType.Protein],
+            //     MealType = [MealType.Snack],
+            //     DishType = [DishType.Snack],
+            //     FoodName = "Hạt hạnh nhân",
+            //     FoodDescription = "Hạt hạnh nhân là loại hạt giàu chất béo lành mạnh, vitamin E và protein. Hạnh nhân có thể ăn trực tiếp, làm snack hoặc thêm vào các món salad, mang lại lợi ích cho sức khỏe tim mạch",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 113
             new Food
@@ -2310,25 +2310,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 115
-            new Food
-            {
-                FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
-                // CategoryId = grains,
-                UserId = userId,
-                // FoodType = [FoodType.Snack, FoodType.Protein],
-                MealType = [MealType.Snack],
-                DishType = [DishType.Snack],
-                FoodName = "Hạt bí ngô",
-                FoodDescription = "Hạt bí ngô là món snack bổ dưỡng, giàu magiê và kẽm, có thể ăn trực tiếp hoặc rắc lên salad. Món này giúp tăng cường hệ miễn dịch và rất tốt cho sức khỏe tim mạch",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 115
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
+            //     // CategoryId = grains,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Snack, FoodType.Protein],
+            //     MealType = [MealType.Snack],
+            //     DishType = [DishType.Snack],
+            //     FoodName = "Hạt bí ngô",
+            //     FoodDescription = "Hạt bí ngô là món snack bổ dưỡng, giàu magiê và kẽm, có thể ăn trực tiếp hoặc rắc lên salad. Món này giúp tăng cường hệ miễn dịch và rất tốt cho sức khỏe tim mạch",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 116
             new Food
@@ -2430,25 +2430,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 121
-            new Food
-            {
-                FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),
-                // CategoryId = grains,
-                UserId = userId,
-                // FoodType = [FoodType.Snack, FoodType.Protein],
-                MealType = [MealType.Snack],
-                DishType = [DishType.Snack],
-                FoodName = "Hạt hướng dương",
-                FoodDescription = "Hạt hướng dương là loại hạt giàu vitamin E, chất béo lành mạnh và protein. Hạt có thể ăn trực tiếp như món snack hoặc thêm vào salad, rất tốt cho sức khỏe tim mạch và giúp cung cấp năng lượng",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 121
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),
+            //     // CategoryId = grains,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Snack, FoodType.Protein],
+            //     MealType = [MealType.Snack],
+            //     DishType = [DishType.Snack],
+            //     FoodName = "Hạt hướng dương",
+            //     FoodDescription = "Hạt hướng dương là loại hạt giàu vitamin E, chất béo lành mạnh và protein. Hạt có thể ăn trực tiếp như món snack hoặc thêm vào salad, rất tốt cho sức khỏe tim mạch và giúp cung cấp năng lượng",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 122
             new Food
@@ -2630,25 +2630,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 131
-            new Food
-            {
-                FoodId = Guid.Parse("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
-                // CategoryId = grains,
-                UserId = userId,
-                // FoodType = [FoodType.Carbs, FoodType.Protein],
-                MealType = [MealType.Breakfast, MealType.Snack],
-                DishType = [DishType.Snack],
-                FoodName = "Hạt kê",
-                FoodDescription = "Hạt kê là loại hạt giàu protein, chất xơ và khoáng chất như sắt và magiê. Hạt kê có thể nấu cháo, làm bánh hoặc thêm vào các món salad, là lựa chọn bổ dưỡng cho các bữa ăn nhẹ",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 131
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),
+            //     // CategoryId = grains,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Carbs, FoodType.Protein],
+            //     MealType = [MealType.Breakfast, MealType.Snack],
+            //     DishType = [DishType.Snack],
+            //     FoodName = "Hạt kê",
+            //     FoodDescription = "Hạt kê là loại hạt giàu protein, chất xơ và khoáng chất như sắt và magiê. Hạt kê có thể nấu cháo, làm bánh hoặc thêm vào các món salad, là lựa chọn bổ dưỡng cho các bữa ăn nhẹ",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 132
             new Food
@@ -2770,25 +2770,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 138
-            new Food
-            {
-                FoodId = Guid.Parse("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
-                // CategoryId = grains,
-                UserId = userId,
-                // FoodType = [FoodType.Protein],
-                MealType = [MealType.Lunch, MealType.Dinner],
-                DishType = [DishType.SideDish, DishType.MainDish],
-                FoodName = "Đậu đen",
-                FoodDescription = "Đậu đen là nguồn cung cấp protein thực vật và chất xơ tuyệt vời, giúp cải thiện hệ tiêu hóa. Đậu đen có thể nấu cháo, chè hoặc làm các món xào, rất bổ dưỡng cho sức khỏe",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 138
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),
+            //     // CategoryId = grains,
+            //     UserId = userId,
+            //     // FoodType = [FoodType.Protein],
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     DishType = [DishType.SideDish, DishType.MainDish],
+            //     FoodName = "Đậu đen",
+            //     FoodDescription = "Đậu đen là nguồn cung cấp protein thực vật và chất xơ tuyệt vời, giúp cải thiện hệ tiêu hóa. Đậu đen có thể nấu cháo, chè hoặc làm các món xào, rất bổ dưỡng cho sức khỏe",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 139
             new Food
