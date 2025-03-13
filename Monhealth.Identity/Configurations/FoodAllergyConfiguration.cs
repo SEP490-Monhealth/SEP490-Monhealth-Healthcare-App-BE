@@ -184,23 +184,23 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 19
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("a782e478-d5c5-4da6-b809-180b48ad08c3"),
-                AllergyId = Guid.Parse("ea406418-19d1-43dc-96a2-9abf97b9d2a5")
-            },
-            #endregion
+            // #region FoodAllergy 19
+            // new FoodAllergy
+            // {
+            //     FoodAllergyId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("a782e478-d5c5-4da6-b809-180b48ad08c3"),
+            //     AllergyId = Guid.Parse("ea406418-19d1-43dc-96a2-9abf97b9d2a5")
+            // },
+            // #endregion
 
-            #region FoodAllergy 20
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("f41484a3-c7df-4530-b7d2-060390103985"),
-                AllergyId = Guid.Parse("ea406418-19d1-43dc-96a2-9abf97b9d2a5")
-            },
-            #endregion
+            // #region FoodAllergy 20
+            // new FoodAllergy
+            // {
+            //     FoodAllergyId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("f41484a3-c7df-4530-b7d2-060390103985"),
+            //     AllergyId = Guid.Parse("ea406418-19d1-43dc-96a2-9abf97b9d2a5")
+            // },
+            // #endregion
 
             #region FoodAllergy 21
             new FoodAllergy
@@ -424,14 +424,14 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 45
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),
-                AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
-            },
-            #endregion
+            // #region FoodAllergy 45
+            // new FoodAllergy
+            // {
+            //     FoodAllergyId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),
+            //     AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
+            // },
+            // #endregion
 
             #region FoodAllergy 46
             new FoodAllergy
@@ -442,14 +442,14 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 47
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
-                AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
-            },
-            #endregion
+            // #region FoodAllergy 47
+            // new FoodAllergy
+            // {
+            //     FoodAllergyId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),
+            //     AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
+            // },
+            // #endregion
 
             #region FoodAllergy 48
             new FoodAllergy
@@ -460,14 +460,14 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 49
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),
-                AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
-            },
-            #endregion
+            // #region FoodAllergy 49
+            // new FoodAllergy
+            // {
+            //     FoodAllergyId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),
+            //     AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c")
+            // },
+            // #endregion
 
             #region FoodAllergy 50
             new FoodAllergy

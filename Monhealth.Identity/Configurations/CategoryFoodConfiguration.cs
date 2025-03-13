@@ -683,29 +683,29 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 56
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = meat,  // Lòng đỏ trứng gà - Category: Meat
-                FoodId = Guid.Parse("a782e478-d5c5-4da6-b809-180b48ad08c3"),  // Lòng đỏ trứng gà
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 56
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = meat,  // Lòng đỏ trứng gà - Category: Meat
+            //     FoodId = Guid.Parse("a782e478-d5c5-4da6-b809-180b48ad08c3"),  // Lòng đỏ trứng gà
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
-            #region CategoryFood 57
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = meat,  // Lòng trắng trứng gà - Category: Meat
-                FoodId = Guid.Parse("f41484a3-c7df-4530-b7d2-060390103985"),  // Lòng trắng trứng gà
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 57
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = meat,  // Lòng trắng trứng gà - Category: Meat
+            //     FoodId = Guid.Parse("f41484a3-c7df-4530-b7d2-060390103985"),  // Lòng trắng trứng gà
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 58
             builder.HasData(
@@ -1100,17 +1100,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 91
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = fermented,  // Nem chua - Category: Fermented
-                FoodId = Guid.Parse("c81a404a-ec10-428e-acec-dd56ec1d3607"),  // Nem chua
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 91
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = fermented,  // Nem chua - Category: Fermented
+            //     FoodId = Guid.Parse("c81a404a-ec10-428e-acec-dd56ec1d3607"),  // Nem chua
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 92
             builder.HasData(
@@ -1352,17 +1352,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 112
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = grains,  // Hạt hạnh nhân - Category: Grains
-                FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),  // Hạt hạnh nhân
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 112
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = grains,  // Hạt hạnh nhân - Category: Grains
+            //     FoodId = Guid.Parse("b0f051be-5972-4e7a-a77d-47ec28d58993"),  // Hạt hạnh nhân
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 113
             builder.HasData(
@@ -1388,17 +1388,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 115
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = grains,  // Hạt bí ngô - Category: Grains
-                FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),  // Hạt bí ngô
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 115
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = grains,  // Hạt bí ngô - Category: Grains
+            //     FoodId = Guid.Parse("59988378-901f-4ec4-bd6c-9fdc28ca97a1"),  // Hạt bí ngô
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 116
             builder.HasData(
@@ -1459,17 +1459,18 @@ namespace Monhealth.Identity.Configurations
                 UpdatedAt = today
             });
             #endregion
-            #region CategoryFood 121
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = grains,  // Hạt hướng dương - Category: Grains
-                FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),  // Hạt hướng dương
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+
+            // #region CategoryFood 121
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = grains,  // Hạt hướng dương - Category: Grains
+            //     FoodId = Guid.Parse("4e46f955-4413-496f-97b4-968a38ee3e11"),  // Hạt hướng dương
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 122
             builder.HasData(
@@ -1579,17 +1580,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 131
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = grains,  // Hạt kê - Category: Grains
-                FoodId = Guid.Parse("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),  // Hạt kê
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 131
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = grains,  // Hạt kê - Category: Grains
+            //     FoodId = Guid.Parse("68c8c4c4-e5d6-4e15-ad60-1c18f0c1cb4d"),  // Hạt kê
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 132
             builder.HasData(
@@ -1662,17 +1663,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 138
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = grains,  // Đậu đen - Category: Grains
-                FoodId = Guid.Parse("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),  // Đậu đen
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 138
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = grains,  // Đậu đen - Category: Grains
+            //     FoodId = Guid.Parse("9349fefa-ecbc-4afc-89f4-62c2f67eb441"),  // Đậu đen
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 139
             builder.HasData(
