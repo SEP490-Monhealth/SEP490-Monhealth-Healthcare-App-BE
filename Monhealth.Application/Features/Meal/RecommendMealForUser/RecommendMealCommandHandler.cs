@@ -21,7 +21,6 @@ namespace Monhealth.Application
         private readonly IUserRepository _userRepository;
 
         private readonly ILogger<RecommendMealCommandHandler> _logger;
-        private readonly CreateMealForTypeHandler _createMealForTypeHandler;
 
         public RecommendMealCommandHandler(
             IMealRepository mealRepository,
@@ -31,7 +30,6 @@ namespace Monhealth.Application
             IGoalRepository goalRepository,
             ILogger<RecommendMealCommandHandler> logger,
             FilterFoodListHandler filterFoodListHandler,
-            CreateMealForTypeHandler createMealForTypeHandler,
             IFoodRepository foodRepository,
             IUserRepository userRepository)
         {
@@ -42,7 +40,6 @@ namespace Monhealth.Application
             _goalRepository = goalRepository;
             _logger = logger;
             _filterFoodListHandler = filterFoodListHandler;
-            _createMealForTypeHandler = createMealForTypeHandler;
             _foodRepository = foodRepository;
             _userRepository = userRepository;
         }

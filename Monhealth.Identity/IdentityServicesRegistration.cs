@@ -100,7 +100,7 @@ namespace Monhealth.Identity
             services.AddScoped<IDailyActivityRepository, DailyActivityRepository>();
             services.AddScoped<ICategoryFoodRepository , CategoryFoodRepository>();
             services.AddScoped<IUserCategoryRepository,UserCategoryRepository>();
-            services.AddScoped<CreateMealForTypeHandler>();
+            // services.AddScoped<CreateMealForTypeHandler>();
             services.AddScoped<FilterFoodListHandler>();
             // Đăng ký Background Service
             // Add Authentication
