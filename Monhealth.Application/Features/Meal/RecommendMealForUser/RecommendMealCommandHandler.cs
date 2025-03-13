@@ -6,6 +6,7 @@ using Monhealth.Domain.Enum;
 using Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFunction;
 using Monhealth.Domain;
 using Monhealth.Identity.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Monhealth.Application
 {
@@ -19,7 +20,6 @@ namespace Monhealth.Application
         private readonly FilterFoodListHandler _filterFoodListHandler;
         private readonly IFoodRepository _foodRepository;
         private readonly IUserRepository _userRepository;
-
         private readonly ILogger<RecommendMealCommandHandler> _logger;
 
         public RecommendMealCommandHandler(
@@ -47,21 +47,39 @@ namespace Monhealth.Application
         public async Task<Guid> Handle(CreateRecommendMealCommand request, CancellationToken cancellationToken)
         {
             var userId = request.UserId;
-
             _logger.LogInformation($"Handling meal recommendation for UserId: {userId}");
 
+            // Get user with their goals
             AppUser? gettingUser = await _userRepository.GetUserByIdAsync(userId);
+            if (gettingUser == null)
+            {
+                throw new Exception($"User with ID {userId} not found");
+            }
 
+            // Get user's most recent goal
+            var latestGoal = gettingUser.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
+            if (latestGoal == null)
+            {
+                throw new Exception($"No goals found for user {userId}");
+            }
+
+            // Get user's allergens to filter out
+            var userAllergies = await _filterFoodListHandler.FilterFoodListQueryHandler(userId);
+            var allergiesIds = gettingUser.UserAllergies?.Select(ua => ua.AllergyId).ToList() ?? new List<Guid>();
+
+            // Generate meal plans for the next 3 days
             int days = 3;
+            List<Guid> createdDailyMealIds = new List<Guid>();
+
             for (int i = 0; i < days; i++)
             {
                 var currentDate = DateTime.Now.Date.AddDays(i);
-                var breakfast = await CreateMealForType(MealType.Breakfast, gettingUser);
-                var lunch = await CreateMealForType(MealType.Lunch, gettingUser);
-                var dinner = await CreateMealForType(MealType.Dinner, gettingUser);
-                _dailyMealRepository.Add(new DailyMeal
+
+                // Create a DailyMeal record for this day
+                var dailyMeal = new DailyMeal
                 {
-                    GoalId = gettingUser.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault()?.GoalId ?? Guid.Empty,
+                    DailyMealId = Guid.NewGuid(),
+                    GoalId = latestGoal.GoalId,
                     UserId = userId,
                     CreatedAt = currentDate,
                     UpdatedAt = currentDate,
@@ -70,199 +88,292 @@ namespace Monhealth.Application
                     TotalCarbs = 0,
                     TotalFats = 0,
                     TotalFibers = 0,
-                    TotalSugars = 0
-                });
+                    TotalSugars = 0,
+                    Meals = new List<Meal>()
+                };
+
+                // Create meals for each meal type
+                var breakfast = await CreateMealForType(MealType.Breakfast, gettingUser, latestGoal, allergiesIds);
+                var lunch = await CreateMealForType(MealType.Lunch, gettingUser, latestGoal, allergiesIds);
+                var dinner = await CreateMealForType(MealType.Dinner, gettingUser, latestGoal, allergiesIds);
+
+                // Add meals to the daily meal
+                dailyMeal.Meals.Add(breakfast);
+                dailyMeal.Meals.Add(lunch);
+                dailyMeal.Meals.Add(dinner);
+
+                // Calculate and update daily meal nutritional totals
+                await UpdateDailyMealNutrition(dailyMeal);
+
+                // Save to repository
+                _dailyMealRepository.Add(dailyMeal);
+                createdDailyMealIds.Add(dailyMeal.DailyMealId);
             }
+
+            // Save all changes at once
             await _dailyMealRepository.SaveChangeAsync();
-            return Guid.Empty;
+
+            // Return the ID of the first daily meal
+            return createdDailyMealIds.FirstOrDefault();
         }
 
-        private async Task<Meal> CreateMealForType(MealType mealType, AppUser user)
+        private async Task UpdateDailyMealNutrition(DailyMeal dailyMeal)
         {
-            // Get Random First
-            var (proteinFood, carbFood, balanceFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood([]);
+            // Reset nutritional totals
+            dailyMeal.TotalCalories = 0;
+            dailyMeal.TotalProteins = 0;
+            dailyMeal.TotalCarbs = 0;
+            dailyMeal.TotalFats = 0;
+            dailyMeal.TotalFibers = 0;
+            dailyMeal.TotalSugars = 0;
 
-
-            // Lấy mục tiêu gần nhất (mới nhất) của người dùng
-            var userGoal = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
-            if (userGoal == null)
+            // Sum up nutrition from all meals
+            foreach (var meal in dailyMeal.Meals)
             {
-                throw new Exception("Không tìm thấy mục tiêu cho người dùng.");
+                foreach (var mealFood in meal.MealFoods)
+                {
+                    // Get the portion from the repository using the PortionId
+                    var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
+
+                    if (portion != null)
+                    {
+                        // Calculate scaling factor based on portion weight
+                        float scalingFactor = portion.PortionWeight / 100f; // Assuming nutrition values are per 100g
+
+                        // Get nutrition for this food
+                        var nutrition = mealFood.Food?.Nutrition;
+                        if (nutrition != null)
+                        {
+                            dailyMeal.TotalCalories += nutrition.Calories * scalingFactor;
+                            dailyMeal.TotalProteins += nutrition.Protein * scalingFactor;
+                            dailyMeal.TotalCarbs += nutrition.Carbs * scalingFactor;
+                            dailyMeal.TotalFats += nutrition.Fat * scalingFactor;
+                            dailyMeal.TotalFibers += nutrition.Fiber * scalingFactor;
+                            dailyMeal.TotalSugars += nutrition.Sugar * scalingFactor;
+                        }
+                    }
+                }
+            }
+        }
+
+        private async Task<Meal> CreateMealForType(MealType mealType, AppUser user, Goal userGoal, List<Guid> allergiesIds)
+        {
+            _logger.LogInformation($"Creating {mealType} meal for user {user.Id}");
+
+            // Get foods based on nutritional requirements
+            var (proteinFood, carbFood, balanceFood, vegetableFood) = await GetFoodsForMeal(allergiesIds);
+
+            // Check if we have the necessary foods
+            if (vegetableFood == null)
+            {
+                _logger.LogWarning("No suitable vegetable found for meal");
+                // Use a fallback or default vegetable if available
             }
 
-            var totalCaloriesDaily = userGoal.CaloriesGoal; // Lấy CaloriesGoal từ userGoal nếu tồn tại
+            // Calculate total calories for this meal type based on goal
+            var totalCaloriesDaily = userGoal.CaloriesGoal;
+            var mealCalories = CalculateMealCalories(mealType, userGoal.GoalType, totalCaloriesDaily);
 
-            var mealCalories = mealType switch
-            {
-                MealType.Breakfast => userGoal.GoalType switch
-                {
-                    GoalType.WeightLoss => totalCaloriesDaily * 0.20f,
-                    GoalType.WeightGain => totalCaloriesDaily * 0.25f,
-                    GoalType.Maintenance => totalCaloriesDaily * 0.30f,
-                    _ => 0
-                },
-                MealType.Lunch => userGoal.GoalType switch
-                {
-                    GoalType.WeightLoss => totalCaloriesDaily * 0.40f,
-                    GoalType.WeightGain => totalCaloriesDaily * 0.35f,
-                    GoalType.Maintenance => totalCaloriesDaily * 0.35f,
-                    _ => 0
-                },
-                MealType.Dinner => userGoal.GoalType switch
-                {
-                    GoalType.WeightLoss => totalCaloriesDaily * 0.30f,
-                    GoalType.WeightGain => totalCaloriesDaily * 0.30f,
-                    GoalType.Maintenance => totalCaloriesDaily * 0.25f,
-                    _ => 0
-                },
-                _ => 0
-            };
-
-            // Phân bổ calo cho protein, carbs và rau
-            var proteinCalories = mealCalories * 0.40f;
-            var carbsCalories = mealCalories * 0.50f;
-            var vegetableCalories = mealCalories * 0.10f;
-            var balanceCalories = mealCalories * 0.9f;
-
-            var vegetableWeight = 100 * (vegetableFood.Nutrition.Calories / vegetableCalories);
-            Guid proteinPortionId = Guid.NewGuid();
-            Guid carbPortionId = Guid.NewGuid();
-            Guid vegetablePortionId = Guid.NewGuid();
-            Guid balancePortionFoodId = Guid.NewGuid();
-
-            var mealFoods = new List<MealFood>();
-
-            if (balanceFood != null)
-            {
-                mealFoods.Add(new MealFood
-                {
-                    FoodId = balanceFood.FoodId,
-                    Quantity = 1,
-                    IsCompleted = false,
-                    PortionId = balancePortionFoodId
-                });
-
-                mealFoods.Add(new MealFood
-                {
-                    FoodId = vegetableFood.FoodId,
-                    Quantity = 1,
-                    IsCompleted = false,
-                    PortionId = vegetablePortionId
-                });
-            }
-            else
-            {
-                // Nếu balanceFood không tồn tại, thêm proteinFood, carbFood và vegetableFood vào mealFoods
-                mealFoods.Add(new MealFood
-                {
-                    FoodId = proteinFood.FoodId,
-                    Quantity = 1,
-                    IsCompleted = false,
-                    PortionId = proteinPortionId
-                });
-
-                mealFoods.Add(new MealFood
-                {
-                    FoodId = carbFood.FoodId,
-                    Quantity = 1,
-                    IsCompleted = false,
-                    PortionId = carbPortionId
-                });
-
-                mealFoods.Add(new MealFood
-                {
-                    FoodId = vegetableFood.FoodId,
-                    Quantity = 1,
-                    IsCompleted = false,
-                    PortionId = vegetablePortionId
-                });
-            }
-
+            // Create meal entity
             var meal = new Meal
             {
+                MealId = Guid.NewGuid(),
                 MealType = mealType,
                 UserId = user.Id,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                MealFoods = mealFoods
+                MealFoods = new List<MealFood>()
             };
 
-            // Thêm các Portion cho Balance, Protein, Carb và Vegetable
+            // Use balanced meal if available, otherwise separate protein and carbs
             if (balanceFood != null)
             {
-                var balanceWeight = 100 * (balanceFood.Nutrition.Calories / balanceCalories);
-
-                _portionRepository.Add(new Portion
+                await AddFoodToMeal(meal, balanceFood, mealCalories * 0.9f, user.Id);
+                if (vegetableFood != null)
                 {
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    PortionWeight = balanceWeight,
-                    CreatedBy = user.Id,
-                    UpdatedBy = user.Id,
-                    PortionId = balancePortionFoodId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
-                });
-
-                _portionRepository.Add(new Portion
-                {
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    PortionWeight = vegetableWeight,
-                    CreatedBy = user.Id,
-                    UpdatedBy = user.Id,
-                    PortionId = vegetablePortionId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
-                });
+                    await AddFoodToMeal(meal, vegetableFood, mealCalories * 0.1f, user.Id);
+                }
             }
             else
             {
-                var proteinWeight = 100 * (proteinFood.Nutrition.Calories / proteinCalories);
-                var carbWeight = 100 * (carbFood.Nutrition.Calories / carbsCalories);
-
-                _portionRepository.Add(new Portion
+                // Add protein, carbs, and vegetables with appropriate calorie distribution
+                if (proteinFood != null)
                 {
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    PortionWeight = proteinWeight,
-                    CreatedBy = user.Id,
-                    UpdatedBy = user.Id,
-                    PortionId = proteinPortionId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
-                });
+                    await AddFoodToMeal(meal, proteinFood, mealCalories * 0.4f, user.Id);
+                }
 
-                _portionRepository.Add(new Portion
+                if (carbFood != null)
                 {
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    PortionWeight = carbWeight,
-                    CreatedBy = user.Id,
-                    UpdatedBy = user.Id,
-                    PortionId = carbPortionId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
-                });
+                    await AddFoodToMeal(meal, carbFood, mealCalories * 0.5f, user.Id);
+                }
 
-                _portionRepository.Add(new Portion
+                if (vegetableFood != null)
                 {
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    PortionWeight = vegetableWeight,
-                    CreatedBy = user.Id,
-                    UpdatedBy = user.Id,
-                    PortionId = vegetablePortionId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
-                });
+                    await AddFoodToMeal(meal, vegetableFood, mealCalories * 0.1f, user.Id);
+                }
             }
 
-            // Lưu meal vào repository
+            // Add the meal to repository
             _mealRepository.Add(meal);
+
             return meal;
         }
 
+        private async Task AddFoodToMeal(Meal meal, Food food, float targetCalories, Guid userId)
+        {
+            if (food == null || food.Nutrition == null)
+            {
+                _logger.LogWarning("Cannot add null food or food without nutrition to meal");
+                return;
+            }
 
+            // Calculate portion weight based on desired calories
+            // Formula: weight = (targetCalories / caloriesPer100g) * 100
+            var portionWeight = (targetCalories / food.Nutrition.Calories) * 100;
+
+            // Create a new portion
+            var portionId = Guid.NewGuid();
+            var portion = new Portion
+            {
+                PortionId = portionId,
+                PortionSize = "phần",
+                PortionWeight = portionWeight,
+                MeasurementUnit = "g",
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                CreatedBy = userId,
+                UpdatedBy = userId
+            };
+
+            // Add portion to repository
+            _portionRepository.Add(portion);
+
+            // Create meal-food relationship
+            var mealFood = new MealFood
+            {
+                MealFoodId = Guid.NewGuid(),
+                FoodId = food.FoodId,
+                MealId = meal.MealId,
+                PortionId = portionId,
+                Quantity = 1,
+                IsCompleted = false
+            };
+
+            // Add to meal foods collection
+            meal.MealFoods.Add(mealFood);
+        }
+
+        private float CalculateMealCalories(MealType mealType, GoalType goalType, float totalCaloriesDaily)
+        {
+            // Calculate meal calories based on meal type and goal type
+            return mealType switch
+            {
+                MealType.Breakfast => goalType switch
+                {
+                    GoalType.WeightLoss => totalCaloriesDaily * 0.20f,
+                    GoalType.WeightGain => totalCaloriesDaily * 0.25f,
+                    GoalType.Maintenance => totalCaloriesDaily * 0.30f,
+                    _ => totalCaloriesDaily * 0.25f // Default
+                },
+                MealType.Lunch => goalType switch
+                {
+                    GoalType.WeightLoss => totalCaloriesDaily * 0.40f,
+                    GoalType.WeightGain => totalCaloriesDaily * 0.35f,
+                    GoalType.Maintenance => totalCaloriesDaily * 0.35f,
+                    _ => totalCaloriesDaily * 0.35f // Default
+                },
+                MealType.Dinner => goalType switch
+                {
+                    GoalType.WeightLoss => totalCaloriesDaily * 0.30f,
+                    GoalType.WeightGain => totalCaloriesDaily * 0.30f,
+                    GoalType.Maintenance => totalCaloriesDaily * 0.25f,
+                    _ => totalCaloriesDaily * 0.30f // Default
+                },
+                _ => totalCaloriesDaily * 0.30f // Default for unknown meal types
+            };
+        }
+
+        private async Task<(Food?, Food?, Food?, Food?)> GetFoodsForMeal(List<Guid> allergiesIds)
+        {
+            try
+            {
+                // First attempt: Try getting foods through repository method
+                var foods = await _foodRepository.GetRandomProteinAndCarbFood(allergiesIds);
+
+                // Check if we got all needed foods
+                if ((foods.Item1 != null && foods.Item2 != null) || foods.Item3 != null)
+                {
+                    if (foods.Item4 == null)
+                    {
+                        // If vegetable is missing, try to find one
+                        foods.Item4 = await FindVegetableFood(allergiesIds);
+                    }
+                    return foods;
+                }
+
+                // Fallback: If repository method fails, try constructing foods manually
+                return await FallbackFoodSelection(allergiesIds);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error selecting foods for meal");
+                return await FallbackFoodSelection(allergiesIds);
+            }
+        }
+
+        private async Task<Food?> FindVegetableFood(List<Guid> allergiesIds)
+        {
+            // Implementation to find a vegetable food when the main method fails
+            return await _foodRepository.GetAll()
+                .Where(f =>
+                    f.Nutrition != null &&
+                    f.Nutrition.VitaminC >= 0.1f ||
+                    (f.Nutrition.VitaminA ?? 0) >= 0.1f &&
+                    !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                )
+                .OrderBy(x => Guid.NewGuid()) // Random selection
+                .FirstOrDefaultAsync();
+        }
+
+        private async Task<(Food?, Food?, Food?, Food?)> FallbackFoodSelection(List<Guid> allergiesIds)
+        {
+            // Fallback implementation when main food selection fails
+
+            // Try to find a protein-rich food
+            var proteinFood = await _foodRepository.GetAll()
+                .Where(f =>
+                    f.Nutrition != null &&
+                    f.Nutrition.Protein >= 15 &&
+                    !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                )
+                .OrderBy(x => Guid.NewGuid())
+                .FirstOrDefaultAsync();
+
+            // Try to find a carb-rich food
+            var carbFood = await _foodRepository.GetAll()
+                .Where(f =>
+                    f.Nutrition != null &&
+                    f.Nutrition.Carbs >= 15 &&
+                    !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                )
+                .OrderBy(x => Guid.NewGuid())
+                .FirstOrDefaultAsync();
+
+            // Try to find a balanced food
+            var balanceFood = await _foodRepository.GetAll()
+                .Where(f =>
+                    f.Nutrition != null &&
+                    f.Nutrition.Protein >= 10 &&
+                    f.Nutrition.Carbs >= 10 &&
+                    !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
+                )
+                .OrderBy(x => Guid.NewGuid())
+                .FirstOrDefaultAsync();
+
+            // Try to find a vegetable
+            var vegetableFood = await FindVegetableFood(allergiesIds);
+
+            return (proteinFood, carbFood, balanceFood, vegetableFood);
+        }
     }
 }

@@ -26,6 +26,5 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.UpdateSchedu
             await scheduleExceptionRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
         }
-
     }
 }

@@ -314,7 +314,7 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        public async Task<(Food?, Food?, Food?,Food?)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
+        public async Task<(Food?, Food?, Food?, Food?)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
         {
             Random random = new Random();
             int foodNumberOfMeal = random.Next(2);
@@ -391,7 +391,7 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync();
 
 
-            return (proteinFood, carbFood,balanceFood, vegetableFood);
+            return (proteinFood, carbFood, balanceFood, vegetableFood);
         }
 
         public Task<int> GetTotalFoodCountAsync()
