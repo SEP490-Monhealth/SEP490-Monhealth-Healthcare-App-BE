@@ -18,7 +18,9 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetByUser
         public async Task<List<SubscriptionByUserDTO>> Handle(GetSubscriptionByUserQuery request, CancellationToken cancellationToken)
         {
             var query = await _userSubscriptionRepository.GetUserSubscription(request.Userid);
+            query.OrderBy(s => s.Price);
             return _mapper.Map<List<SubscriptionByUserDTO>>(query);
+
         }
     }
 }

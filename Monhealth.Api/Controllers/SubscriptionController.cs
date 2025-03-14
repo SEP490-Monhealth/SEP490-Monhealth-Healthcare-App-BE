@@ -4,6 +4,7 @@ using Monhealth.Application.Features.Subscription.Commands.Create;
 using Monhealth.Application.Features.Subscription.Commands.Delete;
 using Monhealth.Application.Features.Subscription.Commands.Update;
 using Monhealth.Application.Features.Subscription.Queries.GetAll;
+using Monhealth.Application.Features.Subscription.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetDetail;
 using Monhealth.Application.Features.UserSubscription.Commands.Create;
 using Monhealth.Application.Models;
@@ -56,25 +57,25 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        // [HttpGet("user/{userId:guid}")]
-        // public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
-        // {
-        //     var portion = await _mediator.Send(new GetSubscriptionByUserQuery() { Userid = userId });
-        //     if (portion == null)
-        //     {
-        //         return new ResultModel
-        //         {
-        //             Success = false,
-        //             Status = (int)HttpStatusCode.NotFound,
-        //         };
-        //     }
-        //     return new ResultModel
-        //     {
-        //         Data = portion,
-        //         Status = 200,
-        //         Success = true
-        //     };
-        // }
+        [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
+        {
+            var portion = await _mediator.Send(new GetSubscriptionByUserQuery() { Userid = userId });
+            if (portion == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                };
+            }
+            return new ResultModel
+            {
+                Data = portion,
+                Status = 200,
+                Success = true
+            };
+        }
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Add([FromBody] CreateSubscriptionCommand request)

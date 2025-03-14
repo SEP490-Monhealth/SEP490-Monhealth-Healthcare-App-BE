@@ -19,6 +19,7 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetAll
         public async Task<List<SubscriptionDTO>> Handle(GetAllSubscriptionQuery request, CancellationToken cancellationToken)
         {
             var queries = await _subscriptionRepository.GetAllAsync();
+            queries.OrderBy(s => s.Price);
             return _mapper.Map<List<SubscriptionDTO>>(queries);
         }
     }
