@@ -48,7 +48,6 @@ namespace Monhealth.Application
             var userId = request.UserId;
 
             _logger.LogInformation($"Handling meal recommendation for UserId: {userId}");
-
             AppUser? gettingUser = await _userRepository.GetUserByIdAsync(userId);
 
             int days = 3;
@@ -81,6 +80,7 @@ namespace Monhealth.Application
             // Get Random First
             var (proteinFood, carbFood, balanceFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood([]);
 
+         
             // Lấy mục tiêu gần nhất (mới nhất) của người dùng
             var userGoal = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
             if (userGoal == null)
@@ -215,7 +215,6 @@ namespace Monhealth.Application
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                     MealFoods = mealFoods,
-
                 };
 
             }
