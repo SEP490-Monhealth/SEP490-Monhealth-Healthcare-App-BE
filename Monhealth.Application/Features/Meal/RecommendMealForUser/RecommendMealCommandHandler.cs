@@ -42,7 +42,6 @@ namespace Monhealth.Application
             _foodRepository = foodRepository;
             _userRepository = userRepository;
         }
-
         public async Task<Guid> Handle(CreateRecommendMealCommand request, CancellationToken cancellationToken)
         {
             var userId = request.UserId;
@@ -50,13 +49,27 @@ namespace Monhealth.Application
             _logger.LogInformation($"Handling meal recommendation for UserId: {userId}");
             AppUser? gettingUser = await _userRepository.GetUserByIdAsync(userId);
 
+            if (gettingUser == null)
+            {
+                throw new Exception("User not found");
+            }
+
             int days = 3;
+
+            // Tạo các bữa ăn cho người dùng
+            var breakfast = await CreateMealForType(MealType.Breakfast, gettingUser);
+            var lunch = await CreateMealForType(MealType.Lunch, gettingUser);
+            var dinner = await CreateMealForType(MealType.Dinner, gettingUser);
+
+            // Biến để lưu currentDate
+            DateTime? storedCurrentDate = null;
+
+            // Thêm DailyMeal cho mỗi ngày và gán currentDate vào Meal
             for (int i = 0; i < days; i++)
             {
                 var currentDate = DateTime.Now.Date.AddDays(i);
-                var breakfast = await CreateMealForType(MealType.Breakfast, gettingUser);
-                var lunch = await CreateMealForType(MealType.Lunch, gettingUser);
-                var dinner = await CreateMealForType(MealType.Dinner, gettingUser);
+                storedCurrentDate = currentDate;  // Lưu giá trị currentDate vào biến
+
                 _dailyMealRepository.Add(new DailyMeal
                 {
                     GoalId = gettingUser.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault()?.GoalId ?? Guid.Empty,
@@ -68,19 +81,45 @@ namespace Monhealth.Application
                     TotalCarbs = 0,
                     TotalFats = 0,
                     TotalFibers = 0,
-                    TotalSugars = 0
+                    TotalSugars = 0,
                 });
             }
-            await _dailyMealRepository.SaveChangeAsync();
+
+            // Lưu DailyMeal vào repository
+        
+            
+            var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(storedCurrentDate.Value, userId);
+          
+            if (dailyMeal == null)
+            {
+                throw new Exception("DailyMeal not found for today");
+            }
+
+            // Gán DailyMealId cho các bữa ăn
+            breakfast.DailyMealId = dailyMeal.DailyMealId;
+            lunch.DailyMealId = dailyMeal.DailyMealId;
+            dinner.DailyMealId = dailyMeal.DailyMealId;
+
+            // Lưu các bữa ăn vào cơ sở dữ liệu
+            _mealRepository.Update(breakfast);
+            _mealRepository.Update(lunch);
+            _mealRepository.Update(dinner);
+
+            // Lưu các thay đổi vào cơ sở dữ liệu
+            await _mealRepository.SaveChangeAsync();
+
             return Guid.Empty;
         }
+
+
+
 
         private async Task<Meal> CreateMealForType(MealType mealType, AppUser user)
         {
             // Get Random First
             var (proteinFood, carbFood, balanceFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood([]);
 
-         
+
             // Lấy mục tiêu gần nhất (mới nhất) của người dùng
             var userGoal = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
             if (userGoal == null)
