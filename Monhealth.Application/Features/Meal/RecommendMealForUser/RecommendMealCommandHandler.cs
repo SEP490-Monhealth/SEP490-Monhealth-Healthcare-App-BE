@@ -55,12 +55,6 @@ namespace Monhealth.Application
             }
 
             int days = 3;
-
-            // Tạo các bữa ăn cho người dùng
-            var breakfast = await CreateMealForType(MealType.Breakfast, gettingUser);
-            var lunch = await CreateMealForType(MealType.Lunch, gettingUser);
-            var dinner = await CreateMealForType(MealType.Dinner, gettingUser);
-
             // Biến để lưu currentDate
             DateTime? storedCurrentDate = null;
 
@@ -69,10 +63,11 @@ namespace Monhealth.Application
             {
                 var currentDate = DateTime.Now.Date.AddDays(i);
                 storedCurrentDate = currentDate;  // Lưu giá trị currentDate vào biến
-
+                var dailyMealId = Guid.NewGuid();
                 _dailyMealRepository.Add(new DailyMeal
                 {
                     GoalId = gettingUser.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault()?.GoalId ?? Guid.Empty,
+                    DailyMealId = dailyMealId,
                     UserId = userId,
                     CreatedAt = currentDate,
                     UpdatedAt = currentDate,
@@ -82,31 +77,14 @@ namespace Monhealth.Application
                     TotalFats = 0,
                     TotalFibers = 0,
                     TotalSugars = 0,
+                    Meals = [
+                    await CreateMealForType(MealType.Breakfast, gettingUser,dailyMealId), //Breakfast
+                    await CreateMealForType(MealType.Lunch, gettingUser,dailyMealId), //Lunch
+                    await CreateMealForType(MealType.Dinner, gettingUser,dailyMealId), //Dinner
+                    ],
                 });
             }
-
-            // Lưu DailyMeal vào repository
-        
-            
-            var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(storedCurrentDate.Value, userId);
-          
-            if (dailyMeal == null)
-            {
-                throw new Exception("DailyMeal not found for today");
-            }
-
-            // Gán DailyMealId cho các bữa ăn
-            breakfast.DailyMealId = dailyMeal.DailyMealId;
-            lunch.DailyMealId = dailyMeal.DailyMealId;
-            dinner.DailyMealId = dailyMeal.DailyMealId;
-
-            // Lưu các bữa ăn vào cơ sở dữ liệu
-            _mealRepository.Update(breakfast);
-            _mealRepository.Update(lunch);
-            _mealRepository.Update(dinner);
-
-            // Lưu các thay đổi vào cơ sở dữ liệu
-            await _mealRepository.SaveChangeAsync();
+            await _dailyMealRepository.SaveChangeAsync();
 
             return Guid.Empty;
         }
@@ -114,7 +92,7 @@ namespace Monhealth.Application
 
 
 
-        private async Task<Meal> CreateMealForType(MealType mealType, AppUser user)
+        private async Task<Meal> CreateMealForType(MealType mealType, AppUser user, Guid dailyMealId)
         {
             // Get Random First
             var (proteinFood, carbFood, balanceFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood([]);
@@ -251,6 +229,7 @@ namespace Monhealth.Application
                 {
                     MealType = mealType,
                     UserId = user.Id,
+                    DailyMealId = dailyMealId,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                     MealFoods = mealFoods,
