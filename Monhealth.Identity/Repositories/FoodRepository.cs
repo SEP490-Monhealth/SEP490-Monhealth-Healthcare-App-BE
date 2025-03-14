@@ -246,7 +246,6 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-
         public async Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
     List<Guid> categoryIds,
     List<Guid> excludedFoodIds,
@@ -290,11 +289,6 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-
-
-
-
-
         public async Task<PaginatedResult<Food>> GetPaginatedFoodsExcludingIdsAsync(IEnumerable<Guid> excludedFoodIds, int skip, int take)
         {
             var query = _context.Foods
@@ -313,6 +307,7 @@ namespace Monhealth.Identity.Repositories
                 TotalCount = totalCount
             };
         }
+
         public async Task<(Food?, Food?, Food?, Food?)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
         {
             Random random = new Random();
@@ -320,8 +315,6 @@ namespace Monhealth.Identity.Repositories
             Food? proteinFood = null!;
             Food? carbFood = null!;
             Food? balanceFood = null!;
-
-
 
             // Lấy tất cả dữ liệu từ cơ sở dữ liệu
             var allFoods = await _context.Foods
@@ -332,7 +325,6 @@ namespace Monhealth.Identity.Repositories
             {
                 case 0:
                     {
-                        // Filter for Protein food
                         // Filter for Protein food
                         proteinFood = allFoods
                         .Where(f =>
@@ -373,7 +365,7 @@ namespace Monhealth.Identity.Repositories
                                 f.MealType != null &&
                                 f.DishType != null &&
                                 f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
-                                f.DishType.Select(dt => dt.ToString()).Any(dt => new[] { "MainDish" }.Contains(dt.Trim())) && // Filter by DishType
+                                f.DishType.Select(dt => dt.ToString()).Any(dt => new[] { "MainDish", "SideDish" }.Contains(dt.Trim())) && // Filter by DishType
                                 f.Nutrition != null &&
                                 f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
                                 f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
@@ -401,14 +393,8 @@ namespace Monhealth.Identity.Repositories
       .OrderBy(f => Guid.NewGuid())  // Randomize order
       .FirstOrDefault();
 
-
             return (proteinFood, carbFood, balanceFood, vegetableFood);
         }
-
-
-
-
-
 
         public Task<int> GetTotalFoodCountAsync()
         {
@@ -427,7 +413,6 @@ namespace Monhealth.Identity.Repositories
             return await _context.Foods
                 .CountAsync(f => !allergies.Any(allergy => f.FoodDescription.Contains(allergy)));
         }
-
 
         public void RemoveFoodPortions(Guid foodId)
         {

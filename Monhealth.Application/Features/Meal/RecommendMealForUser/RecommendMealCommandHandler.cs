@@ -19,7 +19,6 @@ namespace Monhealth.Application
         private readonly FilterFoodListHandler _filterFoodListHandler;
         private readonly IFoodRepository _foodRepository;
         private readonly IUserRepository _userRepository;
-
         private readonly ILogger<RecommendMealCommandHandler> _logger;
 
         public RecommendMealCommandHandler(
@@ -82,7 +81,6 @@ namespace Monhealth.Application
             // Get Random First
             var (proteinFood, carbFood, balanceFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood([]);
 
-
             // Lấy mục tiêu gần nhất (mới nhất) của người dùng
             var userGoal = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
             if (userGoal == null)
@@ -119,12 +117,13 @@ namespace Monhealth.Application
             };
 
             // Phân bổ calo cho protein, carbs và rau
-            var proteinCalories = mealCalories ;
-            var carbsCalories = mealCalories ;
-            var vegetableCalories = mealCalories ;
-            var balanceCalories = mealCalories ;
+            var proteinCalories = mealCalories;
+            var carbsCalories = mealCalories;
+            var vegetableCalories = mealCalories;
+            var balanceCalories = mealCalories;
 
             var vegetableWeight = 100 * (vegetableFood.Nutrition.Calories / vegetableCalories);
+
             Guid proteinPortionId = Guid.NewGuid();
             Guid carbPortionId = Guid.NewGuid();
             Guid vegetablePortionId = Guid.NewGuid();
@@ -145,9 +144,9 @@ namespace Monhealth.Application
                 mealFoods.Add(new MealFood
                 {
                     FoodId = vegetableFood.FoodId,
+                    PortionId = vegetablePortionId,
                     Quantity = 1,
-                    IsCompleted = false,
-                    PortionId = vegetablePortionId
+                    IsCompleted = false
                 });
             }
             else
@@ -156,25 +155,25 @@ namespace Monhealth.Application
                 mealFoods.Add(new MealFood
                 {
                     FoodId = proteinFood.FoodId,
+                    PortionId = proteinPortionId,
                     Quantity = 1,
-                    IsCompleted = false,
-                    PortionId = proteinPortionId
+                    IsCompleted = false
                 });
 
                 mealFoods.Add(new MealFood
                 {
                     FoodId = carbFood.FoodId,
+                    PortionId = carbPortionId,
                     Quantity = 1,
-                    IsCompleted = false,
-                    PortionId = carbPortionId
+                    IsCompleted = false
                 });
 
                 mealFoods.Add(new MealFood
                 {
                     FoodId = vegetableFood.FoodId,
+                    PortionId = vegetablePortionId,
                     Quantity = 1,
-                    IsCompleted = false,
-                    PortionId = vegetablePortionId
+                    IsCompleted = false
                 });
             }
 
@@ -194,26 +193,26 @@ namespace Monhealth.Application
 
                 _portionRepository.Add(new Portion
                 {
+                    PortionId = balancePortionFoodId,
+                    PortionSize = "phần",
+                    PortionWeight = balanceWeight,
+                    MeasurementUnit = "g",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
-                    PortionWeight = balanceWeight,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
-                    PortionId = balancePortionFoodId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
                 });
 
                 _portionRepository.Add(new Portion
                 {
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    PortionId = vegetablePortionId,
+                    PortionSize = "phần",
                     PortionWeight = vegetableWeight,
+                    MeasurementUnit = "g",
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
-                    PortionId = vegetablePortionId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
                 });
             }
             else
@@ -223,38 +222,39 @@ namespace Monhealth.Application
 
                 _portionRepository.Add(new Portion
                 {
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    PortionWeight = proteinWeight,
-                    CreatedBy = user.Id,
-                    UpdatedBy = user.Id,
                     PortionId = proteinPortionId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
+                    PortionSize = "phần",
+                    PortionWeight = proteinWeight,
+                    MeasurementUnit = "g",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    CreatedBy = user.Id,
+                    UpdatedBy = user.Id,
                 });
 
                 _portionRepository.Add(new Portion
                 {
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    PortionWeight = carbWeight,
-                    CreatedBy = user.Id,
-                    UpdatedBy = user.Id,
                     PortionId = carbPortionId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
+                    PortionSize = "phần",
+                    PortionWeight = carbWeight,
+                    MeasurementUnit = "g",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    CreatedBy = user.Id,
+                    UpdatedBy = user.Id,
                 });
 
                 _portionRepository.Add(new Portion
                 {
+
+                    PortionId = vegetablePortionId,
+                    PortionSize = "phần",
+                    PortionWeight = vegetableWeight,
+                    MeasurementUnit = "g",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
-                    PortionWeight = vegetableWeight,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
-                    PortionId = vegetablePortionId,
-                    PortionSize = "phan",
-                    MeasurementUnit = "gram"
                 });
             }
 
@@ -262,7 +262,5 @@ namespace Monhealth.Application
             _mealRepository.Add(meal);
             return meal;
         }
-
-
     }
 }
