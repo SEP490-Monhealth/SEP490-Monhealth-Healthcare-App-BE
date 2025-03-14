@@ -129,8 +129,18 @@ namespace Monhealth.Application
             Guid vegetablePortionId = Guid.NewGuid();
             Guid balancePortionFoodId = Guid.NewGuid();
 
+            Meal meal = new Meal();
             var mealFoods = new List<MealFood>();
+            foreach (var item in mealFoods)
+            {
 
+                var existingMealItem = await _mealFoodRepository.GetByMealIdAndFoodId(meal.MealId, item.FoodId);
+                if (existingMealItem != null)
+                {
+                    existingMealItem.Quantity += item.Quantity;
+                    existingMealItem.UpdatedAt = DateTime.Now;
+                }
+            }
             if (balanceFood != null)
             {
                 mealFoods.Add(new MealFood
@@ -138,7 +148,9 @@ namespace Monhealth.Application
                     FoodId = balanceFood.FoodId,
                     Quantity = 1,
                     IsCompleted = false,
-                    PortionId = balancePortionFoodId
+                    PortionId = balancePortionFoodId,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
                 });
 
                 mealFoods.Add(new MealFood
@@ -146,7 +158,9 @@ namespace Monhealth.Application
                     FoodId = vegetableFood.FoodId,
                     PortionId = vegetablePortionId,
                     Quantity = 1,
-                    IsCompleted = false
+                    IsCompleted = false,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
                 });
             }
             else
@@ -157,7 +171,9 @@ namespace Monhealth.Application
                     FoodId = proteinFood.FoodId,
                     PortionId = proteinPortionId,
                     Quantity = 1,
-                    IsCompleted = false
+                    IsCompleted = false,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
                 });
 
                 mealFoods.Add(new MealFood
@@ -165,7 +181,9 @@ namespace Monhealth.Application
                     FoodId = carbFood.FoodId,
                     PortionId = carbPortionId,
                     Quantity = 1,
-                    IsCompleted = false
+                    IsCompleted = false,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
                 });
 
                 mealFoods.Add(new MealFood
@@ -173,18 +191,34 @@ namespace Monhealth.Application
                     FoodId = vegetableFood.FoodId,
                     PortionId = vegetablePortionId,
                     Quantity = 1,
-                    IsCompleted = false
+                    IsCompleted = false,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
                 });
             }
-
-            var meal = new Meal
+            var currentDate = DateTime.Now.Date.Day;
+            var existingMeal = await _mealRepository.GetByUserIdAndMealType(user.Id, mealType, currentDate);
+            if (existingMeal != null)
             {
-                MealType = mealType,
-                UserId = user.Id,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-                MealFoods = mealFoods
-            };
+
+                Console.WriteLine("Updating existing meal...");
+                meal = existingMeal;
+                meal.UpdatedAt = DateTime.Now;
+            }
+            else
+            {
+
+                meal = new Meal
+                {
+                    MealType = mealType,
+                    UserId = user.Id,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    MealFoods = mealFoods,
+
+                };
+
+            }
 
             // Thêm các Portion cho Balance, Protein, Carb và Vegetable
             if (balanceFood != null)
