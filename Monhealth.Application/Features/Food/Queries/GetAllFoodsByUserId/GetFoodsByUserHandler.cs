@@ -25,7 +25,6 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
                 FoodId = food.FoodId,
                 FoodName = food.FoodName,
                 MealType = food.MealType, // Chuyển từ chuỗi sang danh sách
-                DishType = food.DishType, // Chuyển từ chuỗi sang danh sách
                 FoodDescription = food.FoodDescription,
                 Allergies = food.FoodAllergies?.Select(fa => fa.Allergy.AllergyName).ToList() ?? [],
                 Category = food.CategoryFoods.Select(x => x.Category.CategoryName).FirstOrDefault() ?? null!, // Nếu có quan hệ với Category

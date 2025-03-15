@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
         public string Category { get; set; } = string.Empty;
         public Guid UserId { get; set; }
         public List<MealType> MealType { get; set; }
-        public List<DishType> DishType { get; set; }
+        public List<DishTypeEnum> DishType { get; set; }
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
         [JsonPropertyName("description")]

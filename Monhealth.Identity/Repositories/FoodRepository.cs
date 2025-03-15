@@ -31,7 +31,8 @@ namespace Monhealth.Identity.Repositories
             Include(f => f.FoodPortions)
             .ThenInclude(f => f.Portion)
             .Include(f => f.FoodAllergies)
-            .ThenInclude(f => f.Allergy).AsQueryable();
+            .ThenInclude(f => f.Allergy).AsQueryable()
+            .Include(f => f.DishTypeFoods).ThenInclude(f => f.DishType);
 
             // filter search
             if (!string.IsNullOrEmpty(search))
@@ -246,67 +247,67 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-    //     public async Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
-    // List<Guid> categoryIds,
-    // List<Guid> excludedFoodIds,
-    // List<MealType>? mealTypeFilter,
-    // List<DishType>? dishTypeFilter,
-    // int skip,
-    // int take)
-    //     {
-    //         var query = _context.Foods
-    //             .Include(f => f.CategoryFoods)
-    //                 .ThenInclude(cf => cf.Category)
-    //             .Where(f => !excludedFoodIds.Contains(f.FoodId)
-    //                         && f.CategoryFoods.Any(cf => categoryIds.Contains(cf.CategoryId))
-    //                         && f.IsPublic
-    //                         && f.Status);
+        //     public async Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
+        // List<Guid> categoryIds,
+        // List<Guid> excludedFoodIds,
+        // List<MealType>? mealTypeFilter,
+        // List<DishType>? dishTypeFilter,
+        // int skip,
+        // int take)
+        //     {
+        //         var query = _context.Foods
+        //             .Include(f => f.CategoryFoods)
+        //                 .ThenInclude(cf => cf.Category)
+        //             .Where(f => !excludedFoodIds.Contains(f.FoodId)
+        //                         && f.CategoryFoods.Any(cf => categoryIds.Contains(cf.CategoryId))
+        //                         && f.IsPublic
+        //                         && f.Status);
 
-    //         // ✅ Correct way: Apply filtering directly in the database
-    //         if (mealTypeFilter != null && mealTypeFilter.Any())
-    //         {
-    //             query = query.Where(f => f.MealType.Any(mt => mealTypeFilter.Select(s => nameof(s)).Contains(nameof(mt))));
-    //         }
+        //         // ✅ Correct way: Apply filtering directly in the database
+        //         if (mealTypeFilter != null && mealTypeFilter.Any())
+        //         {
+        //             query = query.Where(f => f.MealType.Any(mt => mealTypeFilter.Select(s => nameof(s)).Contains(nameof(mt))));
+        //         }
 
-    //         if (dishTypeFilter != null && dishTypeFilter.Any())
-    //         {
-    //             query = query.Where(f => f.DishType.Any(dt => dishTypeFilter.Select(s => nameof(s)).Contains(nameof(dt))));
-    //         }
+        //         if (dishTypeFilter != null && dishTypeFilter.Any())
+        //         {
+        //             query = query.Where(f => f.DishType.Any(dt => dishTypeFilter.Select(s => nameof(s)).Contains(nameof(dt))));
+        //         }
 
-    //         // ✅ Fix: Use Async operations on IQueryable
-    //         var totalCount = await query.CountAsync(); // Must stay async
+        //         // ✅ Fix: Use Async operations on IQueryable
+        //         var totalCount = await query.CountAsync(); // Must stay async
 
-    //         var items = await query
-    //             .OrderBy(f => f.FoodName)
-    //             .Skip(skip)
-    //             .Take(take)
-    //             .ToListAsync(); // ✅ Ensure ToListAsync() is called on IQueryable
+        //         var items = await query
+        //             .OrderBy(f => f.FoodName)
+        //             .Skip(skip)
+        //             .Take(take)
+        //             .ToListAsync(); // ✅ Ensure ToListAsync() is called on IQueryable
 
-    //         return new PaginatedResult<Food>
-    //         {
-    //             Items = items,
-    //             TotalCount = totalCount
-    //         };
-    //     }
+        //         return new PaginatedResult<Food>
+        //         {
+        //             Items = items,
+        //             TotalCount = totalCount
+        //         };
+        //     }
 
-    //     public async Task<PaginatedResult<Food>> GetPaginatedFoodsExcludingIdsAsync(IEnumerable<Guid> excludedFoodIds, int skip, int take)
-    //     {
-    //         var query = _context.Foods
-    //     .Where(f => !excludedFoodIds.Contains(f.FoodId));
+        public async Task<PaginatedResult<Food>> GetPaginatedFoodsExcludingIdsAsync(IEnumerable<Guid> excludedFoodIds, int skip, int take)
+        {
+            var query = _context.Foods
+        .Where(f => !excludedFoodIds.Contains(f.FoodId));
 
-    //         var totalCount = await query.CountAsync();
-    //         var items = await query
-    //             .OrderBy(f => f.FoodName)
-    //             .Skip(skip)
-    //             .Take(take)
-    //             .ToListAsync();
+            var totalCount = await query.CountAsync();
+            var items = await query
+                .OrderBy(f => f.FoodName)
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
 
-    //         return new PaginatedResult<Food>
-    //         {
-    //             Items = items,
-    //             TotalCount = totalCount
-    //         };
-    //     }
+            return new PaginatedResult<Food>
+            {
+                Items = items,
+                TotalCount = totalCount
+            };
+        }
 
         public async Task<(Food?, Food?, Food?, Food?)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
         {
@@ -315,10 +316,13 @@ namespace Monhealth.Identity.Repositories
             Food? proteinFood = null!;
             Food? carbFood = null!;
             Food? balanceFood = null!;
-
+            string[] dishTypes = ["SideDish"];
             // Lấy tất cả dữ liệu từ cơ sở dữ liệu
             var allFoods = await _context.Foods
+                .AsNoTracking()
+                .AsSplitQuery()
                 .Include(f => f.Nutrition)
+                .Include(f => f.DishTypeFoods).ThenInclude(f => f.DishType)
                 .ToListAsync();
 
             switch (foodNumberOfMeal)
@@ -329,9 +333,10 @@ namespace Monhealth.Identity.Repositories
                         proteinFood = allFoods
                         .Where(f =>
                             f.MealType != null &&
-                            f.DishType != null &&
-                            f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
-                            f.DishType.Select(dt => dt.ToString()).Any(dt => new[] { "MainDish", "SideDish" }.Contains(dt.Trim())) && // Filter by DishType
+                                     // f.DishType != null &&
+                                     f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
+                                                                                                                                                       // f.DishType.Select(dt => dt.ToString()).Any(dt => new[] { "MainDish", "SideDish" }.Contains(dt.Trim())) && // Filter by DishType
+                                        f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "MainDish") &&   // Filter by DishType
                             f.Nutrition != null &&  // Ensure Nutrition is not null
                             f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5 && // Protein criteria
                             f.FoodAllergies != null &&  // Ensure FoodAllergies is not null
@@ -344,9 +349,9 @@ namespace Monhealth.Identity.Repositories
                         carbFood = allFoods
                             .Where(f =>
                                 f.MealType != null &&
-                                f.DishType != null &&
-                                 f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
-                    f.DishType.Select(dt => dt.ToString()).Any(dt => new[] { "MainDish", "SideDish" }.Contains(dt.Trim())) && // Filter by DishType
+                          //             f.DishType != null &&
+                          f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
+                           f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "MainDish") &&   // Filter by DishType
                                 f.Nutrition != null &&
                                 f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5 &&
                                 f.FoodAllergies != null &&
@@ -363,9 +368,9 @@ namespace Monhealth.Identity.Repositories
                         balanceFood = allFoods
                             .Where(f =>
                                 f.MealType != null &&
-                                f.DishType != null &&
-                                f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
-                                f.DishType.Select(dt => dt.ToString()).Any(dt => new[] { "MainDish", "SideDish" }.Contains(dt.Trim())) && // Filter by DishType
+             // f.DishType != null &&
+             f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
+            f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "MainDish") &&   // Filter by DishType
                                 f.Nutrition != null &&
                                 f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
                                 f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
@@ -377,14 +382,12 @@ namespace Monhealth.Identity.Repositories
                         break;
                     }
             }
-
             // Filter for vegetable food
             var vegetableFood = allFoods
            .Where(f =>
           f.MealType != null &&
-          f.DishType != null &&
-           f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
-          f.DishType.Select(dt => dt.ToString()).Any(dt => new[] { "SideDish" }.Contains(dt.Trim())) &&   // Filter by DishType
+          f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
+          f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "SideDish") &&   // Filter by DishType
           f.Nutrition != null &&
           f.Nutrition.Fiber > 5.0f &&  // Either VitaminC or VitaminA should be present
           f.FoodAllergies != null &&  // Ensure FoodAllergies is not null

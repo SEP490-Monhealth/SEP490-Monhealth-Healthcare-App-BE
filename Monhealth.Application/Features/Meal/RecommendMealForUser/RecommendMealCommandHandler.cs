@@ -162,7 +162,7 @@ namespace Monhealth.Application
             }
             // Phân bổ calo cho protein, carbs và rau
             var vegetableWeight = 100 * vegetableCalories / vegetableFood!.Nutrition.Calories;
-            
+
             Guid proteinPortionId = Guid.NewGuid();
             Guid carbPortionId = Guid.NewGuid();
             Guid vegetablePortionId = Guid.NewGuid();

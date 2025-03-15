@@ -2,6 +2,8 @@ using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models;
+using Monhealth.Core.Enum;
+using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
 {
@@ -9,27 +11,34 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
     {
         private readonly IFoodRepository _foodRepository;
         private readonly IMapper _mapper;
-
-        public GetFoodListQueryHandler(IFoodRepository foodRepository, IMapper mapper)
+        private readonly IDishTypeRepository _dishTypeRepository;
+        public GetFoodListQueryHandler(IFoodRepository foodRepository, IMapper mapper,
+        IDishTypeRepository dishTypeRepository)
         {
             _foodRepository = foodRepository;
             _mapper = mapper;
+            _dishTypeRepository = dishTypeRepository;
         }
 
         public async Task<PageResult<FoodDTO>> Handle(GetFoodListQuery request, CancellationToken cancellationToken)
         {
-            var paginatedFood = await _foodRepository.GetAllFoodAsync(request.Page, request.Limit, request.Search, request.Status, request.CategoryName, request.Popular, request.IsPublic);
+            var paginatedFood = await _foodRepository.GetAllFoodAsync
+            (request.Page, request.Limit, request.Search, request.Status, request.CategoryName, request.Popular, request.IsPublic);
             var foodDtoList = paginatedFood.Items.Select(food => new FoodDTO
             {
                 FoodId = food.FoodId,
                 UserId = food.UserId,
                 FoodName = food.FoodName,
                 MealType = food.MealType, // Chuyển từ chuỗi sang danh sách
-                DishType = food.DishType, // Chuyển từ chuỗi sang danh sách
                 FoodDescription = food.FoodDescription,
                 Allergies = food.FoodAllergies?
                .Where(f => f.Allergy != null)
                .Select(f => f.Allergy.AllergyName).ToList() ?? [],
+
+                DishType = [..
+                    food.DishTypeFoods?.Select(dtf => dtf.DishType.DishTypeName).ToList()
+                    .Select(n=>(DishTypeEnum)Enum.Parse(typeof(DishTypeEnum),n)) ??[]
+                    ],
                 Category = food.CategoryFoods.Select(x => x.Category.CategoryName).FirstOrDefault() ?? "", // Nếu có quan hệ với Category
                 Portion = food.FoodPortions.Select(fp => new GetPortionForGetAllFoodDTO
                 {

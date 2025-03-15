@@ -46,7 +46,7 @@ namespace Monhealth.Identity.Configurations
             #endregion
 
             #region Food 2
-            //balance food => mainDish  , Side
+           
 
             new Food
             {

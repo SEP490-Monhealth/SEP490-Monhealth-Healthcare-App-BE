@@ -98,15 +98,15 @@ namespace Monhealth.Identity
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IActivityRepository, ActivityRepository>();
             services.AddScoped<IDailyActivityRepository, DailyActivityRepository>();
-            services.AddScoped<ICategoryFoodRepository , CategoryFoodRepository>();
-            services.AddScoped<IUserCategoryRepository,UserCategoryRepository>();
-
+            services.AddScoped<ICategoryFoodRepository, CategoryFoodRepository>();
+            services.AddScoped<IUserCategoryRepository, UserCategoryRepository>();
+            services.AddScoped<IDishTypeFoodRepository,DishtypeFoodRepository>();
 
 
             services.AddScoped<ITimeSlotRepository, TimeSlotRepository>();
             services.AddScoped<IScheduleTimeSlotRepository, ScheduleTimeSlotRepository>();
             services.AddScoped<IScheduleExceptionRepository, ScheduleExceptionRepository>();
-
+            services.AddScoped<IDishTypeRepository, DishTypeRepository>();
 
             services.AddScoped<FilterFoodListHandler>();
             // Đăng ký Background Service

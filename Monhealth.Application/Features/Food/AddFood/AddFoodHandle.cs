@@ -11,17 +11,20 @@ namespace Monhealth.Application.Features.Food.AddFood
         private readonly IPortionRepository _portionRepository;
         private readonly INutritionRepository _nutritionRepository;
         private readonly ICategoryFoodRepository _categoryFoodRepository;
+        private readonly IDishTypeRepository _dishTypeRepository;
         public AddFoodHandle(IFoodRepository foodRepository,
         ICategoryRepository categoryRepository,
         IPortionRepository portionRepository,
         INutritionRepository nutritionRepository,
-        ICategoryFoodRepository categoryFoodRepository)
+        ICategoryFoodRepository categoryFoodRepository,
+        IDishTypeRepository dishTypeRepository)
         {
             _foodRepository = foodRepository;
             _categoryRepository = categoryRepository;
             _portionRepository = portionRepository;
             _nutritionRepository = nutritionRepository;
             _categoryFoodRepository = categoryFoodRepository;
+            _dishTypeRepository = dishTypeRepository;
         }
 
         public async Task<bool> Handle(AddFoodRequest request, CancellationToken cancellationToken)
@@ -32,6 +35,13 @@ namespace Monhealth.Application.Features.Food.AddFood
             var category = await _categoryRepository.GetCategoryByCategoryName(request.Category);
             if (category == null)
                 throw new Exception("Danh mục không tồn tại");
+            List<DishType> dishTypes = await _dishTypeRepository
+                .GetDishTypesByNames([.. request.DishType.Select(dt => dt.ToString())]);
+            if (dishTypes.Count != request.DishType.Count)
+            {
+                // Dish Type is not fetched properly
+                throw new Exception("");
+            }
             Guid foodId = Guid.NewGuid();
             var food = new Monhealth.Domain.Food
             {
@@ -39,13 +49,21 @@ namespace Monhealth.Application.Features.Food.AddFood
                 FoodId = foodId,
                 FoodName = request.FoodName,
                 MealType = request.MealType,
-                DishType = request.DishType,
                 FoodDescription = request.FoodDescription,
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                IsPublic = true
+                IsPublic = true,
+                DishTypeFoods =
+                    [.. dishTypes.Select(dt=>new DishTypeFood()
+                    {
+                        FoodId = foodId,
+                        DishTypeFoodId = Guid.NewGuid(),
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
+                        DishTypeId = dt.DishTypeId,
+                    })],
             };
             var categoryFood = new CategoryFood
             {
@@ -53,7 +71,6 @@ namespace Monhealth.Application.Features.Food.AddFood
                 FoodId = foodId
             };
             _categoryFoodRepository.Add(categoryFood);
-
             _foodRepository.Add(food);
             await _foodRepository.SaveChangesAsync();
             var nutrition = new Monhealth.Domain.Nutrition

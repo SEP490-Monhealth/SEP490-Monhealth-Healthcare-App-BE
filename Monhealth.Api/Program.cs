@@ -1,7 +1,6 @@
 using Monhealth.Api.GlobalException;
 using Monhealth.Application;
 using Monhealth.Application.Models.Phone;
-using Monhealth.Application.ServiceForRecommend;
 using Monhealth.Application.Services;
 using Monhealth.Identity;
 using Monhealth.Infrastructure;
@@ -53,9 +52,9 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.AddScoped<FoodFilterService>();
+// builder.Services.AddScoped<FoodFilterService>();
 builder.Services.AddScoped<GoalService>();
-builder.Services.AddScoped<FoodRandomService>();
+// builder.Services.AddScoped<FoodRandomService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 // Add Swagger services
