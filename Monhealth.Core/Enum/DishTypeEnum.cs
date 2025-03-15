@@ -1,6 +1,6 @@
 namespace Monhealth.Core.Enum
 {
-    public enum DishType
+    public enum DishTypeEnum
     {
         MainDish,
         SideDish,

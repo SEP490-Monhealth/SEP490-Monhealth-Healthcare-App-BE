@@ -9,6 +9,7 @@ using Monhealth.Domain;
 using Monhealth.Identity.Configurations;
 using Monhealth.Identity.Models;
 using System.Text.Json;
+using DishType = Monhealth.Domain.DishType;
 
 namespace Monhealth.Identity.Dbcontexts
 {
@@ -18,7 +19,6 @@ namespace Monhealth.Identity.Dbcontexts
         {
 
         }
-
         public DbSet<Metric> Metrics { get; set; }
         public DbSet<Goal> Goals { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -57,6 +57,8 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Wallet> Wallets { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         //public DbSet<ConsultantExpertise> ConsultantExpertises { get; set; }
+        public DbSet<DishType> DishTypes { get; set; }
+        public DbSet<DishTypeFood> DishTypeFoods { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -103,61 +105,24 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(d => d.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // builder.Entity<UserFood>(entity =>
-            // {
-            //     entity.Property(e => e.Categories)
-            //         .HasConversion(
-            //           v => string.Join(',', v), // Chuyển từ List<string> thành chuỗi
-            //           v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList() // Chuyển chuỗi thành List<string>
-            //       );
-
-            //     entity.Property(e => e.Allergies)
-            //         .HasConversion(
-            //             v => string.Join(',', v),
-            //             v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-            //         );
-            // });
-            // Create Value Comparers for List<MealType> and List<DishType>
 
             var mealTypeComparer = new ValueComparer<List<MealType>>(
-                (c1, c2) => c1.SequenceEqual(c2),
-                c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-                c => c.ToList()
-            );
+                   (c1, c2) => c1.SequenceEqual(c2),
+                   c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                   c => c.ToList()
+               );
 
-            var dishTypeComparer = new ValueComparer<List<DishType>>(
-                (c1, c2) => c1.SequenceEqual(c2),
-                c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-                c => c.ToList()
-            );
 
             builder.Entity<Food>(entity =>
             {
-                // entity.Property(e => e.FoodType)
-                //     .HasConversion(
-                //         v => string.Join(',', v.Select(x => x.ToString())), // Từ List<FoodType> -> string
-                //         v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                //               .Select(x => Enum.Parse<FoodType>(x)) // Từ string -> List<FoodType>
-                //               .ToList()
-                //     );
-
                 entity.Property(e => e.MealType)
-                    .HasConversion(
-                        v => string.Join(',', v.Select(x => x.ToString())),
-                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                              .Select(x => Enum.Parse<MealType>(x))
-                              .ToList()
-                    )
-                   .Metadata.SetValueComparer(mealTypeComparer);
-
-                entity.Property(e => e.DishType)
-                    .HasConversion(
-                        v => string.Join(',', v.Select(x => x.ToString())),
-                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                              .Select(x => Enum.Parse<DishType>(x))
-                              .ToList()
-                    )
-                    .Metadata.SetValueComparer(dishTypeComparer);
+                                 .HasConversion(
+                                     v => string.Join(',', v.Select(x => x.ToString())),
+                                     v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                                           .Select(x => Enum.Parse<MealType>(x))
+                                           .ToList()
+                                 )
+                                .Metadata.SetValueComparer(mealTypeComparer);
             });
             //builder.Entity<ScheduleTimeSlot>()
             //    .HasOne(s => s.Status)
@@ -167,16 +132,7 @@ namespace Monhealth.Identity.Dbcontexts
 
             builder.Entity<Food>(entity =>
             {
-                // Configure FoodType as List<string> and log the configuration
-                // entity.Property(e => e.FoodType)
-                //     .HasConversion(
-                //         v => string.Join(',', v.Select(x => x.ToString())), // Convert List<FoodType> to string
-                //         v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                //             .Select(x => Enum.Parse<FoodType>(x)) // Convert string back to List<FoodType>
-                //             .ToList()
-                //     );
 
-                // Configure MealType with ValueComparer and log the configuration
                 entity.Property(e => e.MealType)
                     .HasConversion(
                         v => string.Join(',', v.Select(x => x.ToString())), // Convert List<MealType> to string
@@ -186,15 +142,7 @@ namespace Monhealth.Identity.Dbcontexts
                     )
                     .Metadata.SetValueComparer(mealTypeComparer); // Set ValueComparer
 
-                // Configure DishType with ValueComparer and log the configuration
-                entity.Property(e => e.DishType)
-                    .HasConversion(
-                        v => string.Join(',', v.Select(x => x.ToString())), // Convert List<DishType> to string
-                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                            .Select(x => Enum.Parse<DishType>(x)) // Convert string back to List<DishType>
-                            .ToList()
-                    )
-                    .Metadata.SetValueComparer(dishTypeComparer); // Set ValueComparer
+
             });
             var stringListConverter = new ValueConverter<List<string>, string>(
         v => JsonSerializer.Serialize(v, (JsonSerializerOptions?)null),  // Convert List<string> -> string
@@ -233,6 +181,8 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new TimeSlotConfiguration());
             builder.ApplyConfiguration(new ScheduleConfiguration());
             builder.ApplyConfiguration(new ScheduleTimeSlotConfiguration());
+            builder.ApplyConfiguration(new DishTypeConfiguration());
+            builder.ApplyConfiguration(new DishTypeFoodConfiguration());
         }
     }
 }

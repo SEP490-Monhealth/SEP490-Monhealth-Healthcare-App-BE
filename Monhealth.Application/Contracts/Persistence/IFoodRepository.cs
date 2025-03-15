@@ -29,14 +29,14 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Food>> GetPaginatedFoodsExcludingIdsAsync(IEnumerable<Guid> excludedFoodIds, int skip, int take);
         Task<PaginatedResult<Food>> GetPaginatedFoodsByCategoryIdsAsync(IEnumerable<Guid> categoryIds, int skip, int take);
 
-        Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
-            List<Guid> categoryIds,
-            List<Guid> excludedFoodIds,
-            List<MealType>? mealTypeFilter,
-            List<DishType>? dishTypeFilter,
+        // Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
+        //     List<Guid> categoryIds,
+        //     List<Guid> excludedFoodIds,
+        //     List<MealType>? mealTypeFilter,
+        //     List<DishType>? dishTypeFilter,
 
-            int skip,
-            int take);
+        //     int skip,
+        //     int take);
         //dung cho randomFood
         Task<Nutrition?> GetNutritionByFoodIdAsync(Guid foodId);
         Task<List<Nutrition>> GetNutritionByFoodIdsAsync(List<Guid> foodIds);

@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         private readonly IGoalRepository _goalRepository;
         private readonly IMapper _mapper;
         private readonly IWaterReminderRepository _reminderRepository;
-        private readonly FoodRandomService _foodRandomService;
+        // private readonly FoodRandomService _foodRandomService;
         private readonly IMealRepository _mealRepository;
         private readonly IMealFoodRepository _mealFoodRepository;
         private readonly IPortionRepository _portionRepository;
@@ -32,7 +32,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             IGoalRepository goalRepository,
             IGoalsCalculator goalsCalculator,
             IWaterReminderRepository reminderRepository,
-            FoodRandomService foodRandomService,
+            // FoodRandomService foodRandomService,
             IMealRepository mealRepository,
             IMealFoodRepository mealFoodRepository,
             IPortionRepository portionRepository,
@@ -46,7 +46,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             _goalRepository = goalRepository;
             _goalCalculator = goalsCalculator;
             _reminderRepository = reminderRepository;
-            _foodRandomService = foodRandomService;
+            // _foodRandomService = foodRandomService;
             _mealRepository = mealRepository;
             _mealFoodRepository = mealFoodRepository;
             _portionRepository = portionRepository;

@@ -13,13 +13,11 @@ namespace Monhealth.Domain
                 public Guid UserId { get; set; }
                 // public List<FoodType> FoodType { get; set; } = [];
                 public List<MealType> MealType { get; set; } = [];
-                public List<DishType> DishType { get; set; } = [];
                 public string FoodName { get; set; } = string.Empty;
                 public string FoodDescription { get; set; } = string.Empty;
                 public int Views { get; set; } = 0;
                 public bool IsPublic { get; set; }
                 public bool Status { get; set; }
-
                 [ForeignKey(nameof(UserId))]
                 public AppUser AppUser { get; set; } = null!;
                 public Nutrition Nutrition { get; set; } = null!;
@@ -27,5 +25,6 @@ namespace Monhealth.Domain
                 public ICollection<FoodPortion> FoodPortions { get; set; } = [];
                 public ICollection<MealFood> MealFoods { get; set; } = [];
                 public ICollection<FoodAllergy> FoodAllergies { get; set; } = [];
+                public ICollection<DishTypeFood> DishTypeFoods { get; set; } = [];
         }
 }

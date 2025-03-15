@@ -106,7 +106,6 @@ namespace Monhealth.Application
             }
 
             var totalCaloriesDaily = userGoal.CaloriesGoal; // Lấy CaloriesGoal từ userGoal nếu tồn tại
-
             var mealCalories = mealType switch
             {
                 MealType.Breakfast => userGoal.GoalType switch
@@ -132,14 +131,37 @@ namespace Monhealth.Application
                 },
                 _ => 0
             };
+            double proteinCalories = 0;
+            double carbsCalories = 0;
+            double vegetableCalories = 0;
+            double balanceCalories = 0;
+            if (mealCalories > 0)
+            {
 
+                if (userGoal.GoalType == GoalType.WeightLoss)
+                {
+                    proteinCalories = mealCalories * 0.4;
+                    carbsCalories = mealCalories * 0.5;
+                    vegetableCalories = mealCalories * 0.1;
+                    balanceCalories = mealCalories * 0.9;
+                }
+                else if (userGoal.GoalType == GoalType.WeightGain)
+                {
+                    proteinCalories = mealCalories * 0.5;
+                    carbsCalories = mealCalories * 0.4;
+                    vegetableCalories = mealCalories * 0.1;
+                    balanceCalories = mealCalories * 0.9;
+                }
+                else if (userGoal.GoalType == GoalType.Maintenance)
+                {
+                    proteinCalories = mealCalories * 0.45;
+                    carbsCalories = mealCalories * 0.45;
+                    vegetableCalories = mealCalories * 0.1;
+                    balanceCalories = mealCalories * 0.9;
+                }
+            }
             // Phân bổ calo cho protein, carbs và rau
-            var proteinCalories = mealCalories;
-            var carbsCalories = mealCalories;
-            var vegetableCalories = mealCalories;
-            var balanceCalories = mealCalories;
-
-            var vegetableWeight = 100 * (vegetableFood.Nutrition.Calories / vegetableCalories);
+            var vegetableWeight = 100 * vegetableCalories / vegetableFood!.Nutrition.Calories;
 
             Guid proteinPortionId = Guid.NewGuid();
             Guid carbPortionId = Guid.NewGuid();
@@ -240,13 +262,13 @@ namespace Monhealth.Application
             // Thêm các Portion cho Balance, Protein, Carb và Vegetable
             if (balanceFood != null)
             {
-                var balanceWeight = 100 * (balanceFood.Nutrition.Calories / balanceCalories);
+                var balanceWeight = 100 * balanceCalories / balanceFood.Nutrition.Calories;
 
                 _portionRepository.Add(new Portion
                 {
                     PortionId = balancePortionFoodId,
                     PortionSize = "phần",
-                    PortionWeight = balanceWeight,
+                    PortionWeight = (float)balanceWeight,
                     MeasurementUnit = "g",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
@@ -258,7 +280,7 @@ namespace Monhealth.Application
                 {
                     PortionId = vegetablePortionId,
                     PortionSize = "phần",
-                    PortionWeight = vegetableWeight,
+                    PortionWeight = (float)vegetableWeight,
                     MeasurementUnit = "g",
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
@@ -268,14 +290,14 @@ namespace Monhealth.Application
             }
             else
             {
-                var proteinWeight = 100 * (proteinFood.Nutrition.Calories / proteinCalories);
-                var carbWeight = 100 * (carbFood.Nutrition.Calories / carbsCalories);
+                var proteinWeight = 100 * proteinCalories / proteinFood.Nutrition.Calories;
+                var carbWeight = 100 * carbsCalories / carbFood.Nutrition.Calories;
 
                 _portionRepository.Add(new Portion
                 {
                     PortionId = proteinPortionId,
                     PortionSize = "phần",
-                    PortionWeight = proteinWeight,
+                    PortionWeight = (float)proteinWeight,
                     MeasurementUnit = "g",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
@@ -287,7 +309,7 @@ namespace Monhealth.Application
                 {
                     PortionId = carbPortionId,
                     PortionSize = "phần",
-                    PortionWeight = carbWeight,
+                    PortionWeight = (float)carbWeight,
                     MeasurementUnit = "g",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
@@ -300,7 +322,7 @@ namespace Monhealth.Application
 
                     PortionId = vegetablePortionId,
                     PortionSize = "phần",
-                    PortionWeight = vegetableWeight,
+                    PortionWeight = (float)vegetableWeight,
                     MeasurementUnit = "g",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,

@@ -4,7 +4,7 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Core.Enum;
 namespace Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFunction
 {
-public class FilterFoodListHandler
+    public class FilterFoodListHandler
     {
         private readonly IUserAllergyRepository _userAllergyRepository;
         private readonly ILogger<FilterFoodListHandler> _logger;
@@ -29,8 +29,8 @@ public class FilterFoodListHandler
                 (int)MealType.Dinner
             };
             var dishTypesToFilter = new List<int> {
-                (int)DishType.MainDish,
-                (int)DishType.SideDish,
+                (int)DishTypeEnum.MainDish,
+                (int)DishTypeEnum.SideDish,
             };
 
             var allFoods = await _foodRepository.GetAll().Include(f => f.FoodPortions)
@@ -44,8 +44,7 @@ public class FilterFoodListHandler
 
             var filteredFoods = allFoods
      .Where(f =>
-         (mealTypesToFilter == null || !mealTypesToFilter.Any() || f.MealType.Select(fmt => (int)fmt).Any(mt => mealTypesToFilter.Contains(mt))) &&
-         (dishTypesToFilter == null || !dishTypesToFilter.Any() || f.DishType.Select(fmt => (int)fmt).Any(dt => dishTypesToFilter.Contains(dt)))
+         (mealTypesToFilter == null || !mealTypesToFilter.Any() || f.MealType.Select(fmt => (int)fmt).Any(mt => mealTypesToFilter.Contains(mt)))
      )
      .ToList();
             return filteredFoods;

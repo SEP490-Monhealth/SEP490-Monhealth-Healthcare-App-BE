@@ -24,7 +24,6 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
                 Category = gettingFood.CategoryFoods?.Select(x => x.Category.CategoryName).FirstOrDefault() ?? "",
                 CreatedAt = gettingFood.CreatedAt,
                 MealType = gettingFood.MealType,
-                DishType = gettingFood.DishType,
                 FoodDescription = gettingFood.FoodDescription,
                 Allergies = gettingFood.FoodAllergies?.
                 Select(fa => fa.Allergy.AllergyName).ToList(),
