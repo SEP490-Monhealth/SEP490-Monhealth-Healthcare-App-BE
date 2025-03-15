@@ -2,6 +2,7 @@ using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models;
+using Monhealth.Core.Enum;
 
 namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
 {
@@ -28,6 +29,11 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
                 FoodDescription = food.FoodDescription,
                 Allergies = food.FoodAllergies?.Select(fa => fa.Allergy.AllergyName).ToList() ?? [],
                 Category = food.CategoryFoods.Select(x => x.Category.CategoryName).FirstOrDefault() ?? null!, // Nếu có quan hệ với Category
+
+                DishType = [..
+                    food.DishTypeFoods?.Select(dtf => dtf.DishType.DishTypeName).ToList()
+                    .Select(n=>(DishTypeEnum)Enum.Parse(typeof(DishTypeEnum),n)) ??[]
+                    ],
                 Portion = food.FoodPortions.Select(fp => new GetPortionForGetFoodByUserDTO
                 {
                     PortionSize = fp.Portion.PortionSize,
