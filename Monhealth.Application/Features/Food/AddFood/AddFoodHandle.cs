@@ -105,7 +105,6 @@ namespace Monhealth.Application.Features.Food.AddFood
                 request.Portion.PortionSize,
                 request.Portion.PortionWeight
             );
-
             Portion portion;
             if (existingPortion != null)
             {

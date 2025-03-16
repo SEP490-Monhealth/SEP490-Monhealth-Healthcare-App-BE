@@ -120,6 +120,37 @@ namespace Monhealth.Identity.Repositories
             return await _context.Foods.FirstOrDefaultAsync(f => f.FoodName == foodName);
         }
 
+        public async Task<List<Food>> GetFoodByUserHasNoAllergiesAsync(Guid userId)
+        {
+            // Lấy danh sách tất cả các món ăn với các thông tin liên quan
+            var foodList = await _context.Foods
+                .Include(f => f.Nutrition)
+                .Include(f => f.FoodPortions)
+                    .ThenInclude(fp => fp.Portion)
+                .Include(f => f.FoodAllergies)
+                    .ThenInclude(fa => fa.Allergy)
+                .ToListAsync();
+
+            // Lấy danh sách các dị ứng của người dùng
+            var userAllergies = await _context.UserAllergies
+                .Where(ua => ua.UserId == userId)
+                .Select(ua => ua.AllergyId)
+                .ToListAsync();
+
+            // Nếu người dùng không có dị ứng nào, trả về tất cả các món ăn
+            if (userAllergies.Count == 0)
+            {
+                return foodList;
+            }
+
+            // Lọc ra các món ăn mà người dùng không bị dị ứng
+            var safeFoods = foodList
+                .Where(f => !f.FoodAllergies.Any(fa => userAllergies.Contains(fa.AllergyId)))
+                .ToList();
+
+            return safeFoods;
+        }
+
         public async Task<PaginatedResult<Food>> GetFoodByUserId(int page, int limit, Guid userId)
         {
             // Truy vấn dữ liệu cơ bản

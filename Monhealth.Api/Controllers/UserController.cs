@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.User.Commands.ChangeStatus;
 using Monhealth.Application.Features.User.Commands.CreateUser;
 using Monhealth.Application.Features.User.Commands.Delete;
@@ -44,6 +45,23 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Data = result,
+                Status = 200,
+                Success = true
+            };
+        }
+        [HttpGet]
+        [Route("{userId:guid}/chatbot")]
+        public async Task<ActionResult<ResultModel>> ChatBot(Guid userId)
+        {
+            var (chatBotAi, characterCount) = await _mediator.Send(new ChatBotAiListQuery { UserId = userId });
+
+            return new ResultModel
+            {
+                Data = new
+                {
+                    ChatBot = chatBotAi,
+                    CharacterCount = characterCount // Thêm số ký tự vào response
+                },
                 Status = 200,
                 Success = true
             };

@@ -47,5 +47,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<(Food?, Food?, Food?,Food?)> GetRandomProteinAndCarbFood(
             List<Guid> allergiesIds
         );
+        Task<List<Food>>GetFoodByUserHasNoAllergiesAsync(Guid userId);
     }
 }

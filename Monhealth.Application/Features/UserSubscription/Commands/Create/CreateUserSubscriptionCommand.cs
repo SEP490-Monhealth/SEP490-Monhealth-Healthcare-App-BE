@@ -6,6 +6,4 @@ public class CreateUserSubscriptionCommand : IRequest<Unit>
 {
     public Guid UserId { get; set; }
     public Guid SubscriptionId { get; set; }
-    public DateTime StartedAt { get; set; } 
-    public string ExpiresAt { get; set; } = null!;
 }

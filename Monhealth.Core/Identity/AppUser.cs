@@ -16,7 +16,6 @@ namespace Monhealth.Identity.Models
         public DateTime? UpdatedAt { get; set; }
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
-
         public ICollection<Metric> Metrics { get; set; }
         public ICollection<Goal> Goals { get; set; }
         public ICollection<Food> Foods { get; set; }
