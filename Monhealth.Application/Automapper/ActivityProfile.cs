@@ -11,6 +11,7 @@ namespace Monhealth.Application.Automapper
         {
             CreateMap<Activity, GetActivityByUserIdDTO>().ReverseMap();
             CreateMap<Activity, CreateActivityDTO>().ReverseMap();
+            CreateMap<DailyActivity, CreateActivityDTO>().ReverseMap();
         }
     }
 }

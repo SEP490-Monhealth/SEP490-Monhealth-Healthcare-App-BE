@@ -21,9 +21,9 @@ namespace Monhealth.Identity.Repositories
             return await _context.Activities.Where(u => u.UserId == userId).ToListAsync();
         }
 
-        public async Task<int> SaveChangeAsync()
+        public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
-            return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Monhealth.Application.Features.Activity.Commands.DeleteActivity
                 return false;
             }
             activityRepository.Remove(activity);
-            await activityRepository.SaveChangeAsync();
+            await activityRepository.SaveChangeAsync(cancellationToken);
             return true;
         }
     }
