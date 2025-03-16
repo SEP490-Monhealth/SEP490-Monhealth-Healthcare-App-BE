@@ -10,9 +10,7 @@ namespace Monhealth.Identity.Repositories
     {
         public UserRepository(MonhealthDbcontext context) : base(context)
         {
-
         }
-
 
         public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status)
         {
@@ -49,9 +47,7 @@ namespace Monhealth.Identity.Repositories
                 Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
-
         }
-
 
         public async Task<AppUser> GetByPhoneNumberAsync(string phoneNumber)
         {
@@ -71,8 +67,8 @@ namespace Monhealth.Identity.Repositories
             return await _context.Users
                 .AsNoTracking()
                 .AsSplitQuery()
-                .Include(u=>u.Goals)
-                .Include(u=>u.UserAllergies).ThenInclude(ua=>ua.Allergy)
+                .Include(u => u.Goals)
+                .Include(u => u.UserAllergies).ThenInclude(ua => ua.Allergy)
                 .FirstOrDefaultAsync(u => u.Id == userId);
         }
 
@@ -92,6 +88,5 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync();
         }
-
     }
 }

@@ -2,7 +2,6 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
-using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
