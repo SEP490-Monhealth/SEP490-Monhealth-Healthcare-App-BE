@@ -17,9 +17,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status)
         {
             search = search?.Trim();
-            IQueryable<AppUser> query = _context.Users
-
-                                                .AsQueryable();
+            IQueryable<AppUser> query = _context.Users.AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
                 search = search.ToLower();
@@ -33,7 +31,7 @@ namespace Monhealth.Identity.Repositories
                 query = from user in _context.Users
                         join userRole in _context.UserRoles on user.Id equals userRole.UserId
                         join r in _context.Roles on userRole.RoleId equals r.Id
-                        where r.Name == role
+                        where r.Name == role && r.Name != "Consultant"
                         select user;
             }
             if (status.HasValue)
