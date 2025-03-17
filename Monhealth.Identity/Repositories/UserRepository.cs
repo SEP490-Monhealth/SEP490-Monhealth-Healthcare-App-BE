@@ -76,6 +76,8 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(u => u.Id == userId);
         }
 
+        
+
         public async Task<bool> IsEmailDuplicatedAsync(string email)
         {
             var exist = await _context.Users.AnyAsync(u => u.Email == email);

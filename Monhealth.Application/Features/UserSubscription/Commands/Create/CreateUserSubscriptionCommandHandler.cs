@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Core.Enum;
@@ -18,6 +19,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         private readonly ILogger<CreateUserSubscriptionCommandHandler> _logger;
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IUserRepository _userRepository;
+        private readonly UserManager<AppUser> _userManager;
         public CreateUserSubscriptionCommandHandler(IUserSubscriptionRepository userSubscriptionRepository,
         ISubscriptionRepository subscriptionRepository,
         IPortionRepository portionRepository,
@@ -26,7 +28,8 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         IMealFoodRepository mealFoodRepository,
         ILogger<CreateUserSubscriptionCommandHandler> logger,
         IDailyMealRepository dailyMealRepository,
-        IUserRepository userRepository)
+        IUserRepository userRepository,
+        UserManager<AppUser> userManager)
         {
             _userSubscriptionRepository = userSubscriptionRepository;
             _subscriptionRepository = subscriptionRepository;
@@ -36,7 +39,8 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             _mealFoodRepository = mealFoodRepository;
             _logger = logger;
             _dailyMealRepository = dailyMealRepository;
-            _userRepository = userRepository;   
+            _userRepository = userRepository;
+            _userManager = userManager;
         }
 
         public async Task<Unit> Handle(CreateUserSubscriptionCommand request, CancellationToken cancellationToken)
@@ -59,10 +63,15 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             _logger.LogInformation($"Handling meal recommendation for UserId: {user}");
             AppUser? gettingUser = await _userRepository.GetUserByIdAsync(user);
 
-            if (gettingUser == null)
-            {
-                throw new Exception("User not found");
-            }
+            // tìm role của user
+            var currentRoles = await _userManager.GetRolesAsync(gettingUser);
+            // xóa role hiện tại
+            await _userManager.RemoveFromRolesAsync(gettingUser, currentRoles);
+            // thêm vào MemberSubscription
+            await _userManager.AddToRoleAsync(gettingUser, "Subscription Member");
+
+           
+           
 
             int days = 3;
             // Biến để lưu currentDate

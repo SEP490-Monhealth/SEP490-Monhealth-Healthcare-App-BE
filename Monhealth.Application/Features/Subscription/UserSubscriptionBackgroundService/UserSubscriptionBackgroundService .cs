@@ -24,8 +24,6 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                  Console.WriteLine($"[DEBUG] BackgroundService is running at {DateTime.Now}");
-            await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken); // Giảm delay để test nhanh hơn
                 try
                 {
                     using var scope = _serviceScopeFactory.CreateScope();

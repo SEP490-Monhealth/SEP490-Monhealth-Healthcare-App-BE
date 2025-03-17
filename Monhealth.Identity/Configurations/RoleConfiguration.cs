@@ -9,46 +9,35 @@ namespace Monhealth.Identity.Configurations
         public void Configure(EntityTypeBuilder<AppRole> builder)
         {
             builder.HasData(
-
-            new AppRole
-            {
-                Id = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
-                Name = "User",
-                NormalizedName = "USER",
-                DisplayName = "Người dùng"
-            },
-
-            new AppRole
-            {
-                Id = Guid.Parse("322488F9-7AA9-49B0-B2B8-FD98B7B260FC"),
-                Name = "Member",
-                NormalizedName = "MEMBER",
-                DisplayName = "Thành viên"
-            },
-
-            new AppRole
-            {
-                Id = Guid.Parse("c0278115-8549-4fad-890a-44f8E8fcc022"),
-                Name = "Consultant",
-                NormalizedName = "CONSULTANT",
-                DisplayName = "Tư vấn viên"
-            },
-
-            new AppRole
-            {
-                Id = Guid.Parse("1975eaae-fd39-417e-bfcc-5e09f963b95f"),
-                Name = "Manager",
-                NormalizedName = "MANAGER",
-                DisplayName = "Quản lý"
-            },
-
-            new AppRole
-            {
-                Id = Guid.Parse("D21EDFD6-42D5-490A-A41C-43F7EF09C61F"),
-                Name = "Admin",
-                NormalizedName = "ADMIN",
-                DisplayName = "Quản trị viên"
-            });
+                new AppRole
+                {
+                    Id = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                    Name = "Member",
+                    NormalizedName = "MEMBER",
+                    DisplayName = "Người dùng"
+                },
+                new AppRole
+                {
+                    Id = Guid.Parse("322488F9-7AA9-49B0-B2B8-FD98B7B260FC"),
+                    Name = "Subscription Member",
+                    NormalizedName = "SUBSCRIPTION MEMBER",
+                    DisplayName = "Thành viên"
+                },
+                new AppRole
+                {
+                    Id = Guid.Parse("c0278115-8549-4fad-890a-44f8E8fcc022"),
+                    Name = "Consultant",
+                    NormalizedName = "CONSULTANT",
+                    DisplayName = "Tư vấn viên"
+                },
+                new AppRole
+                {
+                    Id = Guid.Parse("D21EDFD6-42D5-490A-A41C-43F7EF09C61F"),
+                    Name = "Admin",
+                    NormalizedName = "ADMIN",
+                    DisplayName = "Quản trị viên"
+                }
+            );
         }
     }
 }
