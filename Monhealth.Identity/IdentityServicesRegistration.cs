@@ -9,6 +9,7 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFunction;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
+using Monhealth.Application.Features.Subscription.UserSubscriptionBackgroundService;
 using Monhealth.Application.Models.Identity;
 using Monhealth.Identity.BackGroundServiceForWaterReminder;
 using Monhealth.Identity.Dbcontexts;
@@ -110,6 +111,8 @@ namespace Monhealth.Identity
 
             services.AddScoped<FilterFoodListHandler>();
             // Đăng ký Background Service
+            services.AddHostedService<UserSubscriptionBackgroundService>();
+
             // Add Authentication
             services.AddAuthentication(options =>
             {
