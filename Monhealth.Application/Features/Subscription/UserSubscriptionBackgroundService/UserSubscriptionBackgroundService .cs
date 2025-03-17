@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -13,7 +14,6 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
         private readonly ILogger<UserSubscriptionBackgroundService> _logger;
         private readonly IServiceScopeFactory _serviceScopeFactory;
         private readonly TimeSpan _interval = TimeSpan.FromDays(3); // Chạy mỗi 3 ngày
-
         public UserSubscriptionBackgroundService(IServiceScopeFactory serviceScopeFactory, ILogger<UserSubscriptionBackgroundService> logger)
         {
             _serviceScopeFactory = serviceScopeFactory;
@@ -34,25 +34,14 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     var foodRepository = scope.ServiceProvider.GetRequiredService<IFoodRepository>();
                     var portionRepository = scope.ServiceProvider.GetRequiredService<IPortionRepository>();
                     var userRepository = scope.ServiceProvider.GetRequiredService<IUserRepository>();
+                    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>(); 
 
-                    _logger.LogInformation("🔄 Running background task to check and recommend meals...");
+                    _logger.LogInformation("🔄 Running background task to check subscriptions...");
 
                     var userSubscriptions = await userSubscriptionRepository.GetAllAsync();
 
                     foreach (var subscription in userSubscriptions)
                     {
-                        if (subscription.ExpiresAt <= DateTime.Now)
-                        {
-                            if (subscription.Status != UserSubscriptionStatus.Expired)
-                            {
-                                subscription.Status = UserSubscriptionStatus.Expired;
-                                _logger.LogInformation($"⚠️ Subscription expired for User {subscription.UserId}");
-                            }
-                            continue;
-                        }
-
-                        _logger.LogInformation($"✅ Generating meal recommendations for User {subscription.UserId}");
-
                         var user = await userRepository.GetUserByIdAsync(subscription.UserId);
                         if (user == null)
                         {
@@ -60,6 +49,31 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                             continue;
                         }
 
+                        var identityUser = await userManager.FindByIdAsync(subscription.UserId.ToString());
+                        if (identityUser == null)
+                        {
+                            _logger.LogWarning($"Identity User {subscription.UserId} not found in Identity DB. Skipping...");
+                            continue;
+                        }
+
+                        // 🔍 Kiểm tra nếu Subscription đã hết hạn
+                        if (subscription.ExpiresAt <= DateTime.Now)
+                        {
+                            if (subscription.Status != UserSubscriptionStatus.Expired)
+                            {
+                                subscription.Status = UserSubscriptionStatus.Expired;
+                                _logger.LogInformation($"⚠️ Subscription expired for User {subscription.UserId}");
+
+                                var currentRoles = await userManager.GetRolesAsync(identityUser);
+                                await userManager.RemoveFromRolesAsync(identityUser, currentRoles);
+                                await userManager.AddToRoleAsync(identityUser, "Member");
+
+                                _logger.LogInformation($"🔄 Identity User {subscription.UserId} role changed back to 'Member'");
+                            }
+                            continue;
+                        }
+
+                        _logger.LogInformation($"✅ Generating meal recommendations for User {subscription.UserId}");
                         await RecommendMealsForUser(user, dailyMealRepository, mealRepository, mealFoodRepository, foodRepository, portionRepository);
                     }
 
