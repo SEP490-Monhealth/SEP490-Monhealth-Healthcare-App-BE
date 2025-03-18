@@ -1200,8 +1200,7 @@ namespace Monhealth.Identity.Configurations
                     UpdatedAt = DateTime.Now,
                 },
 
-                /// CONTINUE ///
-
+                // Cá hồi hun khói
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1210,6 +1209,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Đậu hũ sốt cà
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1221,11 +1222,23 @@ namespace Monhealth.Identity.Configurations
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = sideDish,
+                    FoodId = Guid.Parse("8da16f72-42a9-4da2-b217-811903e340c4"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Thịt lợn xông khói
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
                     DishTypeId = mainDish,
                     FoodId = Guid.Parse("a5d484c6-9cc8-4d6e-a53c-5c8a2c20999b"),
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Đậu Hà Lan luộc
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1234,6 +1247,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Thịt gà quay
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1242,6 +1257,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Sữa bò tươi
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1250,6 +1267,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Yến mạch
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1266,6 +1285,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Cải bó xôi
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1274,14 +1295,18 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Rau mồng tơi
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
-                    DishTypeId = dessert,
+                    DishTypeId = sideDish,
                     FoodId = Guid.Parse("644f32b3-897e-45b1-b4d7-aa8b9585a262"),
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Lê
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1290,6 +1315,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Dâu tây
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1298,6 +1325,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Mâm xôi
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1306,6 +1335,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Bí đỏ
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1314,6 +1345,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Khoai môn
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1322,6 +1355,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Măng tây
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1330,6 +1365,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Bắp cải tím
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1338,6 +1375,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Kiwi
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1346,6 +1385,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Măng khô
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1354,6 +1395,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Rong biển khô
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1362,6 +1405,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Bông cải xanh
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1370,6 +1415,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Gạo lứt
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1386,6 +1433,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Nho
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1394,6 +1443,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Rau cải bó xôi
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1402,6 +1453,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Củ cải đường
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1410,6 +1463,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Đậu Hà Lan
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1418,6 +1473,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Rau dền đỏ
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1426,6 +1483,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Mì gạo lứt
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1438,10 +1497,32 @@ namespace Monhealth.Identity.Configurations
                 {
                     DishTypeFoodId = Guid.NewGuid(),
                     DishTypeId = sideDish,
+                    FoodId = Guid.Parse("c9a7bb8d-a7da-407f-8f88-1ccc01adce80"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Rau chân vịt
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = sideDish,
                     FoodId = Guid.Parse("9979963d-5c37-4fa9-955c-d1ecb5814607"),
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Củ cải trắng
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = sideDish,
+                    FoodId = Guid.Parse("845454d0-967a-4e48-aef3-bd8458775500"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Rau má
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1450,6 +1531,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Dừa tươi
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1458,6 +1541,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Cá thu
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1466,6 +1551,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Hồng xiêm
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1474,6 +1561,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Đào
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1482,6 +1571,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Lựu
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1490,6 +1581,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Súp cua
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1498,6 +1591,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh bí đỏ
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1506,6 +1601,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh rau củ
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1514,6 +1611,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh bí đao
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1522,6 +1621,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh cua mồng tơi
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1530,6 +1631,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh nấm
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1538,6 +1641,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Cháo gà
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1546,6 +1651,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Cháo sườn non
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1554,6 +1661,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Cháo thịt bằm
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1562,6 +1671,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Bún chả cá
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1570,6 +1681,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Bún gà
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1578,6 +1691,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Bún hải sản
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1586,6 +1701,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Bún ốc
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1594,6 +1711,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Cháo vịt
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1602,6 +1721,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Bánh mì chả cá
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1610,6 +1731,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Mì quảng
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1618,14 +1741,18 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Miến gà
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
-                    DishTypeId = soup,
+                    DishTypeId = mainDish,
                     FoodId = Guid.Parse("af036922-79f3-45a7-b562-a6279520c0e6"),
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Súp rau củ
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1634,6 +1761,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Súp bò hầm
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1642,6 +1771,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Súp gà nấm
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1650,6 +1781,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Súp hải sản
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1658,6 +1791,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Rau xào
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1666,6 +1801,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Rau luộc
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1674,6 +1811,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Cơm gà xối mỡ
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1682,6 +1821,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Salad rau
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1690,6 +1831,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Rau muống luộc
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1698,6 +1841,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh chua cá
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1707,6 +1852,8 @@ namespace Monhealth.Identity.Configurations
                     UpdatedAt = DateTime.Now,
 
                 },
+
+                // Bánh mì ốp la
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1715,6 +1862,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Bò kho
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1723,6 +1872,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh rau ngót
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1731,6 +1882,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh cải xanh
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1739,6 +1892,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh củ quả
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1747,6 +1902,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Thịt heo kho
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1755,6 +1912,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Rau muống xào tỏi
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1763,6 +1922,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh bầu
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1771,6 +1932,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Rau cải xanh
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1779,6 +1942,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Mận
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1787,6 +1952,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Chôm chôm
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1795,6 +1962,8 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
+
+                // Canh cải ngọt
                 new DishTypeFood()
                 {
                     DishTypeFoodId = Guid.NewGuid(),
@@ -1803,167 +1972,215 @@ namespace Monhealth.Identity.Configurations
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = mainDish,
-              FoodId = Guid.Parse("43d635e2-6f0c-4385-83d8-fedfd479d356"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = sideDish,
-              FoodId = Guid.Parse("8ed85dc2-7654-4c48-81f9-19946a73f71d"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = soup,
-              FoodId = Guid.Parse("881ae045-1c9a-4e20-9160-0e8c14486be5"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = soup,
-              FoodId = Guid.Parse("b42e9ba6-8aa7-419a-907f-ec7e21cb9337"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = mainDish,
-              FoodId = Guid.Parse("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = soup,
-              FoodId = Guid.Parse("e370081a-c0a6-4c00-b01c-7c52f953b7f1"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = sideDish,
-              FoodId = Guid.Parse("9acdf58c-c37d-4026-a3f9-40fda186184b"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = mainDish,
-              FoodId = Guid.Parse("b79878e6-36d9-4efc-b3ff-a3c45b35ff21"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = mainDish,
-              FoodId = Guid.Parse("8382816f-1beb-4804-9698-3b486798b20a"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = mainDish,
-              FoodId = Guid.Parse("2405ffc3-524e-4331-9e68-47a411d7b9b8"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = mainDish,
-              FoodId = Guid.Parse("2146faae-2e7c-4460-8d81-38f5d313012c"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = soup,
-              FoodId = Guid.Parse("a950000c-9837-4d1b-b1ae-b9db230f8f1f"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = mainDish,
-              FoodId = Guid.Parse("a364353c-d589-4a94-9c3b-3038113ea249"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = mainDish,
-              FoodId = Guid.Parse("8c9e1c76-2616-43a4-8c80-3e2e23b8ac4f"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = soup,
-              FoodId = Guid.Parse("87cdf191-876c-4270-92f9-4bb1fc2a7fe9"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = dessert,
-              FoodId = Guid.Parse("3d19d971-88d0-4108-a335-24ac9e1dec50"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = dessert,
-              FoodId = Guid.Parse("a504d882-4f38-413e-bb28-fae1f2787150"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = dessert,
-              FoodId = Guid.Parse("9f624258-a4ee-4879-a23f-b3d0479f2b1b"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = soup,
-              FoodId = Guid.Parse("d034b7e9-b5a2-42d7-95b7-c0c30207293d"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          },
-          new DishTypeFood()
-          {
-              DishTypeFoodId = Guid.NewGuid(),
-              DishTypeId = soup,
-              FoodId = Guid.Parse("85e621ed-0e0c-4d20-8891-51d311cea4a3"),
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-          }
-                );
+
+                // Thịt gà kho
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = mainDish,
+                    FoodId = Guid.Parse("43d635e2-6f0c-4385-83d8-fedfd479d356"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Bắp cải luộc
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = sideDish,
+                    FoodId = Guid.Parse("8ed85dc2-7654-4c48-81f9-19946a73f71d"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Canh mùng tơi mướp
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = soup,
+                    FoodId = Guid.Parse("881ae045-1c9a-4e20-9160-0e8c14486be5"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Canh rau dền
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = soup,
+                    FoodId = Guid.Parse("b42e9ba6-8aa7-419a-907f-ec7e21cb9337"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Cơm chiên
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = mainDish,
+                    FoodId = Guid.Parse("b9ac5dae-d139-4ba1-a8e0-fe0e16719df9"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Canh mướp
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = soup,
+                    FoodId = Guid.Parse("e370081a-c0a6-4c00-b01c-7c52f953b7f1"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Cải ngọt luộc
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = sideDish,
+                    FoodId = Guid.Parse("9acdf58c-c37d-4026-a3f9-40fda186184b"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Cá kho
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = mainDish,
+                    FoodId = Guid.Parse("b79878e6-36d9-4efc-b3ff-a3c45b35ff21"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Bánh mì chả lụa
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = mainDish,
+                    FoodId = Guid.Parse("8382816f-1beb-4804-9698-3b486798b20a"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Cơm chiên dương châu
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = mainDish,
+                    FoodId = Guid.Parse("2405ffc3-524e-4331-9e68-47a411d7b9b8"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Cháo đậu xanh
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = mainDish,
+                    FoodId = Guid.Parse("2146faae-2e7c-4460-8d81-38f5d313012c"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Súp khoai tây
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = soup,
+                    FoodId = Guid.Parse("a950000c-9837-4d1b-b1ae-b9db230f8f1f"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Bò xào rau củ
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = mainDish,
+                    FoodId = Guid.Parse("a364353c-d589-4a94-9c3b-3038113ea249"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Bánh hỏi
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = mainDish,
+                    FoodId = Guid.Parse("8c9e1c76-2616-43a4-8c80-3e2e23b8ac4f"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = sideDish,
+                    FoodId = Guid.Parse("8c9e1c76-2616-43a4-8c80-3e2e23b8ac4f"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Canh bí đỏ nấu tôm
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = soup,
+                    FoodId = Guid.Parse("87cdf191-876c-4270-92f9-4bb1fc2a7fe9"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Măng cụt
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = dessert,
+                    FoodId = Guid.Parse("3d19d971-88d0-4108-a335-24ac9e1dec50"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Nhãn
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = dessert,
+                    FoodId = Guid.Parse("a504d882-4f38-413e-bb28-fae1f2787150"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Cam
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = dessert,
+                    FoodId = Guid.Parse("9f624258-a4ee-4879-a23f-b3d0479f2b1b"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Canh hẹ tôm
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = soup,
+                    FoodId = Guid.Parse("d034b7e9-b5a2-42d7-95b7-c0c30207293d"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                },
+
+                // Canh thịt bò hầm
+                new DishTypeFood()
+                {
+                    DishTypeFoodId = Guid.NewGuid(),
+                    DishTypeId = soup,
+                    FoodId = Guid.Parse("85e621ed-0e0c-4d20-8891-51d311cea4a3"),
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                }
+            );
         }
     }
 }
