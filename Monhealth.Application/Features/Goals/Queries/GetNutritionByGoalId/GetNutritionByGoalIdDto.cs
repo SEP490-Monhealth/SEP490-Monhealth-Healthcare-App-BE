@@ -6,7 +6,6 @@ namespace Monhealth.Application.Features.Goals.Queries.GetNutritionByGoalId
     {
         public float CaloriesGoal { get; set; }
         public float ProteinGoal { get; set; }
-        [JsonPropertyName("carbsGoal")]
         public float CarbsGoal { get; set; }
         public float FatGoal { get; set; }
         public float FiberGoal { get; set; }

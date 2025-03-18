@@ -5,6 +5,5 @@ namespace Monhealth.Application.Features.Goals.Queries.GetAllGoals
 {
     public class GetAllGoalsListQuery : IRequest<List<GetAllGoalsDTO>>
     {
-
     }
 }

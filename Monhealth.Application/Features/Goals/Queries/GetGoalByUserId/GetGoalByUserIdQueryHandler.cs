@@ -18,7 +18,6 @@ namespace Monhealth.Application.Features.Goals.Queries.GetGoalByUserId
         {
             var listGoals = await _goalRepository.GetGoalsByUserIdAsync(request.UserId);
             return _mapper.Map<List<GetGoalByUserIdDTO>>(listGoals);
-
         }
     }
 }

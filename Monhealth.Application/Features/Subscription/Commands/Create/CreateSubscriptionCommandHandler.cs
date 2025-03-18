@@ -22,7 +22,7 @@ namespace Monhealth.Application.Features.Subscription.Commands.Create
                 Price = request.Price,
                 DurationDays = request.DurationDays,
                 Features = request.Features,
-                MaxBookings = request.MaxBookings,
+                BookingAllowance = request.BookingAllowance,
                 Status = true
             };
             _subscriptionRepository.Add(model);

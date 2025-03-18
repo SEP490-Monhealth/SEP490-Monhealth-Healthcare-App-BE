@@ -14,6 +14,7 @@ namespace Monhealth.Domain
         public Guid SubscriptionId { get; set; }
         public DateTime StartedAt { get; set; }
         public DateTime ExpiresAt { get; set; }
+        public int RemainingBookings { get; set; }
         public UserSubscriptionStatus Status { get; set; }
 
         [ForeignKey("UserId")]

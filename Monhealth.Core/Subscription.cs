@@ -12,7 +12,7 @@ namespace Monhealth.Domain
         public int Price { get; set; }
         public int DurationDays { get; set; }
         public List<string> Features { get; set; } = [];
-        public int MaxBookings { get; set; }
+        public int BookingAllowance { get; set; }
         public bool Status { get; set; }
 
         public ICollection<UserSubscription> UserSubscriptions { get; set; }

@@ -3,6 +3,5 @@
     public class GetWeightByGoalIdDTO
     {
         public int WeightGoal { get; set; }
-
     }
 }

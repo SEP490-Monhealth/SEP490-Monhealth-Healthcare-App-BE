@@ -11,8 +11,6 @@ namespace Monhealth.Application.Features.Goals.Queries.GetWaterByGoalId
             var goals = await goalRepository.GetGoalsByUserIdAsync(request.UserId);
             var goal = goals.FirstOrDefault();
             return mapper.Map<GetWaterByGoalIdDTO>(goal);
-
-
         }
     }
 }

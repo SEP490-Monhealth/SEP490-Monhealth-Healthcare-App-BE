@@ -95,7 +95,7 @@ namespace Monhealth.Api.Controllers
             var result = await _mediator.Send(command);
             return new ResultModel
             {
-                Message = "cập nhập người dùng thành công",
+                Message = "Cập nhập người dùng thành công",
                 Status = 200,
                 Success = true
             };

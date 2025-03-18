@@ -12,7 +12,7 @@ namespace Monhealth.Application.Features.Subscription.Commands.Create
         public int Price { get; set; }
         public int DurationDays { get; set; }
         public List<string> Features { get; set; } = null!;
-        public int MaxBookings { get; set; }
+        public int BookingAllowance { get; set; }
         public bool Status { get; set; }
     }
 }

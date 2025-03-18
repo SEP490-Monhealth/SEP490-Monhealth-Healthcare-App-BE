@@ -2,8 +2,6 @@
 {
     public class GetExerciseByGoalIdDTO
     {
-
         public float ExerciseGoal { get; set; }
-
     }
 }

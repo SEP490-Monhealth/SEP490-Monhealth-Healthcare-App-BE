@@ -20,7 +20,7 @@ namespace Monhealth.Application.Features.Subscription.Commands.Update
             id.Price = request.Request.Price;
             id.DurationDays = request.Request.DurationDays;
             id.Features = request.Request.Features;
-            id.MaxBookings = request.Request.MaxBookings;
+            id.BookingAllowance = request.Request.BookingAllowance;
             _subscriptionRepository.Update(id);
             await _subscriptionRepository.SaveChangeAsync();
             return true;
