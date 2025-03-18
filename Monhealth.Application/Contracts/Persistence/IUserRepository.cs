@@ -1,4 +1,5 @@
-﻿using Monhealth.Application.Models.Paging;
+﻿using Microsoft.AspNetCore.Identity;
+using Monhealth.Application.Models.Paging;
 using Monhealth.Identity.Models;
 
 namespace Monhealth.Application.Contracts.Persistence
@@ -12,5 +13,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<bool> IsPhoneNumberDuplicateAsync(string phoneNumber);
         Task<bool> IsEmailDuplicatedAsync(string email);
         Task<AppUser>GetUserByIdAsync(Guid userId);
+ 
     }
 }
