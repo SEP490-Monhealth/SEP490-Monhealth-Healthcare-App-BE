@@ -280,14 +280,14 @@ namespace Monhealth.Identity.Configurations
             // },
             // #endregion
 
-            #region FoodPortion 25
-            new FoodPortion
-            {
-                FoodPortionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),
-                PortionId = Guid.Parse("24a4ed15-69e4-4fb5-8dd2-1695de52c264"),
-            },
-            #endregion
+            // #region FoodPortion 25
+            // new FoodPortion
+            // {
+            //     FoodPortionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),
+            //     PortionId = Guid.Parse("24a4ed15-69e4-4fb5-8dd2-1695de52c264"),
+            // },
+            // #endregion
 
             #region FoodPortion 26
             new FoodPortion

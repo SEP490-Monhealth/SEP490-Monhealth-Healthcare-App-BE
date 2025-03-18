@@ -647,17 +647,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 53
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = meat,  // Bánh xèo - Category: Meat
-                FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),  // Bánh xèo
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 53
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = meat,  // Bánh xèo - Category: Meat
+            //     FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),  // Bánh xèo
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 54
             builder.HasData(

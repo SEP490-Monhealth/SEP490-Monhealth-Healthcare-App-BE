@@ -1520,34 +1520,34 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Nutrition 53
-            new Nutrition
-            {
-                NutritionId = Guid.NewGuid(),
-                FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"), // Bánh xèo
-                Calories = 320,
-                Protein = 10,
-                Carbs = 30,
-                Fiber = 2,
-                Sugar = 3,
-                Fat = 18,
-                SaturatedFat = 3,
-                UnsaturatedFat = 5,
-                Cholesterol = 50,
-                Sodium = 400,
-                Potassium = 150,
-                Calcium = 30,
-                Iron = 1.2f,
-                VitaminA = 0.02f,
-                VitaminB1 = 0.08f,
-                VitaminB2 = 0.05f,
-                VitaminC = 2,
-                VitaminD = 0,
-                VitaminE = 0.2f,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
+            // #region Nutrition 53
+            // new Nutrition
+            // {
+            //     NutritionId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"), // Bánh xèo
+            //     Calories = 320,
+            //     Protein = 10,
+            //     Carbs = 30,
+            //     Fiber = 2,
+            //     Sugar = 3,
+            //     Fat = 18,
+            //     SaturatedFat = 3,
+            //     UnsaturatedFat = 5,
+            //     Cholesterol = 50,
+            //     Sodium = 400,
+            //     Potassium = 150,
+            //     Calcium = 30,
+            //     Iron = 1.2f,
+            //     VitaminA = 0.02f,
+            //     VitaminB1 = 0.08f,
+            //     VitaminB2 = 0.05f,
+            //     VitaminC = 2,
+            //     VitaminD = 0,
+            //     VitaminE = 0.2f,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            // },
+            // #endregion
 
             #region Nutrition 54
             new Nutrition

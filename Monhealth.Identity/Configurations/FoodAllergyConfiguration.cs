@@ -175,14 +175,14 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region FoodAllergy 18
-            new FoodAllergy
-            {
-                FoodAllergyId = Guid.NewGuid(),
-                FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),
-                AllergyId = Guid.Parse("1ada29ad-354a-44aa-b402-3f8a9c854e56")
-            },
-            #endregion
+            // #region FoodAllergy 18
+            // new FoodAllergy
+            // {
+            //     FoodAllergyId = Guid.NewGuid(),
+            //     FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),
+            //     AllergyId = Guid.Parse("1ada29ad-354a-44aa-b402-3f8a9c854e56")
+            // },
+            // #endregion
 
             // #region FoodAllergy 19
             // new FoodAllergy

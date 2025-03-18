@@ -17,7 +17,6 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetAll
             _subscriptionRepository = subscriptionRepository;
         }
 
-
         async Task<PageResult<SubscriptionDTO>> IRequestHandler<GetAllSubscriptionQuery, PageResult<SubscriptionDTO>>.Handle(GetAllSubscriptionQuery request, CancellationToken cancellationToken)
         {
             var pagingSubcription = await _subscriptionRepository.GetAllSubcriptionAsync(request.Page, request.Limit, request.Search, request.Sort, request.Status);

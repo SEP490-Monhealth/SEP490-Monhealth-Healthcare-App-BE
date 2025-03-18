@@ -1017,24 +1017,24 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 53
-            new Food
-            {
-                FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),
-                // CategoryId = meat,
-                UserId = userId,
-                MealType = [MealType.Lunch, MealType.Dinner],
-                // DishType = [DishType.MainDish],
-                FoodName = "Bánh xèo",
-                FoodDescription = "Bánh xèo là món ăn truyền thống với vỏ bánh giòn, nhân tôm, thịt heo, giá đỗ và các loại rau. Món này thường được ăn kèm với nước mắm chua ngọt và rau sống, tạo nên hương vị đậm đà, hấp dẫn",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 53
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("05cfce09-72b4-482d-adcd-c0718015be3d"),
+            //     // CategoryId = meat,
+            //     UserId = userId,
+            //     MealType = [MealType.Lunch, MealType.Dinner],
+            //     // DishType = [DishType.MainDish],
+            //     FoodName = "Bánh xèo",
+            //     FoodDescription = "Bánh xèo là món ăn truyền thống với vỏ bánh giòn, nhân tôm, thịt heo, giá đỗ và các loại rau. Món này thường được ăn kèm với nước mắm chua ngọt và rau sống, tạo nên hương vị đậm đà, hấp dẫn",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 54
             new Food
