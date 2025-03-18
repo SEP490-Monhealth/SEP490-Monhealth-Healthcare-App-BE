@@ -20,6 +20,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IUserRepository _userRepository;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IUserRoleRepository _userRoleRepository;
         public CreateUserSubscriptionCommandHandler(IUserSubscriptionRepository userSubscriptionRepository,
         ISubscriptionRepository subscriptionRepository,
         IPortionRepository portionRepository,
@@ -29,7 +30,8 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         ILogger<CreateUserSubscriptionCommandHandler> logger,
         IDailyMealRepository dailyMealRepository,
         IUserRepository userRepository,
-        UserManager<AppUser> userManager)
+        UserManager<AppUser> userManager,
+        IUserRoleRepository userRoleRepository)
         {
             _userSubscriptionRepository = userSubscriptionRepository;
             _subscriptionRepository = subscriptionRepository;
@@ -41,6 +43,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             _dailyMealRepository = dailyMealRepository;
             _userRepository = userRepository;
             _userManager = userManager;
+            _userRoleRepository = userRoleRepository;
         }
 
         public async Task<Unit> Handle(CreateUserSubscriptionCommand request, CancellationToken cancellationToken)
@@ -61,17 +64,35 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             };
             _userSubscriptionRepository.Add(model);
             _logger.LogInformation($"Handling meal recommendation for UserId: {user}");
+            // Lấy thông tin người dùng
             AppUser? gettingUser = await _userRepository.GetUserByIdAsync(user);
+            var subscriptionRole = await _userRoleRepository.GetRoleByNameAsync("Subscription Member");
+            if (subscriptionRole == null)
+            {
+                _logger.LogError("Role 'Subscription Member' does not exist.");
+                return Unit.Value;
+            }
+            var userRole = await _userRoleRepository.GetUserRoleByUserIdAsync(user);
 
-            // tìm role của user
-            var currentRoles = await _userManager.GetRolesAsync(gettingUser);
-            // xóa role hiện tại
-            await _userManager.RemoveFromRolesAsync(gettingUser, currentRoles);
-            // thêm vào MemberSubscription
-            await _userManager.AddToRoleAsync(gettingUser, "Subscription Member");
 
-           
-           
+            if (userRole != null)
+            {
+                // Nếu người dùng đã có role, xóa bản ghi cũ trước khi thêm role mới
+                _userRoleRepository.Remove(userRole);
+                await _userRepository.SaveChangesAsync();
+                _logger.LogInformation($"Removed old role for UserId {user}");
+            }
+
+            // Tạo bản ghi mới cho UserRole với RoleId mới
+            var newUserRole = new IdentityUserRole<Guid>
+            {
+                UserId = user,
+                RoleId = subscriptionRole.Id
+            };
+
+            // Thêm vào bảng UserRoles
+             _userRoleRepository.Add(newUserRole);
+            await _userRepository.SaveChangesAsync();
 
             int days = 3;
             // Biến để lưu currentDate
@@ -106,6 +127,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             await _userSubscriptionRepository.SaveChangeAsync();
             return Unit.Value;
         }
+
         private async Task<Domain.Meal> CreateMealForType(MealType mealType, AppUser user, Guid dailyMealId)
         {
             // Get Random First

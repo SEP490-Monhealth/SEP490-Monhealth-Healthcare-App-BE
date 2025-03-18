@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Identity.Dbcontexts;
@@ -60,6 +61,7 @@ namespace Monhealth.Identity.Repositories
                     .FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber);
         }
 
+
         public async Task<AppUser> GetUserByIdAsync(Guid userId)
         {
             return await _context.Users.Include(g => g.Goals)
@@ -76,7 +78,6 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(u => u.Id == userId);
         }
 
-        
 
         public async Task<bool> IsEmailDuplicatedAsync(string email)
         {
@@ -94,5 +95,6 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync();
         }
+
     }
 }

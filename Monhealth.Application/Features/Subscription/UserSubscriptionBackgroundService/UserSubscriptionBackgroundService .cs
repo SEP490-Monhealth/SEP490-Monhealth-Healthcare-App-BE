@@ -34,7 +34,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     var foodRepository = scope.ServiceProvider.GetRequiredService<IFoodRepository>();
                     var portionRepository = scope.ServiceProvider.GetRequiredService<IPortionRepository>();
                     var userRepository = scope.ServiceProvider.GetRequiredService<IUserRepository>();
-                    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>(); 
+                    var userRoleRepository = scope.ServiceProvider.GetRequiredService<IUserRoleRepository>();
 
                     _logger.LogInformation("🔄 Running background task to check subscriptions...");
 
@@ -49,12 +49,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                             continue;
                         }
 
-                        var identityUser = await userManager.FindByIdAsync(subscription.UserId.ToString());
-                        if (identityUser == null)
-                        {
-                            _logger.LogWarning($"Identity User {subscription.UserId} not found in Identity DB. Skipping...");
-                            continue;
-                        }
+
 
                         // 🔍 Kiểm tra nếu Subscription đã hết hạn
                         if (subscription.ExpiresAt <= DateTime.Now)
@@ -64,21 +59,37 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                                 subscription.Status = UserSubscriptionStatus.Expired;
                                 _logger.LogInformation($"⚠️ Subscription expired for User {subscription.UserId}");
 
-                                var currentRoles = await userManager.GetRolesAsync(identityUser);
-                                await userManager.RemoveFromRolesAsync(identityUser, currentRoles);
-                                await userManager.AddToRoleAsync(identityUser, "Member");
+                                var userRole = await userRoleRepository.GetUserRoleByUserIdAsync(subscription.UserId);
+                                if (userRole != null)
+                                {
+                                    // Xóa role cũ
+                                     userRoleRepository.Remove(userRole);
+                                    _logger.LogInformation($"Removed old role for UserId {subscription.UserId}");
+                                }
 
-                                _logger.LogInformation($"🔄 Identity User {subscription.UserId} role changed back to 'Member'");
+                                // Thêm role "Member" cho user
+                                var memberRole = await userRoleRepository.GetRoleByNameAsync("Member");
+                                if (memberRole != null)
+                                {
+                                    var newUserRole = new IdentityUserRole<Guid>
+                                    {
+                                        UserId = subscription.UserId,
+                                        RoleId = memberRole.Id
+                                    };
+                                     userRoleRepository.Add(newUserRole);
+                                    _logger.LogInformation($"Added 'Member' role for UserId {subscription.UserId}");
+                                }
+
+                                continue;
                             }
-                            continue;
+
+                            _logger.LogInformation($"✅ Generating meal recommendations for User {subscription.UserId}");
+                            await RecommendMealsForUser(user, dailyMealRepository, mealRepository, mealFoodRepository, foodRepository, portionRepository);
                         }
 
-                        _logger.LogInformation($"✅ Generating meal recommendations for User {subscription.UserId}");
-                        await RecommendMealsForUser(user, dailyMealRepository, mealRepository, mealFoodRepository, foodRepository, portionRepository);
+                        await userSubscriptionRepository.SaveChangeAsync();
+                        _logger.LogInformation("✅ Background task completed.");
                     }
-
-                    await userSubscriptionRepository.SaveChangeAsync();
-                    _logger.LogInformation("✅ Background task completed.");
                 }
                 catch (Exception ex)
                 {
