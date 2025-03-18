@@ -19,9 +19,9 @@ namespace Monhealth.Api.Controllers
     {
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllBooking(int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllBooking(int page = 1, int limit = 10, string? search = null)
         {
-            var bookings = await mediator.Send(new GetAllBookingQueries { Page = page, Limit = limit });
+            var bookings = await mediator.Send(new GetAllBookingQueries { Page = page, Limit = limit, Search = search });
             return new ResultModel
             {
                 Data = bookings,

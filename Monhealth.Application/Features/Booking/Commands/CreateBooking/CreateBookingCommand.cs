@@ -8,6 +8,6 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
         public Guid? ConsultantId { get; set; }
         public DateTime Date { get; set; }
         public string? Notes { get; set; } = string.Empty;
-        public string? CancellationReason { get; set; } 
+        public string? CancellationReason { get; set; }
     }
 }

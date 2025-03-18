@@ -13,9 +13,15 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public async Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit)
+        public async Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit, string? search)
         {
-            IQueryable<Booking> query = _context.Bookings.AsQueryable();
+            search = search?.Trim();
+            IQueryable<Booking> query = _context.Bookings.AsNoTracking().AsQueryable();
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(b => EF.Functions.Collate(b.User.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
+                                   b.Consultant.AppUser.FullName.ToLower().Contains(search.ToLower()));
+            }
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
