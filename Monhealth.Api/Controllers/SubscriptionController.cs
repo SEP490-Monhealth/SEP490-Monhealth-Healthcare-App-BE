@@ -25,9 +25,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [SwaggerOperation(Summary = "Done")]
-        public async Task<ActionResult<ResultModel>> GetAll()
+        public async Task<ActionResult<ResultModel>> GetAllSubscription(int page = 1, int limit = 10, string? search = null, bool? sort = null, bool? status = null)
         {
-            var metrics = await _mediator.Send(new GetAllSubscriptionQuery());
+            var metrics = await _mediator.Send(new GetAllSubscriptionQuery { Page = page, Limit = limit, Search = search, Sort = sort, Status = status });
 
             return new ResultModel
             {
