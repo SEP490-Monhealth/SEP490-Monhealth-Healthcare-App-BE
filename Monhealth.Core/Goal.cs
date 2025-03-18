@@ -21,7 +21,7 @@ namespace Monhealth.Domain
         public float FiberGoal { get; set; }
         public float SugarGoal { get; set; }
         public float WaterIntakesGoal { get; set; }
-        public float DurationGoal { get; set; }
+        public float WorkoutDurationGoal { get; set; }
         public float CaloriesBurnedGoal { get; set; }
         public GoalStatus Status { get; set; }
 

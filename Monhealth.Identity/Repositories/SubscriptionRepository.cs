@@ -10,6 +10,7 @@ namespace Monhealth.Identity.Repositories
     {
         public SubscriptionRepository(MonhealthDbcontext context) : base(context)
         {
+
         }
 
         public async Task<PaginatedResult<Subscription>> GetAllSubcriptionAsync(int page, int limit, string? search, bool? sort, bool? status)
@@ -27,7 +28,14 @@ namespace Monhealth.Identity.Repositories
 
             if (sort.HasValue)
             {
-                query = query.OrderBy(s => s.Price);
+                if ((bool)sort)
+                {
+                    query = query.OrderBy(s => s.Price);
+                }
+                else
+                {
+                    query = query.OrderByDescending(s => s.Price);
+                }
             }
             if (status.HasValue)
             {

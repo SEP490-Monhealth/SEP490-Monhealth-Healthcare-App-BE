@@ -3,7 +3,6 @@ using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
-using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
 {
@@ -55,7 +54,9 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
                 Status = food.Status,
                 IsPublic = food.IsPublic,
                 CreatedAt = food.CreatedAt,
-                UpdatedAt = food.UpdatedAt
+                UpdatedAt = food.UpdatedAt,
+                UpdatedBy = food.UpdatedBy,
+                CreatedBy = food.CreatedBy
             }).ToList();
 
             // Tạo kết quả phân trang
