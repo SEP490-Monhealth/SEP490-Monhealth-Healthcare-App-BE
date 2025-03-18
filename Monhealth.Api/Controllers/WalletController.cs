@@ -17,6 +17,7 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetAllWallets()
         {
             var wallets = await mediator.Send(new GetAllWalletsQuery());
+
             return new ResultModel
             {
                 Data = wallets,

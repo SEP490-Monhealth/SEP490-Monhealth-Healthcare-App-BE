@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Wallet.Queries.GetAllWallets
 {
-    public class GetAllWalletsQueryHandler : IRequestHandler<GetAllWalletsQuery, List<GetAllWalletsDTO>>
+    public class GetAllWalletsQueryHandler : IRequestHandler<GetAllWalletsQuery, PageResult<GetAllWalletsDTO>>
     {
         private readonly IWalletRepository _walletRepository;
         private readonly IMapper _mapper;
@@ -18,10 +14,21 @@ namespace Monhealth.Application.Features.Wallet.Queries.GetAllWallets
             _walletRepository = walletRepository;
             _mapper = mapper;
         }
-        public async Task<List<GetAllWalletsDTO>> Handle(GetAllWalletsQuery request, CancellationToken cancellationToken)
+
+
+        async Task<PageResult<GetAllWalletsDTO>> IRequestHandler<GetAllWalletsQuery, PageResult<GetAllWalletsDTO>>.Handle(GetAllWalletsQuery request, CancellationToken cancellationToken)
         {
-            var listWallet = await _walletRepository.GetAllAsync();
-            return _mapper.Map<List<GetAllWalletsDTO>>(listWallet);
+            var walletPaging = await _walletRepository.GetAllWalletAsync(request.Page, request.Limit);
+            return new PageResult<GetAllWalletsDTO>
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(walletPaging.TotalCount / (double)request.Limit),
+                TotalItems = walletPaging.TotalCount,
+                Items = _mapper.Map<List<GetAllWalletsDTO>>(walletPaging.Items)
+            };
+
+
+
         }
     }
 }
