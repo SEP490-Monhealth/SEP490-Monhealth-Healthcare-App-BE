@@ -317,13 +317,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             // Thêm các Portion cho Balance, Protein, Carb và Vegetable
             if (balanceFood != null)
             {
-                var proteinWeight = 100 * balanceCalories / balanceFood.Nutrition.Protein;
-                var carbWeight = 100 * balanceCalories / balanceFood.Nutrition.Carbs;
-                var fatWeight = 100 * balanceCalories / balanceFood.Nutrition.Fat;
-
-
-
-                var balanceWeight = proteinWeight * 4 + carbWeight * 4 + fatWeight * 9;
+                var balanceWeight = 100 * balanceCalories / balanceFood.Nutrition.Calories;
 
                 _portionRepository.Add(new Domain.Portion
                 {
