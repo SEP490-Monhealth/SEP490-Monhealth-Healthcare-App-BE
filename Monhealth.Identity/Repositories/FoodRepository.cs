@@ -347,7 +347,6 @@ namespace Monhealth.Identity.Repositories
             Food? proteinFood = null!;
             Food? carbFood = null!;
             Food? balanceFood = null!;
-            string[] dishTypes = ["SideDish"];
             // Lấy tất cả dữ liệu từ cơ sở dữ liệu
             var allFoods = await _context.Foods
                 .AsNoTracking()
@@ -369,7 +368,8 @@ namespace Monhealth.Identity.Repositories
                                                                                                                                                        // f.DishType.Select(dt => dt.ToString()).Any(dt => new[] { "MainDish", "SideDish" }.Contains(dt.Trim())) && // Filter by DishType
                                         f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "MainDish") &&   // Filter by DishType
                             f.Nutrition != null &&  // Ensure Nutrition is not null
-                            f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5 && // Protein criteria
+                            f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.2 &&
+                            f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.5 && // Protein criteria
                             f.FoodAllergies != null &&  // Ensure FoodAllergies is not null
                             !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))  // Ensure no allergies match
                         )
@@ -385,6 +385,7 @@ namespace Monhealth.Identity.Repositories
                            f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "MainDish") &&   // Filter by DishType
                                 f.Nutrition != null &&
                                 f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5 &&
+                                f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.2 &&
                                 f.FoodAllergies != null &&
                                 !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
                             )
@@ -403,9 +404,11 @@ namespace Monhealth.Identity.Repositories
              f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
             f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "MainDish") &&   // Filter by DishType
                                 f.Nutrition != null &&
-                                f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
-                                f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.3 &&
-                                f.FoodAllergies != null &&
+                             f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.15 &&
+                             f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) <= 0.2 && // Protein from 20% to 30%
+                             f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.4 &&
+                             f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) <= 0.6 && // Carbs from 40% to 60%
+                             f.FoodAllergies != null &&
                                 !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))
                             )
                             .OrderBy(f => Guid.NewGuid())
@@ -415,17 +418,20 @@ namespace Monhealth.Identity.Repositories
             }
             // Filter for vegetable food
             var vegetableFood = allFoods
-           .Where(f =>
+      .Where(f =>
           f.MealType != null &&
           f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
           f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "SideDish") &&   // Filter by DishType
           f.Nutrition != null &&
-          f.Nutrition.Fiber > 5.0f &&  // Either VitaminC or VitaminA should be present
-          f.FoodAllergies != null &&  // Ensure FoodAllergies is not null
+          f.Nutrition.Calories < 50f && // Low calories
+          f.Nutrition.Fat <= 1.5f && // Low fat
+          f.Nutrition.Fiber >= 1.5f && // High fiber
+          f.FoodAllergies != null &&
           !allergiesIds.Any(al => f.FoodAllergies.Any(fa => fa.AllergyId == al))  // Ensure no allergies match
       )
       .OrderBy(f => Guid.NewGuid())  // Randomize order
       .FirstOrDefault();
+
 
             return (proteinFood, carbFood, balanceFood, vegetableFood);
         }
