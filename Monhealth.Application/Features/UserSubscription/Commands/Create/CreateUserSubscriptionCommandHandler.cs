@@ -60,7 +60,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 Status = Core.Enum.UserSubscriptionStatus.Active,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                ExpiresAt = today.AddDays(durationDays)
+                ExpiresAt = today.AddMinutes(3)
             };
             _userSubscriptionRepository.Add(model);
             _logger.LogInformation($"Handling meal recommendation for UserId: {user}");

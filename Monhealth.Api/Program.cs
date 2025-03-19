@@ -54,6 +54,18 @@ builder.Services.AddSwaggerGen(options =>
 
 // builder.Services.AddScoped<FoodFilterService>();
 builder.Services.AddScoped<GoalService>();
+
+// Add CORS services with a custom policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("all", policy =>
+    {
+        policy.AllowAnyOrigin()  // Allow any origin (can be adjusted for security)
+              .AllowAnyMethod()  // Allow any HTTP method (GET, POST, etc.)
+              .AllowAnyHeader(); // Allow any header
+    });
+});
+
 // builder.Services.AddScoped<FoodRandomService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
