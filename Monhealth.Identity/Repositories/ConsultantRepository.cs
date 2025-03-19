@@ -32,10 +32,10 @@ namespace Monhealth.Identity.Repositories
                         FullName = c.AppUser.FullName,
                         Avatar = c.AppUser.Avatar,
                     },
-                    Expertise = new Expertise
-                    {
-                        ExpertiseName = c.Expertise.ExpertiseName,
-                    }
+                    //Expertise = new Expertise
+                    //{
+                    //    ExpertiseName = c.Expertise.ExpertiseName,
+                    //}
                 })
                 .AsQueryable();
             if (status.HasValue)
@@ -74,10 +74,10 @@ namespace Monhealth.Identity.Repositories
                         FullName = c.AppUser.FullName,
                         Avatar = c.AppUser.Avatar,
                     },
-                    Expertise = new Expertise
-                    {
-                        ExpertiseName = c.Expertise.ExpertiseName,
-                    }
+                    //Expertise = new Expertise
+                    //{
+                    //    ExpertiseName = c.Expertise.ExpertiseName,
+                    //}
                 }).FirstOrDefaultAsync();
             return consultant;
         }

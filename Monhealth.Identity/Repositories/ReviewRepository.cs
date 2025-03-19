@@ -11,12 +11,12 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<List<Review>> GetReviewsByConsultant(Guid consultantId)
-        {
-            var query = await _context.Reviews.
-            Where(review => review.ConsultantId == consultantId).ToListAsync();
-            return query;
-        }
+        //public async Task<List<Review>> GetReviewsByConsultant(Guid consultantId)
+        //{
+        //    var query = await _context.Reviews.
+        //    Where(review => review.ConsultantId == consultantId).ToListAsync();
+        //    return query;
+        //}
 
         public async Task<List<Review>> GetReviewsByUser(Guid userId)
         {

@@ -19,7 +19,6 @@ namespace Monhealth.Application.Features.Review.Queries
                 ReviewId = r.ReviewId,
                 BookingId = r.BookingId,
                 Comment = r.Comment,
-                ConsultantId = r.ConsultantId,
                 CreatedAt = r.CreatedAt,
                 UpdatedAt = r.UpdatedAt,
                 Rating = r.Rating,

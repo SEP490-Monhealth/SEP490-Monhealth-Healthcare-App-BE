@@ -9,8 +9,6 @@ namespace Monhealth.Domain
         public Guid ExpertiseId { get; set; }
         public string ExpertiseName { get; set; } = string.Empty;
         public string ExpertiseDescription { get; set; } = string.Empty;
-
-        public Certificate? Certificate { get; set; }
         public ICollection<Consultant>? Consultants { get; set; }
     }
 }

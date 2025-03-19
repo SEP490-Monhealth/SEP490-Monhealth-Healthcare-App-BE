@@ -16,11 +16,10 @@ namespace Monhealth.Application.Features.Review.Queries.GetById
             var query = await _reviewRepository.GetByIdAsync(request.ReviewId);
             return new ReviewDetailDTO
             {
-               BookingId = query.BookingId,
-               Comment = query.Comment,
-               ConsultantId = query.ConsultantId,
-               Rating = query.Rating,
-               UserId = query.UserId
+                BookingId = query.BookingId,
+                Comment = query.Comment,
+                Rating = query.Rating,
+                UserId = query.UserId
             };
         }
     }

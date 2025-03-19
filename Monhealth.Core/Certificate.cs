@@ -20,7 +20,6 @@ namespace Monhealth.Domain
 
         [ForeignKey(nameof(ConsultantId))]
         public Consultant? Consultant { get; set; }
-        [ForeignKey(nameof(ExpertiseId))]
-        public Expertise? Expertise { get; set; }
+
     }
 }

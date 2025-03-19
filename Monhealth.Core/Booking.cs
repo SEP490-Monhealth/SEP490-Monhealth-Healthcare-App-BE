@@ -22,6 +22,12 @@ namespace Monhealth.Domain
         public AppUser? User { get; set; }
         [ForeignKey(nameof(ConsultantId)), Column(Order = 1)]
         public Consultant? Consultant { get; set; }
+
+        [ForeignKey(nameof(ScheduleId))]
+        public Schedule Schedule { get; set; }
+
+        [ForeignKey(nameof(TimeSlotId))]
+        public TimeSlot TimeSlot { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
     }
 }
