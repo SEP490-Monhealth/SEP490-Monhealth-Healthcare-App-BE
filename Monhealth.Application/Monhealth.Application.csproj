@@ -27,9 +27,6 @@
   <ItemGroup>
     <Folder Include="Features\Activity\Queries\" />
     <Folder Include="Features\Workout\Queries\GetWorkoutByUserIdQueries\" />
-    <Folder Include="Features\Timeslot\Commands\" />
-    <Folder Include="Features\Timeslot\Queries\" />
-    <Folder Include="Features\UserFood\Queries\" />
   </ItemGroup>
 
 </Project>

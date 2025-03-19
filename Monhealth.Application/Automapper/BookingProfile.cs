@@ -18,9 +18,26 @@ namespace Monhealth.Application.Automapper
                 .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(_ => DateTime.Now))
                 .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(_ => DateTime.Now))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(_ => BookingStatus.Pending));
-            CreateMap<Booking, BookingDto>();
-            CreateMap<Booking, GetBookingByUserIdDto>();
-            CreateMap<Booking, GetByConsultantIdDto>();
+
+            CreateMap<Booking, BookingDto>()
+                .ForMember(dest => dest.ConsultantName, opt => opt.MapFrom(opt => opt.Consultant.AppUser.FullName))
+                .ForMember(dest => dest.ConsultantAvatar, opt => opt.MapFrom(opt => opt.Consultant.AppUser.Avatar))
+                .ForMember(dest => dest.MemberName, opt => opt.MapFrom(opt => opt.User.FullName))
+                .ForMember(dest => dest.MemberAvatar, opt => opt.MapFrom(opt => opt.User.Avatar))
+
+                ;
+            CreateMap<Booking, GetBookingByUserIdDto>()
+                .ForMember(dest => dest.ConsultantName, opt => opt.MapFrom(opt => opt.Consultant.AppUser.FullName))
+                .ForMember(dest => dest.ConsultantAvatar, opt => opt.MapFrom(opt => opt.Consultant.AppUser.Avatar))
+                .ForMember(dest => dest.MemberName, opt => opt.MapFrom(opt => opt.User.FullName))
+                .ForMember(dest => dest.MemberAvatar, opt => opt.MapFrom(opt => opt.User.Avatar))
+                ;
+            CreateMap<Booking, GetByConsultantIdDto>()
+                .ForMember(dest => dest.ConsultantName, opt => opt.MapFrom(opt => opt.Consultant.AppUser.FullName))
+                .ForMember(dest => dest.ConsultantAvatar, opt => opt.MapFrom(opt => opt.Consultant.AppUser.Avatar))
+                .ForMember(dest => dest.MemberName, opt => opt.MapFrom(opt => opt.User.FullName))
+                .ForMember(dest => dest.MemberAvatar, opt => opt.MapFrom(opt => opt.User.Avatar))
+                ;
             CreateMap<UpdateBookingDto, Booking>()
             .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
         }

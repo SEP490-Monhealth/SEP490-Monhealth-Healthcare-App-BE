@@ -16,11 +16,17 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit, string? search)
         {
             search = search?.Trim();
-            IQueryable<Booking> query = _context.Bookings.AsNoTracking().AsQueryable();
+            IQueryable<Booking> query = _context.Bookings.AsNoTracking()
+                .Include(b => b.User)
+                .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
+                .AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
                 query = query.Where(b => EF.Functions.Collate(b.User.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
-                                   b.Consultant.AppUser.FullName.ToLower().Contains(search.ToLower()));
+                                   b.Consultant.AppUser.FullName.ToLower().Contains(search.ToLower())
+                                   || b.Consultant.AppUser.PhoneNumber.Contains(search)
+                                   || b.User.PhoneNumber.Contains(search)
+                                   );
             }
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
@@ -37,6 +43,8 @@ namespace Monhealth.Identity.Repositories
         public async Task<Booking?> GetBookingByConsultantId(Guid consultantId)
         {
             return await _context.Bookings.AsNoTracking()
+                 .Include(b => b.User)
+                .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
                 .Where(b => b.ConsultantId == consultantId)
                 .Select(b => new Booking
                 {
@@ -56,6 +64,8 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.Bookings
                    .AsNoTracking()
+                    .Include(b => b.User)
+                .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
                    .Where(b => b.UserId == userId)
                    .Select(b => new Booking
                    {

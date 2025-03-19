@@ -1,4 +1,3 @@
-using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Reminder.Commands.CreateReminder;
@@ -11,6 +10,7 @@ using Monhealth.Application.Features.Reminders.Queries.GetReminderDetail;
 using Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsDrunk;
 using Monhealth.Application.Models;
 using Monhealth.Identity.BackGroundServiceForWaterReminder;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -28,9 +28,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllReminder()
+        public async Task<ActionResult<ResultModel>> GetAllReminder([FromQuery] int page = 1, int limit = 10, string? search = null, bool? recurring = null, bool? status = null)
         {
-            var query = new GetAllReminderQuery();
+            var query = new GetAllReminderQuery { Page = page, Limit = limit, Search = search, Recurring = recurring, Status = status };
             var result = await _mediator.Send(query);
             return new ResultModel
             {

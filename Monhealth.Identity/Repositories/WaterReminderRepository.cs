@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -76,6 +77,39 @@ namespace Monhealth.Identity.Repositories
             return await _context.WaterReminders.Include(r => r.AppUser)
                 .OrderBy(t => t.Time)
                 .ToListAsync();
+        }
+
+        public async Task<PaginatedResult<WaterReminder>> GetAllReminderAsync(int page, int limit, string? search, bool? recurring, bool? status)
+        {
+            search = search?.Trim();
+            IQueryable<WaterReminder> query = _context.WaterReminders.AsQueryable();
+            // filter search
+            if (!string.IsNullOrEmpty(search))
+            {
+                // cho phep search khong dau
+                query = query.Where(s => EF.Functions.Collate(s.WaterReminderName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+            }
+            if (recurring.HasValue)
+            {
+                query = query.Where(w => w.IsRecurring == recurring);
+            }
+            if (status.HasValue)
+            {
+                query = query.Where(w => w.Status == status);
+            }
+
+            query = query.Include(w => w.AppUser).OrderBy(w => w.Time);
+            int totalItems = await query.CountAsync();
+
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<WaterReminder>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<WaterReminder> GetReminderById(Guid waterReminderId)

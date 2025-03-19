@@ -12,8 +12,7 @@ namespace Monhealth.Domain
         public Guid BookingId { get; set; }
         public Guid? UserId { get; set; }
         public Guid? ConsultantId { get; set; }
-        public Guid? ScheduleId { get; set; }
-        public Guid? TimeSlotId { get; set; }
+        public DateTime Day { get; set; }
         public string? Notes { get; set; }
         public string? CancellationReason { get; set; }
         public BookingStatus Status { get; set; }
@@ -22,12 +21,6 @@ namespace Monhealth.Domain
         public AppUser? User { get; set; }
         [ForeignKey(nameof(ConsultantId)), Column(Order = 1)]
         public Consultant? Consultant { get; set; }
-
-        [ForeignKey(nameof(ScheduleId))]
-        public Schedule Schedule { get; set; }
-
-        [ForeignKey(nameof(TimeSlotId))]
-        public TimeSlot TimeSlot { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
     }
 }

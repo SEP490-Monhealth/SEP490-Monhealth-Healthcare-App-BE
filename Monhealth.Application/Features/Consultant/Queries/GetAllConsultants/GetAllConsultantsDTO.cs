@@ -1,5 +1,5 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Consultant.Queries.GetAllConsultants
 {
@@ -16,6 +16,7 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetAllConsultants
         public int? Experience { get; set; }
         public double? RatingCount { get; set; }
         public double? AverageRating { get; set; }
+        public bool IsVerified { get; set; }
         public bool? Status { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace Monhealth.Identity.Repositories
                     Experience = c.Experience,
                     RatingCount = c.RatingCount,
                     AverageRating = c.AverageRating,
+                    IsVerified = c.IsVerified,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
                     AppUser = new AppUser
@@ -32,10 +33,10 @@ namespace Monhealth.Identity.Repositories
                         FullName = c.AppUser.FullName,
                         Avatar = c.AppUser.Avatar,
                     },
-                    //Expertise = new Expertise
-                    //{
-                    //    ExpertiseName = c.Expertise.ExpertiseName,
-                    //}
+                    Expertise = new Expertise
+                    {
+                        ExpertiseName = c.Expertise.ExpertiseName,
+                    }
                 })
                 .AsQueryable();
             if (status.HasValue)
@@ -67,6 +68,7 @@ namespace Monhealth.Identity.Repositories
                     Experience = c.Experience,
                     RatingCount = c.RatingCount,
                     AverageRating = c.AverageRating,
+                    IsVerified = c.IsVerified,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
                     AppUser = new AppUser
@@ -74,10 +76,10 @@ namespace Monhealth.Identity.Repositories
                         FullName = c.AppUser.FullName,
                         Avatar = c.AppUser.Avatar,
                     },
-                    //Expertise = new Expertise
-                    //{
-                    //    ExpertiseName = c.Expertise.ExpertiseName,
-                    //}
+                    Expertise = new Expertise
+                    {
+                        ExpertiseName = c.Expertise.ExpertiseName,
+                    }
                 }).FirstOrDefaultAsync();
             return consultant;
         }

@@ -1,9 +1,9 @@
-using System.Text.Json.Serialization;
 using Monhealth.Domain.Common;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Reminders.Queries.GetAllReminder
 {
-    public class ReminderDTO : TimeEntity
+    public class ReminderDTO : BaseEntity
     {
         public Guid WaterReminderId { get; set; }
         public Guid UserId { get; set; }
