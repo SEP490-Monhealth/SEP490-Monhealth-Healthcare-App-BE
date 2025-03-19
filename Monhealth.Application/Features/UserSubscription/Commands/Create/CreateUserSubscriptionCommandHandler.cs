@@ -148,8 +148,8 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             var TotalCarbs = userGoal.CarbsGoal;
             var TotalProteins = userGoal.ProteinGoal;
             var TotalFats = userGoal.FatGoal;
-          
-            var totalCaloriesDaily = TotalCarbs * 4 + TotalProteins *4 + TotalFats * 9 ; // Lấy CaloriesGoal từ userGoal nếu tồn tại
+
+            var totalCaloriesDaily = TotalCarbs * 4 + TotalProteins * 4 + TotalFats * 9; // Lấy CaloriesGoal từ userGoal nếu tồn tại
             var mealCalories = mealType switch
             {
                 MealType.Breakfast => userGoal.GoalType switch
@@ -206,7 +206,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             }
             // Phân bổ calo cho protein, carbs và rau
             var vegetableWeight = 100 * vegetableCalories / vegetableFood!.Nutrition.Calories;
-
+            vegetableWeight = RoundPortionWeight((float)vegetableWeight, userGoal.GoalType);
             Guid proteinPortionId = Guid.NewGuid();
             Guid carbPortionId = Guid.NewGuid();
             Guid vegetablePortionId = Guid.NewGuid();
@@ -312,6 +312,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             if (balanceFood != null)
             {
                 var balanceWeight = 100 * balanceCalories / balanceFood.Nutrition.Calories;
+                balanceWeight = RoundPortionWeight((float)balanceWeight, userGoal.GoalType);
 
                 _portionRepository.Add(new Domain.Portion
                 {
@@ -341,6 +342,9 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             {
                 var proteinWeight = 100 * proteinCalories / proteinFood.Nutrition.Calories;
                 var carbWeight = 100 * carbsCalories / carbFood.Nutrition.Calories;
+                proteinWeight = RoundPortionWeight((float)proteinWeight, userGoal.GoalType);
+                carbWeight = RoundPortionWeight((float)carbWeight, userGoal.GoalType);
+
 
                 _portionRepository.Add(new Domain.Portion
                 {
@@ -384,5 +388,24 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             _mealRepository.Add(meal);
             return meal;
         }
+        private float RoundPortionWeight(float portionWeight, GoalType goalType)
+        {
+            switch (goalType)
+            {
+                case GoalType.WeightLoss:
+                    // Giảm cân: Làm tròn xuống
+                    return (float)Math.Floor(portionWeight);
+                case GoalType.WeightGain:
+                    // Tăng cân: Làm tròn lên
+                    return (float)Math.Ceiling(portionWeight);
+                case GoalType.Maintenance:
+                    // Duy trì: Làm tròn đến số nguyên gần nhất
+                    return (float)Math.Round(portionWeight);
+                default:
+                    // Nếu không có mục tiêu, giữ nguyên giá trị
+                    return portionWeight;
+            }
+        }
+
     }
 }
