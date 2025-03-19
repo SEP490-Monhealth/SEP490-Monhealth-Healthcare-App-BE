@@ -9,6 +9,7 @@ namespace Monhealth.Identity.Repositories
     {
         public ReminderRepository(MonhealthDbcontext context) : base(context)
         {
+
         }
 
         public Task<List<WaterReminder>> CreateReminders(float WaterIntakesGoal, Guid? userId)
@@ -43,6 +44,7 @@ namespace Monhealth.Identity.Repositories
                     Time = slot.Time.ToString(@"hh\:mm"), // Thời gian nhắc nhở
                     Volume = (float)Math.Round(volume), // Lượng nước cần uống
                     Status = true, // Trạng thái mặc định
+                    IsRecurring = true,
                     CreatedAt = DateTime.Now, // Thời gian tạo
                     UpdatedAt = DateTime.Now // Thời gian cập nhật
                 });

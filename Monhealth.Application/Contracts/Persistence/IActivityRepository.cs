@@ -4,6 +4,7 @@ namespace Monhealth.Application.Contracts.Persistence
 {
     public interface IActivityRepository : IGenericRepository<Activity, Guid>
     {
-        Task<int> SaveChangeAsync();
+        Task<List<Activity>> GetActivitiesByUserId(Guid userId);
+        Task<int> SaveChangeAsync(CancellationToken cancellationToken);
     }
 }

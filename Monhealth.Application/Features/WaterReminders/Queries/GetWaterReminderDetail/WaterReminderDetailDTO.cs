@@ -1,5 +1,5 @@
-using System.Text.Json.Serialization;
 using Monhealth.Domain.Common;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Reminders.Queries.GetReminderDetail
 {

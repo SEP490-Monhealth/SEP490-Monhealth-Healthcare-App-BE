@@ -69,6 +69,9 @@ namespace Monhealth.Identity.Repositories
             return await _context.SaveChangesAsync();
         }
 
-        
+        public async Task<Goal> GetGoalByUserIdAndStatusActive(Guid userId)
+        {
+            return await _context.Goals.FirstOrDefaultAsync(u => u.UserId == userId && u.Status == GoalStatus.Active);
+        }
     }
 }
