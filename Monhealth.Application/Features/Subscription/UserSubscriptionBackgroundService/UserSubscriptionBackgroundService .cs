@@ -152,9 +152,13 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 throw new Exception("Không tìm thấy mục tiêu cho người dùng.");
             }
 
-            var totalCaloriesDaily = userGoal.CaloriesGoal; // Lấy CaloriesGoal từ userGoal nếu tồn tại
-            
-            
+            var TotalCarbs = userGoal.CarbsGoal;
+            var TotalProteins = userGoal.ProteinGoal;
+            var TotalFats = userGoal.FatGoal;
+
+            var totalCaloriesDaily = TotalCarbs * 4 + TotalProteins * 4 + TotalFats * 9; // Lấy CaloriesGoal từ userGoal nếu tồn tại
+
+
             var mealCalories = mealType switch
             {
                 MealType.Breakfast => userGoal.GoalType switch
@@ -180,7 +184,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 },
                 _ => 0
             };
-            
+
             double proteinCalories = 0;
             double carbsCalories = 0;
             double vegetableCalories = 0;
