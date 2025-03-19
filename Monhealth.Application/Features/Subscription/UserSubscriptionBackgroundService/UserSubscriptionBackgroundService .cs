@@ -63,7 +63,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                                 if (userRole != null)
                                 {
                                     // Xóa role cũ
-                                     userRoleRepository.Remove(userRole);
+                                    userRoleRepository.Remove(userRole);
                                     _logger.LogInformation($"Removed old role for UserId {subscription.UserId}");
                                 }
 
@@ -76,7 +76,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                                         UserId = subscription.UserId,
                                         RoleId = memberRole.Id
                                     };
-                                     userRoleRepository.Add(newUserRole);
+                                    userRoleRepository.Add(newUserRole);
                                     _logger.LogInformation($"Added 'Member' role for UserId {subscription.UserId}");
                                 }
 
@@ -152,7 +152,14 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 throw new Exception("Không tìm thấy mục tiêu cho người dùng.");
             }
 
-            var totalCaloriesDaily = userGoal.CaloriesGoal; // Lấy CaloriesGoal từ userGoal nếu tồn tại
+            // lay ProteinGoal tu userGoal neu ton tai
+
+            var proteinCaloriesDaily = userGoal.ProteinGoal;
+            var carbsCaloriesDaily = userGoal.CarbsGoal;
+            var fatCaloriesDaily = userGoal.FatGoal;
+
+            var totalCaloriesDaily = proteinCaloriesDaily * 4 + carbsCaloriesDaily * 4 + fatCaloriesDaily * 9; // Lấy CaloriesGoal từ userGoal nếu tồn tại
+
             var mealCalories = mealType switch
             {
                 MealType.Breakfast => userGoal.GoalType switch
@@ -178,6 +185,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 },
                 _ => 0
             };
+
             double proteinCalories = 0;
             double carbsCalories = 0;
             double vegetableCalories = 0;
@@ -207,7 +215,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     balanceCalories = mealCalories * 0.9;
                 }
             }
-            // Phân bổ calo cho protein, carbs và rau
+            //Phân bổ calo cho protein, carbs và rau
             var vegetableWeight = 100 * vegetableCalories / vegetableFood!.Nutrition.Calories;
 
             Guid proteinPortionId = Guid.NewGuid();
@@ -309,7 +317,13 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             // Thêm các Portion cho Balance, Protein, Carb và Vegetable
             if (balanceFood != null)
             {
-                var balanceWeight = 100 * balanceCalories / balanceFood.Nutrition.Calories;
+                var proteinWeight = 100 * balanceCalories / balanceFood.Nutrition.Protein;
+                var carbWeight = 100 * balanceCalories / balanceFood.Nutrition.Carbs;
+                var fatWeight = 100 * balanceCalories / balanceFood.Nutrition.Fat;
+
+
+
+                var balanceWeight = proteinWeight * 4 + carbWeight * 4 + fatWeight * 9;
 
                 _portionRepository.Add(new Domain.Portion
                 {
