@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType;
+using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
 using Swashbuckle.AspNetCore.Annotations;
@@ -18,18 +19,18 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        // [HttpGet]
-        // public async Task<ActionResult<ResultModel>> GetAllCategories()
-        // {
-        //     var categories = await _mediator.Send(new GetCategoryListQuery());
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllCategories()
+        {
+            var categories = await _mediator.Send(new GetCategoryListQuery());
 
-        //     return new ResultModel
-        //     {
-        //         Data = categories,
-        //         Status = 200,
-        //         Success = true
-        //     };
-        // }
+            return new ResultModel
+            {
+                Data = categories,
+                Status = 200,
+                Success = true
+            };
+        }
 
         // [HttpGet]
         // [Route("{categoryId:Guid}")]

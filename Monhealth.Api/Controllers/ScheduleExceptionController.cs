@@ -15,19 +15,6 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class ScheduleExceptionController(IMediator mediator) : ControllerBase
     {
-        [HttpPost]
-        public async Task<ResultModel> CreateScheduleException([FromBody] CreateScheduleExceptionCommand request)
-        {
-            var create = await mediator.Send(request);
-
-            return new ResultModel
-            {
-                Message = "Tạo lịch bận thành công",
-                Status = (int)HttpStatusCode.OK,
-                Success = true
-            };
-        }
-
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllScheduleException()
         {
@@ -37,6 +24,19 @@ namespace Monhealth.Api.Controllers
             {
                 Data = scheduleList,
                 Status = 200,
+                Success = true
+            };
+        }
+
+        [HttpPost]
+        public async Task<ResultModel> CreateScheduleException([FromBody] CreateScheduleExceptionCommand request)
+        {
+            var create = await mediator.Send(request);
+
+            return new ResultModel
+            {
+                Message = "Tạo lịch bận thành công",
+                Status = (int)HttpStatusCode.OK,
                 Success = true
             };
         }

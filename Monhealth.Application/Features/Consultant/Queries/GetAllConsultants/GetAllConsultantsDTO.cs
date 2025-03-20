@@ -11,9 +11,9 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetAllConsultants
         [JsonPropertyName("avatarUrl")]
         public string? Avatar { get; set; }
         public string Bio { get; set; } = string.Empty;
+        public int? Experience { get; set; }
         [JsonPropertyName("expertise")]
         public string? ExpertiseName { get; set; }
-        public int? Experience { get; set; }
         public double? RatingCount { get; set; }
         public double? AverageRating { get; set; }
         public bool IsVerified { get; set; }

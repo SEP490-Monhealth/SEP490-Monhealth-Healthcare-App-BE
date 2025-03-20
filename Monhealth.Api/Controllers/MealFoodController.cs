@@ -23,6 +23,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{mealId:Guid}/foods")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetMealFoodByMealId(Guid mealId)
         {
             var food = await _mediator.
@@ -46,30 +47,30 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet]
-        [Route("{mealId:Guid}/meal-foods")]
-        public async Task<ActionResult<ResultModel>> GetAllMealFoodByMealId(Guid mealId)
-        {
-            var food = await _mediator.
-            Send(new GetALLMealFoodByMealQuery { MealId = mealId });
+        // [HttpGet]
+        // [Route("{mealId:Guid}/meal-foods")]
+        // public async Task<ActionResult<ResultModel>> GetAllMealFoodByMealId(Guid mealId)
+        // {
+        //     var food = await _mediator.
+        //     Send(new GetALLMealFoodByMealQuery { MealId = mealId });
 
-            if (food == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Bữa ăn không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = food
-            });
-        }
+        //     if (food == null)
+        //     {
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Bữa ăn không tồn tại",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 200,
+        //         Data = food
+        //     });
+        // }
 
         [HttpPatch]
         [Route("food/{mealFoodId:Guid}/quantity")]

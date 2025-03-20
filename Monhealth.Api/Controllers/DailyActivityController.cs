@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.DailyActivity.Queries.GetDailyActivityByUserId;
-using Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -15,7 +13,6 @@ namespace Monhealth.Api.Controllers
     {
         [HttpGet]
         [Route("user")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetDailyActivityByUserId([FromQuery][Required] Guid userId,
          [FromQuery][Required] DateTime date)
         {

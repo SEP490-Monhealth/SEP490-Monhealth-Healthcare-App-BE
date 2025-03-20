@@ -40,8 +40,8 @@ namespace Monhealth.Api.Controllers
         [HttpGet("{subscriptionId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid subscriptionId)
         {
-            var portion = await _mediator.Send(new SubscriptionDetailQuery() { SubscriptionId = subscriptionId });
-            if (portion == null)
+            var result = await _mediator.Send(new SubscriptionDetailQuery() { SubscriptionId = subscriptionId });
+            if (result == null)
             {
                 return new ResultModel
                 {
@@ -51,31 +51,31 @@ namespace Monhealth.Api.Controllers
             }
             return new ResultModel
             {
-                Data = portion,
+                Data = result,
                 Status = 200,
                 Success = true
             };
         }
 
-        [HttpGet("user/{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
-        {
-            var portion = await _mediator.Send(new GetSubscriptionByUserQuery() { Userid = userId });
-            if (portion == null)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                };
-            }
-            return new ResultModel
-            {
-                Data = portion,
-                Status = 200,
-                Success = true
-            };
-        }
+        // [HttpGet("user/{userId:guid}")]
+        // public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
+        // {
+        //     var result = await _mediator.Send(new GetSubscriptionByUserQuery() { Userid = userId });
+        //     if (result == null)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Data = result,
+        //         Status = 200,
+        //         Success = true
+        //     };
+        // }
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Add([FromBody] CreateSubscriptionCommand request)
