@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Subscription.Queries.GetById;
 using Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayOfWeek;
 using Monhealth.Application.Models;
 using System.Net;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {

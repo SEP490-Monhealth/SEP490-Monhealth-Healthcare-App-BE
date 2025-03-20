@@ -5,6 +5,7 @@ using Monhealth.Application.Features.Payment.Commands.Update;
 using Monhealth.Application.Features.Payment.Queries.GetALL;
 using Monhealth.Application.Features.Payment.Queries.GetById;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers

@@ -17,6 +17,7 @@ using Monhealth.Application.Features.Expertise.Queries.GetAllExpertises;
 using Monhealth.Application.Features.Food.ChangeStatus;
 using Monhealth.Application.Models;
 using Monhealth.Domain;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {

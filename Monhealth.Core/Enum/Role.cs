@@ -2,8 +2,8 @@ namespace Monhealth.Core.Enum
 {
     public enum Role
     {
-        User,
         Member,
+        SubscriptionMember,
         Consultant,
         Admin
     }

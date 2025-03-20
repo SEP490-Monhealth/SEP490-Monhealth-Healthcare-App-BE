@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -56,6 +57,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetDailyMealByUser([FromQuery][Required] Guid userId,
          [FromQuery][Required] DateTime date)
         {

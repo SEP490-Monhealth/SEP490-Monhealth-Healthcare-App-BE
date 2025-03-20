@@ -7,6 +7,7 @@ using Monhealth.Application.Features.ScheduleException.Queries.GetAllScheduleExc
 using Monhealth.Application.Features.ScheduleException.Queries.GetScheduleExceptionById;
 using Monhealth.Application.Models;
 using System.Net;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {

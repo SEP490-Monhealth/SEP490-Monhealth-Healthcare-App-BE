@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.DaiLyWater.Queries.GetAllDaiLyWater;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -19,6 +20,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetDailyWaterIntakeByUser(
             [FromQuery][Required] Guid userId,
             [FromQuery][Required] DateTime date)

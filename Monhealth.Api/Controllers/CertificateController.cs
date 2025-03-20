@@ -7,6 +7,7 @@ using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetCertificateById;
 using Monhealth.Application.Models;
 using System.Net;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {

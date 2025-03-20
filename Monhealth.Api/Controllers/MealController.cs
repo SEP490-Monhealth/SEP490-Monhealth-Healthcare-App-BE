@@ -8,6 +8,7 @@ using Monhealth.Application.Features.Meal.Queries.GetAllMeals;
 using Monhealth.Application.Features.Meal.Queries.GetMealById;
 using Monhealth.Application.Features.Meal.Queries.GetMealByUser;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {

@@ -10,6 +10,7 @@ using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId;
 using Monhealth.Application.Features.Booking.Queries.GetBookingById;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByUserId;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {

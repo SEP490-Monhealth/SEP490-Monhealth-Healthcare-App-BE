@@ -10,6 +10,7 @@ using Monhealth.Application.Features.Reminders.Queries.GetReminderDetail;
 using Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsDrunk;
 using Monhealth.Application.Models;
 using Monhealth.Identity.BackGroundServiceForWaterReminder;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -28,6 +29,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllReminder([FromQuery] int page = 1, int limit = 10, string? search = null, bool? recurring = null, bool? status = null)
         {
             var query = new GetAllReminderQuery { Page = page, Limit = limit, Search = search, Recurring = recurring, Status = status };

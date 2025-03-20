@@ -6,6 +6,7 @@ using Monhealth.Application.Features.Wallet.Queries.GetAllWallets;
 using Monhealth.Application.Features.Wallet.Queries.GetWalletByConsultantId;
 using Monhealth.Application.Features.Wallet.Queries.GetWalletById;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {

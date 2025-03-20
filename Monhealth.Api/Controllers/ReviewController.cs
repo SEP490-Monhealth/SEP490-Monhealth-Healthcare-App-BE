@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Review.Queries.GetById;
 using Monhealth.Application.Features.Review.Queries.GetReviewByConsultant;
 using Monhealth.Application.Features.Review.Queries.GetReviewByUser;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {

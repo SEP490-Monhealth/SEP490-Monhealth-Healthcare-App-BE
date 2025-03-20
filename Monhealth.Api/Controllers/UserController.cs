@@ -9,6 +9,7 @@ using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Features.User.Queries.GetAllUser;
 using Monhealth.Application.Features.User.Queries.GetUserDetail;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -39,6 +40,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{userId:guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetUserById(Guid userId)
         {
             var result = await _mediator.Send(new GetUserDetailQuery { Id = userId });

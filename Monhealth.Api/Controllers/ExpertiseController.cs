@@ -13,6 +13,7 @@ using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
 using Monhealth.Application.Features.Expertise.Queries.GetAllExpertises;
 using Monhealth.Application.Features.Expertise.Queries.GetExpertiseById;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {

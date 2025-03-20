@@ -5,7 +5,7 @@ using Monhealth.Identity.Models;
 
 namespace Monhealth.Domain
 {
-    public class WaterReminder : TimeEntity
+    public class WaterReminder : BaseEntity
     {
         [Key]
         public Guid WaterReminderId { get; set; }

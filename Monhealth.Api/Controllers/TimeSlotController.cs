@@ -7,6 +7,7 @@ using Monhealth.Application.Features.TimeSlots.Queries.GetAllTimSlots;
 using Monhealth.Application.Features.TimeSlots.Queries.GetTimeSlotById;
 using Monhealth.Application.Models;
 using System.Net;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
