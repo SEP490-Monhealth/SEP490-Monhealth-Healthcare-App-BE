@@ -229,9 +229,10 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 mealFoods.Add(new Domain.MealFood
                 {
                     FoodId = balanceFood.FoodId,
-                    Quantity = 1,
-                    IsCompleted = false,
                     PortionId = balancePortionFoodId,
+                    Quantity = 1,
+                    IsRecommended = true,
+                    IsCompleted = false,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
@@ -241,6 +242,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                     FoodId = vegetableFood.FoodId,
                     PortionId = vegetablePortionId,
                     Quantity = 1,
+                    IsRecommended = true,
                     IsCompleted = false,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
@@ -254,6 +256,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                     FoodId = proteinFood.FoodId,
                     PortionId = proteinPortionId,
                     Quantity = 1,
+                    IsRecommended = true,
                     IsCompleted = false,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
@@ -264,6 +267,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                     FoodId = carbFood.FoodId,
                     PortionId = carbPortionId,
                     Quantity = 1,
+                    IsRecommended = true,
                     IsCompleted = false,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
@@ -274,6 +278,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                     FoodId = vegetableFood.FoodId,
                     PortionId = vegetablePortionId,
                     Quantity = 1,
+                    IsRecommended = true,
                     IsCompleted = false,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
@@ -295,7 +300,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             }
             else
             {
-
                 meal = new Domain.Meal
                 {
                     MealType = mealType,
