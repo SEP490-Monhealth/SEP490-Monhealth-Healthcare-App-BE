@@ -11,6 +11,11 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+        public Task<UserSubscription> GetByUserIdAsync(Guid userId)
+        {
+            return _context.UserSubscriptions.FirstOrDefaultAsync(us => us.UserId == userId);
+        }
+
         public Task<List<Subscription>> GetUserSubscription(Guid user)
         {
             return _context.UserSubscriptions.Where(us => us.UserId == user)

@@ -19,18 +19,20 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllCategories()
-        {
-            var categories = await _mediator.Send(new GetCategoryListQuery());
-
-            return new ResultModel
+            [HttpGet]
+            public async Task<ActionResult<ResultModel>> GetAllCategories(int page = 1, int limit = 10, string search = "", CategoryType? type = null)
             {
-                Data = categories,
-                Status = 200,
-                Success = true
-            };
-        }
+                
+                var categories = await _mediator.Send(new GetCategoryListQuery(page, limit, search, type));
+
+                return new ResultModel
+                {
+                    Data = categories,
+                    Status = 200,
+                    Success = true
+                };
+            }
+        
 
         // [HttpGet]
         // [Route("{categoryId:Guid}")]

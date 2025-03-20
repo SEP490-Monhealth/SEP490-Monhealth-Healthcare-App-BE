@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models.Paging;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
@@ -18,9 +19,27 @@ namespace Monhealth.Identity.Repositories
             return await _context.Set<Category>().AnyAsync(predicate);
         }
 
-        public async Task<List<Category>> GetAllCategoryAsync()
+        public async Task<PaginatedResult<Category>> GetAllCategoryAsync(int page, int limit, string search, CategoryType? categoryType)
         {
-            return await _context.Categories.ToListAsync();
+            IQueryable<Category> query = _context.Categories.AsQueryable();
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(c => c.CategoryName.Contains(search));
+            }
+            if (categoryType.HasValue)
+            {
+                query = query.Where(c => c.CategoryType == categoryType);
+            }
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            var totalItems = await query.CountAsync();
+            return new PaginatedResult<Category>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<List<Category>> GetCategoriesByList(List<string> categories)

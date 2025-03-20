@@ -21,9 +21,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllReviews()
+        public async Task<ActionResult<ResultModel>> GetAllPayment(int page = 1, int limit = 10, string search = "")
         {
-            var queries = await _mediator.Send(new GetPaymentListQuery());
+            var queries = await _mediator.Send(new GetPaymentListQuery(page, limit, search));
 
             return new ResultModel
             {
