@@ -24,9 +24,16 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllReviews()
+        public async Task<ActionResult<ResultModel>> GetAllReviews(int page = 1, int limit = 10, int? rating = null)
         {
-            var queries = await _mediator.Send(new GetReviewListQuery());
+            if (rating.HasValue && (rating < 1 || rating > 5))
+            {
+                throw new ArgumentException("Rating must be between 1 and 5", nameof(rating));
+            }
+
+            // Nếu không có rating thì gán giá trị mặc định cho rating
+            var queries = await _mediator.Send(new GetReviewListQuery(page, limit, rating ?? 0));
+
 
             return new ResultModel
             {

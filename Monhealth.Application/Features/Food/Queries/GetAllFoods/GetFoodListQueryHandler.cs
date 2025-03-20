@@ -1,4 +1,3 @@
-using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models;
@@ -9,14 +8,9 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
     public class GetFoodListQueryHandler : IRequestHandler<GetFoodListQuery, PageResult<FoodDTO>>
     {
         private readonly IFoodRepository _foodRepository;
-        private readonly IMapper _mapper;
-        private readonly IDishTypeRepository _dishTypeRepository;
-        public GetFoodListQueryHandler(IFoodRepository foodRepository, IMapper mapper,
-        IDishTypeRepository dishTypeRepository)
+        public GetFoodListQueryHandler(IFoodRepository foodRepository)
         {
             _foodRepository = foodRepository;
-            _mapper = mapper;
-            _dishTypeRepository = dishTypeRepository;
         }
 
         public async Task<PageResult<FoodDTO>> Handle(GetFoodListQuery request, CancellationToken cancellationToken)

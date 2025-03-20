@@ -3,7 +3,6 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Core.Enum;
 using Microsoft.Extensions.Logging;
 using Monhealth.Domain.Enum;
-using Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFunction;
 using Monhealth.Domain;
 using Monhealth.Identity.Models;
 
@@ -16,7 +15,6 @@ namespace Monhealth.Application
         private readonly IPortionRepository _portionRepository;
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IGoalRepository _goalRepository;
-        private readonly FilterFoodListHandler _filterFoodListHandler;
         private readonly IFoodRepository _foodRepository;
         private readonly IUserRepository _userRepository;
         private readonly ILogger<RecommendMealCommandHandler> _logger;
@@ -28,7 +26,6 @@ namespace Monhealth.Application
             IDailyMealRepository dailyMealRepository,
             IGoalRepository goalRepository,
             ILogger<RecommendMealCommandHandler> logger,
-            FilterFoodListHandler filterFoodListHandler,
             IFoodRepository foodRepository,
             IUserRepository userRepository)
         {
@@ -38,7 +35,6 @@ namespace Monhealth.Application
             _dailyMealRepository = dailyMealRepository;
             _goalRepository = goalRepository;
             _logger = logger;
-            _filterFoodListHandler = filterFoodListHandler;
             _foodRepository = foodRepository;
             _userRepository = userRepository;
         }

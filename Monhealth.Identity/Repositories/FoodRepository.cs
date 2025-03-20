@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
-using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -180,17 +179,7 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        public async Task<List<Food>> GetFoodsAsync(int Skip, int take)
-        {
-            return await _context.Foods
-                .Include(f => f.CategoryFoods)
-                .ThenInclude(f => f.Category)
-                .Include(f => f.Nutrition)
-                .Include(f => f.FoodPortions).ThenInclude(fp => fp.Portion)
-           .Skip(Skip)
-           .Take(take)
-           .ToListAsync();
-        }
+        
 
         public async Task<List<Food>> GetFoodsByCategoryNameAsync(string[] categoryNames)
         {
@@ -198,25 +187,7 @@ namespace Monhealth.Identity.Repositories
                Include(f => f.Nutrition).Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
         }
 
-        public async Task<List<Food>> GetFoodsExcludingIdsAsync(List<Guid> excludedFoodIds, int skip, int take)
-        {
-            return await _context.Foods
-                .Where(food => !excludedFoodIds.Contains(food.FoodId))
-                .Skip(skip)
-                .Take(take)
-                .ToListAsync();
-        }
-
-        public async Task<IEnumerable<Food>> GetFoodsFilteredByAllergiesAsync(IEnumerable<string> allergies, int skip, int take)
-        {
-            return await _context.Foods
-                .Where(f => !allergies.Any(allergy => f.FoodDescription.Contains(allergy))) // Lọc các món không chứa dị ứng
-                .OrderBy(f => f.FoodName) // Sắp xếp (tuỳ chỉnh nếu cần)
-                .Skip(skip) // Bỏ qua số lượng bản ghi
-                .Take(take) // Lấy số lượng bản ghi
-                .ToListAsync();
-        }
-
+    
         public async Task<Nutrition?> GetNutritionByFoodIdAsync(Guid foodId)
         {
             return await _context.Nutritions
@@ -278,67 +249,6 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        //     public async Task<PaginatedResult<Food>> GetPaginatedFoodsByFiltersAsync(
-        // List<Guid> categoryIds,
-        // List<Guid> excludedFoodIds,
-        // List<MealType>? mealTypeFilter,
-        // List<DishType>? dishTypeFilter,
-        // int skip,
-        // int take)
-        //     {
-        //         var query = _context.Foods
-        //             .Include(f => f.CategoryFoods)
-        //                 .ThenInclude(cf => cf.Category)
-        //             .Where(f => !excludedFoodIds.Contains(f.FoodId)
-        //                         && f.CategoryFoods.Any(cf => categoryIds.Contains(cf.CategoryId))
-        //                         && f.IsPublic
-        //                         && f.Status);
-
-        //         // ✅ Correct way: Apply filtering directly in the database
-        //         if (mealTypeFilter != null && mealTypeFilter.Any())
-        //         {
-        //             query = query.Where(f => f.MealType.Any(mt => mealTypeFilter.Select(s => nameof(s)).Contains(nameof(mt))));
-        //         }
-
-        //         if (dishTypeFilter != null && dishTypeFilter.Any())
-        //         {
-        //             query = query.Where(f => f.DishType.Any(dt => dishTypeFilter.Select(s => nameof(s)).Contains(nameof(dt))));
-        //         }
-
-        //         // ✅ Fix: Use Async operations on IQueryable
-        //         var totalCount = await query.CountAsync(); // Must stay async
-
-        //         var items = await query
-        //             .OrderBy(f => f.FoodName)
-        //             .Skip(skip)
-        //             .Take(take)
-        //             .ToListAsync(); // ✅ Ensure ToListAsync() is called on IQueryable
-
-        //         return new PaginatedResult<Food>
-        //         {
-        //             Items = items,
-        //             TotalCount = totalCount
-        //         };
-        //     }
-
-        public async Task<PaginatedResult<Food>> GetPaginatedFoodsExcludingIdsAsync(IEnumerable<Guid> excludedFoodIds, int skip, int take)
-        {
-            var query = _context.Foods
-        .Where(f => !excludedFoodIds.Contains(f.FoodId));
-
-            var totalCount = await query.CountAsync();
-            var items = await query
-                .OrderBy(f => f.FoodName)
-                .Skip(skip)
-                .Take(take)
-                .ToListAsync();
-
-            return new PaginatedResult<Food>
-            {
-                Items = items,
-                TotalCount = totalCount
-            };
-        }
 
         public async Task<(Food?, Food?, Food?, Food?)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
         {
@@ -441,24 +351,6 @@ namespace Monhealth.Identity.Repositories
             return _context.Foods.CountAsync();
         }
 
-        public async Task<int> GetTotalFoodCountExcludingIdsAsync(List<Guid> excludedFoodIds)
-        {
-            return await _context.Foods
-           .Where(food => !excludedFoodIds.Contains(food.FoodId))
-           .CountAsync();
-        }
-
-        public async Task<int> GetTotalFoodCountFilteredByAllergiesAsync(IEnumerable<string> allergies)
-        {
-            return await _context.Foods
-                .CountAsync(f => !allergies.Any(allergy => f.FoodDescription.Contains(allergy)));
-        }
-
-        public void RemoveFoodPortions(Guid foodId)
-        {
-            var portionsToRemove = _context.FoodPortions.Where(fp => fp.FoodId == foodId);
-            _context.FoodPortions.RemoveRange(portionsToRemove);
-        }
 
         public async Task<int> SaveChangesAsync()
         {

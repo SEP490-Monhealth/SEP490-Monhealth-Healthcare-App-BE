@@ -16,7 +16,7 @@ namespace Monhealth.Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<IUserContext, UserContext>();
 
-            services.AddScoped<IGenerateDailyMenuService, GenerateDailyMenuService>();
+            // services.AddScoped<IGenerateDailyMenuService, GenerateDailyMenuService>();
             services.AddAutoMapper(typeof(GetAllFoodProfile).Assembly);
             services.AddAutoMapper(typeof(GetFoodByUserIdProfile).Assembly);
             services.AddAutoMapper(typeof(GetFoodByFoodTypeProfile).Assembly);

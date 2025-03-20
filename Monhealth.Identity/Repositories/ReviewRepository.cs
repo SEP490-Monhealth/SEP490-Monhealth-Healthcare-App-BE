@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -9,6 +10,25 @@ namespace Monhealth.Identity.Repositories
     {
         public ReviewRepository(MonhealthDbcontext context) : base(context)
         {
+        }
+
+        public async Task<PaginatedResult<Review>> GetAllReviewAsync(int page, int limit, int rating)
+        {
+            IQueryable<Review> query = _context.Reviews.Include(r => r.User).AsQueryable();
+            if (rating > 0)
+            {
+                query = query.Where(review => review.Rating == rating);
+            }
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            var totalItems = await query.CountAsync();
+            return new PaginatedResult<Review>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         //public async Task<List<Review>> GetReviewsByConsultant(Guid consultantId)

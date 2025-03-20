@@ -7,7 +7,6 @@ using Microsoft.IdentityModel.Tokens;
 using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
-using Monhealth.Application.Features.Meal.RecommendMealForUser.SupportFunction;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Features.Subscription.UserSubscriptionBackgroundService;
 using Monhealth.Application.Models.Identity;
@@ -109,7 +108,6 @@ namespace Monhealth.Identity
             services.AddScoped<IScheduleExceptionRepository, ScheduleExceptionRepository>();
             services.AddScoped<IDishTypeRepository, DishTypeRepository>();
            services.AddScoped<IUserRoleRepository,UserRoleRepository>();
-            services.AddScoped<FilterFoodListHandler>();
             // Đăng ký Background Service
             services.AddHostedService<UserSubscriptionBackgroundService>();
 
