@@ -10,6 +10,7 @@ using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId;
 using Monhealth.Application.Features.Booking.Queries.GetBookingById;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByUserId;
 using Monhealth.Application.Models;
+using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
@@ -20,9 +21,9 @@ namespace Monhealth.Api.Controllers
     {
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllBooking(int page = 1, int limit = 10, string? search = null)
+        public async Task<ActionResult<ResultModel>> GetAllBooking(int page = 1, int limit = 10, string? search = null, BookingStatus? status = null)
         {
-            var bookings = await mediator.Send(new GetAllBookingQueries { Page = page, Limit = limit, Search = search });
+            var bookings = await mediator.Send(new GetAllBookingQueries { Page = page, Limit = limit, Search = search, Status = status });
             return new ResultModel
             {
                 Data = bookings,

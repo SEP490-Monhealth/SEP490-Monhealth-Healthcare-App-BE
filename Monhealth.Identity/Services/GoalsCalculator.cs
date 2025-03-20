@@ -2,6 +2,7 @@
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Identity.Services
 {
@@ -22,7 +23,6 @@ namespace Monhealth.Identity.Services
             var (calories, protein, carbs, fats) = CreateCalculateMacros(
                 tdee, createMetricDto.GoalType.ToString(), createMetricDto.CaloriesRatio,
                 createMetricDto.Weight, goal.WeightGoal, createMetricDto.ActivityLevel);
-
             goal.CaloriesGoal = calories;
             goal.ProteinGoal = protein;
             goal.CarbsGoal = carbs;
@@ -33,8 +33,23 @@ namespace Monhealth.Identity.Services
 
             // Tính toán lượng nước cần uống
             goal.WaterIntakesGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel < 1.725f ? 35 : 40));
+            goal.WorkoutDurationGoal = CalculateWorkoutDurationGoal(createMetricDto.GoalType);
+            goal.CaloriesBurnedGoal = goal.CaloriesGoal - tdee;
         }
-
+        public float CalculateWorkoutDurationGoal(GoalType goalType)
+        {
+            switch (goalType)
+            {
+                case GoalType.WeightLoss:
+                    return 45f; // Khoảng 315 phút/tuần
+                case GoalType.Maintenance:
+                    return 30f; // Khoảng 210 phút/tuần
+                case GoalType.WeightGain:
+                    return 35f; // Khoảng 245 phút/tuần
+                default:
+                    return 30f;
+            }
+        }
         private (float calories, float protein, float carbs, float fats) CreateCalculateMacros(
             float tdee, string goalType, float caloriesRatio, float currentWeight,
             float targetWeight, float activityLevel)

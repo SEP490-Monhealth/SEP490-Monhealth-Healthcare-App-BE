@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Goals.Queries.GetGoalByUserId
         public float FiberGoal { get; set; }
         public float SugarGoal { get; set; }
         public int WaterIntakesGoal { get; set; }
-        public float DurationGoal { get; set; }
+        public float WorkoutDurationGoal { get; set; }
         public float CaloriesBurnedGoal { get; set; }
         public GoalStatus Status { get; set; }
     }

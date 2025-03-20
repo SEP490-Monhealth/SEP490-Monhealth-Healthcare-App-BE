@@ -2,6 +2,7 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
@@ -13,7 +14,7 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public async Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit, string? search)
+        public async Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit, string? search, BookingStatus? status)
         {
             search = search?.Trim();
             IQueryable<Booking> query = _context.Bookings.AsNoTracking()
@@ -27,6 +28,10 @@ namespace Monhealth.Identity.Repositories
                                    || b.Consultant.AppUser.PhoneNumber.Contains(search)
                                    || b.User.PhoneNumber.Contains(search)
                                    );
+            }
+            if (status.HasValue)
+            {
+                query = query.Where(b => b.Status == status.Value);
             }
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
