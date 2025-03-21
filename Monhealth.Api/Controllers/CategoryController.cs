@@ -20,7 +20,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllCategories(int page = 1, int limit = 10, string? search = null, CategoryType? type = null)
+        public async Task<ActionResult<ResultModel>> GetAllCategories(int page = 1, int limit = 10,  CategoryType? type = null , string? search = null)
         {
 
             var categories = await _mediator.Send(new GetCategoryListQuery(page, limit, search, type));
