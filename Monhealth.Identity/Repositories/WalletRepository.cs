@@ -12,7 +12,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Wallet>> GetAllWalletAsync(int page, int limit)
+        public async Task<PaginatedResult<Wallet>> GetAllWalletAsync(int page, int limit, bool? status)
         {
             IQueryable<Wallet> query = _context.Wallets.AsNoTracking().AsQueryable();
             //if (!string.IsNullOrEmpty(search))
@@ -20,6 +20,10 @@ namespace Monhealth.Identity.Repositories
             //    query = query.Where(b => EF.Functions.Collate(b.User.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
             //                       b.Consultant.AppUser.FullName.ToLower().Contains(search.ToLower()));
             //}
+            if (status.HasValue)
+            {
+                query = query.Where(t => t.Status == status.Value);
+            }
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {

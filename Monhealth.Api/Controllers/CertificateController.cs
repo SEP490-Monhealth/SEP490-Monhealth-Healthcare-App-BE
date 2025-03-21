@@ -1,13 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Certificate.Commands.CreateCertificate;
 using Monhealth.Application.Features.Certificate.Commands.DeleteCertificate;
 using Monhealth.Application.Features.Certificate.Commands.UpdateCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetCertificateById;
 using Monhealth.Application.Models;
 using System.Net;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -16,9 +14,9 @@ namespace Monhealth.Api.Controllers
     public class CertificateController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllCertificate(int page = 1, int limit = 10, string? search = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllCertificate(int page = 1, int limit = 10, string? search = null, bool? verified = null)
         {
-            var certificates = await mediator.Send(new GetAllCertificateQuery(page, limit, search, status));
+            var certificates = await mediator.Send(new GetAllCertificateQuery(page, limit, search, verified));
             return new ResultModel
             {
                 Data = certificates,

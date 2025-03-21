@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Transaction.Queries.GetAllTransactions
@@ -17,7 +16,7 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetAllTransactions
         }
         public async Task<PageResult<GetAllTransactionsDTO>> Handle(GetAllTransactionsQuery request, CancellationToken cancellationToken)
         {
-            var listTransactions = await _transactionRepository.GetAllTransactionsAsync(request.Page, request.Limit);
+            var listTransactions = await _transactionRepository.GetAllTransactionsAsync(request.Page, request.Limit, request.Type, request.Status);
             var listTransactionsDto = _mapper.Map<List<GetAllTransactionsDTO>>(listTransactions.Items);
             return new PageResult<GetAllTransactionsDTO>()
             {

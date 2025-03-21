@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Monhealth.Application.Models;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Transaction.Queries.GetAllTransactions
 {
@@ -12,10 +8,15 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetAllTransactions
     {
         public int Page { get; set; }
         public int Limit { get; set; }
-        public GetAllTransactionsQuery(int page, int limit)
+        public TransactionType? Type { get; set; }
+        public StatusTransaction? Status { get; set; }
+
+        public GetAllTransactionsQuery(int page, int limit, TransactionType? type, StatusTransaction? status)
         {
             Page = page;
             Limit = limit;
+            Type = type;
+            Status = status;
         }
     }
 }

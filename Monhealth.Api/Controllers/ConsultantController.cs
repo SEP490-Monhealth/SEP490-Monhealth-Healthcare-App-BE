@@ -1,6 +1,4 @@
-﻿using System.Net;
-using MediatR;
-using Microsoft.AspNetCore.Http;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsultant;
 using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
@@ -9,15 +7,8 @@ using Monhealth.Application.Features.Consultant.Commands.UpdateConsultant;
 using Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant;
 using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
 using Monhealth.Application.Features.Consultant.Queries.GetConsultantById;
-using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
-using Monhealth.Application.Features.Expertise.Commands.CreateExpertise;
-using Monhealth.Application.Features.Expertise.Commands.DeleteExpertise;
-using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
-using Monhealth.Application.Features.Expertise.Queries.GetAllExpertises;
-using Monhealth.Application.Features.Food.ChangeStatus;
 using Monhealth.Application.Models;
-using Monhealth.Domain;
-using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -32,9 +23,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, bool? status = null)
         {
-            var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, status));
+            var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, expertise, search, status));
 
             return new ResultModel
             {

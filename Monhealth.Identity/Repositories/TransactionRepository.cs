@@ -2,6 +2,7 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
@@ -12,9 +13,17 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit)
+        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, StatusTransaction? status)
         {
-            IQueryable<Transaction> query = _context.Transactions.AsQueryable();
+            IQueryable<Transaction> query = _context.Transactions.AsNoTracking().AsQueryable();
+            if (type.HasValue)
+            {
+                query = query.Where(t => t.TransactionType == type);
+            }
+            if (status.HasValue)
+            {
+                query = query.Where(t => t.Status == status);
+            }
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {

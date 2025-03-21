@@ -9,7 +9,7 @@ namespace Monhealth.Application.Features.Certificate.Queries.GetAllCertificate
     {
         public async Task<PageResult<CertificateDto>> Handle(GetAllCertificateQuery request, CancellationToken cancellationToken)
         {
-            var pagingCertificates = await certificateRepository.GetAllCertificateAsync(request.Page, request.Limit, request.Search, request.Status);
+            var pagingCertificates = await certificateRepository.GetAllCertificateAsync(request.Page, request.Limit, request.Search, request.IsVerified);
             return new PageResult<CertificateDto>()
             {
                 CurrentPage = request.Page,

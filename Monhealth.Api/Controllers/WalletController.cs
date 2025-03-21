@@ -6,7 +6,6 @@ using Monhealth.Application.Features.Wallet.Queries.GetAllWallets;
 using Monhealth.Application.Features.Wallet.Queries.GetWalletByConsultantId;
 using Monhealth.Application.Features.Wallet.Queries.GetWalletById;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -15,9 +14,9 @@ namespace Monhealth.Api.Controllers
     public class WalletController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllWallets()
+        public async Task<ActionResult<ResultModel>> GetAllWallets(int page = 1, int limit = 10, bool? status = null)
         {
-            var wallets = await mediator.Send(new GetAllWalletsQuery());
+            var wallets = await mediator.Send(new GetAllWalletsQuery { Page = page, Limit = limit, Status = status });
 
             return new ResultModel
             {

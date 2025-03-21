@@ -20,7 +20,7 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public async Task<PaginatedResult<Certificate>> GetAllCertificateAsync(int page, int limit, string? search, bool? status)
+        public async Task<PaginatedResult<Certificate>> GetAllCertificateAsync(int page, int limit, string? search, bool? isVerfied)
         {
             search = search?.Trim();
             IQueryable<Certificate> query = _context.Certificates.AsQueryable();
@@ -31,13 +31,14 @@ namespace Monhealth.Identity.Repositories
             {
                 // cho phep search khong dau
                 query = query.Where(s => EF.Functions.Collate(s.CertificateName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
-                    s.CertificateId.ToString().ToLower().Contains(search.ToLower()));
+                    s.CertificateId.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.CertificateNumber.Contains(search)
+                    );
             }
 
-
-            if (status.HasValue)
+            if (isVerfied.HasValue)
             {
-                query = query.Where(s => s.IsVerified == status.Value);
+                query = query.Where(c => c.IsVerified == isVerfied);
             }
             int totalItems = await query.CountAsync();
 

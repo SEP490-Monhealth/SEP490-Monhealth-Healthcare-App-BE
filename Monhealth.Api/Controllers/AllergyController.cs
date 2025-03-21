@@ -2,7 +2,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Allergy.Queries.GetAll;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -17,9 +16,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllAllergies()
+        public async Task<ActionResult<ResultModel>> GetAllAllergies(int page = 1, int limit = 10, string? search = null)
         {
-            var categories = await _mediator.Send(new GetAllergyQuery());
+            var categories = await _mediator.Send(new GetAllergyQuery { Page = page, Limit = limit, Search = search });
 
             return new ResultModel
             {

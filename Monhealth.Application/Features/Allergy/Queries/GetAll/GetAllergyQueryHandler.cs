@@ -1,10 +1,11 @@
 using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Allergy.Queries.GetAll
 {
-    public class GetAllergyQueryHandler : IRequestHandler<GetAllergyQuery, List<AllergyDTO>>
+    public class GetAllergyQueryHandler : IRequestHandler<GetAllergyQuery, PageResult<AllergyDTO>>
     {
         private readonly IAllergyRepository _allergyRepository;
         private readonly IMapper _mapper;
@@ -15,10 +16,16 @@ namespace Monhealth.Application.Features.Allergy.Queries.GetAll
             _mapper = mapper;
         }
 
-        public async Task<List<AllergyDTO>> Handle(GetAllergyQuery request, CancellationToken cancellationToken)
+        public async Task<PageResult<AllergyDTO>> Handle(GetAllergyQuery request, CancellationToken cancellationToken)
         {
-            var query = await _allergyRepository.GetAllAsync();
-            return _mapper.Map<List<AllergyDTO>>(query);
+            var pagingAllergries = await _allergyRepository.GetAllAlleriesAsync(request.Page, request.Limit, request.Search);
+            return new PageResult<AllergyDTO>
+            {
+                Items = _mapper.Map<List<AllergyDTO>>(pagingAllergries.Items),
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(pagingAllergries.TotalCount / (double)request.Limit),
+                TotalItems = pagingAllergries.TotalCount,
+            };
         }
     }
 }

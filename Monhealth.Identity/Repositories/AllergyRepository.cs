@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -20,6 +21,29 @@ namespace Monhealth.Identity.Repositories
                  fa => fa.AllergyId,
                  (ua, fa) => new { ua, fa })
            .AnyAsync(joined => joined.fa.FoodId == food);
+        }
+
+        public async Task<PaginatedResult<Allergy>> GetAllAlleriesAsync(int page, int limit, string? search)
+        {
+            IQueryable<Allergy> query = _context.Allergies.AsNoTracking().AsQueryable();
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(a => EF.Functions.Collate(a.AllergyName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+
+            }
+
+            var totalItems = await query.CountAsync();
+
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            return new PaginatedResult<Allergy>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<List<Allergy>> GetAllergiesByList(List<string> allergies)

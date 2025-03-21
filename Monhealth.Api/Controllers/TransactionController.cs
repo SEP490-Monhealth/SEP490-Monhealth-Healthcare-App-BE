@@ -1,5 +1,4 @@
-﻿using System.Net;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Transaction.Commands.CreateTransaction;
 using Monhealth.Application.Features.Transaction.Commands.DeleteTransaction;
@@ -8,7 +7,8 @@ using Monhealth.Application.Features.Transaction.Queries.GetAllTransactions;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionById;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
+using Monhealth.Domain.Enum;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -17,9 +17,9 @@ namespace Monhealth.Api.Controllers
     public class TransactionController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllTransactions(int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllTransactions(int page = 1, int limit = 10, TransactionType? transactionType = null, StatusTransaction? status = null)
         {
-            var transactionsList = await mediator.Send(new GetAllTransactionsQuery(page, limit));
+            var transactionsList = await mediator.Send(new GetAllTransactionsQuery(page, limit, transactionType, status));
 
             return new ResultModel
             {

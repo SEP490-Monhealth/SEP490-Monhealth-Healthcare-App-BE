@@ -13,7 +13,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, bool? status)
+        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? status)
         {
             IQueryable<Consultant> query = _context.Consultants
                 .Select(c => new Consultant
@@ -32,6 +32,7 @@ namespace Monhealth.Identity.Repositories
                     {
                         FullName = c.AppUser.FullName,
                         Avatar = c.AppUser.Avatar,
+                        PhoneNumber = c.AppUser.PhoneNumber
                     },
                     Expertise = new Expertise
                     {
@@ -39,6 +40,20 @@ namespace Monhealth.Identity.Repositories
                     }
                 })
                 .AsQueryable();
+
+            if (!string.IsNullOrEmpty(expertise))
+            {
+                query = query.Where(c => EF.Functions.Collate(c.Expertise.ExpertiseName.ToLower(), "SQL_Latin1_General_CP1_CI_AI").Contains(expertise.ToLower()));
+            }
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(c => EF.Functions.Collate(c.AppUser.FullName.ToLower(), "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
+                                c.AppUser.FullName.ToLower().Contains(search.ToLower())
+                                 || c.AppUser.PhoneNumber.Contains(search)
+                                 );
+            }
+
             if (status.HasValue)
             {
                 query = query.Where(s => s.Status == status.Value);

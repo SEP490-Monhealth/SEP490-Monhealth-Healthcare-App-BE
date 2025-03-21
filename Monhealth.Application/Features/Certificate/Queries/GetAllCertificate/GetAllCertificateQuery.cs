@@ -8,14 +8,14 @@ namespace Monhealth.Application.Features.Certificate.Queries.GetAllCertificate
         public int Page { get; set; }
         public int Limit { get; set; }
         public string Search { get; set; }
-        public bool? Status { get; set; }
+        public bool? IsVerified { get; set; }
 
-        public GetAllCertificateQuery(int page, int limit, string search, bool? status)
+        public GetAllCertificateQuery(int page, int limit, string search, bool? isVerified)
         {
             Page = page;
             Limit = limit;
             Search = search;
-            Status = status;
+            IsVerified = isVerified;
         }
     }
 }

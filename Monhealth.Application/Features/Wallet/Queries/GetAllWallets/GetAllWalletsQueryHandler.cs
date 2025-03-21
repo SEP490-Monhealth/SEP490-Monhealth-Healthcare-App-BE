@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Wallet.Queries.GetAllWallets
 
         async Task<PageResult<GetAllWalletsDTO>> IRequestHandler<GetAllWalletsQuery, PageResult<GetAllWalletsDTO>>.Handle(GetAllWalletsQuery request, CancellationToken cancellationToken)
         {
-            var walletPaging = await _walletRepository.GetAllWalletAsync(request.Page, request.Limit);
+            var walletPaging = await _walletRepository.GetAllWalletAsync(request.Page, request.Limit, request.Status);
             return new PageResult<GetAllWalletsDTO>
             {
                 CurrentPage = request.Page,

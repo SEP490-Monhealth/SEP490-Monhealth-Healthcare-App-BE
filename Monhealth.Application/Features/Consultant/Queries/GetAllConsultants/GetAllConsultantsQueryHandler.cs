@@ -16,7 +16,7 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetAllConsultants
         }
         public async Task<PageResult<GetAllConsultantsDTO>> Handle(GetAllConsultantsQuery request, CancellationToken cancellationToken)
         {
-            var listConsultants = await _consultantRepository.GetAllConsultants(request.Page, request.Limit, request.Status);
+            var listConsultants = await _consultantRepository.GetAllConsultants(request.Page, request.Limit, request.Expertise, request.Search, request.Status);
             var listConsultantsDto = _mapper.Map<List<GetAllConsultantsDTO>>(listConsultants.Items);
             return new PageResult<GetAllConsultantsDTO>()
             {

@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Monhealth.Application.Models.Paging;
+﻿using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
     public interface ITransactionRepository : IGenericRepository<Transaction, Guid>
     {
-        Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit);
+        Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, StatusTransaction? status);
         Task<Transaction> GetTransactionByWalletId(Guid walletId);
         Task<int> SaveChangeAsync();
     }
