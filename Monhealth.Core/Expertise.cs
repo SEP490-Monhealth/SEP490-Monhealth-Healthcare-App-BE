@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Monhealth.Domain
 {
-    public class Expertise : TimeEntity
+    public class Expertise : BaseEntity
     {
         [Key]
         public Guid ExpertiseId { get; set; }

@@ -3,7 +3,7 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Expertise.Queries.GetAllExpertises
 {
-    public class GetAllExpertisesDTO : TimeEntity
+    public class GetAllExpertisesDTO : BaseEntity
     {
         public Guid ExpertiseId { get; set; }
         [JsonPropertyName("name")]

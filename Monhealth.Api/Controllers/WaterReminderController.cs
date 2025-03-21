@@ -65,6 +65,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{waterReminderId:guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid waterReminderId)
         {
             var portion = await _mediator.Send(new GerReminderDetailQuery() { WaterReminderId = waterReminderId });

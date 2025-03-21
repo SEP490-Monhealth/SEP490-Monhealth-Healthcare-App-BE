@@ -26,6 +26,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllUser(int page = 1, int limit = 10, string? search = null, string? role = null, bool? status = null)
         {
             var result = await _mediator.Send(new GetAllUserQuery { Page = page, Limit = limit, Search = search, Role = role, Status = status });
@@ -130,6 +131,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPatch]
         [Route("{userId}/status")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid userId)
         {
             var foods = await _mediator.
