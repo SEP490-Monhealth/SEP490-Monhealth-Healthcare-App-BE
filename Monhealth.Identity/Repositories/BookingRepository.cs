@@ -45,48 +45,32 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<Booking> GetBookingByBookingIdAsync(Guid bookingId)
+        {
+            return await _context.Bookings.Include(b => b.User)
+            .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
+            .FirstOrDefaultAsync(b => b.BookingId == bookingId);
+        }
+
         public async Task<Booking?> GetBookingByConsultantId(Guid consultantId)
         {
-            return await _context.Bookings.AsNoTracking()
-                 .Include(b => b.User)
-                .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
-                .Where(b => b.ConsultantId == consultantId)
-                .Select(b => new Booking
-                {
-                    BookingId = b.BookingId,
-                    UserId = b.UserId,
-                    //Date = b.Date,
-                    Notes = b.Notes,
-                    Status = b.Status,
-                    CreatedAt = b.CreatedAt,
-                    UpdatedAt = b.UpdatedAt,
-                    CreatedBy = b.CreatedBy,
-                    UpdatedBy = b.UpdatedBy,
-                }).FirstOrDefaultAsync();
+            return await _context.Bookings.AsNoTracking().
+                 AsSplitQuery()
+                .Include(b => b.User)
+                .Include(b => b.Consultant)
+                .ThenInclude(c => c.AppUser)
+                .FirstOrDefaultAsync(b => b.ConsultantId == consultantId);
+                
         }
 
         public async Task<Booking> GetBookingByUserId(Guid userId)
         {
             return await _context.Bookings
                    .AsNoTracking()
-                    .Include(b => b.User)
-                .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
-                   .Where(b => b.UserId == userId)
-                   .Select(b => new Booking
-                   {
-                       BookingId = b.BookingId,
-                       UserId = b.UserId,
-                       ConsultantId = b.ConsultantId,
-                       // Date = b.Date,
-                       Notes = b.Notes,
-                       Status = b.Status,
-                       CreatedAt = b.CreatedAt,
-                       UpdatedAt = b.UpdatedAt,
-                       CreatedBy = b.CreatedBy,
-                       UpdatedBy = b.UpdatedBy,
-
-                   })
-                   .FirstOrDefaultAsync() ?? new Booking(); ;
+                   .AsSplitQuery()
+                   .Include(b => b.User)
+                   .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
+                   .FirstOrDefaultAsync(b => b.UserId == userId) ;
 
 
         }

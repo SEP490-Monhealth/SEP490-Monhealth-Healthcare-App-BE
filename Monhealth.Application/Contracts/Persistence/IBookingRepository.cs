@@ -10,5 +10,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit, string? search, BookingStatus? statis);
         Task<Booking> GetBookingByUserId(Guid userId);
         Task<Booking?> GetBookingByConsultantId(Guid consultantId);
+        Task<Booking>GetBookingByBookingIdAsync(Guid bookingId);
     }
 }
