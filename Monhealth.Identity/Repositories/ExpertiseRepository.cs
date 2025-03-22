@@ -13,9 +13,13 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public async Task<PaginatedResult<Expertise>> GetAllExpertisesAsync(int page, int limit)
+        public async Task<PaginatedResult<Expertise>> GetAllExpertisesAsync(int page, int limit , string? search)
         {
             IQueryable<Expertise> query = _context.Expertises.AsQueryable();
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(e => e.ExpertiseName.Contains(search));
+            }
 
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)

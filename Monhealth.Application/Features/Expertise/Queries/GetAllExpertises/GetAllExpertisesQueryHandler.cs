@@ -16,7 +16,7 @@ namespace Monhealth.Application.Features.Expertise.Queries.GetAllExpertises
         }
         public async Task<PageResult<GetAllExpertisesDTO>> Handle(GetAllExpertisesQuery request, CancellationToken cancellationToken)
         {
-            var listExpertise = await _expertiseRepository.GetAllExpertisesAsync(request.Page, request.Limit);
+            var listExpertise = await _expertiseRepository.GetAllExpertisesAsync(request.Page, request.Limit , request.Search);
             var listExpertiseDto = _mapper.Map<List<GetAllExpertisesDTO>>(listExpertise.Items);
             return new PageResult<GetAllExpertisesDTO>()
             {
