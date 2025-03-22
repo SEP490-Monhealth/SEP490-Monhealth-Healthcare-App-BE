@@ -23,9 +23,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllPortions([FromQuery] string sort = null, string order = null)
+        public async Task<ActionResult<ResultModel>> GetAllPortions(int page = 1, int limit = 10, [FromQuery] string sort = null, string order = null)
         {
-            var query = new GetAllPortionQuery(sort, order);
+            var query = new GetAllPortionQuery(page, limit, sort, order);
             var result = await _mediator.Send(query);
             return new ResultModel
             {

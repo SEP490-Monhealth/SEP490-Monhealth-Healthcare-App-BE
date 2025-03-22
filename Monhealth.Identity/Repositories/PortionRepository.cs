@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 using System.Linq.Dynamic.Core;
@@ -27,9 +28,9 @@ namespace Monhealth.Identity.Repositories
             return existingPortion;
         }
 
-        public async Task<List<Portion>> GetAllPortionAsync(string? sort, string? order)
+        public async Task<PaginatedResult<Portion>> GetAllPortionAsync(int page, int limit, string? sort, string? order)
         {
-            IQueryable<Portion> query = _context.Portions.AsQueryable();
+            IQueryable<Portion> query = _context.Portions.AsNoTracking().AsQueryable();
 
             // sap xep
             if (!string.IsNullOrEmpty(sort))
@@ -38,8 +39,16 @@ namespace Monhealth.Identity.Repositories
                 query = query.OrderBy(sorting);
             }
 
-            var portions = await query.ToListAsync();
-            return portions;
+            int totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Portion>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems,
+            };
         }
 
         public async Task<List<FoodPortion>> GetFoodPortionsByFoodIdsAsync(List<Guid> foodPortions)
