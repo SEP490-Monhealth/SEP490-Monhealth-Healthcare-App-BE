@@ -11,7 +11,6 @@ using Monhealth.Application.Features.Booking.Queries.GetBookingById;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByUserId;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -125,10 +124,11 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{bookingId:guid}/cancel")]
-        public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId)
+        [HttpPut("{bookingId:guid}/cancel")]
+        public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId, [FromBody] string cancellationReason)
         {
-            var result = await mediator.Send(new UpdateBookingCancelCommand { BookingId = bookingId });
+            var command = new UpdateBookingCancelCommand(bookingId, cancellationReason);
+               var result = await mediator.Send(command);
             if (!result)
             {
                 return new ResultModel
