@@ -1,7 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Portions.Commands.CreateFoodPortion;
+using Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion;
+using Monhealth.Application.Features.Portions.Commands.UpdatePortion;
 using Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion;
+using Monhealth.Application.Features.Portions.Queries.GetPortionById;
 using Monhealth.Application.Features.Portions.Queries.GetPortionsByFoodId;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
