@@ -7,6 +7,6 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
     {
         [JsonPropertyName("type")]
         public GoalType GoalType { get; set; }
-        public int WeightGoal { get; set; }
+        public float WeightGoal { get; set; }
     }
 }

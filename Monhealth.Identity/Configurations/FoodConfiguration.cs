@@ -1854,24 +1854,24 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Food 97
-            new Food
-            {
-                FoodId = Guid.Parse("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
-                // CategoryId = sweets,
-                UserId = userId,
-                MealType = [MealType.Snack, MealType.Breakfast],
-                // DishType = [DishType.Dessert],
-                FoodName = "Chè đậu đen",
-                FoodDescription = "Chè đậu đen là món tráng miệng phổ biến, làm từ đậu đen nấu nhừ, kết hợp với đường và có thể thêm nước cốt dừa. Món này ngọt mát, giúp thanh nhiệt và rất tốt cho sức khỏe",
-                IsPublic = true,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Food 97
+            // new Food
+            // {
+            //     FoodId = Guid.Parse("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
+            //     // CategoryId = sweets,
+            //     UserId = userId,
+            //     MealType = [MealType.Snack, MealType.Breakfast],
+            //     // DishType = [DishType.Dessert],
+            //     FoodName = "Chè đậu đen",
+            //     FoodDescription = "Chè đậu đen là món tráng miệng phổ biến, làm từ đậu đen nấu nhừ, kết hợp với đường và có thể thêm nước cốt dừa. Món này ngọt mát, giúp thanh nhiệt và rất tốt cho sức khỏe",
+            //     IsPublic = true,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Food 98
             new Food

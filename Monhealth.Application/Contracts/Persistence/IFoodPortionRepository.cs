@@ -1,5 +1,4 @@
-﻿using Monhealth.Application.Automapper;
-using Monhealth.Domain;
+﻿using Monhealth.Domain;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
