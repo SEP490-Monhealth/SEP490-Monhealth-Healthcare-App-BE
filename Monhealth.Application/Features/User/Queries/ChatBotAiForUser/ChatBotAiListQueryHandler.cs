@@ -24,36 +24,29 @@ namespace Monhealth.Application
 
         public async Task<(ChatBotAi, int)> Handle(ChatBotAiListQuery request, CancellationToken cancellationToken)
         {
-            // Kiểm tra null cho user
             var user = await _userRepository.GetByIdAsync(request.UserId);
             if (user == null)
             {
                 throw new Exception("User not found.");
             }
 
-            // Kiểm tra null cho metrics
             var metrics = await _metricRepository.GetByUserIdAsync(request.UserId);
             if (metrics == null)
             {
                 throw new Exception("Metrics not found for the user.");
             }
 
-            // Kiểm tra null cho foods
             var foods = await _foodRepository.GetFoodByUserHasNoAllergiesAsync(request.UserId) ?? new List<Food>();
 
-            // Loại bỏ bất kỳ thực phẩm nào có giá trị null
             foods = foods.Where(f => f != null).ToList();
 
-            // Kiểm tra null cho workouts
             var workouts = await _workoutRepository.GetAllAsync() ?? new List<Workout>();
 
-            // Tạo danh sách tên bài tập (WorkoutName)
             var workoutNames = workouts
                 .Where(w => !string.IsNullOrEmpty(w.WorkoutName))
                 .Select(w => w.WorkoutName)
                 .ToList();
 
-            // Tạo danh sách thực phẩm với nhóm FoodName và Nutrition tương ứng
             var foodDTOs = foods
                 .Where(f => f != null && f.Nutrition != null) // Kiểm tra null
                 .GroupBy(f => new
@@ -89,14 +82,13 @@ namespace Monhealth.Application
                     Tdee = metrics.Tdee,
                     Ibw = metrics.Ibw
                 },
-                Foods = foodDTOs, // Gán danh sách Foods đã nhóm
+                Foods = foodDTOs,
                 Workouts = new WorkoutDTO12
                 {
-                    WorkoutName = workoutNames // Gán danh sách bài tập
+                    WorkoutName = workoutNames 
                 }
             };
 
-            // Chuyển đổi đối tượng thành JSON và đếm số ký tự
             var jsonString = JsonSerializer.Serialize(chatBotAi);
             int characterCount = jsonString.Length;
 

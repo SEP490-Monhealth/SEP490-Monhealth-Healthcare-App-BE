@@ -1,19 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Exercise.Commands.DeleteExercise;
-using Monhealth.Application.Features.Exercise.Commands.UpdateExercise;
-using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
-using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Application.Features.Expertise.Commands.CreateExpertise;
 using Monhealth.Application.Features.Expertise.Commands.DeleteExpertise;
 using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
 using Monhealth.Application.Features.Expertise.Queries.GetAllExpertises;
 using Monhealth.Application.Features.Expertise.Queries.GetExpertiseById;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -28,9 +21,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllExpertises(int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllExpertises(int page = 1, int limit = 10 , string? search = null)
         {
-            var expertiseList = await _mediator.Send(new GetAllExpertisesQuery(page, limit));
+            var expertiseList = await _mediator.Send(new GetAllExpertisesQuery(page, limit , search));
 
             return new ResultModel
             {

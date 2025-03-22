@@ -10,5 +10,6 @@ namespace Monhealth.Application.Features.Expertise.Queries.GetAllExpertises
         public string ExpertiseName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
         public string ExpertiseDescription { get; set; } = null!;
+        
     }
 }

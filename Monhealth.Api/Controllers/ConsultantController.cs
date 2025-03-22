@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsultant;
 using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
 using Monhealth.Application.Features.Consultant.Commands.DeleteConsultant;
@@ -39,6 +40,27 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetConsultantById(Guid consultantId)
         {
             var consultant = await _mediator.Send(new GetConsultantByIdCommand { ConsultantId = consultantId });
+            if (consultant == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Tư vấn viên không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = consultant
+            });
+        }
+        [HttpGet("{userId:guid}/user")]
+        public async Task<ActionResult<ResultModel>> GetConsultantByUserId(Guid userId)
+        {
+            var consultant = await _mediator.Send(new GetConsultantByUserQuery { UserId = userId });
             if (consultant == null)
             {
                 return NotFound(new ResultModel

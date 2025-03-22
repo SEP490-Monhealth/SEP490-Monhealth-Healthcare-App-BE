@@ -141,6 +141,7 @@ namespace Monhealth.Identity.Services
         public async Task Register(RegistrationRequest request)
         {
             var checkUser = await _userRepository.GetByPhoneNumberAsync(request.PhoneNumber);
+            var getUser = await _userRepository.GetUSerByNameAsync(request.FullName);
             if (checkUser != null)
             {
                 throw new BadRequestException("Số điện thoại đã tồn tại");
@@ -155,7 +156,9 @@ namespace Monhealth.Identity.Services
                 SecurityStamp = Guid.NewGuid().ToString(),
                 LockoutEnabled = false,
                 CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                UpdatedAt = DateTime.Now,
+                CreatedBy = getUser.Id,
+                UpdatedBy = getUser.Id
             };
 
             // Step 4: Register the user
