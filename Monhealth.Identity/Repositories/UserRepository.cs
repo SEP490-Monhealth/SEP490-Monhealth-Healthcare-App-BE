@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Identity.Dbcontexts;
@@ -7,6 +6,7 @@ using Monhealth.Identity.Models;
 
 namespace Monhealth.Identity.Repositories
 {
+
     public class UserRepository : GenericRepository<AppUser, Guid>, IUserRepository
     {
         public UserRepository(MonhealthDbcontext context) : base(context)
@@ -66,6 +66,12 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.Users.Include(g => g.Goals)
             .FirstOrDefaultAsync(u => u.Id == userId);
+        }
+
+        public async Task<AppUser> GetUSerByNameAsync(string FullName)
+        {
+            var query = await _context.Users.FirstOrDefaultAsync(u => u.FullName == FullName);
+            return query;
         }
 
         public async Task<AppUser> GetUserByUserId(Guid userId)
