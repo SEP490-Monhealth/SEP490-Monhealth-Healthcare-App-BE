@@ -6,6 +6,6 @@
         public const string Member = "Member";
         public const string Manager = "Manager";
         public const string Consultant = "Consultant";
-        public const string User = "User";
+        public const string SubscriptionMember = "Subscription Member";
     }
 }
