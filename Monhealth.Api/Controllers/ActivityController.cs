@@ -18,7 +18,8 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("{userId}/user")]
+
+        [HttpGet("user/{userId}")]
         public async Task<ActionResult<ResultModel>> GetActivitiesByUserId(Guid userId)
         {
             var activities = await _mediator.Send(new GetActivityByUserIdQuery(userId));
@@ -30,6 +31,7 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
+
         [HttpGet("{activityId}")]
         public async Task<ActionResult<ResultModel>> GetById(Guid activityId)
         {
@@ -64,6 +66,7 @@ namespace Monhealth.Api.Controllers
                 Success = false
             };
         }
+
         [HttpDelete("{activityId}")]
         public async Task<ActionResult<ResultModel>> DeleteActivity(Guid activityId)
         {

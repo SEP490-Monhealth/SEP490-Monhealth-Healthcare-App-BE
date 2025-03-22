@@ -1172,17 +1172,17 @@ namespace Monhealth.Identity.Configurations
             });
             #endregion
 
-            #region CategoryFood 97
-            builder.HasData(
-            new CategoryFood
-            {
-                CategoryFoodId = Guid.NewGuid(),
-                CategoryId = sweets,  // Chè đậu đen - Category: Sweets
-                FoodId = Guid.Parse("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),  // Chè đậu đen
-                CreatedAt = today,
-                UpdatedAt = today
-            });
-            #endregion
+            // #region CategoryFood 97
+            // builder.HasData(
+            // new CategoryFood
+            // {
+            //     CategoryFoodId = Guid.NewGuid(),
+            //     CategoryId = sweets,  // Chè đậu đen - Category: Sweets
+            //     FoodId = Guid.Parse("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),  // Chè đậu đen
+            //     CreatedAt = today,
+            //     UpdatedAt = today
+            // });
+            // #endregion
 
             #region CategoryFood 98
             builder.HasData(

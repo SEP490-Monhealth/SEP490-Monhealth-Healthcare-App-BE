@@ -1037,14 +1037,14 @@ namespace Monhealth.Identity.Configurations
                 },
 
                 // Chè đậu đen
-                new DishTypeFood()
-                {
-                    DishTypeFoodId = Guid.NewGuid(),
-                    DishTypeId = dessert,
-                    FoodId = Guid.Parse("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                },
+                // new DishTypeFood()
+                // {
+                //     DishTypeFoodId = Guid.NewGuid(),
+                //     DishTypeId = dessert,
+                //     FoodId = Guid.Parse("8ebd5a6e-b0af-42b6-af58-b681fceac1ef"),
+                //     CreatedAt = DateTime.Now,
+                //     UpdatedAt = DateTime.Now,
+                // },
 
                 // Dưa cải chua
                 new DishTypeFood()

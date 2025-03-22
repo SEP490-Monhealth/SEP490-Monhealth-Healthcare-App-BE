@@ -32,7 +32,6 @@ namespace Monhealth.Api.Controllers
                 Data = result,
                 Status = 200,
                 Success = true,
-                Message = "Lấy danh sách khẩu phần ăn thành công"
             };
         }
 
@@ -76,7 +75,6 @@ namespace Monhealth.Api.Controllers
                 Data = portion,
                 Status = 200,
                 Success = true,
-                Message = "Lấy khẩu phần ăn thành công"
             };
         }
 
