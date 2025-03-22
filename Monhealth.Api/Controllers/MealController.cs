@@ -110,31 +110,31 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPost]
-        [Route("{userId:guid}/meal-recommend")]
-        public async Task<ActionResult<ResultModel>> AddMealRecommend(Guid userId)
-        {
-            var meal = await _mediator.
-            Send(new CreateRecommendMealCommand() { UserId = userId });
+        // [HttpPost]
+        // [Route("{userId:guid}/meal-recommend")]
+        // public async Task<ActionResult<ResultModel>> AddMealRecommend(Guid userId)
+        // {
+        //     var meal = await _mediator.
+        //     Send(new CreateRecommendMealCommand() { UserId = userId });
 
-            if (meal != null)
-            {
-                return Ok(new ResultModel
-                {
-                    Success = true,
-                    Message = "Tạo bữa ăn thành công",
-                    Status = 201,
-                    Data = new { mealId = meal } // Trả về mealId
-                });
-            }
+        //     if (meal != null)
+        //     {
+        //         return Ok(new ResultModel
+        //         {
+        //             Success = true,
+        //             Message = "Tạo bữa ăn thành công",
+        //             Status = 201,
+        //             Data = new { mealId = meal } // Trả về mealId
+        //         });
+        //     }
 
-            return BadRequest(new ResultModel
-            {
-                Success = false,
-                Message = "Tạo bữa ăn thất bại",
-                Status = 400,
-            });
-        }
+        //     return BadRequest(new ResultModel
+        //     {
+        //         Success = false,
+        //         Message = "Tạo bữa ăn thất bại",
+        //         Status = 400,
+        //     });
+        // }
 
         // [HttpDelete]
         // [Route("{mealId:Guid}")]

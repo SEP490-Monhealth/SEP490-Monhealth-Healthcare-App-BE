@@ -57,6 +57,7 @@ namespace Monhealth.Api.Controllers
                 Data = consultant
             });
         }
+
         [HttpGet("{userId:guid}/user")]
         public async Task<ActionResult<ResultModel>> GetConsultantByUserId(Guid userId)
         {

@@ -35,30 +35,30 @@ namespace Monhealth.Api.Controllers
         //     };
         // }
 
-        // [HttpGet]
-        // [Route("{nutritionId:Guid}")]
-        // public async Task<ActionResult<ResultModel>> GetNutritionDetail(Guid nutritionId)
-        // {
-        //     var queries = await _mediator.
-        //     Send(new GetNutritionDetailQuery() { NutritionId = nutritionId });
+        [HttpGet]
+        [Route("{nutritionId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetNutritionDetail(Guid nutritionId)
+        {
+            var queries = await _mediator.
+            Send(new GetNutritionDetailQuery() { NutritionId = nutritionId });
 
-        //     if (queries == null)
-        //     {
-        //         return NotFound(new ResultModel
-        //         {
-        //             Success = false,
-        //             Message = "Dinh dưỡng không tồn tại",
-        //             Status = (int)HttpStatusCode.NotFound,
-        //             Data = null
-        //         });
-        //     }
-        //     return Ok(new ResultModel
-        //     {
-        //         Success = true,
-        //         Status = 200,
-        //         Data = queries
-        //     });
-        // }
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Dinh dưỡng không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
 
         [HttpGet]
         [Route("food/{foodId:Guid}")]

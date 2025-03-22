@@ -1,6 +1,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Category.AddCategory;
 using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType;
+using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
+using Monhealth.Application.Features.Category.UpdateCategory;
 using Monhealth.Application.Features.Metric.Queries.GetAllMetric;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
@@ -20,7 +23,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllCategories(int page = 1, int limit = 10,  CategoryType? type = null , string? search = null)
+        public async Task<ActionResult<ResultModel>> GetAllCategories(int page = 1, int limit = 10, CategoryType? type = null, string? search = null)
         {
 
             var categories = await _mediator.Send(new GetCategoryListQuery(page, limit, search, type));
@@ -33,30 +36,29 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpGet]
+        [Route("{categoryId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetCategoryDetail(Guid categoryId)
+        {
+            var categories = await _mediator.Send(new GetCategoryDetailQuery { CategoryId = categoryId });
 
-        // [HttpGet]
-        // [Route("{categoryId:Guid}")]
-        // public async Task<ActionResult<ResultModel>> GetCategoryDetail(Guid categoryId)
-        // {
-        //     var categories = await _mediator.Send(new GetCategoryDetailQuery { CategoryId = categoryId });
-
-        //     if (categories == null)
-        //     {
-        //         return NotFound(new ResultModel
-        //         {
-        //             Success = false,
-        //             Message = "Danh mục không tồn tại",
-        //             Status = (int)HttpStatusCode.NotFound,
-        //             Data = null
-        //         });
-        //     }
-        //     return Ok(new ResultModel
-        //     {
-        //         Success = true,
-        //         Status = 200,
-        //         Data = categories
-        //     });
-        // }
+            if (categories == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Danh mục không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = categories
+            });
+        }
 
         [HttpGet]
         [Route("{type}")]
@@ -83,50 +85,50 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        // [HttpPost]
-        // public async Task<ActionResult<ResultModel>> AddCategory([FromBody] AddCategoryRequest request)
-        // {
-        //     var result = await _mediator.Send(request);
-        //     if (result != null)
-        //     {
-        //         return Ok(new ResultModel
-        //         {
-        //             Success = true,
-        //             Message = "Tạo danh mục thành công",
-        //             Status = 201,
-        //         });
-        //     }
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> AddCategory([FromBody] AddCategoryRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo danh mục thành công",
+                    Status = 201,
+                });
+            }
 
-        //     return BadRequest(new ResultModel
-        //     {
-        //         Success = false,
-        //         Message = "Tạo danh mục thất bại",
-        //         Status = 400,
-        //     });
-        // }
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo danh mục thất bại",
+                Status = 400,
+            });
+        }
 
-        // [HttpPut]
-        // [Route("{categoryId:Guid}")]
-        // public async Task<ActionResult<ResultModel>> UpdateCategory(Guid categoryId, [FromBody] UpdateCategoryRequest request)
-        // {
-        //     var command = new UpdateCategoryCommand(categoryId, request);
-        //     var result = await _mediator.Send(command);
-        //     if (!result)
-        //         return new ResultModel
-        //         {
-        //             Message = "Cập nhật danh mục thất bại",
-        //             Success = false,
-        //             Data = null
-        //         };
-        //     return Ok(
-        //         new ResultModel
-        //         {
-        //             Message = "Cập nhật danh mục thành công",
-        //             Success = true,
-        //             Status = 204,
-        //         }
-        //     );
-        // }
+        [HttpPut]
+        [Route("{categoryId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateCategory(Guid categoryId, [FromBody] UpdateCategoryRequest request)
+        {
+            var command = new UpdateCategoryCommand(categoryId, request);
+            var result = await _mediator.Send(command);
+            if (!result)
+                return new ResultModel
+                {
+                    Message = "Cập nhật danh mục thất bại",
+                    Success = false,
+                    Data = null
+                };
+            return Ok(
+                new ResultModel
+                {
+                    Message = "Cập nhật danh mục thành công",
+                    Success = true,
+                    Status = 204,
+                }
+            );
+        }
 
         // [HttpDelete]
         // [Route("{categoryId:Guid}")]

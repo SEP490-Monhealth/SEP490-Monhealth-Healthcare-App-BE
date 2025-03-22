@@ -72,18 +72,18 @@ namespace Monhealth.Api.Controllers
             );
         }
 
-        [HttpDelete]
-        [Route("{exceptionId:Guid}")]
-        public async Task<ActionResult<ResultModel>> DeleteScheduleException(Guid exceptionId)
-        {
-            var queries = await mediator.Send(new DeleteScheduleExceptionCommand { ExceptionId = exceptionId });
+        // [HttpDelete]
+        // [Route("{exceptionId:Guid}")]
+        // public async Task<ActionResult<ResultModel>> DeleteScheduleException(Guid exceptionId)
+        // {
+        //     var queries = await mediator.Send(new DeleteScheduleExceptionCommand { ExceptionId = exceptionId });
 
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 204,
-                Data = queries
-            });
-        }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 204,
+        //         Data = queries
+        //     });
+        // }
     }
 }

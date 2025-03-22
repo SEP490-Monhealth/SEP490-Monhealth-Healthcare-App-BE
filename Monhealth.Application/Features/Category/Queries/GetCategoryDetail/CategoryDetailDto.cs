@@ -4,7 +4,7 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Category.Queries.GetCategoryDetail
 {
-    public class CategoryDetailDTO : TimeEntity
+    public class CategoryDetailDTO : BaseEntity
     {
         [JsonPropertyName("type")]
         public CategoryType CategoryType { get; set; }

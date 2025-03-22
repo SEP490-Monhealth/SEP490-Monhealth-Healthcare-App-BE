@@ -3,7 +3,7 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Allergy.Queries.GetAll
 {
-    public class AllergyDTO : TimeEntity
+    public class AllergyDTO : BaseEntity
     {
         public Guid AllergyId { get; set; }
         [JsonPropertyName("name")]

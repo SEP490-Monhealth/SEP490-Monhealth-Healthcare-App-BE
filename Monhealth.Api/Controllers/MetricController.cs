@@ -69,7 +69,6 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-
         [HttpPost]
         [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateMetricDTO metricRequest)

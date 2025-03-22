@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Certificate.Commands.CreateCertificate;
 using Monhealth.Application.Features.Certificate.Commands.DeleteCertificate;
 using Monhealth.Application.Features.Certificate.Commands.UpdateCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
@@ -37,27 +38,27 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        // [HttpPost]
-        // public async Task<ActionResult<ResultModel>> CreateCertificate([FromBody] CertificateCommand certificateCommand)
-        // {
-        //     var result = await mediator.Send(certificateCommand);
-        //     if (result != null)
-        //     {
-        //         return Ok(new ResultModel
-        //         {
-        //             Success = true,
-        //             Message = "Tạo chứng chỉ thành công",
-        //             Status = 201,
-        //         });
-        //     }
+        [HttpPost]
+        public async Task<ActionResult<ResultModel>> CreateCertificate([FromBody] CertificateCommand certificateCommand)
+        {
+            var result = await mediator.Send(certificateCommand);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo chứng chỉ thành công",
+                    Status = 201,
+                });
+            }
 
-        //     return BadRequest(new ResultModel
-        //     {
-        //         Success = false,
-        //         Message = "Tạo chứng chỉ thất bại",
-        //         Status = 500,
-        //     });
-        // }
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo chứng chỉ thất bại",
+                Status = 500,
+            });
+        }
 
         [HttpDelete("{certificateId:guid}")]
         public async Task<ActionResult<ResultModel>> DeleteCertificateById(Guid certificateId)
