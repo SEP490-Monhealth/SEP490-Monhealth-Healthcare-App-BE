@@ -1,17 +1,11 @@
 ﻿using System.Net;
 using MediatR;
-using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Activity.Commands.CreateActivity;
 using Monhealth.Application.Features.Activity.Commands.DeleteActivity;
 using Monhealth.Application.Features.Activity.Queries.GetActivityByUserId;
-using Monhealth.Application.Features.Expertise.Commands.CreateExpertise;
-using Monhealth.Application.Features.Workout.Commands.DeleteWorkout;
-using Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries;
 using Monhealth.Application.Models;
-using Monhealth.Core.Enum;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -24,7 +18,7 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("{userId}")]
+        [HttpGet("{userId}/user")]
         public async Task<ActionResult<ResultModel>> GetActivitiesByUserId(Guid userId)
         {
             var activities = await _mediator.Send(new GetActivityByUserIdQuery(userId));
@@ -36,6 +30,19 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
+        [HttpGet("{activityId}")]
+        public async Task<ActionResult<ResultModel>> GetById(Guid activityId)
+        {
+            var activities = await _mediator.Send(new GetActivityByIdQuery(activityId));
+
+            return new ResultModel
+            {
+                Data = activities,
+                Status = 200,
+                Success = true,
+            };
+        }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateActivity([FromBody] CreateActivityDTO createActivityDTO)
         {
