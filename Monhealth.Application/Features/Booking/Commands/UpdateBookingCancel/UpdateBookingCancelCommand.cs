@@ -6,10 +6,10 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
     {
         public Guid BookingId { get; set; }
         public string? CancellationReason { get; set; }
-        public UpdateBookingCancelCommand(Guid bookingId ,string? cancellationReason)
+        public UpdateBookingCancelCommand(Guid bookingId ,UpdateBookingCancelDTO request)
         {
             BookingId = bookingId;
-            CancellationReason = cancellationReason;
+            CancellationReason = request.CancellationReason ;
         }
     }
 }

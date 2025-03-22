@@ -125,9 +125,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{bookingId:guid}/cancel")]
-        public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId, [FromBody] string cancellationReason)
+        public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId, [FromBody] UpdateBookingCancelDTO request)
         {
-            var command = new UpdateBookingCancelCommand(bookingId, cancellationReason);
+            var command = new UpdateBookingCancelCommand(bookingId, request);
                var result = await mediator.Send(command);
             if (!result)
             {
