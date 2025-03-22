@@ -2,7 +2,7 @@
 {
     public class CreateActivityDTO
     {
-        public Guid WorkoutId { get; set; }
         public Guid UserId { get; set; }
+        public Guid WorkoutId { get; set; }
     }
 }
