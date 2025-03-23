@@ -13,6 +13,10 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
         public string ConsultantName { get; set; }
         //consultant avatar
         public string ConsultantAvatar { get; set; }
+        //consultant phone number
+        public string PhoneNumber { get; set; } = string.Empty;
+        //consultant email
+        public string Email { get; set; } = string.Empty;
         //member name
         public string MemberName { get; set; }
         //member avatar
