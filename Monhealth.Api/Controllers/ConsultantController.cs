@@ -58,27 +58,27 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("{userId:guid}/user")]
-        public async Task<ActionResult<ResultModel>> GetConsultantByUserId(Guid userId)
-        {
-            var consultant = await _mediator.Send(new GetConsultantByUserQuery { UserId = userId });
-            if (consultant == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Tư vấn viên không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = consultant
-            });
-        }
+        // [HttpGet("{userId:guid}/user")]
+        // public async Task<ActionResult<ResultModel>> GetConsultantByUserId(Guid userId)
+        // {
+        //     var consultant = await _mediator.Send(new GetConsultantByUserQuery { UserId = userId });
+        //     if (consultant == null)
+        //     {
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Tư vấn viên không tồn tại",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 200,
+        //         Data = consultant
+        //     });
+        // }
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateConsultant([FromBody] CreateConsultantDTO createConsultantDTO)
@@ -168,6 +168,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật tư vấn viên thành công"
             });
         }
+
         [HttpPatch("{consultantId}/verify")]
         public async Task<ActionResult<ResultModel>> VeryfiedConsultant(Guid consultantId)
         {

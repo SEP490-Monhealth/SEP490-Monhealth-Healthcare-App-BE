@@ -94,7 +94,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("food/{mealFoodId:Guid}/status")]
+        [Route("food/{mealFoodId:Guid}/completed")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid mealFoodId)
         {
             var mealFoods = await _mediator.
