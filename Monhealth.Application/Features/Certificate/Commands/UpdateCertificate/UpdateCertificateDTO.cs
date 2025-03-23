@@ -1,11 +1,14 @@
-﻿using System.Text.Json.Serialization;
-using MediatR;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
-namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
+namespace Monhealth.Application.Features.Certificate.Commands.UpdateCertificate
 {
-    public class CertificateCommand : IRequest<Unit>
+    public class UpdateCertificateDTO
     {
-        public Guid? ConsultantId { get; set; }
         public string? ExpertiseName { get; set; }
         [JsonPropertyName("number")]
         public string CertificateNumber { get; set; } = null!;
@@ -15,6 +18,5 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
         public DateTime? ExpiryDate { get; set; }
         public string IssuedBy { get; set; } = null!;
         public List<string> ImageUrls { get; set; } = new List<string>();
-
     }
 }
