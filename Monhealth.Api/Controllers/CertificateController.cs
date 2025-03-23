@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Certificate.Commands.CreateCertificate;
 using Monhealth.Application.Features.Certificate.Commands.DeleteCertificate;
 using Monhealth.Application.Features.Certificate.Commands.UpdateCertificate;
@@ -30,6 +31,17 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetCertificateById(Guid certificateId)
         {
             var certificate = await mediator.Send(new GetCertificateByIdQuery { CertificateId = certificateId });
+            return new ResultModel
+            {
+                Data = certificate,
+                Status = 200,
+                Success = true,
+            };
+        }
+        [HttpGet("{consultantId:guid}/consultant")]
+        public async Task<ActionResult<ResultModel>> GetCertificateByConsultant(Guid consultantId)
+        {
+            var certificate = await mediator.Send(new GetAllCertificateByConsultantQuery { ConsultantId = consultantId });
             return new ResultModel
             {
                 Data = certificate,
