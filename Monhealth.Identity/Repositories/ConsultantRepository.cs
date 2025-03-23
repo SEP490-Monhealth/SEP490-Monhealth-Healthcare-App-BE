@@ -13,7 +13,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? status)
+        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? status, bool? isVerified)
         {
             IQueryable<Consultant> query = _context.Consultants
                 .Select(c => new Consultant
@@ -32,7 +32,8 @@ namespace Monhealth.Identity.Repositories
                     {
                         FullName = c.AppUser.FullName,
                         Avatar = c.AppUser.Avatar,
-                        PhoneNumber = c.AppUser.PhoneNumber
+                        PhoneNumber = c.AppUser.PhoneNumber,
+                        Email = c.AppUser.Email,
                     },
                     Expertise = new Expertise
                     {
@@ -57,6 +58,10 @@ namespace Monhealth.Identity.Repositories
             if (status.HasValue)
             {
                 query = query.Where(s => s.Status == status.Value);
+            }
+            if (isVerified.HasValue)
+            {
+                query = query.Where(s => s.IsVerified == isVerified.Value);
             }
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
