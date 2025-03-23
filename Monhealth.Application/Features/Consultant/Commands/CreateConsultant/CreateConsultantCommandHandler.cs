@@ -55,7 +55,8 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             newCertificate.CertificateId = Guid.NewGuid();
             newCertificate.ExpertiseId = expertise.ExpertiseId;
             newCertificate.ConsultantId = newConsultant.ConsultantId;
-            newCertificate.ImageUrls = JsonSerializer.Serialize(request.CreateConsultantDTO.Images);
+            //newCertificate.ImageUrls = JsonSerializer.Serialize(request.CreateConsultantDTO.Images);
+            newCertificate.ImageUrls = request.CreateConsultantDTO.Images;
             newCertificate.CreatedAt = today;
             newCertificate.UpdatedAt = today;
             _certificateRepository.Add(newCertificate);

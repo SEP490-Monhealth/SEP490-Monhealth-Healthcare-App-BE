@@ -13,7 +13,7 @@ namespace Monhealth.Application.Features.Certificate.Queries.GetCertificateById
         public Guid? ConsultantId { get; set; }
         [JsonPropertyName("name")]
         public string CertificateName { get; set; } = string.Empty;
-        public List<string> Images { get; set; } = new List<string>();
+        public List<string> ImageUrls { get; set; } = new List<string>();
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
     }

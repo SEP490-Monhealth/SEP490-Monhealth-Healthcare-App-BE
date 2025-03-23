@@ -5,7 +5,6 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
 {
     public class CertificateCommand : IRequest<Unit>
     {
-        public Guid UserId { get; set; } // FK 
         public Guid ExpertiseId { get; set; }
         public Guid? ConsultantId { get; set; }
         [JsonPropertyName("number")]
@@ -13,7 +12,7 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
         [JsonPropertyName("name")]
         public string CertificateName { get; set; } = string.Empty;
         public string IssuedBy { get; set; } = null!;
-        public List<string> Images { get; set; } = new List<string>();
+        public List<string> ImageUrls { get; set; } = new List<string>();
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
 

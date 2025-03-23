@@ -14,13 +14,15 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
             .AnyAsync(c => c.CertificateName == request.CertificateName);
             if (isNameExist) throw new BadRequestException("Tên chứng chỉ đã tồn tại");
             // var urlLists = string.Join(",", request.Images);
-            string imageUrls = JsonSerializer.Serialize(request.Images);
+            //string imageUrls = JsonSerializer.Serialize(request.ImageUrls);
             var certificate = mapper.Map<Domain.Certificate>(request);
-            if (imageUrls != null)
+            if (request.ImageUrls != null)
             {
-                certificate.ImageUrls = imageUrls;
+                certificate.ImageUrls = request.ImageUrls;
             }
             certificate.IsVerified = false;
+            certificate.CreatedAt = DateTime.Now;
+            certificate.UpdatedAt = DateTime.Now;
             certificateRepository.Add(certificate);
             await certificateRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
