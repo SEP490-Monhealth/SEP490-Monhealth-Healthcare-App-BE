@@ -10,10 +10,10 @@ namespace Monhealth.Identity.Configurations
         {
             builder.HasData(
 
-            // nguyen quoc dai consultant
+            // nguyen quoc dai member
             new IdentityUserRole<Guid>
             {
-                RoleId = Guid.Parse("c0278115-8549-4fad-890a-44f8E8fcc022"),
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
                 UserId = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87")
             },
 

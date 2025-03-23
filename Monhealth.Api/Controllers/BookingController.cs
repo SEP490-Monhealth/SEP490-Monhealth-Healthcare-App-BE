@@ -91,22 +91,11 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpDelete("{bookingId:guid}")]
-        public async Task<ActionResult<ResultModel>> DeleteBookingById([FromRoute] Guid bookingId)
+        [HttpPut("{bookingId:guid}/cancel")]
+        public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId, [FromBody] UpdateBookingCancelDTO request)
         {
-            await mediator.Send(new DeleteBookingCommand { BookingId = bookingId });
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Xóa lịch hẹn thành công",
-                Status = 204,
-            });
-        }
-
-        [HttpPatch("{bookingId:guid}/completed")]
-        public async Task<ActionResult<ResultModel>> UpdateBookingStatus([FromRoute] Guid bookingId)
-        {
-            var result = await mediator.Send(new UpdateBookingStatusCommand { BookingId = bookingId });
+            var command = new UpdateBookingCancelCommand(bookingId, request);
+            var result = await mediator.Send(command);
             if (!result)
             {
                 return new ResultModel
@@ -124,11 +113,22 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPut("{bookingId:guid}/cancel")]
-        public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId, [FromBody] UpdateBookingCancelDTO request)
+        [HttpDelete("{bookingId:guid}")]
+        public async Task<ActionResult<ResultModel>> DeleteBookingById([FromRoute] Guid bookingId)
         {
-            var command = new UpdateBookingCancelCommand(bookingId, request);
-               var result = await mediator.Send(command);
+            await mediator.Send(new DeleteBookingCommand { BookingId = bookingId });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa lịch hẹn thành công",
+                Status = 204,
+            });
+        }
+
+        [HttpPatch("{bookingId:guid}/completed")]
+        public async Task<ActionResult<ResultModel>> UpdateBookingStatus([FromRoute] Guid bookingId)
+        {
+            var result = await mediator.Send(new UpdateBookingStatusCommand { BookingId = bookingId });
             if (!result)
             {
                 return new ResultModel

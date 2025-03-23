@@ -24,9 +24,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, bool? isVerified = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, bool? verified = null, bool? status = null)
         {
-            var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, expertise, search, status, isVerified));
+            var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, expertise, search, status, verified));
 
             return new ResultModel
             {
