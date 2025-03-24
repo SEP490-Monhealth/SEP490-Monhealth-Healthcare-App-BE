@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
@@ -21,6 +16,10 @@ namespace Monhealth.Application.Features.DailyActivity.Queries.GetDailyActivityB
         public async Task<GetDailyActivityByUserIdDTO> Handle(GetDailyActivityByUserIdQuery request, CancellationToken cancellationToken)
         {
             var dailyActivity = await _dailyActivityRepository.GetDailyActivityByUserIdAndCreateAt(request.UserId, request.Date);
+            if (dailyActivity == null)
+            {
+                   return new GetDailyActivityByUserIdDTO();
+            }
             return _mapper.Map<GetDailyActivityByUserIdDTO>(dailyActivity);
         }
     }
