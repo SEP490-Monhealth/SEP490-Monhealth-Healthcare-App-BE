@@ -1,12 +1,13 @@
-﻿using System.Net;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Expertise.Commands.CreateExpertise;
 using Monhealth.Application.Features.Expertise.Commands.DeleteExpertise;
 using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
+using Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByConsultantId;
 using Monhealth.Application.Features.Expertise.Queries.GetAllExpertises;
 using Monhealth.Application.Features.Expertise.Queries.GetExpertiseById;
 using Monhealth.Application.Models;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -21,9 +22,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllExpertises(int page = 1, int limit = 10 , string? search = null)
+        public async Task<ActionResult<ResultModel>> GetAllExpertises(int page = 1, int limit = 10, string? search = null)
         {
-            var expertiseList = await _mediator.Send(new GetAllExpertisesQuery(page, limit , search));
+            var expertiseList = await _mediator.Send(new GetAllExpertisesQuery(page, limit, search));
 
             return new ResultModel
             {
@@ -82,6 +83,27 @@ namespace Monhealth.Api.Controllers
         {
             var command = new UpdateExpertiseCommand(expertiseId, updateExpertiseDTO);
             var result = await _mediator.Send(command);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Cập nhật chuyên môn thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật chuyên môn thành công"
+            };
+        }
+
+        [HttpPut("consultant/{consultantId}")]
+        public async Task<ActionResult<ResultModel>> UpdateExpertiseByConsultantId(Guid consultantId, [FromBody] UpdateExpertiseByConsultantIdDto updateExpertiseDto)
+        {
+            var result = await _mediator.Send(new UpdateExpertiseByConsultantIdQueries(consultantId, updateExpertiseDto));
             if (!result)
             {
                 return new ResultModel

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 namespace Monhealth.Application.Features.Schedule.Commands.Create
@@ -8,11 +9,17 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
     {
         public async Task<Unit> Handle(CreateScheduleCommand request, CancellationToken cancellationToken)
         {
+
             var schedules = new List<Domain.Schedule>();
             var allTimeSlotsToAdd = new List<TimeSlot>();
             var allScheduleTimeSlotsToAdd = new List<ScheduleTimeSlot>();
             foreach (var scheduleDto in request.Schedules)
             {
+                if (scheduleDto.RecurringDay == null && scheduleDto.SpecificDate == null)
+                {
+                    throw new BadRequestException("RecurringDay và SpecificDate cả hai không được phép null");
+                }
+
                 //check has shedule by recuring type
                 var existingSchedule = await scheduleRepository.GetScheduleAsync(request.ConsultantId, request.ScheduleType, (RecurringDay)scheduleDto.RecurringDay);
 

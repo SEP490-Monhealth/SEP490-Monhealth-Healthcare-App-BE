@@ -1,6 +1,6 @@
-using System.Text.Json.Serialization;
 using MediatR;
 using Monhealth.Core.Enum;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Category.AddCategory
 {
@@ -12,7 +12,7 @@ namespace Monhealth.Application.Features.Category.AddCategory
         public string CategoryName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
         public string CategoryDescription { get; set; } = string.Empty;
-        [JsonPropertyName("image")]
+        [JsonPropertyName("imageUrl")]
         public string CategoryImage { get; set; } = string.Empty;
     }
 }
