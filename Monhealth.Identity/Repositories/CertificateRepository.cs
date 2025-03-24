@@ -67,5 +67,11 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<List<Certificate>> GetCertificateByConsultant(Guid consultantId)
+        {
+            return await _context.Certificates.
+            Where(c => c.ConsultantId == consultantId).ToListAsync();
+        }
     }
 }
