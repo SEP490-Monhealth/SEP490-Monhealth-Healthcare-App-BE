@@ -19,7 +19,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         private readonly ILogger<CreateUserSubscriptionCommandHandler> _logger;
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IUserRepository _userRepository;
-        private readonly UserManager<AppUser> _userManager;
         private readonly IUserRoleRepository _userRoleRepository;
         public CreateUserSubscriptionCommandHandler(IUserSubscriptionRepository userSubscriptionRepository,
         ISubscriptionRepository subscriptionRepository,
@@ -42,7 +41,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             _logger = logger;
             _dailyMealRepository = dailyMealRepository;
             _userRepository = userRepository;
-            _userManager = userManager;
             _userRoleRepository = userRoleRepository;
         }
 
