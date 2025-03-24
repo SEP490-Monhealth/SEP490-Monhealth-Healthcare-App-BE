@@ -3,7 +3,7 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Domain
 {
-    public class Allergy : TimeEntity
+    public class Allergy : BaseEntity
     {
         [Key]
         public Guid AllergyId { get; set; }

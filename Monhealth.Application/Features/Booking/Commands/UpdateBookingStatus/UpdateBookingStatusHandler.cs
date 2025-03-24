@@ -25,6 +25,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
 
             }
             booking.UpdatedAt = DateTime.Now;
+            booking.UpdatedBy = booking.UserId;
             await bookingRepository.SaveChangeAsync(cancellationToken);
             return true;
         }

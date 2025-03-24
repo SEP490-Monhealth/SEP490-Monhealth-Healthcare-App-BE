@@ -18,7 +18,8 @@ namespace Monhealth.Application.Features.Allergy.Queries.GetAll
 
         public async Task<PageResult<AllergyDTO>> Handle(GetAllergyQuery request, CancellationToken cancellationToken)
         {
-            var pagingAllergries = await _allergyRepository.GetAllAlleriesAsync(request.Page, request.Limit, request.Search);
+            var pagingAllergries = await _allergyRepository
+            .GetAllAlleriesAsync(request.Page, request.Limit, request.Search);
             return new PageResult<AllergyDTO>
             {
                 Items = _mapper.Map<List<AllergyDTO>>(pagingAllergries.Items),
