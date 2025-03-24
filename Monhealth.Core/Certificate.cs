@@ -1,4 +1,4 @@
-﻿ using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,8 +14,8 @@ namespace Monhealth.Domain
         public string CertificateName { get; set; } = string.Empty;
         public List<string> ImageUrls { get; set; } = new List<string>();
         public DateTime IssueDate { get; set; }
-        public string IssuedBy { get; set; } = null!;
         public DateTime? ExpiryDate { get; set; }
+        public string IssuedBy { get; set; } = null!;
         public bool IsVerified { get; set; } = false;
 
         [ForeignKey(nameof(ConsultantId))]
