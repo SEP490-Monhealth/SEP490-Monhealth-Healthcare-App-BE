@@ -183,6 +183,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new ScheduleTimeSlotConfiguration());
             builder.ApplyConfiguration(new DishTypeConfiguration());
             builder.ApplyConfiguration(new DishTypeFoodConfiguration());
+            builder.ApplyConfiguration(new CertificateConfiguration());
         }
     }
 }
