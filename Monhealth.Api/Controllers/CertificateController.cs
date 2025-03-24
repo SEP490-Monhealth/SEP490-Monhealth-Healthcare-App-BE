@@ -5,6 +5,7 @@ using Monhealth.Application.Features.Certificate.Commands.DeleteCertificate;
 using Monhealth.Application.Features.Certificate.Commands.UpdateCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetCertificateById;
+using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
 using Monhealth.Application.Models;
 using System.Net;
 
@@ -58,6 +59,27 @@ namespace Monhealth.Api.Controllers
                 Message = "Tạo chứng chỉ thất bại",
                 Status = 500,
             });
+        }
+        [HttpPut("{certificateId}")]
+        public async Task<ActionResult<ResultModel>> UpdateCertificate(Guid certificateId, [FromBody] UpdateCertificateDTO updateCertificateDTO)
+        {
+            var command = new UpdateCertificateCommand(certificateId, updateCertificateDTO);
+            var result = await mediator.Send(command);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Cập nhật chứng chỉ thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật chứng chỉ thành công"
+            };
         }
 
         [HttpDelete("{certificateId:guid}")]

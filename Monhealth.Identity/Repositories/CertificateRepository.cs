@@ -23,7 +23,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Certificate>> GetAllCertificateAsync(int page, int limit, string? search, bool? isVerfied)
         {
             search = search?.Trim();
-            IQueryable<Certificate> query = _context.Certificates.AsQueryable();
+            IQueryable<Certificate> query = _context.Certificates.Include(c => c.Consultant).ThenInclude(u => u.AppUser).AsQueryable();
 
 
             // filter search
