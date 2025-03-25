@@ -28,6 +28,7 @@ namespace Monhealth.Identity.Repositories
                     IsVerified = c.IsVerified,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
+                    BookingCount = c.BookingCount,
                     AppUser = new AppUser
                     {
                         FullName = c.AppUser.FullName,
@@ -93,6 +94,7 @@ namespace Monhealth.Identity.Repositories
                     IsVerified = c.IsVerified,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
+                    BookingCount = c.BookingCount,
                     AppUser = new AppUser
                     {
                         FullName = c.AppUser.FullName,

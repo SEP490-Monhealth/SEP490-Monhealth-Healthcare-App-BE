@@ -13,9 +13,23 @@ namespace Monhealth.Application.Automapper
             CreateMap<Consultant, GetAllConsultantsDTO>()
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.AppUser.FullName))
                 .ForMember(dest => dest.Avatar, opt => opt.MapFrom(src => src.AppUser.Avatar))
-                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.AppUser.PhoneNumber))
                 .ForMember(dest => dest.ExpertiseName, opt => opt.MapFrom(src => src.Expertise.ExpertiseName))
-                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.AppUser.Email));
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.AppUser.Email))
+                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.AppUser.PhoneNumber))
+                .ForMember(dest => dest.IsVerified, opt => opt.MapFrom(src => src.IsVerified))
+                .ForMember(dest => dest.BookingCount, opt => opt.MapFrom(src => src.BookingCount));
+
+            CreateMap<Consultant, GetConsultantByIdDTO>()
+                .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.AppUser.FullName))
+                .ForMember(dest => dest.Avatar, opt => opt.MapFrom(src => src.AppUser.Avatar))
+                .ForMember(dest => dest.ExpertiseName, opt => opt.MapFrom(src => src.Expertise.ExpertiseName))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.AppUser.Email))
+                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.AppUser.PhoneNumber))
+                .ForMember(dest => dest.IsVerified, opt => opt.MapFrom(src => src.IsVerified))
+                .ForMember(dest => dest.BookingCount, opt => opt.MapFrom(src => src.BookingCount));
+
+
+
 
 
             CreateMap<CreateConsultantDTO, Consultant>().ReverseMap();

@@ -188,7 +188,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 200,
-                Message = "Xác minh tư vấn viên thành công"
+                Message = "Xác thực tư vấn viên thành công."
             });
         }
     }
