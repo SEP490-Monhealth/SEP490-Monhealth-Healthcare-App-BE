@@ -54,25 +54,26 @@ namespace Monhealth.Identity.Repositories
             .FirstOrDefaultAsync(b => b.BookingId == bookingId);
         }
 
-        public async Task<Booking?> GetBookingByConsultantId(Guid consultantId)
+        public async Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId)
         {
-            return await _context.Bookings.AsNoTracking().
-                 AsSplitQuery()
+            return await _context.Bookings.AsNoTracking()
                 .Include(b => b.User)
                 .Include(b => b.Consultant)
                 .ThenInclude(c => c.AppUser)
-                .FirstOrDefaultAsync(b => b.ConsultantId == consultantId);
+                .Where(b => b.ConsultantId == consultantId)
+                .ToListAsync();
 
         }
 
-        public async Task<Booking> GetBookingByUserId(Guid userId)
+        public async Task<List<Booking>> GetBookingByUserId(Guid userId)
         {
             return await _context.Bookings
                    .AsNoTracking()
                    .AsSplitQuery()
                    .Include(b => b.User)
                    .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
-                   .FirstOrDefaultAsync(b => b.UserId == userId);
+                   .Where(b => b.UserId == userId)
+                   .ToListAsync();
 
 
         }
