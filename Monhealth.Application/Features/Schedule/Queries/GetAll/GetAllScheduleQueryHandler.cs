@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
         }
         async Task<PageResult<ScheduleDTO>> IRequestHandler<GetAllScheduleQuery, PageResult<ScheduleDTO>>.Handle(GetAllScheduleQuery request, CancellationToken cancellationToken)
         {
-            var queries = await _scheduleRepository.GetAllScheduleAsync(request.Page, request.Limit, request.ConsultantId, request.Date);
+            var queries = await _scheduleRepository.GetAllScheduleAsync(request.Page, request.Limit);
             var result = queries.Items
                 .Select(s => new ScheduleDTO
                 {

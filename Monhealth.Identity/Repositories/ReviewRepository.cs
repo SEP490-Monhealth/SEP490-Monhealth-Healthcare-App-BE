@@ -31,6 +31,12 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<List<Review>> GetReviewsByBookingId(Guid bookingId)
+        {
+            return await _context.Reviews.AsNoTracking().Include(r => r.User)
+                .Where(r => r.BookingId == bookingId).ToListAsync();
+        }
+
         //public async Task<List<Review>> GetReviewsByConsultant(Guid consultantId)
         //{
         //    var query = await _context.Reviews.

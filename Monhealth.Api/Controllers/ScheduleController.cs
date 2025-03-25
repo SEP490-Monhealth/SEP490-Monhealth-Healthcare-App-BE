@@ -9,7 +9,6 @@ using Monhealth.Application.Features.Subscription.Queries.GetById;
 using Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayOfWeek;
 using Monhealth.Application.Models;
 using System.Net;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -24,14 +23,12 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllSchedule(int page = 1, int limit = 10, Guid? consultantId = null, DateOnly? date = null)
+        public async Task<ActionResult<ResultModel>> GetAllSchedule(int page = 1, int limit = 10)
         {
             var scheduleList = await _mediator.Send(new GetAllScheduleQuery
             {
                 Page = page,
-                Limit = limit,
-                ConsultantId = consultantId,
-                Date = date
+                Limit = limit
             });
 
             return new ResultModel

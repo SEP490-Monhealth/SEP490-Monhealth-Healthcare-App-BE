@@ -7,7 +7,5 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
     {
         public int Page { get; set; }
         public int Limit { get; set; }
-        public Guid? ConsultantId { get; set; }
-        public DateOnly? Date { get; set; }
     }
 }

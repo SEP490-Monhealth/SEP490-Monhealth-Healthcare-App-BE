@@ -52,6 +52,8 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(c => EF.Functions.Collate(c.AppUser.FullName.ToLower(), "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
                                 c.AppUser.FullName.ToLower().Contains(search.ToLower())
                                  || c.AppUser.PhoneNumber.Contains(search)
+                                 || c.ConsultantId.ToString().Contains(search.ToLower())
+
                                  );
             }
 

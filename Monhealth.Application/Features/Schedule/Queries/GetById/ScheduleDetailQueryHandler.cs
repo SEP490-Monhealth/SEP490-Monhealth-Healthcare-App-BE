@@ -30,7 +30,9 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetById
                 RecurringDay = schedule.RecurringDay,
                 SpecificDate = schedule.SpecificDate,
                 // Nếu có các thông tin liên quan khác từ ScheduleTimeSlots, bạn có thể ánh xạ thêm ở đây.
-                TimeSlots = schedule.ScheduleTimeSlots.Select(st => new TimeSlotDto
+                TimeSlots = schedule.ScheduleTimeSlots
+                .OrderBy(st => st.TimeSlot.StartTime)
+                .Select(st => new TimeSlotDto
                 {
                     StartTime = st.TimeSlot.StartTime,
                     Status = st.Status,

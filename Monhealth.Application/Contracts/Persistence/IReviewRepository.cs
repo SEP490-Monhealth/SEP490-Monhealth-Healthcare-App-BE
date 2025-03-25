@@ -7,8 +7,8 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<int> SaveChangeAsync();
         Task<List<Review>> GetReviewsByUser(Guid userId);
-        Task<PaginatedResult<Review>>GetAllReviewAsync(int page, int limit, int rating);
-        //Task<List<Review>>GetReviewsByConsultant(Guid consultantId);
+        Task<PaginatedResult<Review>> GetAllReviewAsync(int page, int limit, int rating);
+        Task<List<Review>> GetReviewsByBookingId(Guid bookingId);
 
     }
 }

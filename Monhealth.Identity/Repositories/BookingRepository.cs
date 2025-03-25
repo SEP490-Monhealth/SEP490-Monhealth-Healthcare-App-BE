@@ -27,6 +27,8 @@ namespace Monhealth.Identity.Repositories
                                    b.Consultant.AppUser.FullName.ToLower().Contains(search.ToLower())
                                    || b.Consultant.AppUser.PhoneNumber.Contains(search)
                                    || b.User.PhoneNumber.Contains(search)
+                                   || b.Consultant.ConsultantId.ToString().ToLower().Contains(search.ToLower())
+                                   || b.User.Id.ToString().ToLower().Contains(search.ToLower())
                                    );
             }
             if (status.HasValue)
@@ -60,7 +62,7 @@ namespace Monhealth.Identity.Repositories
                 .Include(b => b.Consultant)
                 .ThenInclude(c => c.AppUser)
                 .FirstOrDefaultAsync(b => b.ConsultantId == consultantId);
-                
+
         }
 
         public async Task<Booking> GetBookingByUserId(Guid userId)
@@ -70,7 +72,7 @@ namespace Monhealth.Identity.Repositories
                    .AsSplitQuery()
                    .Include(b => b.User)
                    .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
-                   .FirstOrDefaultAsync(b => b.UserId == userId) ;
+                   .FirstOrDefaultAsync(b => b.UserId == userId);
 
 
         }

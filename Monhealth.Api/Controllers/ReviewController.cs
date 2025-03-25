@@ -1,4 +1,3 @@
-using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Review.Commands.Create;
@@ -6,10 +5,11 @@ using Monhealth.Application.Features.Review.Commands.Delete;
 using Monhealth.Application.Features.Review.Commands.Update;
 using Monhealth.Application.Features.Review.Queries;
 using Monhealth.Application.Features.Review.Queries.GetById;
+using Monhealth.Application.Features.Review.Queries.GetReviewByBookingId;
 using Monhealth.Application.Features.Review.Queries.GetReviewByConsultant;
 using Monhealth.Application.Features.Review.Queries.GetReviewByUser;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -92,6 +92,32 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
+        [HttpGet]
+        [Route("booking/{bokingId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetReviewByBookingId(Guid bokingId)
+        {
+            var queries = await _mediator.
+            Send(new GetReviewByBookingIdQueries { BookingId = bokingId });
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Đánh giá không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
+
         [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetReviewByConsultant(Guid consultantId)

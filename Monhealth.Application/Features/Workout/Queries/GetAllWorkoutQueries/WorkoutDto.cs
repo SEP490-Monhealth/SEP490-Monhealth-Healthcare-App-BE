@@ -1,9 +1,10 @@
 ﻿using Monhealth.Core.Enum;
+using Monhealth.Domain.Common;
 using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
 {
-    public class WorkoutDto
+    public class WorkoutDto : BaseEntity
     {
         public Guid WorkoutId { get; set; }
         [JsonPropertyName("type")]
@@ -16,5 +17,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
         public int Exercises { get; set; }
         public int DurationMinutes { get; set; }
         public float CaloriesBurned { get; set; }
+        public bool Status { get; set; }
+
     }
 }

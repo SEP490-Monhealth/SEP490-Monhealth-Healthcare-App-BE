@@ -1,9 +1,10 @@
-using System.Text.Json.Serialization;
+using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Schedule.Queries.GetAll
 {
-    public class ScheduleDTO
+    public class ScheduleDTO : TimeEntity
     {
         public Guid ScheduleId { get; set; }
         public Guid ConsultantId { get; set; }

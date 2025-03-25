@@ -13,13 +13,10 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Schedule>> GetAllScheduleAsync(int page, int limit, Guid? consultantId, DateOnly? date)
+        public async Task<PaginatedResult<Schedule>> GetAllScheduleAsync(int page, int limit)
         {
             IQueryable<Schedule> query = _context.Schedules.AsQueryable();
-            if (consultantId.HasValue)
-                query = query.Where(s => s.ConsultantId == consultantId);
-            if (date.HasValue)
-                query = query.Where(s => s.CreatedAt.HasValue && s.CreatedAt.Value.Date == date.Value.ToDateTime(new TimeOnly(0, 0)).Date || s.SpecificDate == date);
+
 
             query = query.Include(s => s.ScheduleTimeSlots)
              .ThenInclude(st => st.TimeSlot);

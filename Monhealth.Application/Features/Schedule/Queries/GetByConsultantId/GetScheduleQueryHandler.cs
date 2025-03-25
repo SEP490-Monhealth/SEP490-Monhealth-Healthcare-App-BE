@@ -28,7 +28,9 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
                 ScheduleType = s.ScheduleType,
                 RecurringDay = s.RecurringDay,
                 SpecificDate = s.SpecificDate,
-                TimeSlots = s.ScheduleTimeSlots.Select(st => new TimeSlotDto
+                TimeSlots = s.ScheduleTimeSlots
+                .OrderBy(st => st.TimeSlot.StartTime)
+                .Select(st => new TimeSlotDto
                 {
                     StartTime = st.TimeSlot.StartTime,
                     Status = st.Status,
