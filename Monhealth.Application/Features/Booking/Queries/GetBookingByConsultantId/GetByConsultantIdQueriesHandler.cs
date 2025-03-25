@@ -11,9 +11,7 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
         public async Task<List<BookingDto>> Handle(GetByConsultantIdQueries request, CancellationToken cancellationToken)
         {
             var booking = await bookingRepository.GetBookingByConsultantId(request.ConsultantId);
-            if (booking == null) throw new BadRequestException("Không tìm thấy lịch hẹn");
             return mapper.Map<List<BookingDto>>(booking);
-
         }
     }
 }

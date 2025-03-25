@@ -17,7 +17,6 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
                 CurrentPage = request.Page,
                 TotalPages = (int)Math.Ceiling(pagingBooking.TotalCount / (double)request.Limit),
                 TotalItems = pagingBooking.TotalCount,
-
             };
         }
     }
