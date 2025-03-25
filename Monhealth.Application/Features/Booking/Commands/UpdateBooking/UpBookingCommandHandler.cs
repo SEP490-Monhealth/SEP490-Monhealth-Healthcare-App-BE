@@ -13,6 +13,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBooking
             if (booking == null) throw new BadRequestException("Không tìm thấy lịch hẹn");
             mapper.Map(request.UpdateBookingDto, booking);
             booking.UpdatedAt = DateTime.Now;
+            booking.UpdatedBy = booking.UserId;
             await bookingRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
         }
