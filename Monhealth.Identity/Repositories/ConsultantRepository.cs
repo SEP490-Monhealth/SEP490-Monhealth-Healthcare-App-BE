@@ -95,6 +95,8 @@ namespace Monhealth.Identity.Repositories
                     {
                         FullName = c.AppUser.FullName,
                         Avatar = c.AppUser.Avatar,
+                        PhoneNumber = c.AppUser.PhoneNumber,
+                        Email = c.AppUser.Email,
                     },
                     Expertise = new Expertise
                     {

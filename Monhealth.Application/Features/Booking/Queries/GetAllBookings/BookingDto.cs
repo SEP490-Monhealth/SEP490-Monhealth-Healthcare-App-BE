@@ -9,8 +9,8 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public Guid BookingId { get; set; }
         public Guid? UserId { get; set; }
         public Guid? ConsultantId { get; set; }
-        public Member member { get; set; }
-        public Consultant consultant { get; set; }
+        public Member Member { get; set; }
+        public Consultant Consultant { get; set; }
         [JsonPropertyName("date")]
         public DateTime Day { get; set; }
         public string? Notes { get; set; } = string.Empty;
@@ -19,16 +19,16 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
     }
     public class Consultant
     {
-        public string ConsultantName { get; set; } = string.Empty;
-        public string ConsultantAvatar { get; set; } = string.Empty;
-        public string PhoneNumber { get; set; } = string.Empty;
+        public string FullName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+        public string AvatarUrl { get; set; } = string.Empty;
     }
     public class Member
     {
-        public string MemberName { get; set; } = string.Empty;
-        public string MemberAvatar { get; set; } = string.Empty;
-        public string PhoneNumber { get; set; } = string.Empty;
+        public string FullName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+        public string AvatarUrl { get; set; } = string.Empty;
     }
 }

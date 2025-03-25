@@ -19,14 +19,14 @@ namespace Monhealth.Application.Automapper
                 .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(_ => _.UserId));
 
             CreateMap<Booking, BookingDto>()
-                .ForPath(dest => dest.consultant.ConsultantName, opt => opt.MapFrom(opt => opt.Consultant.AppUser.FullName))
-                .ForPath(dest => dest.consultant.ConsultantAvatar, opt => opt.MapFrom(opt => opt.Consultant.AppUser.Avatar))
-                .ForPath(dest => dest.consultant.Email, opt => opt.MapFrom(opt => opt.Consultant.AppUser.Email))
-                .ForPath(dest => dest.consultant.PhoneNumber, opt => opt.MapFrom(opt => opt.Consultant.AppUser.PhoneNumber))
-                .ForPath(dest => dest.member.MemberName, opt => opt.MapFrom(opt => opt.User.FullName))
-                .ForPath(dest => dest.member.MemberAvatar, opt => opt.MapFrom(opt => opt.User.Avatar))
-                .ForPath(dest => dest.member.Email, opt => opt.MapFrom(opt => opt.User.Email))
-                .ForPath(dest => dest.member.PhoneNumber, opt => opt.MapFrom(opt => opt.User.PhoneNumber))
+                .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(opt => opt.Consultant.AppUser.FullName))
+                .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(opt => opt.Consultant.AppUser.Email))
+                .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(opt => opt.Consultant.AppUser.PhoneNumber))
+                .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(opt => opt.Consultant.AppUser.Avatar))
+                .ForPath(dest => dest.Member.FullName, opt => opt.MapFrom(opt => opt.User.FullName))
+                .ForPath(dest => dest.Member.Email, opt => opt.MapFrom(opt => opt.User.Email))
+                .ForPath(dest => dest.Member.PhoneNumber, opt => opt.MapFrom(opt => opt.User.PhoneNumber))
+                .ForPath(dest => dest.Member.AvatarUrl, opt => opt.MapFrom(opt => opt.User.Avatar))
                 ;
 
             CreateMap<UpdateBookingDto, Booking>()
