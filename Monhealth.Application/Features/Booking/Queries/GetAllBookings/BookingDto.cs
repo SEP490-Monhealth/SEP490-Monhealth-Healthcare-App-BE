@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
 {
@@ -9,22 +9,26 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public Guid BookingId { get; set; }
         public Guid? UserId { get; set; }
         public Guid? ConsultantId { get; set; }
-        //consultant name
-        public string ConsultantName { get; set; } = string.Empty;
-        //consultant avatar
-        public string ConsultantAvatar { get; set; } = string.Empty;
-        //consultant phone number
-        public string PhoneNumber { get; set; } = string.Empty;
-        //consultant email
-         public string Email { get; set; } = string.Empty;
-        //member name
-        public string MemberName { get; set; } = string.Empty;
-        //member avatar
-        public string MemberAvatar { get; set; } = string.Empty;
+        public Member member { get; set; }
+        public Consultant consultant { get; set; }
         [JsonPropertyName("date")]
         public DateTime Day { get; set; }
         public string? Notes { get; set; } = string.Empty;
         public string CancellationReason { get; set; } = null!;
         public BookingStatus Status { get; set; }
+    }
+    public class Consultant
+    {
+        public string ConsultantName { get; set; } = string.Empty;
+        public string ConsultantAvatar { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+    }
+    public class Member
+    {
+        public string MemberName { get; set; } = string.Empty;
+        public string MemberAvatar { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
     }
 }
