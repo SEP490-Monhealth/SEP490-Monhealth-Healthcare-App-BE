@@ -17,7 +17,7 @@ namespace Monhealth.Application.Automapper
                 .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(_ => DateTime.Now))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(_ => BookingStatus.Pending))
                 .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(_ => _.UserId));
-
+                
             CreateMap<Booking, BookingDto>()
                 .ForPath(dest => dest.consultant.ConsultantName, opt => opt.MapFrom(opt => opt.Consultant.AppUser.FullName))
                 .ForPath(dest => dest.consultant.ConsultantAvatar, opt => opt.MapFrom(opt => opt.Consultant.AppUser.Avatar))

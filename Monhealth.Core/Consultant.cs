@@ -17,7 +17,7 @@ namespace Monhealth.Domain
         public double? AverageRating { get; set; }
         public bool IsVerified { get; set; } = false;
         public bool Status { get; set; } = false;
-
+        public int BookingCount { get; set; }
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         [ForeignKey(nameof(ExpertiseId))]
