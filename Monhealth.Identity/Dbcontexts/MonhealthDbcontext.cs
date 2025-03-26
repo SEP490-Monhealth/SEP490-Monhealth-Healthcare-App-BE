@@ -105,6 +105,21 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(d => d.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<Message>()
+            .HasOne<AppUser>()
+            .WithMany()
+            .HasForeignKey(m => m.SenderId)
+            .HasPrincipalKey(u => u.Id)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Message>()
+                .HasOne<Consultant>()
+                .WithMany()
+                .HasForeignKey(m => m.ReceiverId)
+                .HasPrincipalKey(c => c.Id)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
             var mealTypeComparer = new ValueComparer<List<MealType>>(
                    (c1, c2) => c1.SequenceEqual(c2),

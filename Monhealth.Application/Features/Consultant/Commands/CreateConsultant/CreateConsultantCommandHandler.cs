@@ -2,8 +2,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
-using Monhealth.Domain;
-using System.Text.Json;
 
 namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
 {
@@ -44,7 +42,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             var consultant = await _consultantRepository.GetConsultantByUserId(request.CreateConsultantDTO.UserId);
             if (consultant != null) { throw new BadRequestException("Người dùng này đã là chuyên viên tư vấn"); }
             var newConsultant = _mapper.Map<Domain.Consultant>(request.CreateConsultantDTO);
-            newConsultant.ConsultantId = Guid.NewGuid();
+            newConsultant.Id = Guid.NewGuid();
             newConsultant.ExpertiseId = expertise.ExpertiseId;
             newConsultant.CreatedAt = today;
             newConsultant.UpdatedAt = today;
@@ -54,18 +52,18 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             var newCertificate = _mapper.Map<Domain.Certificate>(request.CreateConsultantDTO);
             newCertificate.CertificateId = Guid.NewGuid();
             newCertificate.ExpertiseId = expertise.ExpertiseId;
-            newCertificate.ConsultantId = newConsultant.ConsultantId;
+            newCertificate.ConsultantId = newConsultant.Id;
             //newCertificate.ImageUrls = JsonSerializer.Serialize(request.CreateConsultantDTO.Images);
             newCertificate.ImageUrls = request.CreateConsultantDTO.Images;
             newCertificate.CreatedAt = today;
             newCertificate.UpdatedAt = today;
             _certificateRepository.Add(newCertificate);
-            
+
             //Create Wallet
             var wallet = new Domain.Wallet
             {
                 WalletId = Guid.NewGuid(),
-                ConsultantId = newConsultant.ConsultantId,
+                ConsultantId = newConsultant.Id,
                 Balance = 0,
                 CreatedAt = today,
                 UpdatedAt = today,

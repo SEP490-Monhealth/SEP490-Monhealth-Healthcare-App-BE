@@ -18,7 +18,7 @@ namespace Monhealth.Identity.Repositories
             IQueryable<Consultant> query = _context.Consultants
                 .Select(c => new Consultant
                 {
-                    ConsultantId = c.ConsultantId,
+                    Id = c.Id,
                     UserId = c.UserId,
                     Status = c.Status,
                     Bio = c.Bio,
@@ -53,7 +53,7 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(c => EF.Functions.Collate(c.AppUser.FullName.ToLower(), "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
                                 c.AppUser.FullName.ToLower().Contains(search.ToLower())
                                  || c.AppUser.PhoneNumber.Contains(search)
-                                 || c.ConsultantId.ToString().Contains(search.ToLower())
+                                 || c.Id.ToString().Contains(search.ToLower())
 
                                  );
             }
@@ -81,10 +81,10 @@ namespace Monhealth.Identity.Repositories
         public async Task<Consultant> GetConsultantById(Guid consultantId)
         {
             var consultant = await _context.Consultants
-                .Where(i => i.ConsultantId == consultantId)
+                .Where(i => i.Id == consultantId)
                 .Select(c => new Consultant
                 {
-                    ConsultantId = c.ConsultantId,
+                    Id = c.Id,
                     UserId = c.UserId,
                     Status = c.Status,
                     Bio = c.Bio,

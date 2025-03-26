@@ -27,7 +27,7 @@ namespace Monhealth.Identity.Repositories
                                    b.Consultant.AppUser.FullName.ToLower().Contains(search.ToLower())
                                    || b.Consultant.AppUser.PhoneNumber.Contains(search)
                                    || b.User.PhoneNumber.Contains(search)
-                                   || b.Consultant.ConsultantId.ToString().ToLower().Contains(search.ToLower())
+                                   || b.Consultant.Id.ToString().ToLower().Contains(search.ToLower())
                                    || b.User.Id.ToString().ToLower().Contains(search.ToLower())
                                    );
             }
