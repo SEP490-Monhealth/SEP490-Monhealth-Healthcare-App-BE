@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Exceptions;
 using Monhealth.Application.Features.Booking.Queries.GetAllBookings;
 
 namespace Monhealth.Application.Features.Booking.Queries.GetBookingByUserId

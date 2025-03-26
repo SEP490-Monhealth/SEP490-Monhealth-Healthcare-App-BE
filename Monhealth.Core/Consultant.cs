@@ -13,8 +13,8 @@ namespace Monhealth.Domain
         public Guid? ExpertiseId { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int Experience { get; set; }
-        public double? RatingCount { get; set; }
-        public double? AverageRating { get; set; }
+        public double RatingCount { get; set; }
+        public double AverageRating { get; set; }
         public bool IsVerified { get; set; } = false;
         public bool Status { get; set; } = false;
         public int BookingCount { get; set; }

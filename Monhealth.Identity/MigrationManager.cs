@@ -15,6 +15,7 @@ namespace Monhealth.Identity
                 {
                     context.Database.Migrate();
                     new DataSeeder().SeedAsync(context).Wait();
+
                 }
             }
             return app;

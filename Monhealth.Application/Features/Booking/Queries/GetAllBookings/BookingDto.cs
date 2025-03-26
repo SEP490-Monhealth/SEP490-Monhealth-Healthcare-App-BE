@@ -15,6 +15,7 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public DateTime Day { get; set; }
         public string? Notes { get; set; } = string.Empty;
         public string CancellationReason { get; set; } = null!;
+        public bool IsReviewed { get; set; }
         public BookingStatus Status { get; set; }
     }
     public class Consultant

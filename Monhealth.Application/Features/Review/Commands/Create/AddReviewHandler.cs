@@ -6,9 +6,12 @@ namespace Monhealth.Application.Features.Review.Commands.Create
     public class AddReviewHandler : IRequestHandler<AddReviewRequest, Unit>
     {
         private readonly IReviewRepository _reviewRepository;
-        public AddReviewHandler(IReviewRepository reviewRepository)
+        private readonly IBookingRepository bookingRepository;
+
+        public AddReviewHandler(IReviewRepository reviewRepository, IBookingRepository bookingRepository)
         {
             _reviewRepository = reviewRepository;
+            this.bookingRepository = bookingRepository;
         }
 
 
@@ -24,7 +27,11 @@ namespace Monhealth.Application.Features.Review.Commands.Create
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };
+
             _reviewRepository.Add(model);
+            var booking = await bookingRepository.GetByIdAsync(request.BookingId);
+            if (booking != null)
+                booking.IsReviewed = true;
             await _reviewRepository.SaveChangeAsync();
             return Unit.Value;
         }
