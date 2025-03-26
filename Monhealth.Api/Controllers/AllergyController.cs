@@ -113,13 +113,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật triệu chứng thất bại",
+                    Message = "Cập nhật dị ứng thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật triệu ch thành công",
+                Message = "Cập nhật dị ứng thành công",
                 Success = true,
                 Status = 204,
             });
