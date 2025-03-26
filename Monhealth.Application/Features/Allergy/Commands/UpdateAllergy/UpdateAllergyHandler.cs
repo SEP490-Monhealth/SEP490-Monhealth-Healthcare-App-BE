@@ -18,6 +18,7 @@ namespace Monhealth.Application.Features.Allergy.Commands.UpdateAllergy
             var allergyId = await _allergyRepository.GetByIdAsync(request.AllergyId);
             allergyId.AllergyName = request.Request.Name;
             allergyId.AllergyDescription = request.Request.Description;
+            allergyId.UpdatedAt = DateTime.Now;
             allergyId.UpdatedBy = user;
             _allergyRepository.Update(allergyId);
             await _allergyRepository.SaveChangeAsync();
