@@ -25,7 +25,7 @@ namespace Monhealth.Application.Features.Review.Queries
                 UpdatedAt = r.UpdatedAt,
                 Rating = r.Rating,
                 UserId = r.UserId,
-                UserName = r.User.UserName
+                Member = r.User.FullName
             }).ToList();
 
             return new PageResult<ReviewDTO>

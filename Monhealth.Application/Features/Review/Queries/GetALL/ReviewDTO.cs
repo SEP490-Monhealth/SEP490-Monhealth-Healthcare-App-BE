@@ -7,7 +7,7 @@ namespace Monhealth.Application.Features.Review.Queries
         public Guid ReviewId { get; set; }
         public Guid BookingId { get; set; }
         public Guid UserId { get; set; }
-        public string UserName { get; set; } = string.Empty;
+        public string Member { get; set; } = string.Empty;
         public int Rating { get; set; }
         public string Comment { get; set; } = string.Empty;
     }
