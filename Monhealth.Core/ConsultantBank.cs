@@ -19,7 +19,5 @@ namespace Monhealth.Domain
 
         [ForeignKey(nameof(BankId))]
         public Bank Bank { get; set; }
-
-
     }
 }

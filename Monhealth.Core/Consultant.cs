@@ -26,6 +26,5 @@ namespace Monhealth.Domain
         public Wallet? Wallet { get; set; }
         public ICollection<WithDrawalRequest> WithDrawalRequests { get; set; } = [];
         public ICollection<ConsultantBank> ConsultantBanks { get; set; } = [];
-
     }
 }
