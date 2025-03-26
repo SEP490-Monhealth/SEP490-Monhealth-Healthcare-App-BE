@@ -17,6 +17,7 @@ namespace Monhealth.Domain
         public string? CancellationReason { get; set; }
         public bool IsReviewed { get; set; } = false;
         public BookingStatus Status { get; set; }
+        public DateTime? CompletedAt { get; set; }
 
         [ForeignKey(nameof(UserId)), Column(Order = 0)]
         public AppUser? User { get; set; }
