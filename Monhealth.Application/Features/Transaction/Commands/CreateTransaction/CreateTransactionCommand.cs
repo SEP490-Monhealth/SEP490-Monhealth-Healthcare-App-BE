@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
-using Monhealth.Domain.Enum;
+﻿using MediatR;
 
 namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
 {

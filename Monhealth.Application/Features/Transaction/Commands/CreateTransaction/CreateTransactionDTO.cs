@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Monhealth.Domain.Enum;
+﻿using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
 {
@@ -14,7 +9,6 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
         public TransactionType TransactionType { get; set; }
         public string? Description { get; set; }
         public float? Amount { get; set; }
-        public float? BalanceBefore { get; set; }
-        public float? BalanceAfter { get; set; }
+
     }
 }
