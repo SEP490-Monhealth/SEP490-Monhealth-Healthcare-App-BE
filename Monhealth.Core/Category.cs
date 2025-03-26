@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Monhealth.Domain
 {
-        public class Category : TimeEntity
+        public class Category : BaseEntity
         {
                 [Key]
                 public Guid CategoryId { get; set; }

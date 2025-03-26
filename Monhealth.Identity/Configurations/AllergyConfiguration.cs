@@ -10,6 +10,7 @@ namespace Monhealth.Identity.Configurations
         {
             var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
             var user = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B");
+            
             builder.HasData(
 
             #region Allergy 1
