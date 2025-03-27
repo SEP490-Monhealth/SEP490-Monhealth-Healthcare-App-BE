@@ -10,7 +10,9 @@ namespace Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultant
     {
         public async Task<PageResult<GetAllConsultantBanksDTO>> Handle(GetAllConsultantBanksQuery request, CancellationToken cancellationToken)
         {
-            var listBanks = await consultantBankRepository.GetAllConsultantBanksAsync(request.Page, request.Limit, request.Search, request.Status);
+            var listBanks =
+             await consultantBankRepository.GetAllConsultantBanksAsync
+             (request.Page, request.Limit, request.Search, request.Status);
             return new PageResult<GetAllConsultantBanksDTO>
             {
                 CurrentPage = request.Page,

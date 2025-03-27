@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.Bank.Queries.GetBankById;
-using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankById
 {
@@ -10,7 +8,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBan
     {
         public async Task<GetConsultantBankByIdDTO> Handle(GetConsultantBankByIdQuery request, CancellationToken cancellationToken)
         {
-            var consultantBank = await consultantBankRepository.GetByIdAsync(request.ConsultantBankId);
+            var consultantBank = await consultantBankRepository.GetConsultantBankByConsultant(request.ConsultantBankId);
             if (consultantBank == null)
             {
                 throw new Exception("Ngân hàng của tư vấn viên không tồn tại");

@@ -12,9 +12,14 @@ namespace Monhealth.Application.Automapper
     {
         public ConsultantBankProfile()
         {
-            CreateMap<ConsultantBank, GetAllConsultantBanksDTO>().ReverseMap();
-            CreateMap<ConsultantBank, GetConsultantBankByIdDTO>().ReverseMap();
-            CreateMap<ConsultantBank, GetConsultantBankByConsultantIdDTO>().ReverseMap();
+            CreateMap<ConsultantBank, GetAllConsultantBanksDTO>()
+                .ForMember(dest => dest.BankName, opt => opt.MapFrom(src => src.Bank.BankName));
+
+            CreateMap<ConsultantBank, GetConsultantBankByIdDTO>()
+            .ForMember(dest => dest.BankName, opt => opt.MapFrom(src => src.Bank.BankName));
+
+            CreateMap<ConsultantBank, GetConsultantBankByConsultantIdDTO>()
+                .ForMember(dest => dest.BankName, opt => opt.MapFrom(src => src.Bank.BankName));;
 
             CreateMap<ConsultantBank, CreateConsultantBankDTO>().ReverseMap();
             CreateMap<ConsultantBank, UpdateConsultantBankDTO>().ReverseMap();

@@ -7,6 +7,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBan
     {
         public Guid ConsultantBankId { get; set; }
         public Guid BankId { get; set; }
+        public string BankName { get; set; } = string.Empty;
         [JsonPropertyName("number")]
         public string AccountNumber { get; set; } = string.Empty;
         [JsonPropertyName("name")]
