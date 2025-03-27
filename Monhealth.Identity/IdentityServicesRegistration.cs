@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Monhealth.Application;
 using Monhealth.Application.Contracts.Identity;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
@@ -102,14 +103,13 @@ namespace Monhealth.Identity
             services.AddScoped<IDailyActivityRepository, DailyActivityRepository>();
             services.AddScoped<ICategoryFoodRepository, CategoryFoodRepository>();
             services.AddScoped<IUserCategoryRepository, UserCategoryRepository>();
-            services.AddScoped<IDishTypeFoodRepository,DishtypeFoodRepository>();
-
-
+            services.AddScoped<IDishTypeFoodRepository, DishtypeFoodRepository>();
+            services.AddScoped<IWithDrawalRepository, WithDrawalRepository>();
             services.AddScoped<ITimeSlotRepository, TimeSlotRepository>();
             services.AddScoped<IScheduleTimeSlotRepository, ScheduleTimeSlotRepository>();
             services.AddScoped<IScheduleExceptionRepository, ScheduleExceptionRepository>();
             services.AddScoped<IDishTypeRepository, DishTypeRepository>();
-           services.AddScoped<IUserRoleRepository,UserRoleRepository>();
+            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             // Đăng ký Background Service
             services.AddHostedService<UserSubscriptionBackgroundService>();
 

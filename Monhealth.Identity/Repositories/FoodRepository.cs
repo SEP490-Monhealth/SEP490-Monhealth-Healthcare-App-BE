@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Dynamic.Core;
+using System.Security.Policy;
+using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
@@ -93,6 +95,8 @@ namespace Monhealth.Identity.Repositories
         {
             // Fetch the food item along with its related data
             var food = await _context.Foods
+             .Include(f => f.DishTypeFoods)
+                .ThenInclude(fd => fd.DishType)
                 .Include(fc => fc.CategoryFoods)
                     .ThenInclude(fc => fc.Category)
                 .Include(fc => fc.Nutrition)

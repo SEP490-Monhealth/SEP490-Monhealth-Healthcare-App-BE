@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Monhealth.Application.Models.Paging;
+﻿using Monhealth.Application.Models.Paging;
 using Monhealth.Identity.Models;
 
 namespace Monhealth.Application.Contracts.Persistence
