@@ -22,7 +22,7 @@ namespace Monhealth.Application.Features.User.Commands.CreateUser
         {
 
             if (await _userRepository.IsPhoneNumberDuplicateAsync(request.PhoneNumber))
-                throw new BadRequestException("trùng số điện thoại");
+                throw new BadRequestException("Trùng số điện thoại");
             if (await _userRepository.IsEmailDuplicatedAsync(request.Email))
                 throw new BadRequestException("trùng email");
             if (!await _roleManager.RoleExistsAsync(request.Role))

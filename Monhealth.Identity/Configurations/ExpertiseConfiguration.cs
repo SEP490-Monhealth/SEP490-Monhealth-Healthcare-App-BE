@@ -8,6 +8,7 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<Expertise> builder)
         {
+            var userId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
             var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
 
             builder.HasData(
@@ -20,6 +21,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn dinh dưỡng giúp bệnh nhân phục hồi và duy trì sức khỏe.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -31,6 +34,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Cung cấp chế độ ăn phù hợp cho vận động viên và người tập luyện.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -42,6 +47,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn chế độ ăn hỗ trợ sức khỏe mẹ và bé trước, sau sinh.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -53,6 +60,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn chế độ ăn kiểm soát đường huyết và phòng ngừa biến chứng.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -64,6 +73,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn chế độ ăn hỗ trợ sức khỏe tim, phòng ngừa bệnh lý tim mạch.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -75,6 +86,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn chế độ ăn hỗ trợ điều trị, tăng cường sức khỏe cho bệnh nhân ung thư.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -86,6 +99,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn chế độ ăn giúp phục hồi nhanh chóng và tối ưu sức khỏe.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -97,6 +112,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Sử dụng phương pháp trị liệu giúp phục hồi chức năng cơ thể sau chấn thương.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -108,6 +125,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn dinh dưỡng và phương pháp giảm căng thẳng, lo âu hiệu quả.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -119,6 +138,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn dinh dưỡng hỗ trợ cải thiện tâm trạng và sức khỏe tinh thần.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -130,6 +151,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn dinh dưỡng và phương pháp cải thiện chất lượng giấc ngủ.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -141,6 +164,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn và xây dựng kế hoạch dinh dưỡng, luyện tập theo nhu cầu cá nhân.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -148,10 +173,12 @@ namespace Monhealth.Identity.Configurations
             new Expertise
             {
                 ExpertiseId = Guid.Parse("939cf420-f669-464e-bb2d-74a2c61b1d6f"),
-                ExpertiseName = "Yoga/Pilates",
+                ExpertiseName = "Yoga / Pilates",
                 ExpertiseDescription = "Hướng dẫn dinh dưỡng và bài tập hỗ trợ cải thiện sức khỏe và linh hoạt cơ thể.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -163,6 +190,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn chế độ ăn và phương pháp giúp giảm cân hiệu quả, duy trì vóc dáng.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -174,6 +203,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn chế độ ăn giúp tăng cân an toàn, duy trì sức khỏe.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -185,6 +216,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn dinh dưỡng hỗ trợ quá trình cai nghiện thuốc lá, rượu hiệu quả.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             },
             #endregion
 
@@ -196,6 +229,8 @@ namespace Monhealth.Identity.Configurations
                 ExpertiseDescription = "Tư vấn dinh dưỡng và thói quen giúp cải thiện chất lượng giấc ngủ.",
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId
             }
             #endregion
             );
