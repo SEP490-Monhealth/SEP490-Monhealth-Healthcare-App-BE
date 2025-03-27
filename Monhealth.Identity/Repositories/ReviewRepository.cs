@@ -37,6 +37,13 @@ namespace Monhealth.Identity.Repositories
                 .Where(r => r.BookingId == bookingId).ToListAsync();
         }
 
+        public async Task<List<Review>> GetReviewsByConsultant(Guid consultantId)
+        {
+            var queries = await _context.Reviews
+            .Where(c => c.Booking.ConsultantId == consultantId).ToListAsync();
+            return queries;
+        }
+
         //public async Task<List<Review>> GetReviewsByConsultant(Guid consultantId)
         //{
         //    var query = await _context.Reviews.
