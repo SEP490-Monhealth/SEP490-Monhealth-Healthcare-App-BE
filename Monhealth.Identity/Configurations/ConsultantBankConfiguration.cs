@@ -21,7 +21,7 @@ namespace Monhealth.Identity.Configurations
                 AccountNumber = "1890445466",
                 AccountName = "Văn Hữu Toàn",
                 IsDefault = true,
-                IVerified = true,
+                // IVerified = true,
                 Status = true,
                 UpdatedAt = today,
                 CreatedAt = today,
