@@ -8,10 +8,19 @@ namespace Monhealth.Application.Features.Bank.Commands.UpdateBank
     {
         public async Task<bool> Handle(UpdateBankCommand request, CancellationToken cancellationToken)
         {
-            var checkBankName = await bankRepository.CheckBankNameExisted(request.UpdateBankDTO.BankName);
-            if (checkBankName != null)
+            if (await bankRepository.CheckBankNameExisted(request.UpdateBankDTO.BankName))
             {
                 throw new Exception("Tên ngân hàng đã tồn tại");
+            }
+
+            if (await bankRepository.CheckBankCodeExisted(request.UpdateBankDTO.BankCode))
+            {
+                throw new Exception("Mã ngân hàng đã tồn tại");
+            }
+
+            if (await bankRepository.CheckShortNameExisted(request.UpdateBankDTO.ShortName))
+            {
+                throw new Exception("Tên viết tắt của ngân hàng đã tồn tại");
             }
             var bank = await bankRepository.GetByIdAsync(request.BankId);
             if(bank == null)

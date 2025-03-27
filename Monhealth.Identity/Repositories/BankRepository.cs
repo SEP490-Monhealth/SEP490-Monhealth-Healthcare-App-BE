@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Cryptography.X509Certificates;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
@@ -18,10 +14,19 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<Bank> CheckBankNameExisted(string bankName)
+        public async Task<bool> CheckBankNameExisted(string? bankName)
         {
-            var bank = await _context.Banks.FirstOrDefaultAsync(n => n.BankName == bankName);
-            return bank;
+            return await _context.Banks.AnyAsync(n => n.BankName.ToLower() == bankName.ToLower().Trim());
+        }
+
+        public async Task<bool> CheckBankCodeExisted(string? bankCode)
+        {
+            return await _context.Banks.AnyAsync(n => n.BankCode.ToLower() == bankCode.ToLower().Trim());
+        }
+
+        public async Task<bool> CheckShortNameExisted(string? shortName)
+        {
+            return await _context.Banks.AnyAsync(n => n.ShortName.ToLower() == shortName.ToLower().Trim());
         }
 
         public async Task<PaginatedResult<Bank>> GetAllBanksAsync(int page, int limit, string? search, bool? status)
