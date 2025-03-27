@@ -141,7 +141,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 8
+            #region Bank 9
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -157,7 +157,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 9
+            #region Bank 10
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -173,7 +173,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 10
+            #region Bank 11
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -189,7 +189,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 11
+            #region Bank 12
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -205,7 +205,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 12 
+            #region Bank 13 
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -221,7 +221,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 13
+            #region Bank 14
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -237,7 +237,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 14
+            #region Bank 15
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -253,7 +253,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 15
+            #region Bank 16
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -269,7 +269,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 16
+            #region Bank 17
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -285,7 +285,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 17
+            #region Bank 18
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -301,7 +301,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 18
+            #region Bank 19
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -317,7 +317,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 19
+            #region Bank 20
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -333,7 +333,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 20
+            #region Bank 21
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -349,7 +349,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 21
+            #region Bank 22
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -365,7 +365,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 22
+            #region Bank 23
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -381,7 +381,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 23
+            #region Bank 24
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -389,22 +389,6 @@ namespace Monhealth.Identity.Configurations
                 BankName = "Ngân hàng TMCP Lộc Phát Việt Nam",
                 ShortName = "LPBank",
                 LogoUrl = "https://cdn.banklookup.net/assets/images/bank-icons/LPB.svg",
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = admin,
-                UpdatedBy = admin
-            },
-            #endregion
-
-            #region Bank 24
-            new Bank
-            {
-                BankId = Guid.NewGuid(),
-                BankCode = "",
-                BankName = "",
-                ShortName = "",
-                LogoUrl = "https://",
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -449,22 +433,6 @@ namespace Monhealth.Identity.Configurations
             new Bank
             {
                 BankId = Guid.NewGuid(),
-                BankCode = "",
-                BankName = "",
-                ShortName = "",
-                LogoUrl = "https://",
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = admin,
-                UpdatedBy = admin
-            },
-            #endregion
-
-            #region Bank 28
-            new Bank
-            {
-                BankId = Guid.NewGuid(),
                 BankCode = "NAB",
                 BankName = "Ngân hàng TMCP Nam Á",
                 ShortName = "NamABank",
@@ -477,7 +445,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 29
+            #region Bank 28
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -493,7 +461,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 30
+            #region Bank 29
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -509,7 +477,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 31
+            #region Bank 30
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -525,7 +493,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 32
+            #region Bank 31
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -541,7 +509,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 33
+            #region Bank 32
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -557,7 +525,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 34
+            #region Bank 33
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -573,7 +541,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 35
+            #region Bank 34
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -589,7 +557,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 36
+            #region Bank 35
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -605,7 +573,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 37
+            #region Bank 36
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -621,7 +589,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 38
+            #region Bank 37
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -637,7 +605,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 39
+            #region Bank 38
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -653,7 +621,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 40
+            #region Bank 39
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -669,7 +637,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 41
+            #region Bank 40
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -685,7 +653,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 42
+            #region Bank 41
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -701,7 +669,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 43
+            #region Bank 42
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -717,7 +685,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 44
+            #region Bank 43
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -733,7 +701,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 45
+            #region Bank 44
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -749,7 +717,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 46
+            #region Bank 45
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -765,7 +733,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 47
+            #region Bank 46
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -781,7 +749,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 48
+            #region Bank 47
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -797,7 +765,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 49
+            #region Bank 48
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -813,7 +781,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 50
+            #region Bank 49
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -829,7 +797,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 51
+            #region Bank 50
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -845,7 +813,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 52
+            #region Bank 51
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -861,7 +829,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 53
+            #region Bank 52
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -877,7 +845,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 54
+            #region Bank 53
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -893,11 +861,27 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
+            #region Bank 54
+            new Bank
+            {
+                BankId = Guid.NewGuid(),
+                BankCode = "VRB",
+                BankName = "Ngân hàng Liên doanh Việt - Nga",
+                ShortName = "VRB",
+                LogoUrl = "https://cdn.banklookup.net/assets/images/bank-icons/VRB.svg",
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = admin,
+                UpdatedBy = admin
+            },
+            #endregion
+
             #region Bank 55
             new Bank
             {
                 BankId = Guid.NewGuid(),
-                BankCode = "CTG",
+                BankCode = "VTB",
                 BankName = "Ngân hàng TMCP Công thương Việt Nam",
                 ShortName = "VietinBank",
                 LogoUrl = "https://cdn.banklookup.net/assets/images/bank-icons/ICB.svg",

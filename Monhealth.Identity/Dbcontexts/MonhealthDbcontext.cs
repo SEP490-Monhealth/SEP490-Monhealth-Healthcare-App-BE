@@ -60,6 +60,10 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<DishType> DishTypes { get; set; }
         public DbSet<DishTypeFood> DishTypeFoods { get; set; }
 
+        public DbSet<WithDrawalRequest> WithDrawalRequests { get; set; }
+        public DbSet<Bank> Banks { get; set; }
+        public DbSet<ConsultantBank> ConsultantBanks { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
