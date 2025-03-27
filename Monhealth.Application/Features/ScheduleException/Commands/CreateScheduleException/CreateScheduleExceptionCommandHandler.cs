@@ -10,6 +10,7 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.CreateSchedu
         {
             var scheduleException = mapper.Map<Domain.ScheduleException>(request);
             scheduleExceptionRepository.Add(scheduleException);
+
             await scheduleExceptionRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
         }

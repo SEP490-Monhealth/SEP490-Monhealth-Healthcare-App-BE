@@ -1,6 +1,7 @@
 using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Core.Enum;
 
 namespace Monhealth.Application.Features.Food.Queries.GetFoodById
 {
@@ -21,8 +22,12 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
             var gettingFood = await _foodRepository.GetFoodByIdAsync(request.FoodId);
             var result = new GetFoodByIdDTO
             {
+                FoodId = gettingFood.FoodId,
+                DishType = [..
+                    gettingFood.DishTypeFoods?.Select(dtf => dtf.DishType.DishTypeName).ToList()
+                    .Select(n=>(DishTypeEnum)Enum.Parse(typeof(DishTypeEnum),n)) ??[]
+                    ],
                 Category = gettingFood.CategoryFoods?.Select(x => x.Category.CategoryName).FirstOrDefault() ?? "",
-                CreatedAt = gettingFood.CreatedAt,
                 MealType = gettingFood.MealType,
                 FoodDescription = gettingFood.FoodDescription,
                 Allergies = gettingFood.FoodAllergies?.
@@ -30,7 +35,10 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
                 FoodName = gettingFood.FoodName,
                 IsPublic = gettingFood.IsPublic,
                 Status = gettingFood.Status,
-                UpdatedAt = gettingFood.UpdatedAt
+                CreatedAt = gettingFood.CreatedAt,
+                UpdatedAt = gettingFood.UpdatedAt,
+                CreatedBy = gettingFood.CreatedBy,
+                UpdatedBy = gettingFood.UpdatedBy,
             };
             return result;
         }
