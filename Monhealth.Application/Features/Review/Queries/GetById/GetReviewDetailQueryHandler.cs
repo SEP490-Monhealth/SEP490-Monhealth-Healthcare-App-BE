@@ -21,7 +21,6 @@ namespace Monhealth.Application.Features.Review.Queries.GetById
                 Rating = query.Rating,
                 UserId = query.UserId,
                 CreatedAt = query.CreatedAt,
-                UpdatedAt = query.UpdatedAt
             };
         }
     }

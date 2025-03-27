@@ -1,4 +1,5 @@
 ﻿using System.Linq.Dynamic.Core;
+using System.Security.Policy;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
@@ -93,6 +94,8 @@ namespace Monhealth.Identity.Repositories
         {
             // Fetch the food item along with its related data
             var food = await _context.Foods
+             .Include(f => f.DishTypeFoods)
+                .ThenInclude(fd => fd.DishType)
                 .Include(fc => fc.CategoryFoods)
                 .ThenInclude(fc => fc.Category)
                 .Include(fc => fc.Nutrition)
@@ -179,7 +182,7 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        
+
 
         public async Task<List<Food>> GetFoodsByCategoryNameAsync(string[] categoryNames)
         {
@@ -187,7 +190,7 @@ namespace Monhealth.Identity.Repositories
                Include(f => f.Nutrition).Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
         }
 
-    
+
         public async Task<Nutrition?> GetNutritionByFoodIdAsync(Guid foodId)
         {
             return await _context.Nutritions
