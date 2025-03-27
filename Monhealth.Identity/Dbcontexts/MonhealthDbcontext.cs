@@ -59,6 +59,9 @@ namespace Monhealth.Identity.Dbcontexts
         //public DbSet<ConsultantExpertise> ConsultantExpertises { get; set; }
         public DbSet<DishType> DishTypes { get; set; }
         public DbSet<DishTypeFood> DishTypeFoods { get; set; }
+        public DbSet<Chat> Chats { get; set; }
+        public DbSet<Message> Messages { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
