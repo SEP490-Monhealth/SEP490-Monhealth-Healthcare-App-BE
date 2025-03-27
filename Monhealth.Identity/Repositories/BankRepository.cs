@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
-using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
@@ -62,6 +61,11 @@ namespace Monhealth.Identity.Repositories
         public Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return _context.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task<Bank> GetBankByBankName(string? bankName)
+        {
+            return await _context.Banks.FirstOrDefaultAsync(n => n.BankName.ToLower() == bankName.ToLower().Trim());
         }
     }
 }

@@ -16,7 +16,6 @@ namespace Monhealth.Application.Features.Bank.Queries.GetAllBanks
                 TotalPages = (int)Math.Ceiling(listBanks.TotalCount / (double)request.Limit),
                 TotalItems = listBanks.TotalCount,
                 Items = mapper.Map<List<GetAllBanksDTO>>(listBanks.Items)
-
             };
         }
     }
