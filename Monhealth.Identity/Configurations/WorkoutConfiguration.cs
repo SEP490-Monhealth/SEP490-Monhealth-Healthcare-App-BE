@@ -34,6 +34,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -52,6 +54,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -70,6 +74,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -86,6 +92,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -102,6 +110,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -118,6 +128,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -134,6 +146,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -150,6 +164,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -166,6 +182,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -182,6 +200,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -198,6 +218,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -214,6 +236,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -230,6 +254,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -246,6 +272,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -262,6 +290,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -278,6 +308,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -294,6 +326,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -310,6 +344,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -326,6 +362,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -342,6 +380,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -358,6 +398,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -374,6 +416,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -390,6 +434,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -406,6 +452,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -422,6 +470,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -438,6 +488,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -454,6 +506,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -470,6 +524,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -486,6 +542,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -502,6 +560,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -518,6 +578,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -534,6 +596,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -550,6 +614,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -566,6 +632,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -582,6 +650,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -598,6 +668,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -614,6 +686,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -630,6 +704,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -646,6 +722,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -662,6 +740,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -678,6 +758,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -694,6 +776,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -710,6 +794,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             },
             #endregion
 
@@ -726,6 +812,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
             }
             #endregion
             );

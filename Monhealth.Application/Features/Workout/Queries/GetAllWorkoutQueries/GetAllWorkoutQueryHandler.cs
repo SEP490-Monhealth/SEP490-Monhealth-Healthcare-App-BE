@@ -49,7 +49,12 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
                         ((warmupWorkout?.WorkoutExercises?.Sum(we =>
                         (we?.Exercise?.CaloriesPerMinute ?? 0) * ((we?.DurationSeconds ?? 0) / 60.0) +
                         (we?.Exercise?.CaloriesPerMinute ?? 0) * ((we?.Reps ?? 0) * 2) / 60.0
-                                            ) ?? 0) * 2))
+                                            ) ?? 0) * 2)),
+
+                    CreatedAt = workout.CreatedAt,
+                    CreatedBy = workout.CreatedBy,
+                    UpdatedAt = workout.UpdatedAt,
+                    UpdatedBy = workout.UpdatedBy,
                 });
             }
 

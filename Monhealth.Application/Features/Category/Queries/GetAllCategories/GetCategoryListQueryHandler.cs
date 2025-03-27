@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
         }
         public async Task<PageResult<CategoryDTO>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
         {
-         
+
             var categories = await _categoryRepository
              .GetAllCategoryAsync(request.Page, request.Limit, request.Search, request.Type);
             var categoryList = categories.Items.Select(c => new CategoryDTO
@@ -27,6 +27,8 @@ namespace Monhealth.Application.Features.Metric.Queries.GetAllMetric
                 CategoryType = c.CategoryType,
                 CreatedAt = c.CreatedAt,
                 UpdatedAt = c.UpdatedAt,
+                CreatedBy = c.CreatedBy,
+                UpdatedBy = c.UpdatedBy,
                 CategoryDescription = c.CategoryDescription ?? string.Empty,
 
             }).ToList();

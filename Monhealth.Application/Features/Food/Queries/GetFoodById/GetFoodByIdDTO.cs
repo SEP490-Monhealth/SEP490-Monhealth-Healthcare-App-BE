@@ -6,6 +6,8 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
 {
     public class GetFoodByIdDTO : BaseEntity
     {
+        public Guid FoodId { get; set; }
+        public Guid UserId { get; set; }
         public string Category { get; set; } = string.Empty;
         public List<MealType> MealType { get; set; }
         public List<DishTypeEnum> DishType { get; set; }
