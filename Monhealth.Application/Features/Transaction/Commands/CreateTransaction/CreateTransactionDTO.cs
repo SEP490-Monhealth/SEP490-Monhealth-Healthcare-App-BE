@@ -9,6 +9,5 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
         public TransactionType TransactionType { get; set; }
         public string? Description { get; set; }
         public float? Amount { get; set; }
-
     }
 }

@@ -16,7 +16,6 @@ namespace Monhealth.Domain
         public float? Amount { get; set; }
 
         public StatusTransaction? Status { get; set; }
-
         [ForeignKey(nameof(WalletId))]
         public Wallet Wallet { get; set; }
         [ForeignKey(nameof(BookingId))]
