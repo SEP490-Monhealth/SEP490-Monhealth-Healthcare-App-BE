@@ -12,7 +12,7 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
             var booking = mapper.Map<Domain.Booking>(request);
             bookingRepository.Add(booking);
             await bookingRepository.SaveChangeAsync(cancellationToken);
-
+              
             return Unit.Value;
         }
 
