@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Activity\Queries\" />
-    <Folder Include="Features\Bank\Queries\" />
     <Folder Include="Features\Workout\Queries\GetWorkoutByUserIdQueries\" />
   </ItemGroup>
 

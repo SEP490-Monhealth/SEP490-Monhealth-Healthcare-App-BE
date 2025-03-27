@@ -5,12 +5,12 @@ using Monhealth.Application.Features.Bank.Commands.ChangeStatusBank;
 using Monhealth.Application.Features.Bank.Commands.CreateBank;
 using Monhealth.Application.Features.Bank.Commands.DeleteBank;
 using Monhealth.Application.Features.Bank.Commands.UpdateBank;
-using Monhealth.Application.Features.Exercise.Commands.ChangeStatusExercise;
-using Monhealth.Application.Features.Exercise.Commands.CreateExercise;
-using Monhealth.Application.Features.Portions.Commands.CreateFoodPortion;
-using Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion;
-using Monhealth.Application.Features.Portions.Commands.UpdatePortion;
+using Monhealth.Application.Features.Bank.Queries.GetAllBanks;
+using Monhealth.Application.Features.Bank.Queries.GetBankById;
+using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
+using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Application.Models;
+using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
@@ -19,6 +19,40 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class BankController(IMediator mediator) : ControllerBase
     {
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllBanks(int page = 1, int limit = 10, string? search = null, bool? status = null)
+        {
+            var bankList = await mediator.Send(new GetAllBanksQuery(page, limit, search, status));
+
+            return new ResultModel
+            {
+                Data = bankList,
+                Status = 200,
+                Success = true
+            };
+        }
+
+        [HttpGet("{bankId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetBankById(Guid bankId)
+        {
+            var bank = await mediator.Send(new GetBankByIdQuery { BankId = bankId });
+            if (bank == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Ngân hàng không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = bank
+            });
+        }
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateBank([FromBody] CreateBankDTO createBankDTO)
         {
