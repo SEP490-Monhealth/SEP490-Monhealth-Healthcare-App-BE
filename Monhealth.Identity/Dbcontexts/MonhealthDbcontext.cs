@@ -159,6 +159,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());
+
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new FoodConfiguration());
             // builder.ApplyConfiguration(new FoodCategoryConfiguration());
@@ -172,18 +173,24 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new WorkoutExerciseConfiguration());
             builder.ApplyConfiguration(new SubscriptionConfiguration());
             builder.ApplyConfiguration(new FoodAllergyConfiguration());
-            builder.ApplyConfiguration(new ExpertiseConfiguration());
             builder.ApplyConfiguration(new CategoryFoodConfiguration());
-            builder.ApplyConfiguration(new ConsultantConfiguration());
 
-            builder.ApplyConfiguration(new WalletConfiguration());
-
-            builder.ApplyConfiguration(new TimeSlotConfiguration());
-            builder.ApplyConfiguration(new ScheduleConfiguration());
-            builder.ApplyConfiguration(new ScheduleTimeSlotConfiguration());
             builder.ApplyConfiguration(new DishTypeConfiguration());
             builder.ApplyConfiguration(new DishTypeFoodConfiguration());
             builder.ApplyConfiguration(new CertificateConfiguration());
+
+
+            builder.ApplyConfiguration(new ConsultantConfiguration());
+            builder.ApplyConfiguration(new ExpertiseConfiguration());
+
+            builder.ApplyConfiguration(new ScheduleConfiguration());
+            builder.ApplyConfiguration(new TimeSlotConfiguration());
+            builder.ApplyConfiguration(new ScheduleTimeSlotConfiguration());
+
+            builder.ApplyConfiguration(new WalletConfiguration());
+
+            builder.ApplyConfiguration(new BankConfiguration());
+            builder.ApplyConfiguration(new ConsultantBankConfiguration());
         }
     }
 }
