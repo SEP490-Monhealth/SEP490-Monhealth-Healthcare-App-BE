@@ -1,12 +1,6 @@
 ﻿using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Bank.Commands.ChangeStatusBank;
-using Monhealth.Application.Features.Bank.Commands.CreateBank;
-using Monhealth.Application.Features.Bank.Commands.DeleteBank;
-using Monhealth.Application.Features.Bank.Commands.UpdateBank;
-using Monhealth.Application.Features.Bank.Queries.GetAllBanks;
-using Monhealth.Application.Features.Bank.Queries.GetBankById;
 using Monhealth.Application.Features.ConsultantBank.Commands.ChangeIsDefaultConsultantBank;
 using Monhealth.Application.Features.ConsultantBank.Commands.ChangeStatusConsultantBank;
 using Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultantBank;
@@ -19,7 +13,7 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/consultantbanks")]
+    [Route("api/v1/consultant-banks")]
     [ApiController]
     public class ConsultantBankController(IMediator mediator) : ControllerBase
     {
@@ -57,6 +51,7 @@ namespace Monhealth.Api.Controllers
                 Data = consultantBank
             });
         }
+
         [HttpGet("consultant/{consultantId:guid}")]
         public async Task<ActionResult<ResultModel>> GetConsultantBankByConsultantId(Guid consultantId)
         {
@@ -68,6 +63,7 @@ namespace Monhealth.Api.Controllers
                 Data = consultantBank
             });
         }
+
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateConsultantBank([FromBody] CreateConsultantBankDTO createConsultantBankDTO)
         {
@@ -134,6 +130,28 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpPatch("{consultantBankId}/default")]
+        public async Task<ActionResult<ResultModel>> ChangeIsDefaultConsultantBank(Guid consultantBankId)
+        {
+            var command = new ChangeIsDefaultConsultantBankCommand { ConsultantBankId = consultantBankId };
+            var changeStatus = await mediator.Send(command);
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy tài khoản ngân hàng tư vấn viên"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Thay đổi tài khoản mặc định thành công"
+            };
+        }
+
         [HttpPatch("{consultantBankId}/status")]
         public async Task<ActionResult<ResultModel>> ChangeStatusConsultantBank(Guid consultantBankId)
         {
@@ -153,27 +171,6 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Message = "Thay đổi trạng thái thành công"
-            };
-        }
-        [HttpPatch("{consultantBankId}/isdefault")]
-        public async Task<ActionResult<ResultModel>> ChangeIsDefaultConsultantBank(Guid consultantBankId)
-        {
-            var command = new ChangeIsDefaultConsultantBankCommand { ConsultantBankId = consultantBankId };
-            var changeStatus = await mediator.Send(command);
-            if (!changeStatus)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy tài khoản ngân hàng tư vấn viên"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Thay đổi tài khoản mặc định thành công"
             };
         }
     }

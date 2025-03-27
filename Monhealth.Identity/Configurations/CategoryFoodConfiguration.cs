@@ -2472,7 +2472,7 @@ namespace Monhealth.Identity.Configurations
             new CategoryFood
             {
                 CategoryFoodId = Guid.NewGuid(),
-                CategoryId = sweets,  // Cháo đậu xanh - Category: Sweets
+                CategoryId = cereal,  // Cháo đậu xanh - Category: Sweets
                 FoodId = Guid.Parse("2146faae-2e7c-4460-8d81-38f5d313012c"),  // Cháo đậu xanh
                 CreatedAt = today,
                 UpdatedAt = today

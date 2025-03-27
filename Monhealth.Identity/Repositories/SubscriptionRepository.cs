@@ -10,7 +10,6 @@ namespace Monhealth.Identity.Repositories
     {
         public SubscriptionRepository(MonhealthDbcontext context) : base(context)
         {
-
         }
 
         public async Task<PaginatedResult<Subscription>> GetAllSubcriptionAsync(int page, int limit, string? search, bool? sort, bool? status)
@@ -24,7 +23,6 @@ namespace Monhealth.Identity.Repositories
                 // cho phep search khong dau
                 query = query.Where(s => EF.Functions.Collate(s.SubscriptionName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
             }
-
 
             if (sort.HasValue)
             {

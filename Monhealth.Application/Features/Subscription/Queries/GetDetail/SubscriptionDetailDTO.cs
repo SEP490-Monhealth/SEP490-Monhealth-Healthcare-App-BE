@@ -5,6 +5,7 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetDetail
 {
     public class SubscriptionDetailDTO : BaseEntity
     {
+        public Guid SubscriptionId { get; set; }
         [JsonPropertyName("name")]
         public string SubscriptionName { get; set; } = string.Empty;
         [JsonPropertyName("description")]

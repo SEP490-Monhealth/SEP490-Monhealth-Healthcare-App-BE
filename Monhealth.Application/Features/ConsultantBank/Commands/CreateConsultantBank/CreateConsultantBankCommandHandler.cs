@@ -4,8 +4,8 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultantBank
 {
-    public class CreateConsultantBankCommandHandler(IConsultantBankRepository consultantBankRepository, 
-        IBankRepository bankRepository, 
+    public class CreateConsultantBankCommandHandler(IConsultantBankRepository consultantBankRepository,
+        IBankRepository bankRepository,
         IMapper mapper) : IRequestHandler<CreateConsultantBankCommand, Unit>
     {
         public async Task<Unit> Handle(CreateConsultantBankCommand request, CancellationToken cancellationToken)
@@ -15,7 +15,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultan
             {
                 throw new Exception("Ngân hàng không tồn tại");
             }
-            if(await consultantBankRepository.CheckAccountNumber(request.CreateConsultantBankDTO.AccountNumber))
+            if (await consultantBankRepository.CheckAccountNumber(request.CreateConsultantBankDTO.AccountNumber))
             {
                 throw new Exception("Số tài khoản đã tồn tại");
             }

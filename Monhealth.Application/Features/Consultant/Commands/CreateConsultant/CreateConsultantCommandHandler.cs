@@ -60,7 +60,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             newCertificate.CreatedAt = today;
             newCertificate.UpdatedAt = today;
             _certificateRepository.Add(newCertificate);
-            
+
             //Create Wallet
             var wallet = new Domain.Wallet
             {
