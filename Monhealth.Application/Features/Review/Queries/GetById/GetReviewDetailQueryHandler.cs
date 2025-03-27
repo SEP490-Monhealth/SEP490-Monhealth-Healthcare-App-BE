@@ -32,7 +32,7 @@ namespace Monhealth.Application.Features.Review.Queries.GetById
                 {
                     AvatarUrl = user.Avatar,
                     Email = user.Email,
-                    FullName = user.Email,
+                    FullName = user.FullName,
                     PhoneNumber = user.PhoneNumber
                 }
             };

@@ -11,6 +11,7 @@ namespace Monhealth.Application.Features.Review.Queries.GetById
         public int Rating { get; set; }
         public string Comment { get; set; } = string.Empty;
     }
+
     public class Member
     {
         public string FullName { get; set; } = string.Empty;

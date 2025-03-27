@@ -18,14 +18,16 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public bool IsReviewed { get; set; }
         public BookingStatus Status { get; set; }
     }
-    public class Consultant
+
+    public class Member
     {
         public string FullName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string AvatarUrl { get; set; } = string.Empty;
     }
-    public class Member
+
+    public class Consultant
     {
         public string FullName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
