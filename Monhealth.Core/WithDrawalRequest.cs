@@ -11,7 +11,6 @@ namespace Monhealth.Domain
         public string Description { get; set; }
         public float Amount { get; set; }
         public WithDrawalStatus Status { get; set; }
-
         [ForeignKey(nameof(ConsultantId))]
         public Consultant Consultant { get; set; }
     }
