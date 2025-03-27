@@ -19,7 +19,9 @@ namespace Monhealth.Application.Features.Review.Queries.GetById
                 BookingId = query.BookingId,
                 Comment = query.Comment,
                 Rating = query.Rating,
-                UserId = query.UserId
+                UserId = query.UserId,
+                CreatedAt = query.CreatedAt,
+                UpdatedAt = query.UpdatedAt
             };
         }
     }
