@@ -3,6 +3,7 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
+using System.Collections.Generic;
 using System.Linq.Dynamic.Core;
 
 namespace Monhealth.Identity.Repositories
@@ -90,12 +91,48 @@ namespace Monhealth.Identity.Repositories
             p.PortionWeight == portionWeight);
         }
 
-        public async Task<List<Portion>> GetPortionsByFoodIdAsync(Guid foodId)
+        public async Task<PaginatedResult<Portion>> GetPortionsByFoodIdAsync(Guid foodId, int page, int limit, string? search, string? sort, string? order)
         {
-            var listPortions = await _context.Portions
-                .Where(f => f.FoodPortions.Any(fp => fp.FoodId == foodId))
-                .ToListAsync();
-            return listPortions;
+            IQueryable<Portion> query = _context.Portions.AsNoTracking().AsQueryable();
+            query = query.Where(f => f.FoodPortions.Any(fp => fp.FoodId == foodId));
+            if (!string.IsNullOrEmpty(search))
+            {
+                // cho phep search khong dau
+                query = query.Where(s => EF.Functions.Collate(s.PortionSize, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()) ||
+                    s.PortionWeight.ToString().ToLower().Contains(search.ToLower().Trim()));
+            }
+            // sap xep
+            //if (!string.IsNullOrEmpty(sort))
+            //{
+            //    string sorting = $"{sort} {(order?.ToLower() == "desc" ? "descending" : "ascending")}";
+            //    query = query.OrderBy(sorting);
+            //}
+            if (!string.IsNullOrEmpty(sort))
+            {
+                string? sortColumn = sort.ToLower() switch
+                {
+                    "size" => "PortionSize",
+                    "weight" => "PortionWeight",
+                    _ => null
+                };
+
+                if (sortColumn != null)
+                {
+                    string sorting = $"{sortColumn} {(order?.ToLower() == "desc" ? "descending" : "ascending")}";
+                    query = query.OrderBy(sorting);
+                }
+            }
+
+            int totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Portion>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems,
+            };
         }
 
         public async Task<List<Portion>> GetPortionsByFoodIdsAsync(List<Guid> foodIds)

@@ -6,7 +6,7 @@ namespace Monhealth.Application.Contracts.Persistence
     public interface IPortionRepository : IGenericRepository<Portion, Guid>
     {
         Task<PaginatedResult<Portion>> GetAllPortionAsync(int page, int limit, string? sort, string? order);
-        Task<List<Portion>> GetPortionsByFoodIdAsync(Guid foodId);
+        Task<PaginatedResult<Portion>> GetPortionsByFoodIdAsync(Guid foodId, int page, int limit, string? search, string? sort, string? order);
         Task AddPortionAsync(FoodPortion foodPortion);
         Task<Portion> CheckPortion(string portionSize, float portionWeight, string measurementUnit);
         Task<int> SaveChangesAsync();
