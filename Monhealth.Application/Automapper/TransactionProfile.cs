@@ -32,6 +32,12 @@ namespace Monhealth.Application.Automapper
                 .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.PhoneNumber))
                 .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.Avatar));
                 ;
+            .ForMember(dest => dest.UpdatedAt , ost => ost.MapFrom(ost 
+            => ost.UpdatedAt))
+            .ForMember(dest => dest.CreatedAt , ost => ost.MapFrom(ost 
+            => ost.CreatedAt));
+            CreateMap<Transaction, GetTransactionByIdDTO>().ReverseMap();
+            CreateMap<Transaction, GetTransactionByConsultantIdDTO>().ReverseMap();
 
             CreateMap<Transaction, CreateTransactionDTO>().ReverseMap();
             CreateMap<Transaction, UpdateTransactionDTO>().ReverseMap();

@@ -1,9 +1,9 @@
-﻿using System.Linq.Dynamic.Core;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
+using System.Linq.Dynamic.Core;
 
 
 namespace Monhealth.Identity.Repositories
@@ -94,12 +94,14 @@ namespace Monhealth.Identity.Repositories
             // Fetch the food item along with its related data
             var food = await _context.Foods
                 .Include(fc => fc.CategoryFoods)
-                .ThenInclude(fc => fc.Category)
+                    .ThenInclude(fc => fc.Category)
                 .Include(fc => fc.Nutrition)
                 .Include(fc => fc.FoodPortions)
-                .ThenInclude(fc => fc.Portion)
+                    .ThenInclude(fc => fc.Portion)
                 .Include(fc => fc.FoodAllergies)
-                .ThenInclude(fc => fc.Allergy)
+                    .ThenInclude(fc => fc.Allergy)
+                .Include(fc => fc.DishTypeFoods)
+                    .ThenInclude(dtf => dtf.DishType)
                 .FirstOrDefaultAsync(f => f.FoodId == foodId);
 
             // If the food item exists, increment its Views count
@@ -123,11 +125,15 @@ namespace Monhealth.Identity.Repositories
         {
             // Lấy danh sách tất cả các món ăn với các thông tin liên quan
             var foodList = await _context.Foods
-                .Include(f => f.Nutrition)
-                .Include(f => f.FoodPortions)
-                    .ThenInclude(fp => fp.Portion)
-                .Include(f => f.FoodAllergies)
-                    .ThenInclude(fa => fa.Allergy)
+                 .Include(fc => fc.CategoryFoods)
+                    .ThenInclude(fc => fc.Category)
+                .Include(fc => fc.Nutrition)
+                .Include(fc => fc.FoodPortions)
+                    .ThenInclude(fc => fc.Portion)
+                .Include(fc => fc.FoodAllergies)
+                    .ThenInclude(fc => fc.Allergy)
+                .Include(fc => fc.DishTypeFoods)
+                    .ThenInclude(dtf => dtf.DishType)
                 .ToListAsync();
 
             // Lấy danh sách các dị ứng của người dùng
@@ -155,12 +161,15 @@ namespace Monhealth.Identity.Repositories
             // Truy vấn dữ liệu cơ bản
             IQueryable<Food> query = _context.Foods
                 .Where(f => f.UserId == userId)
-                .Include(f => f.CategoryFoods)
-                .ThenInclude(f => f.Category)
-                .Include(f => f.Nutrition)
-                .Include(f => f.FoodAllergies)
-                .ThenInclude(f => f.Allergy)
-                .Include(f => f.FoodPortions).ThenInclude(fp => fp.Portion);
+                .Include(fc => fc.CategoryFoods)
+                    .ThenInclude(fc => fc.Category)
+                .Include(fc => fc.Nutrition)
+                .Include(fc => fc.FoodPortions)
+                    .ThenInclude(fc => fc.Portion)
+                .Include(fc => fc.FoodAllergies)
+                    .ThenInclude(fc => fc.Allergy)
+                .Include(fc => fc.DishTypeFoods)
+                    .ThenInclude(dtf => dtf.DishType);
 
             // Tính tổng số lượng bản ghi
             int totalItems = await query.CountAsync();
@@ -179,7 +188,7 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        
+
 
         public async Task<List<Food>> GetFoodsByCategoryNameAsync(string[] categoryNames)
         {
@@ -187,7 +196,7 @@ namespace Monhealth.Identity.Repositories
                Include(f => f.Nutrition).Include(f => f.FoodPortions).ThenInclude(f => f.Portion).ToListAsync();
         }
 
-    
+
         public async Task<Nutrition?> GetNutritionByFoodIdAsync(Guid foodId)
         {
             return await _context.Nutritions

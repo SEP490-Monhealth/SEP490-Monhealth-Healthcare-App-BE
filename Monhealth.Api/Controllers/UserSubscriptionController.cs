@@ -1,4 +1,3 @@
-using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
@@ -6,7 +5,7 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/UserSubscriptions")]
+    [Route("api/v1/user-subscriptions")]
     [ApiController]
     public class UserSubscriptionController : ControllerBase
     {
@@ -15,18 +14,11 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpGet("{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetUserSubscription(Guid userId)
         {
             var result = await _mediator.Send(new GetUserSubScriptionQuery() { UserId = userId });
-            if (result == null)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                };
-            }
             return new ResultModel
             {
                 Data = result,
@@ -34,6 +26,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10)
         {
@@ -44,9 +37,17 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
-
         }
-
-
+        [HttpGet("{userId:guid}/user/reminderBooking")]
+        public async Task<ActionResult<ResultModel>> GetReminderBookingByUserId([FromRoute] Guid userId)
+        {
+            var booking = await _mediator.Send(new GetReminderBookingQuery { UserId = userId });
+            return new ResultModel
+            {
+                Data = booking,
+                Status = 200,
+                Success = true,
+            };
+        }
     }
 }

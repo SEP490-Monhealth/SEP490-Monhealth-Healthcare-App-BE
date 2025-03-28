@@ -37,5 +37,6 @@ namespace Monhealth.Identity.Models
         public ICollection<UserCategory> UserCategories { get; set; } = [];
         public ICollection<Payment> Payments { get; set; } = [];
         public ICollection<Review> Reviews { get; set; } = [];
+        public Consultant Consultant { get; set; }
     }
 }

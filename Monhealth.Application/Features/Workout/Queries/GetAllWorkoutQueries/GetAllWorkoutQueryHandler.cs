@@ -50,7 +50,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
                         (we?.Exercise?.CaloriesPerMinute ?? 0) * ((we?.DurationSeconds ?? 0) / 60.0) +
                         (we?.Exercise?.CaloriesPerMinute ?? 0) * ((we?.Reps ?? 0) * 2) / 60.0
                                             ) ?? 0) * 2)),
-
+                    Status = workout.Status,
                     CreatedAt = workout.CreatedAt,
                     CreatedBy = workout.CreatedBy,
                     UpdatedAt = workout.UpdatedAt,
