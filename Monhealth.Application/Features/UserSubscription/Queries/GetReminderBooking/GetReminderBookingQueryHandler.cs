@@ -9,7 +9,10 @@ namespace Monhealth.Application
             var user = await userSubscriptionRepository.GetByUserIdAsync(request.UserId);
             if (user == null)
             {
-                throw new Exception("Không tìm thấy người dùng");
+                return new GetReminderBookingDTO
+                {
+                    RemainingBookings = 0
+                };
             }
             return new GetReminderBookingDTO
             {
