@@ -32,6 +32,5 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
 
             return Unit.Value;
         }
-
     }
 }
