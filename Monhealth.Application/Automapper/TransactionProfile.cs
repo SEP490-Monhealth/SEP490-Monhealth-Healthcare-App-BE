@@ -12,7 +12,11 @@ namespace Monhealth.Application.Automapper
     {
         public TransactionProfile()
         {
-            CreateMap<Transaction, GetAllTransactionsDTO>().ReverseMap();
+            CreateMap<Transaction, GetAllTransactionsDTO>()
+            .ForMember(dest => dest.UpdatedAt , ost => ost.MapFrom(ost 
+            => ost.UpdatedAt))
+            .ForMember(dest => dest.CreatedAt , ost => ost.MapFrom(ost 
+            => ost.CreatedAt));
             CreateMap<Transaction, GetTransactionByIdDTO>().ReverseMap();
             CreateMap<Transaction, GetTransactionByConsultantIdDTO>().ReverseMap();
 
