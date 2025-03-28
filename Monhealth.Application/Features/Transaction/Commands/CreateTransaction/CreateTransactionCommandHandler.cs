@@ -21,7 +21,7 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
         }
         public async Task<Unit> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
         {
-            var wallet = await _walletRepository.GetByIdAsync(request.CreateTransactionDTO.WalletId);
+            var wallet = await _walletRepository.GetWalletByConsultantId(request.CreateTransactionDTO.ConsultantId);
 
             var checkBooking = await _bookingRepository.GetByIdAsync(request.CreateTransactionDTO.BookingId);
             if (checkBooking == null)
@@ -30,6 +30,7 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
             }
             var newTransaction = _mapper.Map<Domain.Transaction>(request.CreateTransactionDTO);
             newTransaction.TransactionId = Guid.NewGuid();
+            newTransaction.WalletId = wallet.WalletId;
             newTransaction.Status = StatusTransaction.Pending;
             newTransaction.CreatedAt = DateTime.Now;
             newTransaction.UpdatedAt = DateTime.Now;
