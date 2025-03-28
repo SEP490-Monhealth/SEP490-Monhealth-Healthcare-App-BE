@@ -17,9 +17,9 @@ namespace Monhealth.Api.Controllers
     public class TransactionController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllTransactions(int page = 1, int limit = 10, TransactionType? transactionType = null, StatusTransaction? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllTransactions(int page = 1, int limit = 10, TransactionType? type = null, StatusTransaction? status = null)
         {
-            var transactionsList = await mediator.Send(new GetAllTransactionsQuery(page, limit, transactionType, status));
+            var transactionsList = await mediator.Send(new GetAllTransactionsQuery(page, limit, type, status));
 
             return new ResultModel
             {
