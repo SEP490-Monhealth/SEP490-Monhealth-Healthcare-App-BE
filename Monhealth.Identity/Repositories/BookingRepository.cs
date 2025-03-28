@@ -4,6 +4,7 @@ using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -54,15 +55,25 @@ namespace Monhealth.Identity.Repositories
             .FirstOrDefaultAsync(b => b.BookingId == bookingId);
         }
 
-        public async Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId)
+        public async Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId, DateTime? date)
         {
-            return await _context.Bookings.AsNoTracking()
+            var query = _context.Bookings.AsNoTracking()
                 .Include(b => b.User)
                 .Include(b => b.Consultant)
                 .ThenInclude(c => c.AppUser)
-                .Where(b => b.ConsultantId == consultantId)
-                .ToListAsync();
+                .AsQueryable();
+            if (consultantId != Guid.Empty)
+            {
+                query = query.Where(b => b.ConsultantId == consultantId);
+            }
 
+            if (date.HasValue)
+            {
+                query = query.Where(b => b.Day.Date == date.Value.Date);
+            }
+
+            var listBooking = await query.OrderByDescending(b => b.Day).ToListAsync();
+            return listBooking;
         }
 
         public async Task<List<Booking>> GetBookingByUserId(Guid userId)
