@@ -58,6 +58,7 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.Users.Include(u => u.UserSubscriptions)
                         .ThenInclude(us => us.Subscription)
+                        .Include(u => u.Consultant)
                     .FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber);
         }
 

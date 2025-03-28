@@ -34,7 +34,6 @@ namespace Monhealth.Identity.Services
         public async Task<MeResponse> GetInfomationCurrentUser(string phoneNumber)
         {
             if (string.IsNullOrEmpty(phoneNumber)) throw new BadRequestException("Số điện thoại không được để trống");
-
             var user = await _userRepository.GetByPhoneNumberAsync(phoneNumber);
             if (user == null) throw new NotFoundException("Người dùng không tồn tại");
 
@@ -42,11 +41,12 @@ namespace Monhealth.Identity.Services
             return new MeResponse
             {
                 UserId = user.Id,
+                ConsultantId = user.Consultant != null ? user.Consultant.ConsultantId : null,
                 FullName = user.FullName ?? string.Empty,  // Kiểm tra null cho FullName
                 PhoneNumber = user.PhoneNumber ?? string.Empty,  // Kiểm tra null cho PhoneNumber
                 Email = user.Email,
                 Avatar = user.Avatar ?? string.Empty,  // Kiểm tra null cho Avatar
-                Role = roles.FirstOrDefault() ?? "User",  // Đảm bảo role không bị null
+                Role = roles.FirstOrDefault(),  // Đảm bảo role không bị null
                 Subscription = user.UserSubscriptions.Select(us => us.Subscription.SubscriptionName).FirstOrDefault() ?? "Gói Cơ Bản"
             };
         }
