@@ -47,6 +47,14 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<List<TimeOnly>> GetBookedTimeAsync(Guid consultantId, DateOnly date)
+        {
+            return await _context.Bookings
+                .Where(b => b.ConsultantId == consultantId && DateOnly.FromDateTime(b.Day) == date)
+                .Select(b => TimeOnly.FromDateTime(b.Day))
+                .ToListAsync();   //chi lay gio 
+        }
+
         public async Task<Booking> GetBookingByBookingIdAsync(Guid bookingId)
         {
             return await _context.Bookings.Include(b => b.User)
@@ -61,6 +69,14 @@ namespace Monhealth.Identity.Repositories
                 .Include(b => b.Consultant)
                 .ThenInclude(c => c.AppUser)
                 .Where(b => b.ConsultantId == consultantId)
+                .ToListAsync();
+
+        }
+
+        public async Task<List<Booking>> GetBookingByConsultantIds(List<Guid> consultantIds)
+        {
+            return await _context.Bookings
+                .Where(b => consultantIds.Contains(b.ConsultantId ?? Guid.Empty))
                 .ToListAsync();
 
         }

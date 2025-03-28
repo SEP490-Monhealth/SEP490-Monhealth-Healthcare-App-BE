@@ -1,7 +1,8 @@
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Schedule.Queries.GetAll
 {
@@ -9,17 +10,43 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
     {
         private readonly IMapper _mapper;
         private readonly IScheduleRepository _scheduleRepository;
+        private readonly IBookingRepository bookingRepository;
+
         public GetAllScheduleQueryHandler(IMapper mapper,
-        IScheduleRepository scheduleRepository)
+        IScheduleRepository scheduleRepository, IBookingRepository bookingRepository)
         {
             _mapper = mapper;
             _scheduleRepository = scheduleRepository;
+            this.bookingRepository = bookingRepository;
         }
         async Task<PageResult<ScheduleDTO>> IRequestHandler<GetAllScheduleQuery, PageResult<ScheduleDTO>>.Handle(GetAllScheduleQuery request, CancellationToken cancellationToken)
         {
+
             var queries = await _scheduleRepository.GetAllScheduleAsync(request.Page, request.Limit);
-            var result = queries.Items
-                .Select(s => new ScheduleDTO
+
+            // 2. 
+            var consultantIds = queries.Items.Select(s => s.ConsultantId).ToList();
+
+            var relatedBookings = await bookingRepository.GetBookingByConsultantIds(consultantIds);
+
+            var result = queries.Items.Select(s =>
+            {
+                // Ngày cụ thể nếu có, hoặc xác định thứ trong tuần
+                DateOnly? specificDate = s.SpecificDate;
+                var recurringDay = s.RecurringDay;
+
+                // Lấy các booking theo ngày cụ thể hoặc recurring (chỉ ngày giống nhau)
+                var bookedTimeSlots = relatedBookings
+                    .Where(b =>
+                        b.ConsultantId == s.ConsultantId &&
+                        (
+                            (specificDate.HasValue && DateOnly.FromDateTime(b.Day) == specificDate.Value) ||
+                            (!specificDate.HasValue && (int)b.Day.DayOfWeek == (int)recurringDay)
+                        ))
+                    .Select(b => TimeOnly.FromDateTime(b.Day))
+                    .ToList();
+
+                return new ScheduleDTO
                 {
                     ScheduleId = s.ScheduleId,
                     ConsultantId = s.ConsultantId,
@@ -27,14 +54,16 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
                     RecurringDay = s.RecurringDay,
                     SpecificDate = s.SpecificDate,
                     TimeSlots = s.ScheduleTimeSlots
-                    .OrderBy(st => st.TimeSlot.StartTime)
-                    .Select(st => new TimeSlotDto
-                    {
-                        StartTime = st.TimeSlot.StartTime,
-                        Status = st.Status,
-                    }
-                ).ToList()
-                }).ToList();
+                        .OrderBy(st => st.TimeSlot.StartTime)
+                        .Select(st => new TimeSlotDto
+                        {
+                            StartTime = st.TimeSlot.StartTime,
+                            Status = bookedTimeSlots.Contains(st.TimeSlot.StartTime)
+                                ? ScheduleTimeSlotStatus.Unavailable
+                                : ScheduleTimeSlotStatus.Available
+                        }).ToList()
+                };
+            }).ToList();
             return new PageResult<ScheduleDTO>
             {
                 CurrentPage = request.Page,

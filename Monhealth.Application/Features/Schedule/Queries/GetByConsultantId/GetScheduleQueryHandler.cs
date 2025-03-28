@@ -3,6 +3,7 @@ using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Application.Features.Schedule.Queries.GetAll;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
 {
@@ -10,17 +11,23 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
     {
         private readonly IMapper _mapper;
         private readonly IScheduleRepository _scheduleRepository;
+        private readonly IBookingRepository bookingRepository;
+
         public GetScheduleQueryHandler(IMapper mapper,
-        IScheduleRepository scheduleRepository)
+        IScheduleRepository scheduleRepository, IBookingRepository bookingRepository)
         {
             _mapper = mapper;
             _scheduleRepository = scheduleRepository;
+            this.bookingRepository = bookingRepository;
         }
 
         public async Task<List<ScheduleDTO>> Handle(GetScheduleByConsultantIdQuery request, CancellationToken cancellationToken)
         {
             var schedules = await _scheduleRepository.GetSchedulesByUser(request.ConsultantId, request.Date);
             if (schedules == null) throw new BadRequestException("Không tìm thấy lịch");
+
+            var bookedTimes = await bookingRepository.GetBookedTimeAsync(request.ConsultantId, (DateOnly)request.Date); //lay gio da duoc book trong Booking table
+
             var result = schedules.Select(s => new ScheduleDTO
             {
                 ScheduleId = s.ScheduleId,
@@ -33,7 +40,9 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
                 .Select(st => new TimeSlotDto
                 {
                     StartTime = st.TimeSlot.StartTime,
-                    Status = st.Status,
+                    Status = bookedTimes.Contains(st.TimeSlot.StartTime)
+                    ? ScheduleTimeSlotStatus.Unavailable
+                    : ScheduleTimeSlotStatus.Available,
                 }
              ).ToList()
             }).ToList();
