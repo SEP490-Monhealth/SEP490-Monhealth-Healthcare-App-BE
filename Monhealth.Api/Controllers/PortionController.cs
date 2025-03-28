@@ -58,9 +58,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("food/{foodId}")]
         [SwaggerOperation(Summary = "Done")]
-        public async Task<ActionResult<ResultModel>> GetPortionsByFoodId(Guid foodId)
+        public async Task<ActionResult<ResultModel>> GetPortionsByFoodId(Guid foodId, int page = 1, int limit = 10, string? search = null, string? sort = null, string? order = null)
         {
-            var portion = await _mediator.Send(new GetPortionsByFoodIdQuery() { FoodId = foodId });
+            var portion = await _mediator.Send(new GetPortionsByFoodIdQuery(foodId, page, limit, search, sort, order));
             if (portion == null)
             {
                 return new ResultModel
