@@ -4,7 +4,7 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId
 {
-    public class GetTransactionByConsultantIdQueryHandler : IRequestHandler<GetTransactionByConsultantIdQuery, GetTransactionByConsultantIdDTO>
+    public class GetTransactionByConsultantIdQueryHandler : IRequestHandler<GetTransactionByConsultantIdQuery, List<GetTransactionByConsultantIdDTO>>
     {
         private readonly ITransactionRepository _transactionRepository;
         private readonly IWalletRepository _walletRepository;
@@ -15,7 +15,7 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByCon
             _walletRepository = walletRepository;
             _mapper = mapper;
         }
-        public async Task<GetTransactionByConsultantIdDTO> Handle(GetTransactionByConsultantIdQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetTransactionByConsultantIdDTO>> Handle(GetTransactionByConsultantIdQuery request, CancellationToken cancellationToken)
         {
             var wallet = await _walletRepository.GetWalletByConsultantId(request.ConsultantId);
             if (wallet == null)
@@ -27,7 +27,7 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByCon
             {
                 throw new Exception("Không tìm thấy giao dịch");
             }
-            return _mapper.Map<GetTransactionByConsultantIdDTO>(getTransaction);
+            return _mapper.Map<List<GetTransactionByConsultantIdDTO>>(getTransaction);
         }
     }
 }

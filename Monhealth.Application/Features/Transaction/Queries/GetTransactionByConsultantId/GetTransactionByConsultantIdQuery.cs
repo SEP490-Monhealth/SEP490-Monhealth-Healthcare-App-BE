@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId
 {
-    public class GetTransactionByConsultantIdQuery : IRequest<GetTransactionByConsultantIdDTO>
+    public class GetTransactionByConsultantIdQuery : IRequest<List<GetTransactionByConsultantIdDTO>>
     {
         public Guid ConsultantId { get; set; }
     }
