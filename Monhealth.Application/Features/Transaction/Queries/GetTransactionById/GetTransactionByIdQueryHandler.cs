@@ -15,7 +15,7 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionById
         }
         public async Task<GetTransactionByIdDTO> Handle(GetTransactionByIdQuery request, CancellationToken cancellationToken)
         {
-            var transaction = await _transactionRepository.GetTransactionId(request.TransactionId);
+            var transaction = await _transactionRepository.GetTransactionById(request.TransactionId);
             if (transaction == null)
             {
                 throw new Exception("Không tìm thấy giao dịch");

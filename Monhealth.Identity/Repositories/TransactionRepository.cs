@@ -13,8 +13,8 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, StatusTransaction? status,
-        string? search)
+        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, string? search, StatusTransaction? status
+        )
         {
             IQueryable<Transaction> query = _context.Transactions.Include(t => t.Wallet)
             .ThenInclude(u => u.Consultant).ThenInclude(u => u.AppUser)
@@ -24,7 +24,7 @@ namespace Monhealth.Identity.Repositories
                 search = search.Trim().ToLower();
                 query = query.Where(t =>
                     t.TransactionId.ToString().Contains(search) ||
-                    t.Wallet.Consultant.AppUser.FullName.ToLower().Contains(search) 
+                    t.Wallet.Consultant.AppUser.FullName.ToLower().Contains(search)
                 );
             }
             if (type.HasValue)
@@ -47,19 +47,14 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        public async Task<Transaction> GetTransactionByWalletId(Guid walletId)
+        public async Task<Transaction> GetTransactionById(Guid transactionId)
         {
-            return await _context.Transactions
-            .Include(t => t.Wallet)
-            .ThenInclude(u => u.Consultant).ThenInclude(u => u.AppUser).
-            FirstOrDefaultAsync(c => c.WalletId == walletId);
+            return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant).FirstOrDefaultAsync(c => c.TransactionId == transactionId);
         }
 
-        public async Task<Transaction> GetTransactionId(Guid transactionId)
+        public async Task<List<Transaction>> GetTransactionByWalletId(Guid walletId)
         {
-            return await _context.Transactions.Include(t => t.Wallet)
-            .ThenInclude(u => u.Consultant).ThenInclude(u => u.AppUser)
-            .FirstOrDefaultAsync(tr => tr.TransactionId == transactionId);
+            return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant).Where(c => c.WalletId == walletId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

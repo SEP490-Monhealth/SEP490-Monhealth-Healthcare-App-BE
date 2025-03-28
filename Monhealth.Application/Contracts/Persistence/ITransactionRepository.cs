@@ -4,12 +4,11 @@ using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
-    public interface ITransactionRepository : IGenericRepository<Transaction, Guid>
-    {
-        Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit,
-        TransactionType? type, StatusTransaction? status , string? search);
-        Task<Transaction> GetTransactionByWalletId(Guid walletId);
-        Task<Transaction>GetTransactionId(Guid transactionId);
-        Task<int> SaveChangeAsync();
-    }
+        public interface ITransactionRepository : IGenericRepository<Transaction, Guid>
+        {
+                Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, string? search, StatusTransaction? status);
+                Task<Transaction> GetTransactionById(Guid transactionId);
+                Task<List<Transaction>> GetTransactionByWalletId(Guid walletId);
+                Task<int> SaveChangeAsync();
+        }
 }

@@ -5,7 +5,7 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
 {
     public class CreateTransactionDTO
     {
-        public Guid WalletId { get; set; }
+        public Guid ConsultantId { get; set; }
         public Guid BookingId { get; set; }
         [JsonPropertyName("type")]
         public TransactionType TransactionType { get; set; }
