@@ -5,6 +5,7 @@ namespace Monhealth.Application.Features.Certificate.Queries.GetCertificateById
 {
     public class GetCertificateByIdDTO : TimeEntity
     {
+        public Guid CertificateId { get; set; }
         public Guid? ExpertiseId { get; set; }
         public Guid? ConsultantId { get; set; }
         [JsonPropertyName("number")]

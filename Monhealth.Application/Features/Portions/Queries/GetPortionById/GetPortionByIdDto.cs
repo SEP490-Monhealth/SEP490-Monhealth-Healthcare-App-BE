@@ -5,6 +5,7 @@ namespace Monhealth.Application.Features.Portions.Queries.GetPortionById
 {
     public class GetPortionByIdDto : BaseEntity
     {
+        public Guid PortionId { get; set; }
         [JsonPropertyName("size")]
         public string PortionSize { get; set; } = string.Empty;
         [JsonPropertyName("weight")]

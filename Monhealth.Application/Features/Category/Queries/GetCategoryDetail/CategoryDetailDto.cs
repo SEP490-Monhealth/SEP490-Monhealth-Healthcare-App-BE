@@ -6,6 +6,7 @@ namespace Monhealth.Application.Features.Category.Queries.GetCategoryDetail
 {
     public class CategoryDetailDTO : BaseEntity
     {
+        public Guid CategoryId { get; set; }
         [JsonPropertyName("type")]
         public CategoryType CategoryType { get; set; }
         [JsonPropertyName("name")]

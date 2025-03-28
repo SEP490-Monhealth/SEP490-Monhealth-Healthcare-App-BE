@@ -15,7 +15,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, StatusTransaction? status)
         {
-            IQueryable<Transaction> query = _context.Transactions.AsNoTracking().AsQueryable();
+            IQueryable<Transaction> query = _context.Transactions.Include(c => c.Wallet).ThenInclude(c => c.Consultant).AsNoTracking().AsQueryable();
             if (type.HasValue)
             {
                 query = query.Where(t => t.TransactionType == type);
@@ -36,9 +36,14 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        public async Task<Transaction> GetTransactionByWalletId(Guid walletId)
+        public async Task<Transaction> GetTransactionById(Guid transactionId)
         {
-            return await _context.Transactions.FirstOrDefaultAsync(c => c.WalletId == walletId);
+            return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant).FirstOrDefaultAsync(c => c.TransactionId == transactionId);
+        }
+
+        public async Task<List<Transaction>> GetTransactionByWalletId(Guid walletId)
+        {
+            return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant).Where(c => c.WalletId == walletId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()
