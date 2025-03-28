@@ -16,9 +16,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, string? search, StatusTransaction? status
         )
         {
-            IQueryable<Transaction> query = _context.Transactions.Include(t => t.Wallet)
-            .ThenInclude(u => u.Consultant).ThenInclude(u => u.AppUser)
-            .AsNoTracking().AsQueryable();
+            IQueryable<Transaction> query = _context.Transactions.Include(c => c.Wallet).ThenInclude(c => c.Consultant).AsNoTracking().AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
                 search = search.Trim().ToLower();

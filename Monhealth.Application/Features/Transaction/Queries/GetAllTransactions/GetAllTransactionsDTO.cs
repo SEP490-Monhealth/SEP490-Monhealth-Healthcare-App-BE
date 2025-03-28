@@ -7,8 +7,8 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetAllTransactions
     public class GetAllTransactionsDTO : BaseEntity
     {
         public Guid TransactionId { get; set; }
-        public Guid WalletId { get; set; }
         public Guid ConsultantId { get; set; }
+        public Guid WalletId { get; set; }
         public Guid BookingId { get; set; }
         public Consultant Consultant { get; set; } = null!;
         [JsonPropertyName("type")]

@@ -15,7 +15,7 @@ namespace Monhealth.Identity.Configurations
             #region Wallet 1
             new Wallet
             {
-                WalletId = Guid.Parse("122dc7df-16de-49a3-ab83-5299686f6203"),
+                WalletId = Guid.Parse("18a1e829-c8f4-4961-a5cb-bbf6ae444cf6"),
                 ConsultantId = Guid.Parse("122dc7df-16de-49a3-ab83-5299686f6203"),
                 Balance = 1000000,
                 Status = true,
