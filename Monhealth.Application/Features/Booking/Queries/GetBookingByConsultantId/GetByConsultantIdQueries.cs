@@ -6,5 +6,6 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
     public class GetByConsultantIdQueries : IRequest<List<BookingDto>>
     {
         public Guid ConsultantId { get; set; }
+        public DateTime? Date { get; set; }
     }
 }

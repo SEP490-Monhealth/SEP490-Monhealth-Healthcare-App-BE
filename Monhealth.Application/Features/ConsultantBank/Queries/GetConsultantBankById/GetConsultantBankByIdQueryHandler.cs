@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBan
     {
         public async Task<GetConsultantBankByIdDTO> Handle(GetConsultantBankByIdQuery request, CancellationToken cancellationToken)
         {
-            var consultantBank = await consultantBankRepository.GetByIdAsync(request.ConsultantBankId);
+            var consultantBank = await consultantBankRepository.GetConsultantBankById(request.ConsultantBankId);
             if (consultantBank == null)
             {
                 throw new Exception("Ngân hàng của tư vấn viên không tồn tại");

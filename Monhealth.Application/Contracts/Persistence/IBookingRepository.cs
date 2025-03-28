@@ -9,7 +9,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
         Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit, string? search, BookingStatus? statis);
         Task<List<Booking>> GetBookingByUserId(Guid userId);
-        Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId);
+        Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId, DateTime? date);
         Task<Booking> GetBookingByBookingIdAsync(Guid bookingId);
         Task<List<Booking>> GetBookingByConsultantIds(List<Guid> consultantIds);
         Task<List<TimeOnly>> GetBookedTimeAsync(Guid consultantId, DateOnly date);

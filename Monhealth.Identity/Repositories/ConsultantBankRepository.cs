@@ -20,7 +20,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<ConsultantBank>> GetAllConsultantBanksAsync(int page, int limit, string? search, bool? status)
         {
             search = search?.ToLower().Trim();
-            IQueryable<ConsultantBank> query = _context.ConsultantBanks.AsQueryable();
+            IQueryable<ConsultantBank> query = _context.ConsultantBanks.Include(b => b.Bank).AsQueryable();
             // filter search
             if (!string.IsNullOrEmpty(search))
             {
@@ -48,7 +48,12 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<ConsultantBank>> GetConsultantBankByConsultantIdAsync(Guid consultantId)
         {
-            return await _context.ConsultantBanks.Where(c => c.ConsultantId == consultantId).ToListAsync();
+            return await _context.ConsultantBanks.Include(b => b.Bank).Where(c => c.ConsultantId == consultantId).ToListAsync();
+        }
+
+        public async Task<ConsultantBank> GetConsultantBankById(Guid consultantBankId)
+        {
+            return await _context.ConsultantBanks.Include(b => b.Bank).FirstOrDefaultAsync(c => c.ConsultantBankId == consultantBankId);
         }
 
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)

@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
     {
         public async Task<List<BookingDto>> Handle(GetByConsultantIdQueries request, CancellationToken cancellationToken)
         {
-            var booking = await bookingRepository.GetBookingByConsultantId(request.ConsultantId);
+            var booking = await bookingRepository.GetBookingByConsultantId(request.ConsultantId, request.Date);
             return mapper.Map<List<BookingDto>>(booking);
         }
     }
