@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.Bank.Queries.GetBankById;
-using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankById
 {

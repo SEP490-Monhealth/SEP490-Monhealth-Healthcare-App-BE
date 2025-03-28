@@ -3,7 +3,6 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
-
 namespace Monhealth.Identity.Repositories
 {
     public class ConsultantBankRepository : GenericRepository<ConsultantBank, Guid>, IConsultantBankRepository
@@ -44,6 +43,13 @@ namespace Monhealth.Identity.Repositories
                 Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
+        }
+
+        public async Task<ConsultantBank> GetConsultantBankByConsultant(Guid conSultantBankId)
+        {
+            var query = await _context.ConsultantBanks.Include(c => c.Bank)
+            .FirstOrDefaultAsync(cb => cb.ConsultantBankId == conSultantBankId);
+            return query;
         }
 
         public async Task<List<ConsultantBank>> GetConsultantBankByConsultantIdAsync(Guid consultantId)

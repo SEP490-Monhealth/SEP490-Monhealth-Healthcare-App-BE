@@ -13,9 +13,20 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, StatusTransaction? status)
+        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, StatusTransaction? status,
+        string? search)
         {
-            IQueryable<Transaction> query = _context.Transactions.AsNoTracking().AsQueryable();
+            IQueryable<Transaction> query = _context.Transactions.Include(t => t.Wallet)
+            .ThenInclude(u => u.Consultant).ThenInclude(u => u.AppUser)
+            .AsNoTracking().AsQueryable();
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.Trim().ToLower();
+                query = query.Where(t =>
+                    t.TransactionId.ToString().Contains(search) ||
+                    t.Wallet.Consultant.AppUser.FullName.ToLower().Contains(search) 
+                );
+            }
             if (type.HasValue)
             {
                 query = query.Where(t => t.TransactionType == type);
@@ -38,7 +49,17 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Transaction> GetTransactionByWalletId(Guid walletId)
         {
-            return await _context.Transactions.FirstOrDefaultAsync(c => c.WalletId == walletId);
+            return await _context.Transactions
+            .Include(t => t.Wallet)
+            .ThenInclude(u => u.Consultant).ThenInclude(u => u.AppUser).
+            FirstOrDefaultAsync(c => c.WalletId == walletId);
+        }
+
+        public async Task<Transaction> GetTransactionId(Guid transactionId)
+        {
+            return await _context.Transactions.Include(t => t.Wallet)
+            .ThenInclude(u => u.Consultant).ThenInclude(u => u.AppUser)
+            .FirstOrDefaultAsync(tr => tr.TransactionId == transactionId);
         }
 
         public async Task<int> SaveChangeAsync()

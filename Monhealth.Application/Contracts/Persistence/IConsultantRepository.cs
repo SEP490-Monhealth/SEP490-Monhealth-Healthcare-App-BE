@@ -9,5 +9,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<Consultant> GetConsultantById(Guid consultantId);
         Task<Consultant> GetConsultantByUserId(Guid? userId);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
+        Task<Consultant> GetConsultantWithWalletAndTransactionsAsync(Guid ConsultantId);
     }
 }

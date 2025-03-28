@@ -17,9 +17,9 @@ namespace Monhealth.Api.Controllers
     public class TransactionController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllTransactions(int page = 1, int limit = 10, TransactionType? type = null, StatusTransaction? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllTransactions(int page = 1, int limit = 10, TransactionType? type = null, string? search = null, StatusTransaction? status = null)
         {
-            var transactionsList = await mediator.Send(new GetAllTransactionsQuery(page, limit, type, status));
+            var transactionsList = await mediator.Send(new GetAllTransactionsQuery(page, limit, type, search, status));
 
             return new ResultModel
             {
@@ -75,10 +75,10 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPut("{transactionId}")]
-        public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid transactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
+        [HttpPut("{TransactionId}")]
+        public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid TransactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
         {
-            var command = new UpdateTransactionCommand(transactionId, updateTransactionDTO);
+            var command = new UpdateTransactionCommand(TransactionId, updateTransactionDTO);
             var result = await mediator.Send(command);
             if (!result)
             {
