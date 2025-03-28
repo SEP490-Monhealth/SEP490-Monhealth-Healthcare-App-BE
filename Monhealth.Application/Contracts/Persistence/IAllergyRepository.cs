@@ -11,5 +11,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Guid>> GetAllergyIdsByNamesAsync(IEnumerable<string> allergyNames);
         Task<List<Allergy>> GetAllergiesByList(List<string> allergies);
         Task<PaginatedResult<Allergy>> GetAllAlleriesAsync(int page, int limit, string? search);
+        Task<Allergy>GetByNameAsync(string allergyName);
     }
 }

@@ -60,6 +60,11 @@ namespace Monhealth.Identity.Repositories
                         .ToListAsync();
         }
 
+        public async Task<Allergy> GetByNameAsync(string allergyName)
+        {
+            return await _context.Allergies.FirstOrDefaultAsync(a => a.AllergyName == allergyName);
+        }
+
         public async Task<List<Allergy>> GetByUserId(Guid userId)
         {
             var query = await _context.UserAllergies.
