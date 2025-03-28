@@ -7,6 +7,5 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
         public Guid UserId { get; set; }
         public Guid SubscriptionId { get; set; } 
         public int Amount { get; set; }
-        public string Status { get; set; } = string.Empty;
     }
 }

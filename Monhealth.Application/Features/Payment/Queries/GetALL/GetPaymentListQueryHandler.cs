@@ -7,31 +7,57 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
     public class GetPaymentListQueryHandler : IRequestHandler<GetPaymentListQuery, PageResult<PaymentDTO>>
     {
         private readonly IPaymentRepository _paymentRepository;
-        public GetPaymentListQueryHandler(IPaymentRepository paymentRepository)
+        private readonly IUserRepository _userRepository;
+        public GetPaymentListQueryHandler(IPaymentRepository paymentRepository,
+        IUserRepository userRepository)
         {
             _paymentRepository = paymentRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<PageResult<PaymentDTO>> Handle(GetPaymentListQuery request, CancellationToken cancellationToken)
         {
-            var query = await _paymentRepository.GetAllPaymentsWithPagination(request.page, request.limit, request.search);
-            var paymentList = query.Items.Select(p => new PaymentDTO
-            {
-                  Amount = p.Amount,
-                  PaymentId = p.PaymentId,
-                  Status = p.Status,
-                  SubscriptionId = p.SubscriptionId,
-                  CreatedAt = p.CreatedAt,
-                  UpdatedAt = p.UpdatedAt
-            }).ToList();
+            var query = await _paymentRepository
+                .GetAllPaymentsWithPagination(request.page, request.limit, request.search);
 
-               return new PageResult<PaymentDTO>
+            var paymentList = new List<PaymentDTO>();
+
+            foreach (var payment in query.Items)
+            {
+                var paymentDTO = new PaymentDTO
+                {
+                    Amount = payment.Amount,
+                    CreatedAt = payment.CreatedAt,
+                    PaymentId = payment.PaymentId,
+                    Status = payment.Status,
+                    SubscriptionId = payment.SubscriptionId,
+                    SubscriptionName = payment.Subscription?.SubscriptionName, // xử lý null
+                    UpdatedAt = payment.UpdatedAt
+                };
+
+                var member = await _userRepository.GetByIdAsync(payment.UserId);
+                if (member != null)
+                {
+                    paymentDTO.Member = new Member
+                    {
+                        AvatarUrl = member.Avatar,
+                        Email = member.Email,
+                        FullName = member.FullName,
+                        PhoneNumber = member.PhoneNumber,
+                    };
+                }
+
+                paymentList.Add(paymentDTO);
+            }
+
+            return new PageResult<PaymentDTO>
             {
                 CurrentPage = request.page,
                 TotalPages = (int)Math.Ceiling(query.TotalCount / (double)request.limit),
                 TotalItems = query.TotalCount,
-                Items = paymentList 
+                Items = paymentList
             };
         }
+
     }
 }
