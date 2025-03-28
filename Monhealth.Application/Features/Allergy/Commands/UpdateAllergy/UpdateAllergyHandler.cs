@@ -13,13 +13,10 @@ namespace Monhealth.Application.Features.Allergy.Commands.UpdateAllergy
 
         public async Task<bool> Handle(UpdateAllergyRequestHandler request, CancellationToken cancellationToken)
         {
-            var user = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B");
-
             var allergyId = await _allergyRepository.GetByIdAsync(request.AllergyId);
             allergyId.AllergyName = request.Request.Name;
             allergyId.AllergyDescription = request.Request.Description;
             allergyId.UpdatedAt = DateTime.Now;
-            allergyId.UpdatedBy = user;
             _allergyRepository.Update(allergyId);
             await _allergyRepository.SaveChangeAsync();
             return true;

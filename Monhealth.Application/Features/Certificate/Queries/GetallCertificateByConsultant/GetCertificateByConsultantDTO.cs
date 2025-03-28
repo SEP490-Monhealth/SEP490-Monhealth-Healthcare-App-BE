@@ -11,9 +11,10 @@ namespace Monhealth.Application
         public string CertificateNumber { get; set; } = null!;
         [JsonPropertyName("name")]
         public string CertificateName { get; set; } = string.Empty;
-        public string IssuedBy { get; set; } = null!;
-        public List<string> Images { get; set; } = new List<string>();
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
+        public string IssuedBy { get; set; } = null!;
+        [JsonPropertyName("imageUrls")]
+        public List<string> Images { get; set; } = new List<string>();
     }
 }

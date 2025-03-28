@@ -1,4 +1,4 @@
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Core.Enum;
@@ -23,15 +23,17 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
             var result = new GetFoodByIdDTO
             {
                 FoodId = gettingFood.FoodId,
+                UserId = gettingFood.UserId,
                 DishType = [..
                     gettingFood.DishTypeFoods?.Select(dtf => dtf.DishType.DishTypeName).ToList()
                     .Select(n=>(DishTypeEnum)Enum.Parse(typeof(DishTypeEnum),n)) ??[]
                     ],
                 Category = gettingFood.CategoryFoods?.Select(x => x.Category.CategoryName).FirstOrDefault() ?? "",
-                MealType = gettingFood.MealType,
+                MealType = gettingFood.MealType, // Chuyển từ chuỗi sang danh sách
                 FoodDescription = gettingFood.FoodDescription,
-                Allergies = gettingFood.FoodAllergies?.
-                Select(fa => fa.Allergy.AllergyName).ToList(),
+                Allergies = gettingFood.FoodAllergies?
+               .Where(f => f.Allergy != null)
+               .Select(f => f.Allergy.AllergyName).ToList() ?? [],
                 FoodName = gettingFood.FoodName,
                 IsPublic = gettingFood.IsPublic,
                 Status = gettingFood.Status,

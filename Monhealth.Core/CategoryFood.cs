@@ -1,6 +1,6 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Monhealth.Domain.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain;
 public class CategoryFood : TimeEntity

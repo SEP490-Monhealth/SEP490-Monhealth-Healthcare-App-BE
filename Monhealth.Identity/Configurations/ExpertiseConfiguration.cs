@@ -95,7 +95,7 @@ namespace Monhealth.Identity.Configurations
             new Expertise
             {
                 ExpertiseId = Guid.Parse("c32b7429-13df-4aa0-b32d-705d1050de5f"),
-                ExpertiseName = "Phục hồi sau phẫu thuật/chấn thương",
+                ExpertiseName = "Phục hồi sau phẫu thuật",
                 ExpertiseDescription = "Tư vấn chế độ ăn giúp phục hồi nhanh chóng và tối ưu sức khỏe.",
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -212,7 +212,7 @@ namespace Monhealth.Identity.Configurations
             new Expertise
             {
                 ExpertiseId = Guid.Parse("768178b4-2241-4914-9309-74f89462eddc"),
-                ExpertiseName = "Cai thuốc lá/rượu",
+                ExpertiseName = "Cai thuốc lá / rượu",
                 ExpertiseDescription = "Tư vấn dinh dưỡng hỗ trợ quá trình cai nghiện thuốc lá, rượu hiệu quả.",
                 CreatedAt = today,
                 UpdatedAt = today,
