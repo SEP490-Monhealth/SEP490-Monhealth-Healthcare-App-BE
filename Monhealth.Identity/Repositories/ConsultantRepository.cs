@@ -117,6 +117,12 @@ namespace Monhealth.Identity.Repositories
             FirstOrDefaultAsync(c => c.UserId == userId);
         }
 
+        public async Task<Consultant> GetConsultantWithWalletAndTransactionsAsync(Guid ConsultantId)
+        {
+            return await _context.Consultants.Include(c => c.Wallet)
+            .ThenInclude(tr => tr.Transactions).FirstOrDefaultAsync(c => c.ConsultantId == ConsultantId);
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);

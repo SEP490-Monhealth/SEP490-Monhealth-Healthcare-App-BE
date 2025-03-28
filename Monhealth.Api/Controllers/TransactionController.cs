@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Transaction.Queries.GetTransactionById;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 using System.Net;
+using System.Transactions;
 
 namespace Monhealth.Api.Controllers
 {
@@ -75,27 +76,27 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        // [HttpPut("{transactionId}")]
-        // public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid transactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
-        // {
-        //     var command = new UpdateTransactionCommand(transactionId, updateTransactionDTO);
-        //     var result = await mediator.Send(command);
-        //     if (!result)
-        //     {
-        //         return new ResultModel
-        //         {
-        //             Success = false,
-        //             Status = (int)HttpStatusCode.NotFound,
-        //             Message = "Cập nhật giao dịch thất bại"
-        //         };
-        //     }
-        //     return new ResultModel
-        //     {
-        //         Success = true,
-        //         Status = (int)HttpStatusCode.OK,
-        //         Message = "Cập nhật giao dịch thành công"
-        //     };
-        // }
+        [HttpPut ("{TransactionId}")]
+        public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid TransactionId ,[FromBody] UpdateTransactionDTO updateTransactionDTO)
+        {
+            var command = new UpdateTransactionCommand(TransactionId ,updateTransactionDTO);
+            var result = await mediator.Send(command);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Cập nhật giao dịch thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật giao dịch thành công"
+            };
+        }
 
         [HttpDelete("{transactionId}")]
         public async Task<ActionResult<ResultModel>> DeleteTransaction(Guid transactionId)

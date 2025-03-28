@@ -3,7 +3,6 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
-
 namespace Monhealth.Identity.Repositories
 {
     public class ConsultantBankRepository : GenericRepository<ConsultantBank, Guid>, IConsultantBankRepository
