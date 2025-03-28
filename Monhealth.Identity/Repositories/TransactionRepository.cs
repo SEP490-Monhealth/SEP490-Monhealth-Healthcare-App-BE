@@ -13,11 +13,20 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, StatusTransaction? status)
+        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, StatusTransaction? status,
+        string? search)
         {
             IQueryable<Transaction> query = _context.Transactions.Include(t => t.Wallet)
             .ThenInclude(u => u.Consultant).ThenInclude(u => u.AppUser)
             .AsNoTracking().AsQueryable();
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.Trim().ToLower();
+                query = query.Where(t =>
+                    t.TransactionId.ToString().Contains(search) ||
+                    t.Wallet.Consultant.AppUser.FullName.ToLower().Contains(search) 
+                );
+            }
             if (type.HasValue)
             {
                 query = query.Where(t => t.TransactionType == type);

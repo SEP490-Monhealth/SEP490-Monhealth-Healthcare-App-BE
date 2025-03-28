@@ -16,7 +16,8 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetAllTransactions
         }
         public async Task<PageResult<GetAllTransactionsDTO>> Handle(GetAllTransactionsQuery request, CancellationToken cancellationToken)
         {
-            var listTransactions = await _transactionRepository.GetAllTransactionsAsync(request.Page, request.Limit, request.Type, request.Status);
+            var listTransactions = await _transactionRepository.GetAllTransactionsAsync(request.Page, request.Limit, request.Type, 
+            request.Status, request.Search);
             var listTransactionsDto = _mapper.Map<List<GetAllTransactionsDTO>>(listTransactions.Items);
             return new PageResult<GetAllTransactionsDTO>()
             {

@@ -1,9 +1,10 @@
 ﻿using System.Text.Json.Serialization;
+using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionById
 {
-    public class GetTransactionByIdDTO
+    public class GetTransactionByIdDTO : BaseEntity
     {
         public Guid WalletId { get; set; }
         public Guid BookingId { get; set; }
