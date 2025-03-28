@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.AddCategory;
+using Monhealth.Application.Features.Category.DeleteCategory;
 using Monhealth.Application.Features.Category.Queries.GetAllCategoriesByType;
 using Monhealth.Application.Features.Category.Queries.GetCategoryDetail;
 using Monhealth.Application.Features.Category.UpdateCategory;
@@ -23,6 +24,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllCategories(int page = 1, int limit = 10, CategoryType? type = null, string? search = null)
         {
 
@@ -34,30 +36,6 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
-        }
-
-        [HttpGet]
-        [Route("{categoryId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetCategoryDetail(Guid categoryId)
-        {
-            var categories = await _mediator.Send(new GetCategoryDetailQuery { CategoryId = categoryId });
-
-            if (categories == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Danh mục không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = categories
-            });
         }
 
         [HttpGet]
@@ -85,7 +63,33 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+        [HttpGet]
+        [Route("{categoryId:Guid}")]
+        [SwaggerOperation(Summary = "Done")]
+        public async Task<ActionResult<ResultModel>> GetCategoryDetail(Guid categoryId)
+        {
+            var categories = await _mediator.Send(new GetCategoryDetailQuery { CategoryId = categoryId });
+
+            if (categories == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Danh mục không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = categories
+            });
+        }
+
         [HttpPost]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> AddCategory([FromBody] AddCategoryRequest request)
         {
             var result = await _mediator.Send(request);
@@ -109,6 +113,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{categoryId:Guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid categoryId, [FromBody] UpdateCategoryRequest request)
         {
             var command = new UpdateCategoryCommand(categoryId, request);
@@ -130,30 +135,31 @@ namespace Monhealth.Api.Controllers
             );
         }
 
-        // [HttpDelete]
-        // [Route("{categoryId:Guid}")]
-        // public async Task<ActionResult<ResultModel>> RemoveCategory(Guid categoryId)
-        // {
-        //     var result = await _mediator.Send(new DeleteCategoryRequest(categoryId));
+        [HttpDelete]
+        [Route("{categoryId:Guid}")]
+        [SwaggerOperation(Summary = "Done")]
+        public async Task<ActionResult<ResultModel>> RemoveCategory(Guid categoryId)
+        {
+            var result = await _mediator.Send(new DeleteCategoryRequest(categoryId));
 
-        //     if (!result)
-        //     {
-        //         return NotFound(new ResultModel
-        //         {
-        //             Success = false,
-        //             Message = "Danh mục không tồn tại",
-        //             Status = (int)HttpStatusCode.NotFound,
-        //             Data = null
-        //         });
-        //     }
+            if (!result)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Danh mục không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
 
-        //     return Ok(new ResultModel
-        //     {
-        //         Success = true,
-        //         Message = "Xóa danh mục thành công",
-        //         Status = 204,
-        //         Data = null
-        //     });
-        // }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa danh mục thành công",
+                Status = 204,
+                Data = null
+            });
+        }
     }
 }

@@ -8,6 +8,7 @@ using Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant;
 using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
 using Monhealth.Application.Features.Consultant.Queries.GetConsultantById;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -23,6 +24,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, bool? verified = null, bool? status = null)
         {
             var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, expertise, search, status, verified));
@@ -36,6 +38,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetConsultantById(Guid consultantId)
         {
             var consultant = await _mediator.Send(new GetConsultantByIdCommand { ConsultantId = consultantId });
@@ -80,6 +83,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> CreateConsultant([FromBody] CreateConsultantDTO createConsultantDTO)
         {
             var command = new CreateConsultantCommand(createConsultantDTO);
@@ -146,6 +150,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{consultantId}/status")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> ChangeStatusConsultant(Guid consultantId)
         {
             var consultant = await _mediator.Send(new ChangeStatusConsultantCommand() { ConsultantId = consultantId });
@@ -168,27 +173,27 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{consultantId}/verify")]
-        public async Task<ActionResult<ResultModel>> VeryfiedConsultant(Guid consultantId)
-        {
-            var consultant = await _mediator.Send(new VeryfiedConsultantCommand() { ConsultantId = consultantId });
+        // [HttpPatch("{consultantId}/verify")]
+        // public async Task<ActionResult<ResultModel>> VeryfiedConsultant(Guid consultantId)
+        // {
+        //     var consultant = await _mediator.Send(new VeryfiedConsultantCommand() { ConsultantId = consultantId });
 
-            if (consultant == false)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Tư vấn viên không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Message = "Xác thực tư vấn viên thành công."
-            });
-        }
+        //     if (consultant == false)
+        //     {
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Tư vấn viên không tồn tại",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 200,
+        //         Message = "Xác thực tư vấn viên thành công."
+        //     });
+        // }
     }
 }

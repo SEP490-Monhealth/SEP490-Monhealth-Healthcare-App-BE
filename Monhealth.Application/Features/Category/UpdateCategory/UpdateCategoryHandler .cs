@@ -21,7 +21,7 @@ namespace Monhealth.Application.Features.Category.UpdateCategory
 
             if (isCategoryExist)
             {
-                throw new Exception("CategoryName already exists");
+                throw new Exception("Tên danh mục đã tồn tại");
             }
             category.CategoryType = request.CategoryType;
             category.CategoryName = request.CategoryName;

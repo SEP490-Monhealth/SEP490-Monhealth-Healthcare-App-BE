@@ -2,10 +2,12 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Allergy.Commands.CreateAllergy;
+using Monhealth.Application.Features.Allergy.Commands.DeleteAllergy;
 using Monhealth.Application.Features.Allergy.Commands.UpdateAllergy;
 using Monhealth.Application.Features.Allergy.Queries.GetAll;
 using Monhealth.Application.Features.Allergy.Queries.GetDetail;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -20,6 +22,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllAllergies(int page = 1, int limit = 10, string? search = null)
         {
             var categories = await _mediator.Send(new GetAllergyQuery { Page = page, Limit = limit, Search = search });
@@ -34,6 +37,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{allergyId:Guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllergyIdDetail(Guid allergyId)
         {
             var categories = await _mediator.
@@ -83,6 +87,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> AddAllergy([FromBody] CreateAllergyRequest request)
         {
             var result = await _mediator.Send(request);
@@ -125,32 +130,33 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        // [HttpDelete]
-        // [Route("{allergyId:Guid}")]
-        // public async Task<ActionResult<ResultModel>> RemoveAllergy(Guid allergyId)
-        // {
-        //     var result = await _mediator.Send(new DeleteAllergyRequest(allergyId));
+        [HttpDelete]
+        [Route("{allergyId:Guid}")]
+        [SwaggerOperation(Summary = "Done")]
+        public async Task<ActionResult<ResultModel>> RemoveAllergy(Guid allergyId)
+        {
+            var result = await _mediator.Send(new DeleteAllergyRequest(allergyId));
 
-        //     if (!result)
-        //     {
-        //         // Trả về lỗi nếu xóa không thành công
-        //         return NotFound(new ResultModel
-        //         {
-        //             Success = false,
-        //             Message = "Triệu chứng không tồn tại",
-        //             Status = (int)HttpStatusCode.NotFound,
-        //             Data = null
-        //         });
-        //     }
+            if (!result)
+            {
+                // Trả về lỗi nếu xóa không thành công
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Triệu chứng không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
 
-        //     // Trả về kết quả thành công
-        //     return Ok(new ResultModel
-        //     {
-        //         Success = true,
-        //         Message = "Xóa triệu chứng thành công",
-        //         Status = 204,
-        //         Data = null
-        //     });
-        // }
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa triệu chứng thành công",
+                Status = 204,
+                Data = null
+            });
+        }
     }
 }

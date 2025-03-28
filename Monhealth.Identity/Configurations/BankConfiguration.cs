@@ -849,6 +849,22 @@ namespace Monhealth.Identity.Configurations
             new Bank
             {
                 BankId = Guid.NewGuid(),
+                BankCode = "VNPTMONEY",
+                BankName = "VNPT Money",
+                ShortName = "VNPTMoney",
+                LogoUrl = "https://cdn.banklookup.net/assets/images/bank-icons/VNPTMONEY.svg",
+                Status = false,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = admin,
+                UpdatedBy = admin
+            },
+            #endregion
+
+            #region Bank 54
+            new Bank
+            {
+                BankId = Guid.NewGuid(),
                 BankCode = "VPB",
                 BankName = "Ngân hàng TMCP Việt Nam Thịnh Vượng",
                 ShortName = "VPBank",
@@ -861,7 +877,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 54
+            #region Bank 55
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -877,7 +893,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 55
+            #region Bank 56
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -893,7 +909,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 56
+            #region Bank 57
             new Bank
             {
                 BankId = Guid.NewGuid(),
@@ -909,7 +925,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Bank 57
+            #region Bank 58
             new Bank
             {
                 BankId = Guid.NewGuid(),

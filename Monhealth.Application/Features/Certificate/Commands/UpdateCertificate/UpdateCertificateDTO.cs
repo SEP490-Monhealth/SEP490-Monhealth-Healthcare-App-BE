@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Certificate.Commands.UpdateCertificate
 {
     public class UpdateCertificateDTO
     {
+        [JsonPropertyName("expertise")]
         public string? ExpertiseName { get; set; }
         [JsonPropertyName("number")]
         public string CertificateNumber { get; set; } = null!;

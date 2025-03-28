@@ -8,6 +8,7 @@ using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetCertificateById;
 using Monhealth.Application.Features.Expertise.Commands.UpdateExpertise;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -39,7 +40,9 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
+
         [HttpGet("consultant/{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetCertificateByConsultant(Guid consultantId)
         {
             var certificate = await mediator.Send(new GetAllCertificateByConsultantQuery { ConsultantId = consultantId });

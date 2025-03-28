@@ -6,6 +6,7 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
     public class CertificateCommand : IRequest<Unit>
     {
         public Guid? ConsultantId { get; set; }
+        [JsonPropertyName("expertise")]
         public string? ExpertiseName { get; set; }
         [JsonPropertyName("number")]
         public string CertificateNumber { get; set; } = null!;
