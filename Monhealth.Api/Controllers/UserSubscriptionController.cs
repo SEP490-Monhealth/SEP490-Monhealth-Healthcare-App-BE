@@ -39,7 +39,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet("{userId:guid}/remaining-booking ")]
+        [HttpGet("{userId:guid}/remaining-booking")]
         public async Task<ActionResult<ResultModel>> GetReminderBookingByUserId([FromRoute] Guid userId)
         {
             var booking = await _mediator.Send(new GetReminderBookingQuery { UserId = userId });

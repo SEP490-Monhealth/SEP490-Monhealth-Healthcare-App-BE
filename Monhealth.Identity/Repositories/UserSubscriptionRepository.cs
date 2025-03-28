@@ -12,9 +12,9 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public Task<UserSubscription> GetByUserIdAsync(Guid userId)
+        public async Task<UserSubscription> GetByUserIdAsync(Guid userId)
         {
-            return _context.UserSubscriptions.FirstOrDefaultAsync(us => us.UserId == userId);
+            return await _context.UserSubscriptions.FirstOrDefaultAsync(us => us.UserId == userId);
         }
 
         public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit)
