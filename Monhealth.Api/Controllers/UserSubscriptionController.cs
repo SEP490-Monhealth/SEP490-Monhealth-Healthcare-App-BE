@@ -6,7 +6,7 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/UserSubscriptions")]
+    [Route("api/v1/user-subscriptions")]
     [ApiController]
     public class UserSubscriptionController : ControllerBase
     {
@@ -15,18 +15,11 @@ namespace Monhealth.Api.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpGet("{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetUserSubscription(Guid userId)
         {
             var result = await _mediator.Send(new GetUserSubScriptionQuery() { UserId = userId });
-            if (result == null)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                };
-            }
             return new ResultModel
             {
                 Data = result,
@@ -34,6 +27,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10)
         {
@@ -46,7 +40,5 @@ namespace Monhealth.Api.Controllers
             };
 
         }
-
-
     }
 }

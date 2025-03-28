@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Enum;
+﻿using System.Text.Json.Serialization;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId
 {
@@ -7,6 +8,7 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByCon
         public Guid TransactionId { get; set; }
         public Guid WalletId { get; set; }
         public Guid BookingId { get; set; }
+        [JsonPropertyName("type")]
         public TransactionType TransactionType { get; set; }
         public string? Description { get; set; }
         public float? Amount { get; set; }

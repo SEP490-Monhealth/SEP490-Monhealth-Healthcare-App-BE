@@ -15,7 +15,7 @@ namespace Monhealth.Application.Features.Certificate.Queries.GetAllCertificate
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
         public string IssuedBy { get; set; } = null!;
-        public List<string> ImageUrls { get; set; } = new List<string>();
         public bool IsVerified { get; set; }
+        public List<string> ImageUrls { get; set; } = new List<string>();
     }
 }
