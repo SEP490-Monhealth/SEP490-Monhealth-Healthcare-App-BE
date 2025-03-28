@@ -1,4 +1,3 @@
-using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
@@ -38,7 +37,17 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
-
+        }
+        [HttpGet("{userId:guid}/user/reminderBooking")]
+        public async Task<ActionResult<ResultModel>> GetReminderBookingByUserId([FromRoute] Guid userId)
+        {
+            var booking = await _mediator.Send(new GetReminderBookingQuery { UserId = userId });
+            return new ResultModel
+            {
+                Data = booking,
+                Status = 200,
+                Success = true,
+            };
         }
     }
 }
