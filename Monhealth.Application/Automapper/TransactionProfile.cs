@@ -12,9 +12,26 @@ namespace Monhealth.Application.Automapper
     {
         public TransactionProfile()
         {
-            CreateMap<Transaction, GetAllTransactionsDTO>().ReverseMap();
-            CreateMap<Transaction, GetTransactionByIdDTO>().ReverseMap();
-            CreateMap<Transaction, GetTransactionByConsultantIdDTO>().ReverseMap();
+            CreateMap<Transaction, GetAllTransactionsDTO>()
+                .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.FullName))
+                .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.Email))
+                .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.PhoneNumber))
+                .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.Avatar));
+
+
+            CreateMap<Transaction, GetTransactionByIdDTO>()
+            .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.FullName))
+                .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.Email))
+                .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.PhoneNumber))
+                .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.Avatar));
+
+            ;
+            CreateMap<Transaction, GetTransactionByConsultantIdDTO>()
+            .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.FullName))
+                .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.Email))
+                .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.PhoneNumber))
+                .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(opt => opt.Wallet.Consultant.AppUser.Avatar));
+                ;
 
             CreateMap<Transaction, CreateTransactionDTO>().ReverseMap();
             CreateMap<Transaction, UpdateTransactionDTO>().ReverseMap();

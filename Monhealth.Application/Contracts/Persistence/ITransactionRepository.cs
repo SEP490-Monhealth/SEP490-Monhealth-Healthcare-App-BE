@@ -8,6 +8,7 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, StatusTransaction? status);
         Task<Transaction> GetTransactionByWalletId(Guid walletId);
+        Task<Transaction>GetTransactionId(Guid transactionId);
         Task<int> SaveChangeAsync();
     }
 }

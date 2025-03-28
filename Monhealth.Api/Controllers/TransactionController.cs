@@ -9,7 +9,6 @@ using Monhealth.Application.Features.Transaction.Queries.GetTransactionById;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 using System.Net;
-using System.Transactions;
 
 namespace Monhealth.Api.Controllers
 {
