@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Models;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Api.Controllers
 {
@@ -50,9 +51,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAll()
+        public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, WithdrawalStatus? status = null)
         {
-            var queries = await mediator.Send(new GetWithdrawalRequestListQuery());
+            var queries = await mediator.Send(new GetWithdrawalRequestListQuery(page, limit, status));
             return new ResultModel
             {
                 Data = queries,

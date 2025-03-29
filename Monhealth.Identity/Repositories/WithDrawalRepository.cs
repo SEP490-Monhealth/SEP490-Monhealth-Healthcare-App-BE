@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Repositories;
 
@@ -11,14 +13,30 @@ namespace Monhealth.Application
         {
         }
 
-        public async Task<List<WithdrawalRequest>> GetAllWithdrawalRequestAsync()
+        public async Task<PaginatedResult<WithdrawalRequest>> GetAllWithdrawalRequestAsync(int page, int limit, WithdrawalStatus? status)
         {
-            return await _context.WithdrawalRequests.Include(wd => wd.Consultant)
+            var query = _context.WithdrawalRequests.Include(wd => wd.Consultant)
             .ThenInclude(u => u.AppUser)
             .Include(b => b.Consultant).ThenInclude(c => c.ConsultantBanks)
             .ThenInclude(b => b.Bank)
             .Include(c => c.Consultant).ThenInclude(cs => cs.Wallet)
-            .ThenInclude(cs => cs.Transactions).ToListAsync();
+            .ThenInclude(cs => cs.Transactions).AsQueryable();
+            if (status.HasValue)
+            {
+                query = query.Where(wd => wd.Status == status);
+            }
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            var totalItems = await query.CountAsync();
+            return new PaginatedResult<WithdrawalRequest>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
+
         }
 
         public async Task<WithdrawalRequest> GetWithdrawalRequest(Guid withdrawalId)
