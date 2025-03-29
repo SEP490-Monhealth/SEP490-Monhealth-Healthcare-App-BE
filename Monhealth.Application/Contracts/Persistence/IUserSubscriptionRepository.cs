@@ -1,4 +1,5 @@
 using Monhealth.Application.Models.Paging;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 
 namespace Monhealth.Application.Contracts.Persistence
@@ -8,6 +9,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Subscription>> GetUserSubscription(Guid user);
         Task<int> SaveChangeAsync();
         Task<UserSubscription> GetByUserIdAsync(Guid userId);
-        Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit);
+        Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name , UserSubscriptionStatus? Status);
     }
 }

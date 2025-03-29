@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
+using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -17,12 +18,19 @@ namespace Monhealth.Identity.Repositories
             return await _context.UserSubscriptions.FirstOrDefaultAsync(us => us.UserId == userId);
         }
 
-        public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit)
+        public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name , UserSubscriptionStatus? Status)
         {
             var query = _context.UserSubscriptions.
             Include(us => us.Subscription).
             Include(us => us.User).AsQueryable();
-
+            
+            if (name is not null) { 
+                query = query.Where(us => us.Subscription.SubscriptionName == name);
+            }
+            if (Status.HasValue)
+            {
+                query = query.Where(us => us.Status == Status);
+            }
             if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);

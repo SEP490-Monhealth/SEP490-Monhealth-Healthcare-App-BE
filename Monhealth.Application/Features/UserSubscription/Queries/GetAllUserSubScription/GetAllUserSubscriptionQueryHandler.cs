@@ -14,7 +14,7 @@ namespace Monhealth.Application
         public async Task<PageResult<GetAllUserSubscriptionDTO>> Handle(GetAllUserSubscriptionQuery request, CancellationToken cancellationToken)
         {
             var userSubscriptions =
-            await _userSubscriptionRepository.GetPagedUserSubscriptionAsync(request.Page, request.Limit);
+            await _userSubscriptionRepository.GetPagedUserSubscriptionAsync(request.Page, request.Limit , request.Name , request.Status);
             var userSubscriptionsList =
             userSubscriptions.Items.Select(us => new GetAllUserSubscriptionDTO
             {

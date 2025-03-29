@@ -2,6 +2,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Models;
+using Monhealth.Core.Enum;
+using Monhealth.Domain;
 
 namespace Monhealth.Api.Controllers
 {
@@ -28,9 +30,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10, string? SubScription = null, UserSubscriptionStatus? status = null)
         {
-            var result = await _mediator.Send(new GetAllUserSubscriptionQuery(page, limit));
+            var result = await _mediator.Send(new GetAllUserSubscriptionQuery(page, limit , SubScription , status));
             return new ResultModel
             {
                 Data = result,
