@@ -19,6 +19,7 @@ namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithdrawalRe
             var defaultBank = withdrawal.Consultant.ConsultantBanks.FirstOrDefault(cb => cb.IsDefault);
 
             var description = withdrawal.Description;
+            var accountName = defaultBank.AccountName;
             if (defaultBank == null)
             {
                 throw new Exception("Không tìm thấy ngân hàng mặc định.");
@@ -31,15 +32,15 @@ namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithdrawalRe
             $"https://img.vietqr.io/image/{bankCode}-{accountNumber}-compact2.png"
                 + $"?amount={withdrawal.Amount}"
                 + $"&addInfo={Uri.EscapeDataString(description)}"
-                + $"&accountName={Uri.EscapeDataString(withdrawal.Consultant.ConsultantBanks.Select(cs => cs.AccountName).First())}";
+                + $"&accountName={Uri.EscapeDataString(accountName)}";
 
             var bankName =
-                $"{withdrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.BankName).First()} - {withdrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.BankName).First()}";
+                $"{withdrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.ShortName).First()} - {withdrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.BankName).First()}";
 
             return new(
                            qrUrl,
                            bankName,
-                           withdrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.BankName).First(),
+                           accountName,
                            withdrawal.Amount,
                            description
                        );

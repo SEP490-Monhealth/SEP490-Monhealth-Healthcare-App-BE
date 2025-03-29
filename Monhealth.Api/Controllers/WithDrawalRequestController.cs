@@ -43,8 +43,8 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Success = true,
-                Message = "Tạo rút tiền thành công",
-                Status = 201,
+                Message = "rút tiền thành công",
+                Status = 200,
                 Data = result
             };
         }
