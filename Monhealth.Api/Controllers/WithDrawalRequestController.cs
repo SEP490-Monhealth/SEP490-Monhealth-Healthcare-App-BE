@@ -33,7 +33,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{WithdrawalRequestId:Guid}/generate-qr")]
+        [Route("{withdrawalRequestId:Guid}/generate-qr")]
         public async Task<ResultModel> CreateWithdrawalRequest(Guid WithdrawalRequestId)
         {
             var command = new GenerateWithdrawalQRCode(WithdrawalRequestId);
@@ -136,7 +136,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("{WithdrawalRequestId:Guid}")]
+        [Route("{withdrawalRequestId:Guid}/status")]
         public async Task<ActionResult<ResultModel>> UpdateStatus(Guid WithdrawalRequestId)
         {
             try
@@ -163,7 +163,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("{WithdrawalRequestId:Guid}/reject")]
+        [Route("{withdrawalRequestId:Guid}/reject")]
         public async Task<ActionResult<ResultModel>> Reject(Guid WithdrawalRequestId)
         {
             try
@@ -188,6 +188,5 @@ namespace Monhealth.Api.Controllers
                 });
             }
         }
-
     }
 }
