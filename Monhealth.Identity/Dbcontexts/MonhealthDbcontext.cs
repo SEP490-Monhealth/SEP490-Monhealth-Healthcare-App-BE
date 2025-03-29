@@ -27,7 +27,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Portion> Portions { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<MealFood> MealFoods { get; set; }
-        public DbSet<Nutrition> Nutritions { get; set; }
+        public DbSet<Nutrition> Nutrition { get; set; }
         public DbSet<WaterReminder> WaterReminders { get; set; }
         public DbSet<FoodPortion> FoodPortions { get; set; }
         public DbSet<Allergy> Allergies { get; set; }
@@ -47,7 +47,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<DailyActivity> DailyActivities { get; set; }
         public DbSet<DailyWaterIntake> DailyWaterIntakes { get; set; }
         public DbSet<Consultant> Consultants { get; set; }
-        public DbSet<Expertise> Expertises { get; set; }
+        public DbSet<Expertise> Expertise { get; set; }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<ScheduleTimeSlot> ScheduleTimeSlots { get; set; }
         public DbSet<TimeSlot> TimeSlots { get; set; }
@@ -62,7 +62,7 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Bank> Banks { get; set; }
         public DbSet<ConsultantBank> ConsultantBanks { get; set; }
 
-        public DbSet<WithDrawalRequest> WithDrawalRequests { get; set; }
+        public DbSet<WithdrawalRequest> WithdrawalRequests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

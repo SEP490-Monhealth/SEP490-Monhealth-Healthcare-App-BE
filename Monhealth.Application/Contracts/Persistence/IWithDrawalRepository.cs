@@ -3,7 +3,7 @@ using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
-    public interface IWithDrawalRepository : IGenericRepository<WithDrawalRequest,Guid>
+    public interface IWithdrawalRepository : IGenericRepository<WithdrawalRequest,Guid>
     {
         Task<int>SaveChangeASync();
     }

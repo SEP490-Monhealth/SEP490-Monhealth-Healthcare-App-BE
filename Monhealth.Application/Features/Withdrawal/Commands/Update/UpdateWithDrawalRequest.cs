@@ -2,15 +2,14 @@ using MediatR;
 
 namespace Monhealth.Application
 {
-    public class UpdateWithDrawalRequest : IRequest<bool>
+    public class UpdateWithdrawalRequest : IRequest<bool>
     {
-        public Guid WithDrawalRequestId { get; set; }
-        public UpdateWithDrawalDTO Request { get; set; }
-        public UpdateWithDrawalRequest(UpdateWithDrawalDTO request, Guid withDrawRequestId)
+        public Guid WithdrawalRequestId { get; set; }
+        public UpdateWithdrawalDTO Request { get; set; }
+        public UpdateWithdrawalRequest(UpdateWithdrawalDTO request, Guid withDrawRequestId)
         {
-            WithDrawalRequestId = withDrawRequestId;
+            WithdrawalRequestId = withDrawRequestId;
             Request = request;
         }
-
     }
 }

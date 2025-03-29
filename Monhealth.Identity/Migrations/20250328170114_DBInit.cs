@@ -1054,10 +1054,10 @@ namespace Monhealth.Identity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "WithDrawalRequests",
+                name: "WithdrawalRequests",
                 columns: table => new
                 {
-                    WithDrawalRequestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WithdrawalRequestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ConsultantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Amount = table.Column<float>(type: "real", nullable: false),
@@ -1069,9 +1069,9 @@ namespace Monhealth.Identity.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WithDrawalRequests", x => x.WithDrawalRequestId);
+                    table.PrimaryKey("PK_WithdrawalRequests", x => x.WithdrawalRequestId);
                     table.ForeignKey(
-                        name: "FK_WithDrawalRequests_Consultants_ConsultantId",
+                        name: "FK_WithdrawalRequests_Consultants_ConsultantId",
                         column: x => x.ConsultantId,
                         principalTable: "Consultants",
                         principalColumn: "ConsultantId",
@@ -3335,8 +3335,8 @@ namespace Monhealth.Identity.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WithDrawalRequests_ConsultantId",
-                table: "WithDrawalRequests",
+                name: "IX_WithdrawalRequests_ConsultantId",
+                table: "WithdrawalRequests",
                 column: "ConsultantId");
 
             migrationBuilder.CreateIndex(
@@ -3439,7 +3439,7 @@ namespace Monhealth.Identity.Migrations
                 name: "WaterReminders");
 
             migrationBuilder.DropTable(
-                name: "WithDrawalRequests");
+                name: "WithdrawalRequests");
 
             migrationBuilder.DropTable(
                 name: "WorkoutExercises");

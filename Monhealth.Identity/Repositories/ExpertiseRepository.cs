@@ -15,7 +15,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Expertise>> GetAllExpertisesAsync(int page, int limit , string? search)
         {
-            IQueryable<Expertise> query = _context.Expertises.AsQueryable();
+            IQueryable<Expertise> query = _context.Expertise.AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
                 query = query.Where(e => e.ExpertiseName.Contains(search));
@@ -35,7 +35,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Expertise> GetExpertiseByNameAsync(string expertiseName)
         {
-            return await _context.Expertises.FirstOrDefaultAsync(n => n.ExpertiseName.ToLower().Trim().Equals(expertiseName.ToLower().Trim()));
+            return await _context.Expertise.FirstOrDefaultAsync(n => n.ExpertiseName.ToLower().Trim().Equals(expertiseName.ToLower().Trim()));
         }
 
         public async Task<int> SaveChangeAsync()

@@ -2,11 +2,11 @@ using MediatR;
 
 namespace Monhealth.Application
 {
-    public class UpdateWithDrawRequestCommandHandler(IWithDrawalRepository withDrawalRepository) : IRequestHandler<UpdateWithDrawalRequest, bool>
+    public class UpdateWithDrawRequestCommandHandler(IWithdrawalRepository withdrawalRepository) : IRequestHandler<UpdateWithdrawalRequest, bool>
     {
-        public async Task<bool> Handle(UpdateWithDrawalRequest request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateWithdrawalRequest request, CancellationToken cancellationToken)
         {
-            var id = await withDrawalRepository.GetByIdAsync(request.WithDrawalRequestId);
+            var id = await withdrawalRepository.GetByIdAsync(request.WithdrawalRequestId);
             if (id == null)
             {
                 throw new Exception($"Không tìm thấy id:{id}");
@@ -14,8 +14,8 @@ namespace Monhealth.Application
             id.Amount = request.Request.Amount;
             id.Description = request.Request.Description;
             id.UpdatedAt = DateTime.Now;
-            withDrawalRepository.Update(id);
-            await withDrawalRepository.SaveChangeASync();
+            withdrawalRepository.Update(id);
+            await withdrawalRepository.SaveChangeASync();
             return true;
         }
     }

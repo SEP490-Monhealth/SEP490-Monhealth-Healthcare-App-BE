@@ -4,15 +4,15 @@ using Monhealth.Identity.Repositories;
 
 namespace Monhealth.Application
 {
-    public class WithDrawalRepository : GenericRepository<WithDrawalRequest, Guid>, IWithDrawalRepository
+    public class WithdrawalRepository : GenericRepository<WithdrawalRequest, Guid>, IWithdrawalRepository
     {
-        public WithDrawalRepository(MonhealthDbcontext context) : base(context)
+        public WithdrawalRepository(MonhealthDbcontext context) : base(context)
         {
         }
 
         public async Task<int> SaveChangeASync()
         {
-         return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }

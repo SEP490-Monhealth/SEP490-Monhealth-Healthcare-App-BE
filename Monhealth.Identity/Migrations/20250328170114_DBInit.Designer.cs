@@ -18452,9 +18452,9 @@ namespace Monhealth.Identity.Migrations
                     b.ToTable("WaterReminders");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.WithDrawalRequest", b =>
+            modelBuilder.Entity("Monhealth.Domain.WithdrawalRequest", b =>
                 {
-                    b.Property<Guid>("WithDrawalRequestId")
+                    b.Property<Guid>("WithdrawalRequestId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -18483,11 +18483,11 @@ namespace Monhealth.Identity.Migrations
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("WithDrawalRequestId");
+                    b.HasKey("WithdrawalRequestId");
 
                     b.HasIndex("ConsultantId");
 
-                    b.ToTable("WithDrawalRequests");
+                    b.ToTable("WithdrawalRequests");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.Workout", b =>
@@ -22289,10 +22289,10 @@ namespace Monhealth.Identity.Migrations
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("Monhealth.Domain.WithDrawalRequest", b =>
+            modelBuilder.Entity("Monhealth.Domain.WithdrawalRequest", b =>
                 {
                     b.HasOne("Monhealth.Domain.Consultant", "Consultant")
-                        .WithMany("WithDrawalRequests")
+                        .WithMany("WithdrawalRequests")
                         .HasForeignKey("ConsultantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -22372,7 +22372,7 @@ namespace Monhealth.Identity.Migrations
 
                     b.Navigation("Wallet");
 
-                    b.Navigation("WithDrawalRequests");
+                    b.Navigation("WithdrawalRequests");
                 });
 
             modelBuilder.Entity("Monhealth.Domain.DailyActivity", b =>

@@ -1,6 +1,6 @@
 ﻿namespace Monhealth.Domain.Enum
 {
-    public enum WithDrawalStatus
+    public enum WithdrawalStatus
     {
         Pending,
         Approved,
