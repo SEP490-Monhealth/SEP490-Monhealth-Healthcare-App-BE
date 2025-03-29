@@ -3,7 +3,8 @@ using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
-    public class CreateWithDrawCommandHandler(IWithDrawalRepository withDrawalRepository) : IRequestHandler<CreateWithDrawalRequestDTO, bool>
+    public class CreateWithDrawCommandHandler(IWithDrawalRepository withDrawalRepository) 
+    : IRequestHandler<CreateWithDrawalRequestDTO, bool>
     {
         public async Task<bool> Handle(CreateWithDrawalRequestDTO request, CancellationToken cancellationToken)
         {
