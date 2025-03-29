@@ -16,9 +16,9 @@ namespace Monhealth.Api.Controllers
     public class ScheduleExceptionController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllScheduleException()
+        public async Task<ActionResult<ResultModel>> GetAllScheduleException(int page = 1, int limit = 10)
         {
-            var scheduleList = await mediator.Send(new GetAllScheduleExceptionQueries());
+            var scheduleList = await mediator.Send(new GetAllScheduleExceptionQueries(page, limit));
 
             return new ResultModel
             {
