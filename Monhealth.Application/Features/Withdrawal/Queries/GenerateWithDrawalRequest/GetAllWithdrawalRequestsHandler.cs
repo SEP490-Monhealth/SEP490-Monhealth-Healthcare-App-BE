@@ -31,8 +31,7 @@ namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithDrawalRe
             $"https://img.vietqr.io/image/{bankCode}-{accountNumber}-compact2.png"
                 + $"?amount={withDrawal.Amount}"
                 + $"&addInfo={Uri.EscapeDataString(description)}"
-                + $"&accountName={Uri.EscapeDataString(withDrawal.Consultant.ConsultantBanks
-                .Select(cb => cb.Bank.BankName).First())}";
+                + $"&accountName={Uri.EscapeDataString(withDrawal.Consultant.ConsultantBanks.Select(cs => cs.AccountName).First())}";
 
             var bankName =
                 $"{withDrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.BankName).First()} - {withDrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.BankName).First()}";
