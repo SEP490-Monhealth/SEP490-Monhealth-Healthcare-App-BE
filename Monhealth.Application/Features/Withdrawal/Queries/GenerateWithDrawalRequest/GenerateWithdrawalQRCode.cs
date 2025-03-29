@@ -5,10 +5,10 @@ namespace Monhealth.Application
 {
     public class GenerateWithdrawalQRCode : IRequest<Response>
     {
-        public Guid WithDrawalRequestId { get; init; }
+        public Guid WithdrawalRequestId { get; init; }
         public GenerateWithdrawalQRCode(Guid id)
         {
-            WithDrawalRequestId = id;
+            WithdrawalRequestId = id;
         }
     }
 

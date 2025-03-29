@@ -3,10 +3,10 @@ using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
-    public interface IWithdrawalRepository : IGenericRepository<WithdrawalRequest,Guid>
+    public interface IWithdrawalRepository : IGenericRepository<WithdrawalRequest, Guid>
     {
-        Task<int>SaveChangeASync();
-        Task<List<WithDrawalRequest>>GetAllWithDrawalRequestAsync();
-        Task<WithDrawalRequest>GetWithDrawalRequest(Guid withDrawalId);
+        Task<int> SaveChangeASync();
+        Task<List<WithdrawalRequest>> GetAllWithdrawalRequestAsync();
+        Task<WithdrawalRequest> GetWithdrawalRequest(Guid withdrawalId);
     }
 }

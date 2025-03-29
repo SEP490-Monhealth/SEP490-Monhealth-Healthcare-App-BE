@@ -5,7 +5,7 @@ namespace Monhealth.Application
 {
     public sealed class GetAllWithdrawalRequests : IRequest<Response>
     {
-       
+
 
         public sealed record Response(
             Guid Id,
@@ -17,10 +17,10 @@ namespace Monhealth.Application
             ProcessedInfoDto? ProcessedInfo
         )
         {
-            public static async Task<Response> FromEntity(WithDrawalRequest request)
+            public static async Task<Response> FromEntity(WithdrawalRequest request)
             {
                 return new(
-                                    request.WithDrawalRequestId,
+                                    request.WithdrawalRequestId,
                                     new UserDto(
                                         request.Consultant.ConsultantId,
                                         request.Consultant.AppUser.UserName,

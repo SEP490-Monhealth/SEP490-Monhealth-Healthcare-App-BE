@@ -33,10 +33,10 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{WithDrawalRequestId:Guid}/Generate")]
-        public async Task<ResultModel> CreateWithDrawalRequest(Guid WithDrawalRequestId)
+        [Route("{WithdrawalRequestId:Guid}/generate-qr")]
+        public async Task<ResultModel> CreateWithdrawalRequest(Guid WithdrawalRequestId)
         {
-            var command = new GenerateWithdrawalQRCode(WithDrawalRequestId);
+            var command = new GenerateWithdrawalQRCode(WithdrawalRequestId);
 
             var result = await mediator.Send(command); // result là Response chứa QR code
 
@@ -136,12 +136,12 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("{WithDrawalRequestId:Guid}")]
-        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid WithDrawalRequestId)
+        [Route("{WithdrawalRequestId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid WithdrawalRequestId)
         {
             try
             {
-                var command = new UpdateStatusWithDrawalCommand(WithDrawalRequestId);
+                var command = new UpdateStatusWithdrawalCommand(WithdrawalRequestId);
                 await mediator.Send(command); // trả về Unit, không cần kiểm tra
 
                 return Ok(new ResultModel
@@ -163,12 +163,12 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("{WithDrawalRequestId:Guid}/reject")]
-        public async Task<ActionResult<ResultModel>> Reject(Guid WithDrawalRequestId)
+        [Route("{WithdrawalRequestId:Guid}/reject")]
+        public async Task<ActionResult<ResultModel>> Reject(Guid WithdrawalRequestId)
         {
             try
             {
-                var command = new CancelWithDrawalStatusCommand(WithDrawalRequestId);
+                var command = new CancelWithdrawalStatusCommand(WithdrawalRequestId);
                 await mediator.Send(command); // trả về Unit, không cần kiểm tra
 
                 return Ok(new ResultModel

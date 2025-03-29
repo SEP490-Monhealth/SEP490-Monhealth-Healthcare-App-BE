@@ -1,17 +1,17 @@
 using MediatR;
 
-namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithDrawalRequest
+namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithdrawalRequest
 {
-    public class GetAllWithdrawalRequestsHandler(IWithDrawalRepository withDrawalRepository) : IRequestHandler<GenerateWithdrawalQRCode, Response>
+    public class GetAllWithdrawalRequestsHandler(IWithdrawalRepository withDrawalRepository) : IRequestHandler<GenerateWithdrawalQRCode, Response>
     {
         public async Task<Response> Handle(GenerateWithdrawalQRCode request, CancellationToken cancellationToken)
         {
-            var withDrawal = await withDrawalRepository.GetWithDrawalRequest(request.WithDrawalRequestId);
+            var withDrawal = await withDrawalRepository.GetWithdrawalRequest(request.WithdrawalRequestId);
             if (withDrawal == null)
             {
                 throw new Exception("Không tìm thấy yêu cầu rút tiền.");
             }
-            if (withDrawal.Status != Domain.Enum.WithDrawalStatus.Pending)
+            if (withDrawal.Status != Domain.Enum.WithdrawalStatus.Pending)
             {
                 throw new Exception("Yêu cầu rút tiền này không ở trạng thái chờ xử lý");
 
