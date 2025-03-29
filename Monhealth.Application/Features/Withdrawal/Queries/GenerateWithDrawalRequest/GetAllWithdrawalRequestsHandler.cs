@@ -11,14 +11,14 @@ namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithDrawalRe
             {
                 throw new Exception("Không tìm thấy yêu cầu rút tiền.");
             }
-            if (withDrawal.Status != Domain.Enum.WithDrawalStatus.Pending)
+            if (withDrawal.Status != Domain.Enum.WithDrawalStatus.Approved)
             {
                 throw new Exception("Yêu cầu rút tiền này không ở trạng thái chờ xử lý");
 
             }
-            var description = $"Consultant rut tien";
             var defaultBank = withDrawal.Consultant.ConsultantBanks.FirstOrDefault(cb => cb.IsDefault);
-
+            
+            var description = withDrawal.Description;
             if (defaultBank == null)
             {
                 throw new Exception("Không tìm thấy ngân hàng mặc định.");
