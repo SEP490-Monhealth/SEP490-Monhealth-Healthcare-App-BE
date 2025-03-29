@@ -8,7 +8,7 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.DeleteSchedu
     {
         public async Task<bool> Handle(DeleteScheduleExceptionCommand request, CancellationToken cancellationToken)
         {
-            var scheduleException = await scheduleExceptionRepository.GetByIdAsync(request.ExceptionId);
+            var scheduleException = await scheduleExceptionRepository.GetByIdAsync(request.ScheduleExceptionId);
             if (scheduleException == null) throw new BadRequestException("Không tìm thấy lịch bận");
             scheduleExceptionRepository.Remove(scheduleException);
             await scheduleExceptionRepository.SaveChangeAsync(cancellationToken);
