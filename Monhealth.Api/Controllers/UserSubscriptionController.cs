@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Models;
+using Monhealth.Core.Enum;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
