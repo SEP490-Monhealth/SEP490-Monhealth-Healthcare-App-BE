@@ -117,5 +117,60 @@ namespace Monhealth.Api.Controllers
                 Data = null
             });
         }
+
+        [HttpPatch]
+        [Route("{WithDrawalRequestId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid WithDrawalRequestId)
+        {
+            try
+            {
+                var command = new UpdateStatusWithDrawalCommand(WithDrawalRequestId);
+                await mediator.Send(command); // trả về Unit, không cần kiểm tra
+
+                return Ok(new ResultModel
+                {
+                    Message = "Cập nhật trạng thái rút tiền thành công",
+                    Success = true,
+                    Status = 204
+                });
+            }
+            catch (Exception ex)
+            {
+                return Ok(new ResultModel
+                {
+                    Message = $"Cập nhật trạng thái rút tiền không thành công: {ex.Message}",
+                    Success = false,
+                    Data = null
+                });
+            }
+        }
+
+        [HttpPatch]
+        [Route("{WithDrawalRequestId:Guid}/reject")]
+        public async Task<ActionResult<ResultModel>> Reject(Guid WithDrawalRequestId)
+        {
+            try
+            {
+                var command = new CancelWithDrawalStatusCommand(WithDrawalRequestId);
+                await mediator.Send(command); // trả về Unit, không cần kiểm tra
+
+                return Ok(new ResultModel
+                {
+                    Message = "Cập nhật trạng thái rút tiền thành công",
+                    Success = true,
+                    Status = 204
+                });
+            }
+            catch (Exception ex)
+            {
+                return Ok(new ResultModel
+                {
+                    Message = $"Cập nhật trạng thái rút tiền không thành công: {ex.Message}",
+                    Success = false,
+                    Data = null
+                });
+            }
+        }
+
     }
 }
