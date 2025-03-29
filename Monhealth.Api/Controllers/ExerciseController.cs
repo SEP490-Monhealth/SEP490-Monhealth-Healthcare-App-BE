@@ -61,27 +61,27 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("user/{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetExerciseByUserId(Guid userId)
-        {
-            var exercise = await _mediator.Send(new GetExerciseByUserIdQuery { UserId = userId });
-            if (exercise == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Bài tập không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = exercise
-            });
-        }
+    // [HttpGet("user/{userId:guid}")]
+    // public async Task<ActionResult<ResultModel>> GetExerciseByUserId(Guid userId)
+    // {
+    //     var exercise = await _mediator.Send(new GetExerciseByUserIdQuery { UserId = userId });
+    //     if (exercise == null)
+    //     {
+    //         return NotFound(new ResultModel
+    //         {
+    //             Success = false,
+    //             Message = "Bài tập không tồn tại",
+    //             Status = (int)HttpStatusCode.NotFound,
+    //             Data = null
+    //         });
+    //     }
+    //     return Ok(new ResultModel
+    //     {
+    //         Success = true,
+    //         Status = 200,
+    //         Data = exercise
+    //     });
+    // }
 
         [HttpGet("workout/{workoutId:guid}")]
         [SwaggerOperation(Summary = "Done")]

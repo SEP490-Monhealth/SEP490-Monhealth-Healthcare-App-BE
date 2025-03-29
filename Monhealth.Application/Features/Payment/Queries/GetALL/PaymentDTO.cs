@@ -6,6 +6,7 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
     public class PaymentDTO : BaseEntity
     {
         public Guid PaymentId { get; set; }
+        public Guid UserId { get; set; }
         public Guid SubscriptionId { get; set; }
         public string SubscriptionName { get; set; } = string.Empty;
         public Member Member { get; set; } = null!;

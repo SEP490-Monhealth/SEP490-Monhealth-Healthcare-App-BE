@@ -3,7 +3,7 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application
 {
-    public class GetUserSubscriptionQueryHandler : IRequestHandler<GetUserSubScriptionQuery, GetUserSubscriptionByUserIdDTO>
+    public class GetUserSubscriptionQueryHandler : IRequestHandler<GetUserSubscriptionQuery, GetUserSubscriptionByUserIdDTO>
     {
         private readonly IUserSubscriptionRepository _userSubscriptionRepository;
         public GetUserSubscriptionQueryHandler(IUserSubscriptionRepository userSubscriptionRepository)
@@ -11,7 +11,7 @@ namespace Monhealth.Application
             _userSubscriptionRepository = userSubscriptionRepository;
         }
 
-        public async Task<GetUserSubscriptionByUserIdDTO> Handle(GetUserSubScriptionQuery request, CancellationToken cancellationToken)
+        public async Task<GetUserSubscriptionByUserIdDTO> Handle(GetUserSubscriptionQuery request, CancellationToken cancellationToken)
         {
             var query = await _userSubscriptionRepository.GetByUserIdAsync(request.UserId);
             if (query == null)

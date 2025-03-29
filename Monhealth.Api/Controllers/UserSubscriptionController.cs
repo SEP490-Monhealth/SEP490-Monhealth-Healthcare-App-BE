@@ -20,7 +20,7 @@ namespace Monhealth.Api.Controllers
         [HttpGet("{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetUserSubscription(Guid userId)
         {
-            var result = await _mediator.Send(new GetUserSubScriptionQuery() { UserId = userId });
+            var result = await _mediator.Send(new GetUserSubscriptionQuery() { UserId = userId });
             return new ResultModel
             {
                 Data = result,
@@ -30,9 +30,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10, string? SubScription = null, UserSubscriptionStatus? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10, string? subscription = null, UserSubscriptionStatus? status = null)
         {
-            var result = await _mediator.Send(new GetAllUserSubscriptionQuery(page, limit , SubScription , status));
+            var result = await _mediator.Send(new GetAllUserSubscriptionQuery(page, limit, subscription, status));
             return new ResultModel
             {
                 Data = result,

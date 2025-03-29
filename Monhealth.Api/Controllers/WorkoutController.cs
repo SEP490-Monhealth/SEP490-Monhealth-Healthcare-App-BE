@@ -47,19 +47,19 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
-        [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Done")]
-        public async Task<ActionResult<ResultModel>> GetWorkoutByUserId([FromRoute] Guid userId)
-        {
-            var workouts = await mediator.Send(new GetWorkoutByUserIdQuery(userId));
 
-            return new ResultModel
-            {
-                Data = workouts,
-                Status = 200,
-                Success = true,
-            };
-        }
+        // [HttpGet("user/{userId:guid}")]
+        // public async Task<ActionResult<ResultModel>> GetWorkoutByUserId([FromRoute] Guid userId)
+        // {
+        //     var workouts = await mediator.Send(new GetWorkoutByUserIdQuery(userId));
+
+        //     return new ResultModel
+        //     {
+        //         Data = workouts,
+        //         Status = 200,
+        //         Success = true,
+        //     };
+        // }
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateWorkout([FromBody] CreateWorkoutCommand command)
@@ -103,6 +103,7 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
             });
         }
+
         [HttpDelete("{workoutId}")]
         public async Task<ActionResult<ResultModel>> DeleteWorkout(Guid workoutId)
         {
@@ -124,6 +125,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Xóa workout thành công"
             };
         }
+
         [HttpPatch("{workoutId}/status")]
         public async Task<ActionResult<ResultModel>> ChangeStatusWorkout(Guid workoutId)
         {

@@ -1,7 +1,6 @@
 using MediatR;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Core.Enum;
-using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
@@ -11,7 +10,7 @@ namespace Monhealth.Application
         public int Limit { get; set; }
         public string? Name { get; set; }
         public UserSubscriptionStatus? Status { get; set; }
-        public GetAllUserSubscriptionQuery(int page, int limit , string? name , UserSubscriptionStatus? status)
+        public GetAllUserSubscriptionQuery(int page, int limit, string? name, UserSubscriptionStatus? status)
         {
             Page = page;
             Limit = limit;
