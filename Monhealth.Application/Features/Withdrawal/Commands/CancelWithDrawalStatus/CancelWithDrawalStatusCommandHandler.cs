@@ -3,11 +3,11 @@ using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application
 {
-    public class CancelWithdrawalStatusCommandHandler(IWithdrawalRepository withDrawalRepository) : IRequestHandler<CancelWithdrawalStatusCommand, Unit>
+    public class CancelWithdrawalStatusCommandHandler(IWithdrawalRepository withdrawalRepository) : IRequestHandler<CancelWithdrawalStatusCommand, Unit>
     {
         public async Task<Unit> Handle(CancelWithdrawalStatusCommand request, CancellationToken cancellationToken)
         {
-            var status = await withDrawalRepository.GetByIdAsync(request.WithdrawalRequestId);
+            var status = await withdrawalRepository.GetByIdAsync(request.WithdrawalRequestId);
 
             if (status == null)
             {
@@ -20,8 +20,8 @@ namespace Monhealth.Application
             }
 
             status.Status = WithdrawalStatus.Rejected;
-            withDrawalRepository.Update(status);
-            await withDrawalRepository.SaveChangeASync();
+            withdrawalRepository.Update(status);
+            await withdrawalRepository.SaveChangeASync();
 
             return Unit.Value;
         }

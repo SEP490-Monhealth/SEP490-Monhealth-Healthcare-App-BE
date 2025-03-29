@@ -34,16 +34,16 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{withdrawalRequestId:Guid}/generate-qr")]
-        public async Task<ResultModel> CreateWithdrawalRequest(Guid WithdrawalRequestId)
+        public async Task<ResultModel> CreateWithdrawalRequest(Guid withdrawalRequestId)
         {
-            var command = new GenerateWithdrawalQRCode(WithdrawalRequestId);
+            var command = new GenerateWithdrawalQRCode(withdrawalRequestId);
 
             var result = await mediator.Send(command); // result là Response chứa QR code
 
             return new ResultModel
             {
                 Success = true,
-                Message = "rút tiền thành công",
+                Message = "Tạo QR rút tiền thành công",
                 Status = 200,
                 Data = result
             };
@@ -63,10 +63,10 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{withdrawalRequestId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetDetail(Guid WithdrawalRequestId)
+        public async Task<ActionResult<ResultModel>> GetDetail(Guid withdrawalRequestId)
         {
             var queries = await mediator.
-            Send(new GetWithdrawalByIdQuery { WithdrawalRequestId = WithdrawalRequestId });
+            Send(new GetWithdrawalByIdQuery { WithdrawalRequestId = withdrawalRequestId });
 
             if (queries == null)
             {
@@ -88,9 +88,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{withdrawalRequestId:Guid}")]
-        public async Task<ActionResult<ResultModel>> Update(Guid WithdrawalRequestId, [FromBody] UpdateWithdrawalDTO request)
+        public async Task<ActionResult<ResultModel>> Update(Guid withdrawalRequestId, [FromBody] UpdateWithdrawalDTO request)
         {
-            var command = new UpdateWithdrawalRequest(request, WithdrawalRequestId);
+            var command = new UpdateWithdrawalRequest(request, withdrawalRequestId);
             var result = await mediator.Send(command);
             if (!result)
                 return new ResultModel
@@ -109,9 +109,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{withdrawalRequestId:Guid}")]
-        public async Task<ActionResult<ResultModel>> Remove(Guid WithdrawalRequestId)
+        public async Task<ActionResult<ResultModel>> Remove(Guid withdrawalRequestId)
         {
-            var result = await mediator.Send(new RemoveWithdrawRequest(WithdrawalRequestId));
+            var result = await mediator.Send(new RemoveWithdrawRequest(withdrawalRequestId));
 
             if (!result)
             {
@@ -137,11 +137,11 @@ namespace Monhealth.Api.Controllers
 
         [HttpPatch]
         [Route("{withdrawalRequestId:Guid}/status")]
-        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid WithdrawalRequestId)
+        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid withdrawalRequestId)
         {
             try
             {
-                var command = new UpdateStatusWithdrawalCommand(WithdrawalRequestId);
+                var command = new UpdateStatusWithdrawalCommand(withdrawalRequestId);
                 await mediator.Send(command); // trả về Unit, không cần kiểm tra
 
                 return Ok(new ResultModel
@@ -164,11 +164,11 @@ namespace Monhealth.Api.Controllers
 
         [HttpPatch]
         [Route("{withdrawalRequestId:Guid}/reject")]
-        public async Task<ActionResult<ResultModel>> Reject(Guid WithdrawalRequestId)
+        public async Task<ActionResult<ResultModel>> Reject(Guid withdrawalRequestId)
         {
             try
             {
-                var command = new CancelWithdrawalStatusCommand(WithdrawalRequestId);
+                var command = new CancelWithdrawalStatusCommand(withdrawalRequestId);
                 await mediator.Send(command); // trả về Unit, không cần kiểm tra
 
                 return Ok(new ResultModel

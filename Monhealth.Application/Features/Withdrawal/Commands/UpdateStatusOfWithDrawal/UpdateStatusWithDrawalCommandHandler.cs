@@ -3,26 +3,26 @@ using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application
 {
-    public class UpdateStatusWithdrawalCommandHandler(IWithdrawalRepository withDrawalRepository) : IRequestHandler<UpdateStatusWithdrawalCommand, Unit>
+    public class UpdateStatusWithdrawalCommandHandler(IWithdrawalRepository withdrawalRepository) : IRequestHandler<UpdateStatusWithdrawalCommand, Unit>
     {
         public async Task<Unit> Handle(UpdateStatusWithdrawalCommand request, CancellationToken cancellationToken)
         {
-            var withDrawalRequest = await withDrawalRepository.GetByIdAsync(request.WithdrawalRequestId);
-            switch (withDrawalRequest.Status) // Assuming 'Status' is the property to check
+            var withdrawalRequest = await withdrawalRepository.GetByIdAsync(request.WithdrawalRequestId);
+            switch (withdrawalRequest.Status) // Assuming 'Status' is the property to check
             {
                 case WithdrawalStatus.Pending:
-                    withDrawalRequest.Status = WithdrawalStatus.Approved;
+                    withdrawalRequest.Status = WithdrawalStatus.Approved;
                     break;
                 case WithdrawalStatus.Approved:
-                    withDrawalRequest.Status = WithdrawalStatus.Completed;
+                    withdrawalRequest.Status = WithdrawalStatus.Completed;
                     break;
                 case WithdrawalStatus.Completed:
                     throw new Exception("Yêu cầu đã hoàn tất, không thể xử lý thêm.");
                 default:
                     throw new Exception("Trạng thái yêu cầu không hợp lệ");
             }
-            withDrawalRepository.Update(withDrawalRequest);
-            await withDrawalRepository.SaveChangeASync();
+            withdrawalRepository.Update(withdrawalRequest);
+            await withdrawalRepository.SaveChangeASync();
             return Unit.Value;
         }
     }

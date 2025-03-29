@@ -21,14 +21,14 @@ namespace Monhealth.Application
             .ThenInclude(cs => cs.Transactions).ToListAsync();
         }
 
-        public async Task<WithdrawalRequest> GetWithdrawalRequest(Guid withDrawalId)
+        public async Task<WithdrawalRequest> GetWithdrawalRequest(Guid withdrawalId)
         {
             return await _context.WithdrawalRequests.Include(wd => wd.Consultant)
             .ThenInclude(u => u.AppUser)
             .Include(b => b.Consultant).ThenInclude(c => c.ConsultantBanks)
             .ThenInclude(b => b.Bank)
             .Include(c => c.Consultant).ThenInclude(cs => cs.Wallet)
-            .ThenInclude(cs => cs.Transactions).FirstOrDefaultAsync(wd => wd.WithdrawalRequestId == withDrawalId);    
+            .ThenInclude(cs => cs.Transactions).FirstOrDefaultAsync(wd => wd.WithdrawalRequestId == withdrawalId);
         }
 
         public async Task<int> SaveChangeASync()
