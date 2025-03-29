@@ -2,8 +2,8 @@ using MediatR;
 
 namespace Monhealth.Application
 {
-    public class GetWithDrawalByIdQuery : IRequest<GetWithDrawalByIdDTO>
+    public class GetWithdrawalByIdQuery : IRequest<GetWithdrawalByIdDTO>
     {
-        public Guid WithDrawalRequestId { get; set; }
+        public Guid WithdrawalRequestId { get; set; }
     }
 }

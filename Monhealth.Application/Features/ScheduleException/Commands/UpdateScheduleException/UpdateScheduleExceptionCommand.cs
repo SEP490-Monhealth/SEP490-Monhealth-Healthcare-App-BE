@@ -4,14 +4,13 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.UpdateSchedu
 {
     public class UpdateScheduleExceptionCommand : IRequest<Unit>
     {
-        public Guid ExceptionId { get; set; }
+        public Guid ScheduleExceptionId { get; set; }
         public UpdateScheduleExceptionDto UpdateScheduleExceptionDto { get; set; }
 
-        public UpdateScheduleExceptionCommand(Guid exceptionId, UpdateScheduleExceptionDto updateScheduleExceptionDto)
+        public UpdateScheduleExceptionCommand(Guid scheduleExceptionId, UpdateScheduleExceptionDto updateScheduleExceptionDto)
         {
-            ExceptionId = exceptionId;
+            ScheduleExceptionId = scheduleExceptionId;
             UpdateScheduleExceptionDto = updateScheduleExceptionDto;
         }
-
     }
 }

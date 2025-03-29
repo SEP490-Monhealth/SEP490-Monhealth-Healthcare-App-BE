@@ -2,8 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Models;
-using Monhealth.Core.Enum;
-using Monhealth.Domain;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -42,6 +41,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{userId:guid}/remaining-booking")]
+        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetReminderBookingByUserId([FromRoute] Guid userId)
         {
             var booking = await _mediator.Send(new GetReminderBookingQuery { UserId = userId });

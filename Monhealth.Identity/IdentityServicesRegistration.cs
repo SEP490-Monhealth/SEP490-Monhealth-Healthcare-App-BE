@@ -104,7 +104,7 @@ namespace Monhealth.Identity
             services.AddScoped<ICategoryFoodRepository, CategoryFoodRepository>();
             services.AddScoped<IUserCategoryRepository, UserCategoryRepository>();
             services.AddScoped<IDishTypeFoodRepository, DishtypeFoodRepository>();
-            services.AddScoped<IWithDrawalRepository, WithDrawalRepository>();
+            services.AddScoped<IWithdrawalRepository, WithdrawalRepository>();
             services.AddScoped<ITimeSlotRepository, TimeSlotRepository>();
             services.AddScoped<IScheduleTimeSlotRepository, ScheduleTimeSlotRepository>();
             services.AddScoped<IScheduleExceptionRepository, ScheduleExceptionRepository>();

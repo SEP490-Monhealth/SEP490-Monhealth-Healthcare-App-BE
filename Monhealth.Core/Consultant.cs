@@ -24,7 +24,7 @@ namespace Monhealth.Domain
         public Expertise? Expertise { get; set; }
         public ICollection<Certificate>? Certificates { get; set; }
         public Wallet? Wallet { get; set; }
-        public ICollection<WithDrawalRequest> WithDrawalRequests { get; set; } = [];
+        public ICollection<WithdrawalRequest> WithdrawalRequests { get; set; } = [];
         public ICollection<ConsultantBank> ConsultantBanks { get; set; } = [];
     }
 }

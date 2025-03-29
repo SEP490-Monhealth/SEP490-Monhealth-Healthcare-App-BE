@@ -1,24 +1,24 @@
 using MediatR;
 
-namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithDrawalRequest
+namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithdrawalRequest
 {
-    public class GetAllWithdrawalRequestsHandler(IWithDrawalRepository withDrawalRepository) : IRequestHandler<GenerateWithdrawalQRCode, Response>
+    public class GetAllWithdrawalRequestsHandler(IWithdrawalRepository withdrawalRepository) : IRequestHandler<GenerateWithdrawalQRCode, Response>
     {
         public async Task<Response> Handle(GenerateWithdrawalQRCode request, CancellationToken cancellationToken)
         {
-            var withDrawal = await withDrawalRepository.GetWithDrawalRequest(request.WithDrawalRequestId);
-            if (withDrawal == null)
+            var withdrawal = await withdrawalRepository.GetWithdrawalRequest(request.WithdrawalRequestId);
+            if (withdrawal == null)
             {
                 throw new Exception("Không tìm thấy yêu cầu rút tiền.");
             }
-            if (withDrawal.Status != Domain.Enum.WithDrawalStatus.Approved)
+            if (withdrawal.Status != Domain.Enum.WithdrawalStatus.Approved)
             {
                 throw new Exception("Yêu cầu rút tiền này không ở trạng thái chờ xử lý");
 
             }
-            var defaultBank = withDrawal.Consultant.ConsultantBanks.FirstOrDefault(cb => cb.IsDefault);
-            
-            var description = withDrawal.Description;
+            var defaultBank = withdrawal.Consultant.ConsultantBanks.FirstOrDefault(cb => cb.IsDefault);
+
+            var description = withdrawal.Description;
             var accountName = defaultBank.AccountName;
             if (defaultBank == null)
             {
@@ -30,18 +30,18 @@ namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithDrawalRe
             // Generate VietQR URL
             var qrUrl =
             $"https://img.vietqr.io/image/{bankCode}-{accountNumber}-compact2.png"
-                + $"?amount={withDrawal.Amount}"
+                + $"?amount={withdrawal.Amount}"
                 + $"&addInfo={Uri.EscapeDataString(description)}"
                 + $"&accountName={Uri.EscapeDataString(accountName)}";
 
             var bankName =
-                $"{withDrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.ShortName).First()} - {withDrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.BankName).First()}";
+                $"{withdrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.ShortName).First()} - {withdrawal.Consultant.ConsultantBanks.Select(cb => cb.Bank.BankName).First()}";
 
             return new(
                            qrUrl,
                            bankName,
                            accountName,
-                           withDrawal.Amount,
+                           withdrawal.Amount,
                            description
                        );
         }

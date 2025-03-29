@@ -7,7 +7,7 @@ namespace Monhealth.Domain
     public class ScheduleException : TimeEntity
     {
         [Key]
-        public Guid ExceptionId { get; set; }
+        public Guid ScheduleExceptionId { get; set; }
         public Guid? ScheduleId { get; set; }
         public DateOnly Date { get; set; }
         public string? Reason { get; set; }

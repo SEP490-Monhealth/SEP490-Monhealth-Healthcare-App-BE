@@ -23,7 +23,6 @@ namespace Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion
                 TotalPages = (int)Math.Ceiling(pagingPortions.TotalCount / (double)request.Limit),
                 TotalItems = pagingPortions.TotalCount,
                 Items = _mapper.Map<List<PortionDto>>(pagingPortions.Items)
-
             };
         }
     }

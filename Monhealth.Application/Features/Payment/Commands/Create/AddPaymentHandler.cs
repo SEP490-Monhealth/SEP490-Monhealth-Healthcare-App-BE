@@ -19,12 +19,12 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
             var user = await _userRepository.GetByIdAsync(request.UserId);  
             var model = new Domain.Payment
             {
+                UserId = request.UserId,    
+                SubscriptionId = request.SubscriptionId,
                 Amount = request.Amount,
+                Status = Core.PaymentStatus.Pending,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                SubscriptionId = request.SubscriptionId,
-                Status = Core.PaymentStatus.Pending,
-                UserId = request.UserId,    
             };
             _paymentRepository.Add(model);
             await _paymentRepository.SaveChangeAsync();

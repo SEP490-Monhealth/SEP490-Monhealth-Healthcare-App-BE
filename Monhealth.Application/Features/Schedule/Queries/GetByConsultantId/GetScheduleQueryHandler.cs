@@ -25,8 +25,11 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
         {
             var schedules = await _scheduleRepository.GetSchedulesByUser(request.ConsultantId, request.Date);
             if (schedules == null) throw new BadRequestException("Không tìm thấy lịch");
-
-            var bookedTimes = await bookingRepository.GetBookedTimeAsync(request.ConsultantId, (DateOnly)request.Date); //lay gio da duoc book trong Booking table
+            List<TimeOnly> bookedTimes = new();
+            if (request.Date.HasValue)
+            {
+                bookedTimes = await bookingRepository.GetBookedTimeAsync(request.ConsultantId, (DateOnly)request.Date); //lay gio da duoc book trong Booking table
+            }
 
             var result = schedules.Select(s => new ScheduleDTO
             {

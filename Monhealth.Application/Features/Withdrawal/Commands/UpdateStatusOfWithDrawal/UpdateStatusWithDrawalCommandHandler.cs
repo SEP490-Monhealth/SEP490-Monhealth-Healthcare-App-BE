@@ -3,27 +3,27 @@ using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application
 {
-    public class UpdateStatusWithDrawalCommandHandler(IWithDrawalRepository withDrawalRepository) : IRequestHandler<UpdateStatusWithDrawalCommand, Unit>
+    public class UpdateStatusWithdrawalCommandHandler(IWithdrawalRepository withdrawalRepository) : IRequestHandler<UpdateStatusWithdrawalCommand, Unit>
     {
-        public async Task<Unit> Handle(UpdateStatusWithDrawalCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateStatusWithdrawalCommand request, CancellationToken cancellationToken)
         {
-            var withDrawalRequest = await withDrawalRepository.GetByIdAsync(request.WithDrawalRequestId);
-            switch (withDrawalRequest.Status) // Assuming 'Status' is the property to check
+            var withdrawalRequest = await withdrawalRepository.GetByIdAsync(request.WithdrawalRequestId);
+            switch (withdrawalRequest.Status) // Assuming 'Status' is the property to check
             {
-                case WithDrawalStatus.Pending:
-                    withDrawalRequest.Status = WithDrawalStatus.Approved;
+                case WithdrawalStatus.Pending:
+                    withdrawalRequest.Status = WithdrawalStatus.Approved;
                     break;
-                case WithDrawalStatus.Approved:
-                    withDrawalRequest.Status = WithDrawalStatus.Completed;
+                case WithdrawalStatus.Approved:
+                    withdrawalRequest.Status = WithdrawalStatus.Completed;
                     break;
-                case WithDrawalStatus.Completed:
+                case WithdrawalStatus.Completed:
                     throw new Exception("Yêu cầu đã hoàn tất, không thể xử lý thêm.");
                 default:
                     throw new Exception("Trạng thái yêu cầu không hợp lệ");
             }
-             withDrawalRepository.Update(withDrawalRequest);
-             await withDrawalRepository.SaveChangeASync();
-             return Unit.Value;
+            withdrawalRepository.Update(withdrawalRequest);
+            await withdrawalRepository.SaveChangeASync();
+            return Unit.Value;
         }
     }
 }

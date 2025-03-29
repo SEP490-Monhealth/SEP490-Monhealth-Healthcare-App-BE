@@ -4,6 +4,6 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.DeleteSchedu
 {
     public class DeleteScheduleExceptionCommand : IRequest<bool>
     {
-        public Guid ExceptionId { get; set; }
+        public Guid ScheduleExceptionId { get; set; }
     }
 }

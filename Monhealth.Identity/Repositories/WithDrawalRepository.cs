@@ -5,15 +5,15 @@ using Monhealth.Identity.Repositories;
 
 namespace Monhealth.Application
 {
-    public class WithDrawalRepository : GenericRepository<WithDrawalRequest, Guid>, IWithDrawalRepository
+    public class WithdrawalRepository : GenericRepository<WithdrawalRequest, Guid>, IWithdrawalRepository
     {
-        public WithDrawalRepository(MonhealthDbcontext context) : base(context)
+        public WithdrawalRepository(MonhealthDbcontext context) : base(context)
         {
         }
 
-        public async Task<List<WithDrawalRequest>> GetAllWithDrawalRequestAsync()
+        public async Task<List<WithdrawalRequest>> GetAllWithdrawalRequestAsync()
         {
-            return await _context.WithDrawalRequests.Include(wd => wd.Consultant)
+            return await _context.WithdrawalRequests.Include(wd => wd.Consultant)
             .ThenInclude(u => u.AppUser)
             .Include(b => b.Consultant).ThenInclude(c => c.ConsultantBanks)
             .ThenInclude(b => b.Bank)
@@ -21,19 +21,19 @@ namespace Monhealth.Application
             .ThenInclude(cs => cs.Transactions).ToListAsync();
         }
 
-        public async Task<WithDrawalRequest> GetWithDrawalRequest(Guid withDrawalId)
+        public async Task<WithdrawalRequest> GetWithdrawalRequest(Guid withdrawalId)
         {
-            return await _context.WithDrawalRequests.Include(wd => wd.Consultant)
+            return await _context.WithdrawalRequests.Include(wd => wd.Consultant)
             .ThenInclude(u => u.AppUser)
             .Include(b => b.Consultant).ThenInclude(c => c.ConsultantBanks)
             .ThenInclude(b => b.Bank)
             .Include(c => c.Consultant).ThenInclude(cs => cs.Wallet)
-            .ThenInclude(cs => cs.Transactions).FirstOrDefaultAsync(wd => wd.WithDrawalRequestId == withDrawalId);    
+            .ThenInclude(cs => cs.Transactions).FirstOrDefaultAsync(wd => wd.WithdrawalRequestId == withdrawalId);
         }
 
         public async Task<int> SaveChangeASync()
         {
-         return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }

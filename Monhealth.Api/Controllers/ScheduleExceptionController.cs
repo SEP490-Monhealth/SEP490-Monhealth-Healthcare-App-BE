@@ -11,7 +11,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/schedule-exception")]
+    [Route("api/v1/schedule-exceptions")]
     [ApiController]
     public class ScheduleExceptionController(IMediator mediator) : ControllerBase
     {
@@ -42,10 +42,10 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{exceptionId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetScheduleException(Guid exceptionId)
+        [Route("{scheduleExceptionId:Guid}")]
+        public async Task<ActionResult<ResultModel>> GetScheduleException(Guid scheduleExceptionId)
         {
-            var queries = await mediator.Send(new GetScheduleExceptionByIdQueries { ExceptionId = exceptionId });
+            var queries = await mediator.Send(new GetScheduleExceptionByIdQueries { ScheduleExceptionId = scheduleExceptionId });
 
             return Ok(new ResultModel
             {
@@ -56,10 +56,10 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut]
-        [Route("{exceptionId:Guid}")]
-        public async Task<ActionResult<ResultModel>> UpdateScheduleException(Guid exceptionId, [FromBody] UpdateScheduleExceptionDto request)
+        [Route("{scheduleExceptionId:Guid}")]
+        public async Task<ActionResult<ResultModel>> UpdateScheduleException(Guid scheduleExceptionId, [FromBody] UpdateScheduleExceptionDto request)
         {
-            var command = new UpdateScheduleExceptionCommand(exceptionId, request);
+            var command = new UpdateScheduleExceptionCommand(scheduleExceptionId, request);
             var result = await mediator.Send(command);
 
             return Ok(
@@ -73,7 +73,7 @@ namespace Monhealth.Api.Controllers
         }
 
         // [HttpDelete]
-        // [Route("{exceptionId:Guid}")]
+        // [Route("{scheduleExceptionId:Guid}")]
         // public async Task<ActionResult<ResultModel>> DeleteScheduleException(Guid exceptionId)
         // {
         //     var queries = await mediator.Send(new DeleteScheduleExceptionCommand { ExceptionId = exceptionId });

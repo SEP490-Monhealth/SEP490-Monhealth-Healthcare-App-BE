@@ -8,7 +8,7 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.UpdateSchedu
     {
         public async Task<Unit> Handle(UpdateScheduleExceptionCommand request, CancellationToken cancellationToken)
         {
-            var scheduleException = await scheduleExceptionRepository.GetByIdAsync(request.ExceptionId);
+            var scheduleException = await scheduleExceptionRepository.GetByIdAsync(request.ScheduleExceptionId);
             if (scheduleException == null) throw new BadRequestException("Không tìm thấy lịch bận");
             if (scheduleException.ScheduleId != request.UpdateScheduleExceptionDto.ScheduleId)
             {
@@ -26,6 +26,5 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.UpdateSchedu
             await scheduleExceptionRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
         }
-
     }
 }

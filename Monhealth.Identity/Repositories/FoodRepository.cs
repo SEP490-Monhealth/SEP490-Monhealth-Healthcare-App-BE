@@ -118,8 +118,6 @@ namespace Monhealth.Identity.Repositories
             return food;
         }
 
-
-
         public async Task<Food> GetFoodByNameAsync(string foodName)
         {
             return await _context.Foods.FirstOrDefaultAsync(f => f.FoodName == foodName);
@@ -192,8 +190,6 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-
-
         public async Task<List<Food>> GetFoodsByCategoryNameAsync(string[] categoryNames)
         {
             return await _context.Foods.Where(f => f.CategoryFoods.All(x => categoryNames.Contains(x.Category.CategoryName))).
@@ -203,7 +199,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Nutrition?> GetNutritionByFoodIdAsync(Guid foodId)
         {
-            return await _context.Nutritions
+            return await _context.Nutrition
           .Where(n => n.FoodId == foodId)
           .FirstOrDefaultAsync();
         }
@@ -213,12 +209,11 @@ namespace Monhealth.Identity.Repositories
             {
                 return new List<Nutrition>();
             }
-            return await _context.Nutritions
+            return await _context.Nutrition
                 .Where(n => n.FoodId.HasValue && foodIds.Contains(n.FoodId.Value))
                 .ToListAsync();
 
         }
-
 
         public async Task<PaginatedResult<Food>> GetPaginatedFoodsAsync(int skip, int take)
         {
@@ -261,7 +256,6 @@ namespace Monhealth.Identity.Repositories
                 TotalCount = totalCount
             };
         }
-
 
         public async Task<(Food?, Food?, Food?, Food?)> GetRandomProteinAndCarbFood(List<Guid> allergiesIds)
         {
@@ -363,7 +357,6 @@ namespace Monhealth.Identity.Repositories
         {
             return _context.Foods.CountAsync();
         }
-
 
         public async Task<int> SaveChangesAsync()
         {

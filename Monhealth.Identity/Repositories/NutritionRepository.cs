@@ -13,22 +13,22 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Nutrition>> GetAllNutritionAsync()
         {
-            return await _context.Nutritions.ToListAsync();
+            return await _context.Nutrition.ToListAsync();
         }
 
         public async Task<Nutrition> GetAllNutritionByFoodIdAsync(Guid foodId)
         {
-            return await _context.Nutritions.FirstOrDefaultAsync(n => n.FoodId == foodId);
+            return await _context.Nutrition.FirstOrDefaultAsync(n => n.FoodId == foodId);
         }
 
         public async Task<List<Nutrition>> GetByFoodIdAsync(Guid foodId)
         {
-            return await _context.Nutritions.Where(n => n.FoodId == foodId).ToListAsync();
+            return await _context.Nutrition.Where(n => n.FoodId == foodId).ToListAsync();
         }
 
         public async Task<Nutrition> GetNutritionByFoodIdAsync(Guid foodId)
         {
-           return await _context.Nutritions.FirstOrDefaultAsync(n => n.FoodId == foodId);
+           return await _context.Nutrition.FirstOrDefaultAsync(n => n.FoodId == foodId);
         }
 
         public async Task<int> SaveChangeAsync()

@@ -2,12 +2,12 @@ using MediatR;
 
 namespace Monhealth.Application
 {
-    public class CancelWithDrawalStatusCommand : IRequest<Unit>
+    public class CancelWithdrawalStatusCommand : IRequest<Unit>
     {
-        public Guid WithDrawalRequestId { get; set; }
-        public CancelWithDrawalStatusCommand(Guid id)
+        public Guid WithdrawalRequestId { get; set; }
+        public CancelWithdrawalStatusCommand(Guid id)
         {
-            WithDrawalRequestId = id;
+            WithdrawalRequestId = id;
         }
 
 

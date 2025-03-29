@@ -12,6 +12,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId, DateTime? date);
         Task<Booking> GetBookingByBookingIdAsync(Guid bookingId);
         Task<List<Booking>> GetBookingByConsultantIds(List<Guid> consultantIds);
-        Task<List<TimeOnly>> GetBookedTimeAsync(Guid consultantId, DateOnly date);
+        Task<List<TimeOnly>> GetBookedTimeAsync(Guid consultantId, DateOnly? date);
     }
 }

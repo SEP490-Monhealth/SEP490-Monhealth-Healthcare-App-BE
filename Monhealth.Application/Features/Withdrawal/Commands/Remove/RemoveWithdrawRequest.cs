@@ -4,10 +4,10 @@ namespace Monhealth.Application
 {
     public class RemoveWithdrawRequest : IRequest<bool>
     {
-        public Guid WithDrawalRequestId { get; set; }
+        public Guid WithdrawalRequestId { get; set; }
         public RemoveWithdrawRequest(Guid id)
         {
-            WithDrawalRequestId = id;
+            WithdrawalRequestId = id;
         }
 
     }

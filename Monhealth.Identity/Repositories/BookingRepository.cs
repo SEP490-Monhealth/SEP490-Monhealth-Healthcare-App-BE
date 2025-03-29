@@ -4,7 +4,6 @@ using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -48,7 +47,7 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        public async Task<List<TimeOnly>> GetBookedTimeAsync(Guid consultantId, DateOnly date)
+        public async Task<List<TimeOnly>> GetBookedTimeAsync(Guid consultantId, DateOnly? date)
         {
             return await _context.Bookings
                 .Where(b => b.ConsultantId == consultantId && DateOnly.FromDateTime(b.Day) == date)

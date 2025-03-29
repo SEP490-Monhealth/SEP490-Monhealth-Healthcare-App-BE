@@ -5,6 +5,6 @@ namespace Monhealth.Application.Features.ScheduleException.Queries.GetScheduleEx
 {
     public class GetScheduleExceptionByIdQueries : IRequest<ScheduleExceptionDto>
     {
-        public Guid ExceptionId { get; set; }
+        public Guid ScheduleExceptionId { get; set; }
     }
 }

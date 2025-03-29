@@ -12,6 +12,7 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
         public int Amount { get; set; }
         public PaymentStatus Status { get; set; }
     }
+
     public class Member
     {
         public string FullName { get; set; } = string.Empty;

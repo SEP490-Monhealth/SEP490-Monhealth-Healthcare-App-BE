@@ -2,19 +2,19 @@ using MediatR;
 
 namespace Monhealth.Application
 {
-    public class GetWithDrawRequestListQueryHandler(IWithDrawalRepository withDrawalRepository)
-    : IRequestHandler<GetWithDrawalRequestListQuery, List<GetWithDrawalRequestDTO>>
+    public class GetWithDrawRequestListQueryHandler(IWithdrawalRepository withdrawalRepository)
+    : IRequestHandler<GetWithdrawalRequestListQuery, List<GetWithdrawalRequestDTO>>
     {
-        public async Task<List<GetWithDrawalRequestDTO>> Handle(GetWithDrawalRequestListQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetWithdrawalRequestDTO>> Handle(GetWithdrawalRequestListQuery request, CancellationToken cancellationToken)
         {
-            var queries = await withDrawalRepository.GetAllAsync();
-            return queries.Select(wd => new GetWithDrawalRequestDTO
+            var queries = await withdrawalRepository.GetAllAsync();
+            return queries.Select(wd => new GetWithdrawalRequestDTO
             {
-                Amount = wd.Amount,
+                WithdrawalRequestId = wd.WithdrawalRequestId,
                 ConsultantId = wd.ConsultantId,
                 Description = wd.Description,
+                Amount = wd.Amount,
                 Status = wd.Status,
-                WithDrawalRequestId = wd.WithDrawalRequestId,
                 CreatedAt = wd.CreatedAt,
                 UpdatedAt = wd.UpdatedAt
             }).ToList();
