@@ -32,6 +32,23 @@ namespace Monhealth.Api.Controllers
             };
         }
         [HttpGet]
+        [Route("{WithDrawalRequestId:Guid}/Generate")]
+        public async Task<ResultModel> CreateWithDrawalRequest(Guid WithDrawalRequestId)
+        {
+            var command = new GenerateWithdrawalQRCode(WithDrawalRequestId);
+
+            var result = await mediator.Send(command); // result là Response chứa QR code
+
+            return new ResultModel
+            {
+                Success = true,
+                Message = "Tạo rút tiền thành công",
+                Status = 201,
+                Data = result
+            };
+        }
+
+        [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAll()
         {
             var queries = await mediator.Send(new GetWithDrawalRequestListQuery());
