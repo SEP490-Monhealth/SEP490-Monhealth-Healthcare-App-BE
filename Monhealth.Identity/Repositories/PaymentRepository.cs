@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
+using Monhealth.Core;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -12,11 +13,15 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Payment>> GetAllPaymentsWithPagination(int page, int limit, string search)
+        public async Task<PaginatedResult<Payment>> GetAllPaymentsWithPagination(int page, int limit, string search, PaymentStatus? status)
         {
             IQueryable<Payment> query = _context.Payments.Include(p => p.User)
             .Include(u => u.Subscription)
             .AsQueryable();
+            if (status.HasValue)
+            {
+                query = query.Where(x => x.Status == status);
+            }
             if (!string.IsNullOrEmpty(search))
             {
                 query = query.Where(x => x.User.FullName.Contains(search));

@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
         public async Task<PageResult<PaymentDTO>> Handle(GetPaymentListQuery request, CancellationToken cancellationToken)
         {
             var query = await _paymentRepository
-                .GetAllPaymentsWithPagination(request.page, request.limit, request.search);
+                .GetAllPaymentsWithPagination(request.page, request.limit, request.search ,request.status);
 
             var paymentList = new List<PaymentDTO>();
 

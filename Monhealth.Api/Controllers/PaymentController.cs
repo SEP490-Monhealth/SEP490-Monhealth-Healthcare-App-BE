@@ -5,7 +5,7 @@ using Monhealth.Application.Features.Payment.Commands.Update;
 using Monhealth.Application.Features.Payment.Queries.GetALL;
 using Monhealth.Application.Features.Payment.Queries.GetById;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
+using Monhealth.Core;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -21,9 +21,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllPayment(int page = 1, int limit = 10, string search = "")
+        public async Task<ActionResult<ResultModel>> GetAllPayment(int page = 1, int limit = 10, string search = "", PaymentStatus? status = null)
         {
-            var queries = await _mediator.Send(new GetPaymentListQuery(page, limit, search));
+            var queries = await _mediator.Send(new GetPaymentListQuery(page, limit, search , status));
 
             return new ResultModel
             {
