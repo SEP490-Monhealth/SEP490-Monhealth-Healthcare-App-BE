@@ -1,5 +1,8 @@
 using MediatR;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Bank.Commands.ChangeStatusBank;
+using Monhealth.Application.Features.Subscription.Commands.ChangeStatus;
 using Monhealth.Application.Features.Subscription.Commands.Create;
 using Monhealth.Application.Features.Subscription.Commands.Delete;
 using Monhealth.Application.Features.Subscription.Commands.Update;
@@ -155,6 +158,27 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
                 Data = null
             });
+        }
+        [HttpPatch("{subcriptionId}/status")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusSubcription(Guid subcriptionId)
+        {
+            var command = new ChangeStatusSubcriptionCommand { SubcriptionId = subcriptionId };
+            var changeStatus = await _mediator.Send(command);
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy gói nâng cấp"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Thay đổi trạng thái thành công"
+            };
         }
     }
 }
