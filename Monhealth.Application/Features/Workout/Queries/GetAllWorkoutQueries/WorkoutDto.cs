@@ -18,6 +18,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
         public int DurationMinutes { get; set; }
         public float CaloriesBurned { get; set; }
         public bool Status { get; set; }
+        public bool IsPublic { get; set; }
 
     }
 }

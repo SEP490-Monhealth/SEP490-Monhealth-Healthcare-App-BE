@@ -11,7 +11,7 @@ namespace Monhealth.Application
     {
         public async Task<PageResult<GetWithdrawalRequestDTO>> Handle(GetWithdrawalRequestListQuery request, CancellationToken cancellationToken)
         {
-            var queries = await withdrawalRepository.GetAllWithdrawalRequestAsync(request.Page, request.Limit, request.Status);
+            var queries = await withdrawalRepository.GetAllWithdrawalRequestAsync(request.Page, request.Limit, request.Status, request.Search);
             var withdDrawList = new List<GetWithdrawalRequestDTO>();
             foreach (var wd in queries.Items)
             {
