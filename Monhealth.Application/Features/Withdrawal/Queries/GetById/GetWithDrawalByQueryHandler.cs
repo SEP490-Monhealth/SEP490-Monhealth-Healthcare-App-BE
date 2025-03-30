@@ -20,8 +20,6 @@ namespace Monhealth.Application
                 Status = query.Status,
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt,
-                CreatedBy = consultant.ConsultantId,
-                UpdatedBy = consultant.ConsultantId,
                 Consultant = new ConsultantDTOForId
                 {
                    AvatarUrl = consultant.AppUser.Avatar,

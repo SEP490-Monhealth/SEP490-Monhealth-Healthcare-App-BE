@@ -30,9 +30,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId)
+        public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId, int Page = 1, int Limit = 10)
         {
-            var transaction = await mediator.Send(new GetTransactionByConsultantIdQuery { ConsultantId = consultantId });
+            var transaction = await mediator.Send(new GetTransactionByConsultantIdQuery(consultantId, Page, Limit));
             return Ok(new ResultModel
             {
                 Success = true,
