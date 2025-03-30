@@ -13,7 +13,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, 
+        public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type,
             string? search, StatusTransaction? status)
         {
             IQueryable<Transaction> query = _context.Transactions.Include(c => c.Wallet).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser).AsNoTracking().AsQueryable();
@@ -50,9 +50,21 @@ namespace Monhealth.Identity.Repositories
             return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser).FirstOrDefaultAsync(c => c.TransactionId == transactionId);
         }
 
-        public async Task<List<Transaction>> GetTransactionByWalletId(Guid walletId)
+        public async Task<PaginatedResult<Transaction>> GetTransactionByWalletId(int page, int limit, Guid walletId)
         {
-            return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser).Where(c => c.WalletId == walletId).ToListAsync();
+            var query = _context.Transactions.
+            Include(w => w.Wallet).ThenInclude(c => c.Consultant)
+            .ThenInclude(u => u.AppUser).Where(c => c.WalletId == walletId).AsQueryable();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            int totalItems = await query.CountAsync();
+            return new PaginatedResult<Transaction>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<int> SaveChangeAsync()

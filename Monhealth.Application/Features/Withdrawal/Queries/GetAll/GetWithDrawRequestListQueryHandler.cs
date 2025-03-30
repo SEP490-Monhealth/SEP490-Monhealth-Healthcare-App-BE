@@ -25,8 +25,7 @@ namespace Monhealth.Application
                     Status = wd.Status,
                     CreatedAt = wd.CreatedAt,
                     UpdatedAt = wd.UpdatedAt,
-                    CreatedBy = consultant.ConsultantId,
-                    UpdatedBy = consultant.ConsultantId
+
                 };
                 var consultantDTO = new ConsultantDTO12
                 {
