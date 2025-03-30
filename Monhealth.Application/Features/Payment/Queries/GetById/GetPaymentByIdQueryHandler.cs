@@ -21,6 +21,7 @@ namespace Monhealth.Application.Features.Payment.Queries.GetById
             return new PaymentByIdDTO
             {
                 Amount = query.Amount,
+                UserId = query.UserId,
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt,
                 Status = query.Status,
