@@ -6,11 +6,11 @@ namespace Monhealth.Application
     public record PaymentUserDTO(Guid PaymentId
     , Guid UserId
     , Guid SubscriptionId
-    ,string Subscription
     , Member Member
+    , string Subscription
     , int Amount
     , PaymentStatus Status
-    , DateTime?CreatedAt
+    , DateTime? CreatedAt
     , DateTime? UpdatedAt
     , Guid? CreatedBy
     , Guid? UpdatedBy);

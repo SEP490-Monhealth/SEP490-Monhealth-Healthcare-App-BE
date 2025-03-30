@@ -6,7 +6,6 @@ using Monhealth.Application.Features.Payment.Commands.Update;
 using Monhealth.Application.Features.Payment.Queries.GetALL;
 using Monhealth.Application.Features.Payment.Queries.GetById;
 using Monhealth.Application.Features.Payment.Queries.GetBySubcriptionId;
-using Monhealth.Application.Features.Payment.Queries.GetByUserId;
 using Monhealth.Application.Models;
 using Monhealth.Core;
 using System.Net;
@@ -35,22 +34,11 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
-        [HttpGet("user/{userId}")]
-        public async Task<ActionResult<ResultModel>> GetPaymentByUserid(Guid userId)
-        {
-            var queries = await _mediator.Send(new GetPaymentByUserIdQuery{ UserId = userId });
 
-            return new ResultModel
-            {
-                Data = queries,
-                Status = 200,
-                Success = true
-            };
-        }
-        [HttpGet("subcription/{subcriptionId}")]
-        public async Task<ActionResult<ResultModel>> GetPaymentBySubcriptionId(Guid subcriptionId)
+        [HttpGet("subscription/{subscriptionId}")]
+        public async Task<ActionResult<ResultModel>> GetPaymentBySubscriptionId(Guid subscriptionId)
         {
-            var queries = await _mediator.Send(new GetpaymentBySubcriptionIdQuery { SubcriptionId = subcriptionId });
+            var queries = await _mediator.Send(new GetpaymentBySubcriptionIdQuery { SubscriptionId = subscriptionId });
 
             return new ResultModel
             {
@@ -84,8 +72,9 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
         [HttpGet]
-        [Route("{userId:Guid}/user")]
+        [Route("user/{userId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetReviewByUser(Guid userId)
         {
             var queries = await _mediator.
@@ -108,7 +97,6 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
-
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Create([FromBody] AddPaymentRequest request)
@@ -148,32 +136,32 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        // [HttpDelete]
-        // [Route("{paymentId:Guid}")]
-        // public async Task<ActionResult<ResultModel>> Remove(Guid paymentId)
-        // {
-        //     var result = await _mediator.Send(new DeletePaymentCommand(paymentId));
+        [HttpDelete]
+        [Route("{paymentId:Guid}")]
+        public async Task<ActionResult<ResultModel>> Remove(Guid paymentId)
+        {
+            var result = await _mediator.Send(new DeletePaymentCommand(paymentId));
 
-        //     if (!result)
-        //     {
-        //         // Trả về lỗi nếu xóa không thành công
-        //         return NotFound(new ResultModel
-        //         {
-        //             Success = false,
-        //             Message = "Xóa thanh toán không thành công",
-        //             Status = (int)HttpStatusCode.NotFound,
-        //             Data = null
-        //         });
-        //     }
+            if (!result)
+            {
+                // Trả về lỗi nếu xóa không thành công
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Xóa thanh toán không thành công",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
 
-        //     // Trả về kết quả thành công
-        //     return Ok(new ResultModel
-        //     {
-        //         Success = true,
-        //         Message = "Xóa thanh toán thành công",
-        //         Status = 204,
-        //         Data = null
-        //     });
-        // }
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Xóa thanh toán thành công",
+                Status = 204,
+                Data = null
+            });
+        }
     }
 }
