@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Payment.Commands.Create;
 using Monhealth.Application.Features.Payment.Commands.Update;
 using Monhealth.Application.Features.Payment.Queries.GetALL;
@@ -23,7 +24,7 @@ namespace Monhealth.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllPayment(int page = 1, int limit = 10, string search = "", PaymentStatus? status = null)
         {
-            var queries = await _mediator.Send(new GetPaymentListQuery(page, limit, search , status));
+            var queries = await _mediator.Send(new GetPaymentListQuery(page, limit, search, status));
 
             return new ResultModel
             {
@@ -57,6 +58,31 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+        [HttpGet]
+        [Route("{userId:Guid}/user")]
+        public async Task<ActionResult<ResultModel>> GetReviewByUser(Guid userId)
+        {
+            var queries = await _mediator.
+            Send(new GetUserListQuery { UserId = userId });
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Thanh toán không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
+
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> Create([FromBody] AddPaymentRequest request)
