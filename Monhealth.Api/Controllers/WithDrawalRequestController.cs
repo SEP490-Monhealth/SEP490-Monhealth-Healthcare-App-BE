@@ -12,10 +12,9 @@ namespace Monhealth.Api.Controllers
     public class WithdrawalRequestController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, WithdrawalStatus? status = null 
-        ,string? Search = null)
+        public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, string? search = null, WithdrawalStatus? status = null)
         {
-            var queries = await mediator.Send(new GetWithdrawalRequestListQuery(page, limit, status , Search));
+            var queries = await mediator.Send(new GetWithdrawalRequestListQuery(page, limit, search, status));
             return new ResultModel
             {
                 Data = queries,
