@@ -2,6 +2,7 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
+using Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStatus;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 
@@ -196,6 +197,32 @@ namespace Monhealth.Api.Controllers
             try
             {
                 var command = new CancelWithdrawalStatusCommand(withdrawalRequestId);
+                await mediator.Send(command); // trả về Unit, không cần kiểm tra
+
+                return Ok(new ResultModel
+                {
+                    Message = "Cập nhật trạng thái rút tiền thành công",
+                    Success = true,
+                    Status = 204
+                });
+            }
+            catch (Exception ex)
+            {
+                return Ok(new ResultModel
+                {
+                    Message = $"Cập nhật trạng thái rút tiền không thành công: {ex.Message}",
+                    Success = false,
+                    Data = null
+                });
+            }
+        }
+        [HttpPatch]
+        [Route("{withdrawalRequestId:Guid}/approve")]
+        public async Task<ActionResult<ResultModel>> Approve(Guid withdrawalRequestId)
+        {
+            try
+            {
+                var command = new ChangeToApproveStatusCommand{ WithdrawalRequestId = withdrawalRequestId };
                 await mediator.Send(command); // trả về Unit, không cần kiểm tra
 
                 return Ok(new ResultModel

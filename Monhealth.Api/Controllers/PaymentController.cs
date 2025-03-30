@@ -5,6 +5,8 @@ using Monhealth.Application.Features.Payment.Commands.Create;
 using Monhealth.Application.Features.Payment.Commands.Update;
 using Monhealth.Application.Features.Payment.Queries.GetALL;
 using Monhealth.Application.Features.Payment.Queries.GetById;
+using Monhealth.Application.Features.Payment.Queries.GetBySubcriptionId;
+using Monhealth.Application.Features.Payment.Queries.GetByUserId;
 using Monhealth.Application.Models;
 using Monhealth.Core;
 using System.Net;
@@ -25,6 +27,30 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetAllPayment(int page = 1, int limit = 10, string search = "", PaymentStatus? status = null)
         {
             var queries = await _mediator.Send(new GetPaymentListQuery(page, limit, search, status));
+
+            return new ResultModel
+            {
+                Data = queries,
+                Status = 200,
+                Success = true
+            };
+        }
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<ResultModel>> GetPaymentByUserid(Guid userId)
+        {
+            var queries = await _mediator.Send(new GetPaymentByUserIdQuery{ UserId = userId });
+
+            return new ResultModel
+            {
+                Data = queries,
+                Status = 200,
+                Success = true
+            };
+        }
+        [HttpGet("subcription/{subcriptionId}")]
+        public async Task<ActionResult<ResultModel>> GetPaymentBySubcriptionId(Guid subcriptionId)
+        {
+            var queries = await _mediator.Send(new GetpaymentBySubcriptionIdQuery { SubcriptionId = subcriptionId });
 
             return new ResultModel
             {
