@@ -10,5 +10,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Payment>> GetAllPaymentsWithPagination(int page, int limit
         , string search , PaymentStatus? Status);
         Task<Payment> GetPaymentById(Guid paymentId);
+        Task<List<Payment>> GetPaymentByUserId(Guid userId);
     }
 }
