@@ -46,6 +46,11 @@ namespace Monhealth.Identity.Repositories
             .FirstOrDefaultAsync(p => p.PaymentId == paymentId);
         }
 
+        public async Task<List<Payment>> GetPaymentBySubcriptionId(Guid subcriptionId)
+        {
+            return await _context.Payments.Where(u => u.SubscriptionId == subcriptionId).ToListAsync();
+        }
+
         public async Task<List<Payment>> GetPaymentByUserId(Guid userId)
         {
             return await _context.Payments.Where(u => u.UserId == userId).ToListAsync();

@@ -11,5 +11,6 @@ namespace Monhealth.Application.Contracts.Persistence
         , string search , PaymentStatus? Status);
         Task<Payment> GetPaymentById(Guid paymentId);
         Task<List<Payment>> GetPaymentByUserId(Guid userId);
+        Task<List<Payment>> GetPaymentBySubcriptionId(Guid subcriptionId);
     }
 }
