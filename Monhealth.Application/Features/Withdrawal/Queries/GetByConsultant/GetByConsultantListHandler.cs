@@ -32,8 +32,8 @@ namespace Monhealth.Application
                     wd.Status,
                     wd.CreatedAt,
                     wd.UpdatedAt,
-                    null,
-                    null);
+                    wd.CreatedBy,
+                    wd.UpdatedBy);
                 withDrawByConsultant.Add(withDrawConsultantDTO);
             }
             return new PageResult<GetByConsultantDTO>
