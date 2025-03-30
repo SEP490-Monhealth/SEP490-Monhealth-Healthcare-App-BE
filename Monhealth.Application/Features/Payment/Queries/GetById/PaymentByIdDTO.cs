@@ -8,7 +8,6 @@ namespace Monhealth.Application.Features.Payment.Queries.GetById
         public Guid PaymentId { get; set; }
         public Guid UserId { get; set; }
         public Guid SubscriptionId { get; set; }
-        public Guid UserId { get; set; }
         public string SubscriptionName { get; set; } = string.Empty;
         public Member Member { get; set; } = null!;
         public int Amount { get; set; }
