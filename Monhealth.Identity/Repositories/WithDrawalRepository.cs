@@ -13,7 +13,8 @@ namespace Monhealth.Application
         {
         }
 
-        public async Task<PaginatedResult<WithdrawalRequest>> GetAllWithdrawalRequestAsync(int page, int limit, WithdrawalStatus? status)
+        public async Task<PaginatedResult<WithdrawalRequest>> GetAllWithdrawalRequestAsync(int page, int limit,
+        WithdrawalStatus? status, string? search)
         {
             var query = _context.WithdrawalRequests.Include(wd => wd.Consultant)
             .ThenInclude(u => u.AppUser)
@@ -21,6 +22,13 @@ namespace Monhealth.Application
             .ThenInclude(b => b.Bank)
             .Include(c => c.Consultant).ThenInclude(cs => cs.Wallet)
             .ThenInclude(cs => cs.Transactions).AsQueryable();
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(wd =>
+                    wd.WithdrawalRequestId.ToString().Contains(search)
+                    || wd.Consultant.AppUser.FullName.Contains(search));
+            }
+
             if (status.HasValue)
             {
                 query = query.Where(wd => wd.Status == status);

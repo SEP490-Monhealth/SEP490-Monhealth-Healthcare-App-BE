@@ -35,6 +35,12 @@ namespace Monhealth.Application.Features.Workout.Queries.GetWorkoutByIdQueries
                 WorkoutName = workout.WorkoutName,
                 WorkoutDescription = workout.WorkoutDescription,
                 DifficultyLevel = workout.DifficultyLevel,
+                IsPublic = workout.IsPublic,
+                Status = workout.Status,
+                CreatedAt = workout.CreatedAt,
+                UpdatedAt = workout.UpdatedAt,
+                CreatedBy = workout.CreatedBy,
+                UpdatedBy = workout.UpdatedBy,
                 Exercises = (workout.WorkoutExercises?.Count() ?? 0) + (exerciseWramupList?.Count() ?? 0), // Handle null lists
                 DurationMinutes = ((workout.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0) * 3) + ((warmupWorkout?.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0) * 2), // Handle null values safely
 

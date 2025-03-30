@@ -9,11 +9,13 @@ namespace Monhealth.Application
         public int Page { get; set; }
         public int Limit { get; set; }
         public WithdrawalStatus? Status { get; set; }
-        public GetWithdrawalRequestListQuery(int page , int limit , WithdrawalStatus? status)
+        public string? Search { get; set; }
+        public GetWithdrawalRequestListQuery(int page , int limit , WithdrawalStatus? status , string? search)
         {
             Page = page;
             Limit = limit;
             Status = status;
+            Search = search;
         }
     }
 }
