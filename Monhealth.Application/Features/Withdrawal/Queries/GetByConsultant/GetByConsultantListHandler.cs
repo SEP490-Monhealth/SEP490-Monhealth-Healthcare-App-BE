@@ -12,7 +12,7 @@ namespace Monhealth.Application
         public async Task<PageResult<GetByConsultantDTO>> Handle(GetByConsultantRequest request, CancellationToken cancellationToken)
         {
             var queries = await withdrawalRepository
-            .GetWithDrawRequestByConsultant(request.ConsultantId, request.Page, request.Limit);
+            .GetWithdrawRequestByConsultant(request.ConsultantId, request.Page, request.Limit);
             var withDrawByConsultant = new List<GetByConsultantDTO>();
             foreach (var wd in queries.Items)
             {
@@ -31,9 +31,7 @@ namespace Monhealth.Application
                     wd.Amount,
                     wd.Status,
                     wd.CreatedAt,
-                    wd.UpdatedAt,
-                    consultant.ConsultantId,
-                    consultant.ConsultantId);
+                    wd.UpdatedAt);
                 withDrawByConsultant.Add(withDrawConsultantDTO);
             }
             return new PageResult<GetByConsultantDTO>

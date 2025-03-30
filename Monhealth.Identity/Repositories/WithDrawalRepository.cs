@@ -49,7 +49,7 @@ namespace Monhealth.Application
             .ThenInclude(cs => cs.Transactions).FirstOrDefaultAsync(wd => wd.WithdrawalRequestId == withdrawalId);
         }
 
-        public async Task<PaginatedResult<WithdrawalRequest>> GetWithDrawRequestByConsultant(Guid consultant, int page, int limit)
+        public async Task<PaginatedResult<WithdrawalRequest>> GetWithdrawRequestByConsultant(Guid consultant, int page, int limit)
         {
             var query = _context.WithdrawalRequests.Include(wd => wd.Consultant)
             .ThenInclude(u => u.AppUser)

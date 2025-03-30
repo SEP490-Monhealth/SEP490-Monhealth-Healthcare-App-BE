@@ -6,20 +6,19 @@ namespace Monhealth.Application
 {
     public record GetByConsultantDTO(Guid WithDrawalRequestId,
     Guid ConsultantId, ConsultantDTO1 Consultant, string Description,
-    float Amount, WithdrawalStatus Status , DateTime? CreateAt , DateTime? UpdateAt , Guid? CreateBy ,Guid? UpdateBy) ;
+    float Amount, WithdrawalStatus Status, DateTime? CreateAt, DateTime? UpdatedAt, Guid? CreatedBy, Guid? UpdatedBy);
+
     public class GetByConsultantRequest : IRequest<PageResult<GetByConsultantDTO>>
     {
-
         public Guid ConsultantId { get; set; }
         public int Page { get; set; }
         public int Limit { get; set; }
-        public GetByConsultantRequest(Guid consultant ,int page , int limit)
+        public GetByConsultantRequest(Guid consultant, int page, int limit)
         {
             ConsultantId = consultant;
             Page = page;
             Limit = limit;
         }
-
     }
 
 }
