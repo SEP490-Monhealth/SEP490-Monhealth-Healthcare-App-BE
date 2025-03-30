@@ -49,6 +49,30 @@ namespace Monhealth.Application
             .ThenInclude(cs => cs.Transactions).FirstOrDefaultAsync(wd => wd.WithdrawalRequestId == withdrawalId);
         }
 
+        public async Task<PaginatedResult<WithdrawalRequest>> GetWithDrawRequestByConsultant(Guid consultant, int page, int limit)
+        {
+            var query = _context.WithdrawalRequests.Include(wd => wd.Consultant)
+            .ThenInclude(u => u.AppUser)
+            .Include(b => b.Consultant).ThenInclude(c => c.ConsultantBanks)
+            .ThenInclude(b => b.Bank)
+            .Include(c => c.Consultant).ThenInclude(cs => cs.Wallet)
+            .ThenInclude(cs => cs.Transactions).AsQueryable()
+            .Where(cs => cs.ConsultantId == consultant);
+
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            var totalItems = await query.CountAsync();
+            return new PaginatedResult<WithdrawalRequest>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
+
+        }
+
         public async Task<int> SaveChangeASync()
         {
             return await _context.SaveChangesAsync();

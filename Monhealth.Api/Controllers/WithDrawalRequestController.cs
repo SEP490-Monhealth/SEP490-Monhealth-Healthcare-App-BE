@@ -86,6 +86,30 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+        [HttpGet]
+        [Route("{consultantId:Guid}/consultant")]
+        public async Task<ActionResult<ResultModel>> GetByConsultant(Guid consultantId , int page = 1, int limit = 10)
+        {
+            var queries = await mediator.
+            Send(new GetByConsultantRequest (consultantId , page , limit));
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Yêu cầu rút tiền không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
 
         [HttpPut]
         [Route("{withdrawalRequestId:Guid}")]

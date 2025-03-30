@@ -26,7 +26,7 @@ namespace Monhealth.Application
                     CreatedAt = wd.CreatedAt,
                     UpdatedAt = wd.UpdatedAt
                 };
-                var consultantDTO = new ConsultantDTO
+                var consultantDTO = new ConsultantDTO12
                 {
                     AvatarUrl = consultant.AppUser.Avatar,
                     Email = consultant.AppUser.Email,
