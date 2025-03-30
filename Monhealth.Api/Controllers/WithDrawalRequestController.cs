@@ -11,45 +11,6 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class WithdrawalRequestController(IMediator mediator) : ControllerBase
     {
-        [HttpPost]
-        public async Task<ResultModel> Create([FromBody] CreateWithdrawalRequestDTO request)
-        {
-            var result = await mediator.Send(request);
-            if (result)  // Check if 'result' is true
-            {
-                return new ResultModel
-                {
-                    Success = true,
-                    Message = "Tạo yêu cầu rút tiền thành công",
-                    Status = 201,
-                };
-            }
-
-            return new ResultModel
-            {
-                Success = false,
-                Message = "Tạo yêu cầu rút tiền thất bại",
-                Status = 400,
-            };
-        }
-
-        [HttpGet]
-        [Route("{withdrawalRequestId:Guid}/generate-qr")]
-        public async Task<ResultModel> CreateWithdrawalRequest(Guid withdrawalRequestId)
-        {
-            var command = new GenerateWithdrawalQRCode(withdrawalRequestId);
-
-            var result = await mediator.Send(command); // result là Response chứa QR code
-
-            return new ResultModel
-            {
-                Success = true,
-                Message = "Tạo QR rút tiền thành công",
-                Status = 200,
-                Data = result
-            };
-        }
-
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, WithdrawalStatus? status = null)
         {
@@ -85,6 +46,45 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = queries
             });
+        }
+
+        [HttpGet]
+        [Route("{withdrawalRequestId:Guid}/generate-qr")]
+        public async Task<ResultModel> CreateWithdrawalRequest(Guid withdrawalRequestId)
+        {
+            var command = new GenerateWithdrawalQRCode(withdrawalRequestId);
+
+            var result = await mediator.Send(command); // result là Response chứa QR code
+
+            return new ResultModel
+            {
+                Success = true,
+                Message = "Tạo QR rút tiền thành công",
+                Status = 200,
+                Data = result
+            };
+        }
+
+        [HttpPost]
+        public async Task<ResultModel> Create([FromBody] CreateWithdrawalRequestDTO request)
+        {
+            var result = await mediator.Send(request);
+            if (result)  // Check if 'result' is true
+            {
+                return new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo yêu cầu rút tiền thành công",
+                    Status = 201,
+                };
+            }
+
+            return new ResultModel
+            {
+                Success = false,
+                Message = "Tạo yêu cầu rút tiền thất bại",
+                Status = 400,
+            };
         }
 
         [HttpPut]
