@@ -51,6 +51,14 @@ namespace Monhealth.Identity.Repositories
             .Select(us => us.Subscription).ToListAsync();
         }
 
+        public async Task<UserSubscription> GetUserSubscriptionByIdAsync(Guid userSubscriptionId)
+        {
+            return await _context.UserSubscriptions.
+            Include(us => us.Subscription).
+            Include(us => us.User)
+            .FirstOrDefaultAsync(us => us.UserSubscriptionId == userSubscriptionId);
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();
