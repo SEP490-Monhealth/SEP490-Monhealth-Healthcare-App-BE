@@ -27,6 +27,7 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
                 var paymentDTO = new PaymentDTO
                 {
                     Amount = payment.Amount,
+                    UserId = payment.UserId,
                     CreatedAt = payment.CreatedAt,
                     PaymentId = payment.PaymentId,
                     Status = payment.Status,
