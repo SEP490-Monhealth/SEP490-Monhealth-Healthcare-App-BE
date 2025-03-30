@@ -24,9 +24,11 @@ namespace Monhealth.Application
                     Amount = wd.Amount,
                     Status = wd.Status,
                     CreatedAt = wd.CreatedAt,
-                    UpdatedAt = wd.UpdatedAt
+                    UpdatedAt = wd.UpdatedAt,
+                    CreatedBy = consultant.ConsultantId,
+                    UpdatedBy = consultant.ConsultantId
                 };
-                var consultantDTO = new ConsultantDTO
+                var consultantDTO = new ConsultantDTO12
                 {
                     AvatarUrl = consultant.AppUser.Avatar,
                     Email = consultant.AppUser.Email,

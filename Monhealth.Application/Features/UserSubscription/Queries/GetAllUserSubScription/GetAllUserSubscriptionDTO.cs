@@ -7,10 +7,8 @@ namespace Monhealth.Application
     public class GetAllUserSubscriptionDTO : TimeEntity
     {
         public Guid UserSubscriptionId { get; set; }
-        public string FullName { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string PhoneNumber { get; set; } = string.Empty;
-        public string AvatarUrl { get; set; } = string.Empty;
+        public Guid SubscriptionId { get; set; }
+        public Member Member { get; set; }
         [JsonPropertyName("subscription")]
         public string SubscriptionName { get; set; } = string.Empty;
         public DateTime StartedAt { get; set; }
@@ -18,4 +16,12 @@ namespace Monhealth.Application
         public int RemainingBookings { get; set; }
         public UserSubscriptionStatus Status { get; set; }
     }
+    public class Member
+    {
+        public string FullName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+        public string AvatarUrl { get; set; } = string.Empty;
+    }
+
 }
