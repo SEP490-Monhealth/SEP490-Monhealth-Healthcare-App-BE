@@ -11,18 +11,15 @@ namespace Monhealth.Application
         private readonly IFoodRepository _foodRepository;
         private readonly IWorkoutRepository _workoutRepository;
         private readonly IUserRepository _userRepository;
-        private readonly IGoalRepository _goalRepository;
 
         public ChatBotAiListQueryHandler(IMetricRepository metricRepository,
             IFoodRepository foodRepository, IWorkoutRepository workoutRepository,
-            IUserRepository userRepository,
-            IGoalRepository goalRepository)
+            IUserRepository userRepository)
         {
             _foodRepository = foodRepository;
             _workoutRepository = workoutRepository;
             _metricRepository = metricRepository;
             _userRepository = userRepository;
-            _goalRepository = goalRepository;
         }
 
         public async Task<(ChatBotAi, int)> Handle(ChatBotAiListQuery request, CancellationToken cancellationToken)
@@ -38,7 +35,7 @@ namespace Monhealth.Application
             {
                 throw new Exception("Metrics not found for the user.");
             }
-            var goal = await _goalRepository.GetByUserIdAsync(request.UserId);
+
             var foods = await _foodRepository.GetFoodByUserHasNoAllergiesAsync(request.UserId) ?? new List<Food>();
 
             foods = foods.Where(f => f != null).ToList();
@@ -83,28 +80,12 @@ namespace Monhealth.Application
                     Bmi = metrics.Bmi,
                     Bmr = metrics.Bmr,
                     Tdee = metrics.Tdee,
-                    Ibw = metrics.Ibw,
-                    GoalDTO = new GoalDTO
-                    {
-                       CaloriesBurnedGoal= goal.CaloriesBurnedGoal,
-                       CaloriesGoal = goal.CaloriesGoal,
-                       CaloriesRatio = goal.CaloriesRatio,
-                       CarbsGoal = goal.CarbsGoal,
-                       FatGoal = goal.FatGoal,
-                       FiberGoal = goal.FiberGoal,
-                       GoalType = goal.GoalType,
-                       ProteinGoal = goal.ProteinGoal,
-                       SugarGoal = goal.SugarGoal,
-                       WeightGoal = goal.WeightGoal,
-                       WorkoutDurationGoal = goal.WorkoutDurationGoal,
-
-                    }
+                    Ibw = metrics.Ibw
                 },
-
                 Foods = foodDTOs,
                 Workouts = new WorkoutDTO12
                 {
-                    WorkoutName = workoutNames
+                    WorkoutName = workoutNames 
                 }
             };
 
