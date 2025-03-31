@@ -128,11 +128,11 @@ namespace Monhealth.Identity.Dbcontexts
                                  )
                                 .Metadata.SetValueComparer(mealTypeComparer);
             });
-            //builder.Entity<ScheduleTimeSlot>()
-            //    .HasOne(s => s.Status)
-            //    .WithMany()
-            //     .HasForeignKey(s => s.ScheduleTimeSlotId)
-            //     .OnDelete(DeleteBehavior.NoAction); // Prevent cyclic delete paths
+            builder.Entity<Payment>()
+            .HasOne(p => p.UserSubscription)
+             .WithMany()
+             .HasForeignKey(p => p.UserSubscriptionId)
+            .OnDelete(DeleteBehavior.Restrict); // Hoặc .NoAction
 
             builder.Entity<Food>(entity =>
             {

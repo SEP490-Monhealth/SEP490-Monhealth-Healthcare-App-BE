@@ -16,6 +16,5 @@ namespace Monhealth.Domain
         public bool Status { get; set; }
 
         public ICollection<UserSubscription> UserSubscriptions { get; set; }
-        public ICollection<Payment> Payments { get; set; }
     }
 }

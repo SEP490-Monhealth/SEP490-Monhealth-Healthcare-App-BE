@@ -1,34 +1,50 @@
 using MediatR;
+using Monhealth.Application.Contracts.PayOS;
 using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.Payment.Commands.Create
 {
-    public class AddPaymentHandler : IRequestHandler<AddPaymentRequest, Unit>
-    {
-        private readonly IPaymentRepository _paymentRepository;
-        private readonly IUserRepository _userRepository;
-        public AddPaymentHandler(IPaymentRepository paymentRepository,
-        IUserRepository userRepository)
-        {
-            _paymentRepository = paymentRepository;
-            _userRepository = userRepository;
-        }
+    public class AddPaymentHandler(IPaymentRepository paymentRepository,
+        IUserRepository userRepository,
+        IPayOSService payOSService
 
-        public async Task<Unit> Handle(AddPaymentRequest request, CancellationToken cancellationToken)
+        ) : IRequestHandler<AddPaymentRequest, AddPaymentResponse>
+    {
+        public async Task<AddPaymentResponse> Handle(AddPaymentRequest request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(request.UserId);  
-            var model = new Domain.Payment
+            var user = await userRepository.GetByIdAsync(request.UserId);
+
+            var payment = new Domain.Payment
             {
-                UserId = request.UserId,    
-                SubscriptionId = request.SubscriptionId,
+                UserId = request.UserId,
+                UserSubscriptionId = request.UserSubscriptionId,
                 Amount = request.Amount,
                 Status = Core.PaymentStatus.Pending,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };
-            _paymentRepository.Add(model);
-            await _paymentRepository.SaveChangeAsync();
-            return Unit.Value;
+
+            var paymentResult = await payOSService.CreatePaymentLinkAsync(
+               request.UserSubscriptionId,
+               request.Amount,
+               $"Thanh toan don hang"
+           );
+            payment.OrderCode = paymentResult.OrderCode;
+            paymentRepository.Add(payment);
+
+            await paymentRepository.SaveChangeAsync();
+            return new AddPaymentResponse
+            {
+                PaymentId = payment.PaymentId,
+                UserId = payment.UserId,
+                UserSubscriptionId = payment.UserSubscriptionId,
+                OrderCode = paymentResult.OrderCode,
+                Amount = payment.Amount,
+                Status = payment.Status,
+                PaymentUrl = paymentResult.CheckoutUrl,
+                QrCode = paymentResult.QrCode,
+            };
         }
     }
 }
+

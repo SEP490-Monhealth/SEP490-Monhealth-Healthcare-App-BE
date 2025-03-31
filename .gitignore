@@ -11,3 +11,4 @@ Monhealth.Infrastructure/bin
 Monhealth.Infrastructure/obj
 
 /Monhealth.Application/Features/.env
+/Monhealth.Api/appsettings.json

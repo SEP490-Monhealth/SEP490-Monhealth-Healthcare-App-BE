@@ -25,9 +25,9 @@ namespace Monhealth.Application.Features.Payment.Queries.GetById
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt,
                 Status = query.Status,
-                SubscriptionId = query.SubscriptionId,
+                //SubscriptionId = query.UserSubcriptionId,
                 PaymentId = query.PaymentId,
-                SubscriptionName = query.Subscription?.SubscriptionName,
+                //SubscriptionName = query.Subscription?.SubscriptionName,
                 Member = new Member
                 {
                     AvatarUrl = member.Avatar,

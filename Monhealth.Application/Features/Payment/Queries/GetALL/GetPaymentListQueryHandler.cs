@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
         public async Task<PageResult<PaymentDTO>> Handle(GetPaymentListQuery request, CancellationToken cancellationToken)
         {
             var query = await _paymentRepository
-                .GetAllPaymentsWithPagination(request.page, request.limit, request.search ,request.status);
+                .GetAllPaymentsWithPagination(request.page, request.limit, request.search, request.status);
 
             var paymentList = new List<PaymentDTO>();
 
@@ -31,8 +31,8 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
                     CreatedAt = payment.CreatedAt,
                     PaymentId = payment.PaymentId,
                     Status = payment.Status,
-                    SubscriptionId = payment.SubscriptionId,
-                    SubscriptionName = payment.Subscription?.SubscriptionName, // xử lý null
+                    //SubscriptionId = payment.UserSubcriptionId,
+                    //SubscriptionName = payment.UserSubscription?.SubscriptionName, // xử lý null
                     UpdatedAt = payment.UpdatedAt
                 };
 

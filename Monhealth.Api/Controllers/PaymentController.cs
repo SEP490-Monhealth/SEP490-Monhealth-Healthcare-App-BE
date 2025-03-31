@@ -23,7 +23,7 @@ namespace Monhealth.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllPayment(int page = 1, int limit = 10, string search = "", PaymentStatus? status = null)
         {
-            var queries = await _mediator.Send(new GetPaymentListQuery(page, limit, search , status));
+            var queries = await _mediator.Send(new GetPaymentListQuery(page, limit, search, status));
 
             return new ResultModel
             {
@@ -69,13 +69,15 @@ namespace Monhealth.Api.Controllers
                     Success = true,
                     Message = "Tạo thanh toán thành công",
                     Status = 201,
+                    Data = result
                 });
             }
 
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo thanh toán thất bại"
+                Message = "Tạo thanh toán thất bại",
+
             });
         }
 

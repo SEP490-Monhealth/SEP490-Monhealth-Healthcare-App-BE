@@ -16,7 +16,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Payment>> GetAllPaymentsWithPagination(int page, int limit, string search, PaymentStatus? status)
         {
             IQueryable<Payment> query = _context.Payments.Include(p => p.User)
-            .Include(u => u.Subscription)
+            .Include(u => u.UserSubscription)
             .AsQueryable();
             if (status.HasValue)
             {
@@ -42,7 +42,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<Payment> GetPaymentById(Guid paymentId)
         {
             return await _context.Payments.Include(p => p.User)
-            .Include(p => p.Subscription)
+            .Include(p => p.UserSubscription)
             .FirstOrDefaultAsync(p => p.PaymentId == paymentId);
         }
 
