@@ -52,23 +52,23 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
-        [HttpGet]
-        [Route("{userId:guid}/chatbot")]
-        public async Task<ActionResult<ResultModel>> ChatBot(Guid userId)
-        {
-            var (chatBotAi, characterCount) = await _mediator.Send(new ChatBotAiListQuery { UserId = userId });
+        // [HttpGet]
+        // [Route("{userId:guid}/chatbot")]
+        // public async Task<ActionResult<ResultModel>> ChatBot(Guid userId , string query)
+        // {
+        //     var (chatBotAi, characterCount) = await _mediator.Send(new ChatBotAiListQuery { UserId = userId });
 
-            return new ResultModel
-            {
-                Data = new
-                {
-                    ChatBot = chatBotAi,
-                    CharacterCount = characterCount // Thêm số ký tự vào response
-                },
-                Status = 200,
-                Success = true
-            };
-        }
+        //     return new ResultModel
+        //     {
+        //         Data = new
+        //         {
+        //             ChatBot = chatBotAi,
+        //             CharacterCount = characterCount // Thêm số ký tự vào response
+        //         },
+        //         Status = 200,
+        //         Success = true
+        //     };
+        // }
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateUser([FromBody] CreateUserCommand request)

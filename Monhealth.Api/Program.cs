@@ -70,6 +70,7 @@ builder.Services.AddCors(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 // Add Swagger services
+builder.Services.AddHttpClient();
 var app = builder.Build();
 
 // var urls = app.Urls.Any() ? string.Join(", ", app.Urls) : "http://localhost:8081";
