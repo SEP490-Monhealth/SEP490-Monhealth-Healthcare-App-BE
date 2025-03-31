@@ -70,8 +70,12 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Payment>> GetPaymentBySubscriptionId(Guid subcriptionId)
         {
-            return await _context.Payments.
-                Where(u => u.UserSubscription.SubscriptionId == subcriptionId)
+            return await _context.Payments
+                .Include(p => p.UserSubscription)
+                    .ThenInclude(us => us.User)
+                .Include(p => p.UserSubscription)
+                    .ThenInclude(us => us.Subscription)
+                .Where(u => u.UserSubscription.SubscriptionId == subcriptionId)
                 .ToListAsync();
         }
 
