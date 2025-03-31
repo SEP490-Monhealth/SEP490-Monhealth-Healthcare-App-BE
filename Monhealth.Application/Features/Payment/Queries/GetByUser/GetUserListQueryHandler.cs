@@ -1,4 +1,4 @@
-using MediatR;
+﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application
@@ -20,9 +20,9 @@ namespace Monhealth.Application
 
             foreach (var payment in queries)
             {
-                if (payment.Subscription == null)
+                if (payment.UserSubscription == null)
                 {
-                    throw new Exception($"Payment {payment.PaymentId} is missing Subscription.");
+                    throw new Exception($"Thanh toán {payment.PaymentId} không tìm thấy.");
                 }
 
                 var memberDTO = new Member
@@ -35,10 +35,10 @@ namespace Monhealth.Application
 
                 var paymentDTO = new PaymentUserDTO(
                     payment.PaymentId,
-                    payment.UserId,
-                    payment.SubscriptionId,
+                    payment.UserSubscription.UserId,
+                    payment.UserSubscription.SubscriptionId,
                     memberDTO,
-                    payment.Subscription.SubscriptionName,
+                    payment.UserSubscription.Subscription.SubscriptionName,
                     payment.Amount,
                     payment.Status,
                     payment.CreatedAt,

@@ -17,17 +17,16 @@ namespace Monhealth.Application.Features.Payment.Queries.GetById
         public async Task<PaymentByIdDTO> Handle(GetPaymentByIdQuery request, CancellationToken cancellationToken)
         {
             var query = await _paymentRepository.GetPaymentById(request.PaymentId);
-            var member = await _userRepository.GetUserByIdAsync(query.UserId);
+            var member = await _userRepository.GetUserByIdAsync(query.UserSubscription.UserId);
             return new PaymentByIdDTO
             {
                 Amount = query.Amount,
-                UserId = query.UserId,
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt,
                 Status = query.Status,
-                SubscriptionId = query.SubscriptionId,
+                //SubscriptionId = query.UserSubcriptionId,
                 PaymentId = query.PaymentId,
-                SubscriptionName = query.Subscription?.SubscriptionName,
+                //SubscriptionName = query.Subscription?.SubscriptionName,
                 Member = new Member
                 {
                     AvatarUrl = member.Avatar,

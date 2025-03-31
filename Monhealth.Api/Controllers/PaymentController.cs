@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Payment.Commands.Create;
 using Monhealth.Application.Features.Payment.Commands.Update;
+using Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments;
 using Monhealth.Application.Features.Payment.Queries.GetALL;
 using Monhealth.Application.Features.Payment.Queries.GetById;
 using Monhealth.Application.Features.Payment.Queries.GetBySubcriptionId;
@@ -109,13 +110,15 @@ namespace Monhealth.Api.Controllers
                     Success = true,
                     Message = "Tạo thanh toán thành công",
                     Status = 201,
+                    Data = result
                 });
             }
 
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo thanh toán thất bại"
+                Message = "Tạo thanh toán thất bại",
+
             });
         }
 

@@ -15,16 +15,19 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Payment>> GetAllPaymentsWithPagination(int page, int limit, string search, PaymentStatus? status)
         {
-            IQueryable<Payment> query = _context.Payments.Include(p => p.User)
-            .Include(u => u.Subscription)
-            .AsQueryable();
+            IQueryable<Payment> query = _context.Payments
+              .Include(p => p.UserSubscription)
+                    .ThenInclude(us => us.User)
+              .Include(p => p.UserSubscription)
+                    .ThenInclude(us => us.Subscription)
+              .AsQueryable();
             if (status.HasValue)
             {
                 query = query.Where(x => x.Status == status);
             }
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(x => x.User.FullName.Contains(search));
+                query = query.Where(x => x.UserSubscription.User.FullName.Contains(search));
             }
             if (page > 0 && limit > 0)
             {
@@ -39,23 +42,37 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<Payment> GetPayemntByOrderCodeAsync(Guid paymentId)
+        {
+            return await _context.Payments.FirstOrDefaultAsync(p => p.PaymentId == paymentId);
+        }
+
         public async Task<Payment> GetPaymentById(Guid paymentId)
         {
-            return await _context.Payments.Include(p => p.User)
-            .Include(p => p.Subscription)
-            .FirstOrDefaultAsync(p => p.PaymentId == paymentId);
+            return await _context.Payments
+                .Include(p => p.UserSubscription)
+                    .ThenInclude(us => us.User)
+                .Include(p => p.UserSubscription)
+                    .ThenInclude(us => us.Subscription)
+                .FirstOrDefaultAsync(p => p.PaymentId == paymentId);
         }
 
         public async Task<List<Payment>> GetPaymentByUser(Guid user)
         {
-            return await _context.Payments.Include(p => p.User)
-            .Include(p => p.Subscription)
-            .Where(p => p.UserId == user).ToListAsync();
+            return await _context.Payments
+                  .Include(p => p.UserSubscription)
+                    .ThenInclude(us => us.User)
+                  .Include(p => p.UserSubscription)
+                    .ThenInclude(us => us.Subscription)
+                  .Where(p => p.UserSubscription.UserId == user)
+                  .ToListAsync();
         }
 
         public async Task<List<Payment>> GetPaymentBySubscriptionId(Guid subcriptionId)
         {
-            return await _context.Payments.Where(u => u.SubscriptionId == subcriptionId).ToListAsync();
+            return await _context.Payments.
+                Where(u => u.UserSubscription.SubscriptionId == subcriptionId)
+                .ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

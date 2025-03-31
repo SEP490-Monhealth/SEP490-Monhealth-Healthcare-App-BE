@@ -15,11 +15,9 @@ namespace Monhealth.Infrastructure
             //services.AddTransient<IEmailSender, EmailSender>();
             //services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
 
-
-
-
             services.AddScoped<IEmailSender, EmailService>();
             services.AddScoped<IOtpService, OtpService>();
+
             return services;
         }
     }

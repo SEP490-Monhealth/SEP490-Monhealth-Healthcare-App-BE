@@ -1,4 +1,5 @@
 using Monhealth.Api.GlobalException;
+using Monhealth.Api.Utils;
 using Monhealth.Application;
 using Monhealth.Application.Models.Phone;
 using Monhealth.Application.Services;
@@ -21,6 +22,9 @@ builder.Services.AddIdentityServices(configuration);
 builder.Services.AddInfrastructureServices(configuration);
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddMemoryCache();
+builder.Services.AddPayOSService(builder.Configuration);
+
 
 builder.Services.AddControllers();
 
