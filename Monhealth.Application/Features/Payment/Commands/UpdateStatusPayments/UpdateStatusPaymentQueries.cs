@@ -5,8 +5,7 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
 {
     public class UpdateStatusPaymentQueries : IRequest<bool>
     {
-        public long OrderCode { get; set; }
-
+        public long PaymentId { get; set; }
     }
 }
 

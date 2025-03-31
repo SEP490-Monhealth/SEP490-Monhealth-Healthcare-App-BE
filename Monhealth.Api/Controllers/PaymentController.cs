@@ -99,10 +99,10 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{orderCode}")]
-        public async Task<IActionResult> UpdatePaymentStatus([FromRoute] long orderCode)
+        [HttpPatch("{paymentId}")]
+        public async Task<IActionResult> UpdatePaymentStatus([FromRoute] long paymentId)
         {
-            var result = await _mediator.Send(new UpdateStatusPaymentQueries { OrderCode = orderCode });
+            var result = await _mediator.Send(new UpdateStatusPaymentQueries { PaymentId = paymentId });
 
             if (!result)
                 return NotFound("Cập nhập thanh toán không thành công");
