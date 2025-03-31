@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Payment.Commands.Create;
 using Monhealth.Application.Features.Payment.Commands.Update;
+using Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments;
 using Monhealth.Application.Features.Payment.Queries.GetALL;
 using Monhealth.Application.Features.Payment.Queries.GetById;
 using Monhealth.Application.Models;
@@ -89,6 +90,22 @@ namespace Monhealth.Api.Controllers
 
             if (!result)
                 return NotFound("Không tìm thấy thanh toán nào.");
+
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhật thanh toán thành công",
+                Status = 204,
+            });
+        }
+
+        [HttpPatch("{orderCode}")]
+        public async Task<IActionResult> UpdatePaymentStatus([FromRoute] long orderCode)
+        {
+            var result = await _mediator.Send(new UpdateStatusPaymentQueries { OrderCode = orderCode });
+
+            if (!result)
+                return NotFound("Cập nhập thanh toán không thành công");
 
             return Ok(new ResultModel
             {

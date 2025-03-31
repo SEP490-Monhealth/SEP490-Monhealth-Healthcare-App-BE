@@ -39,6 +39,11 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<Payment> GetPayemntByOrderCodeAsync(long orderCode)
+        {
+            return await _context.Payments.SingleOrDefaultAsync(p => p.OrderCode == orderCode);
+        }
+
         public async Task<Payment> GetPaymentById(Guid paymentId)
         {
             return await _context.Payments.Include(p => p.User)
