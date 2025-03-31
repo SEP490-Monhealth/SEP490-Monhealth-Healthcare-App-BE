@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monhealth.Core;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
+using Monhealth.Domain.CommonKey;
 using Monhealth.Identity.Configurations;
 using Monhealth.Identity.Models;
 using System.Text.Json;
@@ -59,6 +60,9 @@ namespace Monhealth.Identity.Dbcontexts
         //public DbSet<ConsultantExpertise> ConsultantExpertises { get; set; }
         public DbSet<DishType> DishTypes { get; set; }
         public DbSet<DishTypeFood> DishTypeFoods { get; set; }
+        public DbSet<Chat> Chats { get; set; }
+        public DbSet<Message> Messages { get; set; }
+
         public DbSet<Bank> Banks { get; set; }
         public DbSet<ConsultantBank> ConsultantBanks { get; set; }
 
@@ -70,7 +74,7 @@ namespace Monhealth.Identity.Dbcontexts
 
             // builder.ApplyConfigurationsFromAssembly(typeof(MonhealthDbcontext).Assembly);
             builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
-         .HasKey(x => new { x.RoleId, x.UserId });
+              .HasKey(x => new { x.RoleId, x.UserId });
 
             // One-to-One relationship between Foods and Nutrition
             builder.Entity<Food>()
@@ -109,7 +113,22 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(d => d.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<Message>()
+              .HasOne<Chat>(m => m.Chat)
+                 .WithMany()
+                 .HasForeignKey(m => m.ChatId);
 
+            builder.Entity<Message>()
+                .HasOne<ISender>(m => m.Sender)
+                .WithMany()
+                .HasForeignKey(m => m.SenderId)
+                .OnDelete(DeleteBehavior.Restrict); // prevent cascade
+
+            builder.Entity<Message>()
+                .HasOne<ISender>(m => m.Receiver)
+                .WithMany()
+                .HasForeignKey(m => m.ReceiverId)
+                .OnDelete(DeleteBehavior.Restrict); // prevent cascade
             var mealTypeComparer = new ValueComparer<List<MealType>>(
                    (c1, c2) => c1.SequenceEqual(c2),
                    c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),

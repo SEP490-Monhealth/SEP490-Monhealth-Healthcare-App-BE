@@ -16,6 +16,7 @@ namespace Monhealth.Api.Controllers
 {
     [Route("api/v1/users")]
     [ApiController]
+
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;

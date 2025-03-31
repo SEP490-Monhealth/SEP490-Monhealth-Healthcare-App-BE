@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Monhealth.Core;
 using Monhealth.Domain;
+using Monhealth.Domain.CommonKey;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Identity.Models
 {
-    public class AppUser : IdentityUser<Guid>
+    public class AppUser : IdentityUser<Guid>, IReceiver
     {
         public string FullName { get; set; } = null!;
         public string? RefreshToken { get; set; }
@@ -37,5 +38,6 @@ namespace Monhealth.Identity.Models
         public ICollection<UserCategory> UserCategories { get; set; } = [];
         public ICollection<Review> Reviews { get; set; } = [];
         public Consultant Consultant { get; set; }
+        public ICollection<Chat> Chats { get; set; } = [];
     }
 }

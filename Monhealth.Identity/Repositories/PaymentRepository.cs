@@ -13,7 +13,8 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Payment>> GetAllPaymentsWithPagination(int page, int limit, string search, PaymentStatus? status)
+        public async Task<PaginatedResult<Payment>> GetAllPaymentsWithPagination(int page, int limit, string search,
+            PaymentStatus? status)
         {
             IQueryable<Payment> query = _context.Payments
               .Include(p => p.UserSubscription)
