@@ -35,7 +35,6 @@ namespace Monhealth.Identity.Models
         public ICollection<DailyActivity> DailyActivities { get; set; } = [];
         public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; } = [];
         public ICollection<UserCategory> UserCategories { get; set; } = [];
-        public ICollection<Payment> Payments { get; set; } = [];
         public ICollection<Review> Reviews { get; set; } = [];
         public Consultant Consultant { get; set; }
     }

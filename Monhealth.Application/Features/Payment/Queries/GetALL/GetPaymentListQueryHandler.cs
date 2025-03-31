@@ -30,8 +30,8 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
                     CreatedAt = payment.CreatedAt,
                     PaymentId = payment.PaymentId,
                     Status = payment.Status,
-                    //SubscriptionId = payment.UserSubcriptionId,
-                    //SubscriptionName = payment.UserSubscription?.SubscriptionName, // xử lý null
+                    SubscriptionId = payment.UserSubscription.SubscriptionId,
+                    SubscriptionName = payment.UserSubscription?.Subscription?.SubscriptionName, // xử lý null
                     UpdatedAt = payment.UpdatedAt
                 };
 
