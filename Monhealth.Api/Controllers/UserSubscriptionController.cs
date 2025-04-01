@@ -17,7 +17,19 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("{userId:guid}/user")]
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10, string? subscription = null, string? search = null, UserSubscriptionStatus? status = null)
+        {
+            var result = await _mediator.Send(new GetAllUserSubscriptionQuery(page, limit, subscription, search, status));
+            return new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true
+            };
+        }
+
+        [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetUserSubscription(Guid userId)
         {
             var result = await _mediator.Send(new GetUserSubscriptionQuery() { UserId = userId });
@@ -28,23 +40,11 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet("{userSubScriptionId:guid}")]
         public async Task<ActionResult<ResultModel>> GetUserSubscriptionById(Guid userSubScriptionId)
         {
             var result = await _mediator.Send(new GetUserSubscriptionRequest() { UserSubScriptionId = userSubScriptionId });
-            return new ResultModel
-            {
-                Data = result,
-                Status = 200,
-                Success = true
-            };
-        }
-
-
-        [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10, string? subscription = null, string? search = null, UserSubscriptionStatus? status = null)
-        {
-            var result = await _mediator.Send(new GetAllUserSubscriptionQuery(page, limit, subscription, search, status));
             return new ResultModel
             {
                 Data = result,
