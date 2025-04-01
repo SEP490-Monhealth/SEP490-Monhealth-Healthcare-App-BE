@@ -35,6 +35,7 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
             return new AddPaymentResponse
             {
                 PaymentId = payment.PaymentId,
+                UserId = user.Id,
                 UserSubscriptionId = payment.UserSubscriptionId,
                 Amount = payment.Amount,
                 Status = payment.Status,
