@@ -1,10 +1,10 @@
 using System.Text;
 using System.Text.Json;
 using MediatR;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.User.Queries.ChatBotAiForUser.DTO;
 using Monhealth.Domain;
 
 namespace Monhealth.Application
@@ -19,6 +19,7 @@ namespace Monhealth.Application
         private readonly HttpClient _httpClient;
         private readonly string _geminiApiKey;
         private readonly ILogger<ChatBotAiListQueryHandler> _logger;
+        private readonly IHubContext<SignalRHub> _hubContext; // Inject IHubContext
 
         public ChatBotAiListQueryHandler(
             IMetricRepository metricRepository,
@@ -28,7 +29,8 @@ namespace Monhealth.Application
             IGoalRepository goalRepository,
             HttpClient httpClient,
             IConfiguration configuration,
-            ILogger<ChatBotAiListQueryHandler> logger)
+            ILogger<ChatBotAiListQueryHandler> logger,
+            IHubContext<SignalRHub> hubContext)
         {
             _foodRepository = foodRepository;
             _workoutRepository = workoutRepository;
@@ -38,8 +40,8 @@ namespace Monhealth.Application
             _httpClient = httpClient;
             _logger = logger;
             _geminiApiKey = configuration["Gemini:ApiKey"];
+            _hubContext = hubContext;
         }
-
         public async Task<(ChatBotAi, HealthPlanResponseDto)> Handle(ChatBotAiListQuery request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByIdAsync(request.UserId);
@@ -122,6 +124,9 @@ namespace Monhealth.Application
 
             if (healthPlan == null)
                 throw new Exception("Không thể phân tích dữ liệu phản hồi từ Gemini API.");
+
+            // Gửi kết quả đến client qua SignalR
+            await _hubContext.Clients.All.SendAsync("ReceiveMessage", aiResultJson); // Gửi tin nhắn tới tất cả client
 
             return (chatBotAi, healthPlan);
         }
