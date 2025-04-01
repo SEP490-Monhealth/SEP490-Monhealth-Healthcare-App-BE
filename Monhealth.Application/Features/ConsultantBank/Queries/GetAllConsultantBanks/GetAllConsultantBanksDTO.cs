@@ -6,7 +6,6 @@ namespace Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultant
     public class GetAllConsultantBanksDTO : TimeEntity
     {
         public Guid ConsultantBankId { get; set; }
-        public string BankName { get; set; } = string.Empty;
         public Guid ConsultantId { get; set; }
         public Guid BankId { get; set; }
         public BankInfoDTO Bank { get; set; } = new BankInfoDTO();
