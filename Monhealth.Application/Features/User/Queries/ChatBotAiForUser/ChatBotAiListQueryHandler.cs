@@ -2,7 +2,9 @@ using System.Text;
 using System.Text.Json;
 using MediatR;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Features.User.Queries.ChatBotAiForUser.DTO;
 using Monhealth.Domain;
 
 namespace Monhealth.Application
@@ -16,6 +18,7 @@ namespace Monhealth.Application
         private readonly IMetricRepository _metricRepository;
         private readonly HttpClient _httpClient;
         private readonly string _geminiApiKey;
+        private readonly ILogger<ChatBotAiListQueryHandler> _logger;
 
         public ChatBotAiListQueryHandler(
             IMetricRepository metricRepository,
@@ -24,7 +27,8 @@ namespace Monhealth.Application
             IUserRepository userRepository,
             IGoalRepository goalRepository,
             HttpClient httpClient,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            ILogger<ChatBotAiListQueryHandler> logger)
         {
             _foodRepository = foodRepository;
             _workoutRepository = workoutRepository;
@@ -32,6 +36,7 @@ namespace Monhealth.Application
             _goalRepository = goalRepository;
             _metricRepository = metricRepository;
             _httpClient = httpClient;
+            _logger = logger;
             _geminiApiKey = configuration["Gemini:ApiKey"];
         }
 
@@ -125,95 +130,83 @@ namespace Monhealth.Application
         {
             var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={_geminiApiKey}";
 
-            var fullPrompt = @$"
-Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong một hệ thống chăm sóc sức khỏe cá nhân hóa. 
-Nhiệm vụ của bạn là phân tích dữ liệu thể trạng, mục tiêu cá nhân, danh sách món ăn và các bài tập hiện có 
-để xây dựng một **kế hoạch ăn uống và luyện tập phù hợp trong ngày**, hỗ trợ người dùng đạt mục tiêu tăng cân, tăng cơ, cải thiện thể chất.
-
----
-
-🧠 **Yêu cầu cá nhân từ người dùng**:
-
----
-
-Dưới đây là dữ liệu đầu vào từ người dùng:
-
-1. **Thể trạng hiện tại (metric)**:
-{JsonSerializer.Serialize(chatBotAi.Metric)}
-
-2. **Mục tiêu cá nhân (goal)**:
-{JsonSerializer.Serialize(chatBotAi.Goal)}
-
-3. **Danh sách món ăn khả dụng (foods)**:
-{JsonSerializer.Serialize(chatBotAi.Foods)}
-
-4. **Danh sách bài tập sẵn có (workouts)**:
-{JsonSerializer.Serialize(chatBotAi.Workouts)}
-
----
-
-✅ **Yêu cầu lập kế hoạch trong ngày**:
-
-- Chế độ ăn chia thành 3 bữa chính và 1 bữa phụ (Snack, nếu cần).
-- Ưu tiên lựa chọn món ăn từ danh sách `foods`, dễ tìm tại Việt Nam, hỗ trợ tối ưu cho **tăng cân lành mạnh và phát triển cơ bắp**.
-- Tổng năng lượng và dưỡng chất tiêu thụ trong ngày nên tiệm cận với mục tiêu: `CaloriesGoal`, `ProteinGoal`, `CarbsGoal`, `FatGoal`.
-- Ghi rõ tổng năng lượng tiêu thụ và **giải thích chi tiết** lý do lựa chọn món ăn, kèm gợi ý thay thế nếu có dị ứng hoặc hạn chế thực phẩm.
-
-- Kế hoạch luyện tập gồm 3 giai đoạn:
-  - **Khởi động** (5 phút)
-  - **Tập chính** (tối thiểu 25 phút)
-  - **Giãn cơ** (5 phút)
-- Bài tập chọn từ danh sách `workouts`, phù hợp với khả năng, đảm bảo thời lượng ≥ `WorkoutDurationGoal` và đốt cháy ≥ `CaloriesBurnedGoal`.
-
----
-
-📌 **Chỉ trả về phản hồi ở dạng JSON hợp lệ theo đúng cấu trúc dưới đây. Không được thêm mô tả, tiêu đề, markdown hoặc ký tự nào bên ngoài JSON.**
-
-```json
-{{
-  ""MealPlan"": {{
-    ""Breakfast"": ""Tên món ăn sáng"",
-    ""Lunch"": ""Tên món ăn trưa"",
-    ""Dinner"": ""Tên món ăn tối"",
-    ""Snack"": ""Tên món phụ hoặc null"",
-    ""TotalCalories"": 0,
-    ""Detail"": ""Mô tả chi tiết thành phần dinh dưỡng, lý do chọn từng món, và gợi ý thay thế nếu cần.""
-  }},
-  ""WorkoutRoutine"": [
-    {{
-      ""Stage"": ""Khởi động"",
-      ""Exercises"": [""Tên bài tập""],
-      ""Duration"": 5
-    }},
-    {{
-      ""Stage"": ""Tập chính"",
-      ""Exercises"": [""Tên bài tập""],
-      ""Duration"": 25
-    }},
-    {{
-      ""Stage"": ""Giãn cơ"",
-      ""Exercises"": [""Tên bài tập""],
-      ""Duration"": 5
-    }}
-  ],
-  ""Tư vấn tổng quan từ AI"": ""Phân tích tổng thể và định hướng cải thiện sức khỏe."",
-  ""Summary Conversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
-}}
-";
+            // Step 1: Check if query is health-related
+            string prompt2 = GeminiPromptBuilder.BuildPrompt2(query);
+            var checkRequest = new
+            {
+                contents = new[]
+                {
+            new
+            {
+                parts = new[]
+                {
+                    new { text = prompt2 }
+                }
+            }
+        }
+            };
 
 
+            var checkJson = JsonSerializer.Serialize(checkRequest);
+            var checkContent = new StringContent(checkJson, Encoding.UTF8, "application/json");
+
+            var checkResponse = await _httpClient.PostAsync(url, checkContent);
+            var checkResponseString = await checkResponse.Content.ReadAsStringAsync();
+
+            _logger.LogInformation("Response from prompt2: {Response}", checkResponseString);
+            if (!checkResponse.IsSuccessStatusCode)
+                throw new Exception($"Gemini API check call failed: {checkResponseString}");
+
+            var checkDoc = JsonDocument.Parse(checkResponseString);
+            var checkText = checkDoc.RootElement
+                .GetProperty("candidates")[0]
+                .GetProperty("content")
+                .GetProperty("parts")[0]
+                .GetProperty("text")
+                .GetString();
+
+            var checkJsonContent = ExtractJsonFromMarkdown(checkText!);
+
+            try
+            {
+                var checkResult = JsonSerializer.Deserialize<HealthPlanResponseDto>(checkJsonContent);
+
+                if (checkResult == null)
+                    throw new Exception("Không thể đọc phản hồi JSON từ Gemini (prompt2).");
+
+                // Nếu không liên quan đến sức khỏe → return ngay luôn phản hồi đơn giản
+                if (!checkResult.health_or_fitness)
+                {
+                    _logger.LogWarning("⚠️ Câu hỏi không liên quan đến sức khỏe/thể hình, trả luôn kết quả từ prompt2.");
+                    return JsonSerializer.Serialize(checkResult, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true,
+                        PropertyNamingPolicy = null
+                    });
+                }
+
+                // Nếu có liên quan → tiếp tục gọi prompt chính (BuildFullPrompt) để sinh kế hoạch chi tiết
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"❌ Lỗi khi parse JSON từ AI (Prompt2): {ex.Message}\n\n== Extracted JSON ==\n{checkJsonContent}");
+            }
+
+
+            // Step 2: fullPrompt cho việc tạo kế hoạch
+            var fullPrompt = GeminiPromptBuilder.BuildFullPrompt(chatBotAi);
             var requestBody = new
             {
                 contents = new[]
-       {
-        new
-        {
-            parts = new[]
+                {
+            new
             {
-                new { text = fullPrompt }
+                parts = new[]
+                {
+                    new { text = fullPrompt }
+                }
             }
         }
-    }
             };
 
             var jsonBody = JsonSerializer.Serialize(requestBody);
@@ -235,42 +228,43 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
                     .GetProperty("text")
                     .GetString();
 
+                // ✅ Chỉ lấy JSON trong markdown block và return dưới dạng string
                 var cleanedJson = ExtractJsonFromMarkdown(rawText!);
-
-                var result = JsonSerializer.Deserialize<HealthPlanResponseDto>(cleanedJson, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                    PropertyNamingPolicy = null
-                });
-
-                if (result == null)
-                    throw new Exception("Không thể phân tích phản hồi JSON từ Gemini.");
-
-                return JsonSerializer.Serialize(result, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                    PropertyNamingPolicy = null
-                });
+                return cleanedJson;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Lỗi khi xử lý phản hồi Gemini: {ex.Message}\nRaw content: {responseString}");
+                throw new Exception($"Lỗi khi xử lý phản hồi Gemini (Prompt chính): {ex.Message}\nRaw content: {responseString}");
             }
         }
-        private string ExtractJsonFromMarkdown(string rawText)
+
+        public static string ExtractJsonFromMarkdown(string text)
         {
-            if (string.IsNullOrWhiteSpace(rawText)) return string.Empty;
-
-            var startIndex = rawText.IndexOf("{");
-            var endIndex = rawText.LastIndexOf("}");
-
-            if (startIndex >= 0 && endIndex > startIndex)
+            try
             {
-                return rawText.Substring(startIndex, endIndex - startIndex + 1);
+                int start = text.IndexOf("```json");
+                int end = text.LastIndexOf("```");
+
+                if (start >= 0 && end > start)
+                {
+                    var jsonBlock = text.Substring(start + 7, end - start - 7); // bỏ ```json\n
+                    return jsonBlock.Trim();
+                }
+
+                // Fallback: nếu không tìm thấy markdown block, thử cắt từ dấu { đến }
+                start = text.IndexOf('{');
+                end = text.LastIndexOf('}');
+                if (start >= 0 && end > start)
+                {
+                    return text.Substring(start, end - start + 1).Trim();
+                }
+
+                throw new Exception("Không tìm thấy JSON hợp lệ trong phản hồi.");
             }
-
-            return rawText;
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi khi Extract JSON: {ex.Message}\nRaw:\n{text}");
+            }
         }
-
     }
 }

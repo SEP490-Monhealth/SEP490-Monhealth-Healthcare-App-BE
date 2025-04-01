@@ -5,13 +5,13 @@ namespace Monhealth.Application
     public class HealthPlanResponseDto
     {
         public MealPlanDto MealPlan { get; set; } = null!;
-        public List<WorkoutStageDto> WorkoutRoutine { get; set; } = [];
-
+        public List<WorkoutStageDto>? WorkoutRoutine { get; set; }
         [JsonPropertyName("Tư vấn tổng quan từ AI")]
         public string TuVanTongQuanTuAI { get; set; } = string.Empty;
 
         [JsonPropertyName("Summary Conversation")]
         public string SummaryConversation { get; set; } = string.Empty;
+        public bool health_or_fitness { get; set; }
     }
     public class MealPlanDto
     {
