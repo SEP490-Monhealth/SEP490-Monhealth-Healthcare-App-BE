@@ -1,15 +1,11 @@
 using System.Text.Json;
-
-
-
-
 namespace Monhealth.Application
 {
-  public static class GeminiPromptBuilder
-  {
-    public static string BuildPrompt2(string query)
+    public static class GeminiPromptBuilder
     {
-      return @$"
+        public static string BuildPrompt2(string query)
+        {
+            return @$"
 Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước , lầy lội xíu.
 Nhiệm vụ của bạn là đưa ra phản hồi tự nhiên, hữu ích, phù hợp với nhu cầu người dùng, không quá máy móc và phản ánh được kiến thức chuyên môn.
 
@@ -18,7 +14,7 @@ Câu hỏi người dùng:
 ""{query}""
 
 - Nếu câu hỏi liên quan đến sức khỏe, dinh dưỡng hay tập luyện, hãy điền các thông tin phù hợp cho từng trường.
-- Nếu câu hỏi không liên quan (ví dụ: chỉ là lời chào hỏi hoặc hỏi cách sử dụng), hãy trả về JSON với các giá trị mặc định (null, 0 hoặc chuỗi rỗng) đối với các trường kế hoạch, nhưng vẫn đưa ra phản hồi thân thiện, tán gẫu hoặc hướng dẫn trong trường ""Tư vấn tổng quan từ AI"".
+- Nếu câu hỏi không liên quan (ví dụ: chỉ là lời chào hỏi hoặc hỏi cách sử dụng), hãy trả về JSON với các giá trị mặc định (null, 0 hoặc chuỗi rỗng) đối với các trường kế hoạch, nhưng vẫn đưa ra phản hồi thân thiện, tán gẫu hoặc hướng dẫn trong trường ""GeneralAdvice"".
 - Trường ""health_or_fitness"" phải được đặt thành true nếu câu hỏi liên quan tới tư vấn food và các bài tập thể dục , false nếu không.
 
 Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đề hay bất kỳ ký tự nào bên ngoài JSON:
@@ -50,15 +46,15 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
     }}
   ],
   ""health_or_fitness"": false,
-  ""Tư vấn tổng quan từ AI"": """",
-  ""Summary Conversation"": """"
+  ""GeneralAdvice"": """",
+  ""SummaryConversation"": """"
 }}
   
 Lưu ý:
 - Phản hồi nên rõ ràng, dễ hiểu và mang tính hỗ trợ.
 - TUYỆT ĐỐI chỉ trả về JSON hợp lệ. Không được ghi thêm bất kỳ chữ nào ngoài JSON.
 ";
-    }
+        }
 
 
 
@@ -66,13 +62,12 @@ Lưu ý:
 
 
 
-    public static string BuildFullPrompt(ChatBotAi chatBotAi)
-    {
-      return @$"
-Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước , lầy lội xíu. 
+        public static string BuildFullPrompt(ChatBotAi chatBotAi)
+        {
+            return @$"
+Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước , lầy lội xíu.
 Nhiệm vụ của bạn là phân tích dữ liệu thể trạng, mục tiêu cá nhân, danh sách món ăn và các bài tập hiện có 
 để xây dựng một **kế hoạch ăn uống và luyện tập phù hợp trong ngày**, hỗ trợ người dùng đạt mục tiêu tăng cân, tăng cơ, cải thiện thể chất.
-Bạn phải tính toán đúng dinh dưỡng sao cho phù hợp với lượng calories trong Goal mà hệ thống đã cung cấp vàtrả về field TotalCalories
 Ưu tiên gợi ý món ăn, bài tập theo yêu cầu và sở thích của người dùng.loại bỏ những món ăn, bài tập người dùng bị dị ứng hoặc không thích.
 
 Dưới đây là dữ liệu đầu vào từ người dùng:
@@ -116,7 +111,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
     ""Lunch"": ""Tên món ăn trưa"",
     ""Dinner"": ""Tên món ăn tối"",
     ""Snack"": ""Tên món phụ hoặc null"",
-    ""TotalCalories"": ""Trả đúng về lượng dinh dưỡng phù hợp với calories mà người dùng một ngày cần nạp"",
+    ""TotalCalories"": 1800,
     ""Detail"": ""Mô tả chi tiết thành phần dinh dưỡng, lý do chọn từng món, và gợi ý thay thế nếu cần.""
   }},
   ""WorkoutRoutine"": [
@@ -137,11 +132,11 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
     }}
   ],
   ""health_or_fitness"": true,
-  ""Tư vấn tổng quan từ AI"": ""Phân tích tổng thể và định hướng cải thiện sức khỏe."",
-  ""Summary Conversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
+  ""GeneralAdvice"": ""Phân tích tổng thể và định hướng cải thiện sức khỏe."",
+  ""SummaryConversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
 }}
 ";
-    }
+        }
 
-  }
+    }
 }

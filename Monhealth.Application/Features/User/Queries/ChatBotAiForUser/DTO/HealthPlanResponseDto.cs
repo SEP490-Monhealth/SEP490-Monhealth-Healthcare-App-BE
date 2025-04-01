@@ -6,10 +6,10 @@ namespace Monhealth.Application
     {
         public MealPlanDto MealPlan { get; set; } = null!;
         public List<WorkoutStageDto>? WorkoutRoutine { get; set; }
-        [JsonPropertyName("Tư vấn tổng quan từ AI")]
+        [JsonPropertyName("GeneralAdvice")]
         public string TuVanTongQuanTuAI { get; set; } = string.Empty;
 
-        [JsonPropertyName("Summary Conversation")]
+        [JsonPropertyName("SummaryConversation")]
         public string SummaryConversation { get; set; } = string.Empty;
         public bool health_or_fitness { get; set; }
     }
