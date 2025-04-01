@@ -7,6 +7,8 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
     public class WorkoutDto : BaseEntity
     {
         public Guid WorkoutId { get; set; }
+        public Guid UserId { get; set; }
+        public string CategoryName { get; set; }
         [JsonPropertyName("type")]
         public WorkoutType WorkoutType { get; set; }
         [JsonPropertyName("name")]
