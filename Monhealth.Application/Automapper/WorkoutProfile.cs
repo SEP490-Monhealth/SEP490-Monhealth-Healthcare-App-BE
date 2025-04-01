@@ -17,10 +17,12 @@ namespace Monhealth.Application.Automapper
 
             //get
             CreateMap<Workout, WorkoutDto>()
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.CategoryName))
                 .ForMember(dest => dest.Exercises, opt => opt.MapFrom(src => src.WorkoutExercises.Count))
                 .ForMember(dest => dest.DurationMinutes, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => we.DurationSeconds + we.Reps * 2)))
                 .ForMember(dest => dest.CaloriesBurned, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => (we.Exercise.CaloriesPerMinute * (we.DurationSeconds / 60)) + we.Exercise.CaloriesPerMinute * (we.Reps * 2 / 60))));
             CreateMap<Workout, GetWorkoutByUserIdDTO>()
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.CategoryName))
                 .ForMember(dest => dest.Exercises, opt => opt.MapFrom(src => src.WorkoutExercises.Count))
                 .ForMember(dest => dest.DurationMinutes, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => we.DurationSeconds + we.Reps * 2)))
                 .ForMember(dest => dest.CaloriesBurned, opt => opt.MapFrom(src => src.WorkoutExercises.Sum(we => (we.Exercise.CaloriesPerMinute * (we.DurationSeconds / 60)) + we.Exercise.CaloriesPerMinute * (we.Reps * 2 / 60)))); ;

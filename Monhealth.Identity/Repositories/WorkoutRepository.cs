@@ -22,7 +22,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Workout>> GetAllWorkWithPaging(int page, int limit, string? category, string? search, DifficultyLevel? difficulty, bool? popular, bool? status, CancellationToken cancellationToken)
         {
             search = search?.Trim();
-            IQueryable<Workout> query = _context.Workouts.Include(f => f.Category).
+            IQueryable<Workout> query = _context.Workouts.Include(u => u.AppUser).Include(f => f.Category).
             Include(f => f.WorkoutExercises).ThenInclude(we => we.Exercise).AsQueryable();
 
             // filter search
@@ -63,7 +63,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Workout> GetWorkoutByIdAsync(Guid workoutId)
         {
-            return await _context.Workouts.Include(w => w.WorkoutExercises).ThenInclude(we => we.Exercise).FirstOrDefaultAsync(w => w.WorkoutId == workoutId);
+            return await _context.Workouts.Include(c => c.Category).Include(w => w.WorkoutExercises).ThenInclude(we => we.Exercise).FirstOrDefaultAsync(w => w.WorkoutId == workoutId);
         }
 
         public async Task<List<Workout>> GetWorkoutsByUser(Guid userId)

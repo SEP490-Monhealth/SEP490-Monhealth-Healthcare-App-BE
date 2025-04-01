@@ -34,6 +34,8 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
                 workoutDtos.Add(new WorkoutDto
                 {
                     WorkoutId = workout.WorkoutId,
+                    UserId = workout.UserId,
+                    CategoryName = workout.Category.CategoryName,
                     WorkoutType = workout.WorkoutType,
                     WorkoutName = workout.WorkoutName,
                     WorkoutDescription = workout.WorkoutDescription,

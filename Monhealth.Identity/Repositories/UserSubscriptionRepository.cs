@@ -18,12 +18,23 @@ namespace Monhealth.Identity.Repositories
             return await _context.UserSubscriptions.FirstOrDefaultAsync(us => us.UserId == userId);
         }
 
-        public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name , UserSubscriptionStatus? Status)
+        public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name, string? search, UserSubscriptionStatus? Status)
         {
+            search = search?.ToLower().Trim();
             var query = _context.UserSubscriptions.
             Include(us => us.Subscription).
             Include(us => us.User).AsQueryable();
-            
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(s => s.UserSubscriptionId.ToString().ToLower().Contains(search) ||
+                                         s.UserId.ToString().ToLower().Contains(search) ||
+                                         s.SubscriptionId.ToString().ToLower().Contains(search) ||
+                                         EF.Functions.Collate(s.Subscription.SubscriptionName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) ||
+                                         EF.Functions.Collate(s.User.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) ||
+                                         s.User.Email.ToLower().Contains(search) ||
+                                         s.User.PhoneNumber.ToLower().Contains(search));
+            }
             if (name is not null) { 
                 query = query.Where(us => us.Subscription.SubscriptionName == name);
             }
