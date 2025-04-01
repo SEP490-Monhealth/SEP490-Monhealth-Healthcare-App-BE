@@ -166,5 +166,30 @@ namespace Monhealth.Api.Controllers
                 Data = null
             });
         }
+
+        [HttpPatch("{paymentId:guid}")]
+        public async Task<ActionResult<ResultModel>> ChangePaymentStatus([FromRoute] Guid paymentId)
+        {
+            var result = await _mediator.Send(new UpdateStatusPaymentQueries { PaymentId = paymentId });
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập thanh toán thất bại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập thanh toán thành công",
+                Status = 204,
+                Data = null
+            });
+        }
     }
 }
