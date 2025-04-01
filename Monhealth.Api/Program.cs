@@ -11,14 +11,18 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+
+// Cấu hình SignalR
+builder.Services.AddSignalR();  // Thêm SignalR vào dịch vụ
+
 var twilioSettings = builder.Configuration.GetSection("Twilio").Get<TwilioSettings>();
 builder.Services.AddSingleton(twilioSettings);
 
-//add serilog
+// Cấu hình Serilog
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
-// Add services to the container.
+// Thêm các dịch vụ khác vào container
 builder.Services.AddApplicationServices();
 builder.Services.AddIdentityServices(configuration);
 builder.Services.AddInfrastructureServices(configuration);
@@ -59,57 +63,53 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-
-// builder.Services.AddScoped<FoodFilterService>();
-builder.Services.AddScoped<GoalService>();
-
-// Add CORS services with a custom policy
+// Cấu hình CORS cho phép tất ca
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("all", policy =>
     {
-        policy.AllowAnyOrigin()  // Allow any origin (can be adjusted for security)
-              .AllowAnyMethod()  // Allow any HTTP method (GET, POST, etc.)
-              .AllowAnyHeader(); // Allow any header
+        policy.AllowAnyOrigin()  // Cho phép bất kỳ nguồn nào
+              .AllowAnyMethod()  // Cho phép mọi phương thức HTTP (GET, POST, PUT, DELETE, v.v.)
+              .AllowAnyHeader(); // Cho phép bất kỳ header nào
     });
 });
 
-// builder.Services.AddScoped<FoodRandomService>();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-// Add Swagger services
+// Thêm các dịch vụ cần thiết
+builder.Services.AddScoped<GoalService>();
+
+// Cấu hình thêm HTTP Client
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 
-// var urls = app.Urls.Any() ? string.Join(", ", app.Urls) : "http://localhost:8081";
-// Log.Information("Now listening on: {Urls}", urls);
+// Cấu hình SignalR Hub và các endpoint
+app.UseRouting(); // Thêm UseRouting
 
-// Configure the HTTP request pipeline.
+app.MapHub<SignalRHub>("/chatHub");
+
+// Kiểm tra môi trường và cấu hình Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseSerilogRequestLogging();
-app.UseCors("all");
+
+app.UseSerilogRequestLogging(); // Đăng nhập các yêu cầu
+app.UseCors("all");  // Sử dụng CORS policy
 app.UseExceptionHandler(opt => { });
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); // Chuyển hướng HTTP sang HTTPS
 
-app.Use(async (context, next) =>
-{
-    var authorizationHeader = context.Request.Headers["Authorization"].FirstOrDefault();
-    if (!string.IsNullOrEmpty(authorizationHeader) && !authorizationHeader.StartsWith("Bearer "))
-    {
-        context.Request.Headers["Authorization"] = $"Bearer {authorizationHeader}";
-    }
-    await next();
-});
-
+// Cấu hình Authorization và Authentication
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapHub<ChatHub>("/hubs/chat");
 
+// Map Controllers cho các API endpoints
 app.MapControllers();
 
+// Thực thi các migration cho cơ sở dữ liệu
 app.MigrationDatabase();
+
+// Chạy ứng dụng
 app.Run();
