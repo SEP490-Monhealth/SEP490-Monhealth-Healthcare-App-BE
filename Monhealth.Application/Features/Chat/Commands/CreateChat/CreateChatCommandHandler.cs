@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Chat.Commands.CreateChat
             };
 
             chatRepository.Add(newChat);
-            await chatRepository.SaveChangeAsync();
+            await chatRepository.SaveChangeAsync(cancellationToken);
             return newChat.ChatId;
         }
     }

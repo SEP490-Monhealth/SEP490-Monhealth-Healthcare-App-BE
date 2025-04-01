@@ -8,11 +8,12 @@ namespace Monhealth.Identity.Repositories
     {
         public MessageRepository(MonhealthDbcontext context) : base(context)
         {
+
         }
 
-        public Task<int> SaveChangeAsync()
+        public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

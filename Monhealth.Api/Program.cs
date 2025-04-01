@@ -1,4 +1,4 @@
-using Monhealth.Api.Extensions;
+﻿using Monhealth.Api.Extensions;
 using Monhealth.Api.GlobalException;
 using Monhealth.Api.Hubs;
 using Monhealth.Api.Utils;
@@ -58,6 +58,7 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
+
 
 // builder.Services.AddScoped<FoodFilterService>();
 builder.Services.AddScoped<GoalService>();
