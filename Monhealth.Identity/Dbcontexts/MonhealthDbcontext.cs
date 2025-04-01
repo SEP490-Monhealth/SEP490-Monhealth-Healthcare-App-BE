@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monhealth.Core;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
-using Monhealth.Domain.CommonKey;
 using Monhealth.Identity.Configurations;
 using Monhealth.Identity.Models;
 using System.Text.Json;
@@ -114,18 +113,18 @@ namespace Monhealth.Identity.Dbcontexts
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Message>()
-              .HasOne<Chat>(m => m.Chat)
-                 .WithMany()
+              .HasOne(m => m.Chat)
+                 .WithMany(c => c.Messages)
                  .HasForeignKey(m => m.ChatId);
 
             builder.Entity<Message>()
-                .HasOne<ISender>(m => m.Sender)
+                .HasOne(m => m.Sender)
                 .WithMany()
                 .HasForeignKey(m => m.SenderId)
                 .OnDelete(DeleteBehavior.Restrict); // prevent cascade
 
             builder.Entity<Message>()
-                .HasOne<ISender>(m => m.Receiver)
+                .HasOne(m => m.Receiver)
                 .WithMany()
                 .HasForeignKey(m => m.ReceiverId)
                 .OnDelete(DeleteBehavior.Restrict); // prevent cascade

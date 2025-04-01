@@ -16,6 +16,7 @@ namespace Monhealth.Domain
 
         [ForeignKey(nameof(ChatId))]
         public Chat Chat { get; set; }
+
         [ForeignKey(nameof(SenderId))]
         public ISender Sender { get; set; }
         [ForeignKey(nameof(ReceiverId))]

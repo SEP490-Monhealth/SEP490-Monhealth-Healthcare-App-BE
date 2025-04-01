@@ -110,6 +110,9 @@ namespace Monhealth.Identity
             services.AddScoped<IScheduleExceptionRepository, ScheduleExceptionRepository>();
             services.AddScoped<IDishTypeRepository, DishTypeRepository>();
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
+            services.AddScoped<IChatRepository, ChatRepository>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
+
             // Đăng ký Background Service
             services.AddHostedService<UserSubscriptionBackgroundService>();
 

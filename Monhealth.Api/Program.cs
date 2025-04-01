@@ -1,4 +1,6 @@
+using Monhealth.Api.Extensions;
 using Monhealth.Api.GlobalException;
+using Monhealth.Api.Hubs;
 using Monhealth.Api.Utils;
 using Monhealth.Application;
 using Monhealth.Application.Models.Phone;
@@ -24,6 +26,7 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMemoryCache();
 builder.Services.AddPayOSService(builder.Configuration);
+builder.Services.AddChatNotification(); //extension method
 
 
 builder.Services.AddControllers();
@@ -103,6 +106,7 @@ app.Use(async (context, next) =>
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapHub<ChatHub>("/hubs/chat");
 
 app.MapControllers();
 
