@@ -9,12 +9,14 @@ namespace Monhealth.Application
         public int Page { get; set; }
         public int Limit { get; set; }
         public string? Name { get; set; }
+        public string? Search { get; set; }
         public UserSubscriptionStatus? Status { get; set; }
-        public GetAllUserSubscriptionQuery(int page, int limit, string? name, UserSubscriptionStatus? status)
+        public GetAllUserSubscriptionQuery(int page, int limit, string? name, string? search, UserSubscriptionStatus? status)
         {
             Page = page;
             Limit = limit;
             Name = name;
+            Search = search;
             Status = status;
         }
     }
