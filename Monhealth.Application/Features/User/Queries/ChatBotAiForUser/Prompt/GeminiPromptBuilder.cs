@@ -1,13 +1,16 @@
 using System.Text.Json;
 
+
+
+
 namespace Monhealth.Application
 {
-    public static class GeminiPromptBuilder
+  public static class GeminiPromptBuilder
+  {
+    public static string BuildPrompt2(string query)
     {
-        public static string BuildPrompt2(string query)
-        {
-            return @$"
-Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước.
+      return @$"
+Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước , lầy lội xíu.
 Nhiệm vụ của bạn là đưa ra phản hồi tự nhiên, hữu ích, phù hợp với nhu cầu người dùng, không quá máy móc và phản ánh được kiến thức chuyên môn.
 
 Hãy phân tích câu hỏi dưới đây và TRẢ VỀ DUY NHẤT một phản hồi dưới dạng JSON theo đúng cấu trúc sau:
@@ -55,7 +58,7 @@ Lưu ý:
 - Phản hồi nên rõ ràng, dễ hiểu và mang tính hỗ trợ.
 - TUYỆT ĐỐI chỉ trả về JSON hợp lệ. Không được ghi thêm bất kỳ chữ nào ngoài JSON.
 ";
-        }
+    }
 
 
 
@@ -63,12 +66,13 @@ Lưu ý:
 
 
 
-        public static string BuildFullPrompt(ChatBotAi chatBotAi)
-        {
-            return @$"
-Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong một hệ thống chăm sóc sức khỏe cá nhân hóa. 
+    public static string BuildFullPrompt(ChatBotAi chatBotAi)
+    {
+      return @$"
+Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước , lầy lội xíu. 
 Nhiệm vụ của bạn là phân tích dữ liệu thể trạng, mục tiêu cá nhân, danh sách món ăn và các bài tập hiện có 
 để xây dựng một **kế hoạch ăn uống và luyện tập phù hợp trong ngày**, hỗ trợ người dùng đạt mục tiêu tăng cân, tăng cơ, cải thiện thể chất.
+Bạn phải tính toán đúng dinh dưỡng sao cho phù hợp với lượng calories trong Goal mà hệ thống đã cung cấp vàtrả về field TotalCalories
 Ưu tiên gợi ý món ăn, bài tập theo yêu cầu và sở thích của người dùng.loại bỏ những món ăn, bài tập người dùng bị dị ứng hoặc không thích.
 
 Dưới đây là dữ liệu đầu vào từ người dùng:
@@ -112,7 +116,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
     ""Lunch"": ""Tên món ăn trưa"",
     ""Dinner"": ""Tên món ăn tối"",
     ""Snack"": ""Tên món phụ hoặc null"",
-    ""TotalCalories"": 1800,
+    ""TotalCalories"": ""Trả đúng về lượng dinh dưỡng phù hợp với calories mà người dùng một ngày cần nạp"",
     ""Detail"": ""Mô tả chi tiết thành phần dinh dưỡng, lý do chọn từng món, và gợi ý thay thế nếu cần.""
   }},
   ""WorkoutRoutine"": [
@@ -137,7 +141,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
   ""Summary Conversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
 }}
 ";
-        }
-
     }
+
+  }
 }
