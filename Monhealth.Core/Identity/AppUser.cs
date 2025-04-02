@@ -40,5 +40,6 @@ namespace Monhealth.Identity.Models
         public ICollection<Review> Reviews { get; set; } = [];
         public Consultant Consultant { get; set; }
         public ICollection<Chat> Chats { get; set; } = [];
+        public ICollection<UserNotification> UserNotifications { get; set; } = [];
     }
 }

@@ -61,11 +61,11 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<DishTypeFood> DishTypeFoods { get; set; }
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Message> Messages { get; set; }
-
         public DbSet<Bank> Banks { get; set; }
         public DbSet<ConsultantBank> ConsultantBanks { get; set; }
-
         public DbSet<WithdrawalRequest> WithdrawalRequests { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<UserNotification> UserNotifications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
