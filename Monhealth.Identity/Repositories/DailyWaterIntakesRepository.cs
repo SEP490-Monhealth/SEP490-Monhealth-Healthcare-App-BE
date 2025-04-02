@@ -20,7 +20,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<DailyWaterIntake> GetDailyWaterIntakesByUser(Guid userId, DateTime date)
         {
-            return await _context.DailyWaterIntakes
+            return await _context.DailyWaterIntakes.Include(g => g.Goal)
                 .Where(dl => dl.UserId == userId && dl.CreatedAt.Value.Date == date.Date)
                 .FirstOrDefaultAsync();
         }
