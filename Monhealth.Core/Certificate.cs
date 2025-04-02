@@ -8,8 +8,8 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid CertificateId { get; set; }
-        public Guid? ExpertiseId { get; set; }
         public Guid? ConsultantId { get; set; }
+        public Guid? ExpertiseId { get; set; }
         public string CertificateNumber { get; set; } = string.Empty;
         public string CertificateName { get; set; } = string.Empty;
         public List<string> ImageUrls { get; set; } = new List<string>();
@@ -20,6 +20,5 @@ namespace Monhealth.Domain
 
         [ForeignKey(nameof(ConsultantId))]
         public Consultant? Consultant { get; set; }
-
     }
 }

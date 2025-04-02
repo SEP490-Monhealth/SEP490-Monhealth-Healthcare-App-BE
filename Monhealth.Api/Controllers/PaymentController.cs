@@ -167,7 +167,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{paymentId:guid}")]
+        [HttpPatch("{paymentId:guid}/completed")]
         public async Task<ActionResult<ResultModel>> ChangePaymentStatus([FromRoute] Guid paymentId)
         {
             var result = await _mediator.Send(new UpdateStatusPaymentQueries { PaymentId = paymentId });

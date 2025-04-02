@@ -20,11 +20,11 @@ namespace Monhealth.Domain
         public double AverageRating { get; set; }
         public bool IsVerified { get; set; } = false;
         public bool Status { get; set; } = false;
+
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         [ForeignKey(nameof(ExpertiseId))]
         public Expertise? Expertise { get; set; }
-
         public Wallet? Wallet { get; set; }
         public ICollection<Chat> Chats { get; set; } = [];
         public ICollection<WithdrawalRequest> WithdrawalRequests { get; set; } = [];

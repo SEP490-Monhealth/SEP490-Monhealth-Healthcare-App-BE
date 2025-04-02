@@ -9,8 +9,8 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid DailyActivityId { get; set; }
-        public Guid GoalId { get; set; }
         public Guid UserId { get; set; }
+        public Guid GoalId { get; set; }
         public float TotalDuration { get; set; }
         public float TotalCaloriesBurned { get; set; }
 

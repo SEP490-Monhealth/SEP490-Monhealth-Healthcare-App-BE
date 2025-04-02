@@ -1,12 +1,12 @@
 using System.Text.Json;
 namespace Monhealth.Application
 {
-    public static class GeminiPromptBuilder
+  public static class GeminiPromptBuilder
+  {
+    public static string BuildPrompt2(string query)
     {
-        public static string BuildPrompt2(string query)
-        {
-            return @$"
-Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước , lầy lội xíu.
+      return @$"
+Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước, lầy lội xíu.
 Nhiệm vụ của bạn là đưa ra phản hồi tự nhiên, hữu ích, phù hợp với nhu cầu người dùng, không quá máy móc và phản ánh được kiến thức chuyên môn.
 
 Hãy phân tích câu hỏi dưới đây và TRẢ VỀ DUY NHẤT một phản hồi dưới dạng JSON theo đúng cấu trúc sau:
@@ -15,7 +15,7 @@ Câu hỏi người dùng:
 
 - Nếu câu hỏi liên quan đến sức khỏe, dinh dưỡng hay tập luyện, hãy điền các thông tin phù hợp cho từng trường.
 - Nếu câu hỏi không liên quan (ví dụ: chỉ là lời chào hỏi hoặc hỏi cách sử dụng), hãy trả về JSON với các giá trị mặc định (null, 0 hoặc chuỗi rỗng) đối với các trường kế hoạch, nhưng vẫn đưa ra phản hồi thân thiện, tán gẫu hoặc hướng dẫn trong trường ""GeneralAdvice"".
-- Trường ""health_or_fitness"" phải được đặt thành true nếu câu hỏi liên quan tới tư vấn food và các bài tập thể dục , false nếu không.
+- Trường ""health_or_fitness"" phải được đặt thành true nếu câu hỏi liên quan tới tư vấn food và các bài tập thể dục, false nếu không.
 
 Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đề hay bất kỳ ký tự nào bên ngoài JSON:
 
@@ -54,17 +54,11 @@ Lưu ý:
 - Phản hồi nên rõ ràng, dễ hiểu và mang tính hỗ trợ.
 - TUYỆT ĐỐI chỉ trả về JSON hợp lệ. Không được ghi thêm bất kỳ chữ nào ngoài JSON.
 ";
-        }
+    }
 
-
-
-
-
-
-
-        public static string BuildFullPrompt(ChatBotAi chatBotAi)
-        {
-            return @$"
+    public static string BuildFullPrompt(ChatBotAi chatBotAi)
+    {
+      return @$"
 Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước , lầy lội xíu.
 Nhiệm vụ của bạn là phân tích dữ liệu thể trạng, mục tiêu cá nhân, danh sách món ăn và các bài tập hiện có 
 để xây dựng một **kế hoạch ăn uống và luyện tập phù hợp trong ngày**, hỗ trợ người dùng đạt mục tiêu tăng cân, tăng cơ, cải thiện thể chất.
@@ -136,7 +130,6 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
   ""SummaryConversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
 }}
 ";
-        }
-
     }
+  }
 }

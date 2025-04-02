@@ -5,7 +5,7 @@ namespace Monhealth.Application
     public class ChatBotAiListQuery : IRequest<(ChatBotAi, HealthPlanResponseDto)>
     {
         public Guid UserId { get; set; }
-       public string Query { get; set; }
+        public string Query { get; set; }
 
         public ChatBotAiListQuery(Guid userId, string query)
         {
@@ -13,5 +13,4 @@ namespace Monhealth.Application
             Query = query;
         }
     }
-
 }
