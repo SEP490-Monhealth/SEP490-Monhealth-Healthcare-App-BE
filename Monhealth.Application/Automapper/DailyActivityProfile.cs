@@ -13,7 +13,8 @@ namespace Monhealth.Application.Automapper
     {
         public DailyActivityProfile()
         {
-            CreateMap<DailyActivity, GetDailyActivityByUserIdDTO>().ReverseMap();
+            CreateMap<DailyActivity, GetDailyActivityByUserIdDTO>()
+                .ForMember(dest => dest.GoalType, opt => opt.MapFrom(src => src.Goal.GoalType));
         }
     }
 }

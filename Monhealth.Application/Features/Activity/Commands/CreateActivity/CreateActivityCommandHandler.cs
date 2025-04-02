@@ -42,7 +42,7 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
                 // Lay tat ca cac Workout cua UserId
                 var workout = await _workoutRepository.GetByIdAsync(request.CreateActivityDTO.WorkoutId);
                 // Cong don TotalDuration va TotalCaloriesBurned
-                dailyActivity.TotalDuration += workout.DurationMinutes;
+                dailyActivity.TotalDurationMinutes += workout.DurationMinutes;
                 dailyActivity.TotalCaloriesBurned += workout.CaloriesBurned;
                 dailyActivity.UpdatedAt = DateTime.Now;
                 // Cap nhat lai DailyActivity
@@ -63,7 +63,7 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
                 newDailyActivity.GoalId = getGoal.GoalId;
 
                 var getWorkouts = await _workoutRepository.GetByIdAsync(request.CreateActivityDTO.WorkoutId);
-                newDailyActivity.TotalDuration = getWorkouts.DurationMinutes;
+                newDailyActivity.TotalDurationMinutes = getWorkouts.DurationMinutes;
                 newDailyActivity.TotalCaloriesBurned = getWorkouts.CaloriesBurned;
                 newDailyActivity.CreatedAt = DateTime.Now;
                 newDailyActivity.UpdatedAt = DateTime.Now;
