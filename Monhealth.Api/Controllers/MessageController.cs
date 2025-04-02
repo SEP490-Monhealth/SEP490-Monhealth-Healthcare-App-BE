@@ -11,8 +11,6 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class MessageController(IMediator mediator) : ControllerBase
     {
-
-
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllMessages()
         {
@@ -25,7 +23,6 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
-
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateMessage([FromBody] CreateMessageCommand command)

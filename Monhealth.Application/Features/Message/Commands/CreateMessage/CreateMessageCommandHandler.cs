@@ -2,12 +2,17 @@
 using Monhealth.Application.Contracts.ChatBox;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
+using Monhealth.Application.Features.Message.Queries.GetAllMessages;
 
 namespace Monhealth.Application.Features.Message.Commands.CreateMessage
 {
     public class CreateMessageCommandHandler(IMessageRepository messageRepository,
         IChatNotificationService chatNotificationService,
-        IChatRepository chatRepository
+        IChatRepository chatRepository,
+        IUserRepository userRepository,
+        IConsultantRepository consultantRepository,
+        IChatHubService chatHubService
+
         ) : IRequestHandler<CreateMessageCommand, Unit>
     {
         public async Task<Unit> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
@@ -26,7 +31,7 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                     Messages = new List<Domain.Message>()
                 };
                 chatRepository.Add(chat);
-
+                await chatRepository.SaveChangeAsync(cancellationToken);
             }
             var newMessage = new Domain.Message
             {
@@ -35,13 +40,25 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 SenderId = request.senderId,
                 ReceiverId = request.receiverId,
                 Content = request.content,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now,
+
             };
             messageRepository.Add(newMessage);
+
+            //udpate last message
+            chat.LastMessage = request.content;
             await messageRepository.SaveChangeAsync(cancellationToken);
 
-            await chatNotificationService.NotifyNewMessageAsync(chat.ChatId, request.senderId, request.content);
-
+            var messageDto = new MessageDto
+            {
+                MessageId = newMessage.MessageId,
+                ChatId = newMessage.ChatId,
+                SenderId = newMessage.SenderId,
+                ReceiverId = newMessage.ReceiverId,
+                Content = newMessage.Content,
+                CreatedAt = newMessage.CreatedAt,
+            };
+            await chatHubService.SendMessageAsync(messageDto);
             return Unit.Value;
         }
     }

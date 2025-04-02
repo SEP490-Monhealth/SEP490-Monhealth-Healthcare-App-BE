@@ -1,4 +1,5 @@
-﻿using Monhealth.Api.Services;
+﻿using Monhealth.Api.Hubs;
+using Monhealth.Api.Services;
 using Monhealth.Application.Contracts.ChatBox;
 
 namespace Monhealth.Api.Extensions
@@ -11,7 +12,8 @@ namespace Monhealth.Api.Extensions
 
             // Khai báo scoped services tại đây
             services.AddScoped<IChatNotificationService, ChatNotificationService>();
-
+            services.AddScoped<IChatHubService, ChatHubService>();
+            services.AddScoped<IUserConnectionManager, UserConnectionManager>();
             // Thêm các service presentation khác vào đây khi cần
 
             return services;

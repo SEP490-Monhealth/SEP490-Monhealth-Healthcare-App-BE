@@ -1,6 +1,6 @@
 ﻿namespace Monhealth.Domain.CommonKey
 {
-    public class ISender
+    public interface ISender
     {
         public Guid Id { get; set; }
     }

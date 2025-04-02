@@ -112,22 +112,8 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(d => d.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Message>()
-              .HasOne(m => m.Chat)
-                 .WithMany(c => c.Messages)
-                 .HasForeignKey(m => m.ChatId);
 
-            builder.Entity<Message>()
-                .HasOne(m => m.Sender)
-                .WithMany()
-                .HasForeignKey(m => m.SenderId)
-                .OnDelete(DeleteBehavior.Restrict); // prevent cascade
 
-            builder.Entity<Message>()
-                .HasOne(m => m.Receiver)
-                .WithMany()
-                .HasForeignKey(m => m.ReceiverId)
-                .OnDelete(DeleteBehavior.Restrict); // prevent cascade
             var mealTypeComparer = new ValueComparer<List<MealType>>(
                    (c1, c2) => c1.SequenceEqual(c2),
                    c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
