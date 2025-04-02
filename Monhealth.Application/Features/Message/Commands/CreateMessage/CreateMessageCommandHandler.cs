@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
         {
             if (string.IsNullOrWhiteSpace(request.content))
                 throw new BadRequestException("Nội dung không thể rỗng");
-            var chat = await chatRepository.GetChatBySenderIdAndReceiverId(request.senderId, request.receiverId);
+            var chat = await chatRepository.GetChatByIdAsync(request.chatId);
             if (chat == null)
             {
                 chat = new Domain.Chat
@@ -38,7 +38,6 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 MessageId = Guid.NewGuid(),
                 ChatId = chat.ChatId,
                 SenderId = request.senderId,
-                ReceiverId = request.receiverId,
                 Content = request.content,
                 CreatedAt = DateTime.Now,
 
@@ -54,7 +53,6 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 MessageId = newMessage.MessageId,
                 ChatId = newMessage.ChatId,
                 SenderId = newMessage.SenderId,
-                ReceiverId = newMessage.ReceiverId,
                 Content = newMessage.Content,
                 CreatedAt = newMessage.CreatedAt,
             };
