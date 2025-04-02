@@ -14,13 +14,24 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
         {
             if (string.IsNullOrWhiteSpace(request.content))
                 throw new BadRequestException("Nội dung không thể rỗng");
-            var chat = await chatRepository.GetChatByIdAsync(request.chatId);
+            var chat = await chatRepository.GetChatBySenderIdAndReceiverId(request.senderId, request.receiverId);
             if (chat == null)
-                throw new BadRequestException($"Đoạn hội thoại {request.chatId} không tìm thấy");
+            {
+                chat = new Domain.Chat
+                {
+                    ChatId = Guid.NewGuid(),
+                    UserId = request.senderId,
+                    ConsultantId = request.receiverId,
+                    LastMessage = request.content,
+                    Messages = new List<Domain.Message>()
+                };
+                chatRepository.Add(chat);
+
+            }
             var newMessage = new Domain.Message
             {
                 MessageId = Guid.NewGuid(),
-                ChatId = request.chatId,
+                ChatId = chat.ChatId,
                 SenderId = request.senderId,
                 ReceiverId = request.receiverId,
                 Content = request.content,
@@ -29,7 +40,7 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
             messageRepository.Add(newMessage);
             await messageRepository.SaveChangeAsync(cancellationToken);
 
-            await chatNotificationService.NotifyNewMessageAsync(request.chatId, request.senderId, request.content);
+            await chatNotificationService.NotifyNewMessageAsync(chat.ChatId, request.senderId, request.content);
 
             return Unit.Value;
         }

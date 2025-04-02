@@ -28,6 +28,12 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<Chat> GetChatBySenderIdAndReceiverId(Guid senderId, Guid receiverId)
+        {
+            return await _context.Chats
+                .FirstOrDefaultAsync(c => c.UserId == senderId && c.ConsultantId == receiverId);
+        }
+
         public async Task<List<Chat>> GetUserChatAsync(Guid userId)
         {
             return await _context.Chats

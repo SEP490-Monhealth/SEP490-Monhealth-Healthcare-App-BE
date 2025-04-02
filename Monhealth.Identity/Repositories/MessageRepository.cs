@@ -1,4 +1,5 @@
-﻿using Monhealth.Application.Contracts.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -9,6 +10,11 @@ namespace Monhealth.Identity.Repositories
         public MessageRepository(MonhealthDbcontext context) : base(context)
         {
 
+        }
+
+        public async Task<List<Message>> GetAllMessageAsync()
+        {
+            return await _context.Messages.AsNoTracking().AsSingleQuery().ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
