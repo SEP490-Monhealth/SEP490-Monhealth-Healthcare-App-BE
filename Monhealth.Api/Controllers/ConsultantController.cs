@@ -24,7 +24,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, bool? verified = null, bool? status = null)
         {
             var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, expertise, search, status, verified));
@@ -38,7 +37,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetConsultantById(Guid consultantId)
         {
             var consultant = await _mediator.Send(new GetConsultantByIdCommand { ConsultantId = consultantId });
@@ -83,7 +81,6 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> CreateConsultant([FromBody] CreateConsultantDTO createConsultantDTO)
         {
             var command = new CreateConsultantCommand(createConsultantDTO);
@@ -150,7 +147,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{consultantId}/status")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> ChangeStatusConsultant(Guid consultantId)
         {
             var consultant = await _mediator.Send(new ChangeStatusConsultantCommand() { ConsultantId = consultantId });

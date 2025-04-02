@@ -127,7 +127,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/nutrition")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetNutrionByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetNutritionByGoalIdQuery() { UserId = userId });
@@ -150,7 +149,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/water-intake")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetWaterByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetWaterByGoalIdQuery() { UserId = userId });

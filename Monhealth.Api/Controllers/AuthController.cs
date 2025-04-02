@@ -24,7 +24,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpPost]
         [Route("login")]
-        [SwaggerOperation(Summary = "Done")]
         [AllowAnonymous]
         public async Task<ActionResult<ResultModel>> Login([FromBody] AuthenRequest request)
         {
@@ -55,7 +54,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("me")]
-        [SwaggerOperation(Summary = "Done")]
         [Authorize]
         public async Task<ActionResult<ResultModel>> GetInformationOfUser()
         {

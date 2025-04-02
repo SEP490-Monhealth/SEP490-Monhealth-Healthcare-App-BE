@@ -8,7 +8,7 @@ namespace Monhealth.Application
     {
         public async Task<GetUserSubscriptionDTO> Handle(GetUserSubscriptionRequest request, CancellationToken cancellationToken)
         {
-            var query = await userSubscriptionRepository.GetUserSubscriptionByIdAsync(request.UserSubScriptionId);
+            var query = await userSubscriptionRepository.GetUserSubscriptionByIdAsync(request.UserSubscriptionId);
             if (query == null)
             {
                 throw new Exception("không tìm thấy UserSubscription");

@@ -29,7 +29,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllReminder([FromQuery] int page = 1, int limit = 10, string? search = null, bool? recurring = null, bool? status = null)
         {
             var query = new GetAllReminderQuery { Page = page, Limit = limit, Search = search, Recurring = recurring, Status = status };
@@ -65,7 +64,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{waterReminderId:guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid waterReminderId)
         {
             var portion = await _mediator.Send(new GerReminderDetailQuery() { WaterReminderId = waterReminderId });

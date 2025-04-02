@@ -21,7 +21,6 @@ namespace Monhealth.Api.Controllers
     {
 
         [HttpGet]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllBooking(int page = 1, int limit = 10, string? search = null, BookingStatus? status = null)
         {
             var bookings = await mediator.Send(new GetAllBookingQueries { Page = page, Limit = limit, Search = search, Status = status });
@@ -34,7 +33,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{bookingId:guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetBookingById([FromRoute] Guid bookingId)
         {
             var booking = await mediator.Send(new GetBookingByIdQueries { BookingId = bookingId });
@@ -47,7 +45,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetBookingByUserId([FromRoute] Guid userId)
         {
             var booking = await mediator.Send(new GetBookingByUserIdQueries { UserId = userId });
@@ -60,7 +57,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId, DateTime? date = null)
         {
             var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId, Date = date });
@@ -73,7 +69,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> CreateBooking([FromBody] CreateBookingCommand command)
         {
             await mediator.Send(command);
@@ -98,7 +93,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{bookingId:guid}/cancel")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId, [FromBody] UpdateBookingCancelDTO request)
         {
             var command = new UpdateBookingCancelCommand(bookingId, request);

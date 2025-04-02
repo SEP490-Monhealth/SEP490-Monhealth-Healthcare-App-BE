@@ -36,7 +36,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetMetricByUserId(Guid userId)
         {
             var metric = await _mediator.Send(new GetMetricByUserIdQuery() { UserId = userId });
@@ -70,7 +69,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateMetricDTO metricRequest)
         {
             var command = new CreateMetricCommand(metricRequest);

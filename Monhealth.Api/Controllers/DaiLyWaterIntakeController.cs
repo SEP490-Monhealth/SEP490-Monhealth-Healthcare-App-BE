@@ -20,7 +20,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetDailyWaterIntakeByUser(
             [FromQuery][Required] Guid userId,
             [FromQuery][Required] DateTime date)

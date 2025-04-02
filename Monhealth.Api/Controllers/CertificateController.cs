@@ -42,7 +42,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetCertificateByConsultant(Guid consultantId)
         {
             var certificate = await mediator.Send(new GetAllCertificateByConsultantQuery { ConsultantId = consultantId });

@@ -26,7 +26,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? category = null, string? search = null, bool? isPublic = null, bool? popular = null, bool? status = null)
         {
             var foods = await _mediator.Send(new GetFoodListQuery(page, limit, category, search, isPublic, popular, status));
@@ -41,7 +40,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user/{userId:Guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetFoodsByUserId(Guid userId, int page = 1, int limit = 10)
         {
             var foods = await _mediator.Send(new GetFoodListByUserIdQuery(userId, page, limit));
@@ -56,7 +54,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{foodId:Guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetFoodById(Guid foodId)
         {
             var food = await _mediator.

@@ -24,7 +24,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetAllCategories(int page = 1, int limit = 10, CategoryType? type = null, string? search = null)
         {
 
@@ -40,7 +39,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{type}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetCategoriesByType(CategoryType type)
         {
             var categories = await _mediator.Send(new GetCategoriesByTypeQuery { CategoryType = type });
@@ -65,7 +63,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{categoryId:Guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> GetCategoryDetail(Guid categoryId)
         {
             var categories = await _mediator.Send(new GetCategoryDetailQuery { CategoryId = categoryId });
@@ -89,7 +86,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> AddCategory([FromBody] AddCategoryRequest request)
         {
             var result = await _mediator.Send(request);
@@ -113,7 +109,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{categoryId:Guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid categoryId, [FromBody] UpdateCategoryRequest request)
         {
             var command = new UpdateCategoryCommand(categoryId, request);
@@ -137,7 +132,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{categoryId:Guid}")]
-        [SwaggerOperation(Summary = "Done")]
         public async Task<ActionResult<ResultModel>> RemoveCategory(Guid categoryId)
         {
             var result = await _mediator.Send(new DeleteCategoryRequest(categoryId));
