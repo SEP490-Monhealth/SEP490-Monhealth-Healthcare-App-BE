@@ -13,7 +13,6 @@ namespace Monhealth.Application.Features.Message.Queries.GetAllMessages
                 MessageId = m.MessageId,
                 ChatId = m.ChatId,
                 SenderId = m.SenderId,
-                ReceiverId = m.ReceiverId,
                 Content = m.Content,
                 CreatedAt = m.CreatedAt,
                 UpdatedAt = m.UpdatedAt,

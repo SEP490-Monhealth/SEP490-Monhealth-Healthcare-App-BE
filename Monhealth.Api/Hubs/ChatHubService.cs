@@ -23,12 +23,12 @@ namespace Monhealth.Api.Hubs
 
         public async Task SendMessageAsync(MessageDto message)
         {
-            // Gửi tin nhắn đến người nhận
-            var receiverConnections = userConnectionManager.GetConnections(message.ReceiverId);
-            if (receiverConnections != null && receiverConnections.Any())
-            {
-                await hubContext.Clients.Clients(receiverConnections).SendAsync("ReceiveMessage", message);
-            }
+            //// Gửi tin nhắn đến người nhận
+            //var receiverConnections = userConnectionManager.GetConnections(message.ReceiverId);
+            //if (receiverConnections != null && receiverConnections.Any())
+            //{
+            //    await hubContext.Clients.Clients(receiverConnections).SendAsync("ReceiveMessage", message);
+            //}
 
             // Gửi xác nhận đến người gửi
             var senderConnections = userConnectionManager.GetConnections(message.SenderId);
