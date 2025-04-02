@@ -1,48 +1,87 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.SignalR;
-using Monhealth.Application.Contracts.ChatBox;
+﻿using Microsoft.AspNetCore.SignalR;
 
 namespace Monhealth.Api.Hubs
 {
-    [Authorize]
-    public class ChatHub(IUserConnectionManager userConnectionManager) : Hub
+    public class ChatHub : Hub
     {
+        // Đảm bảo biến static được khởi tạo đúng cách
+        private static readonly List<ChatMessage> _messageHistory = new List<ChatMessage>();
+
+        // Định nghĩa lớp ChatMessage
+        public class ChatMessage
+        {
+            public string Sender { get; set; } = string.Empty;
+            public string Content { get; set; } = string.Empty;
+            public DateTime Timestamp { get; set; } = DateTime.Now;
+        }
+
+        // Phương thức lấy lịch sử tin nhắn khi kết nối
+        public List<ChatMessage> GetMessageHistory()
+        {
+            return _messageHistory;
+        }
+
+        // Phương thức gửi tin nhắn
+        public async Task SendMessage(string user, string message)
+        {
+            try
+            {
+                // Tạo đối tượng tin nhắn mới với kiểm tra null
+                var chatMessage = new ChatMessage
+                {
+                    Sender = user ?? "Unknown",
+                    Content = message ?? "",
+                    Timestamp = DateTime.UtcNow
+                };
+
+                // Thêm vào lịch sử - đảm bảo _messageHistory không null
+                _messageHistory.Add(chatMessage);
+
+                // Giới hạn số lượng tin nhắn lưu trữ
+                if (_messageHistory.Count > 100)
+                {
+                    _messageHistory.RemoveAt(0);
+                }
+
+                // Gửi tin nhắn đến tất cả client
+                await Clients.All.SendAsync("ReceiveMessage", chatMessage);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SendMessage: {ex.Message}");
+                throw;
+            }
+        }
+
+        // Phương thức được gọi khi client kết nối
         public override async Task OnConnectedAsync()
         {
-            var userId = Context.GetHttpContext().Request.Query["userId"];
-
-            if (!string.IsNullOrEmpty(userId))
+            try
             {
-                userConnectionManager.AddConnection(Guid.Parse(userId), Context.ConnectionId);
+                await Clients.Caller.SendAsync("LoadMessageHistory", _messageHistory);
+                await Clients.Others.SendAsync("UserConnected", Context.ConnectionId);
+                await base.OnConnectedAsync();
             }
-
-            await base.OnConnectedAsync();
-        }
-
-        public override async Task OnDisconnectedAsync(Exception exception)
-        {
-            var userId = Context.GetHttpContext().Request.Query["userId"];
-
-            if (!string.IsNullOrEmpty(userId))
+            catch (Exception ex)
             {
-                userConnectionManager.RemoveConnection(Guid.Parse(userId), Context.ConnectionId);
+                Console.WriteLine($"Error in OnConnectedAsync: {ex.Message}");
+                throw;
             }
-
-            await base.OnDisconnectedAsync(exception);
-        }
-        public async Task JoinChat(Guid chatId)
-        {
-            await Groups.AddToGroupAsync(Context.ConnectionId, chatId.ToString());
         }
 
-        public async Task LeaveChat(Guid chatId)
+        // Phương thức được gọi khi client ngắt kết nối
+        public override async Task OnDisconnectedAsync(Exception? exception)
         {
-            await Groups.RemoveFromGroupAsync(Context.ConnectionId, chatId.ToString());
-        }
-
-        public async Task UserTyping(Guid chatId, Guid userId, string username)
-        {
-            await Clients.Group(chatId.ToString()).SendAsync("UserTyping", userId, username);
+            try
+            {
+                await Clients.All.SendAsync("UserDisconnected", Context.ConnectionId);
+                await base.OnDisconnectedAsync(exception);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in OnDisconnectedAsync: {ex.Message}");
+                throw;
+            }
         }
     }
 }

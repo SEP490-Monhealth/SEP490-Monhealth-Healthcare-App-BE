@@ -85,7 +85,6 @@ var app = builder.Build();
 // Cấu hình SignalR Hub và các endpoint
 app.UseRouting(); // Thêm UseRouting
 
-app.MapHub<SignalRHub>("/chatHub");
 
 // Kiểm tra môi trường và cấu hình Swagger
 if (app.Environment.IsDevelopment())
@@ -103,7 +102,8 @@ app.UseHttpsRedirection(); // Chuyển hướng HTTP sang HTTPS
 // Cấu hình Authorization và Authentication
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapHub<ChatHub>("/hubs/chat");
+app.MapHub<SignalRHub>("/chat/mon-ai");
+app.MapHub<ChatHub>("/chatbox");
 
 // Map Controllers cho các API endpoints
 app.MapControllers();
