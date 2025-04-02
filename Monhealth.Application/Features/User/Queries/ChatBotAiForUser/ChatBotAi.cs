@@ -33,6 +33,7 @@ namespace Monhealth.Application
     }
     public class FoodDTO12
     {
+        public List<Guid> FoodId { get; set; }
         public List<string> FoodName { get; set; }
         public float Calories { get; set; }
         public float Protein { get; set; }

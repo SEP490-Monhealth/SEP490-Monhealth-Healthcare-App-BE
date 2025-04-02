@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Chat.Commands.CreateChat;
 using Monhealth.Application.Models;
 
@@ -18,6 +19,25 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Message = "Tạo cuộc trò chuyện thành công",
                 Status = 201,
+            });
+        }
+
+        [HttpPost("mon-ai")]
+        public async Task<ActionResult<ResultModel>> GenerateContent([FromBody] GenerateRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(request.Query) || request.UserId == Guid.Empty)
+                return BadRequest("Thiếu thông tin người dùng hoặc câu hỏi.");
+
+            var query = new ChatBotAiListQuery(request.UserId, request.Query);
+
+            var (chatBotAi, aiResult) = await mediator.Send(query);
+
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Trò chuyện với AI thành công",
+                Data = aiResult,
+                // rawData = chatBotAi // optional: trả về thêm nếu cần debug
             });
         }
     }

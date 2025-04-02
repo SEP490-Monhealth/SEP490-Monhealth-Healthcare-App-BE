@@ -72,6 +72,7 @@ namespace Monhealth.Application
                 })
                 .Select(g => new FoodDTO12
                 {
+                    FoodId = g.Select(f => f.FoodId).ToList(), //
                     FoodName = g.Where(f => !string.IsNullOrEmpty(f.FoodName)).Select(f => f.FoodName).ToList(),
                     Calories = g.Key.Calories,
                     Protein = g.Key.Protein,
@@ -116,11 +117,8 @@ namespace Monhealth.Application
             string aiResultJson = await CallGeminiApi(chatBotAi, request.Query);
 
             // Deserialize JSON từ Gemini thành DTO
-            var healthPlan = JsonSerializer.Deserialize<HealthPlanResponseDto>(aiResultJson, new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true,
-                PropertyNamingPolicy = null // Giữ nguyên tên key tiếng Việt trong JSON
-            });
+            var healthPlan = JsonSerializer.Deserialize<HealthPlanResponseDto>(aiResultJson, GetJsonSerializerOptions());
+
 
             if (healthPlan == null)
                 throw new Exception("Không thể phân tích dữ liệu phản hồi từ Gemini API.");
@@ -130,7 +128,16 @@ namespace Monhealth.Application
 
             return (chatBotAi, healthPlan);
         }
-
+        private JsonSerializerOptions GetJsonSerializerOptions()
+        {
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                PropertyNamingPolicy = null // Giữ nguyên tên key tiếng Việt trong JSON
+            };
+            options.Converters.Add(new GuidConverter());  // Thêm GuidConverter vào
+            return options;
+        }
         private async Task<string> CallGeminiApi(ChatBotAi chatBotAi, string query)
         {
             var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={_geminiApiKey}";

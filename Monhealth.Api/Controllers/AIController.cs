@@ -22,22 +22,22 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("chat")]
-        public async Task<IActionResult> GenerateContent([FromBody] GenerateRequest request)
-        {
-            if (string.IsNullOrWhiteSpace(request.Query) || request.UserId == Guid.Empty)
-                return BadRequest("Thiếu thông tin người dùng hoặc câu hỏi.");
+        // [HttpPost("generate")]
+        // public async Task<IActionResult> GenerateContent([FromBody] GenerateRequest request)
+        // {
+        //     if (string.IsNullOrWhiteSpace(request.Query) || request.UserId == Guid.Empty)
+        //         return BadRequest("Thiếu thông tin người dùng hoặc câu hỏi.");
 
-            var query = new ChatBotAiListQuery(request.UserId, request.Query);
+        //     var query = new ChatBotAiListQuery(request.UserId, request.Query);
 
-            var (chatBotAi, aiResult) = await _mediator.Send(query);
+        //     var (chatBotAi, aiResult) = await _mediator.Send(query);
 
-            return Ok(new
-            {
-                success = true,
-                result = aiResult,
-                // rawData = chatBotAi // optional: trả về thêm nếu cần debug
-            });
-        }
+        //     return Ok(new
+        //     {
+        //         success = true,
+        //         result = aiResult,
+        //         // rawData = chatBotAi // optional: trả về thêm nếu cần debug
+        //     });
+        // }
     }
 }
