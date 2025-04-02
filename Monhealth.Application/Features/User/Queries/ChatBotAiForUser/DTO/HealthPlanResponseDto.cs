@@ -16,10 +16,6 @@ namespace Monhealth.Application
     public class MealPlanDto
     {
         public MealDToAI Meal { get; set; } = null!;
-        public float TotalCalories { get; set; }
-        public float TotalProtein { get; set; }
-        public float TotalCarbs { get; set; }
-        public float TotalFat { get; set; }
         public string Detail { get; set; } = string.Empty;
     }
     public class MealDToAI
@@ -38,21 +34,21 @@ namespace Monhealth.Application
     }
     public class BreakfastDTO
     {
-        public List<FoodDtoAi> FoodItems { get; set; } = [];
+        public List<FoodDtoAi> Items { get; set; } = [];
 
     }
     public class LunchDTO
     {
-        public List<FoodDtoAi> FoodItems { get; set; } = [];
+        public List<FoodDtoAi> Items { get; set; } = [];
 
     }
     public class DinnerDTO
     {
-        public List<FoodDtoAi> FoodItems { get; set; } = [];
+        public List<FoodDtoAi> Items { get; set; } = [];
     }
     public class SnackDTO
     {
-        public List<FoodDtoAi> FoodItems { get; set; } = new List<FoodDtoAi>();
+        public List<FoodDtoAi> Items { get; set; } = new List<FoodDtoAi>();
     }
     public class FoodDtoAi
     {

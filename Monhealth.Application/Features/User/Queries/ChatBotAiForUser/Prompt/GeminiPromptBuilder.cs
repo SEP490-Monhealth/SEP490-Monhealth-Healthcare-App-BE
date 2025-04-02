@@ -25,7 +25,7 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
   ""MealPlan"": {{
     ""Meal"": {{
       ""Breakfast"": {{
-        ""FoodItems"": [
+        ""Items"": [
           {{
             ""FoodId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
             ""Name"": ""null"",
@@ -44,7 +44,7 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
         ]
       }},
       ""Lunch"": {{
-        ""FoodItems"": [
+        ""Items"": [
           {{
             ""FoodId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
             ""Name"": ""null"",
@@ -63,7 +63,7 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
         ]
       }},
       ""Dinner"": {{
-        ""FoodItems"": [
+        ""Items"": [
           {{
             ""FoodId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
             ""Name"": ""null"",
@@ -82,7 +82,7 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
         ]
       }},
       ""Snack"": {{
-        ""FoodItems"": [
+        ""Items"": [
           {{
             ""FoodId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
             ""Name"": ""null"",
@@ -101,10 +101,6 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
         ]
       }}
     }},
-    ""TotalCalories"": 0.0,
-    ""TotalProtein"": 0.0,
-    ""TotalCarbs"": 0.0,
-    ""TotalFat"": 0.0,
     ""Detail"": ""null""
   }},
   ""WorkoutRoutine"": [
@@ -227,7 +223,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
   ""MealPlan"": {{
     ""Meal"": {{
       ""Breakfast"": {{
-        ""FoodItems"": [
+        ""Items"": [
           {{
             ""FoodId"": ""f8d02c4e-1304-4f69-b1ba-bf00d6a4a3da"",
             ""Name"": ""Tên món ăn sáng"",
@@ -246,7 +242,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
         ]
       }},
       ""Lunch"": {{
-        ""FoodItems"": [
+        ""Items"": [
           {{
             ""FoodId"": ""f8d02c4e-1304-4f69-b1ba-bf00d6a4a3db"",
             ""Name"": ""Tên món ăn trưa"",
@@ -265,7 +261,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
         ]
       }},
       ""Dinner"": {{
-        ""FoodItems"": [
+        ""Items"": [
           {{
             ""FoodId"": ""f8d02c4e-1304-4f69-b1ba-bf00d6a4a3dc"",
             ""Name"": ""Tên món ăn tối"",
@@ -284,7 +280,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
         ]
       }},
       ""Snack"": {{
-        ""FoodItems"": [
+        ""Items"": [
           {{
             ""FoodId"": ""f8d02c4e-1304-4f69-b1ba-bf00d6a4a3dd"",
             ""Name"": ""Tên món phụ"",
@@ -303,10 +299,6 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
         ]
       }}
     }},
-    ""TotalCalories"": Tính toán phù hợp với 'CaloriesGoal',
-    ""TotalProtein"": Tính toán phù hợp với 'ProteinGoal',
-    ""TotalCarbs"": Tính toán phù hợp với 'CarbsGoal',
-    ""TotalFat"": Tính toán phù hợp với 'FatGoal',
     ""Detail"": ""Mô tả chi tiết thành phần dinh dưỡng, lý do chọn từng món, và gợi ý thay thế nếu cần.""
   }},
    ""WorkoutRoutine"": [
