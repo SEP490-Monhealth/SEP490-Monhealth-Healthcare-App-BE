@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries
         public string WorkoutDescription { get; set; } = string.Empty;
         public DifficultyLevel DifficultyLevel { get; set; }
         public int Exercises { get; set; }
-        public int DurationMinutes { get; set; }
+        public float DurationMinutes { get; set; }
         public float CaloriesBurned { get; set; }
         public bool Status { get; set; }
         public bool IsPublic { get; set; }

@@ -1,11 +1,35 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
+using Monhealth.Application.Contracts.ChatBox;
 
 namespace Monhealth.Api.Hubs
 {
     [Authorize]
-    public class ChatHub : Hub
+    public class ChatHub(IUserConnectionManager userConnectionManager) : Hub
     {
+        public override async Task OnConnectedAsync()
+        {
+            var userId = Context.GetHttpContext().Request.Query["userId"];
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                userConnectionManager.AddConnection(Guid.Parse(userId), Context.ConnectionId);
+            }
+
+            await base.OnConnectedAsync();
+        }
+
+        public override async Task OnDisconnectedAsync(Exception exception)
+        {
+            var userId = Context.GetHttpContext().Request.Query["userId"];
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                userConnectionManager.RemoveConnection(Guid.Parse(userId), Context.ConnectionId);
+            }
+
+            await base.OnDisconnectedAsync(exception);
+        }
         public async Task JoinChat(Guid chatId)
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, chatId.ToString());
@@ -16,16 +40,9 @@ namespace Monhealth.Api.Hubs
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, chatId.ToString());
         }
 
-        public async Task SendMessage(Guid chatId, Guid senderId, string message)
+        public async Task UserTyping(Guid chatId, Guid userId, string username)
         {
-            // Gửi message đến tất cả client thuộc group chat này
-            await Clients.Group(chatId.ToString()).SendAsync("ReceiveMessage", new
-            {
-                ChatId = chatId,
-                SenderId = senderId,
-                Content = message,
-                Timestamp = DateTime.UtcNow
-            });
+            await Clients.Group(chatId.ToString()).SendAsync("UserTyping", userId, username);
         }
     }
 }
