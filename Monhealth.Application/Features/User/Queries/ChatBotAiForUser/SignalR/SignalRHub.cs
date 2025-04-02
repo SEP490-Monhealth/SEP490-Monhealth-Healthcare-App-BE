@@ -6,7 +6,7 @@ namespace Monhealth.Application
     {
         public async Task SendMessageToClient(string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", message); // Gửi tin nhắn cho tất cả client
+            await Clients.All.SendAsync("ReceiveMessage", message); 
         }
     }
 }
