@@ -31,6 +31,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 3f,
                 CaloriesBurned = 68.64f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -51,6 +52,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 7.5f,
                 CaloriesBurned = 60.45f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -71,6 +73,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 6.5f,
                 CaloriesBurned = 43.6f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -91,6 +94,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11.01f,
                 CaloriesBurned = 83.61f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -111,6 +115,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11.1f,
                 CaloriesBurned = 77.76f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -131,6 +136,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 7.5f,
                 CaloriesBurned = 62.4f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -151,6 +157,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Medium,
                 DurationMinutes = 10.5f,
                 CaloriesBurned = 76.95f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -171,6 +178,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Medium,
                 DurationMinutes = 10.5f,
                 CaloriesBurned = 73.95f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -191,6 +199,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Medium,
                 DurationMinutes = 9f,
                 CaloriesBurned = 68.64f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -211,6 +220,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Medium,
                 DurationMinutes = 7.5f,
                 CaloriesBurned = 58.95f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -231,6 +241,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Medium,
                 DurationMinutes = 9f,
                 CaloriesBurned = 67.95f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -251,6 +262,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Medium,
                 DurationMinutes = 5.79f,
                 CaloriesBurned = 38.64f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -269,8 +281,9 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Bụng săn chắc",
                 WorkoutDescription = "Bài tập này giúp phát triển cơ bụng, làm bụng trở nên mạnh mẽ và săn chắc hơn",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 0f,
-                CaloriesBurned = 0f,
+                DurationMinutes = 9f,
+                CaloriesBurned = 68.64f,
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -291,6 +304,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 12.5f, // 6.0 + 6.5
                 CaloriesBurned = 152.96f, // 55.76 + 97.2
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -311,6 +325,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 10.5f, // 4.5 + 6.0
                 CaloriesBurned = 130.8f, // 49.8 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -331,6 +346,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 10.17f, // 3.67 + 6.5
                 CaloriesBurned = 114.6f, // 33.6 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -351,6 +367,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 15f, // 5.0 + 10.0
                 CaloriesBurned = 172.6f, // 55.6 + 117.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -371,6 +388,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 14.5f, // 5.0 + 9.5
                 CaloriesBurned = 178.6f, // 55.6 + 123.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -391,6 +409,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 14.5f, // 5.0 + 9.5
                 CaloriesBurned = 178.6f, // 55.6 + 123.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -411,6 +430,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11f, // 4.5 + 6.5
                 CaloriesBurned = 147f, // 49.8 + 97.2
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -429,8 +449,9 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Vũ điệu thể thao",
                 WorkoutDescription = "Bài tập thể thao này giúp cải thiện sự phối hợp và tốc độ phản xạ của cơ thể, giúp bạn năng động và linh hoạt hơn",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 0f,
-                CaloriesBurned = 0f,
+                DurationMinutes = 11f, // 6.0 + 5.0
+                CaloriesBurned = 123.26f, // 55.76 + 67.5
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -451,6 +472,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11f, // 4.5 + 6.5
                 CaloriesBurned = 147f, // 49.8 + 97.2
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -471,6 +493,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 10.5f, // 4.5 + 6.0
                 CaloriesBurned = 130.8f, // 49.8 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -491,6 +514,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 7.17f, // 3.67 + 3.5
                 CaloriesBurned = 72.6f, // 33.6 + 39.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -511,6 +535,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 9f, // 5.0 + 4.0
                 CaloriesBurned = 109.6f, // 55.6 + 54.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -531,6 +556,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 10.5f, // 4.5 + 6.0
                 CaloriesBurned = 147.0f, // 49.8 + 97.2
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -551,6 +577,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11f, // 4.5 + 6.5
                 CaloriesBurned = 147f, // 49.8 + 97.2
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -571,6 +598,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 14.5f, // 5.0 + 9.5
                 CaloriesBurned = 178.6f, // 55.6 + 123.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -591,6 +619,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11f, // 5.0 + 6.0
                 CaloriesBurned = 136.6f, // 55.6 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -611,6 +640,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 9.67f, // 3.67 + 6.0
                 CaloriesBurned = 114.6f, // 33.6 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -631,6 +661,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11f, // 5.0 + 6.0
                 CaloriesBurned = 136.6f, // 55.6 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -651,7 +682,8 @@ namespace Monhealth.Identity.Configurations
             //     DifficultyLevel = DifficultyLevel.Easy,
             //     DurationMinutes = 6f,
             //     CaloriesBurned = 45.2f,
-            //     Status = true,
+            // IsPublic = true,    
+            // Status = true,
             //     CreatedAt = today,
             //     UpdatedAt = today,
             //     CreatedBy = userId,
@@ -671,6 +703,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11f, // 5.0 + 6.0
                 CaloriesBurned = 136.6f, // 55.6 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -691,6 +724,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11.5f, // 5.0 + 6.5
                 CaloriesBurned = 153.4f, // 55.6 + 97.8
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -711,6 +745,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11.5f, // 5.0 + 6.5
                 CaloriesBurned = 153.4f, // 55.6 + 97.8
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -729,8 +764,9 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Khởi động cơ thể",
                 WorkoutDescription = "Bài tập khởi động giúp cơ thể làm quen với các động tác nhẹ nhàng, tăng cường sự linh hoạt và giảm thiểu rủi ro chấn thương",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 0f,
-                CaloriesBurned = 0f,
+                DurationMinutes = 10.5f, // 6.0 + 4.5
+                CaloriesBurned = 114.71f, // 55.76 + 58.95
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -749,8 +785,9 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Linh hoạt và khỏe mạnh",
                 WorkoutDescription = "Bài tập này kết hợp các động tác linh hoạt và sức mạnh, giúp cải thiện khả năng vận động và sự khỏe mạnh của cơ thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 0f,
-                CaloriesBurned = 0f,
+                DurationMinutes = 12f, // 6.0 + 6.0
+                CaloriesBurned = 136.76f, // 55.76 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -769,8 +806,9 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Săn chắc và khỏe mạnh",
                 WorkoutDescription = "Bài tập này giúp săn chắc cơ thể, tăng cường sức mạnh và giảm mỡ hiệu quả",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 0f,
-                CaloriesBurned = 0f,
+                DurationMinutes = 10.5f, // 6.0 + 4.5
+                CaloriesBurned = 114.71f, // 55.76 + 58.95
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -791,6 +829,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 11.5f, // 5.0 + 6.5
                 CaloriesBurned = 153.4f, // 55.6 + 97.8
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -811,6 +850,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 9.67f, // 3.67 + 6.0
                 CaloriesBurned = 114.6f, // 33.6 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -829,8 +869,9 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Chuyển động nhịp nhàng",
                 WorkoutDescription = "Bài tập này giúp cải thiện sự nhịp nhàng trong chuyển động của cơ thể, nâng cao sức khỏe và sự linh hoạt",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 0f,
-                CaloriesBurned = 0f,
+                DurationMinutes = 10.5f, // 6.0 + 4.5
+                CaloriesBurned = 114.71f, // 55.76 + 58.95
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -851,6 +892,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 17f, // 5.0 + 12.0
                 CaloriesBurned = 164.5f, // 55.6 + 108.9
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -871,6 +913,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 9.67f, // 3.67 + 6.0
                 CaloriesBurned = 114.6f, // 33.6 + 81.0
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -891,6 +934,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 6.5f, // 3.0 + 3.5
                 CaloriesBurned = 108.9f, // 55.2 + 53.7
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -911,6 +955,7 @@ namespace Monhealth.Identity.Configurations
                 DifficultyLevel = DifficultyLevel.Easy,
                 DurationMinutes = 13.01f, // 5.0 + 8.01
                 CaloriesBurned = 199.67f, // 80.6 + 119.07
+                IsPublic = true,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
