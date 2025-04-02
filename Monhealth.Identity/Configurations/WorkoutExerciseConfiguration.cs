@@ -455,6 +455,42 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
+            #region Workout Exercise 12-1
+            new WorkoutExercise
+            {
+                WorkoutExerciseId = Guid.NewGuid(),
+                WorkoutId = Guid.Parse("28de23bb-07b9-4ebc-8f72-ead4d54a4883"),
+                ExerciseId = Guid.Parse("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
+                Order = 1,
+                DurationSeconds = 60,
+                Reps = 0,
+                CreatedAt = today,
+                UpdatedAt = today,
+            },
+            new WorkoutExercise
+            {
+                WorkoutExerciseId = Guid.NewGuid(),
+                WorkoutId = Guid.Parse("28de23bb-07b9-4ebc-8f72-ead4d54a4883"),
+                ExerciseId = Guid.Parse("90ce2a9f-d0be-4ca0-b3ca-8b6947a6b266"),
+                Order = 2,
+                DurationSeconds = 60,
+                Reps = 0,
+                CreatedAt = today,
+                UpdatedAt = today,
+            },
+            new WorkoutExercise
+            {
+                WorkoutExerciseId = Guid.NewGuid(),
+                WorkoutId = Guid.Parse("28de23bb-07b9-4ebc-8f72-ead4d54a4883"),
+                ExerciseId = Guid.Parse("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
+                Order = 3,
+                DurationSeconds = 0,
+                Reps = 30,
+                CreatedAt = today,
+                UpdatedAt = today,
+            },
+            #endregion
+
             #region Workout Exercise 13
             new WorkoutExercise
             {

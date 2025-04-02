@@ -36,6 +36,7 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
             int totalExerciseDuration = exercises
                 .Sum(ex => ex.WorkoutExercises?.Sum(we => (we?.DurationSeconds ?? 0) + ((we?.Reps ?? 0) * 2)) ?? 0);
             totalExerciseDuration *= 3; // Exercise X3 round
+
             return new GetExerciseByWorkoutIdDto
             {
                 Warmup = workoutWarmup != null ? mapper.Map<List<ExerciseDto>>(exerciseWarmupList) : new List<ExerciseDto>(),

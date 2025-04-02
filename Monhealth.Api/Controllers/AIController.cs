@@ -12,7 +12,7 @@ namespace Monhealth.Api.Controllers
     }
 
     [ApiController]
-    [Route("api/gemini-chat")]
+    [Route("api/v1/mon-ai")]
     public class AiController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -22,7 +22,7 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("generate")]
+        [HttpPost("chat")]
         public async Task<IActionResult> GenerateContent([FromBody] GenerateRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.Query) || request.UserId == Guid.Empty)

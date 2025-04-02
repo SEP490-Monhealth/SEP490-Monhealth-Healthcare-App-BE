@@ -1190,7 +1190,7 @@ namespace Monhealth.Identity.Configurations
                 ExerciseId = Guid.Parse("4834f1ce-41dc-4161-ac51-e03ca78b62b8"),
                 UserId = userId,
                 ExerciseType = ExerciseType.Time,
-                ExerciseName = "Superman tĩnh",
+                ExerciseName = "Siêu nhân tĩnh",
                 Instructions =
                     "Nằm sấp trên sàn. Giữ cho chân của bạn thẳng và khép lại\nDuỗi thẳng tay của bạn lên trên đầu để cơ thể bạn tạo thành một đường thẳng\nHít vào và nâng cánh tay, ngực và chân của bạn lên. Cơ thể của bạn phải tạo thành một vòng cung\nGiữ ở vị trí này với cơ bụng siết chặt và thở chậm",
                 CaloriesPerMinute = 5f,

@@ -29,8 +29,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Khởi động toàn thân",
                 WorkoutDescription = "Bài tập này giúp khởi động toàn bộ cơ thể, làm nóng cơ bắp, giúp tăng cường lưu thông máu và chuẩn bị cho các bài tập tiếp theo",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 9,
-                CaloriesBurned = 67.8f,
+                DurationMinutes = 3f,
+                CaloriesBurned = 68.64f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -89,8 +89,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Vận động toàn thân",
                 WorkoutDescription = "Bài tập toàn thân giúp kích thích các cơ lớn trong cơ thể, cải thiện sự dẻo dai và sức bền chung cho cơ thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 8,
-                CaloriesBurned = 61.7f,
+                DurationMinutes = 11.01f,
+                CaloriesBurned = 83.61f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -109,8 +109,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Chân săn chắc",
                 WorkoutDescription = "Bài tập này giúp cơ bắp chân săn chắc và phát triển sức mạnh, đặc biệt là khi bạn cần cải thiện khả năng di chuyển",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 7.2f,
-                CaloriesBurned = 51.06f,
+                DurationMinutes = 11.1f,
+                CaloriesBurned = 77.76f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -129,8 +129,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Tay linh hoạt",
                 WorkoutDescription = "Bài tập này giúp tăng cường sự linh hoạt và sức mạnh của cánh tay, hỗ trợ tốt cho các bài tập thể thao khác",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 5.5f,
-                CaloriesBurned = 41.4f,
+                DurationMinutes = 7.5f,
+                CaloriesBurned = 62.4f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -149,8 +149,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Tập luyện toàn thân",
                 WorkoutDescription = "Bài tập này giúp làm nóng và kích thích tất cả các nhóm cơ trong cơ thể, chuẩn bị cho những bài tập nặng hơn",
                 DifficultyLevel = DifficultyLevel.Medium,
-                DurationMinutes = 8f,
-                CaloriesBurned = 53.8f,
+                DurationMinutes = 10.5f,
+                CaloriesBurned = 76.95f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -169,8 +169,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Chân khỏe mạnh",
                 WorkoutDescription = "Bài tập này giúp tăng cường sức mạnh cho các cơ chân, đặc biệt là các cơ bắp đùi và bắp chân",
                 DifficultyLevel = DifficultyLevel.Medium,
-                DurationMinutes = 6.5f,
-                CaloriesBurned = 43.3f,
+                DurationMinutes = 10.5f,
+                CaloriesBurned = 73.95f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -189,8 +189,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Tay rắn chắc",
                 WorkoutDescription = "Bài tập này giúp phát triển cơ bắp tay và bả vai, làm tay trở nên mạnh mẽ và săn chắc hơn",
                 DifficultyLevel = DifficultyLevel.Medium,
-                DurationMinutes = 6f,
-                CaloriesBurned = 41.8f,
+                DurationMinutes = 9f,
+                CaloriesBurned = 68.64f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -209,8 +209,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Thử thách thể lực",
                 WorkoutDescription = "Bài tập thử thách thể lực này giúp kiểm tra sức mạnh và sự bền bỉ của cơ thể thông qua các bài tập đòi hỏi sức lực cao",
                 DifficultyLevel = DifficultyLevel.Medium,
-                DurationMinutes = 6f,
-                CaloriesBurned = 43.8f,
+                DurationMinutes = 7.5f,
+                CaloriesBurned = 58.95f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -229,8 +229,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Chân bền bỉ",
                 WorkoutDescription = "Bài tập giúp cải thiện sức bền cho đôi chân, thích hợp cho những người tập thể thao đòi hỏi di chuyển lâu dài và mạnh mẽ",
                 DifficultyLevel = DifficultyLevel.Medium,
-                DurationMinutes = 7.5f,
-                CaloriesBurned = 47.7f,
+                DurationMinutes = 9f,
+                CaloriesBurned = 67.95f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -249,8 +249,28 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Tay cường độ cao",
                 WorkoutDescription = "Bài tập tăng cường sức mạnh cho tay và vai, giúp phát triển cơ bắp và cải thiện khả năng chống chịu với các bài tập nặng",
                 DifficultyLevel = DifficultyLevel.Medium,
-                DurationMinutes = 3.8f,
-                CaloriesBurned = 39f,
+                DurationMinutes = 5.79f,
+                CaloriesBurned = 38.64f,
+                Status = true,
+                CreatedAt = today,
+                UpdatedAt = today,
+                CreatedBy = userId,
+                UpdatedBy = userId,
+            },
+            #endregion
+
+            #region Workout 12-1
+            new Workout
+            {
+                WorkoutId = new Guid("28de23bb-07b9-4ebc-8f72-ead4d54a4883"),
+                UserId = userId,
+                CategoryId = abs,
+                WorkoutType = WorkoutType.Warmup,
+                WorkoutName = "Bụng săn chắc",
+                WorkoutDescription = "Bài tập này giúp phát triển cơ bụng, làm bụng trở nên mạnh mẽ và săn chắc hơn",
+                DifficultyLevel = DifficultyLevel.Easy,
+                DurationMinutes = 0f,
+                CaloriesBurned = 0f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -269,8 +289,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Khởi động linh hoạt",
                 WorkoutDescription = "Bài tập này giúp làm mềm các khớp và cơ, tăng cường sự linh hoạt để sẵn sàng cho các hoạt động thể chất nặng hơn",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 11.33f,
-                CaloriesBurned = 86.53f,
+                DurationMinutes = 12.5f, // 6.0 + 6.5
+                CaloriesBurned = 152.96f, // 55.76 + 97.2
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -289,8 +309,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Toàn thân mạnh mẽ",
                 WorkoutDescription = "Bài tập toàn thân giúp phát triển sức mạnh cơ bắp cho tất cả các nhóm cơ, đặc biệt là cơ lớn như ngực, lưng, và chân",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 10.77f,
-                CaloriesBurned = 80.25f,
+                DurationMinutes = 10.5f, // 4.5 + 6.0
+                CaloriesBurned = 130.8f, // 49.8 + 81.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -309,8 +329,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Nhịp điệu sôi động",
                 WorkoutDescription = "Bài tập với các động tác nhịp điệu giúp cải thiện sức bền và sự phối hợp giữa các nhóm cơ, đồng thời tăng cường năng lượng cho cơ thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 10.3f,
-                CaloriesBurned = 64.57f,
+                DurationMinutes = 10.17f, // 3.67 + 6.5
+                CaloriesBurned = 114.6f, // 33.6 + 81.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -329,8 +349,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Năng lượng dồi dào",
                 WorkoutDescription = "Bài tập giúp kích thích năng lượng cho cơ thể, giúp bạn cảm thấy tràn đầy sức sống và chuẩn bị tốt cho các hoạt động tiếp theo",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 15.67f,
-                CaloriesBurned = 119.73f,
+                DurationMinutes = 15f, // 5.0 + 10.0
+                CaloriesBurned = 172.6f, // 55.6 + 117.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -349,8 +369,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Vươn tầm sức mạnh",
                 WorkoutDescription = "Bài tập này giúp xây dựng cơ bắp và cải thiện sức mạnh tổng thể, phù hợp cho những ai muốn nâng cao khả năng thể chất",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 15.47f,
-                CaloriesBurned = 106.37f,
+                DurationMinutes = 14.5f, // 5.0 + 9.5
+                CaloriesBurned = 178.6f, // 55.6 + 123.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -369,8 +389,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Khỏe và linh hoạt",
                 WorkoutDescription = "Bài tập này kết hợp giữa sức mạnh và sự linh hoạt, giúp cải thiện khả năng vận động của cơ thể và nâng cao thể lực tổng thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 16f,
-                CaloriesBurned = 128.7f,
+                DurationMinutes = 14.5f, // 5.0 + 9.5
+                CaloriesBurned = 178.6f, // 55.6 + 123.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -389,8 +409,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Dẻo dai và bền bỉ",
                 WorkoutDescription = "Bài tập này giúp tăng cường sự bền bỉ cho cơ thể và cải thiện khả năng chịu đựng, rất hữu ích cho các hoạt động dài hạn",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 12.17f,
-                CaloriesBurned = 89.78f,
+                DurationMinutes = 11f, // 4.5 + 6.5
+                CaloriesBurned = 147f, // 49.8 + 97.2
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -409,8 +429,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Vũ điệu thể thao",
                 WorkoutDescription = "Bài tập thể thao này giúp cải thiện sự phối hợp và tốc độ phản xạ của cơ thể, giúp bạn năng động và linh hoạt hơn",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 4f,
-                CaloriesBurned = 27.33f,
+                DurationMinutes = 0f,
+                CaloriesBurned = 0f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -429,8 +449,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Sức mạnh và cân bằng",
                 WorkoutDescription = "Bài tập này kết hợp giữa sức mạnh và khả năng duy trì sự cân bằng, giúp cải thiện sự ổn định cơ thể và khả năng phối hợp các nhóm cơ",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 11.57f,
-                CaloriesBurned = 82.45f,
+                DurationMinutes = 11f, // 4.5 + 6.5
+                CaloriesBurned = 147f, // 49.8 + 97.2
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -449,8 +469,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Khỏe mạnh toàn diện",
                 WorkoutDescription = "Bài tập này giúp phát triển sức khỏe toàn diện, bao gồm sức mạnh, sức bền, sự linh hoạt và sự cân bằng của cơ thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 10.7f,
-                CaloriesBurned = 78.05f,
+                DurationMinutes = 10.5f, // 4.5 + 6.0
+                CaloriesBurned = 130.8f, // 49.8 + 81.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -469,8 +489,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Vũ điệu kết hợp",
                 WorkoutDescription = "Bài tập này là sự kết hợp giữa vũ điệu và thể thao, giúp cải thiện khả năng vận động nhịp nhàng và tăng cường sức bền cho cơ thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 8.83f,
-                CaloriesBurned = 54.77f,
+                DurationMinutes = 7.17f, // 3.67 + 3.5
+                CaloriesBurned = 72.6f, // 33.6 + 39.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -489,8 +509,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Thử thách cường độ cao",
                 WorkoutDescription = "Bài tập này có cường độ cao, giúp tăng cường sức mạnh cơ bắp và nâng cao khả năng chịu đựng cho cơ thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 11.67f,
-                CaloriesBurned = 81.8f,
+                DurationMinutes = 9f, // 5.0 + 4.0
+                CaloriesBurned = 109.6f, // 55.6 + 54.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -509,8 +529,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Toàn thân săn chắc",
                 WorkoutDescription = "Bài tập này giúp săn chắc cơ bắp toàn thân, với trọng tâm là phát triển cơ bắp, đồng thời giảm mỡ và cải thiện hình thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 10.9f,
-                CaloriesBurned = 84.77f,
+                DurationMinutes = 10.5f, // 4.5 + 6.0
+                CaloriesBurned = 147.0f, // 49.8 + 97.2
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -529,8 +549,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Khởi động cơ bản",
                 WorkoutDescription = "Bài tập khởi động cơ bản giúp làm ấm cơ thể, giảm thiểu nguy cơ chấn thương và chuẩn bị cho các bài tập tiếp theo",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 10.83f,
-                CaloriesBurned = 81.78f,
+                DurationMinutes = 11f, // 4.5 + 6.5
+                CaloriesBurned = 147f, // 49.8 + 97.2
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -549,8 +569,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Luyện tập sức bền",
                 WorkoutDescription = "Bài tập này giúp nâng cao sức bền, cải thiện khả năng chịu đựng khi thực hiện các hoạt động thể thao kéo dài",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 15.13f,
-                CaloriesBurned = 104.53f,
+                DurationMinutes = 14.5f, // 5.0 + 9.5
+                CaloriesBurned = 178.6f, // 55.6 + 123.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -569,8 +589,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Luyện tập nhanh và mạnh",
                 WorkoutDescription = "Bài tập này giúp tăng cường sức mạnh cơ bắp đồng thời cải thiện tốc độ và độ phản xạ của cơ thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 12.2f,
-                CaloriesBurned = 83f,
+                DurationMinutes = 11f, // 5.0 + 6.0
+                CaloriesBurned = 136.6f, // 55.6 + 81.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -589,8 +609,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Chuyển động linh hoạt",
                 WorkoutDescription = "Bài tập giúp phát triển sự linh hoạt và khả năng vận động của cơ thể, làm cho cơ thể mềm dẻo và dẻo dai hơn",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 9.7f,
-                CaloriesBurned = 70.7f,
+                DurationMinutes = 9.67f, // 3.67 + 6.0
+                CaloriesBurned = 114.6f, // 33.6 + 81.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -609,8 +629,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Sức mạnh toàn diện",
                 WorkoutDescription = "Bài tập này giúp xây dựng sức mạnh cơ thể toàn diện, với các bài tập kết hợp giữa các nhóm cơ lớn và nhỏ",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 12.33f,
-                CaloriesBurned = 91.2f,
+                DurationMinutes = 11f, // 5.0 + 6.0
+                CaloriesBurned = 136.6f, // 55.6 + 81.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -619,25 +639,25 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region Workout 31
-            new Workout
-            {
-                WorkoutId = new Guid("7691ed30-fe88-4e75-97c6-f5f88d304efb"),
-                UserId = userId,
-                CategoryId = fullBody,
-                WorkoutType = WorkoutType.Workout,
-                WorkoutName = "Sức mạnh toàn diện",
-                WorkoutDescription = "Bài tập này tiếp tục tập trung vào việc phát triển sức mạnh tổng thể, nâng cao sức bền và cải thiện sức khỏe lâu dài",
-                DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 6f,
-                CaloriesBurned = 45.2f,
-                Status = true,
-                CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
-            },
-            #endregion
+            // #region Workout 31
+            // new Workout
+            // {
+            //     WorkoutId = new Guid("7691ed30-fe88-4e75-97c6-f5f88d304efb"),
+            //     UserId = userId,
+            //     CategoryId = fullBody,
+            //     WorkoutType = WorkoutType.Workout,
+            //     WorkoutName = "Sức mạnh toàn diện",
+            //     WorkoutDescription = "Bài tập này tiếp tục tập trung vào việc phát triển sức mạnh tổng thể, nâng cao sức bền và cải thiện sức khỏe lâu dài",
+            //     DifficultyLevel = DifficultyLevel.Easy,
+            //     DurationMinutes = 6f,
+            //     CaloriesBurned = 45.2f,
+            //     Status = true,
+            //     CreatedAt = today,
+            //     UpdatedAt = today,
+            //     CreatedBy = userId,
+            //     UpdatedBy = userId,
+            // },
+            // #endregion
 
             #region Workout 32
             new Workout
@@ -649,8 +669,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Khỏe và dẻo dai",
                 WorkoutDescription = "Bài tập này giúp cơ thể vừa khỏe mạnh vừa dẻo dai, thích hợp cho việc nâng cao độ linh hoạt và sức bền của các nhóm cơ",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 12f,
-                CaloriesBurned = 82.43f,
+                DurationMinutes = 11f, // 5.0 + 6.0
+                CaloriesBurned = 136.6f, // 55.6 + 81.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -669,8 +689,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Tập luyện toàn thân",
                 WorkoutDescription = "Bài tập toàn thân giúp cải thiện sức khỏe chung, tăng cường khả năng vận động và phát triển cơ bắp đồng đều",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 13.13f,
-                CaloriesBurned = 90.53f,
+                DurationMinutes = 11.5f, // 5.0 + 6.5
+                CaloriesBurned = 153.4f, // 55.6 + 97.8
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -689,8 +709,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Dẻo dai và năng lượng",
                 WorkoutDescription = "Bài tập này giúp cơ thể dẻo dai và tăng cường năng lượng, thích hợp để nâng cao khả năng hoạt động lâu dài và bền bỉ",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 12.67f,
-                CaloriesBurned = 90.3f,
+                DurationMinutes = 11.5f, // 5.0 + 6.5
+                CaloriesBurned = 153.4f, // 55.6 + 97.8
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -709,8 +729,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Khởi động cơ thể",
                 WorkoutDescription = "Bài tập khởi động giúp cơ thể làm quen với các động tác nhẹ nhàng, tăng cường sự linh hoạt và giảm thiểu rủi ro chấn thương",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 3.33f,
-                CaloriesBurned = 19.5f,
+                DurationMinutes = 0f,
+                CaloriesBurned = 0f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -729,8 +749,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Linh hoạt và khỏe mạnh",
                 WorkoutDescription = "Bài tập này kết hợp các động tác linh hoạt và sức mạnh, giúp cải thiện khả năng vận động và sự khỏe mạnh của cơ thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 4.33f,
-                CaloriesBurned = 25.1f,
+                DurationMinutes = 0f,
+                CaloriesBurned = 0f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -749,8 +769,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Săn chắc và khỏe mạnh",
                 WorkoutDescription = "Bài tập này giúp săn chắc cơ thể, tăng cường sức mạnh và giảm mỡ hiệu quả",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 3.33f,
-                CaloriesBurned = 20f,
+                DurationMinutes = 0f,
+                CaloriesBurned = 0f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -769,8 +789,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Sức mạnh và bền bỉ",
                 WorkoutDescription = "Bài tập giúp nâng cao sức mạnh và bền bỉ cho cơ thể, thích hợp cho những người muốn thử thách sức chịu đựng của mình",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 13f,
-                CaloriesBurned = 95.5f,
+                DurationMinutes = 11.5f, // 5.0 + 6.5
+                CaloriesBurned = 153.4f, // 55.6 + 97.8
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -789,8 +809,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Vũ điệu thể thao",
                 WorkoutDescription = "Bài tập vũ điệu thể thao giúp cải thiện khả năng phối hợp và nhịp điệu của cơ thể, đồng thời tăng cường sức bền",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 9.7f,
-                CaloriesBurned = 57.6f,
+                DurationMinutes = 9.67f, // 3.67 + 6.0
+                CaloriesBurned = 114.6f, // 33.6 + 81.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -809,8 +829,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Chuyển động nhịp nhàng",
                 WorkoutDescription = "Bài tập này giúp cải thiện sự nhịp nhàng trong chuyển động của cơ thể, nâng cao sức khỏe và sự linh hoạt",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 3.33f,
-                CaloriesBurned = 20f,
+                DurationMinutes = 0f,
+                CaloriesBurned = 0f,
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -829,8 +849,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Đốt cháy năng lượng",
                 WorkoutDescription = "Bài tập giúp đốt cháy năng lượng và giảm mỡ hiệu quả, cải thiện sức khỏe tổng thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 15f,
-                CaloriesBurned = 108.4f,
+                DurationMinutes = 17f, // 5.0 + 12.0
+                CaloriesBurned = 164.5f, // 55.6 + 108.9
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -849,8 +869,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Toàn thân khỏe mạnh",
                 WorkoutDescription = "Bài tập này giúp cải thiện sức khỏe toàn thân, tăng cường các nhóm cơ lớn và nhỏ",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 10.77f,
-                CaloriesBurned = 65.6f,
+                DurationMinutes = 9.67f, // 3.67 + 6.0
+                CaloriesBurned = 114.6f, // 33.6 + 81.0
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -869,8 +889,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Linh hoạt và mạnh mẽ",
                 WorkoutDescription = "Bài tập này giúp tăng cường sự linh hoạt và sức mạnh của cơ thể, phù hợp với những người muốn nâng cao thể lực tổng thể",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 12.07f,
-                CaloriesBurned = 87.27f,
+                DurationMinutes = 6.5f, // 3.0 + 3.5
+                CaloriesBurned = 108.9f, // 55.2 + 53.7
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -889,8 +909,8 @@ namespace Monhealth.Identity.Configurations
                 WorkoutName = "Luyện tập linh hoạt và bền bỉ",
                 WorkoutDescription = "Bài tập giúp phát triển sự linh hoạt và bền bỉ cho cơ thể, cải thiện khả năng hoạt động trong thời gian dài",
                 DifficultyLevel = DifficultyLevel.Easy,
-                DurationMinutes = 12.83f,
-                CaloriesBurned = 86.85f,
+                DurationMinutes = 13.01f, // 5.0 + 8.01
+                CaloriesBurned = 199.67f, // 80.6 + 119.07
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
