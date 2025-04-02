@@ -3,6 +3,7 @@ namespace Monhealth.Application
 {
   public static class GeminiPromptBuilder
   {
+
     public static string BuildPrompt2(string query)
     {
       return @$"
@@ -14,7 +15,8 @@ Câu hỏi người dùng:
 ""{query}""
 
 - Nếu câu hỏi liên quan đến sức khỏe, dinh dưỡng hay tập luyện, hãy điền các thông tin phù hợp cho từng trường.
-- Nếu câu hỏi không liên quan (ví dụ: chỉ là lời chào hỏi hoặc hỏi cách sử dụng), hãy trả về JSON với các giá trị mặc định (null, 0 hoặc chuỗi rỗng) đối với các trường kế hoạch, nhưng vẫn đưa ra phản hồi thân thiện, tán gẫu hoặc hướng dẫn trong trường ""GeneralAdvice"".
+- Nếu câu hỏi không liên quan (ví dụ: chỉ là lời chào hỏi hoặc hỏi cách sử dụng), hãy trả về JSON với các giá trị mặc định (null, 0 hoặc chuỗi rỗng) đối với các trường kế hoạch, nhưng vẫn đưa ra phản hồi thân thiện, tán gẫu đồng thời trả lời
+là một chuyên gia dinh dưỡng và huấn luyện thể hình (hoặc hướng dẫn) trong trường ""GeneralAdvice"".
 - Trường ""health_or_fitness"" phải được đặt thành true nếu câu hỏi liên quan tới tư vấn food và các bài tập thể dục, false nếu không.
 
 Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đề hay bất kỳ ký tự nào bên ngoài JSON:
@@ -25,18 +27,18 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
       ""Breakfast"": {{
         ""FoodItems"": [
           {{
-            ""FoodId"": ""null"",
+            ""FoodId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
             ""Name"": ""null"",
             ""Portion"": {{
               ""Size"": ""null"",
-              ""Weight"": null,
+              ""Weight"": 0.0,
               ""Unit"": ""null""
             }},
             ""Nutrition"": {{
-              ""Calories"": null,
-              ""Protein"": null,
-              ""Carbs"": null,
-              ""Fat"": null
+              ""Calories"": 0.0,
+              ""Protein"": 0.0,
+              ""Carbs"": 0.0,
+              ""Fat"": 0.0
             }}
           }}
         ]
@@ -44,18 +46,18 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
       ""Lunch"": {{
         ""FoodItems"": [
           {{
-            ""FoodId"": ""null"",
+            ""FoodId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
             ""Name"": ""null"",
             ""Portion"": {{
               ""Size"": ""null"",
-              ""Weight"": null,
+              ""Weight"": 0.0,
               ""Unit"": ""null""
             }},
             ""Nutrition"": {{
-              ""Calories"": null,
-              ""Protein"": null,
-              ""Carbs"": null,
-              ""Fat"": null
+              ""Calories"": 0.0,
+              ""Protein"": 0.0,
+              ""Carbs"": 0.0,
+              ""Fat"": 0.0
             }}
           }}
         ]
@@ -63,18 +65,18 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
       ""Dinner"": {{
         ""FoodItems"": [
           {{
-            ""FoodId"": ""null"",
+            ""FoodId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
             ""Name"": ""null"",
             ""Portion"": {{
               ""Size"": ""null"",
-              ""Weight"": null,
+              ""Weight"": 0.0,
               ""Unit"": ""null""
             }},
             ""Nutrition"": {{
-              ""Calories"": null,
-              ""Protein"": null,
-              ""Carbs"": null,
-              ""Fat"": null
+              ""Calories"": 0.0,
+              ""Protein"": 0.0,
+              ""Carbs"": 0.0,
+              ""Fat"": 0.0
             }}
           }}
         ]
@@ -82,49 +84,91 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
       ""Snack"": {{
         ""FoodItems"": [
           {{
-            ""FoodId"": ""null"",
+            ""FoodId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
             ""Name"": ""null"",
             ""Portion"": {{
               ""Size"": ""null"",
-              ""Weight"": null,
+              ""Weight"": 0.0,
               ""Unit"": ""null""
             }},
             ""Nutrition"": {{
-              ""Calories"": null,
-              ""Protein"": null,
-              ""Carbs"": null,
-              ""Fat"": null
+              ""Calories"": 0.0,
+              ""Protein"": 0.0,
+              ""Carbs"": 0.0,
+              ""Fat"": 0.0
             }}
           }}
         ]
       }}
     }},
-    ""TotalCalories"": null,
-    ""TotalProtein"": null,
-    ""TotalCarbs"": null,
-    ""TotalFat"":null,
+    ""TotalCalories"": 0.0,
+    ""TotalProtein"": 0.0,
+    ""TotalCarbs"": 0.0,
+    ""TotalFat"": 0.0,
     ""Detail"": ""null""
   }},
   ""WorkoutRoutine"": [
     {{
       ""Stage"": ""null"",
-      ""Exercises"": [""null"", ""null""],
-      ""Duration"": 5
-    }},
-    {{
-      ""Stage"": ""Tập chính"",
-      ""Exercises"": [""null"", ""null""],
-      ""Duration"": 25
+      ""Exercises"": [
+        {{
+          ""Name"": ""null"",
+          ""Sets"": 0,
+          ""Reps"": 0,
+          ""Rest"": 0,
+          ""Duration"": 0
+        }},
+        {{
+          ""Name"": ""null"",
+          ""Sets"": 0,
+          ""Reps"": 0,
+          ""Rest"": 0,
+          ""Duration"": 0
+        }}
+      ]
     }},
     {{
       ""Stage"": ""null"",
-      ""Exercises"": [""null"", ""null""],
-      ""Duration"": 5
+      ""Exercises"": [
+        {{
+          ""Name"": ""null"",
+          ""Sets"": 0,
+          ""Reps"": 0,
+          ""Rest"": 0,
+          ""Duration"": 0
+        }},
+        {{
+          ""Name"": ""null"",
+          ""Sets"": 0,
+          ""Reps"": 0,
+          ""Rest"": 0,
+          ""Duration"": 0
+        }}
+      ]
+    }},
+    {{
+      ""Stage"": ""null"",
+      ""Exercises"": [
+        {{
+          ""Name"": ""null"",
+          ""Sets"": 0,
+          ""Reps"": 0,
+          ""Rest"": 0,
+          ""Duration"": 0
+        }},
+        {{
+          ""Name"": ""null"",
+          ""Sets"": 0,
+          ""Reps"": 0,
+          ""Rest"": 0,
+          ""Duration"": 0
+        }}
+      ]
     }}
   ],
   ""health_or_fitness"": false,
   ""GeneralAdvice"": """",
-  ""SummaryConversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
+  ""SummaryConversation"": """"
 }}
   
 Lưu ý:
@@ -132,6 +176,8 @@ Lưu ý:
 - TUYỆT ĐỐI chỉ trả về JSON hợp lệ. Không được ghi thêm bất kỳ chữ nào ngoài JSON.
 ";
     }
+
+
 
     public static string BuildFullPrompt(ChatBotAi chatBotAi)
     {
@@ -263,21 +309,63 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
     ""TotalFat"": Tính toán phù hợp với 'FatGoal',
     ""Detail"": ""Mô tả chi tiết thành phần dinh dưỡng, lý do chọn từng món, và gợi ý thay thế nếu cần.""
   }},
-  ""WorkoutRoutine"": [
+   ""WorkoutRoutine"": [
     {{
       ""Stage"": ""Khởi động"",
-      ""Exercises"": [""Xoay khớp cổ tay"", ""Xoay khớp gối""],
-      ""Duration"": 5
+      ""Exercises"": [
+        {{
+          ""Name"": ""Xoay khớp cổ tay"",
+          ""Sets"": 3,
+          ""Reps"": 15,
+          ""Rest"": 30,
+          ""Duration"": 5
+        }},
+        {{
+          ""Name"": ""Xoay khớp gối"",
+          ""Sets"": 3,
+          ""Reps"": 15,
+          ""Rest"": 30,
+          ""Duration"": 5
+        }}
+      ]
     }},
     {{
       ""Stage"": ""Tập chính"",
-      ""Exercises"": [""Squats"", ""Push-ups""],
-      ""Duration"": 25
+      ""Exercises"": [
+        {{
+          ""Name"": ""Squats"",
+          ""Sets"": 4,
+          ""Reps"": 12,
+          ""Rest"": 60,
+          ""Duration"": 10
+        }},
+        {{
+          ""Name"": ""Push-ups"",
+          ""Sets"": 4,
+          ""Reps"": 12,
+          ""Rest"": 60,
+          ""Duration"": 15
+        }}
+      ]
     }},
     {{
       ""Stage"": ""Giãn cơ"",
-      ""Exercises"": [""Giãn cơ lưng"", ""Thở sâu thư giãn""],
-      ""Duration"": 5
+      ""Exercises"": [
+        {{
+          ""Name"": ""Giãn cơ lưng"",
+          ""Sets"": 2,
+          ""Reps"": 30,
+          ""Rest"": 0,
+          ""Duration"": 5
+        }},
+        {{
+          ""Name"": ""Thở sâu thư giãn"",
+          ""Sets"": 2,
+          ""Reps"": 10,
+          ""Rest"": 0,
+          ""Duration"": 5
+        }}
+      ]
     }}
   ],
   ""health_or_fitness"": true,
@@ -285,10 +373,6 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
   ""SummaryConversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
 }}
 ";
-
-
-
-
     }
   }
 }
