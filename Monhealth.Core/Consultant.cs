@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class Consultant : TimeEntity, IReceiver
+    public class Consultant : TimeEntity, ISender
     {
         [Key]
         public Guid Id { get; set; }

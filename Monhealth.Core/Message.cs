@@ -1,5 +1,5 @@
 ﻿using Monhealth.Domain.Common;
-using Monhealth.Domain.CommonKey;
+using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,9 +16,17 @@ namespace Monhealth.Domain
 
         [ForeignKey(nameof(ChatId))]
         public Chat Chat { get; set; }
+        // Navigation properties
         [ForeignKey(nameof(SenderId))]
-        public ISender Sender { get; set; }
+        public AppUser SenderAppUser { get; set; }
+
+        [ForeignKey(nameof(SenderId))]
+        public Consultant SenderConsultant { get; set; }
+
         [ForeignKey(nameof(ReceiverId))]
-        public ISender Receiver { get; set; }
+        public AppUser ReceiverAppUser { get; set; }
+
+        [ForeignKey(nameof(ReceiverId))]
+        public Consultant ReceiverConsultant { get; set; }
     }
 }

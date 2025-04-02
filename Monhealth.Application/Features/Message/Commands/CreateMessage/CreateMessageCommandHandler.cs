@@ -26,7 +26,7 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                     Messages = new List<Domain.Message>()
                 };
                 chatRepository.Add(chat);
-
+                await chatRepository.SaveChangeAsync(cancellationToken);
             }
             var newMessage = new Domain.Message
             {

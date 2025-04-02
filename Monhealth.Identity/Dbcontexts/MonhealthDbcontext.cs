@@ -112,22 +112,33 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(d => d.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Cấu hình quan hệ cho Message và AppUser
             builder.Entity<Message>()
-              .HasOne(m => m.Chat)
-                 .WithMany(c => c.Messages)
-                 .HasForeignKey(m => m.ChatId);
-
-            builder.Entity<Message>()
-                .HasOne(m => m.Sender)
+                .HasOne(m => m.SenderAppUser)
                 .WithMany()
                 .HasForeignKey(m => m.SenderId)
-                .OnDelete(DeleteBehavior.Restrict); // prevent cascade
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Message>()
-                .HasOne(m => m.Receiver)
+                .HasOne(m => m.ReceiverAppUser)
                 .WithMany()
                 .HasForeignKey(m => m.ReceiverId)
-                .OnDelete(DeleteBehavior.Restrict); // prevent cascade
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Cấu hình quan hệ cho Message và Consultant
+            builder.Entity<Message>()
+                .HasOne(m => m.SenderConsultant)
+                .WithMany()
+                .HasForeignKey(m => m.SenderId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Message>()
+                .HasOne(m => m.ReceiverConsultant)
+                .WithMany()
+                .HasForeignKey(m => m.ReceiverId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
             var mealTypeComparer = new ValueComparer<List<MealType>>(
                    (c1, c2) => c1.SequenceEqual(c2),
                    c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),

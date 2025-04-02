@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Identity.Models
 {
-    public class AppUser : IdentityUser<Guid>, IReceiver
+    public class AppUser : IdentityUser<Guid>, ISender
     {
         public string FullName { get; set; } = null!;
         public string? RefreshToken { get; set; }
