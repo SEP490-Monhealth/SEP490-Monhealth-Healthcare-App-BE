@@ -8,7 +8,8 @@ namespace Monhealth.Application.Automapper
     {
         public DaiLyWaterProfile()
         {
-            CreateMap<DailyWaterDTO, DailyWaterIntake>().ReverseMap();
+            CreateMap<DailyWaterIntake, DailyWaterDTO>()
+                .ForMember(dest => dest.GoalType, opt => opt.MapFrom(src => src.Goal.GoalType));
         }
     }
 }

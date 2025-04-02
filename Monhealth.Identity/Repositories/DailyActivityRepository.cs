@@ -26,7 +26,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<DailyActivity> GetDailyActivityByUserIdAndCreateAt(Guid userId, DateTime today)
         {
             var dateToDay = today.Date;
-            var dailyActivity = await _context.DailyActivities
+            var dailyActivity = await _context.DailyActivities.Include(g => g.Goal)
                 .FirstOrDefaultAsync(u => u.UserId == userId
                                             && u.CreatedAt.HasValue
                                             && u.CreatedAt.Value.Date == dateToDay);

@@ -100,6 +100,11 @@ namespace Monhealth.Identity.Repositories
             (d => d.CreatedAt == createAt && d.UserId == userID);
         }
 
+        public async Task<DailyMeal> GetDailyMealsByCreateAt(DateTime createAt)
+        {
+            return await _context.DailyMeals.FirstOrDefaultAsync(d => d.CreatedAt.Value.Date == createAt.Date);
+        }
+
         public async Task<DailyMeal> GetDailyMealsByUser(Guid userId, DateTime createAt)
         {
             var mealTypeOrder = new Dictionary<string, int>

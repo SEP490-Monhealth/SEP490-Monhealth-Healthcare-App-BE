@@ -1,8 +1,8 @@
 ﻿using Monhealth.Domain.Common;
 
-namespace Monhealth.Application.Features.Activity.Queries.GetActivityByUserId
+namespace Monhealth.Application.Features.Activity.Queries.GetAllActivities
 {
-    public class GetActivityByUserIdDTO: TimeEntity
+    public class GetAllActivitiesDTO : TimeEntity
     {
         public Guid ActivityId { get; set; }
         public Guid? UserId { get; set; }

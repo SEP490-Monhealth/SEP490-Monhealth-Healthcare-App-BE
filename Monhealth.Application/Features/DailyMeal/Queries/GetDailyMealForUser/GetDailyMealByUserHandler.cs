@@ -120,7 +120,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
             {
                 DailyMealId = query.DailyMealId,
                 Nutrition = nutrition,
-                // Goal = goal,
+                GoalType = query.Goal.GoalType,
                 Items = sortedMeals,
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt

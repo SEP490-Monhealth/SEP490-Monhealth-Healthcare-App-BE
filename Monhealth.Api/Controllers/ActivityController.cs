@@ -5,6 +5,7 @@ using Monhealth.Application;
 using Monhealth.Application.Features.Activity.Commands.CreateActivity;
 using Monhealth.Application.Features.Activity.Commands.DeleteActivity;
 using Monhealth.Application.Features.Activity.Queries.GetActivityByUserId;
+using Monhealth.Application.Features.Activity.Queries.GetAllActivities;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -17,6 +18,19 @@ namespace Monhealth.Api.Controllers
         public ActivityController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<ResultModel>> GetAllActivities()
+        {
+            var activities = await _mediator.Send(new GetAllActivitiesQuery());
+
+            return new ResultModel
+            {
+                Data = activities,
+                Status = 200,
+                Success = true,
+            };
         }
 
         [HttpGet("user/{userId}")]

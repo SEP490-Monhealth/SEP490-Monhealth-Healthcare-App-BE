@@ -33,6 +33,7 @@ namespace Monhealth.Identity.Models
         // [InverseProperty(nameof(Booking.Consultant))]
         // public ICollection<Booking> ConsultantBookings { get; set; }
         public ICollection<Activity> Activities { get; set; } = [];
+        public ICollection<DailyMeal> DailyMeals { get; set; } = [];
         public ICollection<DailyActivity> DailyActivities { get; set; } = [];
         public ICollection<DailyWaterIntake> DailyWaterIntakes { get; set; } = [];
         public ICollection<UserCategory> UserCategories { get; set; } = [];

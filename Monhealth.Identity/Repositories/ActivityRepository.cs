@@ -17,9 +17,24 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+        public async Task<List<Activity>> GetActivitiesByDailyActivityId(Guid dailyActivityId)
+        {
+            return await _context.Activities.Include(w => w.Workout).Where(u => u.DailyActivityId == dailyActivityId).ToListAsync();
+        }
+
+        public async Task<Activity> GetActivitiesById(Guid activityId)
+        {
+            return await _context.Activities.Include(w => w.Workout).FirstOrDefaultAsync(u => u.ActivityId == activityId);
+        }
+
         public async Task<List<Activity>> GetActivitiesByUserId(Guid userId)
         {
-            return await _context.Activities.Where(u => u.UserId == userId).ToListAsync();
+            return await _context.Activities.Include(w => w.Workout).Where(u => u.UserId == userId).ToListAsync();
+        }
+
+        public async Task<List<Activity>> GetAllActivities()
+        {
+            return await _context.Activities.Include(w => w.Workout).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
