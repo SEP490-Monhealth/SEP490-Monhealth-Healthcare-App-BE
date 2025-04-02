@@ -94,6 +94,12 @@ namespace Monhealth.Identity.Repositories
             .FirstOrDefaultAsync(dm => dm.DailyMealId == dailyMealId, cancellationToken);
         }
 
+        public Task<DailyMeal> GetDaiLyMealByUser( Guid UserId, DateTime DateTime)
+        {
+             return _context.DailyMeals
+             .FirstOrDefaultAsync(dl =>  dl.UserId == UserId && dl.CreatedAt == DateTime);
+        }
+
         public async Task<DailyMeal> GetDailyMealByUserAndDate(DateTime createAt, Guid userID)
         {
             return await _context.DailyMeals.FirstOrDefaultAsync

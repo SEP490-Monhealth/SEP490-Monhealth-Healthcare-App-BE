@@ -30,7 +30,6 @@ namespace Monhealth.Application
     {
         public string Stage { get; set; } = string.Empty;
         public List<ExerciseDToAi> Exercises { get; set; } = [];
-        public int Duration { get; set; }
     }
     public class BreakfastDTO
     {
@@ -79,6 +78,6 @@ namespace Monhealth.Application
         public int Sets { get; set; }
         public int Reps { get; set; }
         public int Rest { get; set; }
-
+        public int Duration { get; set; }
     }
 }

@@ -72,7 +72,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<AppUser> GetUserByIdAsync(Guid userId)
         {
-            return await _context.Users.Include(g => g.Goals)
+            return await _context.Users.Include(g => g.Goals).Include(u => u.UserSubscriptions)
             .FirstOrDefaultAsync(u => u.Id == userId);
         }
 

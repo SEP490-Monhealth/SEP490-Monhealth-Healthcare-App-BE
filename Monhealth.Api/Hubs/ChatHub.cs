@@ -28,7 +28,7 @@ namespace Monhealth.Api.Hubs
                 userConnectionManager.RemoveConnection(Guid.Parse(userId), Context.ConnectionId);
             }
 
-            await base.OnDisconnectedAsync(exception);
+        await base.OnDisconnectedAsync(exception);
         }
         public async Task JoinChat(Guid chatId)
         {
