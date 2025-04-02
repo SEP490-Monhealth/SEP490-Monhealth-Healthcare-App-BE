@@ -29,6 +29,7 @@
   <ItemGroup>
     <Folder Include="Features\Chat\Commands\Send\" />
     <Folder Include="Features\Chat\Queries\" />
+    <Folder Include="Features\UserNotification\Commands\" />
     <Folder Include="Features\Workout\Queries\GetWorkoutByUserIdQueries\" />
   </ItemGroup>
 
