@@ -1,5 +1,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
@@ -8,14 +9,18 @@ namespace Monhealth.Application
 
         public async Task<GetActivityByDTO> Handle(GetActivityByIdQuery request, CancellationToken cancellationToken)
         {
-            var query = await activityRepository.GetByIdAsync(request.ActivityId);
+            var query = await activityRepository.GetActivitiesById(request.ActivityId);
             return new GetActivityByDTO
             {
-             ActivityId = query.ActivityId,
-             CreatedAt = query.CreatedAt,
-             UpdatedAt = query.UpdatedAt,
-             DailyActivityId = query.DailyActivityId,
-             WorkoutId = query.WorkoutId
+                ActivityId = query.ActivityId,
+                UserId = query.UserId,
+                DailyActivityId = query.DailyActivityId,
+                WorkoutId = query.WorkoutId,
+                CaloriesBurned = query.Workout.CaloriesBurned,
+                DurationMinutes = query.Workout.DurationMinutes,
+                CreatedAt = query.CreatedAt,
+                UpdatedAt = query.UpdatedAt,
+
             };
         }
     }
