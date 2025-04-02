@@ -7,7 +7,7 @@ namespace Monhealth.Application
         public MealPlanDto MealPlan { get; set; } = null!;
         public List<WorkoutStageDto>? WorkoutRoutine { get; set; }
         [JsonPropertyName("GeneralAdvice")]
-        public string TuVanTongQuanTuAI { get; set; } = string.Empty;
+        public string GeneralAdvice { get; set; } = string.Empty;
 
         [JsonPropertyName("SummaryConversation")]
         public string SummaryConversation { get; set; } = string.Empty;

@@ -21,33 +21,110 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
 
 {{
   ""MealPlan"": {{
-    ""Breakfast"": null,
-    ""Lunch"": null,
-    ""Dinner"": null,
-    ""Snack"": null,
-    ""TotalCalories"": 0,
-    ""Detail"": null
+    ""Meal"": {{
+      ""Breakfast"": {{
+        ""FoodItems"": [
+          {{
+            ""FoodId"": ""null"",
+            ""Name"": ""null"",
+            ""Portion"": {{
+              ""Size"": ""null"",
+              ""Weight"": null,
+              ""Unit"": ""null""
+            }},
+            ""Nutrition"": {{
+              ""Calories"": null,
+              ""Protein"": null,
+              ""Carbs"": null,
+              ""Fat"": null
+            }}
+          }}
+        ]
+      }},
+      ""Lunch"": {{
+        ""FoodItems"": [
+          {{
+            ""FoodId"": ""null"",
+            ""Name"": ""null"",
+            ""Portion"": {{
+              ""Size"": ""null"",
+              ""Weight"": null,
+              ""Unit"": ""null""
+            }},
+            ""Nutrition"": {{
+              ""Calories"": null,
+              ""Protein"": null,
+              ""Carbs"": null,
+              ""Fat"": null
+            }}
+          }}
+        ]
+      }},
+      ""Dinner"": {{
+        ""FoodItems"": [
+          {{
+            ""FoodId"": ""null"",
+            ""Name"": ""null"",
+            ""Portion"": {{
+              ""Size"": ""null"",
+              ""Weight"": null,
+              ""Unit"": ""null""
+            }},
+            ""Nutrition"": {{
+              ""Calories"": null,
+              ""Protein"": null,
+              ""Carbs"": null,
+              ""Fat"": null
+            }}
+          }}
+        ]
+      }},
+      ""Snack"": {{
+        ""FoodItems"": [
+          {{
+            ""FoodId"": ""null"",
+            ""Name"": ""null"",
+            ""Portion"": {{
+              ""Size"": ""null"",
+              ""Weight"": null,
+              ""Unit"": ""null""
+            }},
+            ""Nutrition"": {{
+              ""Calories"": null,
+              ""Protein"": null,
+              ""Carbs"": null,
+              ""Fat"": null
+            }}
+          }}
+        ]
+      }}
+    }},
+    ""TotalCalories"": null,
+    ""TotalProtein"": null,
+    ""TotalCarbs"": null,
+    ""TotalFat"":null,
+    ""Detail"": ""null""
   }},
   ""WorkoutRoutine"": [
     {{
       ""Stage"": ""null"",
-      ""Exercises"": null,
-      ""Duration"": 0
+      ""Exercises"": [""null"", ""null""],
+      ""Duration"": 5
+    }},
+    {{
+      ""Stage"": ""Tập chính"",
+      ""Exercises"": [""null"", ""null""],
+      ""Duration"": 25
     }},
     {{
       ""Stage"": ""null"",
-      ""Exercises"": null,
-      ""Duration"": 0
-    }},
-    {{
-      ""Stage"": ""null"",
-      ""Exercises"": null,
-      ""Duration"": 0
+      ""Exercises"": [""null"", ""null""],
+      ""Duration"": 5
     }}
   ],
   ""health_or_fitness"": false,
   ""GeneralAdvice"": """",
-  ""SummaryConversation"": """"
+  ""SummaryConversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
 }}
   
 Lưu ý:
@@ -61,7 +138,7 @@ Lưu ý:
       return @$"
 Bạn là một chuyên gia tư vấn dinh dưỡng và huấn luyện thể hình trong hệ thống chăm sóc sức khỏe cá nhân hóa, tính cách vui vẻ hài hước , lầy lội xíu.
 Nhiệm vụ của bạn là phân tích dữ liệu thể trạng, mục tiêu cá nhân, danh sách món ăn và các bài tập hiện có trong hệ thống thông qua 'Metric' và 'Goal'
-để xây dựng một **kế hoạch ăn uống và luyện tập phù hợp trong ngày**, hỗ trợ người dùng đạt mục tiêu tăng cân, tăng cơ, cải thiện thể chất.
+để xây dựng một **kế hoạch ăn uống và luyện tập phù hợp trong ngày**, hỗ trợ người dùng đạt mục tiêu theo nhu cầu của họ.
 Ưu tiên gợi ý món ăn, bài tập theo yêu cầu và sở thích của người dùng.loại bỏ những món ăn, bài tập người dùng bị dị ứng hoặc không thích.
 
 Dưới đây là dữ liệu đầu vào từ người dùng:
@@ -180,10 +257,10 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
         ]
       }}
     }},
-    ""TotalCalories"": 2000.0,
-    ""TotalProtein"": 90.0,
-    ""TotalCarbs"": 700.0,
-    ""TotalFat"": 400.0,
+    ""TotalCalories"": Tính toán phù hợp với 'CaloriesGoal',
+    ""TotalProtein"": Tính toán phù hợp với 'ProteinGoal',
+    ""TotalCarbs"": Tính toán phù hợp với 'CarbsGoal',
+    ""TotalFat"": Tính toán phù hợp với 'FatGoal',
     ""Detail"": ""Mô tả chi tiết thành phần dinh dưỡng, lý do chọn từng món, và gợi ý thay thế nếu cần.""
   }},
   ""WorkoutRoutine"": [
