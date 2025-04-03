@@ -60,7 +60,10 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<ConsultantBank>> GetConsultantBankByConsultantIdAsync(Guid consultantId)
         {
-            return await _context.ConsultantBanks.Include(b => b.Bank).Where(c => c.ConsultantId == consultantId).ToListAsync();
+            return await _context.ConsultantBanks.Include(b => b.Bank)
+                .Where(c => c.ConsultantId == consultantId)
+                .OrderByDescending(c => c.IsDefault)
+                .ToListAsync();
         }
 
         public async Task<ConsultantBank> GetConsultantBankById(Guid consultantBankId)
