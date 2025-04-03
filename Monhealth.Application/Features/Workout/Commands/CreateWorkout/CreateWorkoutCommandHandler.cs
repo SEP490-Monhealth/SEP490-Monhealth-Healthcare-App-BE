@@ -37,7 +37,6 @@ namespace Monhealth.Application.Features.Workout.Commands.CreateWorkout
             {
                 exercise.WorkoutId = workout.WorkoutId;
                 exercise.Order++;
-                exercise.IsCompleted = true;
                 // durationTotal = exercise.DurationSeconds + exercise.Reps * 2;
 
             }

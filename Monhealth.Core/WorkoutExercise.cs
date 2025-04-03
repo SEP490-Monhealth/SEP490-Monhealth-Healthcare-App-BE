@@ -14,7 +14,6 @@ namespace Monhealth.Domain
         public int Order { get; set; } = default!;
         public int DurationSeconds { get; set; } = default!;
         public int Reps { get; set; } = default!;
-        public bool? IsCompleted { get; set; }
 
         [ForeignKey(nameof(WorkoutId))]
         public Workout Workout { get; set; }

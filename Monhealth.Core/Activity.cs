@@ -12,7 +12,7 @@ namespace Monhealth.Domain
         public Guid? UserId { get; set; }
         public Guid? DailyActivityId { get; set; }
         public Guid? WorkoutId { get; set; }
-
+        public bool IsCompleted { get; set; } = false;
         [ForeignKey(nameof(UserId))]
         public AppUser? AppUser { get; set; }
         [ForeignKey(nameof(DailyActivityId))]
