@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.UpdateConsultan
     {
         public async Task<bool> Handle(UpdateConsultantBankCommand request, CancellationToken cancellationToken)
         {
-            if (await consultantBankRepository.CheckAccountNumber(request.UpdateConsultantBankDTO.AccountNumber))
+            if (await consultantBankRepository.CheckAccountNumber(request.UpdateConsultantBankDTO.AccountNumber, request.ConsultantBankId))
             {
                 throw new Exception("Số tài khoản đã tồn tại");
             }

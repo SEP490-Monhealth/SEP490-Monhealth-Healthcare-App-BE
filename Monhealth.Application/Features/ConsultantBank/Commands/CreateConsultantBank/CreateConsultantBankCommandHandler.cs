@@ -16,7 +16,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultan
             {
                 throw new Exception("Ngân hàng không tồn tại");
             }
-            if (await consultantBankRepository.CheckAccountNumber(request.CreateConsultantBankDTO.AccountNumber))
+            if (await consultantBankRepository.CheckAccountNumber(request.CreateConsultantBankDTO.AccountNumber, null))
             {
                 throw new Exception("Số tài khoản đã tồn tại");
             }

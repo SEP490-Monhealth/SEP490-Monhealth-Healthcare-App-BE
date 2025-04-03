@@ -9,7 +9,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<ConsultantBank> GetConsultantBankById(Guid consultantBankId);
         Task<List<ConsultantBank>> GetConsultantBankByConsultantIdAsync(Guid consultantId);
         Task<ConsultantBank> GetConsultantBankByConsultant(Guid conSultantBankId);
-        Task<bool> CheckAccountNumber(string? accountNumber);
+        Task<bool> CheckAccountNumber(string? accountNumber, Guid? excludeId);
         Task SetDefaultBankAccountAsync(Guid consultantId);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
     }

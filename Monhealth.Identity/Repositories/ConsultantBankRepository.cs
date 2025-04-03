@@ -11,9 +11,11 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<bool> CheckAccountNumber(string? accountNumber)
+        public async Task<bool> CheckAccountNumber(string? accountNumber, Guid? excludeId = null)
         {
-            return await _context.ConsultantBanks.AnyAsync(a => a.AccountNumber.ToLower() == accountNumber.ToLower().Trim());
+            return await _context.ConsultantBanks.AnyAsync(a => a.AccountNumber.ToLower() == accountNumber.ToLower().Trim() &&
+                (!excludeId.HasValue || a.ConsultantBankId != excludeId)
+            );
         }
 
         public async Task<PaginatedResult<ConsultantBank>> GetAllConsultantBanksAsync(int page, int limit, string? search, bool? status)
