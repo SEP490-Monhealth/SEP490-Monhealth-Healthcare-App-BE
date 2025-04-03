@@ -12,6 +12,11 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<bool> CheckScheduleIsExceptionAsync(DateOnly date)
+        {
+            return await _context.ScheduleExceptions.AnyAsync(sk => sk.Date == date);
+        }
+
         public async Task<PaginatedResult<ScheduleException>> GetAllScheduleExceptionsAsync(int page, int limit)
         {
             IQueryable<ScheduleException> query = _context.ScheduleExceptions.AsQueryable();

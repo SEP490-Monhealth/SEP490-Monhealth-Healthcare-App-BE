@@ -35,12 +35,14 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public async Task<Schedule> GetScheduleAsync(Guid consultantId, ScheduleType scheduleType, RecurringDay recurringDay)
+        public async Task<Schedule> GetScheduleAsync(Guid consultantId, ScheduleType scheduleType, RecurringDay? recurringDay, DateOnly? specificDate)
         {
             return await _context.Schedules.Include(s => s.ScheduleTimeSlots).ThenInclude(st => st.TimeSlot)
-                    .FirstOrDefaultAsync(s => s.ConsultantId == consultantId
+                    .FirstOrDefaultAsync(s => (s.ConsultantId == consultantId
                     && s.ScheduleType == scheduleType
-                    && s.RecurringDay == recurringDay);
+                    && s.RecurringDay == recurringDay)
+                    || (s.SpecificDate == specificDate && s.ConsultantId == consultantId)
+                    );
 
         }
 

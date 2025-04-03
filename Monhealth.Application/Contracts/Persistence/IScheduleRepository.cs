@@ -9,7 +9,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<int> SaveChangeAsync();
         Task<PaginatedResult<Schedule>> GetAllScheduleAsync(int page, int limit);
         Task<List<Schedule>> GetSchedulesByUser(Guid userId, DateOnly? Date);
-        Task<Schedule> GetScheduleAsync(Guid consultantId, ScheduleType scheduleType, RecurringDay recurringDay);
+        Task<Schedule> GetScheduleAsync(Guid consultantId, ScheduleType scheduleType, RecurringDay? recurringDay, DateOnly? specificDate);
         Task<Schedule> GetScheduleByIdAsync(Guid ScheduleId);
     }
 }
