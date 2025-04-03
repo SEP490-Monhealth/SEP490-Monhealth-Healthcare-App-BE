@@ -1,9 +1,6 @@
 ﻿using MediatR;
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultantBanks;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankByConsultantId;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankById;
 using Monhealth.Application.Models;
 using Monhealth.Application.Features.UserNotification.Queries.GetAllUserNotifications;
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationById;

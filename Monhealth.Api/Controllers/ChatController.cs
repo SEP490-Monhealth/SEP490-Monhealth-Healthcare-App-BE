@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Monhealth.Application;
 using Monhealth.Application.Features.Chat.Commands.CreateChat;
 using Monhealth.Application.Models;
@@ -8,7 +9,7 @@ namespace Monhealth.Api.Controllers
 {
     [Route("api/v1/chats")]
     [ApiController]
-    public class ChatController(IMediator mediator) : ControllerBase
+    public class ChatController(IMediator mediator, IHubContext<SignalRHub> _hubContext) : ControllerBase
     {
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateChat([FromBody] CreateChatCommand command)
@@ -31,6 +32,15 @@ namespace Monhealth.Api.Controllers
             var query = new ChatBotAiListQuery(request.UserId, request.Query);
 
             var (chatBotAi, aiResult) = await mediator.Send(query);
+
+            var message = new
+            {
+                messageId = Guid.NewGuid().ToString(),
+                sender = "MonAI",
+                content = aiResult,
+            };
+
+            await _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
 
             return Ok(new ResultModel
             {
