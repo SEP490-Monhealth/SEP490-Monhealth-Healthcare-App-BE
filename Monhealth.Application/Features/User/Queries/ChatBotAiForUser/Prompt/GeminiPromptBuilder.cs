@@ -203,21 +203,21 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
 
 - Nếu dữ liệu người dùng cho thấy họ quan tâm đến sức khỏe, dinh dưỡng và tập luyện (ví dụ: danh sách món ăn và bài tập không rỗng), hãy xây dựng kế hoạch chi tiết như sau:
   - **Chế độ ăn:** Chia thành 3 bữa chính và 1 bữa phụ (Snack, nếu cần). Ưu tiên lựa chọn món ăn từ danh sách `foods` có sẵn, dễ tìm tại Việt Nam, hỗ trợ tối ưu cho **nhu cầu của người dùng , những món ăn mà bạn gợi ý phải tính toán lại'Nutrition'
-  trong hệ thống sao cho bằng với các thông số trong 'Goal' của người dùng!**.
-  - Ghi rõ tổng năng lượng và dưỡng chất tiêu thụ trong ngày, gần với mục tiêu: `CaloriesGoal`, `ProteinGoal`, `CarbsGoal`, `FatGoal`.
-  - **Giải thích:** Nêu rõ lý do chọn món ăn, mô tả chi tiết thành phần dinh dưỡng và gợi ý thay thế nếu có dị ứng hoặc hạn chế.
+  trong hệ thống sao cho bằng với các thông số trong 'Goal' của người dùng!。
+  - Ghi rõ tổng năng lượng và dưỡng chất tiêu thụ trong ngày, gần với mục tiêu: `CaloriesGoal`, `ProteinGoal`, `CarbsGoal`, `FatGoal`。
+  - **Giải thích:** Nêu rõ lý do chọn món ăn, mô tả chi tiết thành phần dinh dưỡng và gợi ý thay thế nếu có dị ứng hoặc hạn chế。
 
   - **Kế hoạch luyện tập:** Bao gồm 3 giai đoạn:
     - **Khởi động** (5 phút)
     - **Tập chính** (tối thiểu 25 phút)
     - **Giãn cơ** (5 phút)
-  - Lựa chọn bài tập từ danh sách `workouts` sao cho phù hợp với khả năng, đảm bảo thời lượng ≥ `WorkoutDurationGoal` và đốt cháy ≥ `CaloriesBurnedGoal`.
+  - Lựa chọn bài tập từ danh sách `workouts` sao cho phù hợp với khả năng, đảm bảo thời lượng ≥ `WorkoutDurationGoal` và đốt cháy ≥ `CaloriesBurnedGoal`。
 
-- Nếu dữ liệu người dùng không đủ (ví dụ: danh sách món ăn hoặc bài tập rỗng), hãy trả về JSON với các giá trị mặc định và đặt trường ""health_or_fitness"" là false.
+- Nếu dữ liệu người dùng không đủ (ví dụ: danh sách món ăn hoặc bài tập rỗng), hãy trả về JSON với các giá trị mặc định và đặt trường ""health_or_fitness"" là false。
 
 --- 
 
-**Chỉ trả về phản hồi dưới dạng JSON hợp lệ theo đúng cấu trúc dưới đây. Không được thêm bất kỳ mô tả, tiêu đề, markdown hay ký tự nào bên ngoài JSON.**
+**Chỉ trả về phản hồi dưới dạng JSON hợp lệ theo đúng cấu trúc dưới đây. Không được thêm bất kỳ mô tả, tiêu đề, markdown hay ký tự nào bên ngoài JSON。**
 
 {{
   ""MealPlan"": {{
@@ -301,7 +301,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
     }},
     ""Detail"": ""Mô tả chi tiết thành phần dinh dưỡng, lý do chọn từng món, và gợi ý thay thế nếu cần.""
   }},
-   ""WorkoutRoutine"": [
+  ""WorkoutRoutine"": [
     {{
       ""Stage"": ""Khởi động"",
       ""Exercises"": [
@@ -366,5 +366,6 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
 }}
 ";
     }
+
   }
-}
+} 

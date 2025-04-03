@@ -45,7 +45,8 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Payment> GetPayemntByOrderCodeAsync(Guid paymentId)
         {
-            return await _context.Payments.FirstOrDefaultAsync(p => p.PaymentId == paymentId);
+            return await _context.Payments.Include(p => p.UserSubscription).ThenInclude(us => us.User)
+            .FirstOrDefaultAsync(p => p.PaymentId == paymentId);
         }
 
         public async Task<Payment> GetPaymentById(Guid paymentId)

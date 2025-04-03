@@ -158,14 +158,21 @@ namespace Monhealth.Application
         }
             };
 
-
             var checkJson = JsonSerializer.Serialize(checkRequest);
             var checkContent = new StringContent(checkJson, Encoding.UTF8, "application/json");
 
-            var checkResponse = await _httpClient.PostAsync(url, checkContent);
+            // Gửi dữ liệu với Chunked Transfer Encoding
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, url)
+            {
+                Content = checkContent
+            };
+
+            // Send the request with HttpCompletionOption.ResponseHeadersRead
+            var checkResponse = await _httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead);
             var checkResponseString = await checkResponse.Content.ReadAsStringAsync();
 
             _logger.LogInformation("Response from prompt2: {Response}", checkResponseString);
+
             if (!checkResponse.IsSuccessStatusCode)
                 throw new Exception($"Gemini API check call failed: {checkResponseString}");
 
@@ -196,14 +203,11 @@ namespace Monhealth.Application
                         PropertyNamingPolicy = null
                     });
                 }
-
-                // Nếu có liên quan → tiếp tục gọi prompt chính (BuildFullPrompt) để sinh kế hoạch chi tiết
             }
             catch (Exception ex)
             {
                 throw new Exception($"❌ Lỗi khi parse JSON từ AI (Prompt2): {ex.Message}\n\n== Extracted JSON ==\n{checkJsonContent}");
             }
-
 
             // Step 2: fullPrompt cho việc tạo kế hoạch
             var fullPrompt = GeminiPromptBuilder.BuildFullPrompt(chatBotAi);
@@ -224,7 +228,15 @@ namespace Monhealth.Application
             var jsonBody = JsonSerializer.Serialize(requestBody);
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync(url, content);
+            // Create HttpRequestMessage
+            var requestMessage1 = new HttpRequestMessage(HttpMethod.Post, url)
+            {
+                Content = content
+            };
+
+            // Use SendAsync with HttpCompletionOption
+            var response = await _httpClient.SendAsync(requestMessage1, HttpCompletionOption.ResponseHeadersRead);
+
             var responseString = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
