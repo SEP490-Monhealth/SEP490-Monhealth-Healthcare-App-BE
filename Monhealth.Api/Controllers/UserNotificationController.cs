@@ -8,17 +8,18 @@ using Monhealth.Application.Models;
 using Monhealth.Application.Features.UserNotification.Queries.GetAllUserNotifications;
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationById;
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationByNotificationId;
+using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationByUserId;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/usernotifications")]
+    [Route("api/v1/user-notifications")]
     [ApiController]
     public class UserNotificationController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllUserNotifications(int page = 1, int limit = 10, string? search = null)
+        public async Task<ActionResult<ResultModel>> GetAllUserNotifications(int page = 1, int limit = 10, Guid? userId = null, string? search = null)
         {
-            var userNotificationList = await mediator.Send(new GetAllUserNotificationsQuery(page, limit, search));
+            var userNotificationList = await mediator.Send(new GetAllUserNotificationsQuery(page, limit, userId, search));
 
             return new ResultModel
             {
@@ -54,6 +55,17 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetUserNotificationByNoticationId(Guid notificationId)
         {
             var userNotification = await mediator.Send(new GetUserNotificationByNotificationIdQuery { NotificationId = notificationId });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = userNotification
+            });
+        }
+        [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetUserNotificationByUserId(Guid userId)
+        {
+            var userNotification = await mediator.Send(new GetUserNotificationByUserIdQuery { UserId = userId });
             return Ok(new ResultModel
             {
                 Success = true,

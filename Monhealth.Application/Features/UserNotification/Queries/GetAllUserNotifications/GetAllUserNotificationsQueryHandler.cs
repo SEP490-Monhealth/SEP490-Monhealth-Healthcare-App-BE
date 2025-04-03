@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.UserNotification.Queries.GetAllUserNoti
     {
         public async Task<PageResult<GetAllUserNotificationsDTO>> Handle(GetAllUserNotificationsQuery request, CancellationToken cancellationToken)
         {
-            var listUserNotifications = await userNotificationRepository.GetAllUserNotifications(request.Page, request.Limit, request.Search);
+            var listUserNotifications = await userNotificationRepository.GetAllUserNotifications(request.Page, request.Limit, request.UserId, request.Search);
             var listUserNotificationsDTO = mapper.Map<List<GetAllUserNotificationsDTO>>(listUserNotifications.Items);
             return new PageResult<GetAllUserNotificationsDTO>()
             {

@@ -7,11 +7,13 @@ namespace Monhealth.Application.Features.UserNotification.Queries.GetAllUserNoti
     {
         public int Page { get; set; }
         public int Limit { get; set; }
+        public Guid? UserId { get; set; }
         public string? Search { get; set; }
-        public GetAllUserNotificationsQuery(int page, int limit, string? search)
+        public GetAllUserNotificationsQuery(int page, int limit, Guid? userId, string? search)
         {
             Page = page;
             Limit = limit;
+            UserId = userId;
             Search = search;
         }
     }

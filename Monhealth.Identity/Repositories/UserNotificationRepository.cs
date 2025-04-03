@@ -12,9 +12,13 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<UserNotification>> GetAllUserNotifications(int page, int limit, string? search)
+        public async Task<PaginatedResult<UserNotification>> GetAllUserNotifications(int page, int limit, Guid? userId, string? search)
         {
             IQueryable<UserNotification> query = _context.UserNotifications.AsQueryable();
+            if (userId != null)
+            {
+                query = query.Where(x => x.UserId == userId);
+            }
             // filter search
             if (!string.IsNullOrEmpty(search))
             {
@@ -39,6 +43,11 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<UserNotification>> GetUserNotificationByNotificationId(Guid notificationId)
         {
             return await _context.UserNotifications.Where(n => n.NotificationId == notificationId).ToListAsync();
+        }
+
+        public async Task<List<UserNotification>> GetUserNotificationByUserId(Guid userId)
+        {
+            return await _context.UserNotifications.Where(n => n.UserId == userId).ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
