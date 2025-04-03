@@ -21,9 +21,10 @@ namespace Monhealth.Identity.Repositories
             {
                 search = search.Trim().ToLower();
                 query = query.Where(t =>
-                    t.TransactionId.ToString().Contains(search) ||
-                    t.Wallet.Consultant.AppUser.FullName.ToLower().Contains(search)
-                );
+                    t.TransactionId.ToString().Contains(search.ToLower().Trim()) ||
+                    t.WalletId.ToString().Contains(search.ToLower().Trim()) ||
+                    t.BookingId.ToString().Contains(search.ToLower().Trim()) ||
+                    EF.Functions.Collate(t.Wallet.Consultant.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
             }
             if (type.HasValue)
             {

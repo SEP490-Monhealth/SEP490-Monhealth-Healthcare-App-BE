@@ -26,7 +26,10 @@ namespace Monhealth.Identity.Repositories
                 //query = query.Where(s => EF.Functions.Collate(s.Title, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()) ||
                 query = query.Where(s => s.UserNotificationId.ToString().Contains(search.ToLower().Trim()) ||
                                          s.UserId.ToString().Contains(search.ToLower().Trim()) ||
-                                         s.NotificationId.ToString().ToLower().Contains(search.ToLower().Trim()));
+                                         s.NotificationId.ToString().ToLower().Contains(search.ToLower().Trim()) ||
+                                         EF.Functions.Collate(s.AppUser.FullName.ToLower(), "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()) ||
+                                         s.AppUser.Email.ToLower().Contains(search.ToLower().Trim()) ||
+                                         s.AppUser.PhoneNumber.ToLower().Contains(search.ToLower().Trim()));
             }
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)

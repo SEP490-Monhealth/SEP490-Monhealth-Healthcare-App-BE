@@ -21,7 +21,8 @@ namespace Monhealth.Identity.Repositories
             if (!string.IsNullOrEmpty(search))
             {
                 // cho phep search khong dau
-                query = query.Where(s => EF.Functions.Collate(s.SubscriptionName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+                query = query.Where(s => EF.Functions.Collate(s.SubscriptionName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
+                                         s.SubscriptionId.ToString().ToLower().Contains(search.ToLower().Trim()));
             }
 
             if (sort.HasValue)

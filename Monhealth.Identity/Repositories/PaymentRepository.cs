@@ -28,7 +28,9 @@ namespace Monhealth.Identity.Repositories
             }
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(x => x.UserSubscription.User.FullName.Contains(search));
+                query = query.Where(x => x.PaymentId.ToString().ToLower().Contains(search.ToLower().Trim()) ||
+                                         x.UserSubscriptionId.ToString().ToLower().Contains(search.ToLower().Trim()) ||
+                                         EF.Functions.Collate(x.UserSubscription.User.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()));
             }
             if (page > 0 && limit > 0)
             {

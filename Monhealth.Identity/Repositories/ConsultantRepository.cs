@@ -50,12 +50,12 @@ namespace Monhealth.Identity.Repositories
 
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(c => EF.Functions.Collate(c.AppUser.FullName.ToLower(), "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
-                                c.AppUser.FullName.ToLower().Contains(search.ToLower())
-                                 || c.AppUser.PhoneNumber.Contains(search)
-                                 || c.Id.ToString().Contains(search.ToLower())
-
-                                 );
+                query = query.Where(c => c.Id.ToString().ToLower().Contains(search.ToLower().Trim())
+                                      || c.UserId.ToString().ToLower().Contains(search.ToLower().Trim())
+                                      || c.ExpertiseId.ToString().ToLower().Contains(search.ToLower().Trim())
+                                      || c.AppUser.PhoneNumber.Contains(search.ToLower().Trim())
+                                      || c.AppUser.Email.Contains(search.ToLower().Trim())
+                                      || EF.Functions.Collate(c.AppUser.FullName.ToLower(), "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()));
             }
 
             if (status.HasValue)

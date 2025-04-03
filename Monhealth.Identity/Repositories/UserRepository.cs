@@ -15,7 +15,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status)
         {
-            search = search?.Trim();
+            search = search?.ToLower().Trim();
             IQueryable<AppUser> query = _context.Users
      .Where(u => !_context.UserRoles
          .Any(ur => ur.UserId == u.Id && _context.Roles
@@ -26,8 +26,7 @@ namespace Monhealth.Identity.Repositories
                 search = search.ToLower();
                 query = query.Where(s => (s.PhoneNumber.ToLower().Contains(search) ||
                                           s.Email.ToLower().Contains(search) ||
-                                          s.FullName.ToLower().Contains(search))
-                                          );
+                                          EF.Functions.Collate(s.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search)));
             }
             if (!string.IsNullOrEmpty(role))
             {

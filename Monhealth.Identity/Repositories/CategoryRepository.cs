@@ -24,7 +24,8 @@ namespace Monhealth.Identity.Repositories
             IQueryable<Category> query = _context.Categories.AsNoTracking().AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(c => EF.Functions.Collate(c.CategoryName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+                query = query.Where(c => EF.Functions.Collate(c.CategoryName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) 
+                                      || c.CategoryId.ToString().ToLower().Contains(search.ToLower().Trim()));
 
             }
             if (categoryType.HasValue)

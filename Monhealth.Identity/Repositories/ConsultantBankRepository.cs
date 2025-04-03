@@ -25,8 +25,12 @@ namespace Monhealth.Identity.Repositories
             {
                 // cho phep search khong dau
                 query = query.Where(s => s.ConsultantBankId.ToString().ToLower().Contains(search) ||
-                    EF.Functions.Collate(s.AccountName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) ||
-                    s.AccountNumber.ToLower().Contains(search));
+                                         s.ConsultantId.ToString().ToLower().Contains(search) ||
+                                         s.BankId.ToString().ToLower().Contains(search) ||
+                                         s.AccountNumber.ToLower().Contains(search) ||
+                                         s.Consultant.AppUser.PhoneNumber.ToLower().Contains(search) ||
+                                         s.Consultant.AppUser.Email.ToLower().Contains(search) ||
+                                         EF.Functions.Collate(s.Consultant.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search));
             }
             if (status.HasValue)
             {

@@ -81,13 +81,18 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<WaterReminder>> GetAllReminderAsync(int page, int limit, string? search, bool? recurring, bool? status)
         {
-            search = search?.Trim();
+            search = search?.ToLower().Trim();
             IQueryable<WaterReminder> query = _context.WaterReminders.AsQueryable();
             // filter search
             if (!string.IsNullOrEmpty(search))
             {
                 // cho phep search khong dau
-                query = query.Where(s => EF.Functions.Collate(s.WaterReminderName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+                query = query.Where(s => EF.Functions.Collate(s.WaterReminderName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) || 
+                                         s.WaterReminderId.ToString().ToLower().Contains(search) ||
+                                         s.UserId.ToString().ToLower().Contains(search) ||
+                                         EF.Functions.Collate(s.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) ||
+                                         s.AppUser.Email.ToString().ToLower().Contains(search) ||
+                                         s.AppUser.PhoneNumber.ToString().ToLower().Contains(search));
             }
             if (recurring.HasValue)
             {
