@@ -8,8 +8,9 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<ConsultantBank>> GetAllConsultantBanksAsync(int page, int limit, string? search, bool? status);
         Task<ConsultantBank> GetConsultantBankById(Guid consultantBankId);
         Task<List<ConsultantBank>> GetConsultantBankByConsultantIdAsync(Guid consultantId);
-        Task<ConsultantBank>GetConsultantBankByConsultant(Guid conSultantBankId);
+        Task<ConsultantBank> GetConsultantBankByConsultant(Guid conSultantBankId);
         Task<bool> CheckAccountNumber(string? accountNumber);
+        Task SetDefaultBankAccountAsync(Guid consultantId);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
     }
 }

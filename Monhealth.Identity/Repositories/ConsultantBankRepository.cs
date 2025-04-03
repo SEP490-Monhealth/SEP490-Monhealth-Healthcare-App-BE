@@ -70,5 +70,21 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync(cancellationToken);
         }
+
+        public async Task SetDefaultBankAccountAsync(Guid consultantId)
+        {
+            var consultantBanks = await _context.ConsultantBanks
+                .Where(cb => cb.ConsultantId == consultantId)
+                .ToListAsync();
+            if (consultantBanks.Any())
+            {
+                consultantBanks.ForEach(cb =>
+                {
+                    cb.IsDefault = false;
+                    cb.UpdatedAt = DateTime.Now;
+                });
+            }
+            await _context.SaveChangesAsync();
+        }
     }
 }

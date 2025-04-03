@@ -10,6 +10,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<bool> CheckBankCodeExisted(string? bankCode);
         Task<bool> CheckShortNameExisted(string? shortName);
         Task<Bank> GetBankByBankName(string? bankName);
+        Task<Bank> GetBankByBankCode(string bankCode);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
     }
 }

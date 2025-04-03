@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultantBank
 {
@@ -10,7 +11,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultan
     {
         public async Task<Unit> Handle(CreateConsultantBankCommand request, CancellationToken cancellationToken)
         {
-            var bank = await bankRepository.GetBankByBankName(request.CreateConsultantBankDTO.BankName);
+            var bank = await bankRepository.GetBankByBankCode(request.CreateConsultantBankDTO.BankCode);
             if (bank == null)
             {
                 throw new Exception("Ngân hàng không tồn tại");
@@ -19,11 +20,19 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultan
             {
                 throw new Exception("Số tài khoản đã tồn tại");
             }
+            var countBanks = await consultantBankRepository.GetConsultantBankByConsultantIdAsync(request.CreateConsultantBankDTO.ConsultantId);
+            if (countBanks.Count() >= 3)
+            {
+                throw new BadRequestException("Tài khoản của bạn đã thêm tối đa đủ 3");
+
+            }
             var newConsultantBank = mapper.Map<Domain.ConsultantBank>(request.CreateConsultantBankDTO);
+            if (newConsultantBank.IsDefault) //set default if true
+            {
+                await consultantBankRepository.SetDefaultBankAccountAsync(newConsultantBank.ConsultantId);
+            }
             newConsultantBank.ConsultantBankId = Guid.NewGuid();
             newConsultantBank.BankId = bank.BankId;
-            newConsultantBank.IsDefault = false;
-            //newConsultantBank.IsVerified = false;
             newConsultantBank.Status = false;
             newConsultantBank.CreatedAt = DateTime.Now;
             newConsultantBank.UpdatedAt = DateTime.Now;

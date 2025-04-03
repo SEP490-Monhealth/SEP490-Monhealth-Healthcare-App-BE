@@ -6,10 +6,11 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultan
     {
         public Guid ConsultantId { get; set; }
         [JsonPropertyName("bank")]
-        public string BankName { get; set; } = string.Empty;
+        public string BankCode { get; set; } = string.Empty;
         [JsonPropertyName("number")]
         public string AccountNumber { get; set; } = string.Empty;
         [JsonPropertyName("name")]
         public string AccountName { get; set; } = string.Empty;
+        public bool IsDefault { get; set; }
     }
 }
