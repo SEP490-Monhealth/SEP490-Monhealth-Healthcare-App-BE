@@ -704,7 +704,7 @@ namespace Monhealth.Identity.Configurations
             #region Bank 44
             new Bank
             {
-                BankId = Guid.NewGuid(),
+                BankId = Guid.Parse("1b4e6597-7d56-4b6d-833d-c17f5755aad1"),
                 BankCode = "TPB",
                 BankName = "Ngân hàng TMCP Tiên Phong",
                 ShortName = "TPBank",
