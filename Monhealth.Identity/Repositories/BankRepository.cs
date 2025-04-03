@@ -30,7 +30,9 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Bank>> GetAllBanksAsync(int page, int limit, string? search, bool? status)
         {
             search = search?.ToLower().Trim();
-            IQueryable<Bank> query = _context.Banks.AsQueryable();
+            IQueryable<Bank> query = _context.Banks
+                                .OrderBy(b => b.BankCode)
+                                .AsQueryable();
             // filter search
             if (!string.IsNullOrEmpty(search))
             {

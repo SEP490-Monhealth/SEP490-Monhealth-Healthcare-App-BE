@@ -13,6 +13,11 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.ChangeIsDefault
                 return false;
             }
             consultantBank.IsDefault = !consultantBank.IsDefault;
+            if (consultantBank.IsDefault)
+            {
+                await consultantBankRepository.SetDefaultBankAccountAsync(consultantBank.ConsultantId);
+                consultantBank.IsDefault = true;
+            }
             consultantBankRepository.Update(consultantBank);
             await consultantBankRepository.SaveChangeAsync(cancellationToken);
             return true;

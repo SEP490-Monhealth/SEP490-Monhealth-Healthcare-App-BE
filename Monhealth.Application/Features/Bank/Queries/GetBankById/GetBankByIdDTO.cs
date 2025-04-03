@@ -1,9 +1,9 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Bank.Queries.GetBankById
 {
-    public class GetBankByIdDTO : TimeEntity
+    public class GetBankByIdDTO : BaseEntity
     {
         public Guid BankId { get; set; }
         [JsonPropertyName("code")]

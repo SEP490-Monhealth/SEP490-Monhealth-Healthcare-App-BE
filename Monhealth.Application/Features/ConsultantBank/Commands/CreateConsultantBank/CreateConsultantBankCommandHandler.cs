@@ -11,7 +11,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultan
     {
         public async Task<Unit> Handle(CreateConsultantBankCommand request, CancellationToken cancellationToken)
         {
-            var bank = await bankRepository.GetBankByBankCode(request.CreateConsultantBankDTO.BankCode);
+            var bank = await bankRepository.GetByIdAsync(request.CreateConsultantBankDTO.BankId);
             if (bank == null)
             {
                 throw new Exception("Ngân hàng không tồn tại");
@@ -21,9 +21,9 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultan
                 throw new Exception("Số tài khoản đã tồn tại");
             }
             var countBanks = await consultantBankRepository.GetConsultantBankByConsultantIdAsync(request.CreateConsultantBankDTO.ConsultantId);
-            if (countBanks.Count() >= 3)
+            if (countBanks.Count() >= 5)
             {
-                throw new BadRequestException("Tài khoản của bạn đã thêm tối đa đủ 3");
+                throw new BadRequestException("Giới hạn tài khoản của bạn có thể thêm là 5");
 
             }
             var newConsultantBank = mapper.Map<Domain.ConsultantBank>(request.CreateConsultantBankDTO);

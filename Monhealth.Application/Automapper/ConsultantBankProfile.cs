@@ -14,13 +14,20 @@ namespace Monhealth.Application.Automapper
         {
             CreateMap<ConsultantBank, GetAllConsultantBanksDTO>()
                 .ForPath(dest => dest.Bank.ShortName, opt => opt.MapFrom(src => src.Bank.ShortName))
-                .ForPath(dest => dest.Bank.LogoUrl, opt => opt.MapFrom(src => src.Bank.LogoUrl));
+                .ForPath(dest => dest.Bank.LogoUrl, opt => opt.MapFrom(src => src.Bank.LogoUrl))
+                .ForPath(dest => dest.Bank.BankName, opt => opt.MapFrom(src => src.Bank.BankName))
+                ;
             CreateMap<ConsultantBank, GetConsultantBankByIdDTO>()
                 .ForPath(dest => dest.Bank.ShortName, opt => opt.MapFrom(src => src.Bank.ShortName))
-                .ForPath(dest => dest.Bank.LogoUrl, opt => opt.MapFrom(src => src.Bank.LogoUrl));
+                .ForPath(dest => dest.Bank.LogoUrl, opt => opt.MapFrom(src => src.Bank.LogoUrl))
+                .ForPath(dest => dest.Bank.BankName, opt => opt.MapFrom(src => src.Bank.BankName))
+                ;
             CreateMap<ConsultantBank, GetConsultantBankByConsultantIdDTO>()
                 .ForPath(dest => dest.Bank.ShortName, opt => opt.MapFrom(src => src.Bank.ShortName))
-                .ForPath(dest => dest.Bank.LogoUrl, opt => opt.MapFrom(src => src.Bank.LogoUrl));
+                .ForPath(dest => dest.Bank.LogoUrl, opt => opt.MapFrom(src => src.Bank.LogoUrl))
+                .ForPath(dest => dest.Bank.BankName, opt => opt.MapFrom(src => src.Bank.BankName))
+
+                ;
 
             CreateMap<ConsultantBank, CreateConsultantBankDTO>().ReverseMap();
             CreateMap<ConsultantBank, UpdateConsultantBankDTO>().ReverseMap();

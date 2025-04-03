@@ -23,7 +23,8 @@ namespace Monhealth.Identity.Repositories
         {
             search = search?.ToLower().Trim();
             IQueryable<ConsultantBank> query = _context.ConsultantBanks
-                .Include(b => b.Bank).AsQueryable();
+                .Include(b => b.Bank)
+                .AsQueryable();
             // filter search
             if (!string.IsNullOrEmpty(search))
             {

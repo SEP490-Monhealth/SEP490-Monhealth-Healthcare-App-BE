@@ -1,9 +1,9 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultantBanks
 {
-    public class GetAllConsultantBanksDTO : TimeEntity
+    public class GetAllConsultantBanksDTO : BaseEntity
     {
         public Guid ConsultantBankId { get; set; }
         public Guid ConsultantId { get; set; }
@@ -18,6 +18,8 @@ namespace Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultant
     }
     public class BankInfoDTO
     {
+        [JsonPropertyName("name")]
+        public string BankName { get; set; } = string.Empty;
         public string ShortName { get; set; } = string.Empty;
         public string LogoUrl { get; set; } = string.Empty;
     }

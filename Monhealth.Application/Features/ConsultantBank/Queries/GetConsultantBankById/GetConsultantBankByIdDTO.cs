@@ -1,5 +1,5 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankById
 {
@@ -18,6 +18,8 @@ namespace Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBan
     }
     public class BankInfoDTO
     {
+        [JsonPropertyName("name")]
+        public string BankName { get; set; } = string.Empty;
         public string ShortName { get; set; } = string.Empty;
         public string LogoUrl { get; set; } = string.Empty;
     }

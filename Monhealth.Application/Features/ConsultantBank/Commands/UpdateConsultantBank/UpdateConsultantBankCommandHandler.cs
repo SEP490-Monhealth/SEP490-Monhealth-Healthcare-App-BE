@@ -19,6 +19,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.UpdateConsultan
             {
                 return false;
             }
+
             var consultantBankToUpdate = mapper.Map(request.UpdateConsultantBankDTO, consultantBank);
             consultantBankToUpdate.UpdatedAt = DateTime.Now;
             consultantBankRepository.Update(consultantBankToUpdate);
