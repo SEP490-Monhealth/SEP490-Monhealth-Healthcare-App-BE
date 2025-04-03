@@ -1,9 +1,13 @@
 using MediatR;
+using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application
 {
-    public class UpdateStatusWithdrawalCommandHandler(IWithdrawalRepository withdrawalRepository) : IRequestHandler<UpdateStatusWithdrawalCommand, Unit>
+    public class UpdateStatusWithdrawalCommandHandler(IWithdrawalRepository withdrawalRepository, 
+                                                      IWalletRepository walletRepository,
+                                                      ITransactionRepository transactionRepository) : IRequestHandler<UpdateStatusWithdrawalCommand, Unit>
     {
         public async Task<Unit> Handle(UpdateStatusWithdrawalCommand request, CancellationToken cancellationToken)
         {
@@ -15,6 +19,20 @@ namespace Monhealth.Application
                     break;
                 case WithdrawalStatus.Approved:
                     withdrawalRequest.Status = WithdrawalStatus.Completed;
+                    var getWallet = await walletRepository.GetWalletByConsultantId(withdrawalRequest.ConsultantId);
+                    var newTransaction = new Transaction
+                    {
+                        TransactionId = Guid.NewGuid(),
+                        WalletId = getWallet.WalletId,
+                        BookingId = null,
+                        TransactionType = TransactionType.Withdrawal,
+                        Amount = withdrawalRequest?.Amount ?? 0,
+                        Description = withdrawalRequest?.Description ?? "Rút tiền về ngân hàng",
+                        Status = StatusTransaction.Completed,
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now
+                    };
+                    transactionRepository.Add(newTransaction);
                     break;
                 case WithdrawalStatus.Completed:
                     throw new Exception("Yêu cầu đã hoàn tất, không thể xử lý thêm.");
