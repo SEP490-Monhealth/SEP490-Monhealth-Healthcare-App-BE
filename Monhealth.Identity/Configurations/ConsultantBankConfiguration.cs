@@ -63,7 +63,7 @@ namespace Monhealth.Identity.Configurations
                 ConsultantBankId = Guid.NewGuid(),
                 ConsultantId = Guid.Parse("122dc7df-16de-49a3-ab83-5299686f6203"),
                 BankId = Guid.Parse("1b4e6597-7d56-4b6d-833d-c17f5755aad1"),
-                AccountNumber = "vanuhutoan27",
+                AccountNumber = "vanhuutoan27",
                 AccountName = "Văn Hữu Toàn",
                 IsDefault = false,
                 Status = true,
