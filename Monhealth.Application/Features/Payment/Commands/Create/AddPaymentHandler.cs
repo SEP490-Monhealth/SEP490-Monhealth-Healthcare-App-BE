@@ -16,7 +16,8 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
 
             var payment = new Domain.Payment
             {
-                UserSubscriptionId = request.UserSubscriptionId,
+                PaymentId = Guid.NewGuid(),
+                //UserSubscriptionId = request.UserSubscriptionId,
                 Amount = request.Amount,
                 Status = Core.PaymentStatus.Pending,
                 CreatedAt = DateTime.Now,
@@ -24,7 +25,7 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
             };
 
             var paymentResult = await payOSService.CreatePaymentLinkAsync(
-               request.UserSubscriptionId,
+               payment.PaymentId,
                request.Amount,
                $"Thanh toan don hang"
            );
@@ -36,7 +37,6 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
             {
                 PaymentId = payment.PaymentId,
                 UserId = user.Id,
-                UserSubscriptionId = payment.UserSubscriptionId,
                 Amount = payment.Amount,
                 Status = payment.Status,
                 PaymentUrl = paymentResult.CheckoutUrl,

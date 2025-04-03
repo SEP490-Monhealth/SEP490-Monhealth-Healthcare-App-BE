@@ -2,9 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Core.Enum;
-using Monhealth.Domain.Enum;
-using Monhealth.Identity.Models;
+using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.UserSubscription.Commands.Create
 {
@@ -12,22 +10,27 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
     {
         private readonly IUserSubscriptionRepository _userSubscriptionRepository;
         private readonly ISubscriptionRepository _subscriptionRepository;
-      
+
         private readonly IUserRepository _userRepository;
         private readonly ILogger<CreateUserSubscriptionCommandHandler> _logger;
         private readonly IUserRoleRepository _userRoleRepository;
+        private readonly IPaymentRepository paymentRepository;
+
         public CreateUserSubscriptionCommandHandler(IUserSubscriptionRepository userSubscriptionRepository,
         ISubscriptionRepository subscriptionRepository,
         ILogger<CreateUserSubscriptionCommandHandler> logger,
         IUserRepository userRepository,
-        IUserRoleRepository userRoleRepository)
+        IUserRoleRepository userRoleRepository,
+        IPaymentRepository paymentRepository
+        )
         {
             _userSubscriptionRepository = userSubscriptionRepository;
             _subscriptionRepository = subscriptionRepository;
-         
+
             _logger = logger;
             _userRepository = userRepository;
             _userRoleRepository = userRoleRepository;
+            this.paymentRepository = paymentRepository;
         }
 
         public async Task<Unit> Handle(CreateUserSubscriptionCommand request, CancellationToken cancellationToken)
@@ -80,10 +83,20 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
 
             // Thêm vào bảng UserRoles
             _userRoleRepository.Add(newUserRole);
+
+            //cập nhập lại userSubcriptionId cho Payment table
+            var payment = await paymentRepository.GetByIdAsync(request.PaymentId);
+            if (payment == null)
+            {
+                throw new BadRequestException($"Thanh toán {request.PaymentId} này không tìm thấy");
+            }
+            payment.UserSubscriptionId = model.UserSubscriptionId;
+            payment.Status = Core.PaymentStatus.Completed;
+            payment.UpdatedAt = DateTime.Now;
             await _userRepository.SaveChangesAsync();
             return Unit.Value;
         }
 
-     
+
     }
 }

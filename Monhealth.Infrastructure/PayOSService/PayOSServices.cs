@@ -21,7 +21,6 @@ namespace Monhealth.Infrastructure.PayOSService
             var orderCode = long.Parse($"{shortTimestamp}{hashCode % 1_000_000}");
 
             var items = new List<ItemData> { new("Subcription Payment", 1, (int)amount) };
-
             var paymentData = new PaymentData(
                 orderCode: orderCode,
                 amount: (int)amount,

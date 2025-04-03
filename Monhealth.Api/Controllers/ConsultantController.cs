@@ -4,11 +4,9 @@ using Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsultant;
 using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
 using Monhealth.Application.Features.Consultant.Commands.DeleteConsultant;
 using Monhealth.Application.Features.Consultant.Commands.UpdateConsultant;
-using Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant;
 using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
 using Monhealth.Application.Features.Consultant.Queries.GetConsultantById;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
