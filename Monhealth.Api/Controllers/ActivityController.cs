@@ -2,10 +2,12 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
+using Monhealth.Application.Features.Activity.Commands.ChangeIsCompletedActivity;
 using Monhealth.Application.Features.Activity.Commands.CreateActivity;
 using Monhealth.Application.Features.Activity.Commands.DeleteActivity;
 using Monhealth.Application.Features.Activity.Queries.GetActivityByUserId;
 using Monhealth.Application.Features.Activity.Queries.GetAllActivities;
+using Monhealth.Application.Features.Exercise.Commands.ChangeStatusExercise;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -100,6 +102,27 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Message = "Xóa hoạt động thành công"
+            };
+        }
+        [HttpPatch("{activityId}/iscompleted")]
+        public async Task<ActionResult<ResultModel>> ChangeIsCompleted(Guid activityId)
+        {
+            var command = new ChangeIsCompletedActivityCommand { ActivityId = activityId };
+            var changeStatus = await _mediator.Send(command);
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy bài tập"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Thay đổi trạng thái thành công"
             };
         }
     }

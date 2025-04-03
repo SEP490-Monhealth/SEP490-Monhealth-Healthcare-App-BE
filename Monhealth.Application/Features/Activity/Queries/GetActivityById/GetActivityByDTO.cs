@@ -10,5 +10,6 @@ namespace Monhealth.Application
         public Guid? WorkoutId { get; set; }
         public float CaloriesBurned { get; set; }
         public float DurationMinutes { get; set; }
+        public bool IsCompleted { get; set; }
     }
 }
