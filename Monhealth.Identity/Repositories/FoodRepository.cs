@@ -40,7 +40,11 @@ namespace Monhealth.Identity.Repositories
             {
                 // cho phep search khong dau
                 query = query.Where(s => EF.Functions.Collate(s.FoodName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
-                    s.FoodId.ToString().ToLower().Contains(search.ToLower()));
+                    s.FoodId.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.UserId.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.AppUser.PhoneNumber.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.AppUser.Email.ToString().ToLower().Contains(search.ToLower()) ||
+                    EF.Functions.Collate(s.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
             }
             if (!string.IsNullOrEmpty(categoryName))
                 query = query.Where(f => f.CategoryFoods.

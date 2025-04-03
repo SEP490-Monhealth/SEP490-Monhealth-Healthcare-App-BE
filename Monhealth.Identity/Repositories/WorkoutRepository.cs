@@ -21,7 +21,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Workout>> GetAllWorkWithPaging(int page, int limit, string? category, string? search, DifficultyLevel? difficulty, bool? popular, bool? status, CancellationToken cancellationToken)
         {
-            search = search?.Trim();
+            search = search?.ToLower().Trim();
             IQueryable<Workout> query = _context.Workouts.Include(u => u.AppUser).Include(f => f.Category).
             Include(f => f.WorkoutExercises).ThenInclude(we => we.Exercise).AsQueryable();
 
@@ -29,8 +29,14 @@ namespace Monhealth.Identity.Repositories
             if (!string.IsNullOrEmpty(search))
             {
                 // cho phep search khong dau
-                query = query.Where(s => EF.Functions.Collate(s.WorkoutName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
-                    s.WorkoutId.ToString().ToLower().Contains(search.ToLower()));
+                query = query.Where(s =>
+                    s.WorkoutId.ToString().ToLower().Contains(search) ||
+                    EF.Functions.Collate(s.WorkoutName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) ||
+                    s.CategoryId.ToString().ToLower().Contains(search) ||
+                    s.UserId.ToString().ToLower().Contains(search) ||
+                    EF.Functions.Collate(s.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) ||
+                    s.AppUser.PhoneNumber.ToLower().Contains(search) ||
+                    s.AppUser.Email.ToLower().Contains(search));
             }
             if (!string.IsNullOrEmpty(category))
                 query = query.Where(f => f.Category.CategoryName.ToLower() == category.ToLower());

@@ -18,7 +18,8 @@ namespace Monhealth.Identity.Repositories
             IQueryable<Expertise> query = _context.Expertise.AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(e => e.ExpertiseName.Contains(search));
+                query = query.Where(e => e.ExpertiseId.ToString().ToLower().Contains(search.ToLower().Trim()) || 
+                                         e.ExpertiseName.Contains(search.ToLower().Trim()));
             }
 
             int totalItems = await query.CountAsync();

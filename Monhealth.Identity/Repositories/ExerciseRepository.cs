@@ -21,8 +21,12 @@ namespace Monhealth.Identity.Repositories
             if (!string.IsNullOrEmpty(search))
             {
                 // cho phep search khong dau
-                query = query.Where(s => EF.Functions.Collate(s.ExerciseName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
-                    s.ExerciseId.ToString().ToLower().Contains(search.ToLower()));
+                query = query.Where(s => EF.Functions.Collate(s.ExerciseName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()) ||
+                    s.ExerciseId.ToString().ToLower().Contains(search.ToLower().Trim()) ||
+                    s.UserId.ToString().ToLower().Contains(search.ToLower().Trim()) ||
+                    s.AppUser.PhoneNumber.ToLower().Contains(search.ToLower().Trim()) ||
+                    s.AppUser.Email.ToLower().Contains(search.ToLower().Trim()) ||
+                    EF.Functions.Collate(s.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()));
             }
             if (exerciseType.HasValue)
             {

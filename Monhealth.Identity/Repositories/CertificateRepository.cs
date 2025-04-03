@@ -32,6 +32,11 @@ namespace Monhealth.Identity.Repositories
                 // cho phep search khong dau
                 query = query.Where(s => EF.Functions.Collate(s.CertificateName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
                     s.CertificateId.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.ExpertiseId.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.ConsultantId.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.Consultant.AppUser.PhoneNumber.ToLower().Contains(search.ToLower()) ||
+                    s.Consultant.AppUser.Email.ToLower().Contains(search.ToLower()) ||
+                    EF.Functions.Collate(s.Consultant.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
                     s.CertificateNumber.Contains(search)
                     );
             }

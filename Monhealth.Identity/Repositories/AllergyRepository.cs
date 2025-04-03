@@ -28,7 +28,8 @@ namespace Monhealth.Identity.Repositories
             IQueryable<Allergy> query = _context.Allergies.AsNoTracking().AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(a => EF.Functions.Collate(a.AllergyName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+                query = query.Where(a => EF.Functions.Collate(a.AllergyName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()) || 
+                                         a.AllergyId.ToString().ToLower().Contains(search.ToLower().Trim()));
 
             }
 
