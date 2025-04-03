@@ -21,7 +21,11 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                 }
 
                 //check has shedule by recuring type
-                var existingSchedule = await scheduleRepository.GetScheduleAsync(request.ConsultantId, request.ScheduleType, (RecurringDay)scheduleDto.RecurringDay);
+                var existingSchedule = await scheduleRepository.GetScheduleAsync
+                    (request.ConsultantId, request.ScheduleType,
+                    scheduleDto?.RecurringDay,
+                    scheduleDto?.SpecificDate
+                    );
 
                 Domain.Schedule scheduleToUse;
                 if (existingSchedule != null)
@@ -37,6 +41,7 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                         ScheduleType = request.ScheduleType,
                         RecurringDay = scheduleDto.RecurringDay,
                         SpecificDate = scheduleDto.SpecificDate,
+                        CreatedAt = DateTime.Now
                     };
                     schedules.Add(scheduleToUse);
                 }
