@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class ScheduleException : TimeEntity
+    public class ScheduleException : BaseEntity
     {
         [Key]
         public Guid ScheduleExceptionId { get; set; }

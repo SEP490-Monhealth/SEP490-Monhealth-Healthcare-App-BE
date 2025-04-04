@@ -18,6 +18,7 @@ namespace Monhealth.Domain
                 public int Views { get; set; } = 0;
                 public bool IsPublic { get; set; }
                 public bool Status { get; set; }
+
                 [ForeignKey(nameof(UserId))]
                 public AppUser AppUser { get; set; } = null!;
                 public Nutrition Nutrition { get; set; } = null!;

@@ -2,7 +2,7 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition
 {
-    public class NutritionByFoodIdDto : BaseEntity
+    public class NutritionByFoodIdDto : TimeEntity
     {
         public Guid NutritionId { get; set; }
         public float Calories { get; set; }
