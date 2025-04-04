@@ -85,18 +85,6 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region ScheduleTimeSlot 1-7
-            new ScheduleTimeSlot
-            {
-                ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("ddcb76f3-e4a2-4ee3-a90c-44792a2c023d"),
-                TimeSlotId = Guid.Parse("b8b71edc-d48b-44ea-9dc3-b7d214c582c1"),
-                Status = ScheduleTimeSlotStatus.Available,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
             #region ScheduleTimeSlot 2-1
             new ScheduleTimeSlot
             {
@@ -163,18 +151,6 @@ namespace Monhealth.Identity.Configurations
                 ScheduleTimeSlotId = Guid.NewGuid(),
                 ScheduleId = Guid.Parse("17e9439c-fc1c-4309-bbac-2a0a2eab2a7d"),
                 TimeSlotId = Guid.Parse("cf1c96eb-0193-49b7-9813-23c1d9646e5e"),
-                Status = ScheduleTimeSlotStatus.Available,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
-            #region ScheduleTimeSlot 2-7
-            new ScheduleTimeSlot
-            {
-                ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("17e9439c-fc1c-4309-bbac-2a0a2eab2a7d"),
-                TimeSlotId = Guid.Parse("b8b71edc-d48b-44ea-9dc3-b7d214c582c1"),
                 Status = ScheduleTimeSlotStatus.Available,
                 CreatedAt = today,
                 UpdatedAt = today,
@@ -253,18 +229,6 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region ScheduleTimeSlot 3-7
-            new ScheduleTimeSlot
-            {
-                ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("5b988823-2ed9-4835-a0ae-f73c125f589a"),
-                TimeSlotId = Guid.Parse("b8b71edc-d48b-44ea-9dc3-b7d214c582c1"),
-                Status = ScheduleTimeSlotStatus.Available,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
             #region ScheduleTimeSlot 4-1
             new ScheduleTimeSlot
             {
@@ -337,18 +301,6 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region ScheduleTimeSlot 4-7
-            new ScheduleTimeSlot
-            {
-                ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("afb3cb6e-3844-49e6-aa7f-d40a819fd7ca"),
-                TimeSlotId = Guid.Parse("b8b71edc-d48b-44ea-9dc3-b7d214c582c1"),
-                Status = ScheduleTimeSlotStatus.Available,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
             #region ScheduleTimeSlot 5-1
             new ScheduleTimeSlot
             {
@@ -415,18 +367,6 @@ namespace Monhealth.Identity.Configurations
                 ScheduleTimeSlotId = Guid.NewGuid(),
                 ScheduleId = Guid.Parse("2794c45b-08fb-428c-b863-37059ef29d1f"),
                 TimeSlotId = Guid.Parse("cf1c96eb-0193-49b7-9813-23c1d9646e5e"),
-                Status = ScheduleTimeSlotStatus.Available,
-                CreatedAt = today,
-                UpdatedAt = today,
-            },
-            #endregion
-
-            #region ScheduleTimeSlot 5-7
-            new ScheduleTimeSlot
-            {
-                ScheduleTimeSlotId = Guid.NewGuid(),
-                ScheduleId = Guid.Parse("2794c45b-08fb-428c-b863-37059ef29d1f"),
-                TimeSlotId = Guid.Parse("b8b71edc-d48b-44ea-9dc3-b7d214c582c1"),
                 Status = ScheduleTimeSlotStatus.Available,
                 CreatedAt = today,
                 UpdatedAt = today,
