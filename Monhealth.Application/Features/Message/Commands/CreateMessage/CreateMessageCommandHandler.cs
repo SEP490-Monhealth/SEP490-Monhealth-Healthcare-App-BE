@@ -17,35 +17,25 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
     {
         public async Task<Unit> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
         {
-            if (string.IsNullOrWhiteSpace(request.content))
+            if (string.IsNullOrWhiteSpace(request.Content))
                 throw new BadRequestException("Nội dung không thể rỗng");
-            var chat = await chatRepository.GetChatByIdAsync(request.chatId);
+            var chat = await chatRepository.GetChatByIdAsync(request.ChatId);
             if (chat == null)
             {
-                chat = new Domain.Chat
-                {
-                    ChatId = Guid.NewGuid(),
-                    UserId = request.senderId,
-                    ConsultantId = request.receiverId,
-                    LastMessage = request.content,
-                    Messages = new List<Domain.Message>()
-                };
-                chatRepository.Add(chat);
-                await chatRepository.SaveChangeAsync(cancellationToken);
+                throw new BadRequestException("Đoạn chat không tìm thấy");
             }
             var newMessage = new Domain.Message
             {
                 MessageId = Guid.NewGuid(),
                 ChatId = chat.ChatId,
-                SenderId = request.senderId,
-                Content = request.content,
+                SenderId = request.SenderId,
+                Content = request.Content,
                 CreatedAt = DateTime.Now,
-
             };
             messageRepository.Add(newMessage);
 
             //udpate last message
-            chat.LastMessage = request.content;
+            chat.LastMessage = request.Content;
             await messageRepository.SaveChangeAsync(cancellationToken);
 
             var messageDto = new MessageDto
@@ -56,7 +46,6 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 Content = newMessage.Content,
                 CreatedAt = newMessage.CreatedAt,
             };
-            await chatHubService.SendMessageAsync(messageDto);
             return Unit.Value;
         }
     }

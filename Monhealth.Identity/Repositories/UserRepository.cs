@@ -53,6 +53,14 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<List<Guid>> GetAllUserIds()
+        {
+            return await _context.Users
+                .Where(u => u.Id != null)
+                .Select(u => u.Id)
+                .ToListAsync();
+        }
+
         public async Task<AppUser> GetByPhoneNumberAsync(string phoneNumber)
         {
             return await _context.Users.Include(u => u.UserSubscriptions)

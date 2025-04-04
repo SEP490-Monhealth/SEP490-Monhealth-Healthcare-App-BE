@@ -2,7 +2,11 @@
 
 namespace Monhealth.Application.Features.Message.Commands.CreateMessage
 {
-    public record CreateMessageCommand(Guid chatId, Guid senderId, Guid receiverId, string content) : IRequest<Unit>;
+    public class CreateMessageCommand : IRequest<Unit>
+    {
+        public Guid ChatId { get; set; }
+        public Guid SenderId { get; set; }
+        public string Content { get; set; }
 
-
+    }
 }

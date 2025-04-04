@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Message.Commands.CreateMessage;
 using Monhealth.Application.Features.Message.Commands.DeleteMessage;
+using Monhealth.Application.Features.Message.Commands.MarkMessageIsRead;
 using Monhealth.Application.Features.Message.Commands.UpdateMessageById;
 using Monhealth.Application.Features.Message.Queries.GetAllMessages;
 using Monhealth.Application.Features.Message.Queries.GetMessageByChatId;
@@ -93,6 +94,27 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Message = "Xóa tin nhắn thành công"
+            };
+        }
+
+        [HttpPatch("{messageId}/IsRead")]
+        public async Task<ActionResult<ResultModel>> MarkMessageIsRead([FromRoute] Guid messageId)
+        {
+            var changeStatus = await mediator.Send(new MarkMessageCommand { MessageId = messageId });
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Thay đổi tin nhắn đã đọc thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Thay đổi tin nhắn đã đọc thành công"
             };
         }
     }

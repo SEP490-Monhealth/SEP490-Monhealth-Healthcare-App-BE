@@ -1,41 +1,27 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using MediatR;
+using Microsoft.AspNetCore.SignalR;
+using Monhealth.Application.Features.Message.Commands.CreateMessage;
 using Monhealth.Domain;
 
 namespace Monhealth.Api.Hubs
 {
-    public class ChatHub : Hub
+    public class ChatHub(IMediator mediator) : Hub
     {
-        private static readonly List<Message> _messageHistory = new List<Message>();
-
-        public List<Message> GetMessageHistory()
-        {
-            return _messageHistory;
-        }
-
+        private static readonly List<Message> _messageHistory = new();
         // Sửa đổi để nhận đối tượng message thay vì các tham số riêng lẻ
         public async Task SendMessage(MessageRequest message)
         {
             try
             {
                 // Tạo đối tượng tin nhắn mới từ request
-                var chatMessage = new Message
+                var command = new CreateMessageCommand
                 {
-                    MessageId = Guid.NewGuid(),
                     ChatId = message.ChatId,
                     SenderId = message.SenderId,
-                    Content = message.Content ?? "",
-                    IsRead = false,
-                    CreatedAt = DateTime.UtcNow
+                    Content = message.Content,
                 };
-
-                _messageHistory.Add(chatMessage);
-
-                if (_messageHistory.Count > 100)
-                {
-                    _messageHistory.RemoveAt(0);
-                }
-
-                await Clients.All.SendAsync("ReceiveMessage", chatMessage);
+                await mediator.Send(command);
+                await Clients.All.SendAsync("ReceiveMessage", command);
             }
             catch (Exception ex)
             {

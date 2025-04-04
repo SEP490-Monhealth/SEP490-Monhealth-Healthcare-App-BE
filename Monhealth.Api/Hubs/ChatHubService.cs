@@ -6,7 +6,6 @@ namespace Monhealth.Api.Hubs
 {
     public class ChatHubService(IHubContext<ChatHub> hubContext,
         IUserConnectionManager userConnectionManager)
-
         : IChatHubService
     {
         public async Task NotifyMessagesReadAsync(Guid chatId, Guid userId)
