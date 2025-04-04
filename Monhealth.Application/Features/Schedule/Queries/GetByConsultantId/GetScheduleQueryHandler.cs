@@ -54,6 +54,7 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
                 .Select(st => new TimeSlotDto
                 {
                     StartTime = st.TimeSlot.StartTime,
+                    EndTime = st.TimeSlot.EndTime,
                     Status = bookedTimes.Contains(st.TimeSlot.StartTime) || IsScheduleException
                     ? ScheduleTimeSlotStatus.Unavailable
                     : ScheduleTimeSlotStatus.Available,
