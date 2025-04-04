@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStat
                 withdrawalRequest.Status = WithdrawalStatus.Approved;
             } else
             {
-                throw new Exception("Không thể thay đổi trạng thái");
+                throw new Exception("Không thể Cập nhật trạng thái");
             }
             withdrawalRepository.Update(withdrawalRequest);
             await withdrawalRepository.SaveChangeASync();

@@ -55,7 +55,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
                 // _userRoleRepository.Add(newUserRole);
                 // await _userRepository.SaveChangesAsync();
 
-                // Thay đổi trạng thái wallet
+                // Cập nhật trạng thái wallet
                 var wallet = await _walletRepository.GetWalletByConsultantId(request.ConsultantId);
                 if (wallet == null)
                 {
