@@ -28,6 +28,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpGet("consultant/{consultantId}")]
         public async Task<ActionResult<ResultModel>> GetScheduleExceptionByConsultantId(Guid consultantId, int page = 1, int limit = 10)
         {
@@ -37,19 +38,6 @@ namespace Monhealth.Api.Controllers
             {
                 Data = scheduleList,
                 Status = 200,
-                Success = true
-            };
-        }
-
-        [HttpPost]
-        public async Task<ResultModel> CreateScheduleException([FromBody] CreateScheduleExceptionCommand request)
-        {
-            var create = await mediator.Send(request);
-
-            return new ResultModel
-            {
-                Message = "Tạo lịch bận thành công",
-                Status = (int)HttpStatusCode.OK,
                 Success = true
             };
         }
@@ -66,6 +54,19 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = queries
             });
+        }
+
+        [HttpPost]
+        public async Task<ResultModel> CreateScheduleException([FromBody] CreateScheduleExceptionCommand request)
+        {
+            var create = await mediator.Send(request);
+
+            return new ResultModel
+            {
+                Message = "Tạo lịch bận thành công",
+                Status = (int)HttpStatusCode.OK,
+                Success = true
+            };
         }
 
         [HttpPut]
@@ -85,18 +86,18 @@ namespace Monhealth.Api.Controllers
             );
         }
 
-        // [HttpDelete]
-        // [Route("{scheduleExceptionId:Guid}")]
-        // public async Task<ActionResult<ResultModel>> DeleteScheduleException(Guid exceptionId)
-        // {
-        //     var queries = await mediator.Send(new DeleteScheduleExceptionCommand { ExceptionId = exceptionId });
+        [HttpDelete]
+        [Route("{scheduleExceptionId:Guid}")]
+        public async Task<ActionResult<ResultModel>> DeleteScheduleException(Guid scheduleExceptionId)
+        {
+            var queries = await mediator.Send(new DeleteScheduleExceptionCommand { ScheduleExceptionId = scheduleExceptionId });
 
-        //     return Ok(new ResultModel
-        //     {
-        //         Success = true,
-        //         Status = 204,
-        //         Data = queries
-        //     });
-        // }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 204,
+                Data = queries
+            });
+        }
     }
 }
