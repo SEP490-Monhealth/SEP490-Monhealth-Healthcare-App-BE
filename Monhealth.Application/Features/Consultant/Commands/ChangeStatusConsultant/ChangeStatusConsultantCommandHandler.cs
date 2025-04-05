@@ -55,7 +55,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsult
             }
             wallet.Status = !wallet.Status;
             _walletRepository.Update(wallet);
-            await _consultantRepository.SaveChangeAsync(cancellationToken);
+            await _consultantRepository.SaveChangeAsync();
             return true;
         }
     }

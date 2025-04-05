@@ -65,7 +65,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
                 _walletRepository.Update(wallet);
             }
             _consultantRepository.Update(consultant);
-            await _consultantRepository.SaveChangeAsync(cancellationToken);
+            await _consultantRepository.SaveChangeAsync();
             return true;
         }
     }

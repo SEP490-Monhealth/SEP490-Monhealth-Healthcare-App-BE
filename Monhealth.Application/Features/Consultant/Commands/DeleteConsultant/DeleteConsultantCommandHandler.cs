@@ -18,7 +18,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.DeleteConsultant
                 return false;
             }
             _consultantRepository.Remove(consultant);
-            await _consultantRepository.SaveChangeAsync(cancellationToken);
+            await _consultantRepository.SaveChangeAsync();
             return true;
         }
     }

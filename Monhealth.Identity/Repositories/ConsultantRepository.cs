@@ -13,7 +13,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? status, bool? isVerified)
+        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? popular, bool? status, bool? isVerified)
         {
             IQueryable<Consultant> query = _context.Consultants
                 .Select(c => new Consultant
@@ -26,6 +26,7 @@ namespace Monhealth.Identity.Repositories
                     RatingCount = c.RatingCount,
                     AverageRating = c.AverageRating,
                     IsVerified = c.IsVerified,
+                    Views = c.Views,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
                     BookingCount = c.BookingCount,
@@ -66,6 +67,10 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(s => s.IsVerified == isVerified.Value);
             }
+            if(popular.HasValue && popular.Value)
+            {
+                query = query.OrderByDescending(d => d.Views);
+            }
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
@@ -95,6 +100,7 @@ namespace Monhealth.Identity.Repositories
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
                     BookingCount = c.BookingCount,
+                    Views = c.Views,
                     AppUser = new AppUser
                     {
                         FullName = c.AppUser.FullName,
@@ -123,9 +129,9 @@ namespace Monhealth.Identity.Repositories
             .ThenInclude(tr => tr.Transactions).FirstOrDefaultAsync(c => c.Id == ConsultantId);
         }
 
-        public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
+        public async Task<int> SaveChangeAsync()
         {
-            return await _context.SaveChangesAsync(cancellationToken);
+            return await _context.SaveChangesAsync();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByCon
             if (expertise == null) throw new BadRequestException("Tên chuyên môn không đúng");
 
             consultant.ExpertiseId = expertise.ExpertiseId;
-            await consultantRepository.SaveChangeAsync(cancellationToken);
+            await consultantRepository.SaveChangeAsync();
             return true;
 
         }

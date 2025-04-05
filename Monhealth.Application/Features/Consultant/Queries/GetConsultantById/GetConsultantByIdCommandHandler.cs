@@ -17,6 +17,12 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetConsultantById
         public async Task<GetAllConsultantsDTO> Handle(GetConsultantByIdCommand request, CancellationToken cancellationToken)
         {
             var consultant = await _consultantRepository.GetConsultantById(request.ConsultantId);
+            if (consultant != null)
+            {
+                consultant.Views += 1;
+                _consultantRepository.Update(consultant);
+                await _consultantRepository.SaveChangeAsync();
+            }
             return _mapper.Map<GetAllConsultantsDTO>(consultant);
         }
     }
