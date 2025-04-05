@@ -8,6 +8,7 @@ using Monhealth.Application.Features.ScheduleException.Queries.GetScheduleExcept
 using Monhealth.Application.Models;
 using System.Net;
 using Swashbuckle.AspNetCore.Annotations;
+using Monhealth.Application.Features.ScheduleException.Queries.GetScheduleExceptionByConsultantId;
 
 namespace Monhealth.Api.Controllers
 {
@@ -19,6 +20,18 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetAllScheduleException(int page = 1, int limit = 10)
         {
             var scheduleList = await mediator.Send(new GetAllScheduleExceptionQueries(page, limit));
+
+            return new ResultModel
+            {
+                Data = scheduleList,
+                Status = 200,
+                Success = true
+            };
+        }
+        [HttpGet("consultant/{consultantId}")]
+        public async Task<ActionResult<ResultModel>> GetScheduleExceptionByConsultantId(Guid consultantId, int page = 1, int limit = 10)
+        {
+            var scheduleList = await mediator.Send(new GetScheduleExceptionByConsultantIdQuery(consultantId, page, limit));
 
             return new ResultModel
             {

@@ -33,6 +33,23 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<PaginatedResult<ScheduleException>> GetScheduleExceptionByConsultantIdAsync(int page, int limit, Guid consultantId)
+        {
+            IQueryable<ScheduleException> query = _context.ScheduleExceptions.Include(s => s.Schedule).ThenInclude(c => c.Consultant).AsQueryable();
+            query = query.Where(c => c.Schedule.ConsultantId == consultantId);
+            int totalItems = await query.CountAsync();
+
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<ScheduleException>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
+        }
+
         public Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return _context.SaveChangesAsync(cancellationToken);
