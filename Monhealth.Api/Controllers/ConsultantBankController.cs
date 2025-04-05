@@ -18,9 +18,9 @@ namespace Monhealth.Api.Controllers
     public class ConsultantBankController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllConsultantBanks(int page = 1, int limit = 10, string? search = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllConsultantBanks(int page = 1, int limit = 10, string? search = null)
         {
-            var consultantBankList = await mediator.Send(new GetAllConsultantBanksQuery(page, limit, search, status));
+            var consultantBankList = await mediator.Send(new GetAllConsultantBanksQuery(page, limit, search));
 
             return new ResultModel
             {
@@ -152,26 +152,26 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPatch("{consultantBankId}/status")]
-        public async Task<ActionResult<ResultModel>> ChangeStatusConsultantBank(Guid consultantBankId)
-        {
-            var command = new ChangeStatusConsultantBankCommand { ConsultantBankId = consultantBankId };
-            var changeStatus = await mediator.Send(command);
-            if (!changeStatus)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy tài khoản ngân hàng tư vấn viên"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Thay đổi trạng thái thành công"
-            };
-        }
+        //[HttpPatch("{consultantBankId}/status")]
+        //public async Task<ActionResult<ResultModel>> ChangeStatusConsultantBank(Guid consultantBankId)
+        //{
+        //    var command = new ChangeStatusConsultantBankCommand { ConsultantBankId = consultantBankId };
+        //    var changeStatus = await mediator.Send(command);
+        //    if (!changeStatus)
+        //    {
+        //        return new ResultModel
+        //        {
+        //            Success = false,
+        //            Status = (int)HttpStatusCode.NotFound,
+        //            Message = "Không tìm thấy tài khoản ngân hàng tư vấn viên"
+        //        };
+        //    }
+        //    return new ResultModel
+        //    {
+        //        Success = true,
+        //        Status = (int)HttpStatusCode.OK,
+        //        Message = "Thay đổi trạng thái thành công"
+        //    };
+        //}
     }
 }

@@ -13,7 +13,6 @@ namespace Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBan
         [JsonPropertyName("name")]
         public string AccountName { get; set; } = string.Empty;
         public bool IsDefault { get; set; }
-        public bool Status { get; set; }
     }
     public class BankInfoDTO
     {

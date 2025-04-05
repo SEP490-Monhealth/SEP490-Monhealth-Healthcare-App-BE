@@ -5,8 +5,7 @@ using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Repositories
 {
-    public class ConsultantBankRepository : GenericRepository<ConsultantBank, Guid>,
-        IConsultantBankRepository
+    public class ConsultantBankRepository : GenericRepository<ConsultantBank, Guid>, IConsultantBankRepository
     {
         public ConsultantBankRepository(MonhealthDbcontext context) : base(context)
         {
@@ -19,7 +18,7 @@ namespace Monhealth.Identity.Repositories
             );
         }
 
-        public async Task<PaginatedResult<ConsultantBank>> GetAllConsultantBanksAsync(int page, int limit, string? search, bool? status)
+        public async Task<PaginatedResult<ConsultantBank>> GetAllConsultantBanksAsync(int page, int limit, string? search)
         {
             search = search?.ToLower().Trim();
             IQueryable<ConsultantBank> query = _context.ConsultantBanks
@@ -38,10 +37,10 @@ namespace Monhealth.Identity.Repositories
                                          EF.Functions.Collate(s.Consultant.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI")
                                          .Contains(search));
             }
-            if (status.HasValue)
-            {
-                query = query.Where(s => s.Status == status.Value);
-            }
+            //if (status.HasValue)
+            //{
+            //    query = query.Where(s => s.Status == status.Value);
+            //}
             int totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)

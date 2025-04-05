@@ -33,7 +33,6 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultan
             }
             newConsultantBank.ConsultantBankId = Guid.NewGuid();
             newConsultantBank.BankId = bank.BankId;
-            newConsultantBank.Status = false;
             newConsultantBank.CreatedAt = DateTime.Now;
             newConsultantBank.UpdatedAt = DateTime.Now;
             consultantBankRepository.Add(newConsultantBank);

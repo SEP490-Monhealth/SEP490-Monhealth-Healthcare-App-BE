@@ -12,7 +12,7 @@ namespace Monhealth.Domain
         public string AccountName { get; set; } = string.Empty;
         public bool IsDefault { get; set; }
         //public bool IsVerified { get; set; }
-        public bool Status { get; set; }
+        //public bool Status { get; set; }
 
         [ForeignKey(nameof(ConsultantId))]
         public Consultant Consultant { get; set; }

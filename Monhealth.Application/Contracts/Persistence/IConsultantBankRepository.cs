@@ -5,7 +5,7 @@ namespace Monhealth.Application.Contracts.Persistence
 {
     public interface IConsultantBankRepository : IGenericRepository<ConsultantBank, Guid>
     {
-        Task<PaginatedResult<ConsultantBank>> GetAllConsultantBanksAsync(int page, int limit, string? search, bool? status);
+        Task<PaginatedResult<ConsultantBank>> GetAllConsultantBanksAsync(int page, int limit, string? search);
         Task<ConsultantBank> GetConsultantBankById(Guid consultantBankId);
         Task<List<ConsultantBank>> GetConsultantBankByConsultantIdAsync(Guid consultantId);
         Task<ConsultantBank> GetConsultantBankByConsultant(Guid conSultantBankId);

@@ -12,7 +12,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultant
         {
             var listBanks =
              await consultantBankRepository.GetAllConsultantBanksAsync
-             (request.Page, request.Limit, request.Search, request.Status);
+             (request.Page, request.Limit, request.Search);
             return new PageResult<GetAllConsultantBanksDTO>
             {
                 CurrentPage = request.Page,
