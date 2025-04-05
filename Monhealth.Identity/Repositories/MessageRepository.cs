@@ -19,8 +19,10 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Message>> GetMessageByChatId(Guid chatId)
         {
-            return await _context.Messages.AsNoTracking().AsSingleQuery()
+            return await _context.Messages.AsNoTracking()
+                .AsSingleQuery()
                 .Where(m => m.ChatId == chatId)
+
                 .ToListAsync();
         }
 

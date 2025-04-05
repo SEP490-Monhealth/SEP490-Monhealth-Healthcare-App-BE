@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -34,12 +35,23 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(c => c.UserId == senderId && c.ConsultantId == receiverId);
         }
 
-        public async Task<List<Chat>> GetUserChatAsync(Guid userId)
+        public async Task<PaginatedResult<Chat>> GetUserChatAsync(int page, int limit, Guid userId)
         {
-            return await _context.Chats
-                           .Where(c => c.UserId == userId || c.ConsultantId == userId)
-                           .OrderByDescending(c => c.LastMessage)
-                           .ToListAsync();
+            IQueryable<Chat> query = _context.Chats
+                .Where(c => c.UserId == userId)
+                .OrderByDescending(c => c.UpdatedAt)
+                .AsQueryable();
+            var totalItems = await query.CountAsync();
+
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Chat>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)

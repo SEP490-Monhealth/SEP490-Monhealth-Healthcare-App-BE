@@ -1,14 +1,15 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId
 {
-    public class GetUserChatQueryHandler(IChatRepository chatRepository) : IRequestHandler<GetUserChatQuery, List<ChatDto>>
+    public class GetUserChatQueryHandler(IChatRepository chatRepository) : IRequestHandler<GetUserChatQuery, PageResult<ChatDto>>
     {
-        public async Task<List<ChatDto>> Handle(GetUserChatQuery request, CancellationToken cancellationToken)
+        public async Task<PageResult<ChatDto>> Handle(GetUserChatQuery request, CancellationToken cancellationToken)
         {
-            var chats = await chatRepository.GetUserChatAsync(request.UserId);
-            var chatDtos = chats.Select(c => new ChatDto
+            var chatPaging = await chatRepository.GetUserChatAsync(request.Page, request.Limit, request.UserId);
+            var chatDtos = chatPaging.Items.Select(c => new ChatDto
             {
                 ChatId = c.ChatId,
                 UserId = c.UserId,
@@ -16,8 +17,16 @@ namespace Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId
                 LastMessage = c.LastMessage,
                 CreatedAt = c.CreatedAt,
                 UpdatedAt = c.UpdatedAt,
+                CreatedBy = c.CreatedBy,
+                UpdatedBy = c.UpdatedBy,
             }).ToList();
-            return chatDtos;
+            return new PageResult<ChatDto>()
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(chatPaging.TotalCount / (double)request.Limit),
+                TotalItems = chatPaging.TotalCount,
+                Items = chatDtos
+            }; ;
         }
     }
 }

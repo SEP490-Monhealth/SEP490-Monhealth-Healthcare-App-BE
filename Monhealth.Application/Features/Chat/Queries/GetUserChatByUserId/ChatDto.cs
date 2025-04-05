@@ -2,7 +2,7 @@
 
 namespace Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId
 {
-    public class ChatDto : TimeEntity
+    public class ChatDto : BaseEntity
     {
         public Guid ChatId { get; set; }
         public Guid UserId { get; set; }

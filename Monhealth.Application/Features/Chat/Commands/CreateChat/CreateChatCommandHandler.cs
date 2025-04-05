@@ -13,7 +13,11 @@ namespace Monhealth.Application.Features.Chat.Commands.CreateChat
                 UserId = request.UserId,
                 ConsultantId = request.ConsultantId,
                 LastMessage = string.Empty,
-                Messages = new List<Domain.Message>()
+                Messages = new List<Domain.Message>(),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                CreatedBy = request.UserId,
+                UpdatedBy = request.UserId
             };
 
             chatRepository.Add(newChat);

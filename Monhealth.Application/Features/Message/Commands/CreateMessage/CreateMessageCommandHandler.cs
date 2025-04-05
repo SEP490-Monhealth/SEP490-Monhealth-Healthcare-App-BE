@@ -31,6 +31,7 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 SenderId = request.SenderId,
                 Content = request.Content,
                 CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
             messageRepository.Add(newMessage);
 
@@ -45,6 +46,7 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 SenderId = newMessage.SenderId,
                 Content = newMessage.Content,
                 CreatedAt = newMessage.CreatedAt,
+                UpdatedAt = newMessage.UpdatedAt,
             };
             return Unit.Value;
         }

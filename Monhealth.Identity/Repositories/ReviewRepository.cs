@@ -19,11 +19,11 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(review => review.Rating == rating);
             }
+            var totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
             }
-            var totalItems = await query.CountAsync();
             return new PaginatedResult<Review>
             {
                 Items = await query.ToListAsync(),

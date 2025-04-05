@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Monhealth.Application;
 using Monhealth.Application.Features.Chat.Commands.CreateChat;
+using Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -50,5 +51,19 @@ namespace Monhealth.Api.Controllers
                 // rawData = chatBotAi // optional: trả về thêm nếu cần debug
             });
         }
+
+        [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetAllChat([FromRoute] Guid userId, int page = 1, int limit = 10)
+        {
+            var chats = await mediator.Send(new GetUserChatQuery { Page = page, Limit = limit, UserId = userId });
+            return new ResultModel
+            {
+                Data = chats,
+                Status = 200,
+                Success = true,
+            };
+        }
+
+
     }
 }
