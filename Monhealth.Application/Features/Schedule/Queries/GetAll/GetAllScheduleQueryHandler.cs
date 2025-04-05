@@ -61,7 +61,9 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
                             Status = bookedTimeSlots.Contains(st.TimeSlot.StartTime)
                                 ? ScheduleTimeSlotStatus.Unavailable
                                 : ScheduleTimeSlotStatus.Available
-                        }).ToList()
+                        }).ToList(),
+                    CreatedAt = s.CreatedAt,
+                    UpdatedAt = s.UpdatedAt,
                 };
             }).ToList();
             return new PageResult<ScheduleDTO>

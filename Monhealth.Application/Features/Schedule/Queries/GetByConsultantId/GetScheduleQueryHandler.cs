@@ -58,7 +58,9 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
                     ? ScheduleTimeSlotStatus.Unavailable
                     : ScheduleTimeSlotStatus.Available,
                 }
-             ).ToList()
+             ).ToList(),
+                CreatedAt = s.CreatedAt,
+                UpdatedAt = s.UpdatedAt
             }).ToList();
             return result;
         }

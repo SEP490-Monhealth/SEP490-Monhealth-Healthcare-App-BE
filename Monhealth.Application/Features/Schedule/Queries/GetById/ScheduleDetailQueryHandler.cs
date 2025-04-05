@@ -36,7 +36,9 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetById
                 {
                     StartTime = st.TimeSlot.StartTime,
                     Status = st.Status,
-                }).ToList()
+                }).ToList(),
+                CreatedAt = schedule.CreatedAt,
+                UpdatedAt = schedule.UpdatedAt
             };
 
 
