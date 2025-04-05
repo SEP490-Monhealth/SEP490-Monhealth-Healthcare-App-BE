@@ -55,6 +55,27 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
                 // _userRoleRepository.Add(newUserRole);
                 // await _userRepository.SaveChangesAsync();
 
+                var consultantRole = await _userRoleRepository.GetRoleConsultant("Consultant");
+                // xoa role
+                var userId = consultant?.UserId;
+                if (userId.HasValue)
+                {
+                    var userRole = await _userRoleRepository.GetUserRoleByUserIdAsync(userId.Value);
+                    if (userRole != null)
+                    {
+                        // Nếu người dùng đã có role, xóa bản ghi cũ trước khi thêm role mới
+                        _userRoleRepository.Remove(userRole);
+                        await _userRepository.SaveChangesAsync();
+                    }
+                    // Tạo bản ghi mới cho UserRole với RoleId mới
+                    var newUserRole = new IdentityUserRole<Guid>
+                    {
+                        UserId = userId.Value,
+                        RoleId = consultantRole.Id
+                    };
+                    _userRoleRepository.Add(newUserRole);
+                }
+
                 // Thay đổi trạng thái wallet
                 var wallet = await _walletRepository.GetWalletByConsultantId(request.ConsultantId);
                 if (wallet == null)
