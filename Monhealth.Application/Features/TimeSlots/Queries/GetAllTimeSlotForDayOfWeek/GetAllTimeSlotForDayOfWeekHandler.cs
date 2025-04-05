@@ -26,10 +26,9 @@ namespace Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayO
                 TimeSlots = timeslotLists
                 .Where(ts => rule.Value.Contains(ts.StartTime))
                 .OrderBy(ts => ts.StartTime)
-                .Select(ts => ts.StartTime.ToString(@"hh\:mm"))
+                .Select(ts => ts.StartTime.ToString(@"HH\:mm"))
                 .ToList()
             }).ToList();
-
 
             return timeSlotByDays;
         }

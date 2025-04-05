@@ -4,6 +4,7 @@ using Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsultant;
 using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
 using Monhealth.Application.Features.Consultant.Commands.DeleteConsultant;
 using Monhealth.Application.Features.Consultant.Commands.UpdateConsultant;
+using Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant;
 using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
 using Monhealth.Application.Features.Consultant.Queries.GetConsultantById;
 using Monhealth.Application.Models;
@@ -167,27 +168,27 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        // [HttpPatch("{consultantId}/verify")]
-        // public async Task<ActionResult<ResultModel>> VeryfiedConsultant(Guid consultantId)
-        // {
-        //     var consultant = await _mediator.Send(new VeryfiedConsultantCommand() { ConsultantId = consultantId });
+        [HttpPatch("{consultantId}/verify")]
+        public async Task<ActionResult<ResultModel>> VeryfiedConsultant(Guid consultantId)
+        {
+            var consultant = await _mediator.Send(new VeryfiedConsultantCommand() { ConsultantId = consultantId });
 
-        //     if (consultant == false)
-        //     {
-        //         return NotFound(new ResultModel
-        //         {
-        //             Success = false,
-        //             Message = "Tư vấn viên không tồn tại",
-        //             Status = (int)HttpStatusCode.NotFound,
-        //             Data = null
-        //         });
-        //     }
-        //     return Ok(new ResultModel
-        //     {
-        //         Success = true,
-        //         Status = 200,
-        //         Message = "Xác thực tư vấn viên thành công."
-        //     });
-        // }
+            if (consultant == false)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Tư vấn viên không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Message = "Xác thực tư vấn viên thành công."
+            });
+        }
     }
 }
