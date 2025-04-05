@@ -146,8 +146,10 @@ namespace Monhealth.Identity.Services
             {
                 throw new BadRequestException("Số điện thoại đã tồn tại");
             }
+            var newUserId = Guid.NewGuid();
             var user = new AppUser
             {
+                Id = newUserId,
                 FullName = request.FullName,
                 UserName = request.Email.ToLower(),
                 Email = request.Email,
@@ -157,8 +159,8 @@ namespace Monhealth.Identity.Services
                 LockoutEnabled = false,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                CreatedBy = getUser.Id,
-                UpdatedBy = getUser.Id
+                CreatedBy = newUserId,
+                UpdatedBy = newUserId
             };
 
             // Step 4: Register the user
