@@ -62,6 +62,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy chuyên viên theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetConsultantByUserId(Guid userId)
         {
             var consultant = await _mediator.Send(new GetConsultantByUserQuery { UserId = userId });
@@ -84,7 +85,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Thêm chuyên viên")]
+        [SwaggerOperation(Summary = "Tạo chuyên viên")]
         public async Task<ActionResult<ResultModel>> CreateConsultant([FromBody] CreateConsultantDTO createConsultantDTO)
         {
             var command = new CreateConsultantCommand(createConsultantDTO);
@@ -93,7 +94,7 @@ namespace Monhealth.Api.Controllers
             {
                 return new ResultModel
                 {
-                    Message = "Thêm chuyên viên thành công",
+                    Message = "Tạo chuyên viên thành công",
                     Status = 201,
                     Success = true
                 };
@@ -102,7 +103,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = false,
                 Status = (int)HttpStatusCode.BadRequest,
-                Message = "Thêm chuyên viên thất bại"
+                Message = "Tạo chuyên viên thất bại"
             };
         }
 

@@ -23,6 +23,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách số liệu")]
         public async Task<ActionResult<ResultModel>> GetAllMetrics()
         {
             var metrics = await _mediator.Send(new GetMetricListQuery());
@@ -36,6 +37,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách số liệu theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetMetricByUserId(Guid userId)
         {
             var metric = await _mediator.Send(new GetMetricByUserIdQuery() { UserId = userId });
@@ -48,6 +50,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{metricId:guid}")]
+        [SwaggerOperation(Summary = "Lấy số liệu theo ID")]
         public async Task<ActionResult<ResultModel>> GetMetricById(Guid metricId)
         {
             var metric = await _mediator.Send(new GetMetricDetailQuery() { MetricId = metricId });
@@ -69,6 +72,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo số liệu")]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateMetricDTO metricRequest)
         {
             var command = new CreateMetricCommand(metricRequest);
@@ -91,6 +95,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{metricId}")]
+        [SwaggerOperation(Summary = "Cập nhật số liệu")]
         public async Task<ActionResult<ResultModel>> Update(Guid metricId, [FromBody] UpdateMetricDTO metricDto)
         {
             var command = new UpdateMetricCommand(metricId, metricDto);
@@ -113,6 +118,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpDelete("{metricId}")]
+        [SwaggerOperation(Summary = "Xóa số liệu")]
         public async Task<ActionResult<ResultModel>> Delete(Guid metricId)
         {
             var metricCommand = new DeleteMetricCommand { MetricId = metricId };

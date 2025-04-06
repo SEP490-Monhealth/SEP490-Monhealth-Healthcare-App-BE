@@ -8,6 +8,7 @@ using Monhealth.Application.Features.Schedule.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetById;
 using Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayOfWeek;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -23,6 +24,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch trình")]
         public async Task<ActionResult<ResultModel>> GetAllSchedule(int page = 1, int limit = 10)
         {
             var scheduleList = await _mediator.Send(new GetAllScheduleQuery
@@ -41,6 +43,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch trình theo ID chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, [FromQuery] DateTime? date = null)
         {
             var queries = await _mediator.
@@ -51,7 +54,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Lịch không tồn tại",
+                    Message = "Lịch trình không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -66,6 +69,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{scheduleId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy lịch trình theo ID")]
         public async Task<ActionResult<ResultModel>> GetScheduleDetail(Guid scheduleId)
         {
             var queries = await _mediator.
@@ -76,7 +80,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Lịch không tồn tại",
+                    Message = "Lịch trình không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -90,6 +94,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo lịch trình")]
         public async Task<ResultModel> Create([FromBody] CreateScheduleCommand request)
         {
             var create = await _mediator.Send(request);
@@ -97,14 +102,14 @@ namespace Monhealth.Api.Controllers
             //{
             //    return new ResultModel
             //    {
-            //        Message = "Tạo lịch thành công",
+            //        Message = "Tạo lịch trình thành công",
             //        Status = 201,
             //        Success = true
             //    };
             //}
             return new ResultModel
             {
-                Message = "Tạo lịch thành công",
+                Message = "Tạo lịch trình thành công",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
             };
@@ -112,6 +117,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{scheduleId:Guid}")]
+        [SwaggerOperation(Summary = "Cập nhật lịch trình")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid scheduleId, [FromBody] UpdateScheduleRequest request)
         {
             var command = new UpdateScheduleCommand(scheduleId, request);
@@ -119,14 +125,14 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật lịch thất bại",
+                    Message = "Cập nhật lịch trình thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(
                 new ResultModel
                 {
-                    Message = "Cập nhật lịch thành công",
+                    Message = "Cập nhật lịch trình thành công",
                     Success = true,
                     Status = 204,
                 }
@@ -135,6 +141,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{scheduleId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa lịch trình")]
         public async Task<ActionResult<ResultModel>> Delete(Guid scheduleId)
         {
             var queries = await _mediator.
@@ -145,7 +152,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Lịch không tồn tại",
+                    Message = "Lịch trình không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -159,6 +166,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("time-slots")]
+        [SwaggerOperation(Summary = "Lấy danh sách khung giờ")]
         public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek()
         {
             var results = await _mediator.Send(new GetAllTimeSlotForDayOfWeekQueries());

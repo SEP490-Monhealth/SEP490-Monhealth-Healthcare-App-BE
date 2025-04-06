@@ -47,7 +47,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Lấy lịch hẹn theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetBookingByUserId([FromRoute] Guid userId)
         {
             var booking = await mediator.Send(new GetBookingByUserIdQueries { UserId = userId });
@@ -60,7 +60,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy lịch hẹn theo ID chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId, DateTime? date = null)
         {
             var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId, Date = date });
@@ -73,14 +73,14 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Thêm lịch hẹn")]
+        [SwaggerOperation(Summary = "Tạo lịch hẹn")]
         public async Task<ActionResult<ResultModel>> CreateBooking([FromBody] CreateBookingCommand command)
         {
             await mediator.Send(command);
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Thêm lịch hẹn thành công",
+                Message = "Tạo lịch hẹn thành công",
                 Status = 201,
             });
         }
@@ -144,14 +144,14 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = false,
-                    Message = "Cập nhập trạng thái thất bại",
+                    Message = "Cập nhập trạng thái lịch hẹn thất bại",
                     Status = 500,
                 };
             }
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Cập nhập trạng thái thành công",
+                Message = "Cập nhập trạng thái lịch hẹn thành công",
                 Status = 200,
             });
         }

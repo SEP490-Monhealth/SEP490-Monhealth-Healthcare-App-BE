@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Portions.Commands.CreateFoodPortion;
+using Monhealth.Application.Features.Portions.Commands.DeletePortion;
 using Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion;
 using Monhealth.Application.Features.Portions.Commands.UpdatePortion;
 using Monhealth.Application.Features.Portions.Queries.GetAllFoodPortion;
@@ -23,6 +24,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách khẩu phần ăn")]
         public async Task<ActionResult<ResultModel>> GetAllPortions(int page = 1, int limit = 10, [FromQuery] string sort = null, string order = null)
         {
             var query = new GetAllPortionQuery(page, limit, sort, order);
@@ -36,6 +38,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{portionId:guid}")]
+        [SwaggerOperation(Summary = "Lấy khẩu phần ăn theo ID")]
         public async Task<ActionResult<ResultModel>> GetPortionById(Guid portionId)
         {
             var portion = await _mediator.Send(new GetPortionByIdQuery() { PortionId = portionId });
@@ -57,6 +60,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("food/{foodId}")]
+        [SwaggerOperation(Summary = "Lấy danh sách khẩu phần ăn theo ID thực phẩm")]
         public async Task<ActionResult<ResultModel>> GetPortionsByFoodId(Guid foodId, int page = 1, int limit = 10, string? search = null, string? sort = null, string? order = null)
         {
             var portion = await _mediator.Send(new GetPortionsByFoodIdQuery(foodId, page, limit, search, sort, order));
@@ -78,6 +82,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo khẩu phần ăn")]
         public async Task<ActionResult<ResultModel>> CreateFoodPortion([FromBody] CreatePortionCommand createPortion)
         {
             var create = await _mediator.Send(createPortion);
@@ -99,6 +104,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{portionId}")]
+        [SwaggerOperation(Summary = "Cập nhật khẩu phần ăn")]
         public async Task<ActionResult<ResultModel>> Update(Guid portionId, [FromBody] UpdatePortionRequest updatePortion)
         {
             var command = new UpdatePortionCommand(portionId, updatePortion);
@@ -120,26 +126,27 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        // [HttpDelete("{portionId}")]
-        // public async Task<ActionResult<ResultModel>> Delete(Guid portionId)
-        // {
-        //     var command = new DeletePortionCommand { PortionId = portionId };
-        //     var delete = await _mediator.Send(command);
-        //     if (!delete)
-        //     {
-        //         return new ResultModel
-        //         {
-        //             Success = false,
-        //             Status = (int)HttpStatusCode.NotFound,
-        //             Message = "Xóa khẩu phần ăn thất bại"
-        //         };
-        //     }
-        //     return new ResultModel
-        //     {
-        //         Success = true,
-        //         Status = (int)HttpStatusCode.OK,
-        //         Message = "Xóa khẩu phần ăn thành công"
-        //     };
-        // }
+        [HttpDelete("{portionId}")]
+        [SwaggerOperation(Summary = "Xóa khẩu phần ăn")]
+        public async Task<ActionResult<ResultModel>> Delete(Guid portionId)
+        {
+            var command = new DeletePortionCommand { PortionId = portionId };
+            var delete = await _mediator.Send(command);
+            if (!delete)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Xóa khẩu phần ăn thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Xóa khẩu phần ăn thành công"
+            };
+        }
     }
 }

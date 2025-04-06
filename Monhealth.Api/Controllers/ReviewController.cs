@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Review.Queries.GetReviewByBookingId;
 using Monhealth.Application.Features.Review.Queries.GetReviewByConsultant;
 using Monhealth.Application.Features.Review.Queries.GetReviewByUser;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -24,6 +25,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách đánh giá")]
         public async Task<ActionResult<ResultModel>> GetAllReviews(int page = 1, int limit = 10, int? rating = null)
         {
             if (rating.HasValue && (rating < 1 || rating > 5))
@@ -44,32 +46,8 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{reviewId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetReviewDetail(Guid reviewId)
-        {
-            var queries = await _mediator.
-            Send(new GetReviewDetailQuery { ReviewId = reviewId });
-
-            if (queries == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Đánh giá không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = queries
-            });
-        }
-
-        [HttpGet]
         [Route("user/{userId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách đánh giá theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetReviewByUser(Guid userId)
         {
             var queries = await _mediator.
@@ -94,32 +72,8 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("booking/{bokingId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetReviewByBookingId(Guid bokingId)
-        {
-            var queries = await _mediator.
-            Send(new GetReviewByBookingIdQueries { BookingId = bokingId });
-
-            if (queries == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Đánh giá không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = queries
-            });
-        }
-
-        [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách đánh giá theo ID chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetReviewByConsultant(Guid consultantId)
         {
             var queries = await _mediator.
@@ -143,7 +97,60 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+        [HttpGet]
+        [Route("booking/{bookingId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin đánh giá theo ID đặt lịch")]
+        public async Task<ActionResult<ResultModel>> GetReviewByBookingId(Guid bookingId)
+        {
+            var queries = await _mediator.
+            Send(new GetReviewByBookingIdQueries { BookingId = bookingId });
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Đánh giá không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
+
+        [HttpGet]
+        [Route("{reviewId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin đánh giá theo ID")]
+        public async Task<ActionResult<ResultModel>> GetReviewDetail(Guid reviewId)
+        {
+            var queries = await _mediator.
+            Send(new GetReviewDetailQuery { ReviewId = reviewId });
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Đánh giá không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = queries
+            });
+        }
+
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo đánh giá")]
         public async Task<ActionResult<ResultModel>> AddReview([FromBody] AddReviewRequest request)
         {
             var result = await _mediator.Send(request);
@@ -166,6 +173,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{reviewId:Guid}")]
+        [SwaggerOperation(Summary = "Cập nhật đánh giá")]
         public async Task<ActionResult<ResultModel>> UpdateReview(Guid reviewId, [FromBody] UpdateReviewRequest request)
         {
             var command = new UpdateReviewCommand(reviewId, request);
@@ -187,6 +195,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{reviewId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa đánh giá")]
         public async Task<ActionResult<ResultModel>> RemoveReview(Guid reviewId)
         {
             var result = await _mediator.Send(new DeleteReviewRequest(reviewId));

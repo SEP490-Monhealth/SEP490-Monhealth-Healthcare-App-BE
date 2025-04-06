@@ -59,7 +59,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Thêm mới bộ bài tập")]
+        [SwaggerOperation(Summary = "Tạo mới bộ bài tập")]
         public async Task<ActionResult<ResultModel>> CreateWorkout([FromBody] CreateWorkoutCommand command)
         {
             var result = await mediator.Send(command);
@@ -68,7 +68,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Thêm bộ bài tập thành công",
+                    Message = "Tạo bộ bài tập thành công",
                     Status = 201,
                 });
             }
@@ -76,7 +76,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Thêm bộ bài tập thất bại",
+                Message = "Tạo bộ bài tập thất bại",
                 Status = 400,
             });
         }

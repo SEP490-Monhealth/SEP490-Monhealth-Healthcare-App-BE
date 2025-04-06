@@ -66,7 +66,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Thêm hoạt động")]
+        [SwaggerOperation(Summary = "Tạo hoạt động")]
         public async Task<ActionResult<ResultModel>> CreateActivity([FromBody] CreateActivityDTO createActivityDTO)
         {
             var command = new CreateActivityCommand(createActivityDTO);
@@ -75,14 +75,14 @@ namespace Monhealth.Api.Controllers
             {
                 return new ResultModel
                 {
-                    Message = "Thêm hoạt động thành công",
+                    Message = "Tạo hoạt động thành công",
                     Status = 201,
                     Success = true
                 };
             }
             return new ResultModel
             {
-                Message = "Thêm hoạt động thất bại",
+                Message = "Tạo hoạt động thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };

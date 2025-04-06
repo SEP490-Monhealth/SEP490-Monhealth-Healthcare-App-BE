@@ -98,7 +98,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Thêm yêu cầu rút tiền")]
+        [SwaggerOperation(Summary = "Tạo yêu cầu rút tiền")]
         public async Task<ResultModel> Create([FromBody] CreateWithdrawalRequestDTO request)
         {
             var result = await mediator.Send(request);
@@ -107,7 +107,7 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = true,
-                    Message = "Thêm yêu cầu rút tiền thành công",
+                    Message = "Tạo yêu cầu rút tiền thành công",
                     Status = 201,
                 };
             }
@@ -115,7 +115,7 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Success = false,
-                Message = "Thêm yêu cầu rút tiền thất bại",
+                Message = "Tạo yêu cầu rút tiền thất bại",
                 Status = 400,
             };
         }

@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.DailyActivity.Queries.GetDailyActivityByUserId;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -12,6 +13,7 @@ namespace Monhealth.Api.Controllers
     {
         [HttpGet]
         [Route("user")]
+        [SwaggerOperation(Summary = "Lấy hoạt động hằng ngày theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetDailyActivityByUserId([FromQuery][Required] Guid userId,
          [FromQuery][Required] DateTime date)
         {

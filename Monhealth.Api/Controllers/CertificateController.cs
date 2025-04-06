@@ -30,7 +30,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy chứng chỉ theo ID bác sĩ")]
+        [SwaggerOperation(Summary = "Lấy danh sách chứng chỉ theo ID chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetCertificateByConsultant(Guid consultantId)
         {
             var certificate = await mediator.Send(new GetAllCertificateByConsultantQuery { ConsultantId = consultantId });
@@ -56,7 +56,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Thêm chứng chỉ")]
+        [SwaggerOperation(Summary = "Tạo chứng chỉ")]
         public async Task<ActionResult<ResultModel>> CreateCertificate([FromBody] CertificateCommand certificateCommand)
         {
             var result = await mediator.Send(certificateCommand);
@@ -65,7 +65,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Thêm chứng chỉ thành công",
+                    Message = "Tạo chứng chỉ thành công",
                     Status = 201,
                 });
             }
@@ -73,7 +73,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Thêm chứng chỉ thất bại",
+                Message = "Tạo chứng chỉ thất bại",
                 Status = 400,
             });
         }

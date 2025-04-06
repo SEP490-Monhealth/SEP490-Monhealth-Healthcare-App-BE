@@ -2,8 +2,8 @@
 
 namespace Monhealth.Application.Features.Subscription.Commands.ChangeStatus
 {
-    public class ChangeStatusSubcriptionCommand : IRequest<bool>
+    public class ChangeStatusSubscriptionCommand : IRequest<bool>
     {
-        public Guid SubcriptionId { get; set; }
+        public Guid SubscriptionId { get; set; }
     }
 }

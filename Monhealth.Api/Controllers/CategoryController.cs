@@ -89,7 +89,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Thêm danh mục")]
+        [SwaggerOperation(Summary = "Tạo danh mục")]
         public async Task<ActionResult<ResultModel>> AddCategory([FromBody] AddCategoryRequest request)
         {
             var result = await _mediator.Send(request);
@@ -98,7 +98,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Thêm danh mục thành công",
+                    Message = "Tạo danh mục thành công",
                     Status = 201,
                 });
             }
@@ -106,7 +106,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Thêm danh mục thất bại",
+                Message = "Tạo danh mục thất bại",
                 Status = 400,
             });
         }

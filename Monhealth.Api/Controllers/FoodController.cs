@@ -125,7 +125,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPost("public")]
         [ActionName("AddFoodAdmin")]
-        [SwaggerOperation(Summary = "Thêm món ăn cho admin")]
+        [SwaggerOperation(Summary = "Tạo món ăn cho admin")]
         public async Task<ActionResult<ResultModel>> AddFoodForAdmin([FromBody] AddFoodRequest request)
         {
             var result = await _mediator.Send(request);
@@ -149,7 +149,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPost]
         [ActionName("AddFoodUser")]
-        [SwaggerOperation(Summary = "Thêm món ăn cho người dùng")]
+        [SwaggerOperation(Summary = "Tạo món ăn cho người dùng")]
         public async Task<ActionResult<ResultModel>> AddFoodForUser([FromBody] AddFoodUserRequest request)
         {
             var result = await _mediator.Send(request);

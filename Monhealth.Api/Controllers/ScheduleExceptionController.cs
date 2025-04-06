@@ -17,6 +17,7 @@ namespace Monhealth.Api.Controllers
     public class ScheduleExceptionController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch nghỉ")]
         public async Task<ActionResult<ResultModel>> GetAllScheduleException(int page = 1, int limit = 10)
         {
             var scheduleList = await mediator.Send(new GetAllScheduleExceptionQueries(page, limit));
@@ -30,6 +31,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId}")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch nghỉ theo ID chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetScheduleExceptionByConsultantId(Guid consultantId, int page = 1, int limit = 10)
         {
             var scheduleList = await mediator.Send(new GetScheduleExceptionByConsultantIdQuery(consultantId, page, limit));
@@ -44,6 +46,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{scheduleExceptionId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy lịch nghỉ theo ID")]
         public async Task<ActionResult<ResultModel>> GetScheduleException(Guid scheduleExceptionId)
         {
             var queries = await mediator.Send(new GetScheduleExceptionByIdQueries { ScheduleExceptionId = scheduleExceptionId });
@@ -57,6 +60,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo lịch nghỉ")]
         public async Task<ResultModel> CreateScheduleException([FromBody] CreateScheduleExceptionCommand request)
         {
             var create = await mediator.Send(request);
@@ -71,6 +75,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{scheduleExceptionId:Guid}")]
+        [SwaggerOperation(Summary = "Cập nhật lịch nghỉ")]
         public async Task<ActionResult<ResultModel>> UpdateScheduleException(Guid scheduleExceptionId, [FromBody] UpdateScheduleExceptionDto request)
         {
             var command = new UpdateScheduleExceptionCommand(scheduleExceptionId, request);
@@ -88,6 +93,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{scheduleExceptionId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa lịch nghỉ")]
         public async Task<ActionResult<ResultModel>> DeleteScheduleException(Guid scheduleExceptionId)
         {
             var queries = await mediator.Send(new DeleteScheduleExceptionCommand { ScheduleExceptionId = scheduleExceptionId });

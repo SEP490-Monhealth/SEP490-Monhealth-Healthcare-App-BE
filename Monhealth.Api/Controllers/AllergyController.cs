@@ -87,7 +87,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Thêm dị ứng")]
+        [SwaggerOperation(Summary = "Tạo dị ứng")]
         public async Task<ActionResult<ResultModel>> AddAllergy([FromBody] CreateAllergyRequest request)
         {
             var result = await _mediator.Send(request);
@@ -96,7 +96,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Thêm dị ứng thành công",
+                    Message = "Tạo dị ứng thành công",
                     Status = 201,
                 });
             }
@@ -104,7 +104,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Thêm dị ứng thất bại",
+                Message = "Tạo dị ứng thất bại",
                 Status = 400,
             });
         }

@@ -31,7 +31,7 @@ namespace Monhealth.Identity.Services
             _userRepository = userRepository;
         }
 
-        public async Task<MeResponse> GetInfomationCurrentUser(string phoneNumber)
+        public async Task<MeResponse> GetInformationCurrentUser(string phoneNumber)
         {
             if (string.IsNullOrEmpty(phoneNumber)) throw new BadRequestException("Số điện thoại không được để trống");
             var user = await _userRepository.GetByPhoneNumberAsync(phoneNumber);

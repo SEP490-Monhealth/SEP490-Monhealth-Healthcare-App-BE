@@ -71,7 +71,7 @@ namespace Monhealth.Api.Controllers
                 };
             }
 
-            var user = await _authService.GetInfomationCurrentUser(phoneNumber);
+            var user = await _authService.GetInformationCurrentUser(phoneNumber);
             return new ResultModel
             {
                 Success = true,

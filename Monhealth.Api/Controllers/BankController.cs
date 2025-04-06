@@ -55,7 +55,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Thêm ngân hàng")]
+        [SwaggerOperation(Summary = "Tạo ngân hàng")]
         public async Task<ActionResult<ResultModel>> CreateBank([FromBody] CreateBankDTO createBankDTO)
         {
             var command = new CreateBankCommand(createBankDTO);
@@ -64,14 +64,14 @@ namespace Monhealth.Api.Controllers
             {
                 return new ResultModel
                 {
-                    Message = "Thêm ngân hàng thành công",
+                    Message = "Tạo ngân hàng thành công",
                     Status = 201,
                     Success = true
                 };
             }
             return new ResultModel
             {
-                Message = "Thêm ngân hàng thất bại",
+                Message = "Tạo ngân hàng thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };

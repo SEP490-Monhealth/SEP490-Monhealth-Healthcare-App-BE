@@ -26,6 +26,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách bài tập")]
         public async Task<ActionResult<ResultModel>> GetAllExercise(int page = 1, int limit = 10, string? search = null, ExerciseType? type = default, bool? status = null)
         {
             var exerciseList = await _mediator.Send(new GetAllExercisesQuery(page, limit, type, search, status));
@@ -36,28 +37,6 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Success = true
             };
-        }
-
-        [HttpGet("{exerciseId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetExerciseById(Guid exerciseId)
-        {
-            var exercise = await _mediator.Send(new GetExerciseByIdQuery { ExerciseId = exerciseId });
-            if (exercise == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Bài tập không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = exercise
-            });
         }
 
         // [HttpGet("user/{userId:guid}")]
@@ -83,6 +62,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpGet("workout/{workoutId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách bài tập theo ID bộ bài tập")]
         public async Task<ActionResult<ResultModel>> GetExerciseByWorkoutId([FromRoute] Guid workoutId)
         {
             var exercise = await _mediator.Send(new GetExerciseByWorkoutIdQuery() { WorkoutId = workoutId });
@@ -104,7 +84,31 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+        [HttpGet("{exerciseId:guid}")]
+        [SwaggerOperation(Summary = "Lấy bài tập theo ID")]
+        public async Task<ActionResult<ResultModel>> GetExerciseById(Guid exerciseId)
+        {
+            var exercise = await _mediator.Send(new GetExerciseByIdQuery { ExerciseId = exerciseId });
+            if (exercise == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Bài tập không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = exercise
+            });
+        }
+
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo bài tập")]
         public async Task<ActionResult<ResultModel>> CreateExercise(CreateExerciseDTO createExerciseDTO)
         {
             var command = new CreateExerciseCommand(createExerciseDTO);
@@ -127,6 +131,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{exerciseId}")]
+        [SwaggerOperation(Summary = "Cập nhật bài tập")]
         public async Task<ActionResult<ResultModel>> UpdateExercise(Guid exerciseId, [FromBody] UpdateExerciseDTO updateExerciseDTO)
         {
             var command = new UpdateExerciseCommand(exerciseId, updateExerciseDTO);
@@ -149,6 +154,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpDelete("{exerciseId}")]
+        [SwaggerOperation(Summary = "Xóa bài tập")]
         public async Task<ActionResult<ResultModel>> DeleteExercise(Guid exerciseId)
         {
             var command = new DeleteExerciseCommand { ExerciseId = exerciseId };
@@ -171,6 +177,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{exerciseId}/status")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái bài tập")]
         public async Task<ActionResult<ResultModel>> ChangeStatusExercise(Guid exerciseId)
         {
             var command = new ChangeStatusExerciseCommand { ExerciseId = exerciseId };
@@ -188,7 +195,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật trạng thái thành công"
+                Message = "Cập nhật trạng thái bài tập thành công"
             };
         }
     }

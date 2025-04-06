@@ -26,6 +26,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách gói đăng ký")]
         public async Task<ActionResult<ResultModel>> GetAllSubscription(int page = 1, int limit = 10, string? search = null, bool? sort = null, bool? status = null)
         {
             var metrics = await _mediator.Send(new GetAllSubscriptionQuery { Page = page, Limit = limit, Search = search, Sort = sort, Status = status });
@@ -39,6 +40,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{subscriptionId:guid}")]
+        [SwaggerOperation(Summary = "Lấy gói đăng ký theo ID")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid subscriptionId)
         {
             var result = await _mediator.Send(new SubscriptionDetailQuery() { SubscriptionId = subscriptionId });
@@ -79,6 +81,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo gói đăng ký")]
         public async Task<ActionResult<ResultModel>> Add([FromBody] CreateSubscriptionCommand request)
         {
 
@@ -88,7 +91,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo gói thành viên thành công",
+                    Message = "Tạo gói đăng ký thành công",
                     Status = 201,
                 });
             }
@@ -96,24 +99,25 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo gói thành viên thất bại",
+                Message = "Tạo gói đăng ký thất bại",
                 Status = 400,
             });
-
         }
 
         [HttpPost("upgrade")]
+        [SwaggerOperation(Summary = "Nâng cấp gói đăng ký")]
         public async Task<ActionResult<ResultModel>> Upgrade([FromBody] CreateUserSubscriptionCommand request)
         {
 
             var result = await _mediator.Send(request);
             if (result != null)
-                return ResultModel.Created(null, "Nâng cấp gói thành viên thành công");
-            return ResultModel.CreateFailed(null, "Nâng cấp gói thành viên thất bại");
+                return ResultModel.Created(null, "Nâng cấp gói đăng ký thành công");
+            return ResultModel.CreateFailed(null, "Nâng cấp gói đăng ký thất bại");
         }
 
         [HttpPut]
         [Route("{subscriptionId:Guid}")]
+        [SwaggerOperation(Summary = "Cập nhật gói đăng ký")]
         public async Task<ActionResult<ResultModel>> Update(Guid subscriptionId, [FromBody] UpdateSubscriptionRequest request)
         {
             var command = new UpdateSubscriptionCommand(subscriptionId, request);
@@ -121,13 +125,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật gói thành viên thất bại",
+                    Message = "Cập nhật gói đăng ký thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật gói thành viên thành công",
+                Message = "Cập nhật gói đăng ký thành công",
                 Success = true,
                 Status = 204,
             });
@@ -135,6 +139,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{subscriptionId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa gói đăng ký")]
         public async Task<ActionResult<ResultModel>> Remove(Guid subscriptionId)
         {
             var command = await _mediator.Send(new DeleteSubscriptionRequest() { SubscriptionId = subscriptionId });
@@ -145,7 +150,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Xóa gói thành viên không thành công",
+                    Message = "Xóa gói đăng ký không thành công",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -153,15 +158,17 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Xóa gói thành viên thành công",
+                Message = "Xóa gói đăng ký thành công",
                 Status = 204,
                 Data = null
             });
         }
-        [HttpPatch("{subcriptionId}/status")]
-        public async Task<ActionResult<ResultModel>> ChangeStatusSubcription(Guid subcriptionId)
+
+        [HttpPatch("{subscriptionId}/status")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái gói đăng ký")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusSubscription(Guid subscriptionId)
         {
-            var command = new ChangeStatusSubcriptionCommand { SubcriptionId = subcriptionId };
+            var command = new ChangeStatusSubscriptionCommand { SubscriptionId = subscriptionId };
             var changeStatus = await _mediator.Send(command);
             if (!changeStatus)
             {
@@ -169,14 +176,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy gói nâng cấp"
+                    Message = "Không tìm thấy gói đăng ký"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật trạng thái thành công"
+                Message = "Cập nhật trạng thái gói đăng ký thành công"
             };
         }
     }

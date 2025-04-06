@@ -10,6 +10,7 @@ using Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultantBank
 using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankByConsultantId;
 using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankById;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -18,6 +19,7 @@ namespace Monhealth.Api.Controllers
     public class ConsultantBankController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách tài khoản ngân hàng")]
         public async Task<ActionResult<ResultModel>> GetAllConsultantBanks(int page = 1, int limit = 10, string? search = null)
         {
             var consultantBankList = await mediator.Send(new GetAllConsultantBanksQuery(page, limit, search));
@@ -31,6 +33,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{consultantBankId:guid}")]
+        [SwaggerOperation(Summary = "Lấy tài khoản ngân hàng theo ID")]
         public async Task<ActionResult<ResultModel>> GetConsultantBankById(Guid consultantBankId)
         {
             var consultantBank = await mediator.Send(new GetConsultantBankByIdQuery { ConsultantBankId = consultantBankId });
@@ -39,7 +42,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Tài khoản ngân hàng tư vấn viên không tồn tại",
+                    Message = "Tài khoản ngân hàng chuyên viên không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -53,6 +56,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách tài khoản ngân hàng theo ID chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetConsultantBankByConsultantId(Guid consultantId)
         {
             var consultantBank = await mediator.Send(new GetConsultantBankByConsultantIdQuery { ConsultantId = consultantId });
@@ -65,6 +69,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo tài khoản ngân hàng")]
         public async Task<ActionResult<ResultModel>> CreateConsultantBank([FromBody] CreateConsultantBankDTO createConsultantBankDTO)
         {
             var command = new CreateConsultantBankCommand(createConsultantBankDTO);
@@ -87,6 +92,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{consultantBankId}")]
+        [SwaggerOperation(Summary = "Cập nhật tài khoản ngân hàng")]
         public async Task<ActionResult<ResultModel>> UpdateConsultantBank(Guid consultantBankId, [FromBody] UpdateConsultantBankDTO updateConsultantBankDTO)
         {
             var command = new UpdateConsultantBankCommand(consultantBankId, updateConsultantBankDTO);
@@ -97,18 +103,19 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật tài khoản ngân hàng tư vấn viên thất bại"
+                    Message = "Cập nhật tài khoản ngân hàng chuyên viên thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật tài khoản ngân hàng tư vấn viên thành công"
+                Message = "Cập nhật tài khoản ngân hàng chuyên viên thành công"
             };
         }
 
         [HttpDelete("{consultantBankId}")]
+        [SwaggerOperation(Summary = "Xóa tài khoản ngân hàng")]
         public async Task<ActionResult<ResultModel>> DeleteConsultantBank(Guid consultantBankId)
         {
             var command = new DeleteConsultantBankCommand { ConsultantBankId = consultantBankId };
@@ -119,18 +126,19 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Xóa tài khoản ngân hàng tư vấn viên thất bại"
+                    Message = "Xóa tài khoản ngân hàng chuyên viên thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Xóa tài khoản ngân hàng tư vấn viên thành công"
+                Message = "Xóa tài khoản ngân hàng chuyên viên thành công"
             };
         }
 
         [HttpPatch("{consultantBankId}/default")]
+        [SwaggerOperation(Summary = "Cập nhật tài khoản ngân hàng mặc định")]
         public async Task<ActionResult<ResultModel>> ChangeIsDefaultConsultantBank(Guid consultantBankId)
         {
             var command = new ChangeIsDefaultConsultantBankCommand { ConsultantBankId = consultantBankId };
@@ -141,14 +149,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy tài khoản ngân hàng tư vấn viên"
+                    Message = "Không tìm thấy tài khoản ngân hàng chuyên viên"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Thay đổi tài khoản mặc định thành công"
+                Message = "Cập nhật tài khoản mặc định thành công"
             };
         }
 
@@ -163,7 +171,7 @@ namespace Monhealth.Api.Controllers
         //        {
         //            Success = false,
         //            Status = (int)HttpStatusCode.NotFound,
-        //            Message = "Không tìm thấy tài khoản ngân hàng tư vấn viên"
+        //            Message = "Không tìm thấy tài khoản ngân hàng chuyên viên"
         //        };
         //    }
         //    return new ResultModel

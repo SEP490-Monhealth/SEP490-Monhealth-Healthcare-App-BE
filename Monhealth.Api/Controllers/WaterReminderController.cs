@@ -29,6 +29,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách nhắc nhở")]
         public async Task<ActionResult<ResultModel>> GetAllReminder([FromQuery] int page = 1, int limit = 10, string? search = null, bool? recurring = null, bool? status = null)
         {
             var query = new GetAllReminderQuery { Page = page, Limit = limit, Search = search, Recurring = recurring, Status = status };
@@ -43,6 +44,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách nhắc nhở theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetReminderByUser(Guid userId)
         {
             var portion = await _mediator.Send(new GetAllReminderByUserQuery() { UserId = userId });
@@ -52,7 +54,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm lời nhắc"
+                    Message = "Không tìm nhắc nhở"
                 };
             }
             return new ResultModel
@@ -64,6 +66,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{waterReminderId:guid}")]
+        [SwaggerOperation(Summary = "Lấy nhắc nhở theo ID")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid waterReminderId)
         {
             var portion = await _mediator.Send(new GerReminderDetailQuery() { WaterReminderId = waterReminderId });
@@ -84,6 +87,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo nhắc nhở")]
         public async Task<ActionResult<ResultModel>> CreateReminder([FromBody] CreateWaterReminderCommand request)
         {
 
@@ -93,7 +97,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo lời nhắc thành công",
+                    Message = "Tạo nhắc nhở thành công",
                     Status = 201,
                 });
             }
@@ -101,7 +105,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo lời nhắc thất bại",
+                Message = "Tạo nhắc nhở thất bại",
                 Status = 400,
             });
         }
@@ -118,6 +122,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPut("{waterReminderId}")]
+        [SwaggerOperation(Summary = "Cập nhật nhắc nhở")]
         public async Task<ActionResult<ResultModel>> Update(Guid waterReminderId, [FromBody] UpdateReminderRequest request)
         {
             var command = new UpdateReminderCommand(waterReminderId, request);
@@ -128,18 +133,19 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật lời nhắc  thất bại"
+                    Message = "Cập nhật nhắc nhở  thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật lời nhắc thành công"
+                Message = "Cập nhật nhắc nhở thành công"
             };
         }
 
         [HttpDelete("{waterReminderId}")]
+        [SwaggerOperation(Summary = "Xóa nhắc nhở")]
         public async Task<ActionResult<ResultModel>> DeleteReminder(Guid waterReminderId)
         {
             var command = await _mediator.Send(new DeleteReminderCommand() { RemindId = waterReminderId });
@@ -150,18 +156,19 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Xóa lời nhắc thất bại"
+                    Message = "Xóa nhắc nhở thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Xóa lời nhắc thành công"
+                Message = "Xóa nhắc nhở thành công"
             };
         }
 
         [HttpPatch("{waterReminderId}/status")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái nhắc nhở")]
         public async Task<ActionResult<ResultModel>> UpdateStatus(Guid waterReminderId)
         {
             var command = await _mediator.Send(new UpdateReminderStatusCommand() { WaterReminderId = waterReminderId });
@@ -179,12 +186,13 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật trạng thái thành công"
+                Message = "Cập nhật trạng thái nhắc nhở thành công"
             };
 
         }
 
         [HttpPatch("{waterReminderId}/drunk")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái đã uống nước")]
         public async Task<ActionResult<ResultModel>> UpdateStatusOfIsDrunk(Guid waterReminderId)
         {
             var command = await _mediator.Send(new ChangeStatusIsDrunkCommand() { WaterReminderId = waterReminderId });
@@ -202,7 +210,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật trạng thái thành công"
+                Message = "Cập nhật trạng thái đã uống nước thành công"
             };
         }
     }
