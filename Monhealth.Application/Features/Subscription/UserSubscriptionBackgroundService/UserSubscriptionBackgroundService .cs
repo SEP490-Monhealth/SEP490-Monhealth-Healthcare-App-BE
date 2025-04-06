@@ -13,7 +13,9 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
     {
         private readonly ILogger<UserSubscriptionBackgroundService> _logger;
         private readonly IServiceScopeFactory _serviceScopeFactory;
-        private readonly TimeSpan _interval = TimeSpan.FromDays(3); // Chạy mỗi 3 ngày
+        // Dùng khoảng thời gian 10 giây để test
+        private readonly TimeSpan _interval = TimeSpan.FromSeconds(10);
+
         public UserSubscriptionBackgroundService(IServiceScopeFactory serviceScopeFactory, ILogger<UserSubscriptionBackgroundService> logger)
         {
             _serviceScopeFactory = serviceScopeFactory;
@@ -36,7 +38,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     var userRepository = scope.ServiceProvider.GetRequiredService<IUserRepository>();
                     var userRoleRepository = scope.ServiceProvider.GetRequiredService<IUserRoleRepository>();
 
-                    _logger.LogInformation("🔄 Running background task to check subscriptions...");
+                    _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] 🔄 Running background task to check subscriptions...");
 
                     var userSubscriptions = await userSubscriptionRepository.GetAllAsync();
 
@@ -45,26 +47,24 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                         var user = await userRepository.GetUserByIdAsync(subscription.UserId);
                         if (user == null)
                         {
-                            _logger.LogWarning($"User {subscription.UserId} not found. Skipping...");
+                            _logger.LogWarning($"[{DateTime.Now:HH:mm:ss}] User {subscription.UserId} not found. Skipping...");
                             continue;
                         }
 
-
-
-                        // 🔍 Kiểm tra nếu Subscription đã hết hạn
+                        // Nếu gói đăng ký đã hết hạn
                         if (subscription.ExpiresAt <= DateTime.Now)
                         {
                             if (subscription.Status != UserSubscriptionStatus.Expired)
                             {
                                 subscription.Status = UserSubscriptionStatus.Expired;
-                                _logger.LogInformation($"⚠️ Subscription expired for User {subscription.UserId}");
+                                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] ⚠️ Subscription expired for User {subscription.UserId}");
 
                                 var userRole = await userRoleRepository.GetUserRoleByUserIdAsync(subscription.UserId);
                                 if (userRole != null)
                                 {
                                     // Xóa role cũ
                                     userRoleRepository.Remove(userRole);
-                                    _logger.LogInformation($"Removed old role for UserId {subscription.UserId}");
+                                    _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Removed old role for UserId {subscription.UserId}");
                                 }
 
                                 // Thêm role "Member" cho user
@@ -77,29 +77,33 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                                         RoleId = memberRole.Id
                                     };
                                     userRoleRepository.Add(newUserRole);
-                                    _logger.LogInformation($"Added 'Member' role for UserId {subscription.UserId}");
+                                    _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Added 'Member' role for UserId {subscription.UserId}");
                                 }
-
-                                continue;
                             }
-
-                            _logger.LogInformation($"✅ Generating meal recommendations for User {subscription.UserId}");
-                            await RecommendMealsForUser(user, dailyMealRepository, mealRepository, mealFoodRepository, foodRepository, portionRepository);
+                            continue; // Bỏ qua user hết hạn
                         }
 
+                        // Chỉ tạo daily meal nếu gói đăng ký còn hiệu lực
+                        _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] ✅ Generating daily meal for User {subscription.UserId}");
+                        await RecommendMealsForUser(user, dailyMealRepository, mealRepository, mealFoodRepository, foodRepository, portionRepository);
+
                         await userSubscriptionRepository.SaveChangeAsync();
-                        _logger.LogInformation("✅ Background task completed.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError($"❌ Error in background service: {ex.Message}");
+                    _logger.LogError($"[{DateTime.Now:HH:mm:ss}] ❌ Error in background service: {ex.Message}");
                 }
 
+                // Log thời gian delay và sau đó delay theo interval (10 giây)
+                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Waiting for next execution in {_interval.TotalSeconds} seconds.");
                 await Task.Delay(_interval, stoppingToken);
             }
         }
 
+        /// <summary>
+        /// Tạo DailyMeal cho ngày hiện tại nếu chưa tồn tại.
+        /// </summary>
         private async Task RecommendMealsForUser(
             AppUser user,
             IDailyMealRepository dailyMealRepository,
@@ -108,44 +112,62 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             IFoodRepository foodRepository,
             IPortionRepository portionRepository)
         {
-            int days = 3;
-            for (int i = 0; i < days; i++)
+            // Xác định ngày hiện tại
+            var currentDate = DateTime.Now.Date;
+
+            // Kiểm tra xem DailyMeal cho user đã tồn tại cho ngày hiện tại chưa
+            var existingDailyMeal = await dailyMealRepository.GetDaiLyMealByUser(user.Id, currentDate);
+            if (existingDailyMeal != null)
             {
-                var currentDate = DateTime.Now.Date.AddDays(i);
-                var dailyMealId = Guid.NewGuid();
-
-                var dailyMeal = new Domain.DailyMeal
-                {
-                    DailyMealId = dailyMealId,
-                    UserId = user.Id,
-                    CreatedAt = currentDate,
-                    UpdatedAt = currentDate,
-                    TotalCalories = 0,
-                    TotalProteins = 0,
-                    TotalCarbs = 0,
-                    TotalFats = 0,
-                    TotalFibers = 0,
-                    TotalSugars = 0,
-                    Meals = [
-                    await CreateMealForType(MealType.Breakfast, user, dailyMealId, mealRepository, mealFoodRepository, foodRepository, portionRepository),
-                    await CreateMealForType(MealType.Lunch, user, dailyMealId, mealRepository, mealFoodRepository, foodRepository, portionRepository),
-                    await CreateMealForType(MealType.Dinner, user, dailyMealId, mealRepository, mealFoodRepository, foodRepository, portionRepository)
-                    ],
-                };
-
-                dailyMealRepository.Add(dailyMeal);
-                await dailyMealRepository.SaveChangeAsync();
+                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal for user {user.Id} on {currentDate:yyyy-MM-dd} already exists. Skipping creation.");
+                return;
             }
+
+            var dailyMealId = Guid.NewGuid();
+
+            var dailyMeal = new Domain.DailyMeal
+            {
+                DailyMealId = dailyMealId,
+                UserId = user.Id,
+                CreatedAt = currentDate,
+                UpdatedAt = currentDate,
+                TotalCalories = 0,
+                TotalProteins = 0,
+                TotalCarbs = 0,
+                TotalFats = 0,
+                TotalFibers = 0,
+                TotalSugars = 0,
+                Meals = new List<Domain.Meal>
+                {
+                    await CreateMealForType(MealType.Breakfast, user, dailyMealId, currentDate, mealRepository, mealFoodRepository, foodRepository, portionRepository),
+                    await CreateMealForType(MealType.Lunch, user, dailyMealId, currentDate, mealRepository, mealFoodRepository, foodRepository, portionRepository),
+                    await CreateMealForType(MealType.Dinner, user, dailyMealId, currentDate, mealRepository, mealFoodRepository, foodRepository, portionRepository)
+                },
+            };
+
+            dailyMealRepository.Add(dailyMeal);
+            await dailyMealRepository.SaveChangeAsync();
+
+            _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal created for user {user.Id} on {currentDate:yyyy-MM-dd}.");
         }
 
-        private async Task<Domain.Meal> CreateMealForType(MealType mealType, AppUser user, Guid dailyMealId,
-            IMealRepository _mealRepository, IMealFoodRepository _mealFoodRepository, IFoodRepository _foodRepository, IPortionRepository _portionRepository)
+        /// <summary>
+        /// Tạo Meal cho từng bữa ăn dựa trên loại bữa, liên kết với DailyMealId và targetDate (ngày của DailyMeal)
+        /// </summary>
+        private async Task<Domain.Meal> CreateMealForType(
+            MealType mealType,
+            AppUser user,
+            Guid dailyMealId,
+            DateTime targetDate,
+            IMealRepository mealRepository,
+            IMealFoodRepository mealFoodRepository,
+            IFoodRepository foodRepository,
+            IPortionRepository portionRepository)
         {
-            // Get Random First
-            var (proteinFood, carbFood, balanceFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood([]);
+            // Lấy món ăn ngẫu nhiên (giả sử hàm đã được triển khai chính xác)
+            var (proteinFood, carbFood, balanceFood, vegetableFood) = await foodRepository.GetRandomProteinAndCarbFood(new List<Guid>());
 
-
-            // Lấy mục tiêu gần nhất (mới nhất) của người dùng
+            // Lấy mục tiêu gần nhất của user
             var userGoal = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
             if (userGoal == null)
             {
@@ -155,11 +177,9 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             var TotalCarbs = userGoal.CarbsGoal;
             var TotalProteins = userGoal.ProteinGoal;
             var TotalFats = userGoal.FatGoal;
+            var totalCaloriesDaily = TotalCarbs * 4 + TotalProteins * 4 + TotalFats * 9;
 
-            var totalCaloriesDaily = TotalCarbs * 4 + TotalProteins * 4 + TotalFats * 9; // Lấy CaloriesGoal từ userGoal nếu tồn tại
-
-
-            var mealCalories = mealType switch
+            float mealCalories = mealType switch
             {
                 MealType.Breakfast => userGoal.GoalType switch
                 {
@@ -189,9 +209,9 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             double carbsCalories = 0;
             double vegetableCalories = 0;
             double balanceCalories = 0;
+
             if (mealCalories > 0)
             {
-
                 if (userGoal.GoalType == GoalType.WeightLoss)
                 {
                     proteinCalories = mealCalories * 0.4;
@@ -214,26 +234,19 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     balanceCalories = mealCalories * 0.9;
                 }
             }
-            // Phân bổ calo cho protein, carbs và rau
-            var vegetableWeight = 100 * vegetableCalories / vegetableFood!.Nutrition.Calories;
 
+            // Tính toán trọng lượng cho rau (lấy ví dụ)
+            var vegetableWeight = 100 * vegetableCalories / (vegetableFood?.Nutrition.Calories ?? 1);
+
+            // Tạo các ID cho Portion
             Guid proteinPortionId = Guid.NewGuid();
             Guid carbPortionId = Guid.NewGuid();
             Guid vegetablePortionId = Guid.NewGuid();
             Guid balancePortionFoodId = Guid.NewGuid();
 
-            Domain.Meal meal = new Domain.Meal();
+            // Tạo danh sách mealFoods
             var mealFoods = new List<Domain.MealFood>();
-            foreach (var item in mealFoods)
-            {
 
-                var existingMealItem = await _mealFoodRepository.GetByMealIdAndFoodId(meal.MealId, item.FoodId);
-                if (existingMealItem != null)
-                {
-                    existingMealItem.Quantity += item.Quantity;
-                    existingMealItem.UpdatedAt = DateTime.Now;
-                }
-            }
             if (balanceFood != null)
             {
                 mealFoods.Add(new Domain.MealFood
@@ -245,7 +258,6 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
-
                 mealFoods.Add(new Domain.MealFood
                 {
                     FoodId = vegetableFood.FoodId,
@@ -258,7 +270,6 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             }
             else
             {
-                // Nếu balanceFood không tồn tại, thêm proteinFood, carbFood và vegetableFood vào mealFoods
                 mealFoods.Add(new Domain.MealFood
                 {
                     FoodId = proteinFood.FoodId,
@@ -268,7 +279,6 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
-
                 mealFoods.Add(new Domain.MealFood
                 {
                     FoodId = carbFood.FoodId,
@@ -278,7 +288,6 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 });
-
                 mealFoods.Add(new Domain.MealFood
                 {
                     FoodId = vegetableFood.FoodId,
@@ -289,18 +298,18 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     UpdatedAt = DateTime.Now
                 });
             }
-            var currentDate = DateTime.Now.Date.Day;
-            var existingMeal = await _mealRepository.GetByUserIdAndMealType(user.Id, mealType, currentDate);
+            int targetDateForMeal = targetDate.Date.Day;
+            // Kiểm tra xem đã có Meal cho loại mealType và targetDate chưa
+            var existingMeal = await mealRepository.GetByUserIdAndMealType(user.Id, mealType, targetDateForMeal);
+            Domain.Meal meal;
             if (existingMeal != null)
             {
-
-                Console.WriteLine("Updating existing meal...");
+                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Updating existing meal for {mealType}...");
                 meal = existingMeal;
                 meal.UpdatedAt = DateTime.Now;
             }
             else
             {
-
                 meal = new Domain.Meal
                 {
                     MealType = mealType,
@@ -310,21 +319,17 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     UpdatedAt = DateTime.Now,
                     MealFoods = mealFoods,
                 };
-
             }
 
-            // Thêm các Portion cho Balance, Protein, Carb và Vegetable
+            // Thêm các Portion tương ứng (ví dụ tính toán đơn giản)
             if (balanceFood != null)
             {
-                var proteinWeight = 100 * balanceCalories / balanceFood.Nutrition.Protein;
-                var carbWeight = 100 * balanceCalories / balanceFood.Nutrition.Carbs;
-                var fatWeight = 100 * balanceCalories / balanceFood.Nutrition.Fat;
-
-
-
+                var proteinWeight = 100 * balanceCalories / (balanceFood.Nutrition.Protein != 0 ? balanceFood.Nutrition.Protein : 1);
+                var carbWeight = 100 * balanceCalories / (balanceFood.Nutrition.Carbs != 0 ? balanceFood.Nutrition.Carbs : 1);
+                var fatWeight = 100 * balanceCalories / (balanceFood.Nutrition.Fat != 0 ? balanceFood.Nutrition.Fat : 1);
                 var balanceWeight = proteinWeight * 4 + carbWeight * 4 + fatWeight * 9;
 
-                _portionRepository.Add(new Domain.Portion
+                portionRepository.Add(new Domain.Portion
                 {
                     PortionId = balancePortionFoodId,
                     PortionSize = "phần",
@@ -335,8 +340,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
-
-                _portionRepository.Add(new Domain.Portion
+                portionRepository.Add(new Domain.Portion
                 {
                     PortionId = vegetablePortionId,
                     PortionSize = "phần",
@@ -350,10 +354,10 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             }
             else
             {
-                var proteinWeight = 100 * proteinCalories / proteinFood.Nutrition.Calories;
-                var carbWeight = 100 * carbsCalories / carbFood.Nutrition.Calories;
+                var proteinWeight = 100 * proteinCalories / (proteinFood.Nutrition.Calories != 0 ? proteinFood.Nutrition.Calories : 1);
+                var carbWeight = 100 * carbsCalories / (carbFood.Nutrition.Calories != 0 ? carbFood.Nutrition.Calories : 1);
 
-                _portionRepository.Add(new Domain.Portion
+                portionRepository.Add(new Domain.Portion
                 {
                     PortionId = proteinPortionId,
                     PortionSize = "phần",
@@ -364,8 +368,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
-
-                _portionRepository.Add(new Domain.Portion
+                portionRepository.Add(new Domain.Portion
                 {
                     PortionId = carbPortionId,
                     PortionSize = "phần",
@@ -376,10 +379,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
-
-                _portionRepository.Add(new Domain.Portion
+                portionRepository.Add(new Domain.Portion
                 {
-
                     PortionId = vegetablePortionId,
                     PortionSize = "phần",
                     PortionWeight = (float)vegetableWeight,
@@ -391,8 +392,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 });
             }
 
-            // Lưu meal vào repository
-            _mealRepository.Add(meal);
+            mealRepository.Add(meal);
             return meal;
         }
     }

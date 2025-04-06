@@ -6,7 +6,6 @@ using Monhealth.Application.Features.UserSubscription.Commands.Create;
 using Monhealth.Core.Enum;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;
-
 namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
 {
     public class UpdateStatusPaymentHandler : IRequestHandler<UpdateStatusPaymentQueries, bool>
@@ -65,9 +64,8 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
             };
             await mediator.Send(command);
 
-            //get Usersubciption to upadate id in payment table
-            var usersubcription = await userSubscriptionRepository.GetUserSubScriptionByUserIdAndSubscriptionId((Guid)payment.SubscriptionId, (Guid)payment.CreatedBy);
-            payment.UserSubscriptionId = usersubcription.UserSubscriptionId;
+            int daysToCreate = 1; // Số ngày bạn muốn tạo DailyMeal mới
+            DateTime startDate = DateTime.Now.Date; // Ngày bắt đầu là hôm nay
 
 
             //if (payment.Status == Core.PaymentStatus.Completed)

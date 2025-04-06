@@ -7,7 +7,6 @@ namespace Monhealth.Application.Features.Food.AddFood
     public class AddFoodRequest : IRequest<bool>
     {
         public Guid UserId { get; set; }
-        public List<FoodType> FoodType { get; set; }
         public List<MealType> MealType { get; set; }
         public List<DishTypeEnum> DishType { get; set; }
         public string Category { get; set; } = string.Empty;
