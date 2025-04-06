@@ -13,8 +13,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
     {
         private readonly ILogger<UserSubscriptionBackgroundService> _logger;
         private readonly IServiceScopeFactory _serviceScopeFactory;
-        // Chạy service mỗi ngày
-        private readonly TimeSpan _interval = TimeSpan.FromDays(1);
+        // Dùng khoảng thời gian 10 giây để test
+        private readonly TimeSpan _interval = TimeSpan.FromSeconds(10);
 
         public UserSubscriptionBackgroundService(IServiceScopeFactory serviceScopeFactory, ILogger<UserSubscriptionBackgroundService> logger)
         {
@@ -38,7 +38,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     var userRepository = scope.ServiceProvider.GetRequiredService<IUserRepository>();
                     var userRoleRepository = scope.ServiceProvider.GetRequiredService<IUserRoleRepository>();
 
-                    _logger.LogInformation("🔄 Running background task to check subscriptions...");
+                    _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] 🔄 Running background task to check subscriptions...");
 
                     var userSubscriptions = await userSubscriptionRepository.GetAllAsync();
 
@@ -47,7 +47,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                         var user = await userRepository.GetUserByIdAsync(subscription.UserId);
                         if (user == null)
                         {
-                            _logger.LogWarning($"User {subscription.UserId} not found. Skipping...");
+                            _logger.LogWarning($"[{DateTime.Now:HH:mm:ss}] User {subscription.UserId} not found. Skipping...");
                             continue;
                         }
 
@@ -57,14 +57,14 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                             if (subscription.Status != UserSubscriptionStatus.Expired)
                             {
                                 subscription.Status = UserSubscriptionStatus.Expired;
-                                _logger.LogInformation($"⚠️ Subscription expired for User {subscription.UserId}");
+                                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] ⚠️ Subscription expired for User {subscription.UserId}");
 
                                 var userRole = await userRoleRepository.GetUserRoleByUserIdAsync(subscription.UserId);
                                 if (userRole != null)
                                 {
                                     // Xóa role cũ
                                     userRoleRepository.Remove(userRole);
-                                    _logger.LogInformation($"Removed old role for UserId {subscription.UserId}");
+                                    _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Removed old role for UserId {subscription.UserId}");
                                 }
 
                                 // Thêm role "Member" cho user
@@ -77,16 +77,14 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                                         RoleId = memberRole.Id
                                     };
                                     userRoleRepository.Add(newUserRole);
-                                    _logger.LogInformation($"Added 'Member' role for UserId {subscription.UserId}");
+                                    _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Added 'Member' role for UserId {subscription.UserId}");
                                 }
-
-                                // Không tạo DailyMeal cho user đã hết hạn
                             }
                             continue; // Bỏ qua user hết hạn
                         }
 
-                        // Chỉ tạo DailyMeal nếu gói đăng ký còn hiệu lực
-                        _logger.LogInformation($"✅ Generating daily meal for User {subscription.UserId}");
+                        // Chỉ tạo daily meal nếu gói đăng ký còn hiệu lực
+                        _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] ✅ Generating daily meal for User {subscription.UserId}");
                         await RecommendMealsForUser(user, dailyMealRepository, mealRepository, mealFoodRepository, foodRepository, portionRepository);
 
                         await userSubscriptionRepository.SaveChangeAsync();
@@ -94,15 +92,17 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError($"❌ Error in background service: {ex.Message}");
+                    _logger.LogError($"[{DateTime.Now:HH:mm:ss}] ❌ Error in background service: {ex.Message}");
                 }
 
+                // Log thời gian delay và sau đó delay theo interval (10 giây)
+                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Waiting for next execution in {_interval.TotalSeconds} seconds.");
                 await Task.Delay(_interval, stoppingToken);
             }
         }
 
         /// <summary>
-        /// Tạo DailyMeal cho ngày hiện tại nếu chưa tồn tại
+        /// Tạo DailyMeal cho ngày hiện tại nếu chưa tồn tại.
         /// </summary>
         private async Task RecommendMealsForUser(
             AppUser user,
@@ -119,7 +119,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             var existingDailyMeal = await dailyMealRepository.GetDaiLyMealByUser(user.Id, currentDate);
             if (existingDailyMeal != null)
             {
-                _logger.LogInformation($"Daily meal for user {user.Id} on {currentDate} already exists. Skipping creation.");
+                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal for user {user.Id} on {currentDate:yyyy-MM-dd} already exists. Skipping creation.");
                 return;
             }
 
@@ -147,6 +147,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
 
             dailyMealRepository.Add(dailyMeal);
             await dailyMealRepository.SaveChangeAsync();
+
+            _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal created for user {user.Id} on {currentDate:yyyy-MM-dd}.");
         }
 
         /// <summary>
@@ -296,16 +298,15 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     UpdatedAt = DateTime.Now
                 });
             }
-            targetDate = targetDate.Date;
-            int targetDateAsInt = targetDate.Day;
-            var existingMeal = await mealRepository.GetByUserIdAndMealType(user.Id, mealType, targetDateAsInt);
+            int targetDateForMeal = targetDate.Date.Day;
+            // Kiểm tra xem đã có Meal cho loại mealType và targetDate chưa
+            var existingMeal = await mealRepository.GetByUserIdAndMealType(user.Id, mealType, targetDateForMeal);
             Domain.Meal meal;
             if (existingMeal != null)
             {
-                _logger.LogInformation("Updating existing meal...");
+                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Updating existing meal for {mealType}...");
                 meal = existingMeal;
                 meal.UpdatedAt = DateTime.Now;
-                // Nếu cần cập nhật thêm các món ăn, bạn có thể xử lý thêm ở đây.
             }
             else
             {
