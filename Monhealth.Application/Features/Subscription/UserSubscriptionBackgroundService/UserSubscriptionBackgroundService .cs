@@ -122,11 +122,17 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal for user {user.Id} on {currentDate:yyyy-MM-dd} already exists. Skipping creation.");
                 return;
             }
-
+            var userGoal = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
+            if (userGoal == null)
+            {
+                _logger.LogError($"User {user.Id} không có mục tiêu (Goal) hợp lệ. Không thể tạo DailyMeal.");
+                return; // hoặc throw exception tùy nghiệp vụ
+            }
             var dailyMealId = Guid.NewGuid();
 
             var dailyMeal = new Domain.DailyMeal
             {
+                GoalId = userGoal.GoalId,
                 DailyMealId = dailyMealId,
                 UserId = user.Id,
                 CreatedAt = currentDate,
