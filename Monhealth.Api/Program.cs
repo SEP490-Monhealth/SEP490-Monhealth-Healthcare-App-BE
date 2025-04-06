@@ -1,4 +1,5 @@
-﻿using Monhealth.Api.Extensions;
+﻿using DotnetGeminiSDK;
+using Monhealth.Api.Extensions;
 using Monhealth.Api.GlobalException;
 using Monhealth.Api.Hubs;
 using Monhealth.Api.Utils;

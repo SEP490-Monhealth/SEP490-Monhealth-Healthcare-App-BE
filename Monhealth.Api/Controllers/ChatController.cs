@@ -73,5 +73,52 @@ namespace Monhealth.Api.Controllers
                 // rawData = chatBotAi // optional: trả về Tạo nếu cần debug
             });
         }
+
+        [HttpPost("food-ai")]
+        [SwaggerOperation(Summary = "Trò chuyện với Food AI")]
+        public async Task<ActionResult<ResultModel>> ScanImage(IFormFile image)
+        {
+            // if (string.IsNullOrWhiteSpace(imageUrl))
+            // {
+            //     return BadRequest(new ResultModel
+            //     {
+            //         Success = false,
+            //         Message = "Missing image URL.",
+            //         Data = null
+            //     });
+            // }
+
+            try
+            {
+                // Tạo Gemini query từ imageUrl
+                var query = new ScanImageQuery(image.OpenReadStream());
+                var result = await mediator.Send(query);
+
+                // Gửi thông điệp qua SignalR
+                var message = new
+                {
+                    messageId = Guid.NewGuid().ToString(),
+                    sender = "MonAI",
+                    content = result // JSON trả về từ Gemini API
+                };
+                await _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
+
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Image scanning successful.",
+                    Data = result
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ResultModel
+                {
+                    Success = false,
+                    Message = "Error scanning image: " + ex.Message,
+                    Data = null
+                });
+            }
+        }
     }
 }
