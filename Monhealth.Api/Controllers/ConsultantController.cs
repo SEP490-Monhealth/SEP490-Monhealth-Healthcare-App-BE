@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsultant;
 using Monhealth.Application.Features.Consultant.Commands.CreateConsultant;
 using Monhealth.Application.Features.Consultant.Commands.DeleteConsultant;
@@ -23,7 +24,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, bool? popular = null, bool ? verified = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, bool? popular = null, bool? verified = null, bool? status = null)
         {
             var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, expertise, search, popular, status, verified));
 
@@ -57,27 +58,27 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        // [HttpGet("{userId:guid}/user")]
-        // public async Task<ActionResult<ResultModel>> GetConsultantByUserId(Guid userId)
-        // {
-        //     var consultant = await _mediator.Send(new GetConsultantByUserQuery { UserId = userId });
-        //     if (consultant == null)
-        //     {
-        //         return NotFound(new ResultModel
-        //         {
-        //             Success = false,
-        //             Message = "Tư vấn viên không tồn tại",
-        //             Status = (int)HttpStatusCode.NotFound,
-        //             Data = null
-        //         });
-        //     }
-        //     return Ok(new ResultModel
-        //     {
-        //         Success = true,
-        //         Status = 200,
-        //         Data = consultant
-        //     });
-        // }
+        [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetConsultantByUserId(Guid userId)
+        {
+            var consultant = await _mediator.Send(new GetConsultantByUserQuery { UserId = userId });
+            if (consultant == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Tư vấn viên không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = consultant
+            });
+        }
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateConsultant([FromBody] CreateConsultantDTO createConsultantDTO)

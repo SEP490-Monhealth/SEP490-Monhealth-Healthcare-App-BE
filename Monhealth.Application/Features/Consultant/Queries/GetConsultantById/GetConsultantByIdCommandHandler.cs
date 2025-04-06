@@ -20,7 +20,6 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetConsultantById
             if (consultant != null)
             {
                 consultant.Views += 1;
-                _consultantRepository.Update(consultant);
                 await _consultantRepository.SaveChangeAsync();
             }
             return _mapper.Map<GetAllConsultantsDTO>(consultant);
