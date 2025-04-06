@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
+using Monhealth.Application.Features.UserSubscription.Commands.Create;
 using Monhealth.Core.Enum;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;
@@ -18,6 +19,8 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IUserRepository _userRepository;
         private readonly ILogger<UpdateStatusPaymentHandler> _logger;
+        private readonly IMediator mediator;
+        private readonly IUserSubscriptionRepository userSubscriptionRepository;
 
         public UpdateStatusPaymentHandler(IPaymentRepository paymentRepository,
             IPortionRepository portionRepository,
@@ -26,7 +29,10 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
             IMealFoodRepository mealFoodRepository,
             IDailyMealRepository dailyMealRepository,
             IUserRepository userRepository,
-            ILogger<UpdateStatusPaymentHandler> logger)
+            ILogger<UpdateStatusPaymentHandler> logger,
+            IMediator mediator,
+            IUserSubscriptionRepository userSubscriptionRepository
+            )
         {
             _paymentRepository = paymentRepository;
             _portionRepository = portionRepository;
@@ -36,6 +42,8 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
             _dailyMealRepository = dailyMealRepository;
             _userRepository = userRepository;
             _logger = logger;
+            this.mediator = mediator;
+            this.userSubscriptionRepository = userSubscriptionRepository;
         }
 
         public async Task<bool> Handle(UpdateStatusPaymentQueries request, CancellationToken cancellationToken)
@@ -47,68 +55,84 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
             // Cập nhật trạng thái thanh toán
             payment.Status = Core.PaymentStatus.Completed;
 
-            if (payment.Status == Core.PaymentStatus.Completed)
+            //gọi create usersubsciption 
+            var command = new CreateUserSubscriptionCommand
             {
-                var gettingUser = await _userRepository.GetUserByIdAsync(payment.UserSubscription.UserId);
-                if (payment.UserSubscription == null || payment.UserSubscription.UserId == null)
-                {
-                    _logger.LogError("UserSubscription hoặc UserId là null. Không thể lấy thông tin người dùng.");
-                    throw new BadRequestException("UserSubscription hoặc UserId là null.");
-                }
+                PaymentId = request.PaymentId,
+                SubscriptionId = (Guid)payment.SubscriptionId,
+                UserId = (Guid)payment.CreatedBy,
 
-                // Giả sử user được lấy ra từ danh sách UserSubscriptions của gettingUser
-                var user = gettingUser.UserSubscriptions
-                            .Select(us => us.UserId)
-                            .Distinct()
-                            .First();
+            };
+            await mediator.Send(command);
 
-                int daysToCreate = 3; // Số ngày bạn muốn tạo DailyMeal mới
-                DateTime startDate = DateTime.Now.Date; // Ngày bắt đầu là hôm nay
+            //get Usersubciption to upadate id in payment table
+            var usersubcription = await userSubscriptionRepository.GetUserSubScriptionByUserIdAndSubscriptionId((Guid)payment.SubscriptionId, (Guid)payment.CreatedBy);
+            payment.UserSubscriptionId = usersubcription.UserSubscriptionId;
 
-                // Với mỗi ngày cần tạo, tìm ngày mà DailyMeal của user chưa tồn tại
-                for (int i = 0; i < daysToCreate; i++)
-                {
-                    DateTime targetDate = startDate.AddDays(i);
 
-                    // Nếu DailyMeal của user đã tồn tại cho targetDate thì tăng ngày cho đến khi tìm được ngày chưa có
-                    while (await _dailyMealRepository.GetDaiLyMealByUser(user, targetDate) != null)
-                    {
-                        targetDate = targetDate.AddDays(1);
-                    }
+            //if (payment.Status == Core.PaymentStatus.Completed)
+            //{
+            //    var gettingUser = await _userRepository.GetUserByIdAsync((Guid)payment.CreatedBy);
+            //    //if (payment.UserSubscription == null || payment.UserSubscription.UserId == null)
+            //    //{
+            //    //    _logger.LogError("UserSubscription hoặc UserId là null. Không thể lấy thông tin người dùng.");
+            //    //    throw new BadRequestException("UserSubscription hoặc UserId là null.");
+            //    //}
 
-                    // Tạo DailyMeal mới cho ngày targetDate
-                    var dailyMealId = Guid.NewGuid();
-                    var goal = gettingUser.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
+            //    // Giả sử user được lấy ra từ danh sách UserSubscriptions của gettingUser
+            //    var user = gettingUser.UserSubscriptions
+            //                .Select(us => us.UserId)
+            //                .Distinct()
+            //                .First();
 
-                    var newDailyMeal = new Domain.DailyMeal
-                    {
-                        GoalId = goal?.GoalId ?? Guid.Empty,
-                        DailyMealId = dailyMealId,
-                        UserId = user,
-                        CreatedAt = targetDate,
-                        UpdatedAt = targetDate,
-                        TotalCalories = 0,
-                        TotalProteins = 0,
-                        TotalCarbs = 0,
-                        TotalFats = 0,
-                        TotalFibers = 0,
-                        TotalSugars = 0,
-                        Meals = new List<Domain.Meal>()
-                    };
+            //    int daysToCreate = 3; // Số ngày bạn muốn tạo DailyMeal mới
+            //    DateTime startDate = DateTime.Now.Date; // Ngày bắt đầu là hôm nay
 
-                    // Tạo các Meal (Breakfast, Lunch, Dinner) cho DailyMeal mới
-                    var breakfast = await CreateMealForType(MealType.Breakfast, gettingUser, dailyMealId, targetDate);
-                    var lunch = await CreateMealForType(MealType.Lunch, gettingUser, dailyMealId, targetDate);
-                    var dinner = await CreateMealForType(MealType.Dinner, gettingUser, dailyMealId, targetDate);
+            //    // Với mỗi ngày cần tạo, tìm ngày mà DailyMeal của user chưa tồn tại
+            //    for (int i = 0; i < daysToCreate; i++)
+            //    {
+            //        DateTime targetDate = startDate.AddDays(i);
 
-                    newDailyMeal.Meals.Add(breakfast);
-                    newDailyMeal.Meals.Add(lunch);
-                    newDailyMeal.Meals.Add(dinner);
+            //        // Nếu DailyMeal của user đã tồn tại cho targetDate thì tăng ngày cho đến khi tìm được ngày chưa có
+            //        while (await _dailyMealRepository.GetDaiLyMealByUser(user, targetDate) != null)
+            //        {
+            //            targetDate = targetDate.AddDays(1);
+            //        }
 
-                    // Thêm DailyMeal vào repository
-                    _dailyMealRepository.Add(newDailyMeal);
-                }
-            }
+            //        // Tạo DailyMeal mới cho ngày targetDate
+            //        var dailyMealId = Guid.NewGuid();
+            //        var goal = gettingUser.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
+
+            //        var newDailyMeal = new Domain.DailyMeal
+            //        {
+            //            GoalId = goal?.GoalId ?? Guid.Empty,
+            //            DailyMealId = dailyMealId,
+            //            UserId = user,
+            //            CreatedAt = targetDate,
+            //            UpdatedAt = targetDate,
+            //            TotalCalories = 0,
+            //            TotalProteins = 0,
+            //            TotalCarbs = 0,
+            //            TotalFats = 0,
+            //            TotalFibers = 0,
+            //            TotalSugars = 0,
+            //            Meals = new List<Domain.Meal>()
+            //        };
+
+            //        // Tạo các Meal (Breakfast, Lunch, Dinner) cho DailyMeal mới
+            //        var breakfast = await CreateMealForType(MealType.Breakfast, gettingUser, dailyMealId, targetDate);
+            //        var lunch = await CreateMealForType(MealType.Lunch, gettingUser, dailyMealId, targetDate);
+            //        var dinner = await CreateMealForType(MealType.Dinner, gettingUser, dailyMealId, targetDate);
+
+            //        newDailyMeal.Meals.Add(breakfast);
+            //        newDailyMeal.Meals.Add(lunch);
+            //        newDailyMeal.Meals.Add(dinner);
+
+            //        // Thêm DailyMeal vào repository
+            //        _dailyMealRepository.Add(newDailyMeal);
+            //    }
+            //}
+
 
             await _paymentRepository.SaveChangeAsync();
             return true;

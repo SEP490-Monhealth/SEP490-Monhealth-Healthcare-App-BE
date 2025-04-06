@@ -2,7 +2,6 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.UserSubscription.Commands.Create
 {
@@ -84,15 +83,17 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             // Thêm vào bảng UserRoles
             _userRoleRepository.Add(newUserRole);
 
-            //cập nhập lại userSubcriptionId cho Payment table
-            var payment = await paymentRepository.GetByIdAsync(request.PaymentId);
-            if (payment == null)
-            {
-                throw new BadRequestException($"Thanh toán {request.PaymentId} này không tìm thấy");
-            }
-            payment.UserSubscriptionId = model.UserSubscriptionId;
-            payment.Status = Core.PaymentStatus.Completed;
-            payment.UpdatedAt = DateTime.Now;
+            ////cập nhập lại userSubcriptionId cho Payment table
+            //var payment = await paymentRepository.GetByIdAsync(request.PaymentId);
+            //if (payment == null)
+            //{
+            //    throw new BadRequestException($"Thanh toán {request.PaymentId} này không tìm thấy");
+            //}
+            //payment.UserSubscriptionId = model.UserSubscriptionId;
+            //payment.Status = Core.PaymentStatus.Completed;
+            //payment.UpdatedAt = DateTime.Now;
+
+
             await _userRepository.SaveChangesAsync();
             return Unit.Value;
         }
