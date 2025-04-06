@@ -5,7 +5,6 @@ using Monhealth.Application.Exceptions;
 using Monhealth.Core.Enum;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;
-
 namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
 {
     public class UpdateStatusPaymentHandler : IRequestHandler<UpdateStatusPaymentQueries, bool>
@@ -62,7 +61,7 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
                             .Distinct()
                             .First();
 
-                int daysToCreate = 3; // Số ngày bạn muốn tạo DailyMeal mới
+                int daysToCreate = 1; // Số ngày bạn muốn tạo DailyMeal mới
                 DateTime startDate = DateTime.Now.Date; // Ngày bắt đầu là hôm nay
 
                 // Với mỗi ngày cần tạo, tìm ngày mà DailyMeal của user chưa tồn tại
