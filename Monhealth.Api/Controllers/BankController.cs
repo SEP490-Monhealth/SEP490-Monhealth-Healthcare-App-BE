@@ -7,8 +7,6 @@ using Monhealth.Application.Features.Bank.Commands.DeleteBank;
 using Monhealth.Application.Features.Bank.Commands.UpdateBank;
 using Monhealth.Application.Features.Bank.Queries.GetAllBanks;
 using Monhealth.Application.Features.Bank.Queries.GetBankById;
-using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
-using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
@@ -20,6 +18,7 @@ namespace Monhealth.Api.Controllers
     public class BankController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách ngân hàng")]
         public async Task<ActionResult<ResultModel>> GetAllBanks(int page = 1, int limit = 10, string? search = null, bool? status = null)
         {
             var bankList = await mediator.Send(new GetAllBanksQuery(page, limit, search, status));
@@ -33,6 +32,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{bankId:guid}")]
+        [SwaggerOperation(Summary = "Lấy ngân hàng theo ID")]
         public async Task<ActionResult<ResultModel>> GetBankById(Guid bankId)
         {
             var bank = await mediator.Send(new GetBankByIdQuery { BankId = bankId });
@@ -53,7 +53,9 @@ namespace Monhealth.Api.Controllers
                 Data = bank
             });
         }
+
         [HttpPost]
+        [SwaggerOperation(Summary = "Thêm ngân hàng")]
         public async Task<ActionResult<ResultModel>> CreateBank([FromBody] CreateBankDTO createBankDTO)
         {
             var command = new CreateBankCommand(createBankDTO);
@@ -62,20 +64,21 @@ namespace Monhealth.Api.Controllers
             {
                 return new ResultModel
                 {
-                    Message = "Tạo ngân hàng thành công",
+                    Message = "Thêm ngân hàng thành công",
                     Status = 201,
                     Success = true
                 };
             }
             return new ResultModel
             {
-                Message = "Tạo ngân hàng thất bại",
+                Message = "Thêm ngân hàng thất bại",
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };
         }
 
         [HttpPut("{bankId}")]
+        [SwaggerOperation(Summary = "Cập nhật ngân hàng")]
         public async Task<ActionResult<ResultModel>> UpdateBank(Guid bankId, [FromBody] UpdateBankDTO updateBankDTO)
         {
             var command = new UpdateBankCommand(bankId, updateBankDTO);
@@ -98,6 +101,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpDelete("{bankId}")]
+        [SwaggerOperation(Summary = "Xóa ngân hàng")]
         public async Task<ActionResult<ResultModel>> DeleteBank(Guid bankId)
         {
             var command = new DeleteBankCommand { BankId = bankId };
@@ -118,7 +122,9 @@ namespace Monhealth.Api.Controllers
                 Message = "Xóa ngân hàng thành công"
             };
         }
+
         [HttpPatch("{bankId}/status")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái ngân hàng")]
         public async Task<ActionResult<ResultModel>> ChangeStatusBank(Guid bankId)
         {
             var command = new ChangeStatusBankCommand { BankId = bankId };
@@ -136,7 +142,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Thay đổi trạng thái thành công"
+                Message = "Cập nhật trạng thái ngân hàng thành công"
             };
         }
     }

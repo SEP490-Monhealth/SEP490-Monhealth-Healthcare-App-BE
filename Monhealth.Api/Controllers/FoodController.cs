@@ -26,6 +26,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách món ăn")]
         public async Task<ActionResult<ResultModel>> GetAllFoods(int page = 1, int limit = 10, string? category = null, string? search = null, bool? isPublic = null, bool? popular = null, bool? status = null)
         {
             var foods = await _mediator.Send(new GetFoodListQuery(page, limit, category, search, isPublic, popular, status));
@@ -40,6 +41,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user/{userId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách món ăn theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetFoodsByUserId(Guid userId, int page = 1, int limit = 10)
         {
             var foods = await _mediator.Send(new GetFoodListByUserIdQuery(userId, page, limit));
@@ -54,6 +56,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{foodId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy món ăn theo ID")]
         public async Task<ActionResult<ResultModel>> GetFoodById(Guid foodId)
         {
             var food = await _mediator.
@@ -122,6 +125,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPost("public")]
         [ActionName("AddFoodAdmin")]
+        [SwaggerOperation(Summary = "Thêm món ăn cho admin")]
         public async Task<ActionResult<ResultModel>> AddFoodForAdmin([FromBody] AddFoodRequest request)
         {
             var result = await _mediator.Send(request);
@@ -145,6 +149,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPost]
         [ActionName("AddFoodUser")]
+        [SwaggerOperation(Summary = "Thêm món ăn cho người dùng")]
         public async Task<ActionResult<ResultModel>> AddFoodForUser([FromBody] AddFoodUserRequest request)
         {
             var result = await _mediator.Send(request);
@@ -188,7 +193,7 @@ namespace Monhealth.Api.Controllers
             {
                 Message = "Cập nhật món ăn thành công",
                 Success = true,
-                Status = 204,
+                Status = 201,
             });
         }
 
@@ -206,7 +211,6 @@ namespace Monhealth.Api.Controllers
                 {
                     Message = "Cập nhật món ăn không thành công",
                     Success = false,
-                    Data = null
                 });
             }
 
@@ -214,12 +218,13 @@ namespace Monhealth.Api.Controllers
             {
                 Message = "Cập nhật món ăn thành công",
                 Success = true,
-                Status = 204,
+                Status = 201,
             });
         }
 
         [HttpDelete]
         [Route("{foodId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa món ăn")]
         public async Task<ActionResult<ResultModel>> RemoveFood(Guid foodId)
         {
             var result = await _mediator.Send(new DeleteFoodRequest(foodId));
@@ -232,7 +237,6 @@ namespace Monhealth.Api.Controllers
                     Success = false,
                     Message = "Xóa món ăn không thành công",
                     Status = (int)HttpStatusCode.NotFound,
-                    Data = null
                 });
             }
             return Ok(new ResultModel
@@ -240,12 +244,12 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Message = "Xóa món ăn thành công",
                 Status = 204,
-                Data = null
             });
         }
 
         [HttpPatch]
         [Route("{foodId:Guid}/status")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái món ăn")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid foodId)
         {
             var foods = await _mediator.
@@ -258,14 +262,13 @@ namespace Monhealth.Api.Controllers
                     Success = false,
                     Message = "Món ăn không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
-                    Data = null
                 });
             }
             return Ok(new ResultModel
             {
                 Success = true,
                 Status = 200,
-                Message = "Cập nhật trạng thái thành công"
+                Message = "Cập nhật trạng thái món ăn thành công"
             });
         }
     }

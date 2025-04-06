@@ -6,7 +6,7 @@ namespace Monhealth.Application.Features.TimeSlots.Queries.GetAllTimSlots
     {
         public Guid TimeSlotId { get; set; }
         public TimeOnly StartTime { get; set; }
-
+        public TimeOnly EndTime { get; set; }
 
     }
 }

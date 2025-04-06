@@ -22,6 +22,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách dị ứng")]
         public async Task<ActionResult<ResultModel>> GetAllAllergies(int page = 1, int limit = 10, string? search = null)
         {
             var categories = await _mediator.Send(new GetAllergyQuery { Page = page, Limit = limit, Search = search });
@@ -36,6 +37,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{allergyId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy dị ứng theo ID")]
         public async Task<ActionResult<ResultModel>> GetAllergyIdDetail(Guid allergyId)
         {
             var categories = await _mediator.
@@ -46,7 +48,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Triệu chứng không tồn tại",
+                    Message = "Dị ứng không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -71,7 +73,7 @@ namespace Monhealth.Api.Controllers
         //         return NotFound(new ResultModel
         //         {
         //             Success = false,
-        //             Message = "Triệu chứng không tồn tại",
+        //             Message = "Dị ứng không tồn tại",
         //             Status = (int)HttpStatusCode.NotFound,
         //             Data = null
         //         });
@@ -85,6 +87,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Thêm dị ứng")]
         public async Task<ActionResult<ResultModel>> AddAllergy([FromBody] CreateAllergyRequest request)
         {
             var result = await _mediator.Send(request);
@@ -93,7 +96,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo dị ứng thành công. ",
+                    Message = "Thêm dị ứng thành công",
                     Status = 201,
                 });
             }
@@ -101,13 +104,14 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo dị ứng thất bại",
+                Message = "Thêm dị ứng thất bại",
                 Status = 400,
             });
         }
 
         [HttpPut]
         [Route("{allergyId:Guid}")]
+        [SwaggerOperation(Summary = "Cập nhật dị ứng")]
         public async Task<ActionResult<ResultModel>> UpdateAllergy(Guid allergyId, [FromBody] UpdateAllergyRequest request)
         {
             var command = new UpdateAllergyRequestHandler(allergyId, request);
@@ -129,6 +133,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{allergyId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa dị ứng")]
         public async Task<ActionResult<ResultModel>> RemoveAllergy(Guid allergyId)
         {
             var result = await _mediator.Send(new DeleteAllergyRequest(allergyId));
@@ -139,7 +144,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Triệu chứng không tồn tại",
+                    Message = "Dị ứng không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -149,7 +154,7 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Xóa triệu chứng thành công",
+                Message = "Xóa dị ứng thành công",
                 Status = 204,
                 Data = null
             });

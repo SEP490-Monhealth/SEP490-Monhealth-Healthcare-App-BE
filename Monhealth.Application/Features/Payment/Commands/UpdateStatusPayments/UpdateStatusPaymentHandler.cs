@@ -67,7 +67,6 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
             int daysToCreate = 1; // Số ngày bạn muốn tạo DailyMeal mới
             DateTime startDate = DateTime.Now.Date; // Ngày bắt đầu là hôm nay
 
-
             //if (payment.Status == Core.PaymentStatus.Completed)
             //{
             //    var gettingUser = await _userRepository.GetUserByIdAsync((Guid)payment.CreatedBy);

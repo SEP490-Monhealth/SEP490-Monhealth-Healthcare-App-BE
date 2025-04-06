@@ -8,6 +8,7 @@ namespace Monhealth.Domain
         [Key]
         public Guid TimeSlotId { get; set; }
         public TimeOnly StartTime { get; set; }
+        public TimeOnly EndTime { get; set; }
 
         public ICollection<ScheduleTimeSlot>? ScheduleTimeSlots { get; set; }
     }

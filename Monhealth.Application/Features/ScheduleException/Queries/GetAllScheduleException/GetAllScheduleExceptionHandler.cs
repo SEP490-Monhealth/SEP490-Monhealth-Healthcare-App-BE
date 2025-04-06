@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultantBanks;
 using Monhealth.Application.Models.Paging;
 
 namespace Monhealth.Application.Features.ScheduleException.Queries.GetAllScheduleException

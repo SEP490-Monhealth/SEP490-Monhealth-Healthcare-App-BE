@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant;
 using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
 using Monhealth.Application.Features.Consultant.Queries.GetConsultantById;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -24,6 +25,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, bool? popular = null, bool? verified = null, bool? status = null)
         {
             var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, expertise, search, popular, status, verified));
@@ -37,6 +39,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Lấy chuyên viên theo ID")]
         public async Task<ActionResult<ResultModel>> GetConsultantById(Guid consultantId)
         {
             var consultant = await _mediator.Send(new GetConsultantByIdCommand { ConsultantId = consultantId });
@@ -45,7 +48,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Tư vấn viên không tồn tại",
+                    Message = "chuyên viên không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -67,7 +70,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Tư vấn viên không tồn tại",
+                    Message = "Chuyên viên không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -81,6 +84,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Thêm chuyên viên")]
         public async Task<ActionResult<ResultModel>> CreateConsultant([FromBody] CreateConsultantDTO createConsultantDTO)
         {
             var command = new CreateConsultantCommand(createConsultantDTO);
@@ -89,20 +93,21 @@ namespace Monhealth.Api.Controllers
             {
                 return new ResultModel
                 {
-                    Message = "Tạo tư vấn viên thành công",
+                    Message = "Thêm chuyên viên thành công",
                     Status = 201,
                     Success = true
                 };
             }
             return new ResultModel
             {
-                Message = "Tạo tư vấn viên thất bại",
+                Success = false,
                 Status = (int)HttpStatusCode.BadRequest,
-                Success = false
+                Message = "Thêm chuyên viên thất bại"
             };
         }
 
         [HttpPut("{consultantId}")]
+        [SwaggerOperation(Summary = "Cập nhật chuyên viên")]
         public async Task<ActionResult<ResultModel>> UpdateConsultant(Guid consultantId, [FromBody] UpdateConsultantDTO updateConsultantDTO)
         {
             var command = new UpdateConsultantCommand(consultantId, updateConsultantDTO);
@@ -113,18 +118,19 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật tư vấn viên thất bại"
+                    Message = "Cập nhật chuyên viên thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật tư vấn viên thành công"
+                Message = "Cập nhật chuyên viên thành công"
             };
         }
 
         [HttpDelete("{consultantId}")]
+        [SwaggerOperation(Summary = "Xóa chuyên viên")]
         public async Task<ActionResult<ResultModel>> DeleteConsultant(Guid consultantId)
         {
             var command = new DeleteConsultantCommand { ConsultantId = consultantId };
@@ -135,18 +141,19 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy tư vấn viên"
+                    Message = "Không tìm thấy chuyên viên"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Xóa tư vấn viên thành công"
+                Message = "Xóa chuyên viên thành công"
             };
         }
 
         [HttpPatch("{consultantId}/status")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái chuyên viên")]
         public async Task<ActionResult<ResultModel>> ChangeStatusConsultant(Guid consultantId)
         {
             var consultant = await _mediator.Send(new ChangeStatusConsultantCommand() { ConsultantId = consultantId });
@@ -156,7 +163,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Tư vấn viên không tồn tại",
+                    Message = "Chuyên viên không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -165,7 +172,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 200,
-                Message = "Cập nhật tư vấn viên thành công"
+                Message = "Cập nhật trạng thái chuyên viên thành công"
             });
         }
 
@@ -179,7 +186,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Tư vấn viên không tồn tại",
+                    Message = "Chuyên viên không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -188,7 +195,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 200,
-                Message = "Xác thực tư vấn viên thành công."
+                Message = "Xác thực chuyên viên thành công."
             });
         }
     }

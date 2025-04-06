@@ -35,6 +35,7 @@ namespace Monhealth.Application.Features.Subscription.Queries.GetById
                 .Select(st => new TimeSlotDto
                 {
                     StartTime = st.TimeSlot.StartTime,
+                    EndTime = st.TimeSlot.EndTime,
                     Status = st.Status,
                 }).ToList(),
                 CreatedAt = schedule.CreatedAt,

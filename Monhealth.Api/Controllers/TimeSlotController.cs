@@ -8,6 +8,8 @@ using Monhealth.Application.Features.TimeSlots.Queries.GetTimeSlotById;
 using Monhealth.Application.Models;
 using System.Net;
 using Swashbuckle.AspNetCore.Annotations;
+using Monhealth.Application.Features.Schedule.Queries.GetAll;
+using Monhealth.Domain;
 
 namespace Monhealth.Api.Controllers
 {
@@ -29,9 +31,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResultModel>> CreateTimeSlot([FromBody] CreateTimeSlotCommand command)
+        public async Task<ActionResult<ResultModel>> CreateTimeSlot([FromBody] CreateTimeSlotDTO createTimeSlotDTO)
         {
-
+            var command = new CreateTimeSlotCommand(createTimeSlotDTO);
             var result = await mediator.Send(command);
             if (result == Unit.Value)
             {

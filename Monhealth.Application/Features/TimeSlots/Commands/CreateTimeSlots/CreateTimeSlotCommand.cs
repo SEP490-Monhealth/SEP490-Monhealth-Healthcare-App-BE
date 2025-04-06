@@ -4,7 +4,10 @@ namespace Monhealth.Application.Features.TimeSlots.Commands.CreateTimeSlots
 {
     public class CreateTimeSlotCommand : IRequest<Unit>
     {
-        public TimeOnly StartTime { get; set; }
-
+        public CreateTimeSlotDTO CreateTimeSlotDTO { get; set; }
+        public CreateTimeSlotCommand(CreateTimeSlotDTO createTimeSlotDTO)
+        {
+            CreateTimeSlotDTO = createTimeSlotDTO;
+        }
     }
 }

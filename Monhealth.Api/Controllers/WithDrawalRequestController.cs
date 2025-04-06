@@ -5,6 +5,7 @@ using Monhealth.Application;
 using Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStatus;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -13,6 +14,7 @@ namespace Monhealth.Api.Controllers
     public class WithdrawalRequestController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách yêu cầu rút tiền")]
         public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, string? search = null, WithdrawalStatus? status = null)
         {
             var queries = await mediator.Send(new GetWithdrawalRequestListQuery(page, limit, search, status));
@@ -26,6 +28,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách yêu cầu rút tiền theo ID chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetByConsultant(Guid consultantId, int page = 1, int limit = 10)
         {
             var queries = await mediator.
@@ -51,6 +54,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{withdrawalRequestId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin yêu cầu rút tiền theo ID")]
         public async Task<ActionResult<ResultModel>> GetDetail(Guid withdrawalRequestId)
         {
             var queries = await mediator.
@@ -77,6 +81,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{withdrawalRequestId:Guid}/generate-qr")]
+        [SwaggerOperation(Summary = "Tạo QR code cho yêu cầu rút tiền")]
         public async Task<ResultModel> CreateWithdrawalRequest(Guid withdrawalRequestId)
         {
             var command = new GenerateWithdrawalQRCode(withdrawalRequestId);
@@ -93,6 +98,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Thêm yêu cầu rút tiền")]
         public async Task<ResultModel> Create([FromBody] CreateWithdrawalRequestDTO request)
         {
             var result = await mediator.Send(request);
@@ -101,7 +107,7 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo yêu cầu rút tiền thành công",
+                    Message = "Thêm yêu cầu rút tiền thành công",
                     Status = 201,
                 };
             }
@@ -109,13 +115,14 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Success = false,
-                Message = "Tạo yêu cầu rút tiền thất bại",
+                Message = "Thêm yêu cầu rút tiền thất bại",
                 Status = 400,
             };
         }
 
         [HttpPut]
         [Route("{withdrawalRequestId:Guid}")]
+        [SwaggerOperation(Summary = "Cập nhật yêu cầu rút tiền")]
         public async Task<ActionResult<ResultModel>> Update(Guid withdrawalRequestId, [FromBody] UpdateWithdrawalDTO request)
         {
             var command = new UpdateWithdrawalRequest(request, withdrawalRequestId);
@@ -137,6 +144,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{withdrawalRequestId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa yêu cầu rút tiền")]
         public async Task<ActionResult<ResultModel>> Remove(Guid withdrawalRequestId)
         {
             var result = await mediator.Send(new RemoveWithdrawRequest(withdrawalRequestId));
@@ -164,83 +172,60 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch]
-        [Route("{withdrawalRequestId:Guid}/status")]
-        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid withdrawalRequestId)
+        [Route("{withdrawalRequestId:Guid}/approve")]
+        [SwaggerOperation(Summary = "Chấp nhận yêu cầu rút tiền")]
+        public async Task<ActionResult<ResultModel>> Approve(Guid withdrawalRequestId)
         {
-            try
+            var command = new ChangeToApproveStatusCommand
             {
-                var command = new UpdateStatusWithdrawalCommand(withdrawalRequestId);
-                await mediator.Send(command); // trả về Unit, không cần kiểm tra
+                WithdrawalRequestId = withdrawalRequestId
+            };
+            await mediator.Send(command);
 
-                return Ok(new ResultModel
+            return Ok(
+                new ResultModel
                 {
-                    Message = "Cập nhật trạng thái rút tiền thành công",
+                    Message = "Chấp nhận trạng thái rút tiền thành công",
                     Success = true,
                     Status = 204
-                });
-            }
-            catch (Exception ex)
-            {
-                return Ok(new ResultModel
-                {
-                    Message = $"Cập nhật trạng thái rút tiền không thành công: {ex.Message}",
-                    Success = false,
-                    Data = null
-                });
-            }
+                }
+            );
         }
 
         [HttpPatch]
         [Route("{withdrawalRequestId:Guid}/reject")]
+        [SwaggerOperation(Summary = "Từ chối yêu cầu rút tiền")]
         public async Task<ActionResult<ResultModel>> Reject(Guid withdrawalRequestId)
         {
-            try
-            {
-                var command = new CancelWithdrawalStatusCommand(withdrawalRequestId);
-                await mediator.Send(command); // trả về Unit, không cần kiểm tra
+            var command = new CancelWithdrawalStatusCommand(withdrawalRequestId);
+            await mediator.Send(command);
 
-                return Ok(new ResultModel
+            return Ok(
+                new ResultModel
                 {
-                    Message = "Cập nhật trạng thái rút tiền thành công",
+                    Message = "Từ chối trạng thái rút tiền thành công",
                     Success = true,
                     Status = 204
-                });
-            }
-            catch (Exception ex)
-            {
-                return Ok(new ResultModel
-                {
-                    Message = $"Cập nhật trạng thái rút tiền không thành công: {ex.Message}",
-                    Success = false,
-                    Data = null
-                });
-            }
+                }
+            );
         }
-        [HttpPatch]
-        [Route("{withdrawalRequestId:Guid}/approve")]
-        public async Task<ActionResult<ResultModel>> Approve(Guid withdrawalRequestId)
-        {
-            try
-            {
-                var command = new ChangeToApproveStatusCommand{ WithdrawalRequestId = withdrawalRequestId };
-                await mediator.Send(command); // trả về Unit, không cần kiểm tra
 
-                return Ok(new ResultModel
+        [HttpPatch]
+        [Route("{withdrawalRequestId:Guid}/status")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái yêu cầu rút tiền")]
+        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid withdrawalRequestId)
+        {
+            var command = new UpdateStatusWithdrawalCommand(withdrawalRequestId);
+            await mediator.Send(command);
+
+            return Ok(
+                new ResultModel
                 {
                     Message = "Cập nhật trạng thái rút tiền thành công",
                     Success = true,
                     Status = 204
-                });
-            }
-            catch (Exception ex)
-            {
-                return Ok(new ResultModel
-                {
-                    Message = $"Cập nhật trạng thái rút tiền không thành công: {ex.Message}",
-                    Success = false,
-                    Data = null
-                });
-            }
+                }
+            );
         }
     }
 }
