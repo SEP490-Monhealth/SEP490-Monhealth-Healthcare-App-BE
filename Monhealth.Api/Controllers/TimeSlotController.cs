@@ -32,7 +32,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{timeSlotId:guid}")]
-        [SwaggerOperation(Summary = "Lấy khung giờ theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin khung giờ theo ID")]
         public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek([FromRoute] Guid timeSlotId)
         {
             var results = await mediator.Send(new GetTimeSlotByIdQueries { TimeSlotId = timeSlotId });
@@ -69,7 +69,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{timeSlotId:guid}")]
-        [SwaggerOperation(Summary = "Cập nhật khung giờ")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin khung giờ")]
         public async Task<ActionResult<ResultModel>> UpdateTimeSlot([FromRoute] Guid timeSlotId, [FromBody] UpdateTimeSlotDto timeSlotDto)
         {
             var command = new UpdateTimeSlotCommand(timeSlotId, timeSlotDto);

@@ -178,6 +178,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{consultantId}/verify")]
+        [SwaggerOperation(Summary = "Xác thực chuyên viên")]
         public async Task<ActionResult<ResultModel>> VeryfiedConsultant(Guid consultantId)
         {
             var consultant = await _mediator.Send(new VeryfiedConsultantCommand() { ConsultantId = consultantId });

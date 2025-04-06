@@ -83,7 +83,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{workoutId:Guid}")]
-        [SwaggerOperation(Summary = "Cập nhật bộ bài tập")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin bộ bài tập")]
         public async Task<ActionResult<ResultModel>> UpdateWorkout(Guid workoutId, [FromBody] UpdateWorkoutRequest request)
         {
             var command = new UpdateWorkoutHandler(workoutId, request);

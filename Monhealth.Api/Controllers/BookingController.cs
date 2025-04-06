@@ -34,7 +34,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{bookingId:guid}")]
-        [SwaggerOperation(Summary = "Lấy lịch hẹn theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin lịch hẹn theo ID")]
         public async Task<ActionResult<ResultModel>> GetBookingById([FromRoute] Guid bookingId)
         {
             var booking = await mediator.Send(new GetBookingByIdQueries { BookingId = bookingId });
@@ -86,7 +86,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{bookingId:guid}")]
-        [SwaggerOperation(Summary = "Cập nhật lịch hẹn")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin lịch hẹn")]
         public async Task<ActionResult<ResultModel>> UpdateBookingById([FromRoute] Guid bookingId, [FromBody] UpdateBookingDto command)
         {
             await mediator.Send(new UpdateBookingCommand(bookingId, command));

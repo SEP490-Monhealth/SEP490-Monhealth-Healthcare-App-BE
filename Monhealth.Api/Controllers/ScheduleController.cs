@@ -69,7 +69,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{scheduleId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy lịch trình theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin lịch trình theo ID")]
         public async Task<ActionResult<ResultModel>> GetScheduleDetail(Guid scheduleId)
         {
             var queries = await _mediator.
@@ -117,7 +117,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{scheduleId:Guid}")]
-        [SwaggerOperation(Summary = "Cập nhật lịch trình")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin lịch trình")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid scheduleId, [FromBody] UpdateScheduleRequest request)
         {
             var command = new UpdateScheduleCommand(scheduleId, request);

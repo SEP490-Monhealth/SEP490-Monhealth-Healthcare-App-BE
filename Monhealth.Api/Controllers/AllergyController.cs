@@ -37,7 +37,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{allergyId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy dị ứng theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin dị ứng theo ID")]
         public async Task<ActionResult<ResultModel>> GetAllergyIdDetail(Guid allergyId)
         {
             var categories = await _mediator.
@@ -111,7 +111,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{allergyId:Guid}")]
-        [SwaggerOperation(Summary = "Cập nhật dị ứng")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin dị ứng")]
         public async Task<ActionResult<ResultModel>> UpdateAllergy(Guid allergyId, [FromBody] UpdateAllergyRequest request)
         {
             var command = new UpdateAllergyRequestHandler(allergyId, request);

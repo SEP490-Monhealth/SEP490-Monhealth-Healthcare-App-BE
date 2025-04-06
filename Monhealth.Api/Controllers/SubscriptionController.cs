@@ -40,7 +40,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{subscriptionId:guid}")]
-        [SwaggerOperation(Summary = "Lấy gói đăng ký theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin gói đăng ký theo ID")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid subscriptionId)
         {
             var result = await _mediator.Send(new SubscriptionDetailQuery() { SubscriptionId = subscriptionId });
@@ -117,7 +117,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{subscriptionId:Guid}")]
-        [SwaggerOperation(Summary = "Cập nhật gói đăng ký")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin gói đăng ký")]
         public async Task<ActionResult<ResultModel>> Update(Guid subscriptionId, [FromBody] UpdateSubscriptionRequest request)
         {
             var command = new UpdateSubscriptionCommand(subscriptionId, request);

@@ -37,7 +37,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{expertiseId:guid}")]
-        [SwaggerOperation(Summary = "Lấy chuyên môn theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin chuyên môn theo ID")]
         public async Task<ActionResult<ResultModel>> GetExpertiseById(Guid expertiseId)
         {
             var expertise = await _mediator.Send(new GetExpertiseByIdQuery { ExpertiseId = expertiseId });
@@ -83,7 +83,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{expertiseId}")]
-        [SwaggerOperation(Summary = "Cập nhật chuyên môn")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin chuyên môn")]
         public async Task<ActionResult<ResultModel>> UpdateExpertise(Guid expertiseId, [FromBody] UpdateExpertiseDTO updateExpertiseDTO)
         {
             var command = new UpdateExpertiseCommand(expertiseId, updateExpertiseDTO);

@@ -46,7 +46,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{scheduleExceptionId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy lịch nghỉ theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin lịch nghỉ theo ID")]
         public async Task<ActionResult<ResultModel>> GetScheduleException(Guid scheduleExceptionId)
         {
             var queries = await mediator.Send(new GetScheduleExceptionByIdQueries { ScheduleExceptionId = scheduleExceptionId });
@@ -75,7 +75,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{scheduleExceptionId:Guid}")]
-        [SwaggerOperation(Summary = "Cập nhật lịch nghỉ")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin lịch nghỉ")]
         public async Task<ActionResult<ResultModel>> UpdateScheduleException(Guid scheduleExceptionId, [FromBody] UpdateScheduleExceptionDto request)
         {
             var command = new UpdateScheduleExceptionCommand(scheduleExceptionId, request);

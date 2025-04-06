@@ -42,7 +42,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{goalId:guid}")]
-        [SwaggerOperation(Summary = "Lấy mục tiêu theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin mục tiêu theo ID")]
         public async Task<ActionResult<ResultModel>> GetById(Guid goalId)
         {
             var goal = await _mediator.Send(new GetGoalByIdQuery() { GoalId = goalId });
@@ -222,7 +222,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPut("{goalId}")]
-        [SwaggerOperation(Summary = "Cập nhật mục tiêu")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin mục tiêu")]
         public async Task<ActionResult<ResultModel>> Update(Guid goalId, [FromBody] UpdateGoalDTO updateGoalDTO)
         {
             var command = new UpdateGoalCommand(goalId, updateGoalDTO);

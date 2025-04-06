@@ -38,7 +38,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{portionId:guid}")]
-        [SwaggerOperation(Summary = "Lấy khẩu phần ăn theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin khẩu phần ăn theo ID")]
         public async Task<ActionResult<ResultModel>> GetPortionById(Guid portionId)
         {
             var portion = await _mediator.Send(new GetPortionByIdQuery() { PortionId = portionId });
@@ -104,7 +104,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{portionId}")]
-        [SwaggerOperation(Summary = "Cập nhật khẩu phần ăn")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin khẩu phần ăn")]
         public async Task<ActionResult<ResultModel>> Update(Guid portionId, [FromBody] UpdatePortionRequest updatePortion)
         {
             var command = new UpdatePortionCommand(portionId, updatePortion);

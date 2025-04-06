@@ -85,7 +85,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{exerciseId:guid}")]
-        [SwaggerOperation(Summary = "Lấy bài tập theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin bài tập theo ID")]
         public async Task<ActionResult<ResultModel>> GetExerciseById(Guid exerciseId)
         {
             var exercise = await _mediator.Send(new GetExerciseByIdQuery { ExerciseId = exerciseId });
@@ -131,7 +131,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{exerciseId}")]
-        [SwaggerOperation(Summary = "Cập nhật bài tập")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin bài tập")]
         public async Task<ActionResult<ResultModel>> UpdateExercise(Guid exerciseId, [FromBody] UpdateExerciseDTO updateExerciseDTO)
         {
             var command = new UpdateExerciseCommand(exerciseId, updateExerciseDTO);

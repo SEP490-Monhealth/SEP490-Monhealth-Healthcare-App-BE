@@ -45,7 +45,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{transactionId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin giao dịch")]
+        [SwaggerOperation(Summary = "Lấy thông tin thông tin giao dịch")]
         public async Task<ActionResult<ResultModel>> GetTransactionById(Guid transactionId)
         {
             var transaction = await mediator.Send(new GetTransactionByIdQuery { TransactionId = transactionId });
@@ -81,7 +81,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{TransactionId}")]
-        [SwaggerOperation(Summary = "Cập nhật giao dịch")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin giao dịch")]
         public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid TransactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
         {
             var command = new UpdateTransactionCommand(TransactionId, updateTransactionDTO);

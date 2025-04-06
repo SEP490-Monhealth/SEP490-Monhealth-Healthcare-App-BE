@@ -50,7 +50,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{metricId:guid}")]
-        [SwaggerOperation(Summary = "Lấy số liệu theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin số liệu theo ID")]
         public async Task<ActionResult<ResultModel>> GetMetricById(Guid metricId)
         {
             var metric = await _mediator.Send(new GetMetricDetailQuery() { MetricId = metricId });
@@ -95,7 +95,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{metricId}")]
-        [SwaggerOperation(Summary = "Cập nhật số liệu")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin số liệu")]
         public async Task<ActionResult<ResultModel>> Update(Guid metricId, [FromBody] UpdateMetricDTO metricDto)
         {
             var command = new UpdateMetricCommand(metricId, metricDto);

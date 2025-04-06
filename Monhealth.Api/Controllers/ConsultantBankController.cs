@@ -33,7 +33,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{consultantBankId:guid}")]
-        [SwaggerOperation(Summary = "Lấy tài khoản ngân hàng theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin tài khoản ngân hàng theo ID")]
         public async Task<ActionResult<ResultModel>> GetConsultantBankById(Guid consultantBankId)
         {
             var consultantBank = await mediator.Send(new GetConsultantBankByIdQuery { ConsultantBankId = consultantBankId });
@@ -92,7 +92,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{consultantBankId}")]
-        [SwaggerOperation(Summary = "Cập nhật tài khoản ngân hàng")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin tài khoản ngân hàng")]
         public async Task<ActionResult<ResultModel>> UpdateConsultantBank(Guid consultantBankId, [FromBody] UpdateConsultantBankDTO updateConsultantBankDTO)
         {
             var command = new UpdateConsultantBankCommand(consultantBankId, updateConsultantBankDTO);

@@ -122,7 +122,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{withdrawalRequestId:Guid}")]
-        [SwaggerOperation(Summary = "Cập nhật yêu cầu rút tiền")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin yêu cầu rút tiền")]
         public async Task<ActionResult<ResultModel>> Update(Guid withdrawalRequestId, [FromBody] UpdateWithdrawalDTO request)
         {
             var command = new UpdateWithdrawalRequest(request, withdrawalRequestId);

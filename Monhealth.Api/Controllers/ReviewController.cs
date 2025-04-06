@@ -173,7 +173,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{reviewId:Guid}")]
-        [SwaggerOperation(Summary = "Cập nhật đánh giá")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin đánh giá")]
         public async Task<ActionResult<ResultModel>> UpdateReview(Guid reviewId, [FromBody] UpdateReviewRequest request)
         {
             var command = new UpdateReviewCommand(reviewId, request);

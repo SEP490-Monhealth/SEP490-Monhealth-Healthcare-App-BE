@@ -52,7 +52,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{activityId}")]
-        [SwaggerOperation(Summary = "Lấy hoạt động theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin hoạt động theo ID")]
         public async Task<ActionResult<ResultModel>> GetById(Guid activityId)
         {
             var activities = await _mediator.Send(new GetActivityByIdQuery(activityId));

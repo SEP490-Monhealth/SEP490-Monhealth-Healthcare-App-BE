@@ -43,7 +43,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{certificateId:guid}")]
-        [SwaggerOperation(Summary = "Lấy chứng chỉ theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin chứng chỉ theo ID")]
         public async Task<ActionResult<ResultModel>> GetCertificateById(Guid certificateId)
         {
             var certificate = await mediator.Send(new GetCertificateByIdQuery { CertificateId = certificateId });
@@ -79,7 +79,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{certificateId}")]
-        [SwaggerOperation(Summary = "Cập nhật chứng chỉ")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin chứng chỉ")]
         public async Task<ActionResult<ResultModel>> UpdateCertificate(Guid certificateId, [FromBody] UpdateCertificateDTO updateCertificateDTO)
         {
             var command = new UpdateCertificateCommand(certificateId, updateCertificateDTO);
@@ -125,14 +125,14 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{certificateId:guid}/verify")]
-        [SwaggerOperation(Summary = "Xác minh chứng chỉ")]
+        [SwaggerOperation(Summary = "Xác thực chứng chỉ")]
         public async Task<ActionResult<ResultModel>> ChangeCertificateIsVerified(Guid certificateId)
         {
             await mediator.Send(new UpdateCertificateIsVerifiedCommand { CertificateId = certificateId });
             return new ResultModel
             {
                 Status = 200,
-                Message = "Xác minh chứng chỉ thành công",
+                Message = "Xác thực chứng chỉ thành công",
                 Success = true,
             };
         }

@@ -56,7 +56,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{foodId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy món ăn theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin món ăn theo ID")]
         public async Task<ActionResult<ResultModel>> GetFoodById(Guid foodId)
         {
             var food = await _mediator.

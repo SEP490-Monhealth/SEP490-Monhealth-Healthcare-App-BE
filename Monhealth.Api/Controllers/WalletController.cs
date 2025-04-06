@@ -42,7 +42,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{walletId:guid}")]
-        [SwaggerOperation(Summary = "Lấy ví theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin ví theo ID")]
         public async Task<ActionResult<ResultModel>> GetWalletById([FromRoute] Guid walletId)
         {
             var wallet = await mediator.Send(new GetWalletByIdQuery { WalletId = walletId });
@@ -68,7 +68,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{walletId:guid}/status")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái ví")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin trạng thái ví")]
         public async Task<ActionResult<ResultModel>> ChangeStatusWallet([FromRoute] Guid walletId)
         {
             var result = await mediator.Send(new ChangeStatusWalletCommand { WalletId = walletId });
