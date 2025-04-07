@@ -62,7 +62,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<Category> GetCategoryByCategoryName(string name)
         {
             return await _context.Categories
-                .FirstOrDefaultAsync(c => c.CategoryName.ToLower() == name.ToLower());
+                .FirstOrDefaultAsync(c => c.CategoryName.ToLower() == name.ToLower().Trim());
         }
 
         public async Task<List<Guid>> GetCategoryIdsByNamesAsync(IEnumerable<string> categoryNames)
