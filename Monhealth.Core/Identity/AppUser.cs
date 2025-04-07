@@ -26,7 +26,6 @@ namespace Monhealth.Identity.Models
         public ICollection<UserAllergy> UserAllergies { get; set; }
         //public ICollection<Certificate> Certificates { get; set; }
         public ICollection<UserSubscription> UserSubscriptions { get; set; } = [];
-        public ICollection<Schedule> Schedules { get; set; } = [];
         //public ICollection<Service> Services { get; set; }
         [InverseProperty(nameof(Booking.User))]
         public ICollection<Booking> UserBookings { get; set; } = [];
@@ -41,5 +40,6 @@ namespace Monhealth.Identity.Models
         public Consultant Consultant { get; set; }
         public ICollection<Chat> Chats { get; set; } = [];
         public ICollection<UserNotification> UserNotifications { get; set; } = [];
+        public ICollection<Device> Devices { get; set; } = [];
     }
 }

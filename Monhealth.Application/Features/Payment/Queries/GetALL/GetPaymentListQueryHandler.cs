@@ -30,12 +30,12 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
                     CreatedAt = payment.CreatedAt,
                     PaymentId = payment.PaymentId,
                     Status = payment.Status,
-                    SubscriptionId = payment.UserSubscription.SubscriptionId,
+                    SubscriptionId = (Guid)(payment.UserSubscription?.SubscriptionId),
                     SubscriptionName = payment.UserSubscription?.Subscription?.SubscriptionName, // xử lý null
                     UpdatedAt = payment.UpdatedAt
                 };
 
-                var member = await _userRepository.GetByIdAsync(payment.UserSubscription.UserId);
+                var member = await _userRepository.GetUserByIdAsync((Guid)payment.CreatedBy);
                 if (member != null)
                 {
                     paymentDTO.Member = new Member
