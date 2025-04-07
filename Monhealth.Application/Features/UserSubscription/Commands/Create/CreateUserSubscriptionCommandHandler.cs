@@ -109,7 +109,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             var gettingUser = await _userRepository.GetUserByIdAsync(user);
             
 
-            int daysToCreate = 1; // Số ngày bạn muốn tạo DailyMeal mới
+            int daysToCreate = 7; // Số ngày bạn muốn tạo DailyMeal mới
             DateTime startDate = DateTime.Now.Date; // Ngày bắt đầu là hôm nay
 
             // Với mỗi ngày cần tạo, tìm ngày mà DailyMeal của user chưa tồn tại

@@ -14,6 +14,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<float> GetActivityLevelByUserIdAsync(Guid userId);
         Task<Goal> CheckStatusGoal(Guid userId);
         Task<Goal> GetGoalByUserIdAndStatusActive(Guid userId);
+        Task<Goal>GetGoalByUser(Guid userId);
     }
 
 }
