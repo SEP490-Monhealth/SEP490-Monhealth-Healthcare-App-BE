@@ -27,10 +27,10 @@ namespace Monhealth.Application
 
                 var memberDTO = new Member
                 {
-                    AvatarUrl = member.Avatar,
-                    Email = member.Email,
-                    FullName = member.FullName,
-                    PhoneNumber = member.PhoneNumber,
+                    AvatarUrl = member.Avatar ?? string.Empty,
+                    Email = member.Email ?? string.Empty,
+                    FullName = member.FullName ?? string.Empty,
+                    PhoneNumber = member.PhoneNumber ?? string.Empty,
                 };
 
                 var paymentDTO = new PaymentUserDTO(

@@ -17,9 +17,10 @@ namespace Monhealth.Identity.Repositories
             return await _context.TimeSlots.Where(ts => timeSlots.Contains(ts.StartTime)).ToListAsync();
         }
 
-        public async Task<TimeSlot> GetTimeSlotByStartTime(TimeOnly startTime)
+        public async Task<TimeSlot> GetTimeSlotByStartAndEndTime(TimeOnly startTime, TimeOnly endTime)
         {
-            return await _context.TimeSlots.FirstOrDefaultAsync(ts => ts.StartTime == startTime);
+            return await _context.TimeSlots
+                .FirstOrDefaultAsync(ts => ts.StartTime == startTime && ts.EndTime == endTime);
         }
 
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)

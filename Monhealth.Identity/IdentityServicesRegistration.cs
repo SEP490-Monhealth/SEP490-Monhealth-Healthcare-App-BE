@@ -125,19 +125,39 @@ namespace Monhealth.Identity
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-           .AddJwtBearer(cfg =>
-           {
-               cfg.RequireHttpsMetadata = true;
-               cfg.SaveToken = true;
-               cfg.TokenValidationParameters = new TokenValidationParameters
-               {
-                   ValidateLifetime = true,
-                   ClockSkew = TimeSpan.FromSeconds(0),
-                   ValidIssuer = configuration["JwtTokenSettings:Issuer"],
-                   ValidAudience = configuration["JwtTokenSettings:Issuer"],
-                   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtTokenSettings:Key"]))
-               };
-           });
+            .AddJwtBearer(cfg =>
+            {
+                cfg.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        var token = context.Request.Headers["Authorization"].FirstOrDefault();
+
+                        // Không có prefix Bearer → dùng trực tiếp
+                        if (!string.IsNullOrWhiteSpace(token) && !token.StartsWith("Bearer "))
+                        {
+                            context.Token = token;
+                        }
+                        // Có prefix → cắt bỏ
+                        else if (token?.StartsWith("Bearer ") == true)
+                        {
+                            context.Token = token.Substring("Bearer ".Length).Trim();
+                        }
+
+                        return Task.CompletedTask;
+                    }
+                };
+                cfg.RequireHttpsMetadata = true;
+                cfg.SaveToken = true;
+                cfg.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.FromSeconds(0),
+                    ValidIssuer = configuration["JwtTokenSettings:Issuer"],
+                    ValidAudience = configuration["JwtTokenSettings:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtTokenSettings:Key"]))
+                };
+            });
 
             // Other service configurations...
             services.AddScoped<ICategoryRepository, CategoryRepository>();

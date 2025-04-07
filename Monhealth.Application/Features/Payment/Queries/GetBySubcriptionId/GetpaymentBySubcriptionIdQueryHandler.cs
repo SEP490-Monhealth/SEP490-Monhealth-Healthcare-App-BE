@@ -9,9 +9,6 @@ namespace Monhealth.Application.Features.Payment.Queries.GetBySubcriptionId
         public async Task<List<GetPaymentBySubscriptionIdDTO>> Handle(GetpaymentBySubcriptionIdQuery request, CancellationToken cancellationToken)
         {
             var queries = await paymentRepository.GetPaymentBySubscriptionId(request.SubscriptionId);
-
-
-
             var paymentList = new List<GetPaymentBySubscriptionIdDTO>();
 
             foreach (var payment in queries)
@@ -27,10 +24,10 @@ namespace Monhealth.Application.Features.Payment.Queries.GetBySubcriptionId
                 }
                 var memberDTO = new Member
                 {
-                    AvatarUrl = member.Avatar,
-                    Email = member.Email,
-                    FullName = member.FullName,
-                    PhoneNumber = member.PhoneNumber,
+                    AvatarUrl = member.Avatar ?? string.Empty,
+                    Email = member.Email ?? string.Empty,
+                    FullName = member.FullName ?? string.Empty,
+                    PhoneNumber = member.PhoneNumber ?? string.Empty,
                 };
 
                 var paymentDTO = new GetPaymentBySubscriptionIdDTO

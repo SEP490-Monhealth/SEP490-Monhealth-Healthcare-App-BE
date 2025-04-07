@@ -6,6 +6,6 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<List<TimeSlot>> GetExistTimeSlotByListTimeAsync(List<TimeOnly> timeSlots);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
-        Task<TimeSlot> GetTimeSlotByStartTime(TimeOnly startTime);
+        Task<TimeSlot> GetTimeSlotByStartAndEndTime(TimeOnly startTime, TimeOnly endTime);
     }
 }

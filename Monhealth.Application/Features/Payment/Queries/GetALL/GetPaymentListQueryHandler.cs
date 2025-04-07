@@ -30,9 +30,11 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
                     CreatedAt = payment.CreatedAt,
                     PaymentId = payment.PaymentId,
                     Status = payment.Status,
-                    SubscriptionId = (Guid)(payment.UserSubscription?.SubscriptionId),
-                    SubscriptionName = payment.UserSubscription?.Subscription?.SubscriptionName, // xử lý null
-                    UpdatedAt = payment.UpdatedAt
+                    SubscriptionId = (payment.UserSubscription?.SubscriptionId) ?? Guid.Empty,
+                    SubscriptionName = payment.UserSubscription?.Subscription?.SubscriptionName ?? string.Empty, // xử lý null
+                    UpdatedAt = payment.UpdatedAt,
+                    CreatedBy = payment.CreatedBy,
+                    UpdatedBy = payment.UpdatedBy,
                 };
 
                 var member = await _userRepository.GetUserByIdAsync((Guid)payment.CreatedBy);
@@ -40,10 +42,10 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
                 {
                     paymentDTO.Member = new Member
                     {
-                        AvatarUrl = member.Avatar,
-                        Email = member.Email,
-                        FullName = member.FullName,
-                        PhoneNumber = member.PhoneNumber,
+                        AvatarUrl = member.Avatar ?? string.Empty,
+                        Email = member.Email ?? string.Empty,
+                        FullName = member.FullName ?? string.Empty,
+                        PhoneNumber = member.PhoneNumber ?? string.Empty,
                     };
                 }
 

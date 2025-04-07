@@ -1,5 +1,4 @@
-﻿using DotnetGeminiSDK;
-using Monhealth.Api.Extensions;
+﻿using Monhealth.Api.Extensions;
 using Monhealth.Api.GlobalException;
 using Monhealth.Api.Hubs;
 using Monhealth.Api.Utils;
@@ -45,7 +44,8 @@ builder.Services.AddSwaggerGen(options =>
         Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
         Name = "Authorization",
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Description = "Enter your token here without the Bearer prefix. Example: 'your_token'"
+        Description = "Enter your token here without the Bearer prefix. Example: 'your_token'",
+        Scheme = "ApiKey"
     });
 
     options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
@@ -59,7 +59,7 @@ builder.Services.AddSwaggerGen(options =>
                     Id = "ApiKey"
                 }
             },
-            new string[] { }
+            new List<string>()
         }
     });
 });

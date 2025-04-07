@@ -51,8 +51,7 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
             if (payment == null)
                 throw new BadRequestException($"Không tìm thấy thanh toán : {request.PaymentId}");
 
-            // Cập nhật trạng thái thanh toán
-            payment.Status = Core.PaymentStatus.Completed;
+
 
             //gọi create usersubsciption 
             var command = new CreateUserSubscriptionCommand
@@ -60,9 +59,13 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
                 PaymentId = request.PaymentId,
                 SubscriptionId = (Guid)payment.SubscriptionId,
                 UserId = (Guid)payment.CreatedBy,
-
             };
             await mediator.Send(command);
+
+            //assign UserSubscriptionId for payment
+            var userSubscription = await userSubscriptionRepository.GetUserSubScriptionByUserIdAndSubscriptionId((Guid)payment.SubscriptionId, (Guid)payment.CreatedBy);
+            payment.UserSubscriptionId = userSubscription.UserSubscriptionId;
+
 
             int daysToCreate = 1; // Số ngày bạn muốn tạo DailyMeal mới
             DateTime startDate = DateTime.Now.Date; // Ngày bắt đầu là hôm nay
@@ -130,7 +133,8 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
             //    }
             //}
 
-
+            // Cập nhật trạng thái thanh toán
+            payment.Status = Core.PaymentStatus.Completed;
             await _paymentRepository.SaveChangeAsync();
             return true;
         }

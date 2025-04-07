@@ -12,6 +12,12 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<bool> ExistTimeSlot(Guid scheduleId, Guid timeSlotId)
+        {
+            return await _context.ScheduleTimeSlots
+                     .AnyAsync(st => st.ScheduleId == scheduleId && st.TimeSlotId == timeSlotId);
+        }
+
         public async Task<List<Guid>> GetTimslotIdsByScheduleId(Guid scheduleId)
         {
             return await _context.ScheduleTimeSlots

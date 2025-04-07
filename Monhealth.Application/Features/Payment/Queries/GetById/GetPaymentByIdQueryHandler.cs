@@ -1,4 +1,4 @@
-using MediatR;
+﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.Payment.Queries.GetById
@@ -23,16 +23,20 @@ namespace Monhealth.Application.Features.Payment.Queries.GetById
                 Amount = query.Amount,
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt,
+                CreatedBy = query.CreatedBy,
+                UpdatedBy = query.UpdatedBy,
                 Status = query.Status,
-                SubscriptionId = (Guid)(query.UserSubscription?.SubscriptionId),
+
+                SubscriptionId = query.UserSubscription?.SubscriptionId ?? Guid.Empty, // fallback nếu null
                 PaymentId = query.PaymentId,
-                SubscriptionName = query.UserSubscription?.Subscription?.SubscriptionName,
+                SubscriptionName = query.UserSubscription?.Subscription?.SubscriptionName ?? string.Empty,
+
                 Member = new Member
                 {
-                    AvatarUrl = member?.Avatar,
-                    FullName = member?.FullName,
-                    Email = member?.Email,
-                    PhoneNumber = member?.PhoneNumber,
+                    AvatarUrl = member?.Avatar ?? string.Empty,
+                    FullName = member?.FullName ?? string.Empty,
+                    Email = member?.Email ?? string.Empty,
+                    PhoneNumber = member?.PhoneNumber ?? string.Empty,
                 }
             };
         }
