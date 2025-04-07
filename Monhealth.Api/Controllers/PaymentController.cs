@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Payment.Queries.GetById;
 using Monhealth.Application.Features.Payment.Queries.GetBySubcriptionId;
 using Monhealth.Application.Models;
 using Monhealth.Core;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -24,6 +25,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách thanh toán")]
         public async Task<ActionResult<ResultModel>> GetAllPayment(int page = 1, int limit = 10, string search = "", PaymentStatus? status = null)
         {
             var queries = await _mediator.Send(new GetPaymentListQuery(page, limit, search, status));
@@ -37,6 +39,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("subscription/{subscriptionId}")]
+        [SwaggerOperation(Summary = "Lấy danh sách thanh toán theo ID gói đăng ký")]
         public async Task<ActionResult<ResultModel>> GetPaymentBySubscriptionId(Guid subscriptionId)
         {
             var queries = await _mediator.Send(new GetpaymentBySubcriptionIdQuery { SubscriptionId = subscriptionId });
@@ -51,6 +54,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{paymentId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin thanh toán theo ID")]
         public async Task<ActionResult<ResultModel>> GetReviewDetail(Guid paymentId)
         {
             var queries = await _mediator.
@@ -76,6 +80,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user/{userId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin thanh toán theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetReviewByUser(Guid userId)
         {
             var queries = await _mediator.
@@ -100,6 +105,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo thanh toán")]
         public async Task<ActionResult<ResultModel>> Create([FromBody] AddPaymentRequest request)
         {
             var result = await _mediator.Send(request);
@@ -118,11 +124,11 @@ namespace Monhealth.Api.Controllers
             {
                 Success = false,
                 Message = "Tạo thanh toán thất bại",
-
             });
         }
 
         [HttpPut("{paymentId:guid}")]
+        [SwaggerOperation(Summary = "Cập nhật thanh toán")]
         public async Task<IActionResult> UpdatePayment([FromRoute] Guid paymentId, [FromBody] UpdatePaymentDto updatePaymentDto)
         {
             var command = new UpdatePaymentCommand(paymentId, updatePaymentDto);
@@ -141,6 +147,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{paymentId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa thanh toán")]
         public async Task<ActionResult<ResultModel>> Remove(Guid paymentId)
         {
             var result = await _mediator.Send(new DeletePaymentCommand(paymentId));
@@ -168,6 +175,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{paymentId:guid}/completed")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái thanh toán")]
         public async Task<ActionResult<ResultModel>> ChangePaymentStatus([FromRoute] Guid paymentId)
         {
             var result = await _mediator.Send(new UpdateStatusPaymentQueries { PaymentId = paymentId });
@@ -176,7 +184,7 @@ namespace Monhealth.Api.Controllers
                 return BadRequest(new ResultModel
                 {
                     Success = false,
-                    Message = "Cập nhập thanh toán thất bại",
+                    Message = "Cập nhập trạng thái thanh toán thất bại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -186,7 +194,7 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Cập nhập thanh toán thành công",
+                Message = "Cập nhập trạng thái thanh toán thành công",
                 Status = 204,
                 Data = null
             });

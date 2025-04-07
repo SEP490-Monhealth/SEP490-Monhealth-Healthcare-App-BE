@@ -35,7 +35,8 @@ namespace Monhealth.Identity.Repositories
                                          s.User.Email.ToLower().Contains(search) ||
                                          s.User.PhoneNumber.ToLower().Contains(search));
             }
-            if (name is not null) { 
+            if (name is not null)
+            {
                 query = query.Where(us => us.Subscription.SubscriptionName == name);
             }
             if (Status.HasValue)
@@ -68,6 +69,11 @@ namespace Monhealth.Identity.Repositories
             Include(us => us.Subscription).
             Include(us => us.User)
             .FirstOrDefaultAsync(us => us.UserSubscriptionId == userSubscriptionId);
+        }
+
+        public async Task<UserSubscription> GetUserSubScriptionByUserIdAndSubscriptionId(Guid subscriptionId, Guid userId)
+        {
+            return await _context.UserSubscriptions.FirstOrDefaultAsync(us => us.UserId == userId && us.SubscriptionId == subscriptionId);
         }
 
         public async Task<int> SaveChangeAsync()

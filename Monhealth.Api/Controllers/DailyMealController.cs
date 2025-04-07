@@ -57,6 +57,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user")]
+        [SwaggerOperation(Summary = "Lấy bữa ăn hằng ngày theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetDailyMealByUser([FromQuery][Required] Guid userId,
          [FromQuery][Required] DateTime date)
         {

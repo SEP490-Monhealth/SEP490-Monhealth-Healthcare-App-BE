@@ -16,9 +16,9 @@ namespace Monhealth.Domain
         public string WorkoutName { get; set; } = string.Empty;
         public string WorkoutDescription { get; set; } = string.Empty;
         public DifficultyLevel DifficultyLevel { get; set; }
-        public int Views { get; set; } = default!;
         public float DurationMinutes { get; set; }
         public float CaloriesBurned { get; set; }
+        public int Views { get; set; } = default!;
         public bool IsPublic { get; set; }
         public bool Status { get; set; } = default!;
 

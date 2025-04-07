@@ -20,8 +20,12 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
                 //UserSubscriptionId = request.UserSubscriptionId,
                 Amount = request.Amount,
                 Status = Core.PaymentStatus.Pending,
+                Description = request.Description,
+                SubscriptionId = request.SubscriptionId,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
+                CreatedBy = request.UserId,
+                UpdatedBy = request.UserId,
             };
 
             var paymentResult = await payOSService.CreatePaymentLinkAsync(
@@ -38,6 +42,8 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
                 PaymentId = payment.PaymentId,
                 UserId = user.Id,
                 Amount = payment.Amount,
+                Description = payment.Description,
+                SubscriptionId = (Guid)payment.SubscriptionId,
                 Status = payment.Status,
                 PaymentUrl = paymentResult.CheckoutUrl,
                 QrCode = paymentResult.QrCode,

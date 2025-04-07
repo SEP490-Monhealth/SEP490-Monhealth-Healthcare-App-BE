@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 
 namespace Monhealth.Application.Features.Certificate.Queries.GetCertificateById
 {

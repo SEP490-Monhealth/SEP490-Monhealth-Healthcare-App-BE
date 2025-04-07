@@ -11,7 +11,7 @@ namespace Monhealth.Domain
         public Guid UserNotificationId { get; set; }
         public Guid UserId { get; set; }
         public Guid NotificationId { get; set; }
-        public bool isRead { get; set; } = false;
+        public bool IsRead { get; set; } = false;
 
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }

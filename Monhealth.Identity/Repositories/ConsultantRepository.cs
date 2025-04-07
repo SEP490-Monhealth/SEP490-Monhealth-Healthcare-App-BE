@@ -67,7 +67,7 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(s => s.IsVerified == isVerified.Value);
             }
-            if(popular.HasValue && popular.Value)
+            if (popular.HasValue && popular.Value)
             {
                 query = query.OrderByDescending(d => d.Views);
             }
@@ -113,6 +113,12 @@ namespace Monhealth.Identity.Repositories
                         ExpertiseName = c.Expertise.ExpertiseName,
                     }
                 }).FirstOrDefaultAsync();
+            if (consultant != null)
+            {
+                // Tăng số lượt xem lên 1
+                await _context.Database.ExecuteSqlRawAsync("UPDATE Consultants SET Views = Views + 1 WHERE Id = {0}", consultantId);
+            }
+
             return consultant;
         }
 

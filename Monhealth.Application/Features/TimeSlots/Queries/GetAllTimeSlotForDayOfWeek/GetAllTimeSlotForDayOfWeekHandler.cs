@@ -3,31 +3,93 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayOfWeek
 {
-    public class GetAllTimeSlotForDayOfWeekHandler(ITimeSlotRepository timeSlotRepository) : IRequestHandler<GetAllTimeSlotForDayOfWeekQueries, List<DayTimeSlotDto>>
+    public class GetAllTimeSlotForDayOfWeekHandler(ITimeSlotRepository timeSlotRepository)
+        : IRequestHandler<GetAllTimeSlotForDayOfWeekQueries, List<DayTimeSlotDto>>
     {
-
-        private static readonly Dictionary<int, List<TimeOnly>> DefaultTimeSlotRules = new()
+        // Cập nhật Default Rule với cả startTime và endTime
+        private static readonly Dictionary<int, List<(TimeOnly StartTime, TimeOnly EndTime)>>
+        DefaultTimeSlotRules = new()
         {
-            { 0, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Sunday
-            { 1, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Monday
-            { 2, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Tuesday
-            { 3, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Wednesday
-            { 4, new List<TimeOnly> { new(8,0), new(9,0), new(10,0), new(11,0), new(14,0), new(15,0), new(16,0) } }, // Thursday
-            { 5, new List<TimeOnly> { new(9,0), new(10,0), new(11,0), new(14,0), new(15,0) } }, // Friday
-            { 6, new List<TimeOnly> { new(9,0), new(10,0), new(11,0) } }  // Saturday
+            { 0, new List<(TimeOnly, TimeOnly)>
+                {
+                    (new TimeOnly(8, 0), new TimeOnly(9, 0)),
+                    (new TimeOnly(9, 15), new TimeOnly(10, 15)),
+                    (new TimeOnly(10, 30), new TimeOnly(11, 30)),
+                    (new TimeOnly(13, 45), new TimeOnly(14, 45)),
+                    (new TimeOnly(15, 0), new TimeOnly(16, 0)),
+                    (new TimeOnly(16, 15), new TimeOnly(17, 15))
+                }
+            },
+            { 1, new List<(TimeOnly, TimeOnly)>
+                {
+                    (new TimeOnly(8, 0), new TimeOnly(9, 0)),
+                    (new TimeOnly(9, 15), new TimeOnly(10, 15)),
+                    (new TimeOnly(10, 30), new TimeOnly(11, 30)),
+                    (new TimeOnly(13, 45), new TimeOnly(14, 45)),
+                    (new TimeOnly(15, 0), new TimeOnly(16, 0)),
+                    (new TimeOnly(16, 15), new TimeOnly(17, 15))
+                }
+            },
+            { 2, new List<(TimeOnly, TimeOnly)>
+                {
+                    (new TimeOnly(8, 0), new TimeOnly(9, 0)),
+                    (new TimeOnly(9, 15), new TimeOnly(10, 15)),
+                    (new TimeOnly(10, 30), new TimeOnly(11, 30)),
+                    (new TimeOnly(13, 45), new TimeOnly(14, 45)),
+                    (new TimeOnly(15, 0), new TimeOnly(16, 0)),
+                    (new TimeOnly(16, 15), new TimeOnly(17, 15))
+                }
+            },
+            { 3, new List<(TimeOnly, TimeOnly)>
+                {
+                    (new TimeOnly(8, 0), new TimeOnly(9, 0)),
+                    (new TimeOnly(9, 15), new TimeOnly(10, 15)),
+                    (new TimeOnly(10, 30), new TimeOnly(11, 30)),
+                    (new TimeOnly(13, 45), new TimeOnly(14, 45)),
+                    (new TimeOnly(15, 0), new TimeOnly(16, 0)),
+                    (new TimeOnly(16, 15), new TimeOnly(17, 15))
+                }
+            },
+            { 4, new List<(TimeOnly, TimeOnly)>
+                {
+                    (new TimeOnly(8, 0), new TimeOnly(9, 0)),
+                    (new TimeOnly(9, 15), new TimeOnly(10, 15)),
+                    (new TimeOnly(10, 30), new TimeOnly(11, 30)),
+                    (new TimeOnly(13, 45), new TimeOnly(14, 45)),
+                    (new TimeOnly(15, 0), new TimeOnly(16, 0)),
+                    (new TimeOnly(16, 15), new TimeOnly(17, 15))
+                }
+            },
+            { 5, new List<(TimeOnly, TimeOnly)>
+                {
+                    (new TimeOnly(9, 15), new TimeOnly(10, 15)),
+                    (new TimeOnly(10, 30), new TimeOnly(11, 30)),
+                    (new TimeOnly(13, 45), new TimeOnly(14, 45)),
+                    (new TimeOnly(15, 0), new TimeOnly(16, 0))
+                }
+            },
+            { 6, new List<(TimeOnly, TimeOnly)>
+                {
+                    (new TimeOnly(9, 15), new TimeOnly(10, 15)),
+                    (new TimeOnly(10, 30), new TimeOnly(11, 30))
+                }
+            }
         };
 
         public async Task<List<DayTimeSlotDto>> Handle(GetAllTimeSlotForDayOfWeekQueries request, CancellationToken cancellationToken)
         {
-            var timeslotLists = await timeSlotRepository.GetAllAsync();
+            var timeSlotLists = await timeSlotRepository.GetAllAsync();
+
             var timeSlotByDays = DefaultTimeSlotRules.Select(rule => new DayTimeSlotDto
             {
                 DayOfWeek = rule.Key,
-                TimeSlots = timeslotLists
-                .Where(ts => rule.Value.Contains(ts.StartTime))
-                .OrderBy(ts => ts.StartTime)
-                .Select(ts => ts.StartTime.ToString(@"HH\:mm"))
-                .ToList()
+                TimeSlots = timeSlotLists
+                    // Lọc các khung giờ từ DB sao cho khớp cặp startTime và endTime dùng rule mặc định
+                    .Where(ts => rule.Value.Any(r =>
+                        r.StartTime.Equals(ts.StartTime) && r.EndTime.Equals(ts.EndTime)))
+                    .OrderBy(ts => ts.StartTime)
+                    .Select(ts => $"{ts.StartTime:HH\\:mm} - {ts.EndTime:HH\\:mm}")
+                    .ToList()
             }).ToList();
 
             return timeSlotByDays;

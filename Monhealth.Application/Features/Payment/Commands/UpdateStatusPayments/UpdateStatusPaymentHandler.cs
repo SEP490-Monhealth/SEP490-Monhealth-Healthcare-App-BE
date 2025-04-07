@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
+using Monhealth.Application.Features.UserSubscription.Commands.Create;
 using Monhealth.Core.Enum;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;

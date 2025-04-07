@@ -24,6 +24,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách danh mục")]
         public async Task<ActionResult<ResultModel>> GetAllCategories(int page = 1, int limit = 10, CategoryType? type = null, string? search = null)
         {
 
@@ -39,6 +40,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{type}")]
+        [SwaggerOperation(Summary = "Lấy danh sách danh mục theo loại")]
         public async Task<ActionResult<ResultModel>> GetCategoriesByType(CategoryType type)
         {
             var categories = await _mediator.Send(new GetCategoriesByTypeQuery { CategoryType = type });
@@ -63,6 +65,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{categoryId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin danh mục theo ID")]
         public async Task<ActionResult<ResultModel>> GetCategoryDetail(Guid categoryId)
         {
             var categories = await _mediator.Send(new GetCategoryDetailQuery { CategoryId = categoryId });
@@ -86,6 +89,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo danh mục")]
         public async Task<ActionResult<ResultModel>> AddCategory([FromBody] AddCategoryRequest request)
         {
             var result = await _mediator.Send(request);
@@ -109,6 +113,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{categoryId:Guid}")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin danh mục")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid categoryId, [FromBody] UpdateCategoryRequest request)
         {
             var command = new UpdateCategoryCommand(categoryId, request);
@@ -132,6 +137,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("{categoryId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa danh mục")]
         public async Task<ActionResult<ResultModel>> RemoveCategory(Guid categoryId)
         {
             var result = await _mediator.Send(new DeleteCategoryRequest(categoryId));

@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Activity.Queries.GetActivityByUserId;
 using Monhealth.Application.Features.Activity.Queries.GetAllActivities;
 using Monhealth.Application.Features.Exercise.Commands.ChangeStatusExercise;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -23,6 +24,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách hoạt động")]
         public async Task<ActionResult<ResultModel>> GetAllActivities()
         {
             var activities = await _mediator.Send(new GetAllActivitiesQuery());
@@ -36,6 +38,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId}")]
+        [SwaggerOperation(Summary = "Lấy danh sách hoạt động theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetActivitiesByUserId(Guid userId)
         {
             var activities = await _mediator.Send(new GetActivityByUserIdQuery(userId));
@@ -49,6 +52,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{activityId}")]
+        [SwaggerOperation(Summary = "Lấy thông tin hoạt động theo ID")]
         public async Task<ActionResult<ResultModel>> GetById(Guid activityId)
         {
             var activities = await _mediator.Send(new GetActivityByIdQuery(activityId));
@@ -62,6 +66,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo hoạt động")]
         public async Task<ActionResult<ResultModel>> CreateActivity([FromBody] CreateActivityDTO createActivityDTO)
         {
             var command = new CreateActivityCommand(createActivityDTO);
@@ -84,6 +89,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpDelete("{activityId}")]
+        [SwaggerOperation(Summary = "Xóa hoạt động")]
         public async Task<ActionResult<ResultModel>> DeleteActivity(Guid activityId)
         {
             var command = new DeleteActivityCommand { ActivityId = activityId };
@@ -104,7 +110,9 @@ namespace Monhealth.Api.Controllers
                 Message = "Xóa hoạt động thành công"
             };
         }
-        [HttpPatch("{activityId}/iscompleted")]
+
+        [HttpPatch("{activityId}/completed")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái hoàn thành của hoạt động")]
         public async Task<ActionResult<ResultModel>> ChangeIsCompleted(Guid activityId)
         {
             var command = new ChangeIsCompletedActivityCommand { ActivityId = activityId };
@@ -115,14 +123,13 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy bài tập"
+                    Message = "Không tìm thấy hoạt động"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Thay đổi trạng thái thành công"
             };
         }
     }

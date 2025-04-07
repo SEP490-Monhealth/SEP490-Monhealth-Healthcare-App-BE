@@ -7,6 +7,7 @@ using Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByConsult
 using Monhealth.Application.Features.Expertise.Queries.GetAllExpertises;
 using Monhealth.Application.Features.Expertise.Queries.GetExpertiseById;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -22,6 +23,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách chuyên môn")]
         public async Task<ActionResult<ResultModel>> GetAllExpertises(int page = 1, int limit = 10, string? search = null)
         {
             var expertiseList = await _mediator.Send(new GetAllExpertisesQuery(page, limit, search));
@@ -35,6 +37,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{expertiseId:guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin chuyên môn theo ID")]
         public async Task<ActionResult<ResultModel>> GetExpertiseById(Guid expertiseId)
         {
             var expertise = await _mediator.Send(new GetExpertiseByIdQuery { ExpertiseId = expertiseId });
@@ -57,6 +60,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo chuyên môn")]
         public async Task<ActionResult<ResultModel>> CreateExpertise([FromBody] CreateExpertiseDTO createExpertiseDTO)
         {
             var command = new CreateExpertiseCommand(createExpertiseDTO);
@@ -79,6 +83,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{expertiseId}")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin chuyên môn")]
         public async Task<ActionResult<ResultModel>> UpdateExpertise(Guid expertiseId, [FromBody] UpdateExpertiseDTO updateExpertiseDTO)
         {
             var command = new UpdateExpertiseCommand(expertiseId, updateExpertiseDTO);
@@ -101,6 +106,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("consultant/{consultantId}")]
+        [SwaggerOperation(Summary = "Cập nhật chuyên môn theo ID chuyên viên")]
         public async Task<ActionResult<ResultModel>> UpdateExpertiseByConsultantId(Guid consultantId, [FromBody] UpdateExpertiseByConsultantIdDto updateExpertiseDto)
         {
             var result = await _mediator.Send(new UpdateExpertiseByConsultantIdQueries(consultantId, updateExpertiseDto));
@@ -122,6 +128,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpDelete("{expertiseId}")]
+        [SwaggerOperation(Summary = "Xóa chuyên môn")]
         public async Task<ActionResult<ResultModel>> DeleteExpertise(Guid expertiseId)
         {
             var command = new DeleteExpertiseCommand { ExpertiseId = expertiseId };

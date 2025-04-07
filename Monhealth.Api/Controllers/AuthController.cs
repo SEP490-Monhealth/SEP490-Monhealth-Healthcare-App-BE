@@ -25,6 +25,7 @@ namespace Monhealth.Api.Controllers
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
+        [SwaggerOperation(Summary = "Đăng nhập")]
         public async Task<ActionResult<ResultModel>> Login([FromBody] AuthenRequest request)
         {
             var result = await _authService.Login(request);
@@ -41,6 +42,7 @@ namespace Monhealth.Api.Controllers
         [HttpPost]
         [Route("register")]
         [AllowAnonymous]
+        [SwaggerOperation(Summary = "Đăng ký")]
         public async Task<ActionResult<ResultModel>> Register([FromBody] RegistrationRequest request)
         {
             await _authService.Register(request);
@@ -55,6 +57,7 @@ namespace Monhealth.Api.Controllers
         [HttpGet]
         [Route("me")]
         [Authorize]
+        [SwaggerOperation(Summary = "Lấy thông tin người dùng")]
         public async Task<ActionResult<ResultModel>> GetInformationOfUser()
         {
             var phoneNumber = User.FindFirst(ClaimTypes.MobilePhone)?.Value;
@@ -68,7 +71,7 @@ namespace Monhealth.Api.Controllers
                 };
             }
 
-            var user = await _authService.GetInfomationCurrentUser(phoneNumber);
+            var user = await _authService.GetInformationCurrentUser(phoneNumber);
             return new ResultModel
             {
                 Success = true,
@@ -77,6 +80,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost("logout")]
+        [SwaggerOperation(Summary = "Đăng xuất")]
         public async Task<ActionResult<ResultModel>> Logout()
         {
             await _authService.LogoutAsync();
@@ -88,6 +92,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost("otp-verification")]
+
         public async Task<IActionResult> SendOtp([FromBody] OtpRequest request)
         {
             try
@@ -102,6 +107,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost("refresh-token")]
+
         public async Task<ActionResult<ResultModel>> RefreshToken([FromBody] TokenDto tokenDto)
         {
             var result = await _authService.RefreshToken(tokenDto);

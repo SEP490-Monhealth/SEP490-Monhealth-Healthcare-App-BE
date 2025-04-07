@@ -23,6 +23,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{mealId:Guid}/foods")]
+        [SwaggerOperation(Summary = "Lấy danh sách món ăn theo ID bữa ăn")]
         public async Task<ActionResult<ResultModel>> GetMealFoodByMealId(Guid mealId)
         {
             var food = await _mediator.
@@ -73,6 +74,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPatch]
         [Route("food/{mealFoodId:Guid}/quantity")]
+        [SwaggerOperation(Summary = "Cập nhật số lượng món ăn trong bữa ăn")]
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid mealFoodId, int quantity)
         {
             var command = new MealFoodCommand(mealFoodId, quantity);
@@ -94,6 +96,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPatch]
         [Route("food/{mealFoodId:Guid}/completed")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái món ăn trong bữa ăn")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid mealFoodId)
         {
             var mealFoods = await _mediator.
@@ -104,7 +107,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Bữa ăn không tồn tại",
+                    Message = "Món ăn không tồn tại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -113,7 +116,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 200,
-                Message = "Cập nhật trạng thái thành công"
+                Message = "Cập nhật trạng thái món ăn thành công"
             });
         }
     }

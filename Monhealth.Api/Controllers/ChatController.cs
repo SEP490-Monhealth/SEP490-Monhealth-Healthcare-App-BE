@@ -5,6 +5,7 @@ using Monhealth.Application;
 using Monhealth.Application.Features.Chat.Commands.CreateChat;
 using Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -12,7 +13,21 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class ChatController(IMediator mediator, IHubContext<SignalRHub> _hubContext) : ControllerBase
     {
+        [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện theo ID người dùng")]
+        public async Task<ActionResult<ResultModel>> GetAllChat([FromRoute] Guid userId, int page = 1, int limit = 10)
+        {
+            var chats = await mediator.Send(new GetUserChatQuery { Page = page, Limit = limit, UserId = userId });
+            return new ResultModel
+            {
+                Data = chats,
+                Status = 200,
+                Success = true,
+            };
+        }
+
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo cuộc trò chuyện")]
         public async Task<ActionResult<ResultModel>> CreateChat([FromBody] CreateChatCommand command)
         {
             var chatId = await mediator.Send(command);
@@ -24,7 +39,14 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+        public class GenerateRequest
+        {
+            public Guid UserId { get; set; }
+            public string Query { get; set; }
+        }
+
         [HttpPost("mon-ai")]
+        [SwaggerOperation(Summary = "Trò chuyện với Mon AI")]
         public async Task<ActionResult<ResultModel>> GenerateContent([FromBody] GenerateRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.Query) || request.UserId == Guid.Empty)
@@ -48,10 +70,12 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Message = "Trò chuyện với AI thành công",
                 Data = aiResult,
-                // rawData = chatBotAi // optional: trả về thêm nếu cần debug
+                // rawData = chatBotAi // optional: trả về Tạo nếu cần debug
             });
         }
-        [HttpPost("scan-image")]
+
+        [HttpPost("food-ai")]
+        [SwaggerOperation(Summary = "Trò chuyện với Food AI")]
         public async Task<ActionResult<ResultModel>> ScanImage(IFormFile image)
         {
             // if (string.IsNullOrWhiteSpace(imageUrl))
@@ -96,18 +120,5 @@ namespace Monhealth.Api.Controllers
                 });
             }
         }
-        [HttpGet("user/{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetAllChat([FromRoute] Guid userId, int page = 1, int limit = 10)
-        {
-            var chats = await mediator.Send(new GetUserChatQuery { Page = page, Limit = limit, UserId = userId });
-            return new ResultModel
-            {
-                Data = chats,
-                Status = 200,
-                Success = true,
-            };
-        }
-
-
     }
 }

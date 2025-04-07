@@ -35,33 +35,35 @@ namespace Monhealth.Api.Controllers
         //     };
         // }
 
-        [HttpGet]
-        [Route("{nutritionId:Guid}")]
-        public async Task<ActionResult<ResultModel>> GetNutritionDetail(Guid nutritionId)
-        {
-            var queries = await _mediator.
-            Send(new GetNutritionDetailQuery() { NutritionId = nutritionId });
+        // [HttpGet]
+        // [Route("{nutritionId:Guid}")]
+        // [SwaggerOperation(Summary = "Lấy thông tin dinh dưỡng theo ID")]
+        // public async Task<ActionResult<ResultModel>> GetNutritionDetail(Guid nutritionId)
+        // {
+        //     var queries = await _mediator.
+        //     Send(new GetNutritionDetailQuery() { NutritionId = nutritionId });
 
-            if (queries == null)
-            {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Message = "Dinh dưỡng không tồn tại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = queries
-            });
-        }
+        //     if (queries == null)
+        //     {
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Dinh dưỡng không tồn tại",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 200,
+        //         Data = queries
+        //     });
+        // }
 
         [HttpGet]
         [Route("food/{foodId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách dinh dưỡng theo ID thực phẩm")]
         public async Task<ActionResult<ResultModel>> GetNutritionByFoodIdDetail(Guid foodId)
         {
             var queries = await _mediator.
@@ -108,6 +110,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpPut]
         [Route("{nutritionId:Guid}")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin dinh dưỡng")]
         public async Task<ActionResult<ResultModel>> UpdateNutrition(Guid nutritionId, [FromBody] UpdateNutritionRequest request)
         {
             var command = new UpdateNutritionCommand(nutritionId, request);

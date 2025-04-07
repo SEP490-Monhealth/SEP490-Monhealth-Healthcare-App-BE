@@ -3,17 +3,17 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.Subscription.Commands.ChangeStatus
 {
-    public class ChangeStatusSubcriptionCommandHandler(ISubscriptionRepository subscriptionRepository) : IRequestHandler<ChangeStatusSubcriptionCommand, bool>
+    public class ChangeStatusSubcriptionCommandHandler(ISubscriptionRepository subscriptionRepository) : IRequestHandler<ChangeStatusSubscriptionCommand, bool>
     {
-        public async Task<bool> Handle(ChangeStatusSubcriptionCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(ChangeStatusSubscriptionCommand request, CancellationToken cancellationToken)
         {
-            var subcription = await subscriptionRepository.GetByIdAsync(request.SubcriptionId);
-            if (subcription == null)
+            var subscription = await subscriptionRepository.GetByIdAsync(request.SubscriptionId);
+            if (subscription == null)
             {
                 return false;
             }
-            subcription.Status = !subcription.Status;
-            subscriptionRepository.Update(subcription);
+            subscription.Status = !subscription.Status;
+            subscriptionRepository.Update(subscription);
             await subscriptionRepository.SaveChangeAsync();
             return true;
         }

@@ -37,6 +37,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{mealId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin bữa ăn theo ID")]
         public async Task<ActionResult<ResultModel>> GetMealDetail(Guid mealId)
         {
             var meal = await _mediator.
@@ -62,6 +63,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user/{userId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy bữa ăn theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetMealByUser(Guid userId)
         {
             var meal = await _mediator.
@@ -86,7 +88,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        
+        [SwaggerOperation(Summary = "Tạo bữa ăn")]
         public async Task<ActionResult<ResultModel>> AddMeal([FromBody] CreateMealDTO request)
         {
             var command = new CreateMealCommand(request);

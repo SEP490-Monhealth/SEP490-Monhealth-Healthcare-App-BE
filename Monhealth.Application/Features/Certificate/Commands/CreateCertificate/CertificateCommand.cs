@@ -16,6 +16,5 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
         public DateTime? ExpiryDate { get; set; }
         public string IssuedBy { get; set; } = null!;
         public List<string> ImageUrls { get; set; } = new List<string>();
-
     }
 }

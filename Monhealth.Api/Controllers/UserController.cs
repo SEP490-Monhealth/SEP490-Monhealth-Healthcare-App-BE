@@ -27,6 +27,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách người dùng")]
         public async Task<ActionResult<ResultModel>> GetAllUser(int page = 1, int limit = 10, string? search = null, string? role = null, bool? status = null)
         {
             var result = await _mediator.Send(new GetAllUserQuery { Page = page, Limit = limit, Search = search, Role = role, Status = status });
@@ -41,6 +42,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin người dùng")]
         public async Task<ActionResult<ResultModel>> GetUserById(Guid userId)
         {
             var result = await _mediator.Send(new GetUserDetailQuery { Id = userId });
@@ -70,6 +72,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo người dùng")]
         public async Task<ActionResult<ResultModel>> CreateUser([FromBody] CreateUserCommand request)
         {
             var result = await _mediator.Send(request);
@@ -91,6 +94,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{userId}")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin người dùng")]
         public async Task<ActionResult<ResultModel>> UpdateUser(Guid userId, [FromBody] UpdateUserRequest request)
         {
             var command = new UpdateUserCommand(userId, request);
@@ -104,6 +108,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{userId}/avatar")]
+        [SwaggerOperation(Summary = "Cập nhật avatar người dùng")]
         public async Task<ActionResult<ResultModel>> UpdateUserAvatar(Guid userId, [FromBody] UpdateAvatarRequest request)
         {
             var command = new UpdateAvatarCommand(userId, request);
@@ -116,20 +121,22 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpDelete("{userId}")]
-        public async Task<ActionResult<ResultModel>> Delete(Guid userId)
-        {
-            var command = await _mediator.Send(new RemoveUserCommand(userId));
-            return new ResultModel
-            {
-                Message = "Xóa người dùng thành công",
-                Status = 204,
-                Success = true
-            };
-        }
+        // [HttpDelete("{userId}")]
+        // [SwaggerOperation(Summary = "Xóa người dùng")]
+        // public async Task<ActionResult<ResultModel>> Delete(Guid userId)
+        // {
+        //     var command = await _mediator.Send(new RemoveUserCommand(userId));
+        //     return new ResultModel
+        //     {
+        //         Message = "Xóa người dùng thành công",
+        //         Status = 204,
+        //         Success = true
+        //     };
+        // }
 
         [HttpPatch]
         [Route("{userId}/status")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái người dùng")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid userId)
         {
             var foods = await _mediator.
@@ -149,7 +156,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 200,
-                Message = "Cập nhật trạng thái thành công"
+                Message = "Cập nhật trạng thái người dùng thành công"
             });
         }
     }

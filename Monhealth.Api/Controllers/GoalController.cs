@@ -28,6 +28,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách mục tiêu")]
         public async Task<ActionResult<ResultModel>> GetAll()
         {
             var goals = await _mediator.Send(new GetAllGoalsListQuery());
@@ -41,6 +42,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{goalId:guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin mục tiêu theo ID")]
         public async Task<ActionResult<ResultModel>> GetById(Guid goalId)
         {
             var goal = await _mediator.Send(new GetGoalByIdQuery() { GoalId = goalId });
@@ -83,6 +85,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách mục tiêu theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetByUserId(Guid userId)
         {
             var queries = await _mediator.Send(new GetGoalByUserIdQuery() { UserId = userId });
@@ -105,6 +108,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/weight")]
+        [SwaggerOperation(Summary = "Lấy mục tiêu cân nặng theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetWeightByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetWeightByGoalIdQuery() { UserId = userId });
@@ -127,6 +131,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/nutrition")]
+        [SwaggerOperation(Summary = "Lấy mục tiêu dinh dưỡng theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetNutrionByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetNutritionByGoalIdQuery() { UserId = userId });
@@ -149,6 +154,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/water-intake")]
+        [SwaggerOperation(Summary = "Lấy mục tiêu nước theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetWaterByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetWaterByGoalIdQuery() { UserId = userId });
@@ -171,6 +177,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/workout")]
+        [SwaggerOperation(Summary = "Lấy mục tiêu tập luyện theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetExercise([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetExerciseByGoalIdQuery() { UserId = userId });
@@ -215,6 +222,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPut("{goalId}")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin mục tiêu")]
         public async Task<ActionResult<ResultModel>> Update(Guid goalId, [FromBody] UpdateGoalDTO updateGoalDTO)
         {
             var command = new UpdateGoalCommand(goalId, updateGoalDTO);
@@ -259,6 +267,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPatch("{goalId}/completed")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái hoàn thành")]
         public async Task<ActionResult<ResultModel>> ChangeStatusCompleted(Guid goalId)
         {
             var command = new ChangeStatusCompletedGoalCommand { GoalId = goalId };
@@ -276,11 +285,12 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Thay đổi trạng thái thành công"
+                Message = "Cập nhật trạng thái thành công"
             };
         }
 
         [HttpPatch("{goalId}/abandoned")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái bỏ qua")]
         public async Task<ActionResult<ResultModel>> ChangeStatusAbandoned(Guid goalId)
         {
             var command = new ChangeStatusAbandonedGoalCommand { GoalId = goalId };
@@ -298,7 +308,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Thay đổi trạng thái thành công"
+                Message = "Cập nhật trạng thái mục tiêu thành công"
             };
         }
     }

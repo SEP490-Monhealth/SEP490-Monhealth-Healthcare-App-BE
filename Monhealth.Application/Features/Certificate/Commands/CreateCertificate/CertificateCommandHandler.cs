@@ -2,7 +2,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
-using System.Text.Json;
 
 namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
 {

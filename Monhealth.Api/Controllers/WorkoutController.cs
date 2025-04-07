@@ -2,14 +2,11 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
-using Monhealth.Application.Features.Exercise.Commands.ChangeStatusExercise;
-using Monhealth.Application.Features.Exercise.Commands.DeleteExercise;
 using Monhealth.Application.Features.Workout.Commands.ChangeStatusWorkout;
 using Monhealth.Application.Features.Workout.Commands.CreateWorkout;
 using Monhealth.Application.Features.Workout.Commands.DeleteWorkout;
 using Monhealth.Application.Features.Workout.Queries.GetAllWorkoutQueries;
 using Monhealth.Application.Features.Workout.Queries.GetWorkoutByIdQueries;
-using Monhealth.Application.Features.Workout.Queries.GetWorkoutByUserIdQueries;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
 using Swashbuckle.AspNetCore.Annotations;
@@ -21,6 +18,7 @@ namespace Monhealth.Api.Controllers
     public class WorkoutController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách bộ bài tập")]
         public async Task<ActionResult<ResultModel>> GetAllWorkouts(int page = 1, int limit = 10, string? category = null, string? search = null, DifficultyLevel? difficulty = null, bool? popular = null, bool? status = null)
         {
             var workouts = await mediator.Send(new GetAllWorkoutQuery(page, limit, category, search, difficulty, popular, status));
@@ -34,6 +32,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{workoutId:guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin bộ bài tập theo ID")]
         public async Task<ActionResult<ResultModel>> GetWorkoutById([FromRoute] Guid workoutId)
         {
             var workouts = await mediator.Send(new GetWorkoutByIdQuery(workoutId));
@@ -60,6 +59,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo mới bộ bài tập")]
         public async Task<ActionResult<ResultModel>> CreateWorkout([FromBody] CreateWorkoutCommand command)
         {
             var result = await mediator.Send(command);
@@ -68,7 +68,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo bài tập thành công",
+                    Message = "Tạo bộ bài tập thành công",
                     Status = 201,
                 });
             }
@@ -76,13 +76,14 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo bài tập thất bại",
+                Message = "Tạo bộ bài tập thất bại",
                 Status = 400,
             });
         }
 
         [HttpPut]
         [Route("{workoutId:Guid}")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin bộ bài tập")]
         public async Task<ActionResult<ResultModel>> UpdateWorkout(Guid workoutId, [FromBody] UpdateWorkoutRequest request)
         {
             var command = new UpdateWorkoutHandler(workoutId, request);
@@ -90,19 +91,20 @@ namespace Monhealth.Api.Controllers
             if (result == null)
                 return new ResultModel
                 {
-                    Message = "Cập nhật bài tập thất bại",
+                    Message = "Cập nhật bộ bài tập thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật bài tập thành công",
+                Message = "Cập nhật bộ bài tập thành công",
                 Success = true,
                 Status = 204,
             });
         }
 
         [HttpDelete("{workoutId}")]
+        [SwaggerOperation(Summary = "Xóa bộ bài tập")]
         public async Task<ActionResult<ResultModel>> DeleteWorkout(Guid workoutId)
         {
             var command = new DeleteWorkoutCommand { WorkoutId = workoutId };
@@ -113,7 +115,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy workout"
+                    Message = "Không tìm thấy bộ bài tập"
                 };
             }
             return new ResultModel
@@ -125,6 +127,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{workoutId}/status")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái bộ bài tập")]
         public async Task<ActionResult<ResultModel>> ChangeStatusWorkout(Guid workoutId)
         {
             var command = new ChangeStatusWorkoutCommand { WorkoutId = workoutId };
@@ -135,14 +138,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy workout"
+                    Message = "Không tìm thấy bộ bài tập"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Thay đổi trạng thái thành công"
+                Message = "Cập nhật trạng thái bộ bài tập thành công"
             };
         }
     }
