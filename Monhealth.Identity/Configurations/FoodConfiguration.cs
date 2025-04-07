@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
-
 namespace Monhealth.Identity.Configurations
 {
     public class FoodConfiguration : IEntityTypeConfiguration<Food>
