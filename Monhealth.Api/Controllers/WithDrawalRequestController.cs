@@ -2,6 +2,7 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
+using Monhealth.Application.Features.Withdrawal.Commands.CancelWithDrawalStatus;
 using Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStatus;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
@@ -192,12 +193,12 @@ namespace Monhealth.Api.Controllers
             );
         }
 
-        [HttpPatch]
+        [HttpPut]
         [Route("{withdrawalRequestId:Guid}/reject")]
         [SwaggerOperation(Summary = "Từ chối yêu cầu rút tiền")]
-        public async Task<ActionResult<ResultModel>> Reject(Guid withdrawalRequestId)
+        public async Task<ActionResult<ResultModel>> Reject(Guid withdrawalRequestId, [FromBody] CancelWithdrawalStatusDTO cancelWithdrawalStatusDTO)
         {
-            var command = new CancelWithdrawalStatusCommand(withdrawalRequestId);
+            var command = new CancelWithdrawalStatusCommand(withdrawalRequestId, cancelWithdrawalStatusDTO);
             await mediator.Send(command);
 
             return Ok(

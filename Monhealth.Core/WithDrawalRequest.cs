@@ -8,7 +8,8 @@ namespace Monhealth.Domain
     {
         public Guid WithdrawalRequestId { get; set; }
         public Guid ConsultantId { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public string Reason { get; set; } = string.Empty;
         public float Amount { get; set; }
         public WithdrawalStatus Status { get; set; }
 
