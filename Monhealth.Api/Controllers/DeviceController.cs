@@ -19,12 +19,12 @@ namespace Monhealth.Api.Controllers
 {
     [Route("api/v1/userdevices")]
     [ApiController]
-    public class UserDeviceController(IMediator mediator) : ControllerBase
+    public class DeviceController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllUserDevices(int page = 1, int limit = 10)
         {
-            var userDeviceList = await mediator.Send(new GetAllUserDevicesQuery(page, limit));
+            var userDeviceList = await mediator.Send(new GetAllDevicesQuery(page, limit));
 
             return new ResultModel
             {
@@ -37,7 +37,7 @@ namespace Monhealth.Api.Controllers
         [HttpGet("{userDeviceId:guid}")]
         public async Task<ActionResult<ResultModel>> GetUserDeviceById(Guid userDeviceId)
         {
-            var userDevice = await mediator.Send(new GetUserDeviceByIdQuery { UserDeviceId = userDeviceId });
+            var userDevice = await mediator.Send(new GetDeviceByIdQuery { UserDeviceId = userDeviceId });
             if (userDevice == null)
             {
                 return NotFound(new ResultModel
@@ -59,7 +59,7 @@ namespace Monhealth.Api.Controllers
         [HttpGet("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetUserDeviceByUserId(Guid userId)
         {
-            var consultantBank = await mediator.Send(new GetUserDeviceByUserIdQuery { UserId = userId });
+            var consultantBank = await mediator.Send(new GetDeviceByUserIdQuery { UserId = userId });
             return Ok(new ResultModel
             {
                 Success = true,
@@ -69,9 +69,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResultModel>> CreateUserDevice([FromBody] CreateUserDeviceDTO createUserDeviceDTO)
+        public async Task<ActionResult<ResultModel>> CreateUserDevice([FromBody] CreateDeviceDTO createUserDeviceDTO)
         {
-            var command = new CreateUserDeviceCommand(createUserDeviceDTO);
+            var command = new CreateDeviceCommand(createUserDeviceDTO);
             var create = await mediator.Send(command);
             if (create == Unit.Value)
             {
@@ -91,9 +91,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{userDeviceId}")]
-        public async Task<ActionResult<ResultModel>> UpdateUserDevice(Guid userDeviceId, [FromBody] UpdateUserDeviceDTO updateUserDeviceDTO)
+        public async Task<ActionResult<ResultModel>> UpdateUserDevice(Guid userDeviceId, [FromBody] UpdateDeviceDTO updateUserDeviceDTO)
         {
-            var command = new UpdateUserDeviceCommand(userDeviceId, updateUserDeviceDTO);
+            var command = new UpdateDeviceCommand(userDeviceId, updateUserDeviceDTO);
             var result = await mediator.Send(command);
             if (!result)
             {
@@ -115,7 +115,7 @@ namespace Monhealth.Api.Controllers
         [HttpDelete("{userDeviceId}")]
         public async Task<ActionResult<ResultModel>> DeleteUserDevice(Guid userDeviceId)
         {
-            var command = new DeleteUserDeviceCommand { UserDeviceId = userDeviceId };
+            var command = new DeleteDeviceCommand { UserDeviceId = userDeviceId };
             var delete = await mediator.Send(command);
             if (!delete)
             {

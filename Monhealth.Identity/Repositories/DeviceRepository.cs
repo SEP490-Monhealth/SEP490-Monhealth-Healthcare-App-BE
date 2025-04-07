@@ -6,13 +6,13 @@ using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
 {
-    public class UserDeviceRepository : GenericRepository<Device, Guid>, IUserDeviceRepository
+    public class DeviceRepository : GenericRepository<Device, Guid>, IDeviceRepository
     {
-        public UserDeviceRepository(MonhealthDbcontext context) : base(context)
+        public DeviceRepository(MonhealthDbcontext context) : base(context)
         {
         }
 
-        public async Task<PaginatedResult<Device>> GetAllUserDevices(int page, int limit)
+        public async Task<PaginatedResult<Device>> GetAllDevices(int page, int limit)
         {
             IQueryable<Device> query = _context.Devices.AsQueryable();
             int totalItems = await query.CountAsync();
@@ -27,9 +27,19 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-        public async Task<List<Device>> GetUserDevicesByUserId(Guid userId)
+        public async Task<List<Device>> GetDevicesByUserId(Guid userId)
         {
             return await _context.Devices.Where(u => u.UserId == userId).ToListAsync();
+        }
+
+        public async Task<Device> GetExpoPushToken(string expoPushToken)
+        {
+            var checkExpoPushToken = await _context.Devices.FirstOrDefaultAsync(e => e.ExpoPushToken == expoPushToken);
+            if(checkExpoPushToken != null)
+            {
+                await _context.Database.ExecuteSqlRawAsync("UPDATE Devices SET UpdatedAt = GETDATE() WHERE DeviceId = {0}", checkExpoPushToken.DeviceId);              
+            }
+            return checkExpoPushToken;
         }
 
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)

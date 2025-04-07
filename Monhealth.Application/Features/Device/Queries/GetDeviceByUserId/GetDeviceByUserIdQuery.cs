@@ -2,7 +2,7 @@
 
 namespace Monhealth.Application.Features.UserDevice.Queries.GetUserDeviceByUserId
 {
-    public class GetUserDeviceByUserIdQuery : IRequest<List<GetUserDeviceByUserIdDTO>>
+    public class GetDeviceByUserIdQuery : IRequest<List<GetDeviceByUserIdDTO>>
     {
         public Guid UserId { get; set; }
     }

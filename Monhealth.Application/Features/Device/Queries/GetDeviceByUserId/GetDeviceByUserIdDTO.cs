@@ -2,7 +2,7 @@
 
 namespace Monhealth.Application.Features.UserDevice.Queries.GetUserDeviceByUserId
 {
-    public class GetUserDeviceByUserIdDTO : TimeEntity
+    public class GetDeviceByUserIdDTO : TimeEntity
     {
 
     }

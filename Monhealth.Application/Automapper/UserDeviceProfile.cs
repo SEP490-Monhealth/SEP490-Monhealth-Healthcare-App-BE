@@ -12,12 +12,12 @@ namespace Monhealth.Application.Automapper
     {
         public UserDeviceProfile()
         {
-            CreateMap<Device, GetAllUserDevicesDTO>().ReverseMap();
-            CreateMap<Device, GetUserDeviceByIdDTO>().ReverseMap();
-            CreateMap<Device, GetUserDeviceByUserIdDTO>().ReverseMap();
+            CreateMap<Device, GetAllDevicesDTO>().ReverseMap();
+            CreateMap<Device, GetDeviceByIdDTO>().ReverseMap();
+            CreateMap<Device, GetDeviceByUserIdDTO>().ReverseMap();
 
-            CreateMap<Device, CreateUserDeviceDTO>().ReverseMap();
-            CreateMap<Device, UpdateUserDeviceDTO>().ReverseMap();
+            CreateMap<Device, CreateDeviceDTO>().ReverseMap();
+            CreateMap<Device, UpdateDeviceDTO>().ReverseMap();
         }
     }
 }
