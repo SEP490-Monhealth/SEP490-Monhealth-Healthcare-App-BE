@@ -7,7 +7,8 @@ namespace Monhealth.Application.Features.Workout.Commands.CreateWorkout
     public class CreateWorkoutCommand : IRequest<Guid>
     {
         public Guid UserId { get; set; }
-        public Guid CategoryId { get; set; }
+        [JsonPropertyName("category")]
+        public string CategoryName { get; set; }
         [JsonPropertyName("name")]
         public string WorkoutName { get; set; } = string.Empty;
         [JsonPropertyName("description")]

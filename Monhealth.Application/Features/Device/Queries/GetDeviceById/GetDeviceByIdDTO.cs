@@ -1,8 +1,8 @@
 ﻿using Monhealth.Domain.Common;
 
-namespace Monhealth.Application.Features.UserDevice.Queries.GetAllUserDevices
+namespace Monhealth.Application.Features.UserDevice.Queries.GetUserDeviceById
 {
-    public class GetAllUserDevicesDTO : TimeEntity
+    public class GetDeviceByIdDTO : TimeEntity
     {
         public Guid UserDeviceId { get; set; }
         public Guid UserId { get; set; }

@@ -16,10 +16,10 @@ namespace Monhealth.Application.Features.Workout.Commands.CreateWorkout
 
         public async Task<Guid> Handle(CreateWorkoutCommand request, CancellationToken cancellationToken)
         {
-            var category = await categoryRepository.GetByIdAsync(request.CategoryId);
-            if (category != null) throw new Exception("CateogryId không tìm thấy");
+            var category = await categoryRepository.GetCategoryByCategoryName(request.CategoryName);
+            if (category == null) throw new Exception("CategoryName không tìm thấy");
             var user = await userRepository.GetByIdAsync(request.UserId);
-            if (user != null) throw new Exception("UserId không tìm thấy");
+            if (user == null) throw new Exception("UserId không tìm thấy");
 
             var existWorkout = await workoutRepository.ExistWorkoutName(request.WorkoutName, request.UserId);
             if (existWorkout) throw new Exception("Tên Bài tập này đã tồn tại");
@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Workout.Commands.CreateWorkout
             //int durationTotal = 0;
             //int caloriesBurnedTotoal = 0;
             workout.WorkoutId = Guid.NewGuid();
-
+            workout.CategoryId = category.CategoryId;
             workoutRepository.Add(workout);
 
             var workoutExcercises = mapper.Map<List<WorkoutExercise>>(request.Items);

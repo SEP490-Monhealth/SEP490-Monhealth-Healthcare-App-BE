@@ -18,7 +18,7 @@ namespace Monhealth.Application
             {
                 throw new Exception("Chỉ có yêu cầu ở trạng thái 'Pending' mới được phép từ chối.");
             }
-
+            status.Reason = request.CancelWithdrawalStatusDTO.Reason;
             status.Status = WithdrawalStatus.Rejected;
             withdrawalRepository.Update(status);
             await withdrawalRepository.SaveChangeASync();
