@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Wallet.Queries.GetWalletById
 {
-    public class GetWalletByIdDTO
+    public class GetWalletByIdDTO : TimeEntity
     {
         public Guid ConsultantId { get; set; }
         public float Balance { get; set; }
