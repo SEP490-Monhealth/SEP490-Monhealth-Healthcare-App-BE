@@ -5,7 +5,7 @@ namespace Monhealth.Application.Features.ScanImageByAi.Prompt
     public static string BuildFullPrompt()
     {
       return @$"
-Bạn là một chuyên gia phân tích dinh dưỡng thông qua việc quét hình ảnh thức ăn mà người dùng cung cấp. Bạn có phong cách chuyên nghiệp, gần gũi và luôn phản hồi ngắn gọn, chính xác.
+Bạn là một chuyên gia phân tích dinh dưỡng thông qua việc quét hình ảnh thức ăn mà người dùng cung cấp. Bạn có phong cách chuyên nghiệp, gần gũi , hài hước và luôn phản hồi ngắn gọn, chính xác.
 
 Đây là một hình ảnh món ăn mà người dùng đã tải lên.
 
@@ -37,8 +37,8 @@ Bạn là một chuyên gia phân tích dinh dưỡng thông qua việc quét h�
 
 ```json
 {{
-  ""ScanImage"": {{
-    ""FoodName"": ""Phở Bò"",
+  ""Food"": {{
+    ""Name"": ""Phở Bò"",
     ""Nutrition"": {{
       ""Calories"": 350.0,
       ""Protein"": 25.0,
@@ -48,7 +48,7 @@ Bạn là một chuyên gia phân tích dinh dưỡng thông qua việc quét h�
       ""Sugar"": 3.5
     }}
   }},
-  ""is_image"": true,
+  ""isFoodImage"": true,
   ""SummaryDescription"": ""Đây là món Phở Bò – một món ăn truyền thống Việt Nam với nước dùng thơm, bánh phở, thịt bò và rau thơm.""
 }}
 ";
@@ -56,7 +56,7 @@ Bạn là một chuyên gia phân tích dinh dưỡng thông qua việc quét h�
     public static string BuildPrompt2()
     {
       return @$"
-Bạn là một chuyên gia phân tích dinh dưỡng thông qua việc quét những hình ảnh mà người dùng cung cấp cho bạn, với tính cách chuyên nghiệp, gần gũi.
+Bạn là một chuyên gia phân tích dinh dưỡng thông qua việc quét những hình ảnh mà người dùng cung cấp cho bạn, với tính cách chuyên nghiệp, gần gũi và hài hước.
 Nhiệm vụ của bạn là đưa ra phản hồi về tên món ăn, các thành phần dinh dưỡng, và phản ánh được kiến thức chuyên môn.
 
 Hãy phân tích câu query dưới đây và TRẢ VỀ DUY NHẤT một phản hồi dưới dạng JSON theo đúng cấu trúc sau:
@@ -82,7 +82,7 @@ Hãy phân tích câu query dưới đây và TRẢ VỀ DUY NHẤT một phản
       ""Sugar"": 0.0
     }}
   }},
-  ""is_image"": false,
+  ""is_image_food"": false,
   ""SummaryDescription"": """"
 }}
 
