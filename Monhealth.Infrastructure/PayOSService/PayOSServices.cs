@@ -20,7 +20,7 @@ namespace Monhealth.Infrastructure.PayOSService
             var shortTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds() % 1_000_000;
             var orderCode = long.Parse($"{timestamp}{hashCode % 1_000_000}");
 
-            var items = new List<ItemData> { new("Subscription Payment", 1, (int)amount) };
+            var items = new List<ItemData> { new("Thanh toán nâng cấp gói đăng ký", 1, (int)amount) };
             var paymentData = new PaymentData(
                 orderCode: orderCode,
                 amount: (int)amount,

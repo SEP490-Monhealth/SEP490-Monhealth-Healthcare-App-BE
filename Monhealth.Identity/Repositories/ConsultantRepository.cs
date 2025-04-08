@@ -64,7 +64,7 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(s => s.Status == status.Value);
             }
-            if(verification.HasValue)
+            if (verification.HasValue)
             {
                 if (verification == true)
                 {
@@ -72,9 +72,9 @@ namespace Monhealth.Identity.Repositories
                 }
                 else
                 {
-                    query = query.Where(s => s.VerificationStatus == VerificationStatus.Pending && s.VerificationStatus == VerificationStatus.Reject);
+                    query = query.Where(s => s.VerificationStatus == VerificationStatus.Pending || s.VerificationStatus == VerificationStatus.Reject);
                 }
-            }           
+            }
             if (popular.HasValue && popular.Value)
             {
                 query = query.OrderByDescending(d => d.Views);

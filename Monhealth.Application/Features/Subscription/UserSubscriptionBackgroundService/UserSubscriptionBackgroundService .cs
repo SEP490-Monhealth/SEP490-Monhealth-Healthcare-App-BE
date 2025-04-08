@@ -15,7 +15,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
         private readonly ILogger<UserSubscriptionBackgroundService> _logger;
         private readonly IServiceScopeFactory _serviceScopeFactory;
         // Dùng khoảng thời gian 10 giây để test
-        private readonly TimeSpan _interval = TimeSpan.FromSeconds(30);
+        private readonly TimeSpan _interval = TimeSpan.FromMinutes(2);
 
         // Dictionary lưu lại thời điểm metric đã xử lý cho từng user
         private readonly ConcurrentDictionary<Guid, DateTime> _lastProcessedMetricUpdate = new ConcurrentDictionary<Guid, DateTime>();
