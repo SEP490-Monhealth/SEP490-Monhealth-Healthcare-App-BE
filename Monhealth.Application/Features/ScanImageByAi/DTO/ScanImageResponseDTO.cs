@@ -4,7 +4,7 @@ namespace Monhealth.Application.Features.ScanImageByAi.DTO
 {
     public class ScanImageResponseDTO
     {
-        [JsonPropertyName("Food")]
+        [JsonPropertyName("food")]
         public ScanImageDTO ScanImage { get; set; } = new ScanImageDTO();
 
         [JsonPropertyName("isFoodImage")]
@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.ScanImageByAi.DTO
         [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
 
-        [JsonPropertyName("Nutrition")]
+        [JsonPropertyName("nutrition")]
         public ScanNutritionDTO Nutrition { get; set; } = new ScanNutritionDTO();
     }
 

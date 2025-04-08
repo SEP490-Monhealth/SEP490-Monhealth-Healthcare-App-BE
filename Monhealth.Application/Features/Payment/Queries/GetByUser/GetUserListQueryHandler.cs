@@ -53,7 +53,5 @@ namespace Monhealth.Application
 
             return paymentList;
         }
-
     }
-
 }
