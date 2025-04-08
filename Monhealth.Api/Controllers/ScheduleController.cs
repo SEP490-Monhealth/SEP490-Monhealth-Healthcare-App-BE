@@ -8,6 +8,7 @@ using Monhealth.Application.Features.Schedule.Queries.GetByUser;
 using Monhealth.Application.Features.Subscription.Queries.GetById;
 using Monhealth.Application.Features.TimeSlots.Queries.GetAllTimeSlotForDayOfWeek;
 using Monhealth.Application.Models;
+using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
@@ -44,10 +45,10 @@ namespace Monhealth.Api.Controllers
         [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách lịch trình theo ID chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, [FromQuery] DateTime? date = null)
+        public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, [FromQuery] DateTime? date = null, ScheduleType? type = null)
         {
             var queries = await _mediator.
-            Send(new GetScheduleByConsultantIdQuery { ConsultantId = consultantId, Date = date });
+            Send(new GetScheduleByConsultantIdQuery { ConsultantId = consultantId, Date = date, ScheduleType = type });
 
             if (queries == null)
             {

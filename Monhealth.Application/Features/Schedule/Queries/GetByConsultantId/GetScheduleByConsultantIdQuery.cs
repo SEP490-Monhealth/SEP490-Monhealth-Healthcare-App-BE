@@ -9,5 +9,6 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
     {
         public Guid ConsultantId { get; set; }
         public DateTime? Date { get; set; }
+        public ScheduleType? ScheduleType { get; set; }
     }
 }

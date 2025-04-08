@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
 
         public async Task<List<ScheduleDTO>> Handle(GetScheduleByConsultantIdQuery request, CancellationToken cancellationToken)
         {
-            var schedules = await _scheduleRepository.GetSchedulesByUser(request.ConsultantId, request.Date.HasValue ? DateOnly.FromDateTime(request.Date.Value) : null);
+            var schedules = await _scheduleRepository.GetSchedulesByUser(request.ConsultantId, request.Date.HasValue ? DateOnly.FromDateTime(request.Date.Value) : null, request.ScheduleType);
             if (schedules == null) throw new BadRequestException("Không tìm thấy lịch");
             List<TimeOnly> bookedTimes = new();
             bool IsScheduleException = false;

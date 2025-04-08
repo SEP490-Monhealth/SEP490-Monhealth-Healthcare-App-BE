@@ -52,7 +52,7 @@ namespace Monhealth.Identity.Repositories
                     .FirstOrDefaultAsync(s => s.ScheduleId == ScheduleId);
         }
 
-        public async Task<List<Schedule>> GetSchedulesByUser(Guid userId, DateOnly? Date)
+        public async Task<List<Schedule>> GetSchedulesByUser(Guid userId, DateOnly? Date, ScheduleType? scheduleType)
         {
             var query = _context.Schedules.Where(s => s.ConsultantId == userId);
             if (Date.HasValue)
@@ -60,8 +60,10 @@ namespace Monhealth.Identity.Repositories
                 var targetDayOfWeek = (int)Date.Value.DayOfWeek;
                 var adjustedDayOfWeek = (targetDayOfWeek + 6) % 7; // This shifts Sunday to 6, Monday to 0, etc. to match with enum Recurring
                 query = query.Where(s => s.RecurringDay != null ? (int)s.RecurringDay == adjustedDayOfWeek : s.SpecificDate == Date);
-
-
+            }
+            if(scheduleType.HasValue)
+            {
+                query = query.Where(t => t.ScheduleType == scheduleType);
             }
 
             query = query.Include(s => s.ScheduleTimeSlots)
