@@ -8,6 +8,7 @@ namespace Monhealth.Application
     , Guid SubscriptionId
     , Member Member
     , string Subscription
+    , string? Description
     , int Amount
     , PaymentStatus Status
     , DateTime? CreatedAt

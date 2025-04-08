@@ -26,6 +26,7 @@ namespace Monhealth.Application.Features.Payment.Queries.GetById
                 CreatedBy = query.CreatedBy,
                 UpdatedBy = query.UpdatedBy,
                 Status = query.Status,
+                Description = query.Description,
 
                 SubscriptionId = query.UserSubscription?.SubscriptionId ?? Guid.Empty, // fallback nếu null
                 PaymentId = query.PaymentId,

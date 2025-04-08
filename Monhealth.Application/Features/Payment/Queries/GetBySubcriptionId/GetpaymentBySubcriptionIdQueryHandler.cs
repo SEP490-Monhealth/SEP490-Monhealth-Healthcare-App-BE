@@ -36,6 +36,7 @@ namespace Monhealth.Application.Features.Payment.Queries.GetBySubcriptionId
                     SubscriptionId = payment.UserSubscription.SubscriptionId,
                     Member = memberDTO,
                     SubscriptionName = payment.UserSubscription.Subscription.SubscriptionName,
+                    Description = payment.Description,
                     Amount = payment.Amount,
                     Status = payment.Status,
                     CreatedAt = payment.CreatedAt,

@@ -26,12 +26,13 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
             {
                 var paymentDTO = new PaymentDTO
                 {
-                    Amount = payment.Amount,
-                    CreatedAt = payment.CreatedAt,
                     PaymentId = payment.PaymentId,
-                    Status = payment.Status,
                     SubscriptionId = (payment.UserSubscription?.SubscriptionId) ?? Guid.Empty,
                     SubscriptionName = payment.UserSubscription?.Subscription?.SubscriptionName ?? string.Empty, // xử lý null
+                    Description = payment.Description,
+                    Amount = payment.Amount,
+                    Status = payment.Status,
+                    CreatedAt = payment.CreatedAt,
                     UpdatedAt = payment.UpdatedAt,
                     CreatedBy = payment.CreatedBy,
                     UpdatedBy = payment.UpdatedBy,

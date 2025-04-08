@@ -81,7 +81,7 @@ namespace Monhealth.Api.Controllers
 
 
         [HttpGet]
-        [Route("{withdrawalRequestId:Guid}/generate-qr")]
+        [Route("{withdrawalRequestId:Guid}/qr-code")]
         [SwaggerOperation(Summary = "Tạo QR code cho yêu cầu rút tiền")]
         public async Task<ResultModel> CreateWithdrawalRequest(Guid withdrawalRequestId)
         {
@@ -143,6 +143,24 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+        [HttpPut]
+        [Route("{withdrawalRequestId:Guid}/reject")]
+        [SwaggerOperation(Summary = "Từ chối yêu cầu rút tiền")]
+        public async Task<ActionResult<ResultModel>> Reject(Guid withdrawalRequestId, [FromBody] CancelWithdrawalStatusDTO cancelWithdrawalStatusDTO)
+        {
+            var command = new CancelWithdrawalStatusCommand(withdrawalRequestId, cancelWithdrawalStatusDTO);
+            await mediator.Send(command);
+
+            return Ok(
+                new ResultModel
+                {
+                    Message = "Từ chối trạng thái rút tiền thành công",
+                    Success = true,
+                    Status = 204
+                }
+            );
+        }
+
         [HttpDelete]
         [Route("{withdrawalRequestId:Guid}")]
         [SwaggerOperation(Summary = "Xóa yêu cầu rút tiền")]
@@ -187,24 +205,6 @@ namespace Monhealth.Api.Controllers
                 new ResultModel
                 {
                     Message = "Chấp nhận trạng thái rút tiền thành công",
-                    Success = true,
-                    Status = 204
-                }
-            );
-        }
-
-        [HttpPut]
-        [Route("{withdrawalRequestId:Guid}/reject")]
-        [SwaggerOperation(Summary = "Từ chối yêu cầu rút tiền")]
-        public async Task<ActionResult<ResultModel>> Reject(Guid withdrawalRequestId, [FromBody] CancelWithdrawalStatusDTO cancelWithdrawalStatusDTO)
-        {
-            var command = new CancelWithdrawalStatusCommand(withdrawalRequestId, cancelWithdrawalStatusDTO);
-            await mediator.Send(command);
-
-            return Ok(
-                new ResultModel
-                {
-                    Message = "Từ chối trạng thái rút tiền thành công",
                     Success = true,
                     Status = 204
                 }

@@ -11,6 +11,7 @@ namespace Monhealth.Application.Features.Payment.Queries.GetALL
         public Member Member { get; set; } = null!;
         [JsonPropertyName("subscription")]
         public string SubscriptionName { get; set; } = string.Empty;
+        public string? Description { get; set; }
         public int Amount { get; set; }
         public PaymentStatus Status { get; set; }
     }
