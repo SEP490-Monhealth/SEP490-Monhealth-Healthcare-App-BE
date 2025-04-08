@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, VerificationStatus? verification, bool? popular, bool? status)
+        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? verification, bool? popular, bool? status)
         {
             IQueryable<Consultant> query = _context.Consultants
                 .Select(c => new Consultant
@@ -64,10 +64,17 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(s => s.Status == status.Value);
             }
-            if (verification.HasValue)
+            if(verification.HasValue)
             {
-                query = query.Where(s => s.VerificationStatus == verification.Value);
-            }
+                if (verification == true)
+                {
+                    query = query.Where(s => s.VerificationStatus == VerificationStatus.Verified);
+                }
+                else
+                {
+                    query = query.Where(s => s.VerificationStatus == VerificationStatus.Pending && s.VerificationStatus == VerificationStatus.Reject);
+                }
+            }           
             if (popular.HasValue && popular.Value)
             {
                 query = query.OrderByDescending(d => d.Views);

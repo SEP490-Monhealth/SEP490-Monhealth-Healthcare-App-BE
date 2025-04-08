@@ -28,9 +28,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [SwaggerOperation(Summary = "Lấy danh sách chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, VerificationStatus? verification = null, bool? popular = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllConsultants(int page = 1, int limit = 10, string? expertise = null, string? search = null, bool? verified = null, bool? popular = null, bool? status = null)
         {
-            var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, expertise, search, verification, popular, status));
+            var consultantsList = await _mediator.Send(new GetAllConsultantsQuery(page, limit, expertise, search, verified, popular, status));
 
             return new ResultModel
             {
