@@ -46,13 +46,32 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                     schedules.Add(scheduleToUse);
                 }
 
+                // Parse TimeSlots from string to TimeOnly (Optimized logic here!)
+                var parsedTimeSlots = scheduleDto?.TimeSlots.Select(ts =>
+                {
+                    var times = ts.Split("-", StringSplitOptions.TrimEntries);
+                    return new
+                    {
+                        StartTime = TimeOnly.ParseExact(times[0], "HH:mm:ss"),
+                        EndTime = TimeOnly.ParseExact(times[1], "HH:mm:ss")
+                    };
+                }).ToList();
+
+
                 //check TimeSlot existed in Db
-                var existingTimeSlots = await timeSlotRepository.GetExistTimeSlotByListTimeAsync(scheduleDto.TimeSlots);
+                var existingTimeSlots = await timeSlotRepository.GetExistTimeSlotByListTimeAsync(parsedTimeSlots.Select(ts => (ts.StartTime, ts.EndTime)).ToList());
 
                 //create new timeslot 
-                var newTimeSlots = scheduleDto.TimeSlots
-                .Where(ts => !existingTimeSlots.Any(ets => ets.StartTime == ts))
-                .Select(ts => new TimeSlot { TimeSlotId = Guid.NewGuid(), StartTime = ts, CreatedAt = DateTime.Now })
+                var newTimeSlots = parsedTimeSlots
+                .Where(ts => !existingTimeSlots.Any(ets => ets.StartTime == ts.StartTime && ets.EndTime == ts.EndTime))
+                .Select(ts => new TimeSlot
+                {
+                    TimeSlotId = Guid.NewGuid(),
+                    StartTime = ts.StartTime,
+                    EndTime = ts.EndTime,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                })
                 .ToList();
 
                 allTimeSlotsToAdd.AddRange(newTimeSlots);

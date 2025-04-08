@@ -12,9 +12,13 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public async Task<List<TimeSlot>> GetExistTimeSlotByListTimeAsync(List<TimeOnly> timeSlots)
+        public async Task<List<TimeSlot>> GetExistTimeSlotByListTimeAsync(List<(TimeOnly StartTime, TimeOnly EndTime)> timeRanges)
         {
-            return await _context.TimeSlots.Where(ts => timeSlots.Contains(ts.StartTime)).ToListAsync();
+            var timeSlots = await _context.TimeSlots.ToListAsync();
+
+            return timeSlots
+               .Where(ts => timeRanges.Any(tr => tr.StartTime == ts.StartTime && tr.EndTime == ts.EndTime))
+               .ToList();
         }
 
         public async Task<TimeSlot> GetTimeSlotByStartAndEndTime(TimeOnly startTime, TimeOnly endTime)
