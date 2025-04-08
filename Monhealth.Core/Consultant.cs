@@ -18,7 +18,7 @@ namespace Monhealth.Domain
         public int BookingCount { get; set; }
         public double RatingCount { get; set; }
         public double AverageRating { get; set; }
-        public VerificationStatus IsVerified { get; set; } = VerificationStatus.Pending;
+        public VerificationStatus VerificationStatus { get; set; }
         public bool Status { get; set; } = false;
 
         [ForeignKey(nameof(UserId))]

@@ -13,13 +13,13 @@ namespace Monhealth.Application.Features.Consultant.Commands.RejectConsultant
             if (consultant == null)
                 throw new BadRequestException("Không tìm thấy chuyên viên");
 
-            if (consultant.IsVerified == VerificationStatus.Verified)
+            if (consultant.VerificationStatus == VerificationStatus.Verified)
                 throw new BadRequestException("Chuyên viên đã được xác thực, không thể từ chối");
 
-            if (consultant.IsVerified == VerificationStatus.Reject)
+            if (consultant.VerificationStatus == VerificationStatus.Reject)
                 throw new BadRequestException("Chuyên viên đã bị từ chối trước đó");
 
-            consultant.IsVerified = VerificationStatus.Reject;
+            consultant.VerificationStatus = VerificationStatus.Reject;
             consultant.Status = false;
 
             consultantRepository.Update(consultant);

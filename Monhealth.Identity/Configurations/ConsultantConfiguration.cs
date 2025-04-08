@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Identity.Configurations
 {
@@ -23,7 +24,7 @@ namespace Monhealth.Identity.Configurations
                 Views = 27,
                 RatingCount = 100,
                 AverageRating = 4.5,
-                IsVerified = Domain.Enum.VerificationStatus.Verified,
+                VerificationStatus = VerificationStatus.Verified,
                 Status = true,
                 UpdatedAt = today,
                 CreatedAt = today,

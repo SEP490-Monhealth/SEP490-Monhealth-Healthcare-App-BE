@@ -6,7 +6,7 @@ namespace Monhealth.Application.Contracts.Persistence
 {
     public interface IConsultantRepository : IGenericRepository<Consultant, Guid>
     {
-        Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? popular, bool? status, VerificationStatus? isVerified);
+        Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, VerificationStatus? verification, bool? popular, bool? status);
         Task<Consultant> GetConsultantById(Guid consultantId);
         Task<Consultant> GetConsultantByUserId(Guid? userId);
         Task<int> SaveChangeAsync();

@@ -33,13 +33,13 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
 
 
 
-            switch (consultant.IsVerified)
+            switch (consultant.VerificationStatus)
             {
                 case VerificationStatus.Verified:
                     throw new BadRequestException("Tài khoản đã được xác thực trước đó");
 
                 case VerificationStatus.Pending:
-                    consultant.IsVerified = VerificationStatus.Verified;
+                    consultant.VerificationStatus = VerificationStatus.Verified;
                     consultant.Status = true;
 
                     var wallet = await _walletRepository.GetWalletByConsultantId(request.ConsultantId);

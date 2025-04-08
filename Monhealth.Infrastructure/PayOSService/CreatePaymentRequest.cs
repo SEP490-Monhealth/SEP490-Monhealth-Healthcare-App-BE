@@ -11,5 +11,4 @@ namespace Monhealth.Infrastructure.PayOSService
       string CancelUrl,
       IEnumerable<ItemData> Items
   );
-
 }

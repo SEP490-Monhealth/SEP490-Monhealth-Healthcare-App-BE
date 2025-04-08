@@ -8,7 +8,8 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
     public class GetScheduleByConsultantIdQuery : IRequest<List<ScheduleDTO>>
     {
         public Guid ConsultantId { get; set; }
-        public DateTime? Date { get; set; }
+        [JsonPropertyName("type")]
         public ScheduleType? ScheduleType { get; set; }
+        public DateTime? Date { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace Monhealth.Application.Features.Payment.Commands.UpdateStatusPayments
         {
             var payment = await paymentRepository.GetPayemntByOrderCodeAsync(request.PaymentId);
             if (payment == null)
-                throw new BadRequestException($"Không tìm thấy thanh toán : {request.PaymentId}");
+                throw new BadRequestException($"Không tìm thấy thanh toán: {request.PaymentId}");
 
             //gọi create usersubsciption 
             var command = new CreateUserSubscriptionCommand

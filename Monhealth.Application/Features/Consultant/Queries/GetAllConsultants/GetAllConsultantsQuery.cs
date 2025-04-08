@@ -11,18 +11,18 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetAllConsultants
         public string? Expertise { get; set; }
         public string? Search { get; set; }
         public bool? Popular { get; set; }
-        public VerificationStatus? Verified { get; set; }
+        public VerificationStatus? Verification { get; set; }
         public bool? Status { get; set; }
 
-        public GetAllConsultantsQuery(int page, int limit, string? expertise, string? search, bool? popular, bool? status, VerificationStatus? verified)
+        public GetAllConsultantsQuery(int page, int limit, string? expertise, string? search, VerificationStatus? verification, bool? popular, bool? status)
         {
             Page = page;
             Limit = limit;
             Expertise = expertise;
             Search = search;
+            Verification = verification;
             Popular = popular;
             Status = status;
-            Verified = verified;
         }
     }
 }

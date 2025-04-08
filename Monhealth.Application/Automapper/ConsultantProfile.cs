@@ -17,7 +17,7 @@ namespace Monhealth.Application.Automapper
                 .ForMember(dest => dest.ExpertiseName, opt => opt.MapFrom(src => src.Expertise.ExpertiseName))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.AppUser.Email))
                 .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.AppUser.PhoneNumber))
-                .ForMember(dest => dest.IsVerified, opt => opt.MapFrom(src => src.IsVerified))
+                .ForMember(dest => dest.VerificationStatus, opt => opt.MapFrom(src => src.VerificationStatus))
                 .ForMember(dest => dest.BookingCount, opt => opt.MapFrom(src => src.BookingCount));
             CreateMap<CreateConsultantDTO, Consultant>().ReverseMap();
             CreateMap<CreateConsultantDTO, Expertise>().ReverseMap();

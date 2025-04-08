@@ -45,10 +45,10 @@ namespace Monhealth.Api.Controllers
         [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách lịch trình theo ID chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, [FromQuery] DateTime? date = null, ScheduleType? type = null)
+        public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, ScheduleType? type = null, [FromQuery] DateTime? date = null)
         {
             var queries = await _mediator.
-            Send(new GetScheduleByConsultantIdQuery { ConsultantId = consultantId, Date = date, ScheduleType = type });
+            Send(new GetScheduleByConsultantIdQuery { ConsultantId = consultantId, ScheduleType = type, Date = date });
 
             if (queries == null)
             {

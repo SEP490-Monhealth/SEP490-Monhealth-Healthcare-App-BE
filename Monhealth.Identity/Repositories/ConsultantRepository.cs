@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? popular, bool? status, VerificationStatus? isVerified)
+        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, VerificationStatus? verification, bool? popular, bool? status)
         {
             IQueryable<Consultant> query = _context.Consultants
                 .Select(c => new Consultant
@@ -26,7 +26,7 @@ namespace Monhealth.Identity.Repositories
                     Experience = c.Experience,
                     RatingCount = c.RatingCount,
                     AverageRating = c.AverageRating,
-                    IsVerified = c.IsVerified,
+                    VerificationStatus = c.VerificationStatus,
                     Views = c.Views,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
@@ -64,9 +64,9 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(s => s.Status == status.Value);
             }
-            if (isVerified.HasValue)
+            if (verification.HasValue)
             {
-                query = query.Where(s => s.IsVerified == isVerified.Value);
+                query = query.Where(s => s.VerificationStatus == verification.Value);
             }
             if (popular.HasValue && popular.Value)
             {
@@ -97,7 +97,7 @@ namespace Monhealth.Identity.Repositories
                     Experience = c.Experience,
                     RatingCount = c.RatingCount,
                     AverageRating = c.AverageRating,
-                    IsVerified = c.IsVerified,
+                    VerificationStatus = c.VerificationStatus,
                     CreatedAt = c.CreatedAt,
                     UpdatedAt = c.UpdatedAt,
                     BookingCount = c.BookingCount,
