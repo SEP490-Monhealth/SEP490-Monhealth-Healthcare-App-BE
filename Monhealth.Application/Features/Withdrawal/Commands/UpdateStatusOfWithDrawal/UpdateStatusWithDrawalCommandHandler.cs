@@ -1,11 +1,10 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application
 {
-    public class UpdateStatusWithdrawalCommandHandler(IWithdrawalRepository withdrawalRepository, 
+    public class UpdateStatusWithdrawalCommandHandler(IWithdrawalRepository withdrawalRepository,
                                                       IWalletRepository walletRepository,
                                                       ITransactionRepository transactionRepository) : IRequestHandler<UpdateStatusWithdrawalCommand, Unit>
     {
@@ -14,25 +13,23 @@ namespace Monhealth.Application
             var withdrawalRequest = await withdrawalRepository.GetByIdAsync(request.WithdrawalRequestId);
             switch (withdrawalRequest.Status) // Assuming 'Status' is the property to check
             {
-                case WithdrawalStatus.Pending:
-                    withdrawalRequest.Status = WithdrawalStatus.Approved;
-                    break;
+                //case WithdrawalStatus.Pending:
+                //    withdrawalRequest.Status = WithdrawalStatus.Approved;
+                //    break;
                 case WithdrawalStatus.Approved:
+                    //trừ tiền
+                    var wallet = await walletRepository.GetWalletByConsultantId(withdrawalRequest.ConsultantId);
+                    if (wallet == null) throw new Exception("Không tìm thấy ví của người dùng.");
+                    if (wallet.Balance < withdrawalRequest.Amount)
+                        throw new Exception("Số dư không đủ để rút.");
+                    wallet.Balance -= withdrawalRequest.Amount;
+
+                    //update transaction 
+                    var transaction = await transactionRepository.GetTransactionWhenUpdated(TransactionType.Withdrawal, withdrawalRequest.Amount, StatusTransaction.Pending);
+                    if (transaction == null) throw new Exception("Không tìm thấy giao dịch");
+
+                    transaction.Status = StatusTransaction.Completed;
                     withdrawalRequest.Status = WithdrawalStatus.Completed;
-                    var getWallet = await walletRepository.GetWalletByConsultantId(withdrawalRequest.ConsultantId);
-                    var newTransaction = new Transaction
-                    {
-                        TransactionId = Guid.NewGuid(),
-                        WalletId = getWallet.WalletId,
-                        BookingId = null,
-                        TransactionType = TransactionType.Withdrawal,
-                        Amount = withdrawalRequest?.Amount ?? 0,
-                        Description = withdrawalRequest?.Description ?? "Rút tiền về ngân hàng",
-                        Status = StatusTransaction.Completed,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now
-                    };
-                    transactionRepository.Add(newTransaction);
                     break;
                 case WithdrawalStatus.Completed:
                     throw new Exception("Yêu cầu đã hoàn tất, không thể xử lý thêm.");
@@ -43,5 +40,8 @@ namespace Monhealth.Application
             await withdrawalRepository.SaveChangeASync();
             return Unit.Value;
         }
+
     }
+
+
 }

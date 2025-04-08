@@ -48,7 +48,10 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Transaction> GetTransactionById(Guid transactionId)
         {
-            return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser).FirstOrDefaultAsync(c => c.TransactionId == transactionId);
+            return await _context.Transactions
+                .Include(w => w.Wallet).ThenInclude(c => c.Consultant)
+                .ThenInclude(u => u.AppUser)
+                .FirstOrDefaultAsync(c => c.TransactionId == transactionId);
         }
 
         public async Task<PaginatedResult<Transaction>> GetTransactionByWalletId(int page, int limit, Guid walletId)
@@ -66,6 +69,15 @@ namespace Monhealth.Identity.Repositories
                 Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
+        }
+
+        public async Task<Transaction> GetTransactionWhenUpdated(TransactionType transactionType, float amount, StatusTransaction status)
+        {
+            return await _context.Transactions
+                .FirstOrDefaultAsync(t => t.TransactionType == transactionType &&
+                t.Amount == amount &&
+                t.Status == status);
+
         }
 
         public async Task<int> SaveChangeAsync()

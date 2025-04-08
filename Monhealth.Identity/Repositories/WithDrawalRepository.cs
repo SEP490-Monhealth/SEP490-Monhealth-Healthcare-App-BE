@@ -54,11 +54,11 @@ namespace Monhealth.Application
         public async Task<WithdrawalRequest> GetWithdrawalRequest(Guid withdrawalId)
         {
             return await _context.WithdrawalRequests.Include(wd => wd.Consultant)
-            .ThenInclude(u => u.AppUser)
+                .ThenInclude(u => u.AppUser)
             .Include(b => b.Consultant).ThenInclude(c => c.ConsultantBanks)
-            .ThenInclude(b => b.Bank)
+                .ThenInclude(b => b.Bank)
             .Include(c => c.Consultant).ThenInclude(cs => cs.Wallet)
-            .ThenInclude(cs => cs.Transactions).FirstOrDefaultAsync(wd => wd.WithdrawalRequestId == withdrawalId);
+                .ThenInclude(cs => cs.Transactions).FirstOrDefaultAsync(wd => wd.WithdrawalRequestId == withdrawalId);
         }
 
         public async Task<PaginatedResult<WithdrawalRequest>> GetWithdrawRequestByConsultant(Guid consultant, int page, int limit)
