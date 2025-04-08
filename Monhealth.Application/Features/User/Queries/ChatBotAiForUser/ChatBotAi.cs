@@ -43,6 +43,11 @@ namespace Monhealth.Application
 
     public class WorkoutDTO12
     {
-        public List<string> WorkoutName { get; set; }
+        public List<WorkoutDTOItem> Workouts { get; set; }
+    }
+    public class WorkoutDTOItem
+    {
+        public Guid WorkoutId { get; set; }       // hoặc kiểu dữ liệu phù hợp
+        public string WorkoutName { get; set; }
     }
 }

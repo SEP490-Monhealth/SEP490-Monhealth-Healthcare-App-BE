@@ -6,11 +6,12 @@ namespace Monhealth.Application
     {
         public MealPlanDto MealPlan { get; set; } = null!;
         public List<WorkoutStageDto>? WorkoutRoutine { get; set; }
-        [JsonPropertyName("GeneralAdvice")]
+        [JsonPropertyName("generalAdvice")]
         public string GeneralAdvice { get; set; } = string.Empty;
 
-        [JsonPropertyName("SummaryConversation")]
+        [JsonPropertyName("summaryConversation")]
         public string SummaryConversation { get; set; } = string.Empty;
+        [JsonPropertyName("isHealthOrFitness")]
         public bool health_or_fitness { get; set; }
     }
     public class MealPlanDto
@@ -28,6 +29,7 @@ namespace Monhealth.Application
 
     public class WorkoutStageDto
     {
+        public Guid WorkoutId { get; set; }
         public string Stage { get; set; } = string.Empty;
         public List<ExerciseDToAi> Exercises { get; set; } = [];
     }

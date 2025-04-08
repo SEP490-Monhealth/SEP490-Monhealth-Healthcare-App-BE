@@ -42,6 +42,7 @@ namespace Monhealth.Application
             _geminiApiKey = configuration["Gemini:ApiKey"];
             _hubContext = hubContext;
         }
+
         public async Task<(ChatBotAi, HealthPlanResponseDto)> Handle(ChatBotAiListQuery request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByIdAsync(request.UserId);
@@ -56,9 +57,14 @@ namespace Monhealth.Application
             var workouts = await _workoutRepository.GetAllAsync() ?? new List<Workout>();
             var goal = await _goalRepository.GetByUserIdAsync(request.UserId);
 
-            var workoutNames = workouts
+            // Mapping workout: lấy cả workoutId và workoutName từ domain object Workout
+            var workoutDTOList = workouts
                 .Where(w => !string.IsNullOrEmpty(w.WorkoutName))
-                .Select(w => w.WorkoutName)
+                .Select(w => new WorkoutDTOItem
+                {
+                    WorkoutId = w.WorkoutId,       
+                    WorkoutName = w.WorkoutName
+                })
                 .ToList();
 
             var foodDTOs = foods
@@ -72,7 +78,7 @@ namespace Monhealth.Application
                 })
                 .Select(g => new FoodDTO12
                 {
-                    FoodId = g.Select(f => f.FoodId).ToList(), //
+                    FoodId = g.Select(f => f.FoodId).ToList(),
                     FoodName = g.Where(f => !string.IsNullOrEmpty(f.FoodName)).Select(f => f.FoodName).ToList(),
                     Calories = g.Key.Calories,
                     Protein = g.Key.Protein,
@@ -109,7 +115,7 @@ namespace Monhealth.Application
                 Foods = foodDTOs,
                 Workouts = new WorkoutDTO12
                 {
-                    WorkoutName = workoutNames
+                    Workouts = workoutDTOList   // Gán danh sách chứa cả workoutId và workoutName
                 }
             };
 
@@ -119,7 +125,6 @@ namespace Monhealth.Application
             // Deserialize JSON từ Gemini thành DTO
             var healthPlan = JsonSerializer.Deserialize<HealthPlanResponseDto>(aiResultJson, GetJsonSerializerOptions());
 
-
             if (healthPlan == null)
                 throw new Exception("Không thể phân tích dữ liệu phản hồi từ Gemini API.");
 
@@ -128,16 +133,18 @@ namespace Monhealth.Application
 
             return (chatBotAi, healthPlan);
         }
+
         private JsonSerializerOptions GetJsonSerializerOptions()
         {
             var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true,
-                PropertyNamingPolicy = null // Giữ nguyên tên key tiếng Việt trong JSON
+                PropertyNamingPolicy = null // Giữ nguyên tên key (có thể là tiếng Việt) trong JSON
             };
-            options.Converters.Add(new GuidConverter());  // Thêm GuidConverter vào
+            options.Converters.Add(new GuidConverter());
             return options;
         }
+
         private async Task<string> CallGeminiApi(ChatBotAi chatBotAi, string query)
         {
             var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={_geminiApiKey}";
@@ -148,14 +155,14 @@ namespace Monhealth.Application
             {
                 contents = new[]
                 {
-            new
-            {
-                parts = new[]
-                {
-                    new { text = prompt2 }
+                    new
+                    {
+                        parts = new[]
+                        {
+                            new { text = prompt2 }
+                        }
+                    }
                 }
-            }
-        }
             };
 
             var checkJson = JsonSerializer.Serialize(checkRequest);
@@ -189,11 +196,10 @@ namespace Monhealth.Application
             try
             {
                 var checkResult = JsonSerializer.Deserialize<HealthPlanResponseDto>(checkJsonContent);
-
                 if (checkResult == null)
                     throw new Exception("Không thể đọc phản hồi JSON từ Gemini (prompt2).");
 
-                // Nếu không liên quan đến sức khỏe → return ngay luôn phản hồi đơn giản
+                // Nếu không liên quan đến sức khỏe/thể hình → trả luôn kết quả từ prompt2.
                 if (!checkResult.health_or_fitness)
                 {
                     _logger.LogWarning("⚠️ Câu hỏi không liên quan đến sức khỏe/thể hình, trả luôn kết quả từ prompt2.");
@@ -215,14 +221,14 @@ namespace Monhealth.Application
             {
                 contents = new[]
                 {
-            new
-            {
-                parts = new[]
-                {
-                    new { text = fullPrompt }
+                    new
+                    {
+                        parts = new[]
+                        {
+                            new { text = fullPrompt }
+                        }
+                    }
                 }
-            }
-        }
             };
 
             var jsonBody = JsonSerializer.Serialize(requestBody);
@@ -236,7 +242,6 @@ namespace Monhealth.Application
 
             // Use SendAsync with HttpCompletionOption
             var response = await _httpClient.SendAsync(requestMessage1, HttpCompletionOption.ResponseHeadersRead);
-
             var responseString = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
@@ -271,11 +276,12 @@ namespace Monhealth.Application
 
                 if (start >= 0 && end > start)
                 {
-                    var jsonBlock = text.Substring(start + 7, end - start - 7); // bỏ ```json\n
+                    // Bỏ đoạn "```json" và các khoảng trắng, newline
+                    var jsonBlock = text.Substring(start + 7, end - start - 7);
                     return jsonBlock.Trim();
                 }
 
-                // Fallback: nếu không tìm thấy markdown block, thử cắt từ dấu { đến }
+                // Fallback: nếu không tìm thấy markdown block, tìm dấu { đến }
                 start = text.IndexOf('{');
                 end = text.LastIndexOf('}');
                 if (start >= 0 && end > start)

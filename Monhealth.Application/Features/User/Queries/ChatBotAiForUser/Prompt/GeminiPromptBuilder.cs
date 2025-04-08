@@ -105,6 +105,7 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
   }},
   ""WorkoutRoutine"": [
     {{
+      ""WorkoutId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
       ""Stage"": ""null"",
       ""Exercises"": [
         {{
@@ -124,6 +125,7 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
       ]
     }},
     {{
+      ""WorkoutId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
       ""Stage"": ""null"",
       ""Exercises"": [
         {{
@@ -143,6 +145,7 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
       ]
     }},
     {{
+      ""WorkoutId"": ""00000000-0000-0000-0000-000000000000"",  // Giá trị mặc định GUID
       ""Stage"": ""null"",
       ""Exercises"": [
         {{
@@ -162,9 +165,9 @@ Chỉ TRẢ VỀ JSON theo định dạng sau, không thêm mô tả, tiêu đ�
       ]
     }}
   ],
-  ""health_or_fitness"": false,
-  ""GeneralAdvice"": """",
-  ""SummaryConversation"": """"
+  ""isHealthOrFitness"": false,
+  ""generalAdvice"": """",
+  ""summaryConversation"": """"
 }}
   
 Lưu ý:
@@ -303,6 +306,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
   }},
   ""WorkoutRoutine"": [
     {{
+      ""WorkoutId"": ""f8d02c4e-1304-4f69-b1ba-bf00d6a4a3db"",
       ""Stage"": ""Khởi động"",
       ""Exercises"": [
         {{
@@ -322,6 +326,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
       ]
     }},
     {{
+      ""WorkoutId"": ""f8d02c4e-1304-4f69-b1ba-bf00d6a4a3dc"",
       ""Stage"": ""Tập chính"",
       ""Exercises"": [
         {{
@@ -341,6 +346,7 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
       ]
     }},
     {{
+      ""WorkoutId"": ""f8d02c4e-1304-4f69-b1ba-bf00d6a4a3dd"",
       ""Stage"": ""Giãn cơ"",
       ""Exercises"": [
         {{
@@ -360,9 +366,9 @@ Dưới đây là dữ liệu đầu vào từ người dùng:
       ]
     }}
   ],
-  ""health_or_fitness"": true,
-  ""GeneralAdvice"": ""Phân tích tổng thể và định hướng cải thiện sức khỏe."",
-  ""SummaryConversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
+  ""isHealthOrFitness"": true,
+  ""generalAdvice"": ""Phân tích tổng thể và định hướng cải thiện sức khỏe."",
+  ""summaryConversation"": ""Tóm tắt kế hoạch cá nhân hóa dựa trên dữ liệu người dùng.""
 }}
 ";
     }
