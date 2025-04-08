@@ -41,7 +41,7 @@ namespace Monhealth.Identity.Services
             return new MeResponse
             {
                 UserId = user.Id,
-                ConsultantId = user.Consultant?.Id ?? null,
+                ConsultantId = user.Consultant?.ConsultantId ?? null,
                 FullName = user.FullName ?? string.Empty,  // Kiểm tra null cho FullName
                 PhoneNumber = user.PhoneNumber ?? string.Empty,  // Kiểm tra null cho PhoneNumber
                 Email = user.Email,

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Monhealth.Application.Models;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Consultant.Queries.GetAllConsultants
 {
@@ -10,10 +11,10 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetAllConsultants
         public string? Expertise { get; set; }
         public string? Search { get; set; }
         public bool? Popular { get; set; }
-        public bool? Verified { get; set; }
+        public VerificationStatus? Verified { get; set; }
         public bool? Status { get; set; }
 
-        public GetAllConsultantsQuery(int page, int limit, string? expertise, string? search, bool? popular, bool? status, bool? verified)
+        public GetAllConsultantsQuery(int page, int limit, string? expertise, string? search, bool? popular, bool? status, VerificationStatus? verified)
         {
             Page = page;
             Limit = limit;

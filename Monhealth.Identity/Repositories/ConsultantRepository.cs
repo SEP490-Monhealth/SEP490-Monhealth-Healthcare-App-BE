@@ -2,6 +2,7 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
 
@@ -13,12 +14,12 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? popular, bool? status, bool? isVerified)
+        public async Task<PaginatedResult<Consultant>> GetAllConsultants(int page, int limit, string? expertise, string? search, bool? popular, bool? status, VerificationStatus? isVerified)
         {
             IQueryable<Consultant> query = _context.Consultants
                 .Select(c => new Consultant
                 {
-                    Id = c.Id,
+                    ConsultantId = c.ConsultantId,
                     UserId = c.UserId,
                     Status = c.Status,
                     Bio = c.Bio,
@@ -51,7 +52,7 @@ namespace Monhealth.Identity.Repositories
 
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(c => c.Id.ToString().ToLower().Contains(search.ToLower().Trim())
+                query = query.Where(c => c.ConsultantId.ToString().ToLower().Contains(search.ToLower().Trim())
                                       || c.UserId.ToString().ToLower().Contains(search.ToLower().Trim())
                                       || c.ExpertiseId.ToString().ToLower().Contains(search.ToLower().Trim())
                                       || c.AppUser.PhoneNumber.Contains(search.ToLower().Trim())
@@ -86,10 +87,10 @@ namespace Monhealth.Identity.Repositories
         public async Task<Consultant> GetConsultantById(Guid consultantId)
         {
             var consultant = await _context.Consultants
-                .Where(i => i.Id == consultantId)
+                .Where(i => i.ConsultantId == consultantId)
                 .Select(c => new Consultant
                 {
-                    Id = c.Id,
+                    ConsultantId = c.ConsultantId,
                     UserId = c.UserId,
                     Status = c.Status,
                     Bio = c.Bio,
@@ -116,7 +117,7 @@ namespace Monhealth.Identity.Repositories
             if (consultant != null)
             {
                 // Tăng số lượt xem lên 1
-                await _context.Database.ExecuteSqlRawAsync("UPDATE Consultants SET Views = Views + 1 WHERE Id = {0}", consultantId);
+                await _context.Database.ExecuteSqlRawAsync("UPDATE Consultants SET Views = Views + 1 WHERE ConsultantId = {0}", consultantId);
             }
 
             return consultant;
@@ -132,7 +133,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<Consultant> GetConsultantWithWalletAndTransactionsAsync(Guid ConsultantId)
         {
             return await _context.Consultants.Include(c => c.Wallet)
-            .ThenInclude(tr => tr.Transactions).FirstOrDefaultAsync(c => c.Id == ConsultantId);
+            .ThenInclude(tr => tr.Transactions).FirstOrDefaultAsync(c => c.ConsultantId == ConsultantId);
         }
 
         public async Task<int> SaveChangeAsync()

@@ -11,7 +11,7 @@ namespace Monhealth.Application.Automapper
         public ConsultantProfile()
         {
             CreateMap<Consultant, GetAllConsultantsDTO>()
-                .ForMember(dest => dest.ConsultantId, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.ConsultantId, opt => opt.MapFrom(src => src.ConsultantId))
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.AppUser.FullName))
                 .ForMember(dest => dest.Avatar, opt => opt.MapFrom(src => src.AppUser.Avatar))
                 .ForMember(dest => dest.ExpertiseName, opt => opt.MapFrom(src => src.Expertise.ExpertiseName))

@@ -22,7 +22,7 @@ namespace Monhealth.Application
                 return new(
                                     request.WithdrawalRequestId,
                                     new UserDto(
-                                        request.Consultant.Id,
+                                        request.Consultant.ConsultantId,
                                         request.Consultant.AppUser.UserName,
                                         request.Consultant.AppUser.PhoneNumber,
                                         request.Consultant.AppUser.Email,

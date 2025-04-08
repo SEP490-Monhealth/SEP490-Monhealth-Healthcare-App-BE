@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 
@@ -12,17 +13,22 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         private readonly ICertificateRepository _certificateRepository;
         private readonly IWalletRepository _walletRepository;
         private readonly IMapper _mapper;
+        private readonly IUserRoleRepository userRoleRepository;
+
         public CreateConsultantCommandHandler(IConsultantRepository consultantRepository,
                                                 IExpertiseRepository expertiseRepository,
                                                 ICertificateRepository certificateRepository,
                                                 IWalletRepository walletRepository,
-                                                IMapper mapper)
+                                                IMapper mapper,
+                                                IUserRoleRepository userRoleRepository
+                                                )
         {
             _consultantRepository = consultantRepository;
             _expertiseRepository = expertiseRepository;
             _certificateRepository = certificateRepository;
             _walletRepository = walletRepository;
             _mapper = mapper;
+            this.userRoleRepository = userRoleRepository;
         }
         public async Task<Unit> Handle(CreateConsultantCommand request, CancellationToken cancellationToken)
         {
@@ -42,7 +48,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             var consultant = await _consultantRepository.GetConsultantByUserId(request.CreateConsultantDTO.UserId);
             if (consultant != null) { throw new BadRequestException("Người dùng này đã là chuyên viên tư vấn"); }
             var newConsultant = _mapper.Map<Domain.Consultant>(request.CreateConsultantDTO);
-            newConsultant.Id = Guid.NewGuid();
+            newConsultant.ConsultantId = Guid.NewGuid();
             newConsultant.ExpertiseId = expertise.ExpertiseId;
             newConsultant.CreatedAt = today;
             newConsultant.UpdatedAt = today;
@@ -52,7 +58,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             var newCertificate = _mapper.Map<Domain.Certificate>(request.CreateConsultantDTO);
             newCertificate.CertificateId = Guid.NewGuid();
             newCertificate.ExpertiseId = expertise.ExpertiseId;
-            newCertificate.ConsultantId = newConsultant.Id;
+            newCertificate.ConsultantId = newConsultant.ConsultantId;
             //newCertificate.ImageUrls = JsonSerializer.Serialize(request.CreateConsultantDTO.Images);
             newCertificate.ImageUrls = request.CreateConsultantDTO.ImageUrls;
             newCertificate.CreatedAt = today;
@@ -63,12 +69,34 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             var wallet = new Domain.Wallet
             {
                 WalletId = Guid.NewGuid(),
-                ConsultantId = newConsultant.Id,
+                ConsultantId = newConsultant.ConsultantId,
                 Balance = 0,
                 CreatedAt = today,
                 UpdatedAt = today,
             };
             _walletRepository.Add(wallet);
+
+            //assign new role for consultant 
+            var consultantRole = await userRoleRepository.GetRoleConsultant("Consultant");
+            // xoa role
+            var userId = newConsultant?.UserId;
+            if (userId.HasValue)
+            {
+                var userRole = await userRoleRepository.GetUserRoleByUserIdAsync(userId.Value);
+                if (userRole != null)
+                {
+                    // Nếu người dùng đã có role, xóa bản ghi cũ trước khi thêm role mới
+                    userRoleRepository.Remove(userRole);
+                }
+                // Tạo bản ghi mới cho UserRole với RoleId mới
+                var newUserRole = new IdentityUserRole<Guid>
+                {
+                    UserId = userId.Value,
+                    RoleId = consultantRole.Id
+                };
+                userRoleRepository.Add(newUserRole);
+            }
+
             await _certificateRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
         }

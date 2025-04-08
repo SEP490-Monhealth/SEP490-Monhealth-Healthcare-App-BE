@@ -23,12 +23,12 @@ namespace Monhealth.Identity.Repositories
                 .AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(b => EF.Functions.Collate(b.User.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) 
+                query = query.Where(b => EF.Functions.Collate(b.User.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower())
                                    || b.Consultant.AppUser.FullName.ToLower().Contains(search.ToLower())
                                    || b.Consultant.AppUser.PhoneNumber.Contains(search.ToLower())
                                    || b.User.PhoneNumber.Contains(search.ToLower())
                                    || b.User.Email.Contains(search.ToLower())
-                                   || b.Consultant.Id.ToString().ToLower().Contains(search.ToLower())
+                                   || b.Consultant.ConsultantId.ToString().ToLower().Contains(search.ToLower())
                                    || b.User.Id.ToString().ToLower().Contains(search.ToLower())
                                    );
             }
