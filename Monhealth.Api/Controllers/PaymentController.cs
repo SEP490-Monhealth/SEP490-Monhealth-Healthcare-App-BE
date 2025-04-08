@@ -174,11 +174,11 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{paymentId:guid}/completed")]
+        [HttpPatch("{orderCode:long}/completed")]
         [SwaggerOperation(Summary = "Cập nhật trạng thái thanh toán")]
-        public async Task<ActionResult<ResultModel>> ChangePaymentStatus([FromRoute] Guid paymentId)
+        public async Task<ActionResult<ResultModel>> ChangePaymentStatus([FromRoute] long orderCode)
         {
-            var result = await _mediator.Send(new UpdateStatusPaymentQueries { PaymentId = paymentId });
+            var result = await _mediator.Send(new UpdateStatusPaymentQueries { OrderCode = orderCode });
             if (!result)
             {
                 return BadRequest(new ResultModel

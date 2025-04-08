@@ -12,13 +12,15 @@ namespace Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStat
             {
                 throw new Exception("Yêu cầu rút tiền không tồn tại.");
             }
-            if(withdrawalRequest.Status == WithdrawalStatus.Pending)
+            if (withdrawalRequest.Status == WithdrawalStatus.Pending)
             {
                 withdrawalRequest.Status = WithdrawalStatus.Approved;
-            } else
+            }
+            else
             {
                 throw new Exception("Không thể Cập nhật trạng thái");
             }
+
             withdrawalRepository.Update(withdrawalRequest);
             await withdrawalRepository.SaveChangeASync();
             return true;

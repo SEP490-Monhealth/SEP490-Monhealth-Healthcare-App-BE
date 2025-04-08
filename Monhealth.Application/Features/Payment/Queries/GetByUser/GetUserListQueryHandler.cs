@@ -39,6 +39,7 @@ namespace Monhealth.Application
                     payment.UserSubscription.SubscriptionId,
                     memberDTO,
                     payment.UserSubscription.Subscription.SubscriptionName,
+                    payment.Description,
                     payment.Amount,
                     payment.Status,
                     payment.CreatedAt,

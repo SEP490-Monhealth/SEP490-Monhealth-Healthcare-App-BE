@@ -14,6 +14,7 @@ namespace Monhealth.Domain
         public string? Description { get; set; }
         public int Amount { get; set; }
         public PaymentStatus Status { get; set; }
+        public long OrderCode { get; set; }
 
         [ForeignKey(nameof(UserSubscriptionId))]
         public UserSubscription? UserSubscription { get; set; }
