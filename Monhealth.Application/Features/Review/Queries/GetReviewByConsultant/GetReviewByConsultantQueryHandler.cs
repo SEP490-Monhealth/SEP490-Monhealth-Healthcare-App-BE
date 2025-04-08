@@ -1,9 +1,10 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Review.Queries.GetReviewByConsultant
 {
-    public class GetReviewByConsultantQueryHandler : IRequestHandler<GetReviewByConsultantQuery, List<ReviewByConsultantDTO>>
+    public class GetReviewByConsultantQueryHandler : IRequestHandler<GetReviewByConsultantQuery, PageResult<ReviewByConsultantDTO>>
     {
         private readonly IReviewRepository _reviewRepository;
         private readonly IUserRepository _userRepository;
@@ -14,11 +15,11 @@ namespace Monhealth.Application.Features.Review.Queries.GetReviewByConsultant
             _userRepository = userRepository;
         }
 
-        public async Task<List<ReviewByConsultantDTO>> Handle(GetReviewByConsultantQuery request, CancellationToken cancellationToken)
+        public async Task<PageResult<ReviewByConsultantDTO>> Handle(GetReviewByConsultantQuery request, CancellationToken cancellationToken)
         {
-            var queries = await _reviewRepository.GetReviewsByConsultant(request.ConsultantId);
+            var queries = await _reviewRepository.GetReviewsByConsultant(request.ConsultantId, request.Page, request.Limit);
             var reviewList = new List<ReviewByConsultantDTO>();
-            foreach (var r in queries)
+            foreach (var r in queries.Items)
             {
                 var reviewDTO = new ReviewByConsultantDTO
                 {
@@ -40,7 +41,13 @@ namespace Monhealth.Application.Features.Review.Queries.GetReviewByConsultant
                 };
                 reviewList.Add(reviewDTO);
             }
-            return reviewList;
+            return new PageResult<ReviewByConsultantDTO>
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(queries.TotalCount / (double)request.Limit),
+                TotalItems = queries.TotalCount,
+                Items = reviewList
+            };
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
@@ -37,11 +38,19 @@ namespace Monhealth.Identity.Repositories
                 .Where(r => r.BookingId == bookingId).ToListAsync();
         }
 
-        public async Task<List<Review>> GetReviewsByConsultant(Guid consultantId)
+        public async Task<PaginatedResult<Review>> GetReviewsByConsultant(Guid consultantId, int page, int limit)
         {
-            var queries = await _context.Reviews
-            .Where(c => c.Booking.ConsultantId == consultantId).ToListAsync();
-            return queries;
+            IQueryable<Review> query = _context.Reviews.Include(r => r.User).AsQueryable();
+            var totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Review>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         //public async Task<List<Review>> GetReviewsByConsultant(Guid consultantId)
