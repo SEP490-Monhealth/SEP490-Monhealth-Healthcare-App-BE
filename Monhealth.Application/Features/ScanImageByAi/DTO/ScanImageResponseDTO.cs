@@ -4,19 +4,19 @@ namespace Monhealth.Application.Features.ScanImageByAi.DTO
 {
     public class ScanImageResponseDTO
     {
-        [JsonPropertyName("ScanImage")]
+        [JsonPropertyName("Food")]
         public ScanImageDTO ScanImage { get; set; } = new ScanImageDTO();
 
-        [JsonPropertyName("is_image")]
+        [JsonPropertyName("isFoodImage")]
         public bool IsImage { get; set; }
 
-        [JsonPropertyName("SummaryDescription")]
+        [JsonPropertyName("summaryDescription")]
         public string SummaryDescription { get; set; } = string.Empty;
     }
 
     public class ScanImageDTO
     {
-        [JsonPropertyName("FoodName")]
+        [JsonPropertyName("name")]
         public string FoodName { get; set; } = string.Empty;
 
         [JsonPropertyName("Nutrition")]
@@ -25,22 +25,22 @@ namespace Monhealth.Application.Features.ScanImageByAi.DTO
 
     public class ScanNutritionDTO
     {
-        [JsonPropertyName("Calories")]
+        [JsonPropertyName("calories")]
         public float Calories { get; set; }
 
-        [JsonPropertyName("Protein")]
+        [JsonPropertyName("protein")]
         public float Protein { get; set; }
 
-        [JsonPropertyName("Carbs")]
+        [JsonPropertyName("carbs")]
         public float Carbs { get; set; }
 
-        [JsonPropertyName("Fat")]
+        [JsonPropertyName("fat")]
         public float Fat { get; set; }
 
-        [JsonPropertyName("Fiber")]
+        [JsonPropertyName("fiber")]
         public float Fiber { get; set; }
 
-        [JsonPropertyName("Sugar")]
+        [JsonPropertyName("sugar")]
         public float Sugar { get; set; }
     }
 }
