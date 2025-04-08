@@ -50,10 +50,11 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<TimeOnly>> GetBookedTimeAsync(Guid consultantId, DateOnly? date)
         {
-            return await _context.Bookings
-                .Where(b => b.ConsultantId == consultantId && DateOnly.FromDateTime(b.Day) == date)
-                .Select(b => TimeOnly.FromDateTime(b.Day))
-                .ToListAsync();   //chi lay gio 
+            //return await _context.Bookings
+            //    .Where(b => b.ConsultantId == consultantId && b.Day == date)
+            //    .Select(b => TimeOnly.FromDateTime(b.Day))
+            //    .ToListAsync();   //chi lay gio 
+            throw new NotImplementedException();
         }
 
         public async Task<Booking> GetBookingByBookingIdAsync(Guid bookingId)
@@ -77,7 +78,7 @@ namespace Monhealth.Identity.Repositories
 
             if (date.HasValue)
             {
-                query = query.Where(b => b.Day.Date == date.Value.Date);
+                query = query.Where(b => b.Day == DateOnly.FromDateTime(date.Value));
             }
 
             var listBooking = await query.OrderByDescending(b => b.Day).ToListAsync();

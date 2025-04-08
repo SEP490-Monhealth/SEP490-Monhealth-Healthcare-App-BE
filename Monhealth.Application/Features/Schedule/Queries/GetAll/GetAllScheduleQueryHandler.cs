@@ -2,7 +2,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
-using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Schedule.Queries.GetAll
 {
@@ -36,15 +35,15 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
                 var recurringDay = s.RecurringDay;
 
                 // Lấy các booking theo ngày cụ thể hoặc recurring (chỉ ngày giống nhau)
-                var bookedTimeSlots = relatedBookings
-                    .Where(b =>
-                        b.ConsultantId == s.ConsultantId &&
-                        (
-                            (specificDate.HasValue && DateOnly.FromDateTime(b.Day) == specificDate.Value) ||
-                            (!specificDate.HasValue && (int)b.Day.DayOfWeek == (int)recurringDay)
-                        ))
-                    .Select(b => TimeOnly.FromDateTime(b.Day))
-                    .ToList();
+                //var bookedTimeSlots = relatedBookings
+                //    .Where(b =>
+                //        b.ConsultantId == s.ConsultantId &&
+                //        (
+                //            (specificDate.HasValue && b.Day == specificDate.Value) ||
+                //            (!specificDate.HasValue && (int)b.Day.DayOfWeek == (int)recurringDay)
+                //        ))
+                //    .Select(b => TimeOnly.FromDateTime(b.Day))
+                //    .ToList();
 
                 return new ScheduleDTO
                 {
@@ -59,9 +58,9 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
                         {
                             StartTime = st.TimeSlot.StartTime,
                             EndTime = st.TimeSlot.EndTime,
-                            Status = bookedTimeSlots.Contains(st.TimeSlot.StartTime)
-                                ? ScheduleTimeSlotStatus.Unavailable
-                                : ScheduleTimeSlotStatus.Available
+                            //Status = bookedTimeSlots.Contains(st.TimeSlot.StartTime)
+                            //    ? ScheduleTimeSlotStatus.Unavailable
+                            //    : ScheduleTimeSlotStatus.Available
                         }).ToList(),
                     CreatedAt = s.CreatedAt,
                     UpdatedAt = s.UpdatedAt,

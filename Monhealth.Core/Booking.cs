@@ -12,7 +12,7 @@ namespace Monhealth.Domain
         public Guid BookingId { get; set; }
         public Guid? UserId { get; set; }
         public Guid? ConsultantId { get; set; }
-        public DateTime Day { get; set; }
+        public DateOnly Day { get; set; }
         public string? Notes { get; set; }
         public string? CancellationReason { get; set; }
         public bool IsReviewed { get; set; } = false;

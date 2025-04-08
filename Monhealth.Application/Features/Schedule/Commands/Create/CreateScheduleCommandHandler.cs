@@ -92,7 +92,6 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                         Status = ScheduleTimeSlotStatus.Available,
                         CreatedAt = DateTime.Now,
                         UpdatedAt = DateTime.Now,
-
                     }
                 ).ToList();
 
