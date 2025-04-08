@@ -6,6 +6,6 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
     {
         public RecurringDay? RecurringDay { get; set; }
         public DateOnly? SpecificDate { get; set; }
-        public List<TimeOnly> TimeSlots { get; set; }
+        public List<string> TimeSlots { get; set; }
     }
 }

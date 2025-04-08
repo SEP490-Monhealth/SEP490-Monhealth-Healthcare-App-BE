@@ -16,6 +16,8 @@ namespace Monhealth.Domain
         public string? Notes { get; set; }
         public string? CancellationReason { get; set; }
         public bool IsReviewed { get; set; } = false;
+        public TimeOnly StartTime { get; set; }
+        public TimeOnly EndTime { get; set; }
         public BookingStatus Status { get; set; }
         public DateTime? CompletedAt { get; set; }
 

@@ -13,6 +13,8 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public Consultant Consultant { get; set; }
         [JsonPropertyName("date")]
         public DateTime Day { get; set; }
+        public TimeOnly StartTime { get; set; }
+        public TimeOnly EndTime { get; set; }
         public string? Notes { get; set; } = string.Empty;
         public string CancellationReason { get; set; } = null!;
         public bool IsReviewed { get; set; }
