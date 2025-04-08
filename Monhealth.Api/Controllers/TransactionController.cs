@@ -1,11 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.TimeSlots.Commands.ChangeCompletedTransaction;
 using Monhealth.Application.Features.Transaction.Commands.CreateTransaction;
 using Monhealth.Application.Features.Transaction.Commands.DeleteTransaction;
 using Monhealth.Application.Features.Transaction.Commands.UpdateTransaction;
 using Monhealth.Application.Features.Transaction.Queries.GetAllTransactions;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionById;
+using Monhealth.Application.Features.Workout.Commands.ChangeStatusWorkout;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
@@ -125,5 +127,28 @@ namespace Monhealth.Api.Controllers
                 Message = "Xóa giao dịch thành công"
             };
         }
+        [HttpPatch("{transactionId}/completed")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái bộ bài tập")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusCompletedTransaction(Guid transactionId)
+        {
+            var command = new ChangeCompletedTransactionCommand { TransactionId = transactionId };
+            var changeStatus = await mediator.Send(command);
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy giao dịch"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật trạng thái giao dịch thành công"
+            };
+        }
     }
 }
+
