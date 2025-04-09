@@ -35,15 +35,15 @@ namespace Monhealth.Application.Features.Review.Commands.Create
             if (booking != null)
                 booking.IsReviewed = true;
             var consultantId = booking.ConsultantId;
-            if(consultantId.HasValue)
+            if (consultantId.HasValue)
             {
                 var consultant = await _consultantRepository.GetByIdAsync(consultantId.Value);
                 if (consultant != null)
                 {
                     consultant.RatingCount += 1;
-                    consultant.AverageRating = (request.Rating + consultant.AverageRating) / 2;
+                    consultant.AverageRating = Math.Round(((consultant.AverageRating * consultant.RatingCount) + request.Rating) / (consultant.RatingCount + 1), 1, MidpointRounding.AwayFromZero);
                 }
-            }          
+            }
             await _reviewRepository.SaveChangeAsync();
             return Unit.Value;
         }

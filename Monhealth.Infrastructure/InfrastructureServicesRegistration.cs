@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Monhealth.Application.Contracts.Email;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Phone;
 using Monhealth.Infrastructure.Email;
+using Monhealth.Infrastructure.NotificationServices;
 using Monhealth.Infrastructure.Phone;
 
 namespace Monhealth.Infrastructure
@@ -17,6 +19,8 @@ namespace Monhealth.Infrastructure
 
             services.AddScoped<IEmailSender, EmailService>();
             services.AddScoped<IOtpService, OtpService>();
+            services.AddHttpClient();
+            services.AddScoped<INotificationService, NotificationService>();
 
             return services;
         }

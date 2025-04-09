@@ -1,25 +1,22 @@
 ﻿using MediatR;
-using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultantBank;
-using Monhealth.Application.Features.ConsultantBank.Commands.DeleteConsultantBank;
-using Monhealth.Application.Features.ConsultantBank.Commands.UpdateConsultantBank;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultantBanks;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankByConsultantId;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankById;
-using Monhealth.Application.Models;
+using Monhealth.Application.Contracts.Notification;
+using Monhealth.Application.Features.Notification.Commands.CreateNotification;
+using Monhealth.Application.Features.Notification.Commands.DeleteNotification;
+using Monhealth.Application.Features.Notification.Commands.UpdateNotification;
 using Monhealth.Application.Features.Notification.Queries.GetAllNotifications;
 using Monhealth.Application.Features.Notification.Queries.GetNotificationById;
-using Monhealth.Domain;
-using Monhealth.Application.Features.Notification.Commands.CreateNotification;
-using Monhealth.Application.Features.Notification.Commands.UpdateNotification;
-using Monhealth.Application.Features.Notification.Commands.DeleteNotification;
+using Monhealth.Application.Models;
+using Monhealth.Application.Models.Notifications;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
     [Route("api/v1/notifications")]
     [ApiController]
-    public class NotificationController(IMediator mediator) : ControllerBase
+    public class NotificationController(IMediator mediator,
+                INotificationService notificationService
+        ) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllNotifications(int page = 1, int limit = 10, string? search = null)
@@ -119,6 +116,26 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Message = "Xóa thông báo thành công"
+            };
+        }
+        [HttpPost("send")]
+        public async Task<ActionResult<ResultModel>> SendNotification([FromBody] ExpoNotificationRequest notificationRequest)
+        {
+            bool result = await notificationService.SendExpoNotificationAsync(notificationRequest.To, notificationRequest.Title, notificationRequest.Body);
+            if (result)
+            {
+                return new ResultModel
+                {
+                    Message = "Tạo thông báo thành công",
+                    Status = 201,
+                    Success = true
+                };
+            }
+            return new ResultModel
+            {
+                Message = "Tạo thông báo thất bại",
+                Status = (int)HttpStatusCode.BadRequest,
+                Success = false
             };
         }
     }
