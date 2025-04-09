@@ -1,14 +1,16 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Features.Review.Queries;
+using Monhealth.Application.Models;
 
 namespace Monhealth.Application
 {
     public class GetUserListQueryHandler(IPaymentRepository paymentRepository
-    , IUserRepository userRepository) : IRequestHandler<GetUserListQuery, List<PaymentUserDTO>>
+    , IUserRepository userRepository) : IRequestHandler<GetUserListQuery, PageResult<PaymentUserDTO>>
     {
-        public async Task<List<PaymentUserDTO>> Handle(GetUserListQuery request, CancellationToken cancellationToken)
+        public async Task<PageResult<PaymentUserDTO>> Handle(GetUserListQuery request, CancellationToken cancellationToken)
         {
-            var queries = await paymentRepository.GetPaymentByUser(request.UserId);
+            var queries = await paymentRepository.GetPaymentByUser(request.UserId, request.Page, request.Limit);
             var member = await userRepository.GetUserByIdAsync(request.UserId);
 
             if (member == null)
@@ -18,7 +20,7 @@ namespace Monhealth.Application
 
             var paymentList = new List<PaymentUserDTO>();
 
-            foreach (var payment in queries)
+            foreach (var payment in queries.Items)
             {
                 if (payment.UserSubscription == null)
                 {
@@ -51,7 +53,13 @@ namespace Monhealth.Application
                 paymentList.Add(paymentDTO);
             }
 
-            return paymentList;
+            return new PageResult<PaymentUserDTO>
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(queries.TotalCount / (double)request.Limit),
+                TotalItems = queries.TotalCount,
+                Items = paymentList
+            };
         }
     }
 }

@@ -63,15 +63,31 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(p => p.PaymentId == paymentId);
         }
 
-        public async Task<List<Payment>> GetPaymentByUser(Guid user)
+        public async Task<PaginatedResult<Payment>> GetPaymentByUser(Guid user, int page, int limit)
         {
-            return await _context.Payments
-                  .Include(p => p.UserSubscription)
+            //return await _context.Payments
+            //      .Include(p => p.UserSubscription)
+            //        .ThenInclude(us => us.User)
+            //      .Include(p => p.UserSubscription)
+            //        .ThenInclude(us => us.Subscription)
+            //      .Where(p => p.UserSubscription.UserId == user)
+            //      .ToListAsync();
+
+            IQueryable<Payment> query = _context.Payments.Include(p => p.UserSubscription)
                     .ThenInclude(us => us.User)
-                  .Include(p => p.UserSubscription)
-                    .ThenInclude(us => us.Subscription)
-                  .Where(p => p.UserSubscription.UserId == user)
-                  .ToListAsync();
+                    .Include(p => p.UserSubscription)
+                    .ThenInclude(us => us.Subscription).AsQueryable();
+            query = query.Where(p => p.UserSubscription.UserId == user);
+            var totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Payment>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<List<Payment>> GetPaymentBySubscriptionId(Guid subcriptionId)

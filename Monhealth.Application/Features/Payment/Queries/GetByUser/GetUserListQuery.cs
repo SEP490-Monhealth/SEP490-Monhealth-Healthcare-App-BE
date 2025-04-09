@@ -1,4 +1,5 @@
 using MediatR;
+using Monhealth.Application.Models;
 using Monhealth.Core;
 
 namespace Monhealth.Application
@@ -15,8 +16,10 @@ namespace Monhealth.Application
     , DateTime? UpdatedAt
     , Guid? CreatedBy
     , Guid? UpdatedBy);
-    public class GetUserListQuery : IRequest<List<PaymentUserDTO>>
+    public class GetUserListQuery : IRequest<PageResult<PaymentUserDTO>>
     {
         public Guid UserId { get; set; }
+        public int Page { get; set; }
+        public int Limit { get; set; }
     }
 }
