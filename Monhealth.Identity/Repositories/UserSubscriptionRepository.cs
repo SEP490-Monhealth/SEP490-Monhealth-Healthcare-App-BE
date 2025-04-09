@@ -17,6 +17,10 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.UserSubscriptions.FirstOrDefaultAsync(us => us.UserId == userId);
         }
+        public async Task<List<UserSubscription>> GetUserSubcriptionByUserIdAsync(Guid userId)
+        {
+            return await _context.UserSubscriptions.Where(us => us.UserId == userId).ToListAsync();
+        }
 
         public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name, string? search, UserSubscriptionStatus? Status)
         {

@@ -16,6 +16,7 @@ namespace Monhealth.Application
             var member = await userRepository.GetByIdAsync(query.UserId);
             var getUserSubscriptionDTO = new GetUserSubscriptionDTO(
                  query.UserSubscriptionId,
+                 query.UserId,
                  query.SubscriptionId,
                  new Member
                  {

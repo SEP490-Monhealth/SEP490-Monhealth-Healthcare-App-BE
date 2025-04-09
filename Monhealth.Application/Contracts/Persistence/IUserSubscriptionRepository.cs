@@ -9,6 +9,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Subscription>> GetUserSubscription(Guid user);
         Task<int> SaveChangeAsync();
         Task<UserSubscription> GetByUserIdAsync(Guid userId);
+        Task<List<UserSubscription>> GetUserSubcriptionByUserIdAsync(Guid userId);
         Task<UserSubscription> GetUserSubscriptionByIdAsync(Guid userSubscriptionId);
         Task<UserSubscription> GetUserSubScriptionByUserIdAndSubscriptionId(Guid subscriptionId, Guid userId);
         Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name, string? search, UserSubscriptionStatus? Status);
