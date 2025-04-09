@@ -26,6 +26,7 @@ namespace Monhealth.Application
                 {
 
                     UserSubscriptionId = us.UserSubscriptionId,
+                    UserId = us.UserId,
                     SubscriptionId = us.SubscriptionId,
                     SubscriptionName = us.Subscription.SubscriptionName,
                     StartedAt = us.StartedAt,

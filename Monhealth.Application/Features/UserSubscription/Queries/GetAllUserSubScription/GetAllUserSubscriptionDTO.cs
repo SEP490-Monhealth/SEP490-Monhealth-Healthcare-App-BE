@@ -7,6 +7,7 @@ namespace Monhealth.Application
     public class GetAllUserSubscriptionDTO : TimeEntity
     {
         public Guid UserSubscriptionId { get; set; }
+        public Guid UserId { get; set; }
         public Guid SubscriptionId { get; set; }
         public Member Member { get; set; }
         [JsonPropertyName("subscription")]
