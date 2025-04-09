@@ -8,6 +8,7 @@ namespace Monhealth.Application
         public Guid UserSubscriptionId { get; set; }
         public Guid UserId { get; set; }
         public Guid SubscriptionId { get; set; }
+        public string Subscription { get; set; }
         public DateTime StartedAt { get; set; }
         public DateTime ExpiresAt { get; set; }
         public int RemainingBookings { get; set; }

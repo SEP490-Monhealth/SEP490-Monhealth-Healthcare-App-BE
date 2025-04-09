@@ -33,6 +33,7 @@ namespace Monhealth.Application
                 SubscriptionId = s.SubscriptionId,
                 UserId = s.UserId,
                 UserSubscriptionId = s.UserSubscriptionId,
+                Subscription = s.Subscription.SubscriptionName,
                 StartedAt = s.StartedAt,
                 ExpiresAt = s.ExpiresAt,
                 RemainingBookings = s.RemainingBookings,
