@@ -68,6 +68,16 @@ namespace Monhealth.Identity.Repositories
 
             query = query.Include(s => s.ScheduleTimeSlots)
                 .ThenInclude(st => st.TimeSlot);
+            if(scheduleType == ScheduleType.Recurring)
+            {
+                query = query.OrderBy(s => s.RecurringDay.HasValue ? (int)s.RecurringDay : int.MaxValue);
+            }
+            if(scheduleType == ScheduleType.OneTime)
+            {
+                query = query = query.OrderBy(s => s.SpecificDate.HasValue ? s.SpecificDate.Value : DateOnly.MaxValue);
+            }
+            
+
             return await query.ToListAsync();
         }
 

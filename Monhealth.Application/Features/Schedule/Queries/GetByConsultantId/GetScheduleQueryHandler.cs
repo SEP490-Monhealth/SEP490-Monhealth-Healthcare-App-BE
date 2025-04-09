@@ -47,8 +47,8 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
                 ScheduleId = s.ScheduleId,
                 ConsultantId = s.ConsultantId,
                 ScheduleType = s.ScheduleType,
-                RecurringDay = s.RecurringDay,
-                SpecificDate = s.SpecificDate,
+                SpecificDate = s.ScheduleType == ScheduleType.OneTime ? s.SpecificDate : null,
+                RecurringDay = s.ScheduleType == ScheduleType.Recurring ? s.RecurringDay : null,
                 TimeSlots = s.ScheduleTimeSlots
                 .OrderBy(st => st.TimeSlot.StartTime)
                 .Select(st => new TimeSlotDto
