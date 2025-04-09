@@ -83,7 +83,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             {
                 // Nếu người dùng đã có role, xóa bản ghi cũ trước khi thêm role mới
                 _userRoleRepository.Remove(userRole);
-                await _userRepository.SaveChangesAsync();
+                //await _userRepository.SaveChangesAsync();
                 _logger.LogInformation($"Removed old role for UserId {user}");
             }
 
@@ -107,7 +107,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             payment.Status = Core.PaymentStatus.Completed;
 
             var gettingUser = await _userRepository.GetUserByIdAsync(user);
-            
+
 
             int daysToCreate = 7; // Số ngày bạn muốn tạo DailyMeal mới
             DateTime startDate = DateTime.Now.Date; // Ngày bắt đầu là hôm nay

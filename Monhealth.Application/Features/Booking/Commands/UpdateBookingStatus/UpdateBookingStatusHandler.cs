@@ -5,7 +5,11 @@ using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
 {
-    public class UpdateBookingStatusHandler(IBookingRepository bookingRepository, IConsultantRepository consultantRepository) : IRequestHandler<UpdateBookingStatusCommand, bool>
+    public class UpdateBookingStatusHandler(IBookingRepository bookingRepository,
+        IConsultantRepository consultantRepository,
+        IUserSubscriptionRepository userSubscriptionRepository
+        )
+        : IRequestHandler<UpdateBookingStatusCommand, bool>
     {
         public async Task<bool> Handle(UpdateBookingStatusCommand request, CancellationToken cancellationToken)
         {
@@ -21,13 +25,24 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
             }
             else if (booking.Status == BookingStatus.Confirmed)
             {
-                booking.Status = BookingStatus.Completed;
+                //plus amout booking for consultant
                 var consultant = await consultantRepository.GetByIdAsync((Guid)booking.ConsultantId);
                 if (consultant != null)
                 {
                     consultant.BookingCount += 1;
                 }
+
+                //subtract amout remaining booking
+                var userSubscription = await userSubscriptionRepository.GetUserSubscriptionActiveOfUser((Guid)booking.UserId);
+                if (userSubscription == null) throw new Exception("Không tìm thấy gói người dùng đã đăng kí");
+
+                userSubscription.RemainingBookings -= 1;
+                userSubscription.UpdatedAt = DateTime.Now;
+
+
                 booking.CompletedAt = DateTime.Now;
+                booking.Status = BookingStatus.Completed;
+
             }
             booking.UpdatedAt = DateTime.Now;
             await bookingRepository.SaveChangeAsync(cancellationToken);

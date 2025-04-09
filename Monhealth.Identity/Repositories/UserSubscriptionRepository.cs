@@ -67,6 +67,16 @@ namespace Monhealth.Identity.Repositories
             .Select(us => us.Subscription).ToListAsync();
         }
 
+        public Task<UserSubscription> GetUserSubscriptionActiveOfUser(Guid userId)
+        {
+            return _context.UserSubscriptions
+                .Where(us => us.UserId == userId &&
+                        us.Status == UserSubscriptionStatus.Active &&
+                        us.RemainingBookings > 0
+                ).OrderByDescending(us => us.CreatedAt)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<UserSubscription> GetUserSubscriptionByIdAsync(Guid userSubscriptionId)
         {
             return await _context.UserSubscriptions.

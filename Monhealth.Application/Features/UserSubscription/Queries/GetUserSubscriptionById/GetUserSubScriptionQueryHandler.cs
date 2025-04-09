@@ -23,7 +23,7 @@ namespace Monhealth.Application
                      AvatarUrl = member.Avatar,
                      Email = member.Email,
                      FullName = member.FullName,
-                     PhoneNumber = member.FullName,
+                     PhoneNumber = member.PhoneNumber,
                  },
                   query.Subscription.SubscriptionName,
                   query.StartedAt,
@@ -31,9 +31,7 @@ namespace Monhealth.Application
                   query.RemainingBookings,
                   query.Status,
                   query.CreatedAt,
-                  query.UpdatedAt,
-                  member.CreatedBy,
-                  member.UpdatedBy
+                  query.UpdatedAt
             );
             return getUserSubscriptionDTO;
         }

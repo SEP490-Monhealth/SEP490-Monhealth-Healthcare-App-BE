@@ -35,7 +35,7 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
             var paymentResult = await payOSService.CreatePaymentLinkAsync(
                payment.PaymentId,
                request.Amount,
-               $"Thanh toan don hang"
+               request.Description ?? string.Empty
            );
             payment.OrderCode = paymentResult.OrderCode;
             paymentRepository.Add(payment);
