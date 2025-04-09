@@ -41,7 +41,8 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                         ScheduleType = request.ScheduleType,
                         RecurringDay = scheduleDto.RecurringDay,
                         SpecificDate = scheduleDto.SpecificDate,
-                        CreatedAt = DateTime.Now
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
                     };
                     schedules.Add(scheduleToUse);
                 }

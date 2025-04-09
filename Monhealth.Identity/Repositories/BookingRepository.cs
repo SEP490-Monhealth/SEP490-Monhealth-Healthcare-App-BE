@@ -50,11 +50,10 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<TimeOnly>> GetBookedTimeAsync(Guid consultantId, DateOnly? date)
         {
-            //return await _context.Bookings
-            //    .Where(b => b.ConsultantId == consultantId && b.Day == date)
-            //    .Select(b => TimeOnly.FromDateTime(b.Day))
-            //    .ToListAsync();   //chi lay gio 
-            throw new NotImplementedException();
+            return await _context.Bookings
+                .Where(b => b.ConsultantId == consultantId && b.Day == date)
+                .Select(b => b.StartTime)
+                .ToListAsync();   //chi lay gio 
         }
 
         public async Task<Booking> GetBookingByBookingIdAsync(Guid bookingId)
