@@ -37,6 +37,8 @@ namespace Monhealth.Application
                 ExpiresAt = s.ExpiresAt,
                 RemainingBookings = s.RemainingBookings,
                 Status = s.Status,
+                CreatedAt = s.CreatedAt,
+                UpdatedAt = s.UpdatedAt,
             }).ToList();
 
             return result;
