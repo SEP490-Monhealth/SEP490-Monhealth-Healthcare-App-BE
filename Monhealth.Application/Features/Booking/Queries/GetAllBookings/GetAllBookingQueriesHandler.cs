@@ -9,7 +9,7 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
     {
         public async Task<PageResult<BookingDto>> Handle(GetAllBookingQueries request, CancellationToken cancellationToken)
         {
-            var pagingBooking = await bookingRepository.GetAllBookingAsync(request.Page, request.Limit, 
+            var pagingBooking = await bookingRepository.GetAllBookingAsync(request.Page, request.Limit,
             request.Search, request.Status);
             return new PageResult<BookingDto>()
             {
