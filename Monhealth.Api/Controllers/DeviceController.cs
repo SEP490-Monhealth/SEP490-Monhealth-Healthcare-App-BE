@@ -17,7 +17,7 @@ using Monhealth.Application.Features.UserDevice.Commands.DeleteUserDevice;
 
 namespace Monhealth.Api.Controllers
 {
-    [Route("api/v1/userdevices")]
+    [Route("api/v1/devices")]
     [ApiController]
     public class DeviceController(IMediator mediator) : ControllerBase
     {
@@ -34,10 +34,10 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet("{userDeviceId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetUserDeviceById(Guid userDeviceId)
+        [HttpGet("{deviceId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetUserDeviceById(Guid deviceId)
         {
-            var userDevice = await mediator.Send(new GetDeviceByIdQuery { UserDeviceId = userDeviceId });
+            var userDevice = await mediator.Send(new GetDeviceByIdQuery { DeviceId = deviceId });
             if (userDevice == null)
             {
                 return NotFound(new ResultModel
@@ -90,10 +90,10 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPut("{userDeviceId}")]
-        public async Task<ActionResult<ResultModel>> UpdateUserDevice(Guid userDeviceId, [FromBody] UpdateDeviceDTO updateUserDeviceDTO)
+        [HttpPut("{deviceId}")]
+        public async Task<ActionResult<ResultModel>> UpdateUserDevice(Guid deviceId, [FromBody] UpdateDeviceDTO updateUserDeviceDTO)
         {
-            var command = new UpdateDeviceCommand(userDeviceId, updateUserDeviceDTO);
+            var command = new UpdateDeviceCommand(deviceId, updateUserDeviceDTO);
             var result = await mediator.Send(command);
             if (!result)
             {
@@ -112,10 +112,10 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpDelete("{userDeviceId}")]
-        public async Task<ActionResult<ResultModel>> DeleteUserDevice(Guid userDeviceId)
+        [HttpDelete("{deviceId}")]
+        public async Task<ActionResult<ResultModel>> DeleteUserDevice(Guid deviceId)
         {
-            var command = new DeleteDeviceCommand { UserDeviceId = userDeviceId };
+            var command = new DeleteDeviceCommand { DeviceId = deviceId };
             var delete = await mediator.Send(command);
             if (!delete)
             {

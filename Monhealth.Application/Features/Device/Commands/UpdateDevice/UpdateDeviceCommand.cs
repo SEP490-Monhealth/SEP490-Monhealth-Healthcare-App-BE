@@ -4,11 +4,11 @@ namespace Monhealth.Application.Features.UserDevice.Commands.UpdateUserDevice
 {
     public class UpdateDeviceCommand : IRequest<bool>
     {
-        public Guid UserDeviceId { get; set; }
+        public Guid DeviceId { get; set; }
         public UpdateDeviceDTO UpdateDeviceDTO { get; set; }
-        public UpdateDeviceCommand(Guid userDeviceId, UpdateDeviceDTO updateDeviceDTO)
+        public UpdateDeviceCommand(Guid deviceId, UpdateDeviceDTO updateDeviceDTO)
         {
-            UserDeviceId = userDeviceId;
+            DeviceId = deviceId;
             UpdateDeviceDTO = updateDeviceDTO;
         }
     }

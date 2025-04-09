@@ -35,9 +35,9 @@ namespace Monhealth.Identity.Repositories
         public async Task<Device> GetExpoPushToken(string expoPushToken)
         {
             var checkExpoPushToken = await _context.Devices.FirstOrDefaultAsync(e => e.ExpoPushToken == expoPushToken);
-            if(checkExpoPushToken != null)
+            if (checkExpoPushToken != null)
             {
-                await _context.Database.ExecuteSqlRawAsync("UPDATE Devices SET UpdatedAt = GETDATE() WHERE DeviceId = {0}", checkExpoPushToken.DeviceId);              
+                await _context.Database.ExecuteSqlRawAsync("UPDATE Devices SET UpdatedAt = GETDATE() WHERE DeviceId = {0}", checkExpoPushToken.DeviceId);
             }
             return checkExpoPushToken;
         }

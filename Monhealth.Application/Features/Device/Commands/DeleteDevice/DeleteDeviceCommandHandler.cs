@@ -8,7 +8,7 @@ namespace Monhealth.Application.Features.UserDevice.Commands.DeleteUserDevice
     {
         public async Task<bool> Handle(DeleteDeviceCommand request, CancellationToken cancellationToken)
         {
-            var userDevice = await deviceRepository.GetByIdAsync(request.UserDeviceId);
+            var userDevice = await deviceRepository.GetByIdAsync(request.DeviceId);
             if (userDevice == null)
             {
                 return false;

@@ -8,7 +8,7 @@ namespace Monhealth.Application.Features.UserDevice.Commands.UpdateUserDevice
     {
         public async Task<bool> Handle(UpdateDeviceCommand request, CancellationToken cancellationToken)
         {
-            var userDevice = await deviceRepository.GetByIdAsync(request.UserDeviceId);
+            var userDevice = await deviceRepository.GetByIdAsync(request.DeviceId);
             var userDeviceToUpdate = mapper.Map(request.UpdateDeviceDTO, userDevice);
             userDeviceToUpdate.UpdatedAt = DateTime.Now;
             deviceRepository.Update(userDeviceToUpdate);

@@ -8,7 +8,7 @@ namespace Monhealth.Application.Features.UserDevice.Queries.GetUserDeviceById
     {
         public async Task<GetDeviceByIdDTO> Handle(GetDeviceByIdQuery request, CancellationToken cancellationToken)
         {
-            var userDevice = await deviceRepository.GetByIdAsync(request.UserDeviceId);
+            var userDevice = await deviceRepository.GetByIdAsync(request.DeviceId);
             return mapper.Map<GetDeviceByIdDTO>(userDevice);
         }
     }
