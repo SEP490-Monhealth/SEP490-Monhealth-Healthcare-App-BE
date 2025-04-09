@@ -69,6 +69,7 @@ namespace Monhealth.Identity.Repositories
                 .Include(b => b.User)
                 .Include(b => b.Consultant)
                 .ThenInclude(c => c.AppUser)
+                .OrderBy(c => c.StartTime)
                 .AsQueryable();
             if (consultantId != Guid.Empty)
             {
@@ -80,8 +81,8 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(b => b.Day == DateOnly.FromDateTime(date.Value));
             }
 
-            var listBooking = await query.OrderByDescending(b => b.Day).ToListAsync();
-            return listBooking;
+         
+            return query.ToList();
         }
 
         public async Task<List<Booking>> GetBookingByConsultantIds(List<Guid> consultantIds)
@@ -99,6 +100,7 @@ namespace Monhealth.Identity.Repositories
                    .AsSplitQuery()
                    .Include(b => b.User)
                    .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
+                   .OrderBy(c => c.StartTime)
                    .Where(b => b.UserId == userId)
                    .ToListAsync();
 
