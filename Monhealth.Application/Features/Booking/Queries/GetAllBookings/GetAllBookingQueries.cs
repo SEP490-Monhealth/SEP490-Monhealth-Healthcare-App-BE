@@ -11,6 +11,5 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public int Limit { get; set; }
         public string? Search { get; set; }
         public BookingStatus? Status { get; set; }
-
     }
 }
