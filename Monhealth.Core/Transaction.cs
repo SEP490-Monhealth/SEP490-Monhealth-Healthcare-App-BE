@@ -9,7 +9,7 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid TransactionId { get; set; }
-        public Guid WalletId { get; set; }
+        public Guid? WalletId { get; set; }
         public Guid? BookingId { get; set; }
         public TransactionType TransactionType { get; set; }
         public string? Description { get; set; }
@@ -17,8 +17,8 @@ namespace Monhealth.Domain
         public StatusTransaction? Status { get; set; }
 
         [ForeignKey(nameof(WalletId))]
-        public Wallet Wallet { get; set; }
+        public Wallet? Wallet { get; set; }
         [ForeignKey(nameof(BookingId))]
-        public Booking Booking { get; set; }
+        public Booking? Booking { get; set; }
     }
 }

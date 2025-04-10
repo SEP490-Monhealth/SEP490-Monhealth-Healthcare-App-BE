@@ -7,7 +7,6 @@ using Monhealth.Application.Features.Transaction.Commands.UpdateTransaction;
 using Monhealth.Application.Features.Transaction.Queries.GetAllTransactions;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionById;
-using Monhealth.Application.Features.Workout.Commands.ChangeStatusWorkout;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
@@ -35,9 +34,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("consultant/{consultantId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId, int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId, int page = 1, int limit = 10, StatusTransaction? status = null)
         {
-            var transaction = await mediator.Send(new GetTransactionByConsultantIdQuery(consultantId, page, limit));
+            var transaction = await mediator.Send(new GetTransactionByConsultantIdQuery(consultantId, page, limit, status));
             return Ok(new ResultModel
             {
                 Success = true,

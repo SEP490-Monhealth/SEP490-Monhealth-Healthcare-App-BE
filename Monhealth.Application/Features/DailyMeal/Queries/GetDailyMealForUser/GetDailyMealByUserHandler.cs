@@ -1,5 +1,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
 {
@@ -8,21 +9,26 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IMealRepository _mealRepository;
         private readonly IPortionRepository _portionRepository;
+        private readonly IGoalRepository goalRepository;
 
         public GetDailyMealByUserHandler(
             IDailyMealRepository dailyMealRepository,
             IMealRepository mealRepository,
-            IPortionRepository portionRepository)
+            IPortionRepository portionRepository,
+            IGoalRepository goalRepository
+            )
         {
             _dailyMealRepository = dailyMealRepository;
             _mealRepository = mealRepository;
             _portionRepository = portionRepository;
+            this.goalRepository = goalRepository;
         }
 
         public async Task<GetDailyMealByUserDTO> Handle(GetDailyMealByUserQuery request, CancellationToken cancellationToken)
         {
             var query = await _dailyMealRepository.GetDailyMealsByUser(request.UseId, request.date);
-
+            var goal = await goalRepository.GetGoalByUser(request.UseId);
+            if (goal == null) throw new BadRequestException("Không tìm thấy mục tiêu của người dùng");
             if (query == null)
             {
                 return new GetDailyMealByUserDTO
@@ -30,6 +36,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                     DailyMealId = Guid.Empty,
                     Nutrition = null,
                     Items = null,
+                    GoalType = goal.GoalType,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 };

@@ -8,22 +8,28 @@ namespace Monhealth.Application.Features.DaiLyWater.Queries.GetAllDaiLyWater
     {
         private readonly IDailyWaterIntakesRepository _dailyWaterIntakesRepository;
         private readonly IMapper _mapper;
+        private readonly IGoalRepository goalRepository;
+
         public GetDailyWaterByUserHandler(IDailyWaterIntakesRepository dailyWaterIntakesRepository,
-        IMapper mapper)
+        IMapper mapper,
+        IGoalRepository goalRepository
+        )
         {
             _dailyWaterIntakesRepository = dailyWaterIntakesRepository;
             _mapper = mapper;
+            this.goalRepository = goalRepository;
         }
 
         public async Task<DailyWaterDTO> Handle(GetDailyWaterByUserQuery request, CancellationToken cancellationToken)
         {
             var query = await _dailyWaterIntakesRepository.GetDailyWaterIntakesByUser(request.userId, request.date);
-
+            var goal = await goalRepository.GetGoalByUser(request.userId);
             if (query == null)
             {
                 return new DailyWaterDTO
                 {
                     DailyWaterIntakeId = Guid.Empty,
+                    GoalType = goal.GoalType,
                     TotalVolume = 0,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,

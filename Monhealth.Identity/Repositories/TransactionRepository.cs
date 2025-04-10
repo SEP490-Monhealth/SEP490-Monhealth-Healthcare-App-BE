@@ -54,16 +54,20 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(c => c.TransactionId == transactionId);
         }
 
-        public async Task<PaginatedResult<Transaction>> GetTransactionByWalletId(int page, int limit, Guid walletId)
+        public async Task<PaginatedResult<Transaction>> GetTransactionByWalletId(int page, int limit, Guid walletId, StatusTransaction? status)
         {
             var query = _context.Transactions.
             Include(w => w.Wallet).ThenInclude(c => c.Consultant)
             .ThenInclude(u => u.AppUser).Where(c => c.WalletId == walletId).AsQueryable();
+            int totalItems = await query.CountAsync();
+            if (status.HasValue)
+            {
+                query = query.Where(w => w.Status == status.Value);
+            }
             if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
             }
-            int totalItems = await query.CountAsync();
             return new PaginatedResult<Transaction>
             {
                 Items = await query.ToListAsync(),

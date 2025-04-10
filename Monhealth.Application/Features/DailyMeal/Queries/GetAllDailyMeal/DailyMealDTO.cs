@@ -1,5 +1,6 @@
 using Monhealth.Core.Enum;
 using Monhealth.Domain.Common;
+using Monhealth.Domain.Enum;
 using System.Text.Json.Serialization;
 namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
 {
@@ -8,6 +9,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
         public Guid DailyMealId { get; set; }
         public Guid UserId { get; set; }
         // public GoalDailyMealDTO Goal { get; set; }
+        public GoalType GoalType { get; set; }
+
         public NutritionOfDailyMeal Nutrition { get; set; }
         public List<MealForDailyMeal> Items { get; set; }
     }

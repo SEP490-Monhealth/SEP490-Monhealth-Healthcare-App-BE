@@ -1,32 +1,36 @@
 using MediatR;
+using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.Withdrawal.Queries.GenerateWithdrawalRequest
 {
-    public class GetAllWithdrawalRequestsHandler(IWithdrawalRepository withdrawalRepository) : IRequestHandler<GenerateWithdrawalQRCode, Response>
+    public class GetAllWithdrawalRequestsHandler(IWithdrawalRepository withdrawalRepository,
+        IConsultantBankRepository consultantBankRepository
+        ) : IRequestHandler<GenerateWithdrawalQRCode, Response>
     {
         public async Task<Response> Handle(GenerateWithdrawalQRCode request, CancellationToken cancellationToken)
         {
             var withdrawal = await withdrawalRepository.GetWithdrawalRequest(request.WithdrawalRequestId);
             if (withdrawal == null)
             {
-                throw new Exception("Không tìm thấy yêu cầu rút tiền.");
+                throw new BadRequestException("Không tìm thấy yêu cầu rút tiền.");
             }
             if (withdrawal.Status != Domain.Enum.WithdrawalStatus.Approved)
             {
-                throw new Exception("Yêu cầu rút tiền này không ở trạng thái chờ xử lý");
+                throw new BadRequestException("Yêu cầu rút tiền này không ở trạng thái chờ xử lý");
 
             }
-            var defaultBank = withdrawal.Consultant.ConsultantBanks.FirstOrDefault(cb => cb.IsDefault);
+            var consultantBank = await consultantBankRepository.GetConsultantBankById(withdrawal.ConsultantBankId);
 
             var description = withdrawal.Description;
-            var accountName = defaultBank.AccountName;
-            if (defaultBank == null)
+            var accountName = consultantBank.AccountName;
+            if (consultantBank == null)
             {
                 throw new Exception("Không tìm thấy ngân hàng mặc định.");
             }
 
-            var bankCode = defaultBank.Bank.BankCode;
-            var accountNumber = defaultBank.AccountNumber;
+            var bankCode = consultantBank.Bank.BankCode;
+            var accountNumber = consultantBank.AccountNumber;
             // Generate VietQR URL
             var qrUrl =
             $"https://img.vietqr.io/image/{bankCode}-{accountNumber}-compact2.png"

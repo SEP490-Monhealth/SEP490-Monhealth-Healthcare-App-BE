@@ -51,7 +51,10 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<TimeOnly>> GetBookedTimeAsync(Guid consultantId, DateOnly? date)
         {
             return await _context.Bookings
-                .Where(b => b.ConsultantId == consultantId && b.Day == date)
+                .Where(b => b.ConsultantId == consultantId &&
+                        b.Day == date &&
+                        b.Status != BookingStatus.Cancelled
+                       )
                 .Select(b => b.StartTime)
                 .ToListAsync();   //chi lay gio 
         }
@@ -81,7 +84,7 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(b => b.Day == DateOnly.FromDateTime(date.Value));
             }
 
-         
+
             return query.ToList();
         }
 
