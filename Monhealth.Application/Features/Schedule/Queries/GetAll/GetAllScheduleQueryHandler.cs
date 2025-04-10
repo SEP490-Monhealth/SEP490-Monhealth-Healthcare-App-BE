@@ -41,7 +41,8 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
                         b.ConsultantId == s.ConsultantId &&
                         (
                             (specificDate.HasValue && b.Day == specificDate.Value) ||
-                            (!specificDate.HasValue && (int)b.Day.DayOfWeek == (int)recurringDay)
+                            (!specificDate.HasValue &&
+                            (int)b.Day.DayOfWeek == (int)recurringDay)
                         ))
                     .Select(b => b.StartTime)
                     .ToList();

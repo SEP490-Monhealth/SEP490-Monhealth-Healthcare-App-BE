@@ -113,7 +113,17 @@ namespace Monhealth.Identity.Dbcontexts
                 .HasForeignKey(d => d.GoalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<ScheduleTimeSlot>()
+                 .HasOne(st => st.TimeSlot)
+                 .WithMany()
+                 .HasForeignKey(st => st.TimeSlotId)
+                 .OnDelete(DeleteBehavior.Cascade); // <<< THIS LINE
 
+            builder.Entity<TimeSlot>()
+                    .HasMany(ts => ts.ScheduleTimeSlots)
+                 .WithOne(st => st.TimeSlot)
+                 .HasForeignKey(st => st.TimeSlotId)
+                 .OnDelete(DeleteBehavior.Cascade);
 
             var mealTypeComparer = new ValueComparer<List<MealType>>(
                    (c1, c2) => c1.SequenceEqual(c2),
@@ -165,6 +175,8 @@ namespace Monhealth.Identity.Dbcontexts
                     c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
                     c => c.ToList()
                 ));
+
+
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());
