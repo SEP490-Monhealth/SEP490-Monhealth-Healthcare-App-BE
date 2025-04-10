@@ -56,9 +56,11 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
                     TimeSlotId = st.TimeSlotId ?? Guid.Empty,
                     StartTime = st.TimeSlot.StartTime,
                     EndTime = st.TimeSlot.EndTime,
-                    Status = bookedTimes.Contains(st.TimeSlot.StartTime) || IsScheduleException
-                    ? ScheduleTimeSlotStatus.Booked
-                    : ScheduleTimeSlotStatus.Available,
+                    Status = bookedTimes.Contains(st.TimeSlot.StartTime)
+                        ? ScheduleTimeSlotStatus.Booked
+                        : IsScheduleException
+                            ? ScheduleTimeSlotStatus.Unavailable
+                            : ScheduleTimeSlotStatus.Available
                 }
                     ).ToList(),
                 CreatedAt = s.CreatedAt,

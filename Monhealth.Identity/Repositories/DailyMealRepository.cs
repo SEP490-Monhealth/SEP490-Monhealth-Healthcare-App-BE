@@ -51,8 +51,6 @@ namespace Monhealth.Identity.Repositories
             return orderedDailyMeals; // Trả về danh sách DailyMeals đã sắp xếp
         }
 
-
-
         public async Task<DailyMeal> GetDailyMealByCreateAt(DateTime createAt)
         {
 
@@ -63,7 +61,6 @@ namespace Monhealth.Identity.Repositories
         { "Dinner", 3 },
         { "Snack", 4 }
     };
-
 
             var dailyMeal = await _context.DailyMeals
                 .Include(dl => dl.Meals)
@@ -168,7 +165,6 @@ namespace Monhealth.Identity.Repositories
                 return null;
             }
 
-        
             int daysSinceMonday = ((int)date.DayOfWeek + 6) % 7;
             DateTime startOfWeek = date.Date.AddDays(-daysSinceMonday); // Ngày thứ Hai của tuần
             DateTime endOfWeek = startOfWeek.AddDays(6);                  // Ngày Chủ nhật của tuần
@@ -186,10 +182,6 @@ namespace Monhealth.Identity.Repositories
 
             return dailyMealsInWeek;
         }
-
-
-
-
 
         public async Task<int> SaveChangeAsync()
         {
