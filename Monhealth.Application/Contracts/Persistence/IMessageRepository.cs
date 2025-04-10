@@ -6,6 +6,7 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<List<Message>> GetAllMessageAsync();
         Task<List<Message>> GetMessageByChatId(Guid chatId);
+        Task<List<Message>> GetMessageByConsultantId(Guid consultantId);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
 
     }

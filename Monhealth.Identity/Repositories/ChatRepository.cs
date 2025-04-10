@@ -13,6 +13,27 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<PaginatedResult<Chat>> GetChatByConsultantIdAsync(int page, int limit, Guid consultantId)
+        {
+            var query = _context.Chats
+                .Include(c => c.Consultant)
+                .Include(c => c.AppUser)
+                .Where(c => c.ConsultantId == consultantId)
+                .OrderByDescending(c => c.UpdatedAt)
+                .AsQueryable();
+
+            var totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Chat>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
+        }
+
         public async Task<Chat> GetChatByIdAsync(Guid chatId)
         {
             return await _context.Chats
@@ -38,6 +59,8 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Chat>> GetUserChatAsync(int page, int limit, Guid userId)
         {
             IQueryable<Chat> query = _context.Chats
+                .Include(c => c.AppUser)
+                .Include(c => c.Consultant)
                 .Where(c => c.UserId == userId)
                 .OrderByDescending(c => c.UpdatedAt)
                 .AsQueryable();

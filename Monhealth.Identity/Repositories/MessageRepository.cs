@@ -22,10 +22,16 @@ namespace Monhealth.Identity.Repositories
             return await _context.Messages.AsNoTracking()
                 .AsSingleQuery()
                 .Where(m => m.ChatId == chatId)
-
                 .ToListAsync();
         }
 
+        public async Task<List<Message>> GetMessageByConsultantId(Guid consultantId)
+        {
+            return await _context.Messages.AsNoTracking()
+                .AsSingleQuery()
+                .Where(m => m.SenderId == consultantId)
+                .ToListAsync();
+        }
 
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {

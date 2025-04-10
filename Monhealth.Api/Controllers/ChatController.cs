@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Monhealth.Application;
 using Monhealth.Application.Features.Chat.Commands.CreateChat;
+using Monhealth.Application.Features.Chat.Queries.GetChatByConsultantId;
 using Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId;
+using Monhealth.Application.Features.Message.Queries.GetMessageByChatId;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -25,6 +28,35 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
+
+        [HttpGet("{chatId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách tin nhắn theo ID cuộc trò chuyện")]
+        public async Task<ActionResult<ResultModel>> GetMessageByChatId(Guid chatId)
+        {
+            var messages = await mediator.Send(new GetMessageByChatIdQuery { ChatId = chatId });
+
+            return new ResultModel
+            {
+                Data = messages,
+                Status = (int)HttpStatusCode.OK,
+                Success = true,
+            };
+        }
+
+        [HttpGet("consultant/{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện của chuyên viên tư vấn")]
+        public async Task<ActionResult<ResultModel>> GetChatByConsultantId([FromRoute] Guid consultantId, int page = 1, int limit = 10)
+        {
+            var messages = await mediator.Send(new GetChatByConsultantIdQuery { ConsultantId = consultantId, Page = page, Limit = limit });
+
+            return new ResultModel
+            {
+                Data = messages,
+                Status = (int)HttpStatusCode.OK,
+                Success = true,
+            };
+        }
+
 
         [HttpPost]
         [SwaggerOperation(Summary = "Tạo cuộc trò chuyện")]
