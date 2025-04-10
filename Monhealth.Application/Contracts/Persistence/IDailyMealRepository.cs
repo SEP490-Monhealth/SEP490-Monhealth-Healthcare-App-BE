@@ -13,5 +13,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<DailyMeal> GetDailyMealByIdAsync(Guid dailyMealId, CancellationToken cancellationToken);
         Task<DailyMeal>GetDaiLyMealByUser( Guid UserId , DateTime DateTime);
          Task<IEnumerable<DailyMeal>> GetDailyMealsAfterDate(Guid userId, DateTime date);
+         Task<List<DailyMeal>> GetDailyMealsReportByUserAndDate(Guid userId, DateTime date);
     }
 }

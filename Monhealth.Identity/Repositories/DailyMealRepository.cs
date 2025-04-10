@@ -152,6 +152,44 @@ namespace Monhealth.Identity.Repositories
             return dailyMeal; // Trả về một đối tượng DailyMeal
         }
 
+        public async Task<List<DailyMeal>> GetDailyMealsReportByUserAndDate(Guid userId, DateTime date)
+        {
+            // Lấy tất cả DailyMeal của user mà trường CreatedAt không null (cùng với các include cần thiết)
+            var userDailyMealsQuery = _context.DailyMeals
+                .Include(dm => dm.Meals)
+                    .ThenInclude(m => m.MealFoods)
+                        .ThenInclude(mf => mf.Food)
+                            .ThenInclude(f => f.FoodPortions)
+                .Where(dm => dm.UserId == userId && dm.CreatedAt.HasValue);
+
+            // Nếu không có bản ghi nào có CreatedAt tồn tại, trả về null.
+            if (!await userDailyMealsQuery.AnyAsync())
+            {
+                return null;
+            }
+
+        
+            int daysSinceMonday = ((int)date.DayOfWeek + 6) % 7;
+            DateTime startOfWeek = date.Date.AddDays(-daysSinceMonday); // Ngày thứ Hai của tuần
+            DateTime endOfWeek = startOfWeek.AddDays(6);                  // Ngày Chủ nhật của tuần
+
+            // --- LỌC DỮ LIỆU THEO TUẦN ---
+            var dailyMealsInWeek = await userDailyMealsQuery
+                .Where(dm => dm.CreatedAt.Value.Date >= startOfWeek && dm.CreatedAt.Value.Date <= endOfWeek)
+                .ToListAsync();
+
+            // Nếu không có bản ghi nào trong khoảng tuần, trả về null.
+            if (dailyMealsInWeek == null || dailyMealsInWeek.Count == 0)
+            {
+                return null;
+            }
+
+            return dailyMealsInWeek;
+        }
+
+
+
+
 
         public async Task<int> SaveChangeAsync()
         {

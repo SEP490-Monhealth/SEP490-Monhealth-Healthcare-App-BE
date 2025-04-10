@@ -47,7 +47,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Meal>> GetMealsByDailyMealIdAsync(Guid dailyMealId)
         {
-           return await _context.Meals.Where(m => m.DailyMealId == dailyMealId).ToListAsync();
+            return await _context.Meals.Where(m => m.DailyMealId == dailyMealId).ToListAsync();
         }
 
         public async Task<List<MealType>> GetAllMealTypesAsync()

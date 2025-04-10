@@ -88,38 +88,6 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
 
                         DateTime today = DateTime.Now.Date;
 
-                        // Xử lý metric cập nhật (nếu có)
-                        // var metric = await metricRepository.GetByUserIdAsync(user.Id);
-                        // if (metric != null)
-                        // {
-                        //     if (!_lastProcessedMetricUpdate.TryGetValue(user.Id, out DateTime lastProcessed) || metric.UpdatedAt > lastProcessed)
-                        //     {
-                        //         _lastProcessedMetricUpdate[user.Id] = (DateTime)metric.UpdatedAt;
-                        //         _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] User {user.Id} metric last updated at {metric.UpdatedAt:yyyy-MM-dd HH:mm:ss}");
-
-                        //         // Xóa DailyMeal (và các Meal của chúng) từ hôm nay trở đi
-                        //         var futureDailyMeals = await dailyMealRepository.GetDailyMealsAfterDate(user.Id, today);
-                        //         foreach (var dailyMeal in futureDailyMeals)
-                        //         {
-                        //             var meals = dailyMeal.Meals;
-                        //             if (meals == null || !meals.Any())
-                        //             {
-                        //                 meals = (await mealRepository.GetMealsByDailyMealIdAsync(dailyMeal.DailyMealId)).ToList();
-                        //             }
-                        //             if (meals.Any())
-                        //             {
-                        //                 foreach (var meal in meals)
-                        //                 {
-                        //                     _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Removing meal of type {meal.MealType} for user {user.Id} in DailyMeal with target date {dailyMeal.CreatedAt:yyyy-MM-dd} due to metric update.");
-                        //                     mealRepository.Remove(meal);
-                        //                 }
-                        //             }
-                        //             _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Removing DailyMeal for user {user.Id} on target date {dailyMeal.CreatedAt:yyyy-MM-dd} due to metric update.");
-                        //             dailyMealRepository.Remove(dailyMeal);
-                        //         }
-                        //         await dailyMealRepository.SaveChangeAsync();
-                        //     }
-                        // }
 
                         // Tạo DailyMeal cho 7 ngày liên tiếp (bao gồm hôm nay)
                         for (int i = 0; i < 7; i++)

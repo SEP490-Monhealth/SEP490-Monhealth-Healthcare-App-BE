@@ -87,6 +87,32 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+
+        // [HttpGet]
+        // [Route("user/{userId:Guid}/report")]
+        // [SwaggerOperation(Summary = "Báo cáo Calories theo người dùng")]
+        // public async Task<ActionResult<ResultModel>> GetReportMealByUser(Guid userId , DateTime date)
+        // {
+        //     var meal = await _mediator.
+        //     Send(new GetReportMealByUserQuery() { UserId = userId , Date = date});
+
+        //     if (meal == null)
+        //     {
+        //         return NotFound(new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "Bữa ăn không tồn tại",
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Data = null
+        //         });
+        //     }
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 200,
+        //         Data = meal
+        //     });
+        // }
         [HttpPost]
         [SwaggerOperation(Summary = "Tạo bữa ăn")]
         public async Task<ActionResult<ResultModel>> AddMeal([FromBody] CreateMealDTO request)
