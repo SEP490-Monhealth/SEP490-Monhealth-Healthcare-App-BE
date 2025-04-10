@@ -7,7 +7,6 @@ namespace Monhealth.Application.Features.DailyActivity.Queries.GetDailyActivityB
     public class GetDailyActivityByUserIdDTO : TimeEntity
     {
         public Guid DailyActivityId { get; set; }
-        [JsonPropertyName("goal")]
         public GoalType GoalType { get; set; }
         public float TotalCaloriesIntake { get; set; }
         public float TotalCaloriesBurned { get; set; }

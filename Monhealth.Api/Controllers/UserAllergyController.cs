@@ -67,7 +67,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo Dị ứng người dùng thành công",
+                    Message = "Tạo dị ứng người dùng thành công",
                     Status = 201,
                 });
             }

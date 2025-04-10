@@ -35,15 +35,28 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public async Task<Schedule> GetScheduleAsync(Guid consultantId, ScheduleType scheduleType, RecurringDay? recurringDay, DateOnly? specificDate)
+        public async Task<Schedule> GetScheduleAsync(
+                 Guid consultantId,
+                 ScheduleType scheduleType,
+                 RecurringDay? recurringDay,
+                 DateOnly? specificDate)
         {
-            return await _context.Schedules.Include(s => s.ScheduleTimeSlots).ThenInclude(st => st.TimeSlot)
-                    .FirstOrDefaultAsync(s => (s.ConsultantId == consultantId
-                    && s.ScheduleType == scheduleType
-                    && s.RecurringDay == recurringDay)
-                    || (s.SpecificDate == specificDate && s.ConsultantId == consultantId)
-                    );
+            IQueryable<Schedule> query = _context.Schedules
+                .Include(s => s.ScheduleTimeSlots)
+                .ThenInclude(st => st.TimeSlot)
+                .Where(s => s.ConsultantId == consultantId && s.ScheduleType == scheduleType);
 
+            if (recurringDay.HasValue)
+            {
+                query = query.Where(s => s.RecurringDay == recurringDay);
+            }
+
+            if (specificDate.HasValue)
+            {
+                query = query.Where(s => s.SpecificDate == specificDate);
+            }
+
+            return await query.FirstOrDefaultAsync();
         }
 
         public async Task<Schedule> GetScheduleByIdAsync(Guid ScheduleId)
@@ -61,7 +74,7 @@ namespace Monhealth.Identity.Repositories
                 var adjustedDayOfWeek = (targetDayOfWeek + 6) % 7; // This shifts Sunday to 6, Monday to 0, etc. to match with enum Recurring
                 query = query.Where(s => s.RecurringDay != null ? (int)s.RecurringDay == adjustedDayOfWeek : s.SpecificDate == Date);
             }
-            if(scheduleType.HasValue)
+            if (scheduleType.HasValue)
             {
                 query = query.Where(t => t.ScheduleType == scheduleType);
             }

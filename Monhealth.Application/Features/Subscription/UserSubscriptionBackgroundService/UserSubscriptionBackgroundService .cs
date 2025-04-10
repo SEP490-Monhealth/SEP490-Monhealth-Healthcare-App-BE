@@ -43,7 +43,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     var userRoleRepository = scope.ServiceProvider.GetRequiredService<IUserRoleRepository>();
                     var metricRepository = scope.ServiceProvider.GetRequiredService<IMetricRepository>();
 
-                    _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] 🔄 Running background task to check subscriptions...");
+                    // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] 🔄 Running background task to check subscriptions...");
 
                     var userSubscriptions = await userSubscriptionRepository.GetAllAsync();
 
@@ -96,11 +96,11 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                             var existingDailyMeal = await dailyMealRepository.GetDaiLyMealByUser(user.Id, targetDate);
                             if (existingDailyMeal != null)
                             {
-                                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal for user {user.Id} on {targetDate:yyyy-MM-dd} already exists. Skipping creation.");
+                                // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal for user {user.Id} on {targetDate:yyyy-MM-dd} already exists. Skipping creation.");
                                 continue;
                             }
 
-                            _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] ✅ Generating daily meal for User {user.Id} on {targetDate:yyyy-MM-dd}");
+                            // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] ✅ Generating daily meal for User {user.Id} on {targetDate:yyyy-MM-dd}");
                             await RecommendMealsForUserForDate(user, targetDate, dailyMealRepository, mealRepository, mealFoodRepository, foodRepository, portionRepository);
                         }
 
@@ -112,7 +112,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     _logger.LogError($"[{DateTime.Now:HH:mm:ss}] ❌ Error in background service: {ex.Message}");
                 }
 
-                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Waiting for next execution in {_interval.TotalSeconds} seconds.");
+                // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Waiting for next execution in {_interval.TotalSeconds} seconds.");
                 await Task.Delay(_interval, stoppingToken);
             }
         }
@@ -132,7 +132,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             var existingDailyMeal = await dailyMealRepository.GetDaiLyMealByUser(user.Id, targetDate);
             if (existingDailyMeal != null)
             {
-                _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal for user {user.Id} on {targetDate:yyyy-MM-dd} already exists. Skipping creation.");
+                // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal for user {user.Id} on {targetDate:yyyy-MM-dd} already exists. Skipping creation.");
                 return;
             }
 
@@ -168,7 +168,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             dailyMealRepository.Add(dailyMeal);
             await dailyMealRepository.SaveChangeAsync();
 
-            _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal created for user {user.Id} on {targetDate:yyyy-MM-dd}.");
+            // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal created for user {user.Id} on {targetDate:yyyy-MM-dd}.");
         }
 
         /// <summary>
