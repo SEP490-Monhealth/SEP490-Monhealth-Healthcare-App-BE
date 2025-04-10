@@ -57,6 +57,7 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetAll
                         .OrderBy(st => st.TimeSlot.StartTime)
                         .Select(st => new TimeSlotDto
                         {
+                            TimeSlotId = st.TimeSlotId ?? Guid.Empty,
                             StartTime = st.TimeSlot.StartTime,
                             EndTime = st.TimeSlot.EndTime,
                             Status = bookedTimeSlots.Contains(st.TimeSlot.StartTime)
