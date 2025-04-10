@@ -12,6 +12,34 @@ namespace Monhealth.Identity.Repositories
         public UserRepository(MonhealthDbcontext context) : base(context)
         {
         }
+        public async Task<List<AppUser>> GetAllMemberBySixMonths()
+        {
+            // Lấy mã của role "Member" (kiểu Guid)
+            var memberRoleId = await _context.Roles
+                .Where(r => r.Name == "Member")
+                .Select(r => r.Id)
+                .FirstOrDefaultAsync();
+
+            // Nếu không tìm thấy role "Member", trả về danh sách rỗng
+            if (memberRoleId == default)
+            {
+                return new List<AppUser>();
+            }
+
+        
+            DateTime earliestMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-5);
+
+        
+            var users = await _context.Users
+                .Where(u => u.CreatedAt.HasValue &&
+                            u.CreatedAt.Value >= earliestMonth &&
+                            _context.UserRoles.Any(ur => ur.RoleId == memberRoleId))
+                .ToListAsync();
+
+            return users;
+        }
+
+
 
         public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status)
         {
