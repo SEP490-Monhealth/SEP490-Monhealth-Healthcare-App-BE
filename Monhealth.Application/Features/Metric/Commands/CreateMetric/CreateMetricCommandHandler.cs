@@ -2,8 +2,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
-using Monhealth.Application.ServiceForRecommend;
-using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 
@@ -24,6 +22,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         private readonly IFoodPortionRepository _foodPortionRepository;
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IFoodRepository _foodRepository;
+        private readonly IUserSubscriptionRepository userSubscriptionRepository;
 
         public CreateMetricCommandHandler(
             IMetricRepository metricRepository,
@@ -38,7 +37,9 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             IPortionRepository portionRepository,
             IFoodPortionRepository foodPortionRepository,
             IDailyMealRepository dailyMealRepository,
-            IFoodRepository foodRepository)
+            IFoodRepository foodRepository,
+            IUserSubscriptionRepository userSubscriptionRepository
+            )
         {
             _metricCalculator = metricCalculator;
             _metricRepository = metricRepository;
@@ -53,6 +54,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             _foodPortionRepository = foodPortionRepository;
             _dailyMealRepository = dailyMealRepository;
             _foodRepository = foodRepository;
+            this.userSubscriptionRepository = userSubscriptionRepository;
         }
 
         public async Task<Unit> Handle(CreateMetricCommand request, CancellationToken cancellationToken)
@@ -103,22 +105,21 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             }
             #endregion
 
-            // **Tạo Meal cho 3 ngày**
-            // #region Generate Meals for 3 Days
-            // for (int i = 0; i < 3; i++)
-            // {
-            //     var currentDate = DateTime.Now.Date.AddDays(i);
-
-            //     var goalType = await _goalRepository.GetGoalTypeByUserIdAsync(userId.Value) ?? GoalType.Maintenance;
-            //     var activityLevel = await _goalRepository.GetActivityLevelByUserIdAsync(userId.Value);
-
-            //     var mealPlan = await _foodRandomService.GetMealPlanWithAllocationAsync(userId.Value, goalType, activityLevel);
-
-            //     await CreateMealAsync(MealType.Breakfast, mealPlan.Breakfast, newGoal, userId.Value, currentDate);
-            //     await CreateMealAsync(MealType.Lunch, mealPlan.Lunch, newGoal, userId.Value, currentDate);
-            //     await CreateMealAsync(MealType.Dinner, mealPlan.Dinner, newGoal, userId.Value, currentDate);
-            //     await CreateMealAsync(MealType.Snack, mealPlan.Snack, newGoal, userId.Value, currentDate);
-            // }
+            //create UserScription with basic subscription
+            var basicSubscriptionId = Guid.Parse("9dba3bb9-d153-4490-b39e-7c889cf01759");
+            var now = DateTime.Now;
+            var newUserSubscription = new Domain.UserSubscription
+            {
+                UserId = request.CreateMetricDTO.UserId,
+                SubscriptionId = basicSubscriptionId,
+                StartedAt = now,
+                ExpiresAt = now.AddYears(100),
+                RemainingBookings = 0,
+                Status = Core.Enum.UserSubscriptionStatus.Active,
+                CreatedAt = now,
+                UpdatedAt = now,
+            };
+            userSubscriptionRepository.Add(newUserSubscription);
 
             // #endregion
             await _reminderRepository.SaveChangeAsync();
@@ -174,192 +175,192 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //     };
         // }
 
-    //     private async Task AddDishToMealAsync(DishDTO dish, Guid mealId, Goal goal, MealType mealType)
-    //     {
-    //         Console.WriteLine($"🔍 Kiểm tra dish: {dish?.Food?.FoodId}");
+        //     private async Task AddDishToMealAsync(DishDTO dish, Guid mealId, Goal goal, MealType mealType)
+        //     {
+        //         Console.WriteLine($"🔍 Kiểm tra dish: {dish?.Food?.FoodId}");
 
-    //         if (dish == null || dish.Food == null)
-    //         {
-    //             Console.WriteLine("⚠️ Dish hoặc Food bị null! Return...");
-    //             return;
-    //         }
+        //         if (dish == null || dish.Food == null)
+        //         {
+        //             Console.WriteLine("⚠️ Dish hoặc Food bị null! Return...");
+        //             return;
+        //         }
 
-    //         var food = await _foodRepository.GetFoodByIdAsync(dish.Food.FoodId);
-    //         if (food == null || food.Nutrition == null)
-    //         {
-    //             Console.WriteLine($"⚠️ Không tìm thấy Food hoặc Nutrition của Food ID: {dish.Food.FoodId}");
-    //             return;
-    //         }
+        //         var food = await _foodRepository.GetFoodByIdAsync(dish.Food.FoodId);
+        //         if (food == null || food.Nutrition == null)
+        //         {
+        //             Console.WriteLine($"⚠️ Không tìm thấy Food hoặc Nutrition của Food ID: {dish.Food.FoodId}");
+        //             return;
+        //         }
 
-    //         var mealRatio = mealType switch
-    //         {
-    //             MealType.Breakfast => 0.3f,
-    //             MealType.Lunch => 0.35f,
-    //             MealType.Dinner => 0.25f,
-    //             MealType.Snack => 0.1f,
-    //             _ => throw new Exception($"MealType không hợp lệ: {mealType}")
-    //         };
+        //         var mealRatio = mealType switch
+        //         {
+        //             MealType.Breakfast => 0.3f,
+        //             MealType.Lunch => 0.35f,
+        //             MealType.Dinner => 0.25f,
+        //             MealType.Snack => 0.1f,
+        //             _ => throw new Exception($"MealType không hợp lệ: {mealType}")
+        //         };
 
-    //         float mealCaloriesTarget = goal.CaloriesGoal * mealRatio;
-    //         float portionWeight = mealCaloriesTarget / Math.Max(food.Nutrition.Calories, 1) * 100;
-    //         portionWeight = Math.Clamp(portionWeight, 30, 500);
+        //         float mealCaloriesTarget = goal.CaloriesGoal * mealRatio;
+        //         float portionWeight = mealCaloriesTarget / Math.Max(food.Nutrition.Calories, 1) * 100;
+        //         portionWeight = Math.Clamp(portionWeight, 30, 500);
 
-    //         Console.WriteLine($"📌 Meal ID: {mealId}, Food ID: {dish.Food.FoodId}, Portion Weight: {portionWeight}");
+        //         Console.WriteLine($"📌 Meal ID: {mealId}, Food ID: {dish.Food.FoodId}, Portion Weight: {portionWeight}");
 
-    //         var portion = await _portionRepository.GetPortionAsync("g", "default", portionWeight);
-    //         if (portion == null)
-    //         {
-    //             portion = new Portion
-    //             {
-    //                 PortionId = Guid.NewGuid(),
-    //                 MeasurementUnit = "g",
-    //                 PortionSize = "default",
-    //                 PortionWeight = portionWeight,
-    //                 CreatedAt = DateTime.Now,
-    //                 UpdatedAt = DateTime.Now
-    //             };
-    //             _portionRepository.Add(portion);
-    //             await _portionRepository.SaveChangesAsync();
-    //             Console.WriteLine($"✅ Created new Portion with ID: {portion.PortionId}");
-    //         }
+        //         var portion = await _portionRepository.GetPortionAsync("g", "default", portionWeight);
+        //         if (portion == null)
+        //         {
+        //             portion = new Portion
+        //             {
+        //                 PortionId = Guid.NewGuid(),
+        //                 MeasurementUnit = "g",
+        //                 PortionSize = "default",
+        //                 PortionWeight = portionWeight,
+        //                 CreatedAt = DateTime.Now,
+        //                 UpdatedAt = DateTime.Now
+        //             };
+        //             _portionRepository.Add(portion);
+        //             await _portionRepository.SaveChangesAsync();
+        //             Console.WriteLine($"✅ Created new Portion with ID: {portion.PortionId}");
+        //         }
 
-    //         // 🔍 Kiểm tra xem MealFood đã tồn tại chưa
-    //         var existingMealFood = await _mealFoodRepository.GetByMealIdAndFoodId(mealId, dish.Food.FoodId);
-    //         if (existingMealFood != null)
-    //         {
-    //             Console.WriteLine($"🔍 MealFood đã tồn tại! MealFoodId: {existingMealFood.MealFoodId}");
-    //             existingMealFood.Quantity += 1;
-    //             existingMealFood.UpdatedAt = DateTime.Now;
-    //             _mealFoodRepository.Update(existingMealFood);
-    //         }
-    //         else
-    //         {
-    //             Console.WriteLine($"🆕 Tạo mới MealFood cho Meal ID: {mealId}");
+        //         // 🔍 Kiểm tra xem MealFood đã tồn tại chưa
+        //         var existingMealFood = await _mealFoodRepository.GetByMealIdAndFoodId(mealId, dish.Food.FoodId);
+        //         if (existingMealFood != null)
+        //         {
+        //             Console.WriteLine($"🔍 MealFood đã tồn tại! MealFoodId: {existingMealFood.MealFoodId}");
+        //             existingMealFood.Quantity += 1;
+        //             existingMealFood.UpdatedAt = DateTime.Now;
+        //             _mealFoodRepository.Update(existingMealFood);
+        //         }
+        //         else
+        //         {
+        //             Console.WriteLine($"🆕 Tạo mới MealFood cho Meal ID: {mealId}");
 
-    //             var mealFood = new Monhealth.Domain.MealFood
-    //             {
-    //                 MealFoodId = Guid.NewGuid(),
-    //                 MealId = mealId,
-    //                 FoodId = dish.Food.FoodId,
-    //                 PortionId = portion.PortionId,
-    //                 Quantity = 1,
-    //                 CreatedAt = DateTime.Now,
-    //                 UpdatedAt = DateTime.Now,
-    //                 IsRecommended = true,
-    //             };
+        //             var mealFood = new Monhealth.Domain.MealFood
+        //             {
+        //                 MealFoodId = Guid.NewGuid(),
+        //                 MealId = mealId,
+        //                 FoodId = dish.Food.FoodId,
+        //                 PortionId = portion.PortionId,
+        //                 Quantity = 1,
+        //                 CreatedAt = DateTime.Now,
+        //                 UpdatedAt = DateTime.Now,
+        //                 IsRecommended = true,
+        //             };
 
-    //             _mealFoodRepository.Add(mealFood);
-    //             Console.WriteLine($"✅ MealFood added! MealFoodId: {mealFood.MealFoodId}");
-    //         }
+        //             _mealFoodRepository.Add(mealFood);
+        //             Console.WriteLine($"✅ MealFood added! MealFoodId: {mealFood.MealFoodId}");
+        //         }
 
-    //         // 🔥 **Quan trọng: Lưu thay đổi vào DB**
-    //         await _mealFoodRepository.SaveChangeAsync();
-    //         Console.WriteLine("✅ MealFood saved successfully!");
-    //     }
+        //         // 🔥 **Quan trọng: Lưu thay đổi vào DB**
+        //         await _mealFoodRepository.SaveChangeAsync();
+        //         Console.WriteLine("✅ MealFood saved successfully!");
+        //     }
 
 
 
-    //     private async Task AddMealToDailyMeal(Guid userId, DateTime date)
-    //     {
-    //         var mealsForDay = await _mealRepository.GetMealByUserAndDate(date.Date, userId);
-    //         if (mealsForDay == null || !mealsForDay.Any())
-    //         {
-    //             Console.WriteLine($"⚠️ Không có Meal nào cho User {userId} vào ngày {date}");
-    //             return;
-    //         }
-    //         Console.WriteLine($"✅ Tìm thấy {mealsForDay.Count()} Meal(s) cho User {userId} vào ngày {date}");
+        //     private async Task AddMealToDailyMeal(Guid userId, DateTime date)
+        //     {
+        //         var mealsForDay = await _mealRepository.GetMealByUserAndDate(date.Date, userId);
+        //         if (mealsForDay == null || !mealsForDay.Any())
+        //         {
+        //             Console.WriteLine($"⚠️ Không có Meal nào cho User {userId} vào ngày {date}");
+        //             return;
+        //         }
+        //         Console.WriteLine($"✅ Tìm thấy {mealsForDay.Count()} Meal(s) cho User {userId} vào ngày {date}");
 
-    //         var goal = await _goalRepository.GetByUserIdAsync(userId);
-    //         if (goal == null)
-    //         {
-    //             throw new Exception($"❌ Không tìm thấy Goal nào liên kết với UserId: {userId}");
-    //         }
+        //         var goal = await _goalRepository.GetByUserIdAsync(userId);
+        //         if (goal == null)
+        //         {
+        //             throw new Exception($"❌ Không tìm thấy Goal nào liên kết với UserId: {userId}");
+        //         }
 
-    //         // 🔹 Kiểm tra nếu `DailyMeal` đã tồn tại
-    //         var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(date.Date, userId);
-    //         if (dailyMeal == null)
-    //         {
-    //             dailyMeal = new Monhealth.Domain.DailyMeal
-    //             {
-    //                 GoalId = goal.GoalId,
-    //                 UserId = userId,
-    //                 CreatedAt = date,
-    //                 UpdatedAt = DateTime.Now,
-    //                 TotalCalories = 0,
-    //                 TotalProteins = 0,
-    //                 TotalCarbs = 0,
-    //                 TotalFats = 0,
-    //                 TotalFibers = 0,
-    //                 TotalSugars = 0
-    //             };
+        //         // 🔹 Kiểm tra nếu `DailyMeal` đã tồn tại
+        //         var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(date.Date, userId);
+        //         if (dailyMeal == null)
+        //         {
+        //             dailyMeal = new Monhealth.Domain.DailyMeal
+        //             {
+        //                 GoalId = goal.GoalId,
+        //                 UserId = userId,
+        //                 CreatedAt = date,
+        //                 UpdatedAt = DateTime.Now,
+        //                 TotalCalories = 0,
+        //                 TotalProteins = 0,
+        //                 TotalCarbs = 0,
+        //                 TotalFats = 0,
+        //                 TotalFibers = 0,
+        //                 TotalSugars = 0
+        //             };
 
-    //             _dailyMealRepository.Add(dailyMeal);
-    //             await _dailyMealRepository.SaveChangeAsync(); // 🔹 Lưu vào DB để có `DailyMealId`
-    //             Console.WriteLine($"✅ Tạo mới DailyMeal với ID: {dailyMeal.DailyMealId}");
-    //         }
-    //         else
-    //         {
-    //             Console.WriteLine($"🔍 DailyMeal đã tồn tại với ID: {dailyMeal.DailyMealId}");
-    //         }
+        //             _dailyMealRepository.Add(dailyMeal);
+        //             await _dailyMealRepository.SaveChangeAsync(); // 🔹 Lưu vào DB để có `DailyMealId`
+        //             Console.WriteLine($"✅ Tạo mới DailyMeal với ID: {dailyMeal.DailyMealId}");
+        //         }
+        //         else
+        //         {
+        //             Console.WriteLine($"🔍 DailyMeal đã tồn tại với ID: {dailyMeal.DailyMealId}");
+        //         }
 
-    //         // 🔹 Reset lại giá trị dinh dưỡng trước khi tính toán
-    //         dailyMeal.TotalCalories = 0;
-    //         dailyMeal.TotalProteins = 0;
-    //         dailyMeal.TotalCarbs = 0;
-    //         dailyMeal.TotalFats = 0;
-    //         dailyMeal.TotalFibers = 0;
-    //         dailyMeal.TotalSugars = 0;
+        //         // 🔹 Reset lại giá trị dinh dưỡng trước khi tính toán
+        //         dailyMeal.TotalCalories = 0;
+        //         dailyMeal.TotalProteins = 0;
+        //         dailyMeal.TotalCarbs = 0;
+        //         dailyMeal.TotalFats = 0;
+        //         dailyMeal.TotalFibers = 0;
+        //         dailyMeal.TotalSugars = 0;
 
-    //         foreach (var meal in mealsForDay)
-    //         {
-    //             meal.DailyMealId = dailyMeal.DailyMealId;
-    //             _mealRepository.Update(meal);
+        //         foreach (var meal in mealsForDay)
+        //         {
+        //             meal.DailyMealId = dailyMeal.DailyMealId;
+        //             _mealRepository.Update(meal);
 
-    //             var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
-    //             if (mealFoods == null || !mealFoods.Any())
-    //             {
-    //                 Console.WriteLine($"⚠️ Không có MealFood nào cho Meal {meal.MealId}");
-    //                 continue;
-    //             }
-    //             Console.WriteLine($"✅ Tìm thấy {mealFoods.Count()} MealFood(s) cho Meal {meal.MealId}");
+        //             var mealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
+        //             if (mealFoods == null || !mealFoods.Any())
+        //             {
+        //                 Console.WriteLine($"⚠️ Không có MealFood nào cho Meal {meal.MealId}");
+        //                 continue;
+        //             }
+        //             Console.WriteLine($"✅ Tìm thấy {mealFoods.Count()} MealFood(s) cho Meal {meal.MealId}");
 
-    //             foreach (var mealFood in mealFoods)
-    //             {
-    //                 var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
-    //                 if (portion == null)
-    //                 {
-    //                     Console.WriteLine($"⚠️ Không tìm thấy Portion với PortionId: {mealFood.PortionId}");
-    //                     continue;
-    //                 }
+        //             foreach (var mealFood in mealFoods)
+        //             {
+        //                 var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
+        //                 if (portion == null)
+        //                 {
+        //                     Console.WriteLine($"⚠️ Không tìm thấy Portion với PortionId: {mealFood.PortionId}");
+        //                     continue;
+        //                 }
 
-    //                 var food = await _foodRepository.GetByIdAsync(mealFood.FoodId);
-    //                 if (food == null || food.Nutrition == null)
-    //                 {
-    //                     Console.WriteLine($"⚠️ Không tìm thấy Food hoặc Nutrition với FoodId: {mealFood.FoodId}");
-    //                     continue;
-    //                 }
+        //                 var food = await _foodRepository.GetByIdAsync(mealFood.FoodId);
+        //                 if (food == null || food.Nutrition == null)
+        //                 {
+        //                     Console.WriteLine($"⚠️ Không tìm thấy Food hoặc Nutrition với FoodId: {mealFood.FoodId}");
+        //                     continue;
+        //                 }
 
-    //                 if (mealFood.IsCompleted) // 🔹 Chỉ cập nhật nếu mealFood đã được đánh dấu là hợp lệ
-    //                 {
-    //                     var portionWeight = portion.PortionWeight;
+        //                 if (mealFood.IsCompleted) // 🔹 Chỉ cập nhật nếu mealFood đã được đánh dấu là hợp lệ
+        //                 {
+        //                     var portionWeight = portion.PortionWeight;
 
-    //                     dailyMeal.TotalCalories += (food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
-    //                     dailyMeal.TotalProteins += (food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
-    //                     dailyMeal.TotalCarbs += (food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
-    //                     dailyMeal.TotalFats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
-    //                     dailyMeal.TotalFibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
-    //                     dailyMeal.TotalSugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
-    //                 }
-    //             }
-    //         }
+        //                     dailyMeal.TotalCalories += (food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+        //                     dailyMeal.TotalProteins += (food.Nutrition.Protein / 100) * (mealFood.Quantity * portionWeight);
+        //                     dailyMeal.TotalCarbs += (food.Nutrition.Carbs / 100) * (mealFood.Quantity * portionWeight);
+        //                     dailyMeal.TotalFats += (food.Nutrition.Fat / 100) * (mealFood.Quantity * portionWeight);
+        //                     dailyMeal.TotalFibers += (food.Nutrition.Fiber / 100) * (mealFood.Quantity * portionWeight);
+        //                     dailyMeal.TotalSugars += (food.Nutrition.Sugar / 100) * (mealFood.Quantity * portionWeight);
+        //                 }
+        //             }
+        //         }
 
-    //         dailyMeal.UpdatedAt = DateTime.Now;
+        //         dailyMeal.UpdatedAt = DateTime.Now;
 
-    //         // 🔹 Cập nhật `DailyMeal` vào DB
-    //         _dailyMealRepository.Update(dailyMeal);
-    //         await _dailyMealRepository.SaveChangeAsync();
+        //         // 🔹 Cập nhật `DailyMeal` vào DB
+        //         _dailyMealRepository.Update(dailyMeal);
+        //         await _dailyMealRepository.SaveChangeAsync();
 
-    //         Console.WriteLine($"✅ DailyMeal saved for User {userId} on {date}: {dailyMeal.TotalCalories} calories");
-    //     }
+        //         Console.WriteLine($"✅ DailyMeal saved for User {userId} on {date}: {dailyMeal.TotalCalories} calories");
+        //     }
     }
 }

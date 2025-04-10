@@ -7,7 +7,8 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
 {
     public class UpdateBookingStatusHandler(IBookingRepository bookingRepository,
         IConsultantRepository consultantRepository,
-        IUserSubscriptionRepository userSubscriptionRepository
+        IUserSubscriptionRepository userSubscriptionRepository,
+        ITransactionRepository transactionRepository
         )
         : IRequestHandler<UpdateBookingStatusCommand, bool>
     {
@@ -25,19 +26,16 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
             }
             else if (booking.Status == BookingStatus.Confirmed)
             {
-                //plus amout booking for consultant
-                var consultant = await consultantRepository.GetByIdAsync((Guid)booking.ConsultantId);
-                if (consultant != null)
+                //create transaction 
+                var newTransaction = new Domain.Transaction
                 {
-                    consultant.BookingCount += 1;
-                }
-
-                //subtract amout remaining booking
-                var userSubscription = await userSubscriptionRepository.GetUserSubscriptionActiveOfUser((Guid)booking.UserId);
-                if (userSubscription == null) throw new Exception("Không tìm thấy gói người dùng đã đăng kí");
-
-                userSubscription.RemainingBookings -= 1;
-                userSubscription.UpdatedAt = DateTime.Now;
+                    BookingId = booking.BookingId,
+                    TransactionType = TransactionType.Earning,
+                    Description = "Thực hiện giao dịch booking",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                };
+                transactionRepository.Add(newTransaction);
 
 
                 booking.CompletedAt = DateTime.Now;

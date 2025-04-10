@@ -23,7 +23,7 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByCon
             {
                 throw new Exception("Không tìm thấy ví");
             }
-            var getTransaction = await _transactionRepository.GetTransactionByWalletId(request.Page, request.Limit, wallet.WalletId);
+            var getTransaction = await _transactionRepository.GetTransactionByWalletId(request.Page, request.Limit, wallet.WalletId, request.Status);
             if (getTransaction == null)
             {
                 throw new Exception("Không tìm thấy giao dịch");

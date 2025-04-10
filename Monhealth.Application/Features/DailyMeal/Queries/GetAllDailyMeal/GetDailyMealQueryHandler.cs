@@ -85,6 +85,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetAllDailyMeal
                 {
                     DailyMealId = dailyMeal.DailyMealId,
                     UserId = dailyMeal.UserId,
+                    GoalType = dailyMeal.Goal.GoalType,
                     Nutrition = new NutritionOfDailyMeal
                     {
                         TotalCalories = dailyMeal.TotalCalories,
