@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankByConsultantId
 {
-    public class GetConsultantBankByConsultantIdDTO : BaseEntity
+    public class GetConsultantBankByConsultantIdDTO : TimeEntity
     {
         public Guid ConsultantBankId { get; set; }
         public Guid BankId { get; set; }

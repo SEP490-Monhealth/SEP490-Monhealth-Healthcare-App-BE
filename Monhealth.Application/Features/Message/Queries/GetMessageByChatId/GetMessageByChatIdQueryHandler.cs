@@ -41,8 +41,6 @@ namespace Monhealth.Application.Features.Message.Queries.GetMessageByChatId
             }).ToList();
             return messageDtos;
         }
-
-
     }
 }
 
