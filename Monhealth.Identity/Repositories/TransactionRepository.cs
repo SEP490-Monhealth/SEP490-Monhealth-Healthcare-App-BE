@@ -46,6 +46,18 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<List<Transaction>> GetTransactionByConsultantId(Guid consultantId, DateTime date)
+        {
+            int dayOfweek = (int)date.DayOfWeek;
+            dayOfweek = dayOfweek == 0 ? 7 : dayOfweek;
+
+            var monday = date.Date.AddDays(-dayOfweek + 1);
+            var sunday = monday.AddDays(6).AddDays(1);
+            return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant)
+                .Where(c => c.Wallet.Consultant.ConsultantId == consultantId && c.CreatedAt >= monday && c.CreatedAt < sunday)
+                .ToListAsync();
+        }
+
         public async Task<Transaction> GetTransactionById(Guid transactionId)
         {
             return await _context.Transactions

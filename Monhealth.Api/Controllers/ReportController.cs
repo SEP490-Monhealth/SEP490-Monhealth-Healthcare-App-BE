@@ -1,6 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
+using Monhealth.Application.Features.Report.ReportBookingMonthly;
+using Monhealth.Application.Features.Report.ReportTransaction;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -30,6 +32,38 @@ namespace Monhealth.Api.Controllers
             };
 
             var result = await _mediator.Send(query);
+            return Ok(new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true
+            });
+        }
+        [HttpGet("transaction-weekly/{consultantId}")]
+        public async Task<IActionResult> GetWeeklyTransactionReport(Guid consultantId, DateTime date)
+        {
+            var result = await _mediator.Send(new ReportTransactionWeeklyQuery
+            {
+                ConsultantId = consultantId,
+                Date = date
+            });
+
+            return Ok(new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true
+            });
+        }
+        [HttpGet("booking-monthly/{consultantId}")]
+        public async Task<IActionResult> GetMonthlyBookingReport(Guid consultantId, DateTime date)
+        {
+            var result = await _mediator.Send(new ReportBookingMonthlyQuery
+            {
+                ConsultantId = consultantId,
+                Date = date
+            });
+
             return Ok(new ResultModel
             {
                 Data = result,

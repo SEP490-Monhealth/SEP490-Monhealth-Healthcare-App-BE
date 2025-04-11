@@ -22,6 +22,7 @@ namespace Monhealth.Identity.Repositories
             return await _context.Messages.AsNoTracking()
                 .AsSingleQuery()
                 .Where(m => m.ChatId == chatId)
+                .OrderByDescending(m => m.CreatedAt)
                 .ToListAsync();
         }
 
