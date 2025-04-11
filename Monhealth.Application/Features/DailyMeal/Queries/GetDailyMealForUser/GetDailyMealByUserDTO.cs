@@ -30,6 +30,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
     public class MealForDailyMeal2
     {
         public Guid mealId { get; set; }
+        public DateTime mealDate { get; set; }
         [JsonPropertyName("type")]
         public MealType MealType { get; set; }
         public int Foods { get; set; }
