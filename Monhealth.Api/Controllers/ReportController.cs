@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Report.ReportBookingMonthly;
 using Monhealth.Application.Features.Report.ReportTransaction;
+using Monhealth.Application.Features.Report.ReportTransactionMonthly;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
@@ -58,6 +59,22 @@ namespace Monhealth.Api.Controllers
         public async Task<IActionResult> GetMonthlyBookingReport(Guid consultantId, DateTime date)
         {
             var result = await _mediator.Send(new ReportBookingMonthlyQuery
+            {
+                ConsultantId = consultantId,
+                Date = date
+            });
+
+            return Ok(new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true
+            });
+        }
+        [HttpGet("transaction-monthly/{consultantId}")]
+        public async Task<IActionResult> GetMonthlyTransactionReport(Guid consultantId, DateTime date)
+        {
+            var result = await _mediator.Send(new ReportTransactionMonthlyQuery
             {
                 ConsultantId = consultantId,
                 Date = date
