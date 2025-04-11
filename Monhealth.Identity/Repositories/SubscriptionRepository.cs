@@ -53,6 +53,14 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<Subscription?> GetBasicSubscription()
+        {
+            return await _context.Subscriptions
+          .FirstOrDefaultAsync(s => s.SubscriptionName.ToLower() == "Gói Cơ Bản");
+        }
+
+ 
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

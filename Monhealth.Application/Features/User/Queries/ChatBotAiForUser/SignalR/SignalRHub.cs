@@ -1,4 +1,9 @@
+using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Logging;
+using Monhealth.Application.Contracts.Persistence; // Interface IMetricRepository
+using Monhealth.Domain; // Model Metric
 
 namespace Monhealth.Application
 {

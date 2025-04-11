@@ -19,7 +19,7 @@ namespace Monhealth.Application
         private readonly HttpClient _httpClient;
         private readonly string _geminiApiKey;
         private readonly ILogger<ChatBotAiListQueryHandler> _logger;
-        private readonly IHubContext<SignalRHub> _hubContext; // Inject IHubContext
+        private readonly IHubContext<SignalRHub> _hubContext;
 
         public ChatBotAiListQueryHandler(
             IMetricRepository metricRepository,
@@ -45,28 +45,35 @@ namespace Monhealth.Application
 
         public async Task<(ChatBotAi, HealthPlanResponseDto)> Handle(ChatBotAiListQuery request, CancellationToken cancellationToken)
         {
+            // Lấy thông tin người dùng
             var user = await _userRepository.GetByIdAsync(request.UserId);
-            if (user == null) throw new Exception("User not found.");
+            if (user == null)
+                throw new Exception("User not found.");
 
+            // Lấy thông tin metric của người dùng
             var metrics = await _metricRepository.GetByUserIdAsync(request.UserId);
-            if (metrics == null) throw new Exception("Metrics not found for the user.");
+            if (metrics == null)
+                throw new Exception("Metrics not found for the user.");
 
+            // Lấy danh sách food (loại bỏ những đối tượng null nếu có)
             var foods = await _foodRepository.GetFoodByUserHasNoAllergiesAsync(request.UserId) ?? new List<Food>();
             foods = foods.Where(f => f != null).ToList();
 
+            // Lấy danh sách workout và goal
             var workouts = await _workoutRepository.GetAllAsync() ?? new List<Workout>();
             var goal = await _goalRepository.GetByUserIdAsync(request.UserId);
 
-            // Mapping workout: lấy cả workoutId và workoutName từ domain object Workout
+            // Mapping danh sách workout (chỉ lấy workoutId và workoutName)
             var workoutDTOList = workouts
                 .Where(w => !string.IsNullOrEmpty(w.WorkoutName))
                 .Select(w => new WorkoutDTOItem
                 {
-                    WorkoutId = w.WorkoutId,       
+                    WorkoutId = w.WorkoutId,
                     WorkoutName = w.WorkoutName
                 })
                 .ToList();
 
+            // Mapping danh sách food theo nhóm dinh dưỡng
             var foodDTOs = foods
                 .Where(f => f != null && f.Nutrition != null)
                 .GroupBy(f => new
@@ -87,6 +94,7 @@ namespace Monhealth.Application
                 })
                 .ToList();
 
+            // Xây dựng đối tượng chatBotAi (dữ liệu đầu vào cho Gemini)
             var chatBotAi = new ChatBotAi
             {
                 UserName = user.UserName ?? string.Empty,
@@ -115,21 +123,43 @@ namespace Monhealth.Application
                 Foods = foodDTOs,
                 Workouts = new WorkoutDTO12
                 {
-                    Workouts = workoutDTOList   // Gán danh sách chứa cả workoutId và workoutName
+                    Workouts = workoutDTOList
                 }
             };
 
-            // Gọi API Gemini với dữ liệu và truy vấn
+            // Nếu không có truy vấn từ client thì trả luôn thông tin Metric qua SignalR mà không cần gọi GEMINI API
+            if (string.IsNullOrWhiteSpace(request.Query))
+            {
+                // Gửi thông tin Metric về cho client (bạn có thể dùng Clients.Caller hay Clients.All tùy logic nghiệp vụ)
+                await _hubContext.Clients.All.SendAsync("ReceiveMetric", chatBotAi.Metric);
+
+                // Trả về một HealthPlanResponseDto mặc định (bạn cần tạo Object phù hợp theo cấu trúc dự định)
+                var defaultPlan = new HealthPlanResponseDto
+                {
+                    MealPlan = null,
+                    WorkoutRoutine = null,
+                    health_or_fitness = true,
+                    GeneralAdvice = "Đây là thông tin Metric của bạn.",
+                    SummaryConversation = "Không có kế hoạch chi tiết do không có yêu cầu từ người dùng."
+                };
+
+                return (chatBotAi, defaultPlan);
+            }
+
+            // Nếu có truy vấn, gọi GEMINI API để lấy kế hoạch dựa trên dữ liệu đầu vào
             string aiResultJson = await CallGeminiApi(chatBotAi, request.Query);
 
-            // Deserialize JSON từ Gemini thành DTO
-            var healthPlan = JsonSerializer.Deserialize<HealthPlanResponseDto>(aiResultJson, GetJsonSerializerOptions());
+            // Deserialize phản hồi JSON từ GEMINI API
+            var healthPlan = JsonSerializer.Deserialize<HealthPlanResponseDto>(
+                aiResultJson,
+                GetJsonSerializerOptions()
+            );
 
             if (healthPlan == null)
                 throw new Exception("Không thể phân tích dữ liệu phản hồi từ Gemini API.");
 
-            // Gửi kết quả đến client qua SignalR
-            await _hubContext.Clients.All.SendAsync("ReceiveMessage", aiResultJson); // Gửi tin nhắn tới tất cả client
+            // Gửi phản hồi của GEMINI API đến các client qua SignalR (ví dụ như dùng ReceiveMessage)
+            await _hubContext.Clients.All.SendAsync("ReceiveMessage", aiResultJson);
 
             return (chatBotAi, healthPlan);
         }
@@ -139,7 +169,7 @@ namespace Monhealth.Application
             var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true,
-                PropertyNamingPolicy = null // Giữ nguyên tên key (có thể là tiếng Việt) trong JSON
+                PropertyNamingPolicy = null // Giữ nguyên key JSON (ví dụ: có thể là tiếng Việt)
             };
             options.Converters.Add(new GuidConverter());
             return options;
@@ -149,32 +179,23 @@ namespace Monhealth.Application
         {
             var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={_geminiApiKey}";
 
-            // Step 1: Check if query is health-related
+            // --- Bước 1: Sử dụng prompt2 để kiểm tra xem query có liên quan đến health hay không ---
             string prompt2 = GeminiPromptBuilder.BuildPrompt2(query);
             var checkRequest = new
             {
                 contents = new[]
                 {
-                    new
-                    {
-                        parts = new[]
-                        {
-                            new { text = prompt2 }
-                        }
-                    }
+                    new { parts = new[] { new { text = prompt2 } } }
                 }
             };
 
             var checkJson = JsonSerializer.Serialize(checkRequest);
             var checkContent = new StringContent(checkJson, Encoding.UTF8, "application/json");
-
-            // Gửi dữ liệu với Chunked Transfer Encoding
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, url)
             {
                 Content = checkContent
             };
 
-            // Send the request with HttpCompletionOption.ResponseHeadersRead
             var checkResponse = await _httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead);
             var checkResponseString = await checkResponse.Content.ReadAsStringAsync();
 
@@ -199,7 +220,7 @@ namespace Monhealth.Application
                 if (checkResult == null)
                     throw new Exception("Không thể đọc phản hồi JSON từ Gemini (prompt2).");
 
-                // Nếu không liên quan đến sức khỏe/thể hình → trả luôn kết quả từ prompt2.
+                // Nếu câu hỏi không liên quan đến sức khỏe, trả luôn kết quả từ prompt2
                 if (!checkResult.health_or_fitness)
                 {
                     _logger.LogWarning("⚠️ Câu hỏi không liên quan đến sức khỏe/thể hình, trả luôn kết quả từ prompt2.");
@@ -212,35 +233,28 @@ namespace Monhealth.Application
             }
             catch (Exception ex)
             {
-                throw new Exception($"❌ Lỗi khi parse JSON từ AI (Prompt2): {ex.Message}\n\n== Extracted JSON ==\n{checkJsonContent}");
+                throw new Exception(
+                    $"❌ Lỗi khi parse JSON từ AI (Prompt2): {ex.Message}\n\n== Extracted JSON ==\n{checkJsonContent}"
+                );
             }
 
-            // Step 2: fullPrompt cho việc tạo kế hoạch
+            // --- Bước 2: Xây dựng full prompt để tạo kế hoạch dựa trên dữ liệu người dùng ---
             var fullPrompt = GeminiPromptBuilder.BuildFullPrompt(chatBotAi);
             var requestBody = new
             {
                 contents = new[]
                 {
-                    new
-                    {
-                        parts = new[]
-                        {
-                            new { text = fullPrompt }
-                        }
-                    }
+                    new { parts = new[] { new { text = fullPrompt } } }
                 }
             };
 
             var jsonBody = JsonSerializer.Serialize(requestBody);
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
-
-            // Create HttpRequestMessage
             var requestMessage1 = new HttpRequestMessage(HttpMethod.Post, url)
             {
                 Content = content
             };
 
-            // Use SendAsync with HttpCompletionOption
             var response = await _httpClient.SendAsync(requestMessage1, HttpCompletionOption.ResponseHeadersRead);
             var responseString = await response.Content.ReadAsStringAsync();
 
@@ -257,13 +271,15 @@ namespace Monhealth.Application
                     .GetProperty("text")
                     .GetString();
 
-                // ✅ Chỉ lấy JSON trong markdown block và return dưới dạng string
+                // Chỉ lấy JSON trong markdown block và trả về string
                 var cleanedJson = ExtractJsonFromMarkdown(rawText!);
                 return cleanedJson;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Lỗi khi xử lý phản hồi Gemini (Prompt chính): {ex.Message}\nRaw content: {responseString}");
+                throw new Exception(
+                    $"Lỗi khi xử lý phản hồi Gemini (Prompt chính): {ex.Message}\nRaw content: {responseString}"
+                );
             }
         }
 
@@ -281,7 +297,7 @@ namespace Monhealth.Application
                     return jsonBlock.Trim();
                 }
 
-                // Fallback: nếu không tìm thấy markdown block, tìm dấu { đến }
+                // Fallback: Nếu không có Markdown block, tìm dấu '{' và '}'
                 start = text.IndexOf('{');
                 end = text.LastIndexOf('}');
                 if (start >= 0 && end > start)

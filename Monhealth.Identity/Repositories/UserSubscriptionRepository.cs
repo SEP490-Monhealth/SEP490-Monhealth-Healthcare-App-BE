@@ -98,5 +98,12 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync();
         }
+
+        public Task<List<UserSubscription>> GetUserSubscriptionsByUserIdAsync(Guid userId)
+        {
+            return _context.UserSubscriptions
+                .Include(s => s.Subscription)
+                .Where(us => us.UserId == userId).ToListAsync();
+        }
     }
 }

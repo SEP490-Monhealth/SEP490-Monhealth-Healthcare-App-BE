@@ -74,16 +74,12 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader(); // Cho phép bất kỳ header nào
     });
 });
-
-// Thêm các dịch vụ cần thiết
 builder.Services.AddScoped<GoalService>();
 
-// Cấu hình thêm HTTP Client
 builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
-// Cấu hình SignalR Hub và các endpoint
 app.UseRouting(); // Thêm UseRouting
 
 

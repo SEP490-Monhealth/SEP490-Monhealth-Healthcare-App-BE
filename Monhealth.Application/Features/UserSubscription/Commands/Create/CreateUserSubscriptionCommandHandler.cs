@@ -13,7 +13,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
     {
         private readonly IUserSubscriptionRepository _userSubscriptionRepository;
         private readonly ISubscriptionRepository _subscriptionRepository;
-
         private readonly IUserRepository _userRepository;
         private readonly ILogger<CreateUserSubscriptionCommandHandler> _logger;
         private readonly IUserRoleRepository _userRoleRepository;
@@ -22,17 +21,18 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         private readonly IPortionRepository _portionRepository;
         private readonly IFoodRepository _foodRepository;
         private readonly IPaymentRepository paymentRepository;
-        public CreateUserSubscriptionCommandHandler(IUserSubscriptionRepository userSubscriptionRepository,
-        ISubscriptionRepository subscriptionRepository,
-        ILogger<CreateUserSubscriptionCommandHandler> logger,
-        IUserRepository userRepository,
-        IUserRoleRepository userRoleRepository,
-        IDailyMealRepository dailyMealRepository,
-        IMealRepository mealRepository,
-        IPortionRepository portionRepository,
-        IFoodRepository foodRepository,
-        IPaymentRepository _paymentRepository
-        )
+
+        public CreateUserSubscriptionCommandHandler(
+            IUserSubscriptionRepository userSubscriptionRepository,
+            ISubscriptionRepository subscriptionRepository,
+            ILogger<CreateUserSubscriptionCommandHandler> logger,
+            IUserRepository userRepository,
+            IUserRoleRepository userRoleRepository,
+            IDailyMealRepository dailyMealRepository,
+            IMealRepository mealRepository,
+            IPortionRepository portionRepository,
+            IFoodRepository foodRepository,
+            IPaymentRepository _paymentRepository)
         {
             _userSubscriptionRepository = userSubscriptionRepository;
             _subscriptionRepository = subscriptionRepository;
@@ -49,12 +49,34 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         public async Task<Unit> Handle(CreateUserSubscriptionCommand request, CancellationToken cancellationToken)
         {
             var user = request.UserId;
+
             var subscription = await _subscriptionRepository.GetByIdAsync(request.SubscriptionId);
             if (subscription is null)
             {
                 _logger.LogError("Subscription not found.");
                 throw new Exception("Subscription not found.");
             }
+
+            // Giả sử chúng ta định nghĩa GUID cho gói cơ bản (Basic Subscription)
+            var basicSubscriptionId = Guid.Parse("9DBA3BB9-D153-4490-B39E-7C889CF01759");
+
+            // Kiểm tra xem user đã có record đăng ký nào có SubscriptionId là gói căn bản chưa.
+            var existingSubscriptions = await _userSubscriptionRepository.GetUserSubscriptionsByUserIdAsync(user);
+            if (existingSubscriptions != null)
+            {
+                foreach (var userSub in existingSubscriptions)
+                {
+                    if (userSub.SubscriptionId == basicSubscriptionId && 
+                        userSub.Status == UserSubscriptionStatus.Active)
+                    {
+                        userSub.Status = UserSubscriptionStatus.Expired;
+                        userSub.UpdatedAt = DateTime.Now;
+                        _userSubscriptionRepository.Update(userSub);
+                        _logger.LogInformation($"User's basic subscription {userSub.UserSubscriptionId} set to Expired.");
+                    }
+                }
+            }
+
             var durationDays = subscription.DurationDays;
             var today = DateTime.Now;
             var model = new Domain.UserSubscription
@@ -69,7 +91,8 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 RemainingBookings = subscription.BookingAllowance
             };
             _userSubscriptionRepository.Add(model);
-            // Lấy thông tin người dùng
+
+            // Lấy thông tin role "Subscription Member"
             var subscriptionRole = await _userRoleRepository.GetRoleByNameAsync("Subscription Member");
             if (subscriptionRole == null)
             {
@@ -77,27 +100,22 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 return Unit.Value;
             }
             var userRole = await _userRoleRepository.GetUserRoleByUserIdAsync(user);
-
-
             if (userRole != null)
             {
-                // Nếu người dùng đã có role, xóa bản ghi cũ trước khi thêm role mới
+                // Nếu user đã có role, xóa bản ghi cũ trước khi thêm role mới
                 _userRoleRepository.Remove(userRole);
-                //await _userRepository.SaveChangesAsync();
                 _logger.LogInformation($"Removed old role for UserId {user}");
             }
 
-            // Tạo bản ghi mới cho UserRole với RoleId mới
+            // Tạo mới bản ghi UserRole với RoleId lấy từ subscriptionRole
             var newUserRole = new IdentityUserRole<Guid>
             {
                 UserId = user,
                 RoleId = subscriptionRole.Id
             };
-
-            // Thêm vào bảng UserRoles
             _userRoleRepository.Add(newUserRole);
 
-            //cập nhập lại userSubcriptionId cho Payment table
+            // Cập nhật lại UserSubscriptionId cho bảng Payment
             var payment = await paymentRepository.GetByIdAsync(request.PaymentId);
             if (payment == null)
             {
@@ -108,16 +126,14 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
 
             var gettingUser = await _userRepository.GetUserByIdAsync(user);
 
+            int daysToCreate = 7; // Số ngày muốn tạo DailyMeal mới
+            DateTime startDate = DateTime.Now.Date; // Bắt đầu từ hôm nay
 
-            int daysToCreate = 7; // Số ngày bạn muốn tạo DailyMeal mới
-            DateTime startDate = DateTime.Now.Date; // Ngày bắt đầu là hôm nay
-
-            // Với mỗi ngày cần tạo, tìm ngày mà DailyMeal của user chưa tồn tại
             for (int i = 0; i < daysToCreate; i++)
             {
                 DateTime targetDate = startDate.AddDays(i);
 
-                // Nếu DailyMeal của user đã tồn tại cho targetDate thì tăng ngày cho đến khi tìm được ngày chưa có
+                // Nếu DailyMeal của user đã tồn tại cho targetDate thì tăng ngày cho đến khi tìm ngày chưa có
                 while (await _dailyMealRepository.GetDaiLyMealByUser(user, targetDate) != null)
                 {
                     targetDate = targetDate.AddDays(1);
@@ -152,16 +168,14 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 newDailyMeal.Meals.Add(lunch);
                 newDailyMeal.Meals.Add(dinner);
 
-                // Thêm DailyMeal vào repository
                 _dailyMealRepository.Add(newDailyMeal);
 
-                // payment.UpdatedAt = DateTime.Now;
+                // Lưu các thay đổi (DailyMeal, UserSubscription updates, Role updates, ...)
                 await _userRepository.SaveChangesAsync();
             }
             return Unit.Value;
-
-
         }
+
         /// <summary>
         /// Tạo Meal cho từng bữa ăn dựa trên loại bữa, liên kết với DailyMealId và targetDate xác định.
         /// </summary>
@@ -170,16 +184,15 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             // Lấy các thực phẩm ngẫu nhiên theo logic của bạn
             var (proteinFood, carbFood, balanceFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood(new List<Guid>());
 
-            // Lấy mục tiêu gần nhất của người dùng
             var userGoal = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
             if (userGoal == null)
             {
                 throw new Exception("Không tìm thấy mục tiêu cho người dùng.");
             }
+
             var TotalCarbs = userGoal.CarbsGoal;
             var TotalProteins = userGoal.ProteinGoal;
             var TotalFats = userGoal.FatGoal;
-
             var totalCaloriesDaily = TotalCarbs * 4 + TotalProteins * 4 + TotalFats * 9;
             var mealCalories = mealType switch
             {
@@ -248,7 +261,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
 
             var mealFoods = new List<Domain.MealFood>();
 
-            // Nếu balanceFood tồn tại, sử dụng balanceFood và vegetableFood
             if (balanceFood != null)
             {
                 mealFoods.Add(new Domain.MealFood
@@ -274,7 +286,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             }
             else if (proteinFood != null && carbFood != null && vegetableFood != null)
             {
-                // Nếu balanceFood không có, sử dụng proteinFood, carbFood và vegetableFood
                 mealFoods.Add(new Domain.MealFood
                 {
                     FoodId = proteinFood.FoodId,
@@ -311,7 +322,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 _logger.LogError("Không tìm thấy thức ăn phù hợp.");
             }
 
-            // Tạo Meal mới, liên kết với DailyMealId và targetDate (ngày của DailyMeal)
             Domain.Meal meal = new Domain.Meal
             {
                 MealType = mealType,
@@ -319,10 +329,9 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 DailyMealId = dailyMealId,
                 CreatedAt = targetDate,
                 UpdatedAt = DateTime.Now,
-                MealFoods = mealFoods,
+                MealFoods = mealFoods
             };
 
-            // Thêm các Portion tương ứng cho các món ăn
             if (balanceFood != null)
             {
                 var balanceWeight = 100 * balanceCalories / balanceFood.Nutrition.Calories;
@@ -393,7 +402,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 });
             }
 
-            // Thêm Meal vào repository
             _mealRepository.Add(meal);
 
             return meal;
@@ -411,4 +419,3 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         }
     }
 }
-
