@@ -15,6 +15,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
         public string FoodName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
         public string FoodDescription { get; set; } = string.Empty;
+        public string? ReferenceUrl { get; set; }
         public List<string> Allergies { get; set; }
         public bool IsPublic { get; set; }
         public bool Status { get; set; }

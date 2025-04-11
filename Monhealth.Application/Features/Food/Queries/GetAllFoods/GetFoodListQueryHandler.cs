@@ -24,6 +24,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoods
                 FoodName = food.FoodName,
                 MealType = food.MealType, // Chuyển từ chuỗi sang danh sách
                 FoodDescription = food.FoodDescription,
+                ReferenceUrl = food.ReferenceUrl,
                 Allergies = food.FoodAllergies?
                .Where(f => f.Allergy != null)
                .Select(f => f.Allergy.AllergyName).ToList() ?? [],

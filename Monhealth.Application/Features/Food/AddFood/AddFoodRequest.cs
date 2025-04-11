@@ -14,6 +14,7 @@ namespace Monhealth.Application.Features.Food.AddFood
         public string FoodName { get; set; } = string.Empty;
         [JsonPropertyName("description")]
         public string FoodDescription { get; set; } = string.Empty;
+        public string? ReferenceUrl { get; set; } 
         public PortionDTO Portion { get; set; }
         public NutritionDTO Nutrition { get; set; }
     }

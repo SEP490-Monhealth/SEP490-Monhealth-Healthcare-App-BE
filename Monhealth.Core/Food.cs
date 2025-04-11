@@ -15,7 +15,7 @@ namespace Monhealth.Domain
                 public List<MealType> MealType { get; set; } = [];
                 public string FoodName { get; set; } = string.Empty;
                 public string FoodDescription { get; set; } = string.Empty;
-                public string ReferenceUrl  { get; set; } = string.Empty;
+                public string? ReferenceUrl { get; set; } 
                 public int Views { get; set; } = 0;
                 public bool IsPublic { get; set; }
                 public bool Status { get; set; }

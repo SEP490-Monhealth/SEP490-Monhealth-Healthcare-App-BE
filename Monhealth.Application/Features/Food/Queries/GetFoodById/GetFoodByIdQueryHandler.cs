@@ -35,6 +35,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetFoodById
                .Where(f => f.Allergy != null)
                .Select(f => f.Allergy.AllergyName).ToList() ?? [],
                 FoodName = gettingFood.FoodName,
+                ReferenceUrl = gettingFood.ReferenceUrl,
                 IsPublic = gettingFood.IsPublic,
                 Status = gettingFood.Status,
                 CreatedAt = gettingFood.CreatedAt,

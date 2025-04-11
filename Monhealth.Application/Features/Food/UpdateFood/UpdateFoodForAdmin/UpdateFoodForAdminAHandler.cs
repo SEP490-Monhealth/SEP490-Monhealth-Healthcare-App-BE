@@ -45,6 +45,7 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
             await _dishTypeRepository.DeleteDishTypeFoods(food.FoodId);
             food.FoodName = request.RequestData.FoodName;
             food.FoodDescription = request.RequestData.FoodDescription;
+            food.ReferenceUrl = request.RequestData.ReferenceUrl;
             food.UpdatedAt = DateTime.Now;
             food.MealType = request.RequestData.MealType;
             var categoryName = request.RequestData.Category;

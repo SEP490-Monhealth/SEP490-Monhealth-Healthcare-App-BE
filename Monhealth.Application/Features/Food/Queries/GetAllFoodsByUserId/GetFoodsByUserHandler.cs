@@ -29,7 +29,7 @@ namespace Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId
                 FoodDescription = food.FoodDescription,
                 Allergies = food.FoodAllergies?.Select(fa => fa.Allergy.AllergyName).ToList() ?? [],
                 Category = food.CategoryFoods.Select(x => x.Category.CategoryName).FirstOrDefault() ?? null!, // Nếu có quan hệ với Category
-
+                ReferenceUrl = food.ReferenceUrl,
                 DishType = [..
                     food.DishTypeFoods?.Select(dtf => dtf.DishType.DishTypeName).ToList()
                     .Select(n=>(DishTypeEnum)Enum.Parse(typeof(DishTypeEnum),n)) ??[]

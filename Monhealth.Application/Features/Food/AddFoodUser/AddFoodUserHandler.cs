@@ -29,6 +29,7 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
                 UserId = request.UserId,
                 FoodName = request.FoodName,
                 FoodDescription = request.FoodDescription,
+                ReferenceUrl = request.ReferenceUrl,
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,
                 CreatedAt = DateTime.Now,

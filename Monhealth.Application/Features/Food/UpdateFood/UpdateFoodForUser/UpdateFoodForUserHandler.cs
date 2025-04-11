@@ -22,6 +22,7 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForUser
             food.FoodDescription = request.RequestData.FoodDescription;
             food.UpdatedAt = DateTime.Now;
             food.IsPublic = request.RequestData.IsPublic;
+            food.ReferenceUrl = request.RequestData.ReferenceUrl;
             await _foodRepository.SaveChangesAsync();
 
             return true;
