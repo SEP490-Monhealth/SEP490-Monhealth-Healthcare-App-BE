@@ -14,34 +14,24 @@ namespace Monhealth.Identity.Repositories
         }
         public async Task<List<AppUser>> GetAllMemberBySixMonths()
         {
-            // Lấy danh sách RoleId của role "Member" và "Subscription Member"
             var memberRoleIds = await _context.Roles
                 .Where(r => r.Name == "Member" || r.Name == "Subscription Member")
                 .Select(r => r.Id)
                 .ToListAsync();
 
-            // Nếu không tìm thấy role nào trong số đó, trả về danh sách rỗng
             if (!memberRoleIds.Any())
             {
                 return new List<AppUser>();
             }
-
-            // Tính ngày đầu tiên của tháng cách đây 5 tháng (bao gồm tháng hiện tại sẽ là 6 tháng)
             DateTime earliestMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-5);
-
-            // Lấy danh sách user được tạo từ "earliestMonth" trở đi
-            // và có tồn tại trong bảng UserRoles với role nằm trong memberRoleIds
             var users = await _context.Users
-                .Where(u => u.CreatedAt.HasValue &&
-                            u.CreatedAt.Value >= earliestMonth &&
-                            _context.UserRoles.Any(ur => ur.UserId == u.Id && memberRoleIds.Contains(ur.RoleId)))
-                .ToListAsync();
+                            .Where(u => u.CreatedAt.HasValue &&
+                                        u.CreatedAt.Value >= earliestMonth &&
+                                        _context.UserRoles.Any(ur => ur.UserId == u.Id && memberRoleIds.Contains(ur.RoleId)))
+                            .ToListAsync();
 
             return users;
         }
-
-
-
 
         public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status)
         {
@@ -107,6 +97,47 @@ namespace Monhealth.Identity.Repositories
                     .FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber);
         }
 
+        public async Task<int> GetNewUsersAsync(DateTime start, DateTime end, CancellationToken cancellationToken)
+        {
+            var targetRoleNames = new[] { "Member", "Subscription Member" };
+
+            // Lấy danh sách target Role IDs
+            var targetRoleIds = await _context.Roles
+                .Where(r => targetRoleNames.Contains(r.Name))
+                .Select(r => r.Id)
+                .ToListAsync(cancellationToken);
+
+            // Đếm số user mới đăng ký trong khoảng thời gian [start, end) với các điều kiện tương tự
+            return await _context.Users
+                .Where(u => u.CreatedAt.HasValue &&
+                            u.CreatedAt.Value >= start &&
+                            u.CreatedAt.Value < end &&
+                            u.Status &&
+                            _context.UserRoles.Any(ur => ur.UserId == u.Id && targetRoleIds.Contains(ur.RoleId)))
+                .CountAsync(cancellationToken);
+        }
+
+
+        public async Task<int> GetTotalUsersAsync(DateTime cutoff, CancellationToken cancellationToken)
+        {
+            // Xác định target role names
+            var targetRoleNames = new[] { "Member", "Subscription Member" };
+
+            // Lấy danh sách target Role IDs từ bảng Roles
+            var targetRoleIds = await _context.Roles
+                .Where(r => targetRoleNames.Contains(r.Name))
+                .Select(r => r.Id)
+                .ToListAsync(cancellationToken);
+
+            return await _context.Users
+                        .Where(u => u.CreatedAt.HasValue &&
+                                    u.CreatedAt.Value < cutoff &&
+                                    u.Status &&
+                                    _context.UserRoles.Any(ur => ur.UserId == u.Id && targetRoleIds.Contains(ur.RoleId)))
+                        .CountAsync(cancellationToken);
+        }
+
+
         public async Task<AppUser> GetUSerByAllergyName(string allergyName)
         {
             return await _context.Users
@@ -137,6 +168,27 @@ namespace Monhealth.Identity.Repositories
                 .Include(u => u.Goals)
                 .Include(u => u.UserAllergies).ThenInclude(ua => ua.Allergy)
                 .FirstOrDefaultAsync(u => u.Id == userId);
+        }
+
+        public async Task<int> GetVisitsAsync(DateTime start, DateTime end, CancellationToken cancellationToken)
+        {
+            // Xác định 2 role cần tính
+            var targetRoleNames = new[] { "Member", "Subscription Member" };
+
+            // Lấy danh sách các Role Id tương ứng từ bảng Roles
+            var targetRoleIds = await _context.Roles
+                .Where(r => targetRoleNames.Contains(r.Name))
+                .Select(r => r.Id)
+                .ToListAsync(cancellationToken);
+
+          
+            return await _context.Users
+                .Where(u => u.CreatedAt.HasValue &&
+                            u.CreatedAt.Value >= start &&
+                            u.CreatedAt.Value < end &&
+                            u.Status &&
+                            _context.UserRoles.Any(ur => ur.UserId == u.Id && targetRoleIds.Contains(ur.RoleId)))
+                .CountAsync(cancellationToken);
         }
 
 

@@ -3,20 +3,24 @@ using Monhealth.Identity.Models;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
-    public interface IUserRepository : IGenericRepository<AppUser, Guid>
-    {
-        Task<AppUser> GetByPhoneNumberAsync(string phoneNumber);
-        Task<AppUser> GetUserByUserId(Guid userId);
-        Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status);
-        Task<int> SaveChangesAsync();
-        Task<bool> IsPhoneNumberDuplicateAsync(string phoneNumber);
-        Task<bool> IsEmailDuplicatedAsync(string email);
-        Task<AppUser> GetUserByIdAsync(Guid userId);
-        Task<AppUser> GetUSerByNameAsync(string FullName);
-        Task<AppUser> GetUSerByAllergyName(string allergyName);
-        Task<List<Guid>> GetAllUserIds();
-      Task<List<AppUser>> GetAllMemberBySixMonths();
-        Task<Dictionary<Guid, string>> GetAvatarsByUserIds(List<Guid> userIds);
+  public interface IUserRepository : IGenericRepository<AppUser, Guid>
+  {
+    Task<AppUser> GetByPhoneNumberAsync(string phoneNumber);
+    Task<AppUser> GetUserByUserId(Guid userId);
+    Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status);
+    Task<int> SaveChangesAsync();
+    Task<bool> IsPhoneNumberDuplicateAsync(string phoneNumber);
+    Task<bool> IsEmailDuplicatedAsync(string email);
+    Task<AppUser> GetUserByIdAsync(Guid userId);
+    Task<AppUser> GetUSerByNameAsync(string FullName);
+    Task<AppUser> GetUSerByAllergyName(string allergyName);
+    Task<List<Guid>> GetAllUserIds();
+    Task<List<AppUser>> GetAllMemberBySixMonths();
+    Task<Dictionary<Guid, string>> GetAvatarsByUserIds(List<Guid> userIds);
+    Task<int> GetTotalUsersAsync(DateTime cutoff, CancellationToken cancellationToken);
 
-    }
+    Task<int> GetNewUsersAsync(DateTime start, DateTime end, CancellationToken cancellationToken);
+
+    Task<int> GetVisitsAsync(DateTime start, DateTime end, CancellationToken cancellationToken);
+  }
 }
