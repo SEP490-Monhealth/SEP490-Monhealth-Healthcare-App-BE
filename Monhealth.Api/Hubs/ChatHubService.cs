@@ -30,11 +30,11 @@ namespace Monhealth.Api.Hubs
             //}
 
             // Gửi xác nhận đến người gửi
-            var senderConnections = userConnectionManager.GetConnections(message.SenderId);
-            if (senderConnections != null && senderConnections.Any())
-            {
-                await hubContext.Clients.Clients(senderConnections).SendAsync("MessageSent", message);
-            }
+            //var senderConnections = userConnectionManager.GetConnections(message.SenderId);
+            //if (senderConnections != null && senderConnections.Any())
+            //{
+            //    await hubContext.Clients.Clients(senderConnections).SendAsync("MessageSent", message);
+            //}
 
             // Gửi tin nhắn đến tất cả người dùng đang tham gia chat này
             await hubContext.Clients.Group(message.ChatId.ToString()).SendAsync("ReceiveMessage", message);

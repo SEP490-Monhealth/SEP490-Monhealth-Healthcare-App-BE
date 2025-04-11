@@ -13,6 +13,14 @@ namespace Monhealth.Identity.Configurations
             var user_1 = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87");
             var now = DateTime.Parse("2025-04-11T00:00:00Z");
 
+            var chat_2 = Guid.Parse("f04b47df-8e5a-4bfa-8519-0ed5f9b1c7ea");
+            var user_2 = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B");
+            var consultant_2 = Guid.Parse("122DC7DF-16DE-49A3-AB83-5299686F6203");
+
+            var chat_3 = Guid.Parse("9b4dc3a1-5076-48f0-b91d-3d964ff1aa7d");
+            var user_3 = Guid.Parse("0075BA2C-F60D-4F75-B9F1-F71579BC4FD2");
+            var consultant_3 = Guid.Parse("122DC7DF-16DE-49A3-AB83-5299686F6203");
+
             builder.HasData(
             #region Message 1
                 new Message
@@ -141,8 +149,269 @@ namespace Monhealth.Identity.Configurations
                     IsRead = false,
                     CreatedAt = now,
                     UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 11
+                new Message
+                {
+                    MessageId = Guid.Parse("fa72b480-40a3-4aa6-b0e5-fc5bd882f301"),
+                    ChatId = chat_2,
+                    SenderId = user_2,
+                    Content = "Chào bác sĩ, dạo này tôi bị đau đầu liên tục.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 12
+                new Message
+                {
+                    MessageId = Guid.Parse("2e345b2b-8d2e-4e9a-86f2-4fc9cb01ef02"),
+                    ChatId = chat_2,
+                    SenderId = consultant_2,
+                    Content = "Bạn có bị mất ngủ hoặc áp lực công việc gần đây không?",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 13
+                new Message
+                {
+                    MessageId = Guid.Parse("1fa1138e-7a18-49a5-8758-3a71e4990e03"),
+                    ChatId = chat_2,
+                    SenderId = user_2,
+                    Content = "Đúng vậy, tôi làm việc với máy tính cả ngày và ngủ không ngon.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 14
+                new Message
+                {
+                    MessageId = Guid.Parse("b143ba57-3e1d-4172-8c7d-818f65332104"),
+                    ChatId = chat_2,
+                    SenderId = consultant_2,
+                    Content = "Bạn nên nghỉ mắt sau mỗi 30 phút làm việc và tập vài động tác giãn cơ.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 15
+                new Message
+                {
+                    MessageId = Guid.Parse("ec6f49fd-cbfb-4fe3-8a1f-cc99f40f5205"),
+                    ChatId = chat_2,
+                    SenderId = user_2,
+                    Content = "Tôi chưa từng thử. Có cần dùng thuốc không ạ?",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 16
+                new Message
+                {
+                    MessageId = Guid.Parse("2b58be2c-20cf-439e-853e-b6ed7aa5d706"),
+                    ChatId = chat_2,
+                    SenderId = consultant_2,
+                    Content = "Tạm thời bạn chỉ cần thay đổi thói quen sinh hoạt. Nếu không cải thiện sau 1 tuần, hãy tái khám.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 17
+                new Message
+                {
+                    MessageId = Guid.Parse("d1b2a250-bb24-43f2-b16a-23b8f3be0e07"),
+                    ChatId = chat_2,
+                    SenderId = user_2,
+                    Content = "Tôi hiểu rồi, cảm ơn bác sĩ.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 18
+                new Message
+                {
+                    MessageId = Guid.Parse("6cf9b540-1ae0-41c8-9e2b-7a89e4c3fc08"),
+                    ChatId = chat_2,
+                    SenderId = consultant_2,
+                    Content = "Không có gì. Bạn thử áp dụng và theo dõi nhé.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 19
+                new Message
+                {
+                    MessageId = Guid.Parse("2ea02b74-96e3-4fd5-b0a0-9bb3ecb9a209"),
+                    ChatId = chat_2,
+                    SenderId = user_2,
+                    Content = "Tôi sẽ thử thực hiện và cập nhật lại.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 20
+                new Message
+                {
+                    MessageId = Guid.Parse("75c64f06-1427-4a2b-90a3-8571e6375810"),
+                    ChatId = chat_2,
+                    SenderId = consultant_2,
+                    Content = "Chúc bạn mau khỏe!",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 21
+                new Message
+                {
+                    MessageId = Guid.Parse("aff2bdf2-2dc5-4957-8e3c-0377ecba3d21"),
+                    ChatId = chat_3,
+                    SenderId = user_3,
+                    Content = "Chào bác sĩ, tôi thường bị chóng mặt và nhức đầu.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 22
+                new Message
+                {
+                    MessageId = Guid.Parse("e54cb8f4-b614-4a91-a962-66535378cd22"),
+                    ChatId = chat_3,
+                    SenderId = consultant_3,
+                    Content = "Bạn có đo huyết áp gần đây không? Kết quả là bao nhiêu?",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 23
+                new Message
+                {
+                    MessageId = Guid.Parse("ee77a54e-fd3e-47db-9bc5-317e5fdc5f23"),
+                    ChatId = chat_3,
+                    SenderId = user_3,
+                    Content = "Tôi đo sáng nay là 150/95.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 24
+                new Message
+                {
+                    MessageId = Guid.Parse("7b2b3b94-36f3-44c2-8e25-8f531e02c124"),
+                    ChatId = chat_3,
+                    SenderId = consultant_3,
+                    Content = "Đó là chỉ số cao. Bạn đã từng bị huyết áp cao chưa?",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 25
+                new Message
+                {
+                    MessageId = Guid.Parse("bb372046-86cb-4a49-bcf4-13b35fef8d25"),
+                    ChatId = chat_3,
+                    SenderId = user_3,
+                    Content = "Trước đây tôi chưa từng bị, gần đây mới xuất hiện.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 26
+                new Message
+                {
+                    MessageId = Guid.Parse("1852bc57-4b6d-4f45-a120-017b0b4e0c26"),
+                    ChatId = chat_3,
+                    SenderId = consultant_3,
+                    Content = "Bạn nên hạn chế muối, không uống rượu bia, và tập thể dục nhẹ nhàng.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 27
+                new Message
+                {
+                    MessageId = Guid.Parse("3e8973e9-e1cf-44f5-a155-55a442198e27"),
+                    ChatId = chat_3,
+                    SenderId = user_3,
+                    Content = "Tôi nên ăn gì để giảm huyết áp?",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 28
+                new Message
+                {
+                    MessageId = Guid.Parse("ea91e4b0-bbfc-4a9c-a73d-c3c118038528"),
+                    ChatId = chat_3,
+                    SenderId = consultant_3,
+                    Content = "Bạn nên ăn rau xanh, chuối, khoai lang, cá và uống nhiều nước.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 29
+                new Message
+                {
+                    MessageId = Guid.Parse("0d37e44f-d0d2-4a40-90ae-24e7e05c0f29"),
+                    ChatId = chat_3,
+                    SenderId = user_3,
+                    Content = "Cảm ơn bác sĩ, tôi sẽ làm theo.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
+                },
+            #endregion
+
+            #region Message 30
+                new Message
+                {
+                    MessageId = Guid.Parse("9b0151cf-c9fa-4707-96ff-4b324387cb30"),
+                    ChatId = chat_3,
+                    SenderId = consultant_3,
+                    Content = "Bạn theo dõi chỉ số 3 ngày tới, nếu không giảm nên đi khám sớm nhé.",
+                    IsRead = false,
+                    CreatedAt = now,
+                    UpdatedAt = now
                 }
                 #endregion
+
             );
         }
     }

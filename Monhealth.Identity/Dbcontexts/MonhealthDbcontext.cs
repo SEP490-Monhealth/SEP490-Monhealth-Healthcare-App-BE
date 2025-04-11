@@ -212,6 +212,10 @@ namespace Monhealth.Identity.Dbcontexts
 
             builder.ApplyConfiguration(new BankConfiguration());
             builder.ApplyConfiguration(new ConsultantBankConfiguration());
+
+            builder.ApplyConfiguration(new ChatConfiguration());
+            builder.ApplyConfiguration(new MessageConfiguration());
+
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.SignalR;
-using Monhealth.Application.Features.Message.Commands.CreateMessage;
 using Monhealth.Domain;
 
 namespace Monhealth.Api.Hubs
@@ -11,23 +10,23 @@ namespace Monhealth.Api.Hubs
         // Sửa đổi để nhận đối tượng message thay vì các tham số riêng lẻ
         public async Task SendMessage(MessageRequest message)
         {
-            try
-            {
-                // Tạo đối tượng tin nhắn mới từ request
-                var command = new CreateMessageCommand
-                {
-                    ChatId = message.ChatId,
-                    SenderId = message.SenderId,
-                    Content = message.Content,
-                };
-                await mediator.Send(command);
-                await Clients.All.SendAsync("ReceiveMessage", command);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error in SendMessage: {ex.Message}");
-                throw;
-            }
+            //try
+            //{
+            //    // Tạo đối tượng tin nhắn mới từ request
+            //    var command = new CreateMessageCommand
+            //    {
+            //        ChatId = message.ChatId,
+            //        SenderId = message.SenderId,
+            //        Content = message.Content,
+            //    };
+            //    await mediator.Send(command);
+            //    await Clients.All.SendAsync("ReceiveMessage", command);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine($"Error in SendMessage: {ex.Message}");
+            //    throw;
+            //}
         }
 
         public override async Task OnConnectedAsync()
