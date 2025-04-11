@@ -53,20 +53,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
-        [HttpGet("users")]
-        [SwaggerOperation(Summary = "Lấy cumulative số lượng member theo 6 tháng")]
-        public async Task<ActionResult<ResultModel>> GetSixMonthUsers()
-        {
-            // Gửi query qua MediatR (handler đã xử lý logic cumulative)
-            List<GetAllMemberBySixMonthsDTO> result = await _mediator.Send(new GetAllMemberBySixMonthsQuery());
-
-            return Ok(new ResultModel
-            {
-                Data = result,
-                Status = 200,
-                Success = true
-            });
-        }
+        
         // [HttpGet]
         // [Route("{userId:guid}/chatbot")]
         // public async Task<ActionResult<ResultModel>> ChatBot(Guid userId , string query)
