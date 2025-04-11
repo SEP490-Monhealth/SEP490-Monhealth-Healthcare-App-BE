@@ -6,7 +6,6 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Core.Enum;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;
-using System.Collections.Concurrent;
 
 namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackgroundService
 {
@@ -14,12 +13,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
     {
         private readonly ILogger<UserSubscriptionBackgroundService> _logger;
         private readonly IServiceScopeFactory _serviceScopeFactory;
-        // Dùng khoảng thời gian 10 giây để test
+        // Dùng khoảng thời gian 2 phút để test
         private readonly TimeSpan _interval = TimeSpan.FromMinutes(2);
-
-        // Dictionary lưu lại thời điểm metric đã xử lý cho từng user
-        private readonly ConcurrentDictionary<Guid, DateTime> _lastProcessedMetricUpdate = new ConcurrentDictionary<Guid, DateTime>();
-
         public UserSubscriptionBackgroundService(IServiceScopeFactory serviceScopeFactory, ILogger<UserSubscriptionBackgroundService> logger)
         {
             _serviceScopeFactory = serviceScopeFactory;
@@ -42,8 +37,6 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     var userRepository = scope.ServiceProvider.GetRequiredService<IUserRepository>();
                     var userRoleRepository = scope.ServiceProvider.GetRequiredService<IUserRoleRepository>();
                     var metricRepository = scope.ServiceProvider.GetRequiredService<IMetricRepository>();
-
-                    // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] 🔄 Running background task to check subscriptions...");
 
                     var userSubscriptions = await userSubscriptionRepository.GetAllAsync();
 
@@ -88,6 +81,16 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
 
                         DateTime today = DateTime.Now.Date;
 
+                        // ===== NEW CONDITION =====
+                        // DailyMeal generation should only start from subscription.StartTime + 7 days.
+                        // (Assumes a StartTime property exists in the subscription)
+                        DateTime generationStartDate = subscription.StartedAt.AddDays(7).Date;
+                        if (today < generationStartDate)
+                        {
+                            _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal generation postponed for User {subscription.UserId} until {generationStartDate:yyyy-MM-dd}.");
+                            continue;
+                        }
+                        // ==========================
 
                         // Tạo DailyMeal cho 7 ngày liên tiếp (bao gồm hôm nay)
                         for (int i = 0; i < 7; i++)
@@ -96,11 +99,9 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                             var existingDailyMeal = await dailyMealRepository.GetDaiLyMealByUser(user.Id, targetDate);
                             if (existingDailyMeal != null)
                             {
-                                // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Daily meal for user {user.Id} on {targetDate:yyyy-MM-dd} already exists. Skipping creation.");
                                 continue;
                             }
 
-                            // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] ✅ Generating daily meal for User {user.Id} on {targetDate:yyyy-MM-dd}");
                             await RecommendMealsForUserForDate(user, targetDate, dailyMealRepository, mealRepository, mealFoodRepository, foodRepository, portionRepository);
                         }
 
@@ -112,10 +113,10 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     _logger.LogError($"[{DateTime.Now:HH:mm:ss}] ❌ Error in background service: {ex.Message}");
                 }
 
-                // _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] Waiting for next execution in {_interval.TotalSeconds} seconds.");
                 await Task.Delay(_interval, stoppingToken);
             }
         }
+
 
         /// <summary>
         /// Tạo DailyMeal cho một ngày nhất định (targetDate) nếu chưa tồn tại.
