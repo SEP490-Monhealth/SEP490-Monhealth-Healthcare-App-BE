@@ -14,6 +14,6 @@ namespace Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId
     public class Consultant
     {
         public string FullName { get; set; }
-        public string Avatar { get; set; }
+        public string AvatarUrl { get; set; }
     }
 }

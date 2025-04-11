@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId
                 Consultant = new Consultant
                 {
                     FullName = c.Consultant?.AppUser?.FullName,
-                    Avatar = c.Consultant?.AppUser?.Avatar
+                    AvatarUrl = c.Consultant?.AppUser?.Avatar
                 },
                 LastMessage = c.LastMessage,
                 CreatedAt = c.CreatedAt,
