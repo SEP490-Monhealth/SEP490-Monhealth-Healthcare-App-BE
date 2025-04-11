@@ -98,5 +98,12 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync();
         }
+
+        public Task<List<UserSubscription>> GetTotalUserSubscriptionBySixMonth()
+        {
+            return _context.UserSubscriptions
+                .Where(us => us.CreatedAt >= DateTime.UtcNow.AddMonths(-6))
+                .ToListAsync();
+        }
     }
 }
