@@ -18,11 +18,10 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        // Chỉ định duy nhất: "daily-meal-report/{userId:Guid}"
-        [HttpGet("daily-meal-report/{userId:Guid}")]
+        [HttpGet("weekly-meals/{userId:Guid}")]
         public async Task<ActionResult<ResultModel>> GetDailyMealReport(
             [FromRoute] Guid userId,
-            [FromQuery] DateTime date) // Các tham số khác có thể truyền qua query string
+            [FromQuery] DateTime date)
         {
             // Tạo đối tượng query dựa trên route và query string
             var query = new GetDailyMealReportByUserQuery

@@ -1,7 +1,7 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
-namespace Monhealth.Application
+namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealReportByUser
 {
     public class GetDailyMealReportByUserQueryHandler : IRequestHandler<GetDailyMealReportByUserQuery, List<GetDailyMealDataDTO>>
     {
@@ -10,8 +10,8 @@ namespace Monhealth.Application
         private readonly IPortionRepository _portionRepository;
 
         public GetDailyMealReportByUserQueryHandler(
-            IDailyMealRepository dailyMealRepository, 
-            IMealRepository mealRepository, 
+            IDailyMealRepository dailyMealRepository,
+            IMealRepository mealRepository,
             IPortionRepository portionRepository)
         {
             _dailyMealRepository = dailyMealRepository;
@@ -41,7 +41,7 @@ namespace Monhealth.Application
                 float totalCaloriesForMeal = 0;
                 foreach (var mealFood in meal.MealFoods)
                 {
-                    if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty )
+                    if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty || !mealFood.IsCompleted)
                         continue;
 
                     var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
@@ -54,28 +54,41 @@ namespace Monhealth.Application
                 mealCalories[meal.MealId] = totalCaloriesForMeal;
             }
 
-            var reportData = dailyMeals
-                .GroupBy(dm => dm.CreatedAt.Value.Date)
-                .Select(g =>
+            var requestDate = request.date.Date;
+            var startOfWeek = requestDate.AddDays(-(int)requestDate.DayOfWeek + (requestDate.DayOfWeek == DayOfWeek.Sunday ? -6 : 1)); // Thứ 2
+
+            var reportDict = new Dictionary<DateOnly, float>();
+
+            foreach (var dm in dailyMeals)
+            {
+                var date = DateOnly.FromDateTime(dm.CreatedAt!.Value.Date);
+                float calories = 0;
+                foreach (var meal in dm.Meals)
                 {
-                    float dayCalories = 0;
-                    foreach (var dm in g)
+                    if (mealCalories.TryGetValue(meal.MealId, out float cal))
                     {
-                        foreach (var mealItem in dm.Meals)
-                        {
-                            if (mealCalories.TryGetValue(mealItem.MealId, out float cal))
-                            {
-                                dayCalories += cal;
-                            }
-                        }
+                        calories += cal;
                     }
+                }
+
+                if (reportDict.ContainsKey(date))
+                    reportDict[date] += calories;
+                else
+                    reportDict[date] = calories;
+            }
+
+            var reportData = Enumerable.Range(0, 7)
+                .Select(offset =>
+                {
+                    var date = DateOnly.FromDateTime(startOfWeek.AddDays(offset));
+                    reportDict.TryGetValue(date, out float calories);
                     return new GetDailyMealDataDTO
                     {
-                        date = g.Key,
-                        Calories = dayCalories
+                        date = date.ToDateTime(TimeOnly.MinValue),
+                        Calories = calories
                     };
                 })
-                .OrderBy(dto => dto.date)
+                .OrderBy(x => x.date)
                 .ToList();
 
             return reportData;

@@ -29,22 +29,8 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet("{chatId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách tin nhắn theo ID cuộc trò chuyện")]
-        public async Task<ActionResult<ResultModel>> GetMessageByChatId(Guid chatId)
-        {
-            var messages = await mediator.Send(new GetMessageByChatIdQuery { ChatId = chatId });
-
-            return new ResultModel
-            {
-                Data = messages,
-                Status = (int)HttpStatusCode.OK,
-                Success = true,
-            };
-        }
-
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện của chuyên viên tư vấn")]
+        [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện theo ID chuyên viên tư vấn")]
         public async Task<ActionResult<ResultModel>> GetChatByConsultantId([FromRoute] Guid consultantId, int page = 1, int limit = 10)
         {
             var messages = await mediator.Send(new GetChatByConsultantIdQuery { ConsultantId = consultantId, Page = page, Limit = limit });
@@ -57,6 +43,19 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpGet("{chatId:guid}")]
+        [SwaggerOperation(Summary = "Lấy cuộc trò chuyện theo ID")]
+        public async Task<ActionResult<ResultModel>> GetMessageByChatId(Guid chatId)
+        {
+            var messages = await mediator.Send(new GetMessageByChatIdQuery { ChatId = chatId });
+
+            return new ResultModel
+            {
+                Data = messages,
+                Status = (int)HttpStatusCode.OK,
+                Success = true,
+            };
+        }
 
         [HttpPost]
         [SwaggerOperation(Summary = "Tạo cuộc trò chuyện")]
