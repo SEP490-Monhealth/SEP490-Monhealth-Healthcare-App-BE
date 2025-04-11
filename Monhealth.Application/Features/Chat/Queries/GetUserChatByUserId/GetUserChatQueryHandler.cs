@@ -14,6 +14,11 @@ namespace Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId
                 ChatId = c.ChatId,
                 UserId = c.UserId,
                 ConsultantId = c.ChatId,
+                Consultant = new Consultant
+                {
+                    FullName = c.Consultant?.AppUser?.FullName,
+                    Avatar = c.Consultant?.AppUser?.Avatar
+                },
                 LastMessage = c.LastMessage,
                 CreatedAt = c.CreatedAt,
                 UpdatedAt = c.UpdatedAt,
@@ -29,4 +34,5 @@ namespace Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId
             };
         }
     }
+
 }

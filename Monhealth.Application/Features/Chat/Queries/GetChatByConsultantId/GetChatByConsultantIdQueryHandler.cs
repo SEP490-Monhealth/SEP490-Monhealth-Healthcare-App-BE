@@ -1,21 +1,26 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Chat.Queries.GetChatByConsultantId
 {
-    public class GetChatByConsultantIdQueryHandler(IChatRepository chatRepository) : IRequestHandler<GetChatByConsultantIdQuery, PageResult<ChatDto>>
+    public class GetChatByConsultantIdQueryHandler(IChatRepository chatRepository) : IRequestHandler<GetChatByConsultantIdQuery, PageResult<ChatConsultantDto>>
     {
-        public async Task<PageResult<ChatDto>> Handle(GetChatByConsultantIdQuery request, CancellationToken cancellationToken)
+        public async Task<PageResult<ChatConsultantDto>> Handle(GetChatByConsultantIdQuery request, CancellationToken cancellationToken)
         {
             var chatPaging = await chatRepository.GetChatByConsultantIdAsync(request.Page, request.Limit, request.ConsultantId);
 
-            var chatDtos = chatPaging.Items.Select(c => new ChatDto
+            var chatDtos = chatPaging.Items.Select(c => new ChatConsultantDto
             {
                 ChatId = c.ChatId,
                 UserId = c.UserId,
                 ConsultantId = c.ConsultantId,
+                Member = new Member
+                {
+                    FullName = c.AppUser.FullName,
+                    Avatar = c.AppUser.Avatar
+
+                },
                 LastMessage = c.LastMessage,
                 CreatedAt = c.CreatedAt,
                 UpdatedAt = c.UpdatedAt,
@@ -23,7 +28,7 @@ namespace Monhealth.Application.Features.Chat.Queries.GetChatByConsultantId
                 UpdatedBy = c.UpdatedBy,
             }).ToList();
 
-            return new PageResult<ChatDto>()
+            return new PageResult<ChatConsultantDto>()
             {
                 CurrentPage = request.Page,
                 TotalPages = (int)Math.Ceiling(chatPaging.TotalCount / (double)request.Limit),

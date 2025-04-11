@@ -60,7 +60,7 @@ namespace Monhealth.Identity.Repositories
         {
             IQueryable<Chat> query = _context.Chats
                 .Include(c => c.AppUser)
-                .Include(c => c.Consultant)
+                .Include(c => c.Consultant).ThenInclude(c => c.AppUser)
                 .Where(c => c.UserId == userId)
                 .OrderByDescending(c => c.UpdatedAt)
                 .AsQueryable();

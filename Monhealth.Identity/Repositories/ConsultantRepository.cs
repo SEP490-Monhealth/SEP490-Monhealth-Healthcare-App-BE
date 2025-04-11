@@ -91,6 +91,15 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<Dictionary<Guid, string>> GetAvatarsByConsultantIds(List<Guid> consultantIds)
+        {
+            return await _context.Consultants
+                 .Include(c => c.AppUser)
+                 .Where(c => consultantIds.Contains(c.ConsultantId) && c.AppUser != null)
+                 .Select(c => new { c.ConsultantId, Avatar = c.AppUser.Avatar }) // hoặc FullName
+                .ToDictionaryAsync(c => c.ConsultantId, c => c.Avatar);
+        }
+
         public async Task<Consultant> GetConsultantById(Guid consultantId)
         {
             var consultant = await _context.Consultants

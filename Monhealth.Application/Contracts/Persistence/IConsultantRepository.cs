@@ -1,6 +1,5 @@
 ﻿using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
-using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
@@ -11,5 +10,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<Consultant> GetConsultantByUserId(Guid? userId);
         Task<int> SaveChangeAsync();
         Task<Consultant> GetConsultantWithWalletAndTransactionsAsync(Guid ConsultantId);
+        Task<Dictionary<Guid, string>> GetAvatarsByConsultantIds(List<Guid> consultantIds);
     }
 }

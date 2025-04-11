@@ -61,6 +61,14 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
+        public async Task<Dictionary<Guid, string>> GetAvatarsByUserIds(List<Guid> userIds)
+        {
+            return await _context.Users
+                .Where(u => userIds.Contains(u.Id))
+                .Select(u => new { u.Id, u.Avatar })
+                .ToDictionaryAsync(u => u.Id, u => u.Avatar);
+        }
+
         public async Task<AppUser> GetByPhoneNumberAsync(string phoneNumber)
         {
             return await _context.Users.Include(u => u.UserSubscriptions)
