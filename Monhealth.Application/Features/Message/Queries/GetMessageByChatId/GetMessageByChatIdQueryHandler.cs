@@ -32,7 +32,7 @@ namespace Monhealth.Application.Features.Message.Queries.GetMessageByChatId
                     MessageId = m.MessageId,
                     ChatId = m.ChatId,
                     SenderId = m.SenderId,
-                    Avatar = avatarUrl,
+                    AvatarUrl = avatarUrl,
                     Content = m.Content,
                     IsRead = m.IsRead,
                     CreatedAt = m.CreatedAt,

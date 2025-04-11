@@ -15,6 +15,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<AppUser> GetUSerByNameAsync(string FullName);
         Task<AppUser> GetUSerByAllergyName(string allergyName);
         Task<List<Guid>> GetAllUserIds();
+      Task<List<AppUser>> GetAllMemberBySixMonths();
         Task<Dictionary<Guid, string>> GetAvatarsByUserIds(List<Guid> userIds);
 
     }
