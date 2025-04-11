@@ -69,11 +69,11 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId, DateTime? date)
         {
             var query = _context.Bookings.AsNoTracking()
-                .Include(b => b.User)
-                .Include(b => b.Consultant)
-                .ThenInclude(c => c.AppUser)
-                .OrderBy(c => c.StartTime)
-                .AsQueryable();
+            .Include(b => b.User)
+            .Include(b => b.Consultant)
+            .ThenInclude(c => c.AppUser)
+            .AsQueryable();
+
             if (consultantId != Guid.Empty)
             {
                 query = query.Where(b => b.ConsultantId == consultantId);
@@ -81,12 +81,18 @@ namespace Monhealth.Identity.Repositories
 
             if (date.HasValue)
             {
-                query = query.Where(b => b.Day == DateOnly.FromDateTime(date.Value));
+                var dateOnly = DateOnly.FromDateTime(date.Value);
+                query = query.Where(b => b.Day == dateOnly)
+                .OrderBy(b => b.StartTime); // Sắp xếp theo StartTime nếu có date
             }
-
+            else
+            {
+                query = query.OrderByDescending(b => b.CreatedAt); // Sắp xếp theo CreatedAt nếu không có date
+            }
 
             return query.ToList();
         }
+
 
         public async Task<List<Booking>> GetBookingByConsultantIds(List<Guid> consultantIds)
         {
