@@ -7,5 +7,6 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<int> SaveChangeAsync();
         Task<PaginatedResult<Subscription>> GetAllSubcriptionAsync(int page, int limit, string? search, bool? sort, bool? status);
+        Task<Subscription?> GetBasicSubscription();
     }
 }
