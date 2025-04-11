@@ -29,10 +29,9 @@ namespace Monhealth.Application
                     if (transaction == null) throw new Exception("Không tìm thấy giao dịch");
 
                     transaction.Status = StatusTransaction.Completed;
-                    withdrawalRequest.Status = WithdrawalStatus.Completed;
                     break;
-                case WithdrawalStatus.Completed:
-                    throw new Exception("Yêu cầu đã hoàn tất, không thể xử lý thêm.");
+                //case WithdrawalStatus.Completed:
+                //    throw new Exception("Yêu cầu đã hoàn tất, không thể xử lý thêm.");
                 default:
                     throw new Exception("Trạng thái yêu cầu không hợp lệ");
             }

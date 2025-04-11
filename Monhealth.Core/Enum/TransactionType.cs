@@ -3,10 +3,9 @@
     public enum TransactionType
     {
         Earning,
-        Bonus,
-
         Withdrawal,
+        Fee,
+        Bonus,
         Refund,
-        Fee      
     }
 }

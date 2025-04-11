@@ -61,11 +61,12 @@ namespace Monhealth.Api.Controllers
         [SwaggerOperation(Summary = "Tạo cuộc trò chuyện")]
         public async Task<ActionResult<ResultModel>> CreateChat([FromBody] CreateChatCommand command)
         {
-            var chatId = await mediator.Send(command);
+            var chatDto = await mediator.Send(command);
             return Ok(new ResultModel
             {
                 Success = true,
                 Message = "Tạo cuộc trò chuyện thành công",
+                Data = chatDto,
                 Status = 201,
             });
         }

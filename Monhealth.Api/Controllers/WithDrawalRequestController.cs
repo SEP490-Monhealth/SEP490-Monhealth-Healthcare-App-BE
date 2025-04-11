@@ -1,4 +1,3 @@
-using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
@@ -7,6 +6,7 @@ using Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStatus;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
@@ -211,22 +211,22 @@ namespace Monhealth.Api.Controllers
             );
         }
 
-        [HttpPatch]
-        [Route("{withdrawalRequestId:Guid}/status")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái yêu cầu rút tiền")]
-        public async Task<ActionResult<ResultModel>> UpdateStatus(Guid withdrawalRequestId)
-        {
-            var command = new UpdateStatusWithdrawalCommand(withdrawalRequestId);
-            await mediator.Send(command);
+        //[HttpPatch]
+        //[Route("{withdrawalRequestId:Guid}/status")]
+        //[SwaggerOperation(Summary = "Cập nhật trạng thái yêu cầu rút tiền")]
+        //public async Task<ActionResult<ResultModel>> UpdateStatus(Guid withdrawalRequestId)
+        //{
+        //    var command = new UpdateStatusWithdrawalCommand(withdrawalRequestId);
+        //    await mediator.Send(command);
 
-            return Ok(
-                new ResultModel
-                {
-                    Message = "Cập nhật trạng thái rút tiền thành công",
-                    Success = true,
-                    Status = 204
-                }
-            );
-        }
+        //    return Ok(
+        //        new ResultModel
+        //        {
+        //            Message = "Cập nhật trạng thái rút tiền thành công",
+        //            Success = true,
+        //            Status = 204
+        //        }
+        //    );
+        //}
     }
 }
