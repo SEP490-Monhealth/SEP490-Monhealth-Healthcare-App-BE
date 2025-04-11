@@ -64,7 +64,46 @@ namespace Monhealth.Identity.Configurations
             {
                 RoleId = Guid.Parse("c0278115-8549-4fad-890a-44f8E8fcc022"),
                 UserId = Guid.Parse("20041d5b-01e4-443f-9652-e39beb9748e5")
-            });
+            },
+
+           //Nguyen VAn An Member
+           new IdentityUserRole<Guid>
+           {
+               RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+               UserId = Guid.Parse("bf1c4dc8-8b1a-4bcd-9bf3-5a4d4b27eace"),
+           },
+           //Tran Thi Binh Member
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                UserId = Guid.Parse("3de3c3b2-a9f6-4b7a-80e8-cd9453a32a96"),
+            },
+            //Le Minh Chau Member
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                UserId = Guid.Parse("6f3bd8a1-7c29-4b2c-8ef1-107aa055c2b2"),
+            },
+            //Pham Van Dung Member
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                UserId = Guid.Parse("d8a12345-67b8-4c3d-9e0f-1ab2cd3ef456"),
+            },
+            //Do Thi Hong Member
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                UserId = Guid.Parse("e7c2b9c3-df34-4f78-9c8a-0fab1b2c3d4e"),
+            },
+            //Hoang Quoc Huy Member
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                UserId = Guid.Parse("35efcfae-e3ff-477f-af62-74b0764fbf5b"),
+            }
+
+            );
         }
     }
 }

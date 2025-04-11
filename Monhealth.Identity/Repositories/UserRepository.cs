@@ -14,30 +14,32 @@ namespace Monhealth.Identity.Repositories
         }
         public async Task<List<AppUser>> GetAllMemberBySixMonths()
         {
-            // Lấy mã của role "Member" (kiểu Guid)
-            var memberRoleId = await _context.Roles
-                .Where(r => r.Name == "Member")
+            // Lấy danh sách RoleId của role "Member" và "Subscription Member"
+            var memberRoleIds = await _context.Roles
+                .Where(r => r.Name == "Member" || r.Name == "Subscription Member")
                 .Select(r => r.Id)
-                .FirstOrDefaultAsync();
+                .ToListAsync();
 
-            // Nếu không tìm thấy role "Member", trả về danh sách rỗng
-            if (memberRoleId == default)
+            // Nếu không tìm thấy role nào trong số đó, trả về danh sách rỗng
+            if (!memberRoleIds.Any())
             {
                 return new List<AppUser>();
             }
 
-        
+            // Tính ngày đầu tiên của tháng cách đây 5 tháng (bao gồm tháng hiện tại sẽ là 6 tháng)
             DateTime earliestMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-5);
 
-        
+            // Lấy danh sách user được tạo từ "earliestMonth" trở đi
+            // và có tồn tại trong bảng UserRoles với role nằm trong memberRoleIds
             var users = await _context.Users
                 .Where(u => u.CreatedAt.HasValue &&
                             u.CreatedAt.Value >= earliestMonth &&
-                            _context.UserRoles.Any(ur => ur.RoleId == memberRoleId))
+                            _context.UserRoles.Any(ur => ur.UserId == u.Id && memberRoleIds.Contains(ur.RoleId)))
                 .ToListAsync();
 
             return users;
         }
+
 
 
 
