@@ -106,9 +106,17 @@ namespace Monhealth.Identity.Repositories
                    .OrderBy(c => c.StartTime)
                    .Where(b => b.UserId == userId)
                    .ToListAsync();
-
-
         }
+
+        public async Task<List<Booking>> GetBookingsByConsultantAndDateRange(Guid consultantId, DateTime from, DateTime to)
+        {
+            return await _context.Bookings
+            .Where(b => b.ConsultantId == consultantId
+            && b.Day >= DateOnly.FromDateTime(from)
+            && b.Day < DateOnly.FromDateTime(to))
+            .ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);
