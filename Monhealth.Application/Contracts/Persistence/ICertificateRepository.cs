@@ -11,7 +11,8 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Certificate>> GetAllCertificateAsync(int page, int limit, string? search, bool? isVerified);
         Task<List<Certificate>> GetCertificateByExpertiseId(Guid expertiseId);
         Task<List<Certificate>>GetCertificateByConsultant(Guid consultantId);
-        
+        Task<List<Certificate>>GetAllCertificatesAsync();
+        Task<Certificate>GetByCertificateIdAsync(Guid certificateId);
         Task<int> SaveChangeAsync();
     }
 }
