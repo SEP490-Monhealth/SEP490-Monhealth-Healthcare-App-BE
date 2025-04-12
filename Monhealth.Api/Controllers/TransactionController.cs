@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.TimeSlots.Commands.ChangeCompletedTransaction;
 using Monhealth.Application.Features.Transaction.Commands.CreateBookingSingle;
 using Monhealth.Application.Features.Transaction.Commands.CreateTransaction;
@@ -45,6 +46,23 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = transaction
             });
+        }
+        [HttpGet]
+        [Route("{transactionId:Guid}/qr-code")]
+        [SwaggerOperation(Summary = "Tạo QR code cho yêu cầu rút tiền")]
+        public async Task<ResultModel> CreateWithdrawalRequest(Guid transactionId)
+        {
+            var command = new GenerateTransactionQRCode(transactionId);
+
+            var result = await mediator.Send(command); // result là Response chứa QR code
+
+            return new ResultModel
+            {
+                Success = true,
+                Message = "Tạo QR rút tiền thành công",
+                Status = 200,
+                Data = result
+            };
         }
 
         [HttpGet("{transactionId:guid}")]
