@@ -4,14 +4,8 @@ using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Core.Enum;
-using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
 {

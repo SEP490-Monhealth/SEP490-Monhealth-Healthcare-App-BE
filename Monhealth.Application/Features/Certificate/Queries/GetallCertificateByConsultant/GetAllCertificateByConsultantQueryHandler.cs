@@ -10,18 +10,21 @@ namespace Monhealth.Application
         {
               var certificate 
               = await certificateRepository.GetCertificateByConsultant(request.ConsultantId);
-              return certificate.Select(c =>new GetCertificateByConsultantDTO{
+              return certificate?.Select(c => new GetCertificateByConsultantDTO{
                  CertificateId = c.CertificateId,
-                 CertificateName =c.CertificateName,
-                 CertificateNumber =c.CertificateNumber,
+                 CertificateName = c.CertificateName,
+                 CertificateNumber = c.CertificateNumber,
                  ConsultantId = c.ConsultantId,
-                 ExpertiseId = (Guid)c.ExpertiseId,
+                 ExpertiseName = c.Consultant?.Expertise?.ExpertiseName,
                  ExpiryDate = c.ExpiryDate,
-                 Images = c.ImageUrls.Select(i => i.ToString()).ToList(),
+                 Images = c.ImageUrls,
                  IssueDate = c.IssueDate,
                  IssuedBy = c.IssuedBy,
-
-              }).ToList();
+                 IsVerified = c.IsVerified,
+                 ExpertiseDescription = c.Consultant?.Expertise?.ExpertiseDescription,
+                 CreatedAt = c.CreatedAt,
+                 UpdatedAt = c.UpdatedAt
+              }).ToList() ?? new List<GetCertificateByConsultantDTO>();
         }
     }
 }

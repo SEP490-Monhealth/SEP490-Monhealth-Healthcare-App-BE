@@ -2,7 +2,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
-using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 
 namespace Monhealth.Application.Features.Certificate.Queries.GetCertificateById
 {
@@ -10,9 +9,26 @@ namespace Monhealth.Application.Features.Certificate.Queries.GetCertificateById
     {
         public async Task<GetCertificateByIdDTO> Handle(GetCertificateByIdQuery request, CancellationToken cancellationToken)
         {
-            var certificate = await certificateRepository.GetByIdAsync(request.CertificateId);
+            var certificate = await certificateRepository.GetByCertificateIdAsync(request.CertificateId);
             if (certificate == null) throw new NotFoundException("Không tìm thấy chứng chỉ");
-            return mapper.Map<GetCertificateByIdDTO>(certificate);
+            var certificateDTO = new GetCertificateByIdDTO
+            {
+                CertificateId = certificate.CertificateId,
+                CertificateName = certificate.CertificateName,
+                CertificateNumber = certificate.CertificateNumber,
+                ConsultantId = certificate.ConsultantId,
+                ExpertiseDescription = certificate?.Consultant?.Expertise?.ExpertiseDescription,
+                ExpertiseName = certificate.Consultant?.Expertise.ExpertiseName,
+                ExpiryDate = certificate.ExpiryDate,
+                Images = certificate.ImageUrls,
+                IssueDate = certificate.IssueDate,
+                IssuedBy = certificate.IssuedBy,
+                IsVerified = certificate.IsVerified,
+                CreatedAt = certificate.CreatedAt,
+                UpdatedAt = certificate.UpdatedAt
+
+            };
+            return certificateDTO;
         }
     }
 }
