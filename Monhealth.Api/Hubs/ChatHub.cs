@@ -1,13 +1,14 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.SignalR;
 using Monhealth.Domain;
+using System.Collections.Concurrent;
 
 namespace Monhealth.Api.Hubs
 {
     public class ChatHub(IMediator mediator) : Hub
     {
         private static readonly List<Message> _messageHistory = new();
-        // Sửa đổi để nhận đối tượng message thay vì các tham số riêng lẻ
+        private static readonly ConcurrentDictionary<string, Guid> _connectionMapping = new();
         public async Task SendMessage(MessageRequest message)
         {
             //try
@@ -28,7 +29,33 @@ namespace Monhealth.Api.Hubs
             //    throw;
             //}
         }
+        //public async Task JoinChat(Guid chatId)
+        //{
+        //    try
+        //    {
+        //        var userId = Context.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
+        //        // Lưu mapping giữa connectionId và userId
+        //        _connectionMapping[Context.ConnectionId] = userId;
+
+        //        // Thêm vào group tương ứng với chatId
+        //        await Groups.AddToGroupAsync(Context.ConnectionId, chatId.ToString());
+
+        //        // Gửi thông báo cho group là có người tham gia
+        //        await Clients.Group(chatId.ToString()).SendAsync("UserJoined", userId);
+
+        //        // Lấy lịch sử tin nhắn từ database
+        //        var query = new GetMessageHistoryQuery { ChatId = chatId };
+        //        var messageHistory = await _mediator.Send(query);
+
+        //        // Gửi lịch sử tin nhắn cho người dùng vừa tham gia
+        //        await Clients.Caller.SendAsync("LoadMessageHistory", messageHistory);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await Clients.Caller.SendAsync("ErrorOccurred", $"Error joining chat: {ex.Message}");
+        //    }
+        //}
         public override async Task OnConnectedAsync()
         {
             try

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.Certificate.Commands.UpdateCertificate
 {
@@ -23,10 +17,6 @@ namespace Monhealth.Application.Features.Certificate.Commands.UpdateCertificate
         }
         public async Task<bool> Handle(UpdateCertificateCommand request, CancellationToken cancellationToken)
         {
-            var isNameExist = await _certificateRepository
-            .AnyAsync(c => c.CertificateName == request.UpdateCertificateDTO.CertificateName);
-            if (isNameExist) throw new BadRequestException("Tên chứng chỉ đã tồn tại");
-
             var checkExpertiseExisted = await _expertiseRepository.GetExpertiseByNameAsync(request.UpdateCertificateDTO.ExpertiseName);
 
             var certificate = await _certificateRepository.GetByIdAsync(request.CertificateId);
@@ -39,6 +29,7 @@ namespace Monhealth.Application.Features.Certificate.Commands.UpdateCertificate
             updateCertificate.IsVerified = false;
             updateCertificate.UpdatedAt = DateTime.Now;
             _certificateRepository.Update(updateCertificate);
+
             await _certificateRepository.SaveChangeAsync();
             return true;
         }

@@ -1,9 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application;
 using Monhealth.Application.Features.User.Commands.ChangeStatus;
 using Monhealth.Application.Features.User.Commands.CreateUser;
-using Monhealth.Application.Features.User.Commands.Delete;
 using Monhealth.Application.Features.User.Commands.UpdateAvatarForUser;
 using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Features.User.Queries.GetAllUser;
@@ -45,6 +43,7 @@ namespace Monhealth.Api.Controllers
         [SwaggerOperation(Summary = "Lấy thông tin người dùng")]
         public async Task<ActionResult<ResultModel>> GetUserById(Guid userId)
         {
+            //var userId2 = User?.FindFirst(UserClaims.UserId)?.Value;
             var result = await _mediator.Send(new GetUserDetailQuery { Id = userId });
             return new ResultModel
             {
@@ -53,7 +52,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
-        
+
         // [HttpGet]
         // [Route("{userId:guid}/chatbot")]
         // public async Task<ActionResult<ResultModel>> ChatBot(Guid userId , string query)
