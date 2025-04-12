@@ -47,9 +47,23 @@ namespace Monhealth.Api.Controllers
                 Data = transaction
             });
         }
+
+        [HttpGet("{transactionId:guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin thông tin giao dịch")]
+        public async Task<ActionResult<ResultModel>> GetTransactionById(Guid transactionId)
+        {
+            var transaction = await mediator.Send(new GetTransactionByIdQuery { TransactionId = transactionId });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = transaction
+            });
+        }
+
         [HttpGet]
         [Route("{transactionId:Guid}/qr-code")]
-        [SwaggerOperation(Summary = "Tạo QR code cho yêu cầu rút tiền")]
+        [SwaggerOperation(Summary = "Tạo QR code giao dịch rút tiền")]
         public async Task<ResultModel> CreateWithdrawalRequest(Guid transactionId)
         {
             var command = new GenerateTransactionQRCode(transactionId);
@@ -63,19 +77,6 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = result
             };
-        }
-
-        [HttpGet("{transactionId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin thông tin giao dịch")]
-        public async Task<ActionResult<ResultModel>> GetTransactionById(Guid transactionId)
-        {
-            var transaction = await mediator.Send(new GetTransactionByIdQuery { TransactionId = transactionId });
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = transaction
-            });
         }
 
         [HttpPost]
@@ -101,7 +102,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPost("buy-booking")]
+        [HttpPost("booking")]
         [SwaggerOperation(Summary = "Tạo thanh toán cho đặt lịch đơn")]
         public async Task<ActionResult<ResultModel>> CreateBookingSingle([FromBody] BookingSingleRequest request)
         {
@@ -195,6 +196,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Xóa giao dịch thành công"
             };
         }
+
         [HttpPatch("{transactionId}/completed")]
         [SwaggerOperation(Summary = "Cập nhật trạng thái giao dịch")]
         public async Task<ActionResult<ResultModel>> ChangeStatusCompletedTransaction(Guid transactionId)

@@ -1,9 +1,4 @@
-using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Logging;
-using Monhealth.Application.Contracts.Persistence; // Interface IMetricRepository
-using Monhealth.Domain; // Model Metric
 
 namespace Monhealth.Application
 {
@@ -16,10 +11,10 @@ namespace Monhealth.Application
             var welcomeMessage = new
             {
                 messageId = Guid.NewGuid().ToString(),
-                sender = "MonAI",
+                sender = "Mon AI",
                 content = new
                 {
-                    generalAdvice = "Chào bạn! Tôi là MonAI, trợ lý ảo của bạn. Tôi có thể giúp gì cho bạn?",
+                    generalAdvice = "Chào bạn! Tôi là Mon AI, trợ lý ảo của bạn. Tôi có thể giúp gì cho bạn?",
                     summaryConversation = "",
                     isHealthOrFitness = false
                 }

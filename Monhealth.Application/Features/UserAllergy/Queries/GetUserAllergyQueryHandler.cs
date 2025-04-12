@@ -21,9 +21,8 @@ namespace Monhealth.Application
 
             return new GetUserAllergyDTO
             {
-                Allergy = allergyNames
+                Allergies = allergyNames
             };
         }
-
     }
 }

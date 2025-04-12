@@ -6,16 +6,17 @@ using Monhealth.Application.Features.Message.Queries.GetAllMessages;
 
 namespace Monhealth.Application.Features.Message.Commands.CreateMessage
 {
-    public class CreateMessageCommandHandler(IMessageRepository messageRepository,
+    public class CreateMessageCommandHandler(
+        IMessageRepository messageRepository,
         IChatNotificationService chatNotificationService,
         IChatRepository chatRepository,
         IUserRepository userRepository,
         IConsultantRepository consultantRepository,
         IChatHubService chatHubService
 
-        ) : IRequestHandler<CreateMessageCommand, Unit>
+        ) : IRequestHandler<CreateMessageCommand, MessageDto>
     {
-        public async Task<Unit> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
+        public async Task<MessageDto> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
         {
             if (string.IsNullOrWhiteSpace(request.Content))
                 throw new BadRequestException("Nội dung không thể rỗng");
@@ -48,9 +49,7 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 CreatedAt = newMessage.CreatedAt,
                 UpdatedAt = newMessage.UpdatedAt,
             };
-
-            await chatHubService.SendMessageAsync(messageDto);
-            return Unit.Value;
+            return messageDto;
         }
     }
 }

@@ -80,23 +80,23 @@ namespace Monhealth.Api.Controllers
         }
 
 
-        [HttpGet]
-        [Route("{withdrawalRequestId:Guid}/qr-code")]
-        [SwaggerOperation(Summary = "Tạo QR code cho yêu cầu rút tiền")]
-        public async Task<ResultModel> CreateWithdrawalRequest(Guid withdrawalRequestId)
-        {
-            var command = new GenerateWithdrawalQRCode(withdrawalRequestId);
+        // [HttpGet]
+        // [Route("{withdrawalRequestId:Guid}/qr-code")]
+        // [SwaggerOperation(Summary = "Tạo QR code cho yêu cầu rút tiền")]
+        // public async Task<ResultModel> CreateWithdrawalRequest(Guid withdrawalRequestId)
+        // {
+        //     var command = new GenerateWithdrawalQRCode(withdrawalRequestId);
 
-            var result = await mediator.Send(command); // result là Response chứa QR code
+        //     var result = await mediator.Send(command); // result là Response chứa QR code
 
-            return new ResultModel
-            {
-                Success = true,
-                Message = "Tạo QR rút tiền thành công",
-                Status = 200,
-                Data = result
-            };
-        }
+        //     return new ResultModel
+        //     {
+        //         Success = true,
+        //         Message = "Tạo QR rút tiền thành công",
+        //         Status = 200,
+        //         Data = result
+        //     };
+        // }
 
         [HttpPost]
         [SwaggerOperation(Summary = "Tạo yêu cầu rút tiền")]
