@@ -48,6 +48,18 @@ namespace Monhealth.Api.Controllers
                 Data = transaction
             });
         }
+        [HttpGet("consultant-Transaction/{consultant:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo chuyên viên")]
+        public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy(Guid consultant, int page = 1, int limit = 10, string? month = null)
+        {
+            var transaction = await mediator.Send(new GetTransactionByConsultantQuery(page, limit, month, consultant));
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = transaction
+            });
+        }
 
         [HttpGet("consultant/{consultantId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID chuyên viên")]

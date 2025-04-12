@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Globalization;
+using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
@@ -16,7 +18,9 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type,
             string? search, StatusTransaction? status)
         {
-            IQueryable<Transaction> query = _context.Transactions.Include(c => c.Wallet).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser).AsNoTracking().AsQueryable();
+            IQueryable<Transaction> query = _context.Transactions
+            .Include(c => c.Wallet).ThenInclude(c => c.Consultant)
+            .ThenInclude(u => u.AppUser).AsNoTracking().AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
                 search = search.Trim().ToLower();
@@ -57,6 +61,59 @@ namespace Monhealth.Identity.Repositories
                 .Where(c => c.Wallet.Consultant.ConsultantId == consultantId && c.CreatedAt >= monday && c.CreatedAt < sunday)
                 .ToListAsync();
         }
+
+        public async Task<PaginatedResult<Transaction>> GetAllTransactionByConsultantId(int page, int limit, Guid Consultant, string? month)
+        {
+            IQueryable<Transaction> query = _context.Transactions
+      .Include(t => t.Booking)
+      .ThenInclude(b => b.Consultant)
+      .ThenInclude(c => c.AppUser)
+      .Where(t => t.Wallet.Consultant.ConsultantId == Consultant)
+      .AsNoTracking();
+
+
+            // Nếu có tham số month, áp dụng bộ lọc tháng và năm
+            if (!string.IsNullOrEmpty(month))
+            {
+                DateTime parsedMonth;
+                if (!DateTime.TryParseExact(month, "MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedMonth))
+                {
+                    throw new BadRequestException("Invalid month format. Expected format: MM-dd.");
+                }
+
+                int monthToFilter = parsedMonth.Month;
+                int yearToFilter = parsedMonth.Year == 1 ? DateTime.Now.Year : parsedMonth.Year;
+
+                // Lọc theo tháng và năm, đảm bảo CreatedAt không phải là null
+                query = query.Where(t => t.CreatedAt.HasValue
+                                         && t.CreatedAt.Value.Month == monthToFilter
+                                         && t.CreatedAt.Value.Year == yearToFilter);
+            }
+
+            // Lấy tổng số lượng giao dịch cho phân trang
+            int totalItems = await query.CountAsync();
+
+            // Áp dụng phân trang (skip và take)
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            // Trả về kết quả phân trang
+            var transactions = await query.ToListAsync();
+
+            return new PaginatedResult<Transaction>
+            {
+                Items = transactions,
+                TotalCount = totalItems
+            };
+        }
+
+
+
+
+
+
 
         public async Task<List<Transaction>> GetTransactionByCreatedBy(Guid userId)
         {
