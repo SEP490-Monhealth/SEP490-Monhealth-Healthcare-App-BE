@@ -52,7 +52,8 @@ namespace Monhealth.Application
                 result.Add(new GetAllMemberBySixMonthsDTO
                 {
                     Month = monthKey,
-                    Cont = cumulativeCount
+                    
+                    Count = cumulativeCount
                 });
             }
 

@@ -105,5 +105,43 @@ namespace Monhealth.Identity.Repositories
                 .Include(s => s.Subscription)
                 .Where(us => us.UserId == userId).ToListAsync();
         }
+
+        public Task<List<UserSubscription>> GetTotalUserSubscriptionBySixMonth()
+        {
+            return _context.UserSubscriptions
+                .Where(us => us.CreatedAt >= DateTime.UtcNow.AddMonths(-6))
+                .ToListAsync();
+        }
+
+        public async Task<int> GetTotalSubscriptionUsersAsync(DateTime cutoff, CancellationToken cancellationToken)
+        {
+            // Lấy RoleId của "Subscription Member"
+            var subscriptionRoleId = await _context.Roles
+                .Where(r => r.Name == "Subscription Member")
+                .Select(r => r.Id)
+                .FirstOrDefaultAsync(cancellationToken);
+            return await _context.Users
+                         .Where(u => u.CreatedAt.HasValue &&
+                                     u.CreatedAt.Value < cutoff &&
+                                     u.Status &&
+                                     _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == subscriptionRoleId))
+                         .CountAsync(cancellationToken);
+        }
+
+        public async Task<int> GetNewSubscriptionUsersAsync(DateTime start, DateTime end, CancellationToken cancellationToken)
+        {
+            // Lấy RoleId của "Subscription Member"
+            var subscriptionRoleId = await _context.Roles
+                .Where(r => r.Name == "Subscription Member")
+                .Select(r => r.Id)
+                .FirstOrDefaultAsync(cancellationToken);
+            return await _context.Users
+           .Where(u => u.CreatedAt.HasValue &&
+            u.CreatedAt.Value >= start &&
+            u.CreatedAt.Value < end &&
+            u.Status &&
+            _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == subscriptionRoleId))
+           .CountAsync(cancellationToken);
+        }
     }
 }
