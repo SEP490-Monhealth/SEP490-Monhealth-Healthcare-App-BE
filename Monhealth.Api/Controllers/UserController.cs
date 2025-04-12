@@ -43,7 +43,6 @@ namespace Monhealth.Api.Controllers
         [SwaggerOperation(Summary = "Lấy thông tin người dùng")]
         public async Task<ActionResult<ResultModel>> GetUserById(Guid userId)
         {
-            //var userId2 = User?.FindFirst(UserClaims.UserId)?.Value;
             var result = await _mediator.Send(new GetUserDetailQuery { Id = userId });
             return new ResultModel
             {

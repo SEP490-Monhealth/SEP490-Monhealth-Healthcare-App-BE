@@ -87,7 +87,6 @@ namespace Monhealth.Identity.Services
                  new Claim(JwtRegisteredClaimNames.Email, user.Email),
                  new Claim(ClaimTypes.NameIdentifier, user.UserName),
                  new Claim(ClaimTypes.MobilePhone, user.PhoneNumber),
-
                  new Claim(ClaimTypes.Name, user.UserName),
                  new Claim(UserClaims.UserId, user.Id.ToString()),
                  new Claim(UserClaims.FullName, user.FullName),

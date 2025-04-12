@@ -1,6 +1,6 @@
 ﻿namespace Monhealth.Application.Models.Identity
 {
-    public class UserClaims
+    public static class UserClaims
     {
         public const string Role = "role";
         public const string UserId = "userId";
