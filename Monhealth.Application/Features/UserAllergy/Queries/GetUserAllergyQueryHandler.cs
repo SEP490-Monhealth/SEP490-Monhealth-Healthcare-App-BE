@@ -17,12 +17,15 @@ namespace Monhealth.Application
             if (userHasAllergy != null)
             {
                 allergyNames = userHasAllergy.Select(u => u.Allergy.AllergyName).ToList();
-            }
 
-            return new GetUserAllergyDTO
-            {
-                Allergies = allergyNames
-            };
+                return new GetUserAllergyDTO
+                {
+                    Allergies = allergyNames
+                };
+            }
+            else
+                return new GetUserAllergyDTO();
+
         }
     }
 }

@@ -1,25 +1,71 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
+using Microsoft.Extensions.Logging;
 
 namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByConsultantId
 {
-    public class UpdateExpertiseByConsultantIdHandler(IConsultantRepository consultantRepository,
-        IExpertiseRepository expertiseRepository
-
-        ) : IRequestHandler<UpdateExpertiseByConsultantIdQueries, bool>
+    public class UpdateExpertiseByConsultantIdHandler : IRequestHandler<UpdateExpertiseByConsultantIdQueries, bool>
     {
+        private readonly IConsultantRepository _consultantRepository;
+        private readonly IExpertiseRepository _expertiseRepository;
+        private readonly ICertificateRepository _certificateRepository;
+        private readonly ILogger<UpdateExpertiseByConsultantIdHandler> _logger;
+
+        public UpdateExpertiseByConsultantIdHandler(
+            IConsultantRepository consultantRepository,
+            IExpertiseRepository expertiseRepository,
+            ICertificateRepository certificateRepository,
+            ILogger<UpdateExpertiseByConsultantIdHandler> logger)
+        {
+            _consultantRepository = consultantRepository;
+            _expertiseRepository = expertiseRepository;
+            _certificateRepository = certificateRepository;
+            _logger = logger;
+        }
+
         public async Task<bool> Handle(UpdateExpertiseByConsultantIdQueries request, CancellationToken cancellationToken)
         {
-            var consultant = await consultantRepository.GetByIdAsync(request.ConsultantId);
-            if (consultant == null) throw new BadRequestException("Không tìm thấy Consultant bằng Id");
-            var expertise = await expertiseRepository.GetExpertiseByNameAsync(request.UpdateDto.Name);
-            if (expertise == null) throw new BadRequestException("Tên chuyên môn không đúng");
+            // Lấy consultant theo Id
+            var consultant = await _consultantRepository.GetByIdAsync(request.ConsultantId);
+            if (consultant == null)
+                throw new BadRequestException("Không tìm thấy Consultant bằng Id");
+
+            // Lấy expertise theo tên
+            var expertise = await _expertiseRepository.GetExpertiseByNameAsync(request.UpdateDto.Expertise);
+            if (expertise == null)
+                throw new BadRequestException("Tên chuyên môn không đúng");
+
+            var certificates = await _certificateRepository.GetCertificateByConsultant(consultant.ConsultantId);
+            if (certificates == null || certificates.Count == 0)
+            {
+                _logger.LogWarning("Không tìm thấy certificate cho consultant với Id {ConsultantId}", consultant.ConsultantId);
+            }
+
+            var targetCertificate =  certificates.FirstOrDefault();
+
+            if (targetCertificate != null)
+            {
+                targetCertificate.CertificateName = request.UpdateDto.CertificateName;
+                targetCertificate.IssueDate = request.UpdateDto.IssueDate;
+                targetCertificate.ExpiryDate = request.UpdateDto.ExpiryDate;
+                targetCertificate.ImageUrls = request.UpdateDto.ImageUrls;
+                targetCertificate.UpdatedAt = DateTime.Now;
+                targetCertificate.CertificateNumber = request.UpdateDto.CertificateNumber;
+                _certificateRepository.Update(targetCertificate);
+            }
+            else
+            {
+                // Ghi log cảnh báo để kiểm tra trường hợp không tìm thấy certificate
+                _logger.LogWarning("Không tìm thấy certificate với số certificate '{CertificateNumber}' cho consultant có Id {ConsultantId}",
+                    request.UpdateDto.CertificateNumber, consultant.ConsultantId);
+            }
 
             consultant.ExpertiseId = expertise.ExpertiseId;
-            await consultantRepository.SaveChangeAsync();
-            return true;
+            expertise.ExpertiseName = request.UpdateDto.Expertise;
 
+            await _consultantRepository.SaveChangeAsync();
+            return true;
         }
     }
 }

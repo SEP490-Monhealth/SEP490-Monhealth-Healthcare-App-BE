@@ -76,6 +76,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<Certificate>> GetCertificateByConsultant(Guid consultantId)
         {
             return await _context.Certificates.
+            Include(c => c.Consultant).
             Where(c => c.ConsultantId == consultantId).ToListAsync();
         }
     }
