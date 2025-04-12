@@ -36,6 +36,19 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID người dùng")]
+        public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy(Guid userId)
+        {
+            var transaction = await mediator.Send(new GetTransactionByCreatedByQuery { UserId = userId });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = transaction
+            });
+        }
+
         [HttpGet("consultant/{consultantId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId, int page = 1, int limit = 10, StatusTransaction? status = null)
@@ -54,19 +67,6 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetTransactionById(Guid transactionId)
         {
             var transaction = await mediator.Send(new GetTransactionByIdQuery { TransactionId = transactionId });
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = transaction
-            });
-        }
-
-        [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin thông tin giao dịch theo người tạo")]
-        public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy(Guid userId)
-        {
-            var transaction = await mediator.Send(new GetTransactionByCreatedByQuery { UserId = userId });
             return Ok(new ResultModel
             {
                 Success = true,
@@ -139,32 +139,6 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{orderCode:long}/completed")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái thanh toán cho đặt lịch đơn")]
-        public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromRoute] long orderCode)
-        {
-            var result = await mediator.Send(new UpdateStatusBookingSingleQuery { OrderCode = orderCode });
-            if (!result)
-            {
-                return BadRequest(new ResultModel
-                {
-                    Success = false,
-                    Message = "Cập nhập trạng thái thanh toán thất bại",
-                    Status = (int)HttpStatusCode.NotFound,
-                    Data = null
-                });
-            }
-
-            // Trả về kết quả thành công
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Cập nhập trạng thái thanh toán thành công",
-                Status = 204,
-                Data = null
-            });
-        }
-
         [HttpPut("{TransactionId}")]
         [SwaggerOperation(Summary = "Cập nhật thông tin giao dịch")]
         public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid TransactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
@@ -209,6 +183,32 @@ namespace Monhealth.Api.Controllers
                 Status = (int)HttpStatusCode.OK,
                 Message = "Xóa giao dịch thành công"
             };
+        }
+
+        [HttpPatch("{orderCode:long}/completed")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái thanh toán cho đặt lịch đơn")]
+        public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromRoute] long orderCode)
+        {
+            var result = await mediator.Send(new UpdateStatusBookingSingleQuery { OrderCode = orderCode });
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập trạng thái thanh toán thất bại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập trạng thái thanh toán thành công",
+                Status = 204,
+                Data = null
+            });
         }
 
         [HttpPatch("{transactionId}/completed")]
