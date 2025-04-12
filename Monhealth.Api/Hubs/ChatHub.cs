@@ -22,7 +22,6 @@ namespace Monhealth.Api.Hubs
                     ChatId = message.ChatId,
                     SenderId = message.SenderId,
                     Content = message.Content,
-
                 };
 
                 // Lưu tin nhắn vào database
@@ -36,11 +35,18 @@ namespace Monhealth.Api.Hubs
                 await Clients.Caller.SendAsync("ErrorOccurred", $"Error sending message: {ex.Message}");
             }
         }
+
         public async Task JoinChat(Guid chatId)
         {
             try
             {
                 var userId = Context.User?.FindFirst(UserClaims.UserId)?.Value;
+
+                if (string.IsNullOrWhiteSpace(userId))
+                {
+                    await Clients.Caller.SendAsync("ErrorOccurred", "Không xác định được người dùng.");
+                    return;
+                }
 
                 // Lưu mapping giữa connectionId và userId
                 _connectionMapping[Context.ConnectionId] = Guid.Parse(userId);
@@ -63,6 +69,7 @@ namespace Monhealth.Api.Hubs
                 await Clients.Caller.SendAsync("ErrorOccurred", $"Error joining chat: {ex.Message}");
             }
         }
+
         public override async Task OnConnectedAsync()
         {
             try

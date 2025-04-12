@@ -44,7 +44,6 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
                 Amount = payment.Amount,
                 Description = payment.Description,
                 SubscriptionId = (Guid)payment.SubscriptionId,
-                Status = payment.Status,
                 OrderCode = payment.OrderCode,
                 PaymentUrl = paymentResult.CheckoutUrl,
                 QrCode = paymentResult.QrCode,
