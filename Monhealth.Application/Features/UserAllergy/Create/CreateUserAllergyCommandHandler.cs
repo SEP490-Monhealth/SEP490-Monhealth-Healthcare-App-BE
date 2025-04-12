@@ -1,4 +1,3 @@
-using System.Globalization;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;

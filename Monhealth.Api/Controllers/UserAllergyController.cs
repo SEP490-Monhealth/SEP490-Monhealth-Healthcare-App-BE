@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -21,41 +20,30 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetByFoodByUserId(Guid userId)
+        [Route("{userId:guid}/user")]
+        public async Task<ActionResult<ResultModel>> GetAllergyByUser(Guid userId)
         {
-            try
-            {
-                var goal = await _mediator.Send(new FilterFoodListQuery { UserId = userId });
+            var allergies = await _mediator.Send(new GetUserAllergyQuery { UserId = userId });
 
-                if (goal == null)
-                {
-                    _logger.LogWarning($"Không tìm thấy dữ liệu thức ăn cho người dùng có ID {userId}");
-                    return new ResultModel
-                    {
-                        Success = false,
-                        Status = (int)HttpStatusCode.NotFound,
-                        Message = "Không tìm thấy dữ liệu thức ăn cho người dùng."
-                    };
-                }
-
-                return new ResultModel
-                {
-                    Success = true,
-                    Status = (int)HttpStatusCode.OK,
-                    Data = goal
-                };
-            }
-            catch (Exception ex)
+            if (allergies == null)
             {
-                // Log lỗi chi tiết và trả về lỗi server
-                _logger.LogError(ex, "Đã xảy ra lỗi khi xử lý yêu cầu GetByFoodByUserId");
+                _logger.LogWarning($"Không tìm thấy dữ liệu thức ăn cho người dùng có ID {userId}");
                 return new ResultModel
                 {
                     Success = false,
-                    Status = (int)HttpStatusCode.InternalServerError,
-                    Message = "Đã xảy ra lỗi khi xử lý yêu cầu."
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy dữ liệu dị ứng ăn cho người dùng."
                 };
             }
+
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Data = allergies
+            };
+
+
         }
 
         [HttpPost]
@@ -79,5 +67,36 @@ namespace Monhealth.Api.Controllers
                 Status = 400,
             });
         }
+        [HttpPut("{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> Update([FromRoute] Guid userId, [FromBody] UserAllergyDTO dto)
+        {
+            // Tạo UpdateUserAllergyRequest từ thông tin UserAllergyDTO nhận được ở body.
+            // Sau đó gán UserId từ route vào request.
+            var updateRequest = new UpdateUserAllergyRequest(dto)
+            {
+                UserId = userId
+            };
+
+            var result = await _mediator.Send(updateRequest);
+
+            if (result)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Cập nhật dị ứng người dùng thành công",
+                    Status = 200
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Cập nhật dị ứng người dùng thất bại",
+                Status = 400
+            });
+        }
+
+
     }
 }

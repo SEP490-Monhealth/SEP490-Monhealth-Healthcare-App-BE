@@ -13,7 +13,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<UserAllergy>> GetUserAllergiesByUserId(Guid userId)
         {
-            return await _context.UserAllergies
+            return await _context.UserAllergies.Include(us => us.Allergy)
              .Where(ua => ua.UserId == userId).ToListAsync();
         }
 
