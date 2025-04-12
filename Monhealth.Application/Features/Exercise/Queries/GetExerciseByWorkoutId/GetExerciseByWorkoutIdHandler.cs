@@ -41,8 +41,8 @@ namespace Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId
             {
                 Warmup = workoutWarmup != null ? mapper.Map<List<ExerciseDto>>(exerciseWarmupList) : new List<ExerciseDto>(),
                 Workout = mapper.Map<List<ExerciseDto>>(exercises),
-                WarmupDuration = totalWarmupDuration,
-                WorkoutDuration = totalExerciseDuration
+                WarmupDuration = (int)Math.Ceiling(totalWarmupDuration / 60.0),
+                WorkoutDuration = (int)Math.Ceiling(totalExerciseDuration / 60.0)
             };
         }
     }

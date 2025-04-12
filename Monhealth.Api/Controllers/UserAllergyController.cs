@@ -20,7 +20,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{userId:guid}/user")]
+        [Route("user/{userId:guid}")]
         public async Task<ActionResult<ResultModel>> GetAllergyByUser(Guid userId)
         {
             var allergies = await _mediator.Send(new GetUserAllergyQuery { UserId = userId });
@@ -42,8 +42,6 @@ namespace Monhealth.Api.Controllers
                 Status = (int)HttpStatusCode.OK,
                 Data = allergies
             };
-
-
         }
 
         [HttpPost]
@@ -67,6 +65,7 @@ namespace Monhealth.Api.Controllers
                 Status = 400,
             });
         }
+
         [HttpPut("{userId:guid}")]
         public async Task<ActionResult<ResultModel>> Update([FromRoute] Guid userId, [FromBody] UserAllergyDTO dto)
         {
@@ -96,7 +95,5 @@ namespace Monhealth.Api.Controllers
                 Status = 400
             });
         }
-
-
     }
 }
