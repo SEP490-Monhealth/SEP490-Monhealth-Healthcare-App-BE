@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
@@ -69,11 +70,12 @@ namespace Monhealth.Application
             .ThenInclude(b => b.Bank)
             .Include(c => c.Consultant).ThenInclude(cs => cs.Wallet)
             .ThenInclude(cs => cs.Transactions).AsQueryable()
-            .Where(cs => cs.ConsultantId == consultant);
+            .Where(cs => cs.ConsultantId == consultant)
+              .OrderByDescending(cs => cs.CreatedAt);;
 
             if (page > 0 && limit > 0)
             {
-                query = query.Skip((page - 1) * limit).Take(limit);
+                query = (IOrderedQueryable<WithdrawalRequest>)query.Skip((page - 1) * limit).Take(limit);
             }
 
             var totalItems = await query.CountAsync();
