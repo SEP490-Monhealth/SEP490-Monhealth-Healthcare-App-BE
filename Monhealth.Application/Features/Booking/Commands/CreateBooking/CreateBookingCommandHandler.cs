@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
 {
@@ -26,7 +27,7 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
 
             //subtract amout remaining booking
             var userSubscription = await userSubscriptionRepository.GetUserSubscriptionActiveOfUser((Guid)booking.UserId);
-            if (userSubscription == null) throw new Exception("Người dùng này không có quyền booking");
+            if (userSubscription == null) throw new BadRequestException("Bạn đã hết số lượt có thể đặt lịch");
 
             userSubscription.RemainingBookings -= 1;
             userSubscription.UpdatedAt = DateTime.Now;

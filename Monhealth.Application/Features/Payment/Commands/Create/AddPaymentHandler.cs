@@ -17,11 +17,6 @@ namespace Monhealth.Application.Features.Payment.Commands.Create
             var payment = new Domain.Payment
             {
                 PaymentId = Guid.NewGuid(),
-                //UserSubscriptionId = user.UserSubscriptions
-                //        .Where(us => us.ExpiresAt > DateTime.Now)
-                //        .OrderByDescending(us => us.CreatedAt)
-                //        .Select(us => us.UserSubscriptionId)
-                //        .FirstOrDefault(),
                 Amount = request.Amount,
                 Status = Core.PaymentStatus.Pending,
                 Description = request.Description,

@@ -66,6 +66,12 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(c => c.TransactionId == transactionId);
         }
 
+        public async Task<Transaction> GetTransactionByOrderCode(long orderCode)
+        {
+            return await _context.Transactions
+                .FirstOrDefaultAsync(t => t.OrderCode == orderCode);
+        }
+
         public async Task<PaginatedResult<Transaction>> GetTransactionByWalletId(int page, int limit, Guid walletId, StatusTransaction? status)
         {
             var query = _context.Transactions.

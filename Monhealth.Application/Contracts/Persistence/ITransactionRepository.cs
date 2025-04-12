@@ -11,6 +11,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Transaction>> GetTransactionByConsultantId(Guid transactionId, DateTime date);
         Task<PaginatedResult<Transaction>> GetTransactionByWalletId(int page, int limit, Guid walletId, StatusTransaction? status);
         Task<Transaction> GetTransactionWhenUpdated(TransactionType transactionType, float amount, StatusTransaction status);
+        Task<Transaction> GetTransactionByOrderCode(long orderCode);
         Task<int> SaveChangeAsync();
     }
 }
