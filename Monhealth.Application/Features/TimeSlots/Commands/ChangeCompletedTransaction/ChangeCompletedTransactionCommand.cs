@@ -4,6 +4,6 @@ namespace Monhealth.Application.Features.TimeSlots.Commands.ChangeCompletedTrans
 {
     public class ChangeCompletedTransactionCommand : IRequest<bool>
     {
-        public Guid TransactionId { get; set; }
+        public Guid transactionId { get; set; }
     }
 }

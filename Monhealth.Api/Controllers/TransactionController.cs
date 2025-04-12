@@ -199,7 +199,7 @@ namespace Monhealth.Api.Controllers
         [SwaggerOperation(Summary = "Cập nhật trạng thái giao dịch")]
         public async Task<ActionResult<ResultModel>> ChangeStatusCompletedTransaction(Guid transactionId)
         {
-            var command = new ChangeCompletedTransactionCommand { TransactionId = transactionId };
+            var command = new ChangeCompletedTransactionCommand { transactionId = transactionId };
             var changeStatus = await mediator.Send(command);
             if (!changeStatus)
             {
