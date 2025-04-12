@@ -1,8 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.TimeSlots.Commands.ChangeCompletedTransaction;
+using Monhealth.Application.Features.Transaction.Commands.CreateBookingSingle;
 using Monhealth.Application.Features.Transaction.Commands.CreateTransaction;
 using Monhealth.Application.Features.Transaction.Commands.DeleteTransaction;
+using Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBookingSingle;
 using Monhealth.Application.Features.Transaction.Commands.UpdateTransaction;
 using Monhealth.Application.Features.Transaction.Queries.GetAllTransactions;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId;
@@ -79,6 +81,55 @@ namespace Monhealth.Api.Controllers
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };
+        }
+
+        [HttpPost("buy-booking")]
+        [SwaggerOperation(Summary = "Tạo thanh toán cho đặt lịch đơn")]
+        public async Task<ActionResult<ResultModel>> CreateBookingSingle([FromBody] BookingSingleRequest request)
+        {
+            var result = await mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo thanh toán thành công",
+                    Status = 201,
+                    Data = result
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo thanh toán thất bại",
+            });
+        }
+
+        [HttpPatch("{orderCode:long}/completed")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái thanh toán cho đặt lịch đơn")]
+        public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromRoute] long orderCode)
+        {
+            var result = await mediator.Send(new UpdateStatusBookingSingleQuery { OrderCode = orderCode });
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập trạng thái thanh toán thất bại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập trạng thái thanh toán thành công",
+                Status = 204,
+                Data = null
+            });
         }
 
         [HttpPut("{TransactionId}")]
