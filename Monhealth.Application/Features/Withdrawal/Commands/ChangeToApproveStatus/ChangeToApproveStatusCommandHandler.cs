@@ -36,6 +36,7 @@ namespace Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStat
                 Status = StatusTransaction.Pending,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
+                WithdrawalRequestId = withdrawalRequest.WithdrawalRequestId,
             };
             transactionRepository.Add(newTransaction);
 
