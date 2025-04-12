@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBooking
 using Monhealth.Application.Features.Transaction.Commands.UpdateTransaction;
 using Monhealth.Application.Features.Transaction.Queries.GetAllTransactions;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId;
+using Monhealth.Application.Features.Transaction.Queries.GetTransactionByCreatedBy;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionById;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
@@ -53,6 +54,19 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetTransactionById(Guid transactionId)
         {
             var transaction = await mediator.Send(new GetTransactionByIdQuery { TransactionId = transactionId });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = transaction
+            });
+        }
+
+        [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin thông tin giao dịch theo người tạo")]
+        public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy(Guid userId)
+        {
+            var transaction = await mediator.Send(new GetTransactionByCreatedByQuery { UserId = userId });
             return Ok(new ResultModel
             {
                 Success = true,

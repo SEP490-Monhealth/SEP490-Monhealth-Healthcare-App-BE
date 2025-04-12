@@ -58,6 +58,14 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
+        public async Task<List<Transaction>> GetTransactionByCreatedBy(Guid userId)
+        {
+            return await _context.Transactions
+                .Include(b => b.Booking)
+                .Include(c => c.Wallet).ThenInclude(c => c.Consultant)
+                .Where(c => c.CreatedBy == userId).ToListAsync();
+        }
+
         public async Task<Transaction> GetTransactionById(Guid transactionId)
         {
             return await _context.Transactions
