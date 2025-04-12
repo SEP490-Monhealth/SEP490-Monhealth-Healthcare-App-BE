@@ -23,7 +23,7 @@ namespace Monhealth.Identity.Configurations
                 IssueDate = DateTime.ParseExact("01-01-2025", "dd-MM-yyyy", null),
                 ExpiryDate = DateTime.ParseExact("01-01-2026", "dd-MM-yyyy", null),
                 IssuedBy = "Monhealth Academy",
-                ImageUrls = new List<string> { "https://example.com/certificate1.jpg" },
+                ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
                 CreatedAt = today,
                 UpdatedAt = today,
             }

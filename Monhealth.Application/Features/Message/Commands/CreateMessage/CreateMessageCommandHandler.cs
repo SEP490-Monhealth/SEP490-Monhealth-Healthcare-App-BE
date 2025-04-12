@@ -49,6 +49,7 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 CreatedAt = newMessage.CreatedAt,
                 UpdatedAt = newMessage.UpdatedAt,
             };
+
             return messageDto;
         }
     }
