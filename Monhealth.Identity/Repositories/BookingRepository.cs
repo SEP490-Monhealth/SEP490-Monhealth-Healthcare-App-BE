@@ -93,6 +93,25 @@ namespace Monhealth.Identity.Repositories
             return query.ToList();
         }
 
+        public async Task<PaginatedResult<Booking>> GetBookingByConsultantIdMonthly(int page, int limit, Guid consultantId, DateTime from, DateTime to)
+        {
+            IQueryable<Booking> query = _context.Bookings.AsNoTracking()
+                .Include(b => b.User)
+                .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
+                .AsQueryable();
+            query = query.Where(c => c.ConsultantId == consultantId && 
+                               (c.Day >= DateOnly.FromDateTime(from) && c.Day < DateOnly.FromDateTime(to)));
+            int totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Booking>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
+        }
 
         public async Task<List<Booking>> GetBookingByConsultantIds(List<Guid> consultantIds)
         {
