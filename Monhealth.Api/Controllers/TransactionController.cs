@@ -48,11 +48,12 @@ namespace Monhealth.Api.Controllers
                 Data = transaction
             });
         }
-        [HttpGet("consultant-Transaction/{consultant:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy(Guid consultant, int page = 1, int limit = 10, string? month = null)
+
+        [HttpGet("consultant/{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID chuyên viên")]
+        public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId, int page = 1, int limit = 10, StatusTransaction? status = null)
         {
-            var transaction = await mediator.Send(new GetTransactionByConsultantQuery(page, limit, month, consultant));
+            var transaction = await mediator.Send(new GetTransactionByConsultantIdQuery(consultantId, page, limit, status));
             return Ok(new ResultModel
             {
                 Success = true,
@@ -61,11 +62,10 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId, int page = 1, int limit = 10, StatusTransaction? status = null)
+        [HttpGet("monthly/consultants/{consultant:guid}")]
+        public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy(Guid consultant, int page = 1, int limit = 10, string? month = null)
         {
-            var transaction = await mediator.Send(new GetTransactionByConsultantIdQuery(consultantId, page, limit, status));
+            var transaction = await mediator.Send(new GetTransactionByConsultantQuery(page, limit, month, consultant));
             return Ok(new ResultModel
             {
                 Success = true,
