@@ -18,7 +18,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("99b9eae6-f5e8-4b41-9394-6a8f2ca1062b"),
                 AllergyName = "Đậu phộng",
-                AllergyDescription = "Dị ứng với đậu phộng khá phổ biến và có thể gây phản ứng nghiêm trọng như sưng tấy, phát ban, khó thở, hoặc sốc phản vệ",
+                AllergyDescription = "Bánh kẹo chứa đậu phộng, nước sốt satay, đậu phộng rang",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,
@@ -31,7 +31,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("91df2b87-a28d-4e89-a779-d4220d68a0f8"),
                 AllergyName = "Hải sản có vỏ",
-                AllergyDescription = "Dị ứng với hải sản có vỏ như tôm, cua, sò, nghêu rất phổ biến ở Việt Nam và có thể gây phản ứng dị ứng nặng, từ phát ban đến khó thở",
+                AllergyDescription = "Tôm, cua, sò, nghêu, hàu, mực",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,
@@ -43,7 +43,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("b52d2f0a-e728-42dc-90c6-bd0310bc0de6"),
                 AllergyName = "Sữa",
-                AllergyDescription = "Dị ứng sữa có thể gây ngứa, phát ban, hoặc tiêu chảy ở một số người, đặc biệt là trẻ em",
+                AllergyDescription = "Sữa bò, phô mai, bơ, kem, bánh ngọt có sữa",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,
@@ -56,7 +56,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("ea406418-19d1-43dc-96a2-9abf97b9d2a5"),
                 AllergyName = "Trứng",
-                AllergyDescription = "Dị ứng trứng là một trong những dị ứng thực phẩm phổ biến, đặc biệt là ở trẻ em. Triệu chứng có thể bao gồm phát ban, ngứa, hoặc khó thở",
+                AllergyDescription = "Trứng gà, trứng vịt, bánh trứng, mayonnaise",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,
@@ -69,7 +69,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("1ada29ad-354a-44aa-b402-3f8a9c854e56"),
                 AllergyName = "Lúa mì",
-                AllergyDescription = "Dị ứng với lúa mì, thường gặp ở những người không dung nạp gluten",
+                AllergyDescription = "Bánh mì, mì sợi, bánh quy, ngũ cốc có chứa gluten",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,
@@ -82,7 +82,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("9e356dc9-ab35-4b54-aa35-37e35d2cc41f"),
                 AllergyName = "Cá",
-                AllergyDescription = "Dị ứng cá cũng khá phổ biến và có thể gây ra các phản ứng nghiêm trọng như phát ban, sưng, hoặc khó thở",
+                AllergyDescription =  "Cá ngừ, cá hồi, cá basa, nước mắm, chả cá",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,
@@ -95,7 +95,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("0eec9d43-391c-43c6-9635-01ca2d6fc66c"),
                 AllergyName = "Các loại hạt",
-                AllergyDescription = "Dị ứng với các loại hạt như hạt điều, hạt hạnh nhân cũng có thể gây ra phản ứng mạnh, đặc biệt là đối với những người có cơ địa nhạy cảm",
+                AllergyDescription =  "Hạt điều, hạnh nhân, óc chó, hạt dẻ, hạt hồ trăn",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,
@@ -108,7 +108,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                 AllergyName = "Đậu nành",
-                AllergyDescription = "Dị ứng với đậu nành khá phổ biến và có thể gây phát ban, ngứa, hoặc khó thở. Đậu nành là thành phần chính trong nhiều món ăn và thực phẩm chế biến sẵn tại Việt Nam",
+                AllergyDescription = "Đậu phụ, sữa đậu nành, nước tương, bột đậu nành",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,
@@ -121,7 +121,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("4d6270d3-69c6-4b9f-9c11-125369139775"),
                 AllergyName = "Hạt vừng",
-                AllergyDescription = "Dị ứng với hạt vừng (mè) có thể gây phát ban, ngứa, và có thể nghiêm trọng nếu không được kiểm soát",
+                AllergyDescription = "Bánh mì vừng, muối vừng, dầu mè, món ăn rắc mè",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,
