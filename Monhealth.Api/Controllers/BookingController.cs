@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Booking.Commands.CreateBooking;
 using Monhealth.Application.Features.Booking.Commands.DeleteBooking;
 using Monhealth.Application.Features.Booking.Commands.UpdateBooking;
@@ -58,6 +59,25 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
+        [HttpGet("user-consultant/")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID người dùng và chuyên viên tư vấn")]
+        public async Task<ActionResult<ResultModel>> GetBookingByUserIdAndConsultant(Guid userId,  Guid consultantId)
+        {
+            var booking = await mediator.Send(new GetAllBookingByConsultantAndUser
+            {
+                UserId = userId,
+                ConsultantId = consultantId
+            });
+
+            return new ResultModel
+            {
+                Data = booking,
+                Status = 200,
+                Success = true,
+            };
+        }
+
+
 
         [HttpGet("consultant/{consultantId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID chuyên viên")]
