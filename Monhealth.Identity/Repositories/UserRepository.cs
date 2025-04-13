@@ -170,6 +170,81 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(u => u.Id == userId);
         }
 
+        public async Task<int> GetUserCountByRoleAsync(string role)
+        {
+            var count = await (from ur in _context.UserRoles
+                               join r in _context.Roles on ur.RoleId equals r.Id
+                               where r.Name == role
+                               select ur.UserId)
+                               .Distinct()
+                               .CountAsync();
+            return count;
+        }
+
+        public async Task<int> GetUserCountByRoleAsync(string role, DateTime targetDate)
+        {
+            DateTime upperBound = targetDate.AddMonths(1);
+
+            var count = await (from u in _context.Users
+                               join ur in _context.UserRoles on u.Id equals ur.UserId
+                               join r in _context.Roles on ur.RoleId equals r.Id
+                               where r.Name == role &&
+                                     u.CreatedAt.HasValue &&
+                                     u.CreatedAt.Value >= targetDate &&
+                                     u.CreatedAt.Value < upperBound
+                               select u.Id)
+                               .Distinct()
+                               .CountAsync();
+            return count;
+        }
+
+        public async Task<Dictionary<string, int>> GetUserCountsByRolesAsync()
+        {
+            var memberRoleIds = await _context.Roles
+                .Where(r => r.Name == "Member" || r.Name == "Subscription Member")
+                .Select(r => r.Id)
+                .ToListAsync();
+
+            var userCounts = new Dictionary<string, int>();
+
+            if (memberRoleIds.Any())
+            {
+                // Count users who have "Member" and "Subscription Member" roles
+                foreach (var roleId in memberRoleIds)
+                {
+                    int count = await _context.Users
+                        .Where(u => _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == roleId))
+                        .CountAsync();
+
+                    string roleName = roleId == memberRoleIds.FirstOrDefault() ? "Member" : "Subscription Member";
+                    userCounts[roleName] = count;
+                }
+            }
+
+            return userCounts;
+        }
+
+        public async Task<Dictionary<string, int>> GetUserCountsByRolesAsync(DateTime targetDate)
+        {
+            DateTime upperBound = targetDate.AddMonths(1);
+
+            var result = await (
+                from u in _context.Users
+                join ur in _context.UserRoles on u.Id equals ur.UserId
+                join r in _context.Roles on ur.RoleId equals r.Id
+                where u.CreatedAt.HasValue &&
+                      u.CreatedAt.Value >= targetDate &&
+                      u.CreatedAt.Value < upperBound
+                group u by r.Name into g
+                select new
+                {
+                    RoleName = g.Key,
+                    Count = g.Count()
+                }
+            ).ToDictionaryAsync(x => x.RoleName, x => x.Count);
+
+            return result;
+        }
         public async Task<int> GetVisitsAsync(DateTime start, DateTime end, CancellationToken cancellationToken)
         {
             // Xác định 2 role cần tính
@@ -181,7 +256,7 @@ namespace Monhealth.Identity.Repositories
                 .Select(r => r.Id)
                 .ToListAsync(cancellationToken);
 
-          
+
             return await _context.Users
                 .Where(u => u.CreatedAt.HasValue &&
                             u.CreatedAt.Value >= start &&

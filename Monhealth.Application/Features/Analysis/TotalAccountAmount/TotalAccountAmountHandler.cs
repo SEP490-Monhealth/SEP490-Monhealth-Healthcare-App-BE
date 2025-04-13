@@ -11,7 +11,7 @@ namespace Monhealth.Application
         public int Count { get; set; }
     }
 
-    public class TotalAccountAmountQuery : IRequest<List<TotalAmountDTO>> { }
+    public class TotalAccountAmountQuery : IRequest<List<TotalAmountDTO>>;
 
     public class TotalAccountAmountHandler : IRequestHandler<TotalAccountAmountQuery, List<TotalAmountDTO>>
     {

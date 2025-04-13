@@ -17,10 +17,20 @@ namespace Monhealth.Application.Contracts.Persistence
     Task<List<Guid>> GetAllUserIds();
     Task<List<AppUser>> GetAllMemberBySixMonths();
     Task<Dictionary<Guid, string>> GetAvatarsByUserIds(List<Guid> userIds);
+    Task<Dictionary<string, int>> GetUserCountsByRolesAsync();
+
+
+    Task<Dictionary<string, int>> GetUserCountsByRolesAsync(DateTime targetDate);
     Task<int> GetTotalUsersAsync(DateTime cutoff, CancellationToken cancellationToken);
-
     Task<int> GetNewUsersAsync(DateTime start, DateTime end, CancellationToken cancellationToken);
-
     Task<int> GetVisitsAsync(DateTime start, DateTime end, CancellationToken cancellationToken);
+
+    Task<int> GetUserCountByRoleAsync(string role);
+
+
+    Task<int> GetUserCountByRoleAsync(string role, DateTime targetDate);
+
+
   }
 }
+

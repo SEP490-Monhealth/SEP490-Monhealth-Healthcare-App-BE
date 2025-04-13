@@ -77,7 +77,7 @@ namespace Monhealth.Application
                     Count = currentNewUsers,
                     GrowthRate = newUsersGrowthRate
                 },
-                TotalVisits = new TotalVisitDTO
+                TotalVisits= new TotalVisitDTO
                 {
                     Count = currentVisits,
                     GrowthRate = totalVisitsGrowthRate

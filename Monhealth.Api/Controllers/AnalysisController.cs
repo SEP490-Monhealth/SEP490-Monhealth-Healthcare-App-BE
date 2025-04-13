@@ -69,5 +69,18 @@ namespace Monhealth.Api.Controllers
                 Success = true
             });
         }
+        [HttpGet("users/Total-Analysis")]
+        [SwaggerOperation(Summary = "lấy độ tăng trưởng")]
+        public async Task<ActionResult<ResultModel>> GetTotalAnalysis()
+        {
+            TotalAmountAnalysisDTO result = await _mediator.Send(new TotalAmountAnalysisQuery());
+
+            return Ok(new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true
+            });
+        }
     }
 }
