@@ -35,6 +35,25 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<PaginatedResult<Notification>> GetNotificationByUserId(int page, int limit, Guid userId)
+        {
+            var notificationsQuery = _context.UserNotifications
+            .Where(un => un.UserId == userId)
+            .Include(un => un.Notification)
+            .Select(un => un.Notification);
+
+            int totalItems = await notificationsQuery.CountAsync();
+            var notifications = await notificationsQuery
+                .Skip((page - 1) * limit)
+                .Take(limit)
+                .ToListAsync();
+            return new PaginatedResult<Notification>
+            {
+                Items = notifications,
+                TotalCount = totalItems
+            };
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);
