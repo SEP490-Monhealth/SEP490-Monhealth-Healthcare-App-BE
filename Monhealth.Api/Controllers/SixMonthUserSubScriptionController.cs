@@ -17,18 +17,18 @@ namespace Monhealth.Api.Controllers
             mediator = _mediator;
         }
 
-        [HttpGet("users")]
-        [SwaggerOperation(Summary = "Lấy tổng số gói đăng ký theo 6 tháng")]
-        public async Task<ActionResult<ResultModel>> GetSixMonthUsers()
-        {
-            List<GetAllUserSubscriptionBySixMonthsDTO> result = await mediator.Send(new GetAllUserSubscriptionBySixMonthQuery());
+        // [HttpGet("users")]
+        // [SwaggerOperation(Summary = "Lấy tổng số gói đăng ký theo 6 tháng")]
+        // public async Task<ActionResult<ResultModel>> GetSixMonthUsers()
+        // {
+        //     List<GetAllUserSubscriptionBySixMonthsDTO> result = await mediator.Send(new GetAllUserSubscriptionBySixMonthQuery());
 
-            return Ok(new ResultModel
-            {
-                Data = result,
-                Status = 200,
-                Success = true
-            });
-        }
+        //     return Ok(new ResultModel
+        //     {
+        //         Data = result,
+        //         Status = 200,
+        //         Success = true
+        //     });
+        // }
     }
 }

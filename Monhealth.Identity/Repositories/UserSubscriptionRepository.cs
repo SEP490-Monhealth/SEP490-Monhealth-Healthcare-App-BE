@@ -143,5 +143,11 @@ namespace Monhealth.Identity.Repositories
             _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == subscriptionRoleId))
            .CountAsync(cancellationToken);
         }
+
+        public async Task<List<UserSubscription>> GetAllUserSubscriptionAsync()
+        {
+            return await _context.UserSubscriptions.Include(c => c.Subscription).ToListAsync();
+
+        }
     }
 }

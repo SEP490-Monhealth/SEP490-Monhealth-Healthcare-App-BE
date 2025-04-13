@@ -14,24 +14,35 @@ namespace Monhealth.Application
 
         public async Task<List<GetAllUserSubscriptionBySixMonthsDTO>> Handle(GetAllUserSubscriptionBySixMonthQuery request, CancellationToken cancellationToken)
         {
-            
             var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-5);
 
-            var subscriptions = await _userSubscriptionRepository.GetAllAsync();
+            var subscriptions = await _userSubscriptionRepository.GetAllUserSubscriptionAsync();
 
             var filteredSubscriptions = subscriptions
                 .Where(s => s.CreatedAt >= startDate && s.CreatedAt <= DateTime.Now);
 
-            var result = filteredSubscriptions
-                .GroupBy(s => s.Subscription)
-                .Select(g => new GetAllUserSubscriptionBySixMonthsDTO
+            var allSubscriptionNames = new List<string> { "Gói Cơ Bản", "Gói Nâng Cao", "Gói Cao Cấp" };
+
+            var subscriptionCounts = filteredSubscriptions
+                .GroupBy(s => s.Subscription.SubscriptionName)
+                .Select(g => new
                 {
-                    Subscription = g.Key.SubscriptionName, 
+                    SubscriptionName = g.Key,
                     Visitors = g.Count()
                 })
                 .ToList();
 
+            var result = allSubscriptionNames.Select(subscriptionName => new GetAllUserSubscriptionBySixMonthsDTO
+            {
+                Subscription = subscriptionName,
+                Visitors = subscriptionCounts
+                    .FirstOrDefault(s => s.SubscriptionName == subscriptionName)?.Visitors ?? 0
+            }).ToList();
+
             return result;
         }
+
     }
 }
+
+
