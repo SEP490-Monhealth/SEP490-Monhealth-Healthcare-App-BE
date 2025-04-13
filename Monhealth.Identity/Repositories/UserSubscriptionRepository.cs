@@ -4,6 +4,7 @@ using Monhealth.Application.Models.Paging;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
+using System.Linq.Dynamic.Core;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -26,7 +27,7 @@ namespace Monhealth.Identity.Repositories
                 .Where(us => us.UserId == userId).ToListAsync();
         }
 
-        public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name, string? search, UserSubscriptionStatus? Status)
+        public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name, string? search, string? sort, string? order, UserSubscriptionStatus? Status)
         {
             search = search?.ToLower().Trim();
             var query = _context.UserSubscriptions.
@@ -46,6 +47,12 @@ namespace Monhealth.Identity.Repositories
             if (name is not null)
             {
                 query = query.Where(us => us.Subscription.SubscriptionName == name);
+            }
+            // sap xep
+            if (!string.IsNullOrEmpty(sort))
+            {
+                string sorting = $"{sort} {(order?.ToLower() == "desc" ? "descending" : "ascending")}";
+                query = query.OrderBy(sorting);
             }
             if (Status.HasValue)
             {

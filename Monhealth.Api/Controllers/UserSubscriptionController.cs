@@ -18,9 +18,9 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10, string? subscription = null, string? search = null, UserSubscriptionStatus? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10, string? subscription = null, string? search = null, string? sort = null, string? order = null, UserSubscriptionStatus? status = null)
         {
-            var result = await _mediator.Send(new GetAllUserSubscriptionQuery(page, limit, subscription, search, status));
+            var result = await _mediator.Send(new GetAllUserSubscriptionQuery(page, limit, subscription, search, sort, order, status));
             return new ResultModel
             {
                 Data = result,
