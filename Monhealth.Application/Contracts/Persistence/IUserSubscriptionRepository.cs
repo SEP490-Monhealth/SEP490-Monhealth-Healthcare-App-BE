@@ -18,7 +18,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<UserSubscription>> GetTotalUserSubscriptionBySixMonth();
         Task<int> GetTotalSubscriptionUsersAsync(DateTime cutoff, CancellationToken cancellationToken);
         Task<int> GetNewSubscriptionUsersAsync(DateTime start, DateTime end, CancellationToken cancellationToken);
-
+        Task<List<UserSubscription>>GetAllUserSubscriptionAsync();
 
     }
 }
