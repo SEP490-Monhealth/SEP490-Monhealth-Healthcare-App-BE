@@ -67,22 +67,22 @@ namespace Monhealth.Application
             // 5. Gán kết quả vào DTO
             var analysisUserDTO = new AnalysisUserDTO
             {
-                TotalUser = new TotalUserDTO
+                TotalUsers = new TotalUserDTO
                 {
                     Count = currentTotalUsers,
                     GrowthRate = totalUsersGrowthRate
                 },
-                NewUser = new NewUserDTO
+                NewUsers = new NewUserDTO
                 {
                     Count = currentNewUsers,
                     GrowthRate = newUsersGrowthRate
                 },
-                TotalVisit = new TotalVisitDTO
+                TotalVisits = new TotalVisitDTO
                 {
                     Count = currentVisits,
                     GrowthRate = totalVisitsGrowthRate
                 },
-                ConversionRate = new ConversionRateDTO
+                ConversionRates = new ConversionRateDTO
                 {
                     Count = (int)Math.Round(currentConversionRate, 2),
                     GrowthRate = (float)Math.Round(conversionGrowthRate, 2)
