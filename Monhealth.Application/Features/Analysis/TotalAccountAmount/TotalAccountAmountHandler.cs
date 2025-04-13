@@ -47,24 +47,33 @@ namespace Monhealth.Application
             // List to hold the result for each month
             var monthlyCounts = new List<TotalAmountDTO>();
 
-            // Loop through each month from January to current month (inclusive)
-            for (int month = 1; month <= currentMonth; month++)
+            // Loop through each month from January to December
+            for (int month = 1; month <= 12; month++)
             {
                 var monthStart = new DateTime(currentYear, month, 1);
                 var monthEnd = monthStart.AddMonths(1).AddDays(-1); // Last day of the month
 
-                // Count the users that were created in the current month
-                var count = nonAdminUsers.Count(u => u.CreatedAt >= monthStart && u.CreatedAt <= monthEnd);
+                int count;
 
-                // Add the result to the monthlyCounts list, even if the count is 0
+                // If the month is greater than the current month, set count to 0
+                if (month > currentMonth)
+                {
+                    count = 0;
+                }
+                else
+                {
+                    // Count the users created in this month (excluding admins)
+                    count = nonAdminUsers.Count(u => u.CreatedAt >= monthStart && u.CreatedAt <= monthEnd);
+                }
+
+                // Add the result to the monthlyCounts list
                 monthlyCounts.Add(new TotalAmountDTO
                 {
                     Month = $"{currentYear}-{month:D2}", // Format as "YYYY-MM"
-                    Count = count // Set count to 0 if no users are found
+                    Count = count
                 });
             }
 
-            // Ensure that every month from January to the current month is included
             return monthlyCounts;
         }
     }
