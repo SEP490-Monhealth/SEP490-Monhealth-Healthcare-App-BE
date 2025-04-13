@@ -60,16 +60,12 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
-        [HttpGet("user-consultant/")]
-        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID người dùng và chuyên viên tư vấn")]
-        public async Task<ActionResult<ResultModel>> GetBookingByUserIdAndConsultant(Guid userId,  Guid consultantId)
-        {
-            var booking = await mediator.Send(new GetAllBookingByConsultantAndUser
-            {
-                UserId = userId,
-                ConsultantId = consultantId
-            });
 
+        [HttpGet("consultant/{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID chuyên viên")]
+        public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId, DateTime? date = null)
+        {
+            var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId, Date = date });
             return new ResultModel
             {
                 Data = booking,
@@ -78,13 +74,15 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-
-
-        [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId, DateTime? date = null)
+        [HttpGet("user-consultant/")]
+        public async Task<ActionResult<ResultModel>> GetBookingByUserIdAndConsultant(Guid userId, Guid consultantId)
         {
-            var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId, Date = date });
+            var booking = await mediator.Send(new GetAllBookingByConsultantAndUser
+            {
+                UserId = userId,
+                ConsultantId = consultantId
+            });
+
             return new ResultModel
             {
                 Data = booking,
