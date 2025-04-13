@@ -102,6 +102,18 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<List<Booking>> GetBookingByUserAndConsultant(Guid userId, Guid consultantId)
+        {
+
+            return await _context.Bookings
+            .AsNoTracking()
+            .Include(b => b.User)
+            .Include(b => b.Consultant)
+            .ThenInclude(c => c.AppUser)
+            .Where(b => b.UserId == userId && b.ConsultantId == consultantId)
+            .ToListAsync();
+        }
+
         public async Task<List<Booking>> GetBookingByUserId(Guid userId)
         {
             return await _context.Bookings

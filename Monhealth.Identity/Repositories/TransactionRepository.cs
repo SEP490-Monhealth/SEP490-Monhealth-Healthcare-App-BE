@@ -11,6 +11,7 @@ namespace Monhealth.Identity.Repositories
 {
     public class TransactionRepository : GenericRepository<Transaction, Guid>, ITransactionRepository
     {
+        
         public TransactionRepository(MonhealthDbcontext context) : base(context)
         {
         }
