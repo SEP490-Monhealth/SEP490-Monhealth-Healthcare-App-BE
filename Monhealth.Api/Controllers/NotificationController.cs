@@ -5,6 +5,7 @@ using Monhealth.Application.Features.Notification.Commands.CreateNotification;
 using Monhealth.Application.Features.Notification.Commands.DeleteNotification;
 using Monhealth.Application.Features.Notification.Commands.UpdateNotification;
 using Monhealth.Application.Features.Notification.Queries.GetAllNotifications;
+using Monhealth.Application.Features.Notification.Queries.GetNotificationByConsultantId;
 using Monhealth.Application.Features.Notification.Queries.GetNotificationById;
 using Monhealth.Application.Features.Notification.Queries.GetNotificationByUserId;
 using Monhealth.Application.Models;
@@ -58,6 +59,18 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetNotificationByUserId(Guid userId, int page = 1, int limit = 10)
         {
             var notification = await mediator.Send(new GetNotificationByUserIdQuery { Page = page, Limit = limit, UserId = userId });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = notification
+            });
+        }
+
+        [HttpGet("consultant/{consultantId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetNotificationByConsultantId(Guid consultantId, int page = 1, int limit = 10)
+        {
+            var notification = await mediator.Send(new GetNotificationByConsultantIdQuery { Page = page, Limit = limit, ConsultantId = consultantId });
             return Ok(new ResultModel
             {
                 Success = true,
