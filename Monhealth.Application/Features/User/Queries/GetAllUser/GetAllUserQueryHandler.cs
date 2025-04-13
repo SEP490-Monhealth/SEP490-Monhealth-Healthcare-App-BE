@@ -25,7 +25,7 @@ UserManager<AppUser> userManager)
         public async Task<PageResult<UserDto>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
         {
 
-            var paginatedUser = await _userRepository.GetAllUserAsync(request.Page, request.Limit, request.Search, request.Role, request.Status);
+            var paginatedUser = await _userRepository.GetAllUserAsync(request.Page, request.Limit, request.Search, request.Role, request.Sort, request.Order, request.Status);
             var userList = paginatedUser.Items.ToList();
             var userDtoList = _mapper.Map<List<UserDto>>(userList);
             //add Role

@@ -26,9 +26,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [SwaggerOperation(Summary = "Lấy danh sách người dùng")]
-        public async Task<ActionResult<ResultModel>> GetAllUser(int page = 1, int limit = 10, string? search = null, string? role = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllUser(int page = 1, int limit = 10, string? search = null, string? role = null, string? sort = null, string? order = null, bool? status = null)
         {
-            var result = await _mediator.Send(new GetAllUserQuery { Page = page, Limit = limit, Search = search, Role = role, Status = status });
+            var result = await _mediator.Send(new GetAllUserQuery { Page = page, Limit = limit, Search = search, Role = role, Sort = sort, Order = order, Status = status });
 
             return new ResultModel
             {

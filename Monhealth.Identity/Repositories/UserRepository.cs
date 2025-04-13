@@ -3,6 +3,7 @@ using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
+using System.Linq.Dynamic.Core;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -33,13 +34,20 @@ namespace Monhealth.Identity.Repositories
             return users;
         }
 
-        public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, bool? status)
+        public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, string? sort, string? order, bool? status)
         {
             search = search?.ToLower().Trim();
             IQueryable<AppUser> query = _context.Users
-     .Where(u => !_context.UserRoles
-         .Any(ur => ur.UserId == u.Id && _context.Roles
-             .Any(r => r.Id == ur.RoleId && r.Name == "Consultant"))).AsQueryable();
+                .Where(u => !_context.UserRoles
+                .Any(ur => ur.UserId == u.Id && _context.Roles
+                .Any(r => r.Id == ur.RoleId && r.Name == "Consultant"))).AsQueryable();
+
+            // sap xep
+            if (!string.IsNullOrEmpty(sort))
+            {
+                string sorting = $"{sort} {(order?.ToLower() == "desc" ? "descending" : "ascending")}";
+                query = query.OrderBy(sorting);
+            }
 
             if (!string.IsNullOrEmpty(search))
             {
@@ -56,6 +64,7 @@ namespace Monhealth.Identity.Repositories
                         where r.Name == role
                         select user;
             }
+
             if (status.HasValue)
             {
                 query = query.Where(s => s.Status == status.Value);
