@@ -65,7 +65,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Transaction>> GetAllTransactionByConsultantId(int page, int limit, Guid Consultant, string? month)
         {
             IQueryable<Transaction> query = _context.Transactions
-      .Include(t => t.Booking)
+      .Include(c => c.Wallet)
       .ThenInclude(b => b.Consultant)
       .ThenInclude(c => c.AppUser)
       .Where(t => t.Wallet.Consultant.ConsultantId == Consultant)
@@ -76,19 +76,21 @@ namespace Monhealth.Identity.Repositories
             if (!string.IsNullOrEmpty(month))
             {
                 DateTime parsedMonth;
-                if (!DateTime.TryParseExact(month, "MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedMonth))
+                // Modify the format to match the new "yyyy-MM" format
+                if (!DateTime.TryParseExact(month, "yyyy-MM", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedMonth))
                 {
-                    throw new BadRequestException("Invalid month format. Expected format: MM-dd.");
+                    throw new BadRequestException("Invalid month format. Expected format: yyyy-MM.");
                 }
 
                 int monthToFilter = parsedMonth.Month;
-                int yearToFilter = parsedMonth.Year == 1 ? DateTime.Now.Year : parsedMonth.Year;
+                int yearToFilter = parsedMonth.Year;
 
-                // Lọc theo tháng và năm, đảm bảo CreatedAt không phải là null
+                // Filter by month and year, ensuring CreatedAt is not null
                 query = query.Where(t => t.CreatedAt.HasValue
                                          && t.CreatedAt.Value.Month == monthToFilter
                                          && t.CreatedAt.Value.Year == yearToFilter);
             }
+
 
             // Lấy tổng số lượng giao dịch cho phân trang
             int totalItems = await query.CountAsync();

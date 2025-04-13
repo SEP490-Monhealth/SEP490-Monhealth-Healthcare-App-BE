@@ -8,7 +8,7 @@ namespace Monhealth.Application
         public Guid TransactionId { get; set; }
         public Guid ConsultantId { get; set; }
         public Guid WalletId { get; set; }
-        public Guid BookingId { get; set; }
+        public Guid? BookingId { get; set; }
         public ConsultantForTransaction Consultant { get; set; } = null!;
         [JsonPropertyName("type")]
         public TransactionType TransactionType { get; set; }
