@@ -7,6 +7,7 @@ using Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel;
 using Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus;
 using Monhealth.Application.Features.Booking.Queries.GetAllBookings;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId;
+using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantIdMonthly;
 using Monhealth.Application.Features.Booking.Queries.GetBookingById;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByUserId;
 using Monhealth.Application.Models;
@@ -64,6 +65,19 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId, DateTime? date = null)
         {
             var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId, Date = date });
+            return new ResultModel
+            {
+                Data = booking,
+                Status = 200,
+                Success = true,
+            };
+        }
+
+        [HttpGet("monthly/consultant/{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID chuyên viên")]
+        public async Task<ActionResult<ResultModel>> GetBookingByConsultantIdMonthly([FromRoute] Guid consultantId, int page = 1, int limit = 10, DateTime? month = null)
+        {
+            var booking = await mediator.Send(new GetBookingByConsultantIdMonthlyQuery { Page = page, Limit = limit, ConsultantId = consultantId, Month = month});
             return new ResultModel
             {
                 Data = booking,
