@@ -47,7 +47,8 @@ namespace Monhealth.Identity.Services
                 Email = user.Email,
                 Avatar = user.Avatar ?? string.Empty,  // Kiểm tra null cho Avatar
                 Role = roles.FirstOrDefault(),  // Đảm bảo role không bị null
-                Subscription = user.UserSubscriptions.Select(us => us.Subscription.SubscriptionName).FirstOrDefault() ?? "Gói Cơ Bản"
+                Subscription = user.UserSubscriptions.Where(us => us.Status == Core.Enum.UserSubscriptionStatus.Active)
+                .Select(us => us.Subscription.SubscriptionName).FirstOrDefault() ?? string.Empty,
             };
         }
 

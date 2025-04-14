@@ -1,17 +1,17 @@
-﻿using System.Globalization;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
+using System.Globalization;
 
 namespace Monhealth.Identity.Repositories
 {
     public class TransactionRepository : GenericRepository<Transaction, Guid>, ITransactionRepository
     {
-        
+
         public TransactionRepository(MonhealthDbcontext context) : base(context)
         {
         }
@@ -112,18 +112,12 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
-
-
-
-
-
-
         public async Task<List<Transaction>> GetTransactionByCreatedBy(Guid userId)
         {
             return await _context.Transactions
                 .Include(b => b.Booking)
                 .Include(c => c.Wallet).ThenInclude(c => c.Consultant)
-                .Where(c => c.CreatedBy == userId).ToListAsync();
+                .Where(c => c.UserId == userId).ToListAsync();
         }
 
         public async Task<Transaction> GetTransactionById(Guid transactionId)
@@ -173,7 +167,6 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(t => t.TransactionType == transactionType &&
                 t.Amount == amount &&
                 t.Status == status);
-
         }
 
         public async Task<int> SaveChangeAsync()

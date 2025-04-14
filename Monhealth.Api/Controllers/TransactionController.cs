@@ -177,7 +177,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPut("{TransactionId}")]
+        [HttpPut("{transactionId}")]
         [SwaggerOperation(Summary = "Cập nhật thông tin giao dịch")]
         public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid TransactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
         {
