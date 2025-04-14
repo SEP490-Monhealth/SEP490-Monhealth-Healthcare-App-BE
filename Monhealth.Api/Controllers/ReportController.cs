@@ -40,24 +40,24 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("weekly-transactions/{consultantId}")]
-        public async Task<IActionResult> GetWeeklyTransactionReport(Guid consultantId, DateTime date)
-        {
-            var result = await _mediator.Send(new ReportTransactionWeeklyQuery
-            {
-                ConsultantId = consultantId,
-                Date = date
-            });
+        // [HttpGet("weekly-transactions/{consultantId}")]
+        // public async Task<IActionResult> GetWeeklyTransactionReport(Guid consultantId, DateTime date)
+        // {
+        //     var result = await _mediator.Send(new ReportTransactionWeeklyQuery
+        //     {
+        //         ConsultantId = consultantId,
+        //         Date = date
+        //     });
 
-            return Ok(new ResultModel
-            {
-                Data = result,
-                Status = 200,
-                Success = true
-            });
-        }
+        //     return Ok(new ResultModel
+        //     {
+        //         Data = result,
+        //         Status = 200,
+        //         Success = true
+        //     });
+        // }
 
-        [HttpGet("monthly-transactions/{consultantId}")]
+        [HttpGet("yearly-transactions/{consultantId}")]
         public async Task<IActionResult> GetMonthlyTransactionReport(Guid consultantId, DateTime date)
         {
             var result = await _mediator.Send(new ReportTransactionMonthlyQuery
@@ -74,7 +74,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("monthly-bookings/{consultantId}")]
+        [HttpGet("yearly-bookings/{consultantId}")]
         public async Task<IActionResult> GetMonthlyBookingReport(Guid consultantId, DateTime date)
         {
             var result = await _mediator.Send(new ReportBookingMonthlyQuery

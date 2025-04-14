@@ -25,7 +25,6 @@ namespace Monhealth.Api.Controllers
     public class TransactionController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        [SwaggerOperation(Summary = "Lấy danh sách giao dịch")]
         public async Task<ActionResult<ResultModel>> GetAllTransactions(int page = 1, int limit = 10, TransactionType? type = null, string? search = null, StatusTransaction? status = null)
         {
             var transactionsList = await mediator.Send(new GetAllTransactionsQuery(page, limit, type, search, status));
@@ -39,7 +38,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy([FromRoute] Guid userId, int page = 1, int limit = 10)
         {
             var transaction = await mediator.Send(new GetTransactionByCreatedByQuery
@@ -55,12 +53,11 @@ namespace Monhealth.Api.Controllers
                 Data = transaction
             });
         }
-        [HttpGet("subscription/{subscriptionId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID người dùng")]
-        public async Task<ActionResult<ResultModel>> GetTransactionBySubscriptionId([FromRoute] Guid subscriptionId)
-        {
-            var transaction = await mediator.Send(new GetTransactionBySubscriptionIdQuery { SubscriptionId = subscriptionId });
 
+        [HttpGet("consultant/{consultantId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId, int page = 1, int limit = 10, StatusTransaction? status = null)
+        {
+            var transaction = await mediator.Send(new GetTransactionByConsultantIdQuery(consultantId, page, limit, status));
             return Ok(new ResultModel
             {
                 Success = true,
@@ -69,11 +66,12 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId, int page = 1, int limit = 10, StatusTransaction? status = null)
+
+        [HttpGet("subscription/{subscriptionId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetTransactionBySubscriptionId([FromRoute] Guid subscriptionId)
         {
-            var transaction = await mediator.Send(new GetTransactionByConsultantIdQuery(consultantId, page, limit, status));
+            var transaction = await mediator.Send(new GetTransactionBySubscriptionIdQuery { SubscriptionId = subscriptionId });
+
             return Ok(new ResultModel
             {
                 Success = true,
@@ -95,7 +93,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{transactionId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin thông tin giao dịch")]
         public async Task<ActionResult<ResultModel>> GetTransactionById(Guid transactionId)
         {
             var transaction = await mediator.Send(new GetTransactionByIdQuery { TransactionId = transactionId });
@@ -125,7 +122,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Tạo giao dịch")]
         public async Task<ActionResult<ResultModel>> CreateTransaction([FromBody] CreateTransactionDTO createTransactionDTO)
         {
             var command = new CreateTransactionCommand(createTransactionDTO);
@@ -213,27 +209,28 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpDelete("{transactionId}")]
-        public async Task<ActionResult<ResultModel>> DeleteTransaction(Guid transactionId)
-        {
-            var command = new DeleteTransactionCommand { TransactionId = transactionId };
-            var delete = await mediator.Send(command);
-            if (!delete)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy giao dịch"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Xóa giao dịch thành công"
-            };
-        }
+        // [HttpDelete("{transactionId}")]
+        // [SwaggerOperation(Summary = "")]
+        // public async Task<ActionResult<ResultModel>> DeleteTransaction(Guid transactionId)
+        // {
+        //     var command = new DeleteTransactionCommand { TransactionId = transactionId };
+        //     var delete = await mediator.Send(command);
+        //     if (!delete)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Message = "Không tìm thấy giao dịch"
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = (int)HttpStatusCode.OK,
+        //         Message = "Xóa giao dịch thành công"
+        //     };
+        // }
 
         [HttpPatch("{orderCode:long}/completed")]
         public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromRoute] long orderCode)
