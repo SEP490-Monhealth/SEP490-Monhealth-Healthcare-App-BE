@@ -7,8 +7,6 @@ namespace Monhealth.Application
         public Guid AllergyId { get; set; }
         [JsonPropertyName("name")]
         public string AllergyName { get; set; } = string.Empty;
-        [JsonPropertyName("description")]
-        public string AllergyDescription { get; set; } = string.Empty;
     }
 
 }

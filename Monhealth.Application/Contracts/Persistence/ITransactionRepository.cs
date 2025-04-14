@@ -9,12 +9,13 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type, string? search, StatusTransaction? status);
         Task<Transaction> GetTransactionById(Guid transactionId);
         Task<List<Transaction>> GetTransactionByConsultantId(Guid transactionId, DateTime date);
-        Task<List<Transaction>> GetTransactionByCreatedBy(Guid userId);
+        Task<PaginatedResult<Transaction>> GetTransactionByCreatedBy(Guid userId, int page, int limit);
         Task<PaginatedResult<Transaction>> GetTransactionByWalletId(int page, int limit, Guid walletId, StatusTransaction? status);
         Task<PaginatedResult<Transaction>> GetAllTransactionByConsultantId(int page, int limit, Guid Consultant, string month);
         Task<Transaction> GetTransactionWhenUpdated(TransactionType transactionType, float amount, StatusTransaction status);
         Task<List<Transaction>> GetTransactionsByConsultantAndDateRange(Guid consultantId, DateTime from, DateTime to);
         Task<Transaction> GetTransactionByOrderCode(long orderCode);
+        Task<List<Transaction>> GetTransactionBySubscriptionId(Guid subscriptionId);
         Task<int> SaveChangeAsync();
     }
 }

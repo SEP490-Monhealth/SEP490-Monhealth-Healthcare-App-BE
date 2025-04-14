@@ -163,6 +163,13 @@ namespace Monhealth.Identity.Repositories
             .FirstOrDefaultAsync(u => u.Id == userId);
         }
 
+        public async Task<List<AppUser>> GetUserByIdsAsync(List<Guid> userIds)
+        {
+            if (userIds == null || !userIds.Any()) return new List<AppUser>();
+            return await _context.Users.Where(u => userIds.Contains(u.Id))
+                .ToListAsync();
+        }
+
         public async Task<AppUser> GetUSerByNameAsync(string FullName)
         {
             var query = await _context.Users.FirstOrDefaultAsync(u => u.FullName == FullName);
@@ -254,6 +261,17 @@ namespace Monhealth.Identity.Repositories
 
             return result;
         }
+
+        public async Task<List<AppUser>> GetUsersByIdsAsync(List<Guid> userIds)
+        {
+            if (userIds == null || !userIds.Any())
+                return new List<AppUser>();
+
+            return await _context.Users
+                                 .Where(user => userIds.Contains(user.Id))
+                                 .ToListAsync();
+        }
+
         public async Task<int> GetVisitsAsync(DateTime start, DateTime end, CancellationToken cancellationToken)
         {
             // Xác định 2 role cần tính

@@ -17,8 +17,9 @@ namespace Monhealth.Identity.Repositories
         public async Task<UserSubscription> GetByUserIdAsync(Guid userId)
         {
             return await _context.UserSubscriptions
-                .Include(s => s.Subscription)
-                .FirstOrDefaultAsync(us => us.UserId == userId);
+                .Include(us => us.Subscription)
+                .Where(us => us.UserId == userId && us.Subscription != null && us.Status == UserSubscriptionStatus.Active)
+                .FirstOrDefaultAsync();
         }
         public async Task<List<UserSubscription>> GetUserSubcriptionByUserIdAsync(Guid userId)
         {
@@ -27,7 +28,8 @@ namespace Monhealth.Identity.Repositories
                 .Where(us => us.UserId == userId).ToListAsync();
         }
 
-        public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name, string? search, string? sort, string? order, UserSubscriptionStatus? Status)
+        public async Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name, string? search,
+            string? sort, string? order, UserSubscriptionStatus? Status)
         {
             search = search?.ToLower().Trim();
             var query = _context.UserSubscriptions.

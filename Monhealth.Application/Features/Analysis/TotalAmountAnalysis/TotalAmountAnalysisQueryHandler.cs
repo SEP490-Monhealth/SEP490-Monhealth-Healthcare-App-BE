@@ -17,87 +17,86 @@ namespace Monhealth.Application
         IRequestHandler<TotalAmountAnalysisQuery, TotalAmountAnalysisDTO>
     {
         private readonly IUserRepository _userRepository;
-        private readonly IPaymentRepository _paymentRepository;
 
-        public TotalAmountAnalysisQueryHandler(IUserRepository userRepository,
-            IPaymentRepository paymentRepository)
+        public TotalAmountAnalysisQueryHandler(IUserRepository userRepository
+           )
         {
             _userRepository = userRepository;
-            _paymentRepository = paymentRepository;
         }
 
         public async Task<TotalAmountAnalysisDTO> Handle(
             TotalAmountAnalysisQuery request,
             CancellationToken cancellationToken)
         {
-            // Lấy ngày đầu tháng hiện tại và đầu tháng trước đó dựa trên CreatedAt
-            DateTime currentDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            DateTime previousDate = currentDate.AddMonths(-1);
+            //// Lấy ngày đầu tháng hiện tại và đầu tháng trước đó dựa trên CreatedAt
+            //DateTime currentDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            //DateTime previousDate = currentDate.AddMonths(-1);
 
-            // -------------------------------------------
-            // TotalUsers: chỉ tính các user có role "Member" và "Subscription Member" 
-            // được tạo trong tháng hiện tại
-            int currentMemberCount = await _userRepository.GetUserCountByRoleAsync("Member");
-            int currentSubMemberCount =
-                await _userRepository.GetUserCountByRoleAsync("Subscription Member");
-            int currentTotalUsers = currentMemberCount + currentSubMemberCount;
+            //// -------------------------------------------
+            //// TotalUsers: chỉ tính các user có role "Member" và "Subscription Member" 
+            //// được tạo trong tháng hiện tại
+            //int currentMemberCount = await _userRepository.GetUserCountByRoleAsync("Member");
+            //int currentSubMemberCount =
+            //    await _userRepository.GetUserCountByRoleAsync("Subscription Member");
+            //int currentTotalUsers = currentMemberCount + currentSubMemberCount;
 
-            // Total users của tháng trước dựa trên CreatedAt
-            int previousMemberCount =
-                await _userRepository.GetUserCountByRoleAsync("Member", previousDate);
-            int previousSubMemberCount =
-                await _userRepository.GetUserCountByRoleAsync("Subscription Member", previousDate);
-            int previousTotalUsers = previousMemberCount + previousSubMemberCount;
+            //// Total users của tháng trước dựa trên CreatedAt
+            //int previousMemberCount =
+            //    await _userRepository.GetUserCountByRoleAsync("Member", previousDate);
+            //int previousSubMemberCount =
+            //    await _userRepository.GetUserCountByRoleAsync("Subscription Member", previousDate);
+            //int previousTotalUsers = previousMemberCount + previousSubMemberCount;
 
-            var totalUsersDto = new TotalUserAnalysisDTO1
-            {
-                Count = currentTotalUsers,
-                GrowthRate = CalculateGrowthRate(currentTotalUsers, previousTotalUsers)
-            };
+            //var totalUsersDto = new TotalUserAnalysisDTO1
+            //{
+            //    Count = currentTotalUsers,
+            //    GrowthRate = CalculateGrowthRate(currentTotalUsers, previousTotalUsers)
+            //};
 
-            // -------------------------------------------
-            // TotalSubscriptions: chỉ tính các Payment có Status = Completed
-            int currentCompletedPayments =
-                await _paymentRepository.GetCompletedPaymentsCountAsync();
-            int previousCompletedPayments =
-                await _paymentRepository.GetCompletedPaymentsCountAsync(previousDate);
+            //// -------------------------------------------
+            //// TotalSubscriptions: chỉ tính các Payment có Status = Completed
+            //int currentCompletedPayments =
+            //    await _paymentRepository.GetCompletedPaymentsCountAsync();
+            //int previousCompletedPayments =
+            //    await _paymentRepository.GetCompletedPaymentsCountAsync(previousDate);
 
-            var totalSubscriptionsDto = new TotalSubscriptionAnalysisDTO
-            {
-                Count = currentCompletedPayments,
-                GrowthRate = CalculateGrowthRate(currentCompletedPayments, previousCompletedPayments)
-            };
+            //var totalSubscriptionsDto = new TotalSubscriptionAnalysisDTO
+            //{
+            //    Count = currentCompletedPayments,
+            //    GrowthRate = CalculateGrowthRate(currentCompletedPayments, previousCompletedPayments)
+            //};
 
-            // -------------------------------------------
-            // TotalRevenue: tổng Amount của Payment có Status = Completed
-            decimal currentRevenue = await _paymentRepository.GetTotalRevenueAsync();
-            decimal previousRevenue = await _paymentRepository.GetTotalRevenueAsync(previousDate);
+            //// -------------------------------------------
+            //// TotalRevenue: tổng Amount của Payment có Status = Completed
+            //decimal currentRevenue = await _paymentRepository.GetTotalRevenueAsync();
+            //decimal previousRevenue = await _paymentRepository.GetTotalRevenueAsync(previousDate);
 
-            var totalRevenueDto = new TotalRevenueDTO
-            {
-                Count = (int)currentRevenue,
-                GrowthRate = CalculateGrowthRate(currentRevenue, previousRevenue)
-            };
+            //var totalRevenueDto = new TotalRevenueDTO
+            //{
+            //    Count = (int)currentRevenue,
+            //    GrowthRate = CalculateGrowthRate(currentRevenue, previousRevenue)
+            //};
 
-            // -------------------------------------------
-            // TotalConsultants: số user có role "Consultant" theo CreatedAt
-            int currentConsultants = await _userRepository.GetUserCountByRoleAsync("Consultant");
-            int previousConsultants =
-                await _userRepository.GetUserCountByRoleAsync("Consultant", previousDate);
+            //// -------------------------------------------
+            //// TotalConsultants: số user có role "Consultant" theo CreatedAt
+            //int currentConsultants = await _userRepository.GetUserCountByRoleAsync("Consultant");
+            //int previousConsultants =
+            //    await _userRepository.GetUserCountByRoleAsync("Consultant", previousDate);
 
-            var totalConsultantsDto = new TotalConsultantDTO
-            {
-                Count = currentConsultants,
-                GrowthRate = CalculateGrowthRate(currentConsultants, previousConsultants)
-            };
+            //var totalConsultantsDto = new TotalConsultantDTO
+            //{
+            //    Count = currentConsultants,
+            //    GrowthRate = CalculateGrowthRate(currentConsultants, previousConsultants)
+            //};
 
-            return new TotalAmountAnalysisDTO
-            {
-                TotalUsers = totalUsersDto,
-                TotalSubscriptions = totalSubscriptionsDto,
-                TotalRevenue = totalRevenueDto,
-                TotalConsultants = totalConsultantsDto
-            };
+            //return new TotalAmountAnalysisDTO
+            //{
+            //    TotalUsers = totalUsersDto,
+            //    TotalSubscriptions = totalSubscriptionsDto,
+            //    TotalRevenue = totalRevenueDto,
+            //    TotalConsultants = totalConsultantsDto
+            //};
+            throw new NotImplementedException();
         }
 
         private float CalculateGrowthRate(int currentValue, int previousValue)

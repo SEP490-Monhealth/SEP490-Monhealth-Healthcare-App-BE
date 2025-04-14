@@ -15,6 +15,7 @@ namespace Monhealth.Domain
         public string Bio { get; set; } = string.Empty;
         public int Views { get; set; }
         public int Experience { get; set; }
+        public string MeetUrl { get; set; } = string.Empty;
         public int BookingCount { get; set; }
         public double RatingCount { get; set; }
         public double AverageRating { get; set; }

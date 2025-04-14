@@ -6,7 +6,6 @@ using Monhealth.Application.Features.Chat.Commands.CreateChat;
 using Monhealth.Application.Features.Chat.Queries.GetChatByConsultantId;
 using Monhealth.Application.Features.Chat.Queries.GetInfoChatById;
 using Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId;
-using Monhealth.Application.Features.Message.Queries.GetMessageByChatId;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;

@@ -2,48 +2,48 @@
 using Monhealth.Application.Contracts.PayOS;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
-using Monhealth.Domain.Enum;
 
-namespace Monhealth.Application.Features.Transaction.Commands.CreateBookingSingle
+namespace Monhealth.Application.Features.Transaction.Commands.CreateUpgradeSubscriptionPayment
 {
-    public class BookingSingleHandler(IUserRepository userRepository,
-        IPayOSService payOSService,
-        ITransactionRepository transactionRepository
-        ) : IRequestHandler<BookingSingleRequest, BookingSingleResponse>
+    public class CreateUpgradeHandler(IUserRepository userRepository,
+            ITransactionRepository transactionRepository,
+            IPayOSService payOSService
+        ) : IRequestHandler<CreateUpgradeRequest, CreateUpgradeResponse>
     {
-        public async Task<BookingSingleResponse> Handle(BookingSingleRequest request, CancellationToken cancellationToken)
+        public async Task<CreateUpgradeResponse> Handle(CreateUpgradeRequest request, CancellationToken cancellationToken)
         {
             var user = await userRepository.GetUserByIdAsync(request.UserId);
             if (user == null) throw new BadRequestException("Không tìm thấy người dùng");
-
             var newTransaction = new Domain.Transaction
             {
                 TransactionId = Guid.NewGuid(),
-                UserId = user.Id,
-                TransactionType = TransactionType.Fee,
-                Description = request.Description,
+                UserId = request.UserId,
                 Amount = request.Amount,
-                Status = StatusTransaction.Pending,
+                TransactionType = Domain.Enum.TransactionType.Fee,
+                Status = Domain.Enum.StatusTransaction.Pending,
+                Description = request.Description,
+                SubscriptionId = request.SubscriptionId,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };
 
             var paymentResult = await payOSService.CreatePaymentLinkAsync(
-                newTransaction.TransactionId,
+               newTransaction.TransactionId,
                 request.Amount,
                 request.Description ?? string.Empty
-                );
-
+           );
             newTransaction.OrderCode = paymentResult.OrderCode;
             transactionRepository.Add(newTransaction);
             await transactionRepository.SaveChangeAsync();
-            return new BookingSingleResponse
+
+            return new CreateUpgradeResponse
             {
                 TransactionId = newTransaction.TransactionId,
                 UserId = user.Id,
-                Amount = (float)newTransaction.Amount,
+                Amount = newTransaction.Amount,
                 Description = newTransaction.Description,
-                OrderCode = newTransaction.OrderCode,
+                SubscriptionId = (Guid)newTransaction.SubscriptionId,
+                OrderCode = (long)newTransaction.OrderCode,
                 PaymentUrl = paymentResult.CheckoutUrl,
                 QrCode = paymentResult.QrCode,
             };

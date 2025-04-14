@@ -19,7 +19,6 @@ namespace Monhealth.Application
                 {
                     GetUserAllergyDTO getUserAllergy = new GetUserAllergyDTO
                     {
-                        AllergyDescription = allergies?.Allergy?.AllergyDescription,
                         AllergyId = allergies.AllergyId,
                         AllergyName = allergies.Allergy.AllergyName
                     };
