@@ -25,8 +25,6 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateUpgradeSubsc
                 SubscriptionId = request.SubscriptionId,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                CreatedBy = request.UserId,
-                UpdatedBy = request.UserId,
             };
 
             var paymentResult = await payOSService.CreatePaymentLinkAsync(

@@ -19,14 +19,13 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateBookingSingl
             var newTransaction = new Domain.Transaction
             {
                 TransactionId = Guid.NewGuid(),
+                UserId = user.Id,
                 TransactionType = TransactionType.Fee,
                 Description = request.Description,
                 Amount = request.Amount,
                 Status = StatusTransaction.Pending,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                CreatedBy = request.UserId,
-                UpdatedBy = request.UserId,
             };
 
             var paymentResult = await payOSService.CreatePaymentLinkAsync(
