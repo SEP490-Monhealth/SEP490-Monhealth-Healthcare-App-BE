@@ -16,15 +16,10 @@ namespace Monhealth.Application
 
         public async Task<List<GetAllMemberBySixMonthsDTO>> Handle(GetAllMemberBySixMonthsQuery request, CancellationToken cancellationToken)
         {
-            // 1. Xác định mốc thời gian cho 6 tháng:
-            // Ví dụ: nếu hiện tại là tháng 6, ta muốn lấy data của 6 tháng liên tiếp:
-            // Tháng đầu tiên = đầu tháng của (CurrentMonth - 5)
+       
             DateTime currentDate = DateTime.Now; // hoặc DateTime.UtcNow nếu ứng dụng dùng UTC
             DateTime earliestMonth = new DateTime(currentDate.Year, currentDate.Month, 1).AddMonths(-5);
 
-            // 2. Lấy các member có CreatedAt trong khoảng 6 tháng trở lại.
-            // Sử dụng repository method parameterless đã trả về member trong vòng 6 tháng,
-            // hoặc nếu chưa filter theo mốc thời gian thì ta filter ở đây.
             var users = await _userRepository.GetAllMemberBySixMonths();
             // Lọc lại theo mốc earliestMonth (đảm bảo chỉ lấy member từ earliestMonth trở đi)
             var usersList = users.Where(u => u.CreatedAt.HasValue && u.CreatedAt.Value >= earliestMonth).ToList();

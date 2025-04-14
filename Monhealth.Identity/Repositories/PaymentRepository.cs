@@ -105,5 +105,38 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<int> GetCompletedPaymentsCountAsync()
+        {
+            // Kiểm tra theo enum PaymentStatus.Completed
+            return await _context.Payments
+                .CountAsync(p => p.Status == PaymentStatus.Completed);
+        }
+
+        public async Task<int> GetCompletedPaymentsCountAsync(DateTime targetDate)
+        {
+            return await _context.Payments
+                .CountAsync(p =>
+                    p.Status == PaymentStatus.Completed &&
+                    p.CreatedAt >= targetDate &&
+                    p.UpdatedAt < targetDate.AddMonths(1));
+        }
+
+        public async Task<decimal> GetTotalRevenueAsync()
+        {
+            return await _context.Payments
+                .Where(p => p.Status == PaymentStatus.Completed)
+                .SumAsync(p => p.Amount);
+        }
+
+        public async Task<decimal> GetTotalRevenueAsync(DateTime targetDate)
+        {
+            return await _context.Payments
+                .Where(p =>
+                    p.Status == PaymentStatus.Completed &&
+                    p.CreatedAt >= targetDate &&
+                    p.UpdatedAt < targetDate.AddMonths(1))
+                .SumAsync(p => p.Amount);
+        }
     }
 }

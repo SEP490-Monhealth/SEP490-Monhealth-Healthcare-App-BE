@@ -11,7 +11,7 @@ namespace Monhealth.Application
         public int Count { get; set; }
     }
 
-    public class TotalAccountAmountQuery : IRequest<List<TotalAmountDTO>> { }
+    public class TotalAccountAmountQuery : IRequest<List<TotalAmountDTO>>;
 
     public class TotalAccountAmountHandler : IRequestHandler<TotalAccountAmountQuery, List<TotalAmountDTO>>
     {
@@ -47,34 +47,32 @@ namespace Monhealth.Application
             // List to hold the result for each month
             var monthlyCounts = new List<TotalAmountDTO>();
 
-            // Loop through each month from January to December
-            for (int month = 1; month <= 12; month++)
+            int cumulativeCount = 0;  // Variable to store cumulative count
+
+            // Loop through each month from January to the current month
+            for (int month = 1; month <= currentMonth; month++)
             {
                 var monthStart = new DateTime(currentYear, month, 1);
                 var monthEnd = monthStart.AddMonths(1).AddDays(-1); // Last day of the month
 
                 int count;
 
-                // If the month is greater than the current month, set count to 0
-                if (month > currentMonth)
-                {
-                    count = 0;
-                }
-                else
-                {
-                    // Count the users created in this month (excluding admins)
-                    count = nonAdminUsers.Count(u => u.CreatedAt >= monthStart && u.CreatedAt <= monthEnd);
-                }
+                // Count the users created in this month (excluding admins)
+                count = nonAdminUsers.Count(u => u.CreatedAt >= monthStart && u.CreatedAt <= monthEnd);
+
+                // Add the count to the cumulative total
+                cumulativeCount += count;
 
                 // Add the result to the monthlyCounts list
                 monthlyCounts.Add(new TotalAmountDTO
                 {
                     Month = $"{currentYear}-{month:D2}", // Format as "YYYY-MM"
-                    Count = count
+                    Count = cumulativeCount
                 });
             }
 
             return monthlyCounts;
         }
+
     }
 }
