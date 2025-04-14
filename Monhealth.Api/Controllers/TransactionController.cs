@@ -91,7 +91,6 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{transactionId:Guid}/qr-code")]
-        [SwaggerOperation(Summary = "Tạo QR code giao dịch rút tiền")]
         public async Task<ResultModel> CreateWithdrawalRequest(Guid transactionId)
         {
             var command = new GenerateTransactionQRCode(transactionId);
@@ -106,7 +105,6 @@ namespace Monhealth.Api.Controllers
                 Data = result
             };
         }
-
 
         [HttpPost]
         [SwaggerOperation(Summary = "Tạo giao dịch")]
@@ -131,8 +129,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPost("upgrade")]
-        [SwaggerOperation(Summary = "Tạo thanh toán upgrade")]
+        [HttpPost("subscription")]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateUpgradeRequest request)
         {
             var result = await mediator.Send(request);
@@ -155,7 +152,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost("booking")]
-        [SwaggerOperation(Summary = "Tạo thanh toán cho đặt lịch đơn")]
         public async Task<ActionResult<ResultModel>> CreateBookingSingle([FromBody] BookingSingleRequest request)
         {
             var result = await mediator.Send(request);
@@ -178,7 +174,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{transactionId}")]
-        [SwaggerOperation(Summary = "Cập nhật thông tin giao dịch")]
         public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid TransactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
         {
             var command = new UpdateTransactionCommand(TransactionId, updateTransactionDTO);
@@ -201,7 +196,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpDelete("{transactionId}")]
-        [SwaggerOperation(Summary = "Xóa giao dịch")]
         public async Task<ActionResult<ResultModel>> DeleteTransaction(Guid transactionId)
         {
             var command = new DeleteTransactionCommand { TransactionId = transactionId };
@@ -223,8 +217,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPatch("{orderCode:long}/completed")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái thanh toán cho đặt lịch đơn")]
+        [HttpPatch("booking/{orderCode:long}/completed")]
         public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromRoute] long orderCode)
         {
             var result = await mediator.Send(new UpdateStatusBookingSingleQuery { OrderCode = orderCode });
@@ -249,8 +242,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("upgrade{orderCode:long}/completed")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái thanh toán của upgrade gói")]
+        [HttpPatch("subscription/{orderCode:long}/completed")]
         public async Task<ActionResult<ResultModel>> ChangePaymentStatus([FromRoute] long orderCode)
         {
             var result = await mediator.Send(new UpdateUpgradeStatusQuery { OrderCode = orderCode });
@@ -276,7 +268,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{transactionId}/completed")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái giao dịch")]
         public async Task<ActionResult<ResultModel>> ChangeStatusCompletedTransaction(Guid transactionId)
         {
             var command = new ChangeCompletedTransactionCommand { transactionId = transactionId };
