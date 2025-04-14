@@ -3,7 +3,7 @@ using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application
 {
-     public class AnalysisUserQueryHandler : IRequestHandler<AnalysisUserQuery, AnalysisUserDTO>
+    public class AnalysisUserQueryHandler : IRequestHandler<AnalysisUserQuery, AnalysisUserDTO>
     {
         private readonly IUserRepository _userRepository;
         private readonly IUserSubscriptionRepository _userSubscriptionRepository;
@@ -77,12 +77,12 @@ namespace Monhealth.Application
                     Count = currentNewUsers,
                     GrowthRate = newUsersGrowthRate
                 },
-                TotalVisits= new TotalVisitDTO
+                TotalVisits = new TotalVisitDTO
                 {
                     Count = currentVisits,
                     GrowthRate = totalVisitsGrowthRate
                 },
-                ConversionRates = new ConversionRateDTO
+                ConversionRate = new ConversionRateDTO
                 {
                     Count = (int)Math.Round(currentConversionRate, 2),
                     GrowthRate = (float)Math.Round(conversionGrowthRate, 2)
@@ -92,5 +92,5 @@ namespace Monhealth.Application
             return analysisUserDTO;
         }
     }
-    
+
 }
