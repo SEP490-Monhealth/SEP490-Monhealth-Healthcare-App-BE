@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.SignalR;
 using Monhealth.Application;
 using Monhealth.Application.Features.Chat.Commands.CreateChat;
 using Monhealth.Application.Features.Chat.Queries.GetChatByConsultantId;
+using Monhealth.Application.Features.Chat.Queries.GetInfoChatById;
 using Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId;
 using Monhealth.Application.Features.Message.Queries.GetMessageByChatId;
 using Monhealth.Application.Models;
@@ -43,11 +44,25 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+        //[HttpGet("{chatId:guid}")]
+        //[SwaggerOperation(Summary = "Lấy cuộc trò chuyện theo ID")]
+        //public async Task<ActionResult<ResultModel>> GetMessageByChatId(Guid chatId)
+        //{
+        //    var messages = await mediator.Send(new GetMessageByChatIdQuery { ChatId = chatId });
+
+        //    return new ResultModel
+        //    {
+        //        Data = messages,
+        //        Status = (int)HttpStatusCode.OK,
+        //        Success = true,
+        //    };
+        //}
+
         [HttpGet("{chatId:guid}")]
         [SwaggerOperation(Summary = "Lấy cuộc trò chuyện theo ID")]
         public async Task<ActionResult<ResultModel>> GetMessageByChatId(Guid chatId)
         {
-            var messages = await mediator.Send(new GetMessageByChatIdQuery { ChatId = chatId });
+            var messages = await mediator.Send(new GetInfoChatByIdQuery { ChatId = chatId });
 
             return new ResultModel
             {
