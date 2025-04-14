@@ -4,9 +4,11 @@ using Monhealth.Application;
 using Monhealth.Application.Features.TimeSlots.Commands.ChangeCompletedTransaction;
 using Monhealth.Application.Features.Transaction.Commands.CreateBookingSingle;
 using Monhealth.Application.Features.Transaction.Commands.CreateTransaction;
+using Monhealth.Application.Features.Transaction.Commands.CreateUpgradeSubscriptionPayment;
 using Monhealth.Application.Features.Transaction.Commands.DeleteTransaction;
 using Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBookingSingle;
 using Monhealth.Application.Features.Transaction.Commands.UpdateTransaction;
+using Monhealth.Application.Features.Transaction.Commands.UpdateUpgradeStatus;
 using Monhealth.Application.Features.Transaction.Queries.GetAllTransactions;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByCreatedBy;
@@ -105,6 +107,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
+
         [HttpPost]
         [SwaggerOperation(Summary = "Tạo giao dịch")]
         public async Task<ActionResult<ResultModel>> CreateTransaction([FromBody] CreateTransactionDTO createTransactionDTO)
@@ -126,6 +129,29 @@ namespace Monhealth.Api.Controllers
                 Status = (int)HttpStatusCode.BadRequest,
                 Success = false
             };
+        }
+
+        [HttpPost("upgrade")]
+        [SwaggerOperation(Summary = "Tạo thanh toán upgrade")]
+        public async Task<ActionResult<ResultModel>> Create([FromBody] CreateUpgradeRequest request)
+        {
+            var result = await mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo thanh toán thành công",
+                    Status = 201,
+                    Data = result
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo thanh toán thất bại",
+            });
         }
 
         [HttpPost("booking")]
@@ -202,6 +228,32 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromRoute] long orderCode)
         {
             var result = await mediator.Send(new UpdateStatusBookingSingleQuery { OrderCode = orderCode });
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập trạng thái thanh toán thất bại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập trạng thái thanh toán thành công",
+                Status = 204,
+                Data = null
+            });
+        }
+
+        [HttpPatch("upgrade{orderCode:long}/completed")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái thanh toán của upgrade gói")]
+        public async Task<ActionResult<ResultModel>> ChangePaymentStatus([FromRoute] long orderCode)
+        {
+            var result = await mediator.Send(new UpdateUpgradeStatusQuery { OrderCode = orderCode });
             if (!result)
             {
                 return BadRequest(new ResultModel

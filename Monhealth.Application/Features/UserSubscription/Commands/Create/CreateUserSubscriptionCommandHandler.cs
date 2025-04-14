@@ -2,7 +2,6 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Exceptions;
 using Monhealth.Core.Enum;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;
@@ -66,7 +65,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             {
                 foreach (var userSub in existingSubscriptions)
                 {
-                    if (userSub.SubscriptionId == basicSubscriptionId && 
+                    if (userSub.SubscriptionId == basicSubscriptionId &&
                         userSub.Status == UserSubscriptionStatus.Active)
                     {
                         userSub.Status = UserSubscriptionStatus.Expired;
@@ -85,8 +84,8 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 UserId = user,
                 StartedAt = today,
                 Status = UserSubscriptionStatus.Active,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = today,
+                UpdatedAt = today,
                 ExpiresAt = today.AddDays(durationDays),
                 RemainingBookings = subscription.BookingAllowance
             };
@@ -115,14 +114,14 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             };
             _userRoleRepository.Add(newUserRole);
 
-            // Cập nhật lại UserSubscriptionId cho bảng Payment
-            var payment = await paymentRepository.GetByIdAsync(request.PaymentId);
-            if (payment == null)
-            {
-                throw new BadRequestException($"Thanh toán {request.PaymentId} này không tìm thấy");
-            }
-            payment.UserSubscriptionId = model.UserSubscriptionId;
-            payment.Status = Core.PaymentStatus.Completed;
+            //// Cập nhật lại UserSubscriptionId cho bảng Payment
+            //var payment = await paymentRepository.GetByIdAsync(request.PaymentId);
+            //if (payment == null)
+            //{
+            //    throw new BadRequestException($"Thanh toán {request.PaymentId} này không tìm thấy");
+            //}
+            //payment.UserSubscriptionId = model.UserSubscriptionId;
+            //payment.Status = Core.PaymentStatus.Completed;
 
             var gettingUser = await _userRepository.GetUserByIdAsync(user);
 

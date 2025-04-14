@@ -22,5 +22,6 @@ namespace Monhealth.Domain
         [ForeignKey("SubscriptionId")]
         public Subscription Subscription { get; set; }
         public ICollection<Payment> Payments { get; set; } = [];
+        public ICollection<Transaction> Users { get; set; } = [];
     }
 }

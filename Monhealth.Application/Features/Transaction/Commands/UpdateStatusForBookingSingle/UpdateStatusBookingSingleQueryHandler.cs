@@ -14,8 +14,10 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBoo
             if (transaction == null) throw new BadRequestException("Không tìm thấy giao dịch ");
 
             //get subscriptinon basic 
-            var userSubscriptions = await userSubscriptionRepository.GetUserSubscriptionsByUserIdAsync((Guid)transaction.CreatedBy);
+            var userSubscriptions = await userSubscriptionRepository.GetUserSubscriptionsByUserIdAsync((Guid)transaction.UserId);
             var userSubscription = userSubscriptions.Where(us => us.Status == Core.Enum.UserSubscriptionStatus.Active).FirstOrDefault();
+            if (userSubscription == null) throw new BadRequestException("Không tìm thấy gói người dùng đã đăng kí");
+
             userSubscription.RemainingBookings += 1;
 
             transaction.Status = Domain.Enum.StatusTransaction.Completed;
