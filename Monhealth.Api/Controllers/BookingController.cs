@@ -74,7 +74,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet("user-consultant/{userId:guid}/{consultantId:guid}")]
+        [HttpGet("user/{userId:guid}/consultant/{consultantId:guid}")]
         public async Task<ActionResult<ResultModel>> GetBookingByUserIdAndConsultant(Guid userId, Guid consultantId)
         {
             var booking = await mediator.Send(new GetAllBookingByConsultantAndUser
