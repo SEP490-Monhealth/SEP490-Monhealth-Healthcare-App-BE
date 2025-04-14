@@ -10,6 +10,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Chat>> GetChatByConsultantIdAsync(int page, int limit, Guid consultantId);
         Task<Chat> GetChatByParticipantAsync(Guid userId, Guid consultantId);
         Task<Chat> GetChatBySenderIdAndReceiverId(Guid senderId, Guid receiverId);
+        Task<Chat> GetChatInfoUserAndConsultantByChatId(Guid chatId);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
     }
 }

@@ -56,6 +56,15 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(c => c.UserId == senderId && c.ConsultantId == receiverId);
         }
 
+        public async Task<Chat> GetChatInfoUserAndConsultantByChatId(Guid chatId)
+        {
+            var infoChat = await _context.Chats
+                .Include(c => c.Consultant).ThenInclude(u => u.AppUser)
+                .Include(u => u.AppUser)
+                .FirstOrDefaultAsync(c => c.ChatId == chatId);
+            return infoChat;
+        }
+
         public async Task<PaginatedResult<Chat>> GetUserChatAsync(int page, int limit, Guid userId)
         {
             IQueryable<Chat> query = _context.Chats
