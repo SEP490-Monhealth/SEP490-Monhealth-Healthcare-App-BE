@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
 using Monhealth.Application.Features.Metric.Commands.DeleteMetric;
 using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
@@ -76,6 +77,28 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateMetricDTO metricRequest)
         {
             var command = new CreateMetricCommand(metricRequest);
+            var createMetric = await _mediator.Send(command);
+            if (createMetric == Unit.Value)
+            {
+                return new ResultModel
+                {
+                    Message = "Tạo số liệu thành công",
+                    Status = 201,
+                    Success = true
+                };
+            }
+            return new ResultModel
+            {
+                Message = "Tạo số liệu thất bại",
+                Status = (int)HttpStatusCode.BadRequest,
+                Success = false
+            };
+        }
+        [HttpPost("update")]
+        [SwaggerOperation(Summary = "Tạo số liệu để cập nhật thông số cơ thể")]
+        public async Task<ActionResult<ResultModel>> CreateMetricForUpdate([FromBody] CreateMetricDTO metricRequest)
+        {
+            var command = new CreateMetricForUpdateRequest(metricRequest);
             var createMetric = await _mediator.Send(command);
             if (createMetric == Unit.Value)
             {
