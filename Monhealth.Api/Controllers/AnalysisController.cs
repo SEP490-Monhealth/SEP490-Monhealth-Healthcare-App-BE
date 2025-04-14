@@ -56,5 +56,18 @@ namespace Monhealth.Api.Controllers
                 Success = true
             });
         }
+        [HttpGet("users/Total-Account")]
+        [SwaggerOperation(Summary = "Lấy tổng số account của user")]
+        public async Task<ActionResult<ResultModel>> GetTotalAccountOfUsersAnalysis()
+        {
+            List<TotalAmountDTO> result = await _mediator.Send(new TotalAccountAmountQuery());
+
+            return Ok(new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true
+            });
+        }
     }
 }
