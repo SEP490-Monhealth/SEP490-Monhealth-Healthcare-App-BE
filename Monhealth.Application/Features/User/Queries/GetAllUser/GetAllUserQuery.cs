@@ -9,6 +9,8 @@ namespace Monhealth.Application.Features.User.Queries.GetAllUser
         public int Limit { get; set; }
         public string? Search { get; set; }
         public string? Role { get; set; }
+        public string? Sort { get; set; }
+        public string? Order { get; set; }
         public bool? Status { get; set; }
     }
 }
