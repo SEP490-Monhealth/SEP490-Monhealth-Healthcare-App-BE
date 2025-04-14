@@ -40,7 +40,6 @@ namespace Monhealth.Identity.Dbcontexts
         //public DbSet<Service> Services { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Review> Reviews { get; set; }
-        public DbSet<Payment> Payments { get; set; }
         public DbSet<Workout> Workouts { get; set; }
         public DbSet<WorkoutExercise> WorkoutExercises { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
@@ -212,7 +211,7 @@ namespace Monhealth.Identity.Dbcontexts
 
             builder.ApplyConfiguration(new BankConfiguration());
             builder.ApplyConfiguration(new ConsultantBankConfiguration());
-            builder.ApplyConfiguration(new TransactionConfiguration());
+            //builder.ApplyConfiguration(new TransactionConfiguration());
 
             builder.ApplyConfiguration(new ChatConfiguration());
             builder.ApplyConfiguration(new MessageConfiguration());

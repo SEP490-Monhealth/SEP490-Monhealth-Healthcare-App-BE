@@ -98,7 +98,6 @@ namespace Monhealth.Identity
             services.AddScoped<IFoodAllergyRepository, FoodAllergyRepository>();
             services.AddScoped<IUserAllergyRepository, UserAllergyRepository>();
             services.AddScoped<IReviewRepository, ReviewRepository>();
-            services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IActivityRepository, ActivityRepository>();
             services.AddScoped<IDailyActivityRepository, DailyActivityRepository>();
             services.AddScoped<ICategoryFoodRepository, CategoryFoodRepository>();

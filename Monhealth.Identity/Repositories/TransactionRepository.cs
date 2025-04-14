@@ -19,6 +19,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Transaction>> GetAllTransactionsAsync(int page, int limit, TransactionType? type,
             string? search, StatusTransaction? status)
         {
+            search = search?.Trim();
             IQueryable<Transaction> query = _context.Transactions
             .Include(c => c.Wallet).ThenInclude(c => c.Consultant)
             .ThenInclude(u => u.AppUser).AsNoTracking().AsQueryable();
@@ -29,7 +30,9 @@ namespace Monhealth.Identity.Repositories
                     t.TransactionId.ToString().Contains(search.ToLower().Trim()) ||
                     t.WalletId.ToString().Contains(search.ToLower().Trim()) ||
                     t.BookingId.ToString().Contains(search.ToLower().Trim()) ||
-                    EF.Functions.Collate(t.Wallet.Consultant.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+                    EF.Functions.Collate(t.Wallet.Consultant.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
+                    EF.Functions.Collate(t.Description, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower())
+                    );
             }
             if (type.HasValue)
             {

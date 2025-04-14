@@ -19,7 +19,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         private readonly IMealRepository _mealRepository;
         private readonly IPortionRepository _portionRepository;
         private readonly IFoodRepository _foodRepository;
-        private readonly IPaymentRepository paymentRepository;
 
         public CreateUserSubscriptionCommandHandler(
             IUserSubscriptionRepository userSubscriptionRepository,
@@ -30,8 +29,8 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             IDailyMealRepository dailyMealRepository,
             IMealRepository mealRepository,
             IPortionRepository portionRepository,
-            IFoodRepository foodRepository,
-            IPaymentRepository _paymentRepository)
+            IFoodRepository foodRepository
+           )
         {
             _userSubscriptionRepository = userSubscriptionRepository;
             _subscriptionRepository = subscriptionRepository;
@@ -42,7 +41,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
             _mealRepository = mealRepository;
             _portionRepository = portionRepository;
             _foodRepository = foodRepository;
-            paymentRepository = _paymentRepository;
         }
 
         public async Task<Unit> Handle(CreateUserSubscriptionCommand request, CancellationToken cancellationToken)
