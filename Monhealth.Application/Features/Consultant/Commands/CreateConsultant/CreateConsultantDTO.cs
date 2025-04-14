@@ -12,6 +12,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         [JsonPropertyName("certificate")]
         public string CertificateName { get; set; } = string.Empty;
         public string CertificateNumber { get; set; } = string.Empty;
+        public string MeetUrl { get; set; } = string.Empty;
         public string IssuedBy { get; set; } = null!;
         public DateTime? IssueDate { get; set; }
         public DateTime? ExpiryDate { get; set; }

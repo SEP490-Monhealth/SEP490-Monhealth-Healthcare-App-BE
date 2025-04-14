@@ -15,6 +15,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<Transaction> GetTransactionWhenUpdated(TransactionType transactionType, float amount, StatusTransaction status);
         Task<List<Transaction>> GetTransactionsByConsultantAndDateRange(Guid consultantId, DateTime from, DateTime to);
         Task<Transaction> GetTransactionByOrderCode(long orderCode);
+        Task<List<Transaction>> GetTransactionBySubscriptionId(Guid subscriptionId);
         Task<int> SaveChangeAsync();
     }
 }

@@ -185,5 +185,14 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<List<Transaction>> GetTransactionBySubscriptionId(Guid subscriptionId)
+        {
+            return await _context.Transactions
+                .Include(t => t.UserSubscription).ThenInclude(us => us.User)
+                .Include(t => t.UserSubscription).ThenInclude(us => us.Subscription)
+                .Where(t => t.SubscriptionId == subscriptionId)
+                .ToListAsync();
+        }
     }
 }

@@ -12,6 +12,7 @@ using Monhealth.Application.Features.Transaction.Queries.GetAllTransactions;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByCreatedBy;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionById;
+using Monhealth.Application.Features.Transaction.Queries.GetTransactionBySubscriptionId;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
@@ -47,6 +48,19 @@ namespace Monhealth.Api.Controllers
                 Page = page,
                 Limit = limit
             });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = transaction
+            });
+        }
+        [HttpGet("subscription/{subscriptionId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo ID người dùng")]
+        public async Task<ActionResult<ResultModel>> GetTransactionBySubscriptionId([FromRoute] Guid subscriptionId)
+        {
+            var transaction = await mediator.Send(new GetTransactionBySubscriptionIdQuery { SubscriptionId = subscriptionId });
+
             return Ok(new ResultModel
             {
                 Success = true,

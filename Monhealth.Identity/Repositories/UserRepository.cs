@@ -163,6 +163,13 @@ namespace Monhealth.Identity.Repositories
             .FirstOrDefaultAsync(u => u.Id == userId);
         }
 
+        public async Task<List<AppUser>> GetUserByIdsAsync(List<Guid> userIds)
+        {
+            if (userIds == null || !userIds.Any()) return new List<AppUser>();
+            return await _context.Users.Where(u => userIds.Contains(u.Id))
+                .ToListAsync();
+        }
+
         public async Task<AppUser> GetUSerByNameAsync(string FullName)
         {
             var query = await _context.Users.FirstOrDefaultAsync(u => u.FullName == FullName);
@@ -190,7 +197,7 @@ namespace Monhealth.Identity.Repositories
                 .Select(r => r.Id)
                 .ToListAsync(cancellationToken);
 
-          
+
             return await _context.Users
                 .Where(u => u.CreatedAt.HasValue &&
                             u.CreatedAt.Value >= start &&

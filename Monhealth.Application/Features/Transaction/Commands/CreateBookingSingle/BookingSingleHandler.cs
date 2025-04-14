@@ -21,7 +21,6 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateBookingSingl
                 TransactionId = Guid.NewGuid(),
                 UserId = user.Id,
                 TransactionType = TransactionType.Fee,
-                UserId = request.UserId,
                 Description = request.Description,
                 Amount = request.Amount,
                 Status = StatusTransaction.Pending,
