@@ -56,7 +56,7 @@ namespace Monhealth.Api.Controllers
                 Success = true
             });
         }
-        [HttpGet("users/Total-Account")]
+        [HttpGet("users/Total-account")]
         [SwaggerOperation(Summary = "Lấy tổng số account của user")]
         public async Task<ActionResult<ResultModel>> GetTotalAccountOfUsersAnalysis()
         {
