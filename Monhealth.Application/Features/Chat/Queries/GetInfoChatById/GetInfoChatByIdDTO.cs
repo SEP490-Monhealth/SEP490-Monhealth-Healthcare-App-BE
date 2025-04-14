@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Common;
+﻿using System.Text.Json.Serialization;
+using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Chat.Queries.GetInfoChatById
 {
@@ -12,14 +13,14 @@ namespace Monhealth.Application.Features.Chat.Queries.GetInfoChatById
     }
     public class Member 
     {
-        public string? FullName { get; set; } 
-        public string? PhoneNumber { get; set; } 
-        public string? Email { get; set; } 
+        public string? FullName { get; set; }
+        [JsonPropertyName("avatarUrl")]
+        public string? Avatar { get; set; }
     }
     public class Consultant
     {
         public string? FullName { get; set; }
-        public string? PhoneNumber { get; set; }
-        public string? Email { get; set; }
+        [JsonPropertyName("avatarUrl")]
+        public string? Avatar { get; set; }
     }
 }

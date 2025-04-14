@@ -10,11 +10,9 @@ namespace Monhealth.Application.Automapper
         {
             CreateMap<Chat, GetInfoChatByIdDTO>()
                 .ForPath(dest => dest.Member.FullName, opt => opt.MapFrom(src => src.AppUser.FullName))
-                .ForPath(dest => dest.Member.PhoneNumber, opt => opt.MapFrom(src => src.AppUser.PhoneNumber))
-                .ForPath(dest => dest.Member.Email, opt => opt.MapFrom(src => src.AppUser.Email))
+                .ForPath(dest => dest.Member.Avatar, opt => opt.MapFrom(src => src.AppUser.Avatar))
                 .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(src => src.Consultant.AppUser.FullName))
-                .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(src => src.Consultant.AppUser.PhoneNumber))
-                .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(src => src.Consultant.AppUser.Email));
+                .ForPath(dest => dest.Consultant.Avatar, opt => opt.MapFrom(src => src.Consultant.AppUser.Avatar));
         }
     }
 }
