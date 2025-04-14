@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByCreatedBy
 {
@@ -10,6 +10,7 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByCre
         public Guid ConsultantId { get; set; }
         public Guid WalletId { get; set; }
         public Guid BookingId { get; set; }
+        public Guid UserId { get; set; }
         public Consultant Consultant { get; set; } = null!;
         [JsonPropertyName("type")]
         public TransactionType TransactionType { get; set; }

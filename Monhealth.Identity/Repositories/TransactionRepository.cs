@@ -65,12 +65,12 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Transaction>> GetAllTransactionByConsultantId(int page, int limit, Guid Consultant, string? month)
         {
-            IQueryable<Transaction> query = _context.Transactions
-      .Include(c => c.Wallet)
-      .ThenInclude(b => b.Consultant)
-      .ThenInclude(c => c.AppUser)
-      .Where(t => t.Wallet.Consultant.ConsultantId == Consultant)
-      .AsNoTracking();
+            var query = _context.Transactions
+             .Include(c => c.Wallet)
+                 .ThenInclude(b => b.Consultant)
+                    .ThenInclude(c => c.AppUser)
+              .Where(t => t.Wallet.Consultant.ConsultantId == Consultant)
+              .AsNoTracking();
 
 
             // Nếu có tham số month, áp dụng bộ lọc tháng và năm
@@ -102,22 +102,34 @@ namespace Monhealth.Identity.Repositories
                 query = query.Skip((page - 1) * limit).Take(limit);
             }
 
-            // Trả về kết quả phân trang
-            var transactions = await query.ToListAsync();
-
             return new PaginatedResult<Transaction>
             {
-                Items = transactions,
+                Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
         }
 
-        public async Task<List<Transaction>> GetTransactionByCreatedBy(Guid userId)
+        public async Task<PaginatedResult<Transaction>> GetTransactionByCreatedBy(Guid userId, int page, int limit)
         {
-            return await _context.Transactions
+            var query = _context.Transactions
                 .Include(b => b.Booking)
                 .Include(c => c.Wallet).ThenInclude(c => c.Consultant)
-                .Where(c => c.UserId == userId).ToListAsync();
+                .Where(c => c.UserId == userId && c.TransactionType == TransactionType.Fee)
+                .AsNoTracking();
+
+            int totalItems = await query.CountAsync();
+
+            // Áp dụng phân trang (skip và take)
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            return new PaginatedResult<Transaction>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<Transaction> GetTransactionById(Guid transactionId)
