@@ -6,7 +6,7 @@ using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Transaction.Commands.UpdateTransaction
 {
-    public class UpdateTransactionCommandHandler : IRequestHandler<UpdateTransactionCommand, bool>
+    public class UpdateTransactionCommandHandler : IRequestHandler<UpdateTransactionStatusQuery, bool>
     {
         private readonly ITransactionRepository _transactionRepository;
         private readonly IConsultantRepository _consultantRepository;
@@ -21,7 +21,7 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateTransaction
             _consultantRepository = consultantRepository;
             _walletRepository = walletRepository;
         }
-        public async Task<bool> Handle(UpdateTransactionCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateTransactionStatusQuery request, CancellationToken cancellationToken)
         {
             var transaction = await _transactionRepository.GetTransactionById(request.TransactionId);
             if (transaction == null) throw new BadRequestException("Không tìm thấy giao dich");
@@ -46,6 +46,10 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateTransaction
                 else if (transaction.TransactionType == TransactionType.Bonus)
                 {
                     wallet.Balance += transaction.Amount;
+                }
+                else if (transaction.TransactionType == TransactionType.Withdrawal)
+                {
+                    wallet.Balance -= transaction.Amount;
                 }
             }
             else

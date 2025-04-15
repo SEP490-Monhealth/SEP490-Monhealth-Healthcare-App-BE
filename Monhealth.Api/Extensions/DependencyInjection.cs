@@ -12,7 +12,6 @@ namespace Monhealth.Api.Extensions
 
             // Khai báo scoped services tại đây
             services.AddScoped<IChatNotificationService, ChatNotificationService>();
-            services.AddScoped<IChatHubService, ChatHubService>();
             services.AddScoped<IUserConnectionManager, UserConnectionManager>();
             // Thêm các service presentation khác vào đây khi cần
 

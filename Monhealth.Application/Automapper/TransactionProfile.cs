@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Monhealth.Application.Features.Transaction.Commands.CreateTransaction;
-using Monhealth.Application.Features.Transaction.Commands.UpdateTransaction;
 using Monhealth.Application.Features.Transaction.Queries.GetAllTransactions;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByCreatedBy;
@@ -20,7 +19,7 @@ namespace Monhealth.Application.Automapper
                  .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.PhoneNumber))
                  .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Avatar));
 
-            CreateMap<Transaction, GetTransactionByIdDTO>()            
+            CreateMap<Transaction, GetTransactionByIdDTO>()
                  .ForMember(dest => dest.ConsultantId, opt => opt.MapFrom(src => src.Wallet.ConsultantId))
                  .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.FullName))
                  .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Email))
@@ -42,7 +41,6 @@ namespace Monhealth.Application.Automapper
                  .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Avatar));
 
             CreateMap<Transaction, CreateTransactionDTO>().ReverseMap();
-            CreateMap<Transaction, UpdateTransactionDTO>().ReverseMap();
         }
     }
 }

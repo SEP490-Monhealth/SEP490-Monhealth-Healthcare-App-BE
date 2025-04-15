@@ -8,7 +8,8 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
     public class UpdateBookingStatusHandler(IBookingRepository bookingRepository,
         IConsultantRepository consultantRepository,
         IUserSubscriptionRepository userSubscriptionRepository,
-        ITransactionRepository transactionRepository
+        ITransactionRepository transactionRepository,
+        IWalletRepository walletRepository
         )
         : IRequestHandler<UpdateBookingStatusCommand, bool>
     {
@@ -26,21 +27,28 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
             }
             else if (booking.Status == BookingStatus.Confirmed)
             {
+                var earnMoney = 200000;
+                var wallet = await walletRepository.GetWalletByConsultantId((Guid)booking.ConsultantId);
+                if (wallet == null) throw new BadRequestException("Không tìm thấy ví của tư vấn viên");
                 //create transaction 
                 var newTransaction = new Domain.Transaction
                 {
+                    UserId = booking.ConsultantId,
+                    WalletId = wallet.WalletId,
                     BookingId = booking.BookingId,
                     TransactionType = TransactionType.Earning,
-                    Description = "Thực hiện giao dịch booking",
+                    Description = "Tiền kiếm được sau một lịch hẹn",
+                    Amount = earnMoney,
+                    Status = StatusTransaction.Pending,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 };
                 transactionRepository.Add(newTransaction);
 
-
                 booking.CompletedAt = DateTime.Now;
                 booking.Status = BookingStatus.Completed;
 
+                //
             }
             booking.UpdatedAt = DateTime.Now;
             await bookingRepository.SaveChangeAsync(cancellationToken);

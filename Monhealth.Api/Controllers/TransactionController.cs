@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
-using Monhealth.Application.Features.TimeSlots.Commands.ChangeCompletedTransaction;
 using Monhealth.Application.Features.Transaction.Commands.CreateBookingSingle;
 using Monhealth.Application.Features.Transaction.Commands.CreateTransaction;
 using Monhealth.Application.Features.Transaction.Commands.CreateUpgradeSubscriptionPayment;
@@ -185,27 +184,27 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPut("{transactionId}")]
-        public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid TransactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
-        {
-            var command = new UpdateTransactionCommand(TransactionId, updateTransactionDTO);
-            var result = await mediator.Send(command);
-            if (!result)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật giao dịch thất bại"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật giao dịch thành công"
-            };
-        }
+        //[HttpPut("{transactionId}")]
+        //public async Task<ActionResult<ResultModel>> UpdateTransaction(Guid TransactionId, [FromBody] UpdateTransactionDTO updateTransactionDTO)
+        //{
+        //    var command = new UpdateTransactionCommand(TransactionId, updateTransactionDTO);
+        //    var result = await mediator.Send(command);
+        //    if (!result)
+        //    {
+        //        return new ResultModel
+        //        {
+        //            Success = false,
+        //            Status = (int)HttpStatusCode.NotFound,
+        //            Message = "Cập nhật giao dịch thất bại"
+        //        };
+        //    }
+        //    return new ResultModel
+        //    {
+        //        Success = true,
+        //        Status = (int)HttpStatusCode.OK,
+        //        Message = "Cập nhật giao dịch thành công"
+        //    };
+        //}
 
         // [HttpDelete("{transactionId}")]
         // [SwaggerOperation(Summary = "")]
@@ -283,7 +282,7 @@ namespace Monhealth.Api.Controllers
         [HttpPatch("{transactionId}/completed")]
         public async Task<ActionResult<ResultModel>> ChangeStatusCompletedTransaction(Guid transactionId)
         {
-            var command = new ChangeCompletedTransactionCommand { transactionId = transactionId };
+            var command = new UpdateTransactionStatusQuery { TransactionId = transactionId };
             var changeStatus = await mediator.Send(command);
             if (!changeStatus)
             {
@@ -291,7 +290,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy giao dịch"
+                    Message = "Cập nhập trạng thái giao dịch thất bại"
                 };
             }
             return new ResultModel

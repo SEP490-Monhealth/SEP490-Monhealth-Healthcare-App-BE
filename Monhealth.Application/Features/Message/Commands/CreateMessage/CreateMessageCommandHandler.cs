@@ -11,9 +11,7 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
         IChatNotificationService chatNotificationService,
         IChatRepository chatRepository,
         IUserRepository userRepository,
-        IConsultantRepository consultantRepository,
-        IChatHubService chatHubService
-
+        IConsultantRepository consultantRepository
         ) : IRequestHandler<CreateMessageCommand, MessageDto>
     {
         public async Task<MessageDto> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
