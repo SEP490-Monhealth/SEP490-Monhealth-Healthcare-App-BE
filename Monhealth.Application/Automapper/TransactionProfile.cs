@@ -44,7 +44,6 @@ namespace Monhealth.Application.Automapper
                  .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Avatar));
 
             CreateMap<Transaction, GetTransactionByCreatedByDTO>()
-                .ForMember(dest => dest.ConsultantId, opt => opt.MapFrom(src => src.Wallet.ConsultantId))
                  .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.FullName))
                  .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Email))
                  .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.PhoneNumber))

@@ -7,7 +7,6 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByCre
     public class GetTransactionByCreatedByDTO : BaseEntity
     {
         public Guid TransactionId { get; set; }
-        public Guid ConsultantId { get; set; }
         public Guid UserId { get; set; }
         public Consultant Consultant { get; set; } = null!;
         [JsonPropertyName("type")]
