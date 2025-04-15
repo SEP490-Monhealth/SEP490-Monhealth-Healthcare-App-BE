@@ -8,11 +8,12 @@ namespace Monhealth.Domain
     {
         [Key]
         public Guid ScheduleExceptionId { get; set; }
-        public Guid? ScheduleId { get; set; }
+        public Guid ConsultantId { get; set; }
         public DateOnly Date { get; set; }
         public string? Reason { get; set; }
 
-        [ForeignKey(nameof(ScheduleId))]
-        public Schedule? Schedule { get; set; }
+        [ForeignKey(nameof(ConsultantId))]
+        public Consultant Consultant { get; set; }
+
     }
 }

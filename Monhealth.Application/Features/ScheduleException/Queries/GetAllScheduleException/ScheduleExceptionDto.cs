@@ -5,7 +5,7 @@ namespace Monhealth.Application.Features.ScheduleException.Queries.GetAllSchedul
     public class ScheduleExceptionDto : BaseEntity
     {
         public Guid ScheduleExceptionId { get; set; }
-        public Guid? ScheduleId { get; set; }
+        public Guid? ConsultantId { get; set; }
         public DateOnly Date { get; set; }
         public string? Reason { get; set; }
     }

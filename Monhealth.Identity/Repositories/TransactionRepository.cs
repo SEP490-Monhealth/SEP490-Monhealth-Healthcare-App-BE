@@ -24,7 +24,7 @@ namespace Monhealth.Identity.Repositories
             .Include(c => c.Wallet).ThenInclude(c => c.Consultant)
             .ThenInclude(u => u.AppUser)
             .Include(c => c.UserSubscription).ThenInclude(us => us.User)
-            .AsNoTracking().AsQueryable();
+            .AsNoTracking();
             if (!string.IsNullOrEmpty(search))
             {
                 search = search.Trim().ToLower();
@@ -142,7 +142,9 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.Transactions
                 .Include(w => w.Wallet).ThenInclude(c => c.Consultant)
-                .ThenInclude(u => u.AppUser)
+                    .ThenInclude(u => u.AppUser)
+                .Include(w => w.UserSubscription)
+                    .ThenInclude(us => us.User)
                 .FirstOrDefaultAsync(c => c.TransactionId == transactionId);
         }
 
@@ -201,16 +203,16 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
-       public async Task<decimal> GetTotalTransactionAmountWithTypeAsync(
-            TransactionType type)
+        public async Task<decimal> GetTotalTransactionAmountWithTypeAsync(
+             TransactionType type)
         {
             return (decimal)await _context.Transactions
                 .Where(t => t.TransactionType == TransactionType.Fee)
                 .SumAsync(t => t.Amount);
         }
 
-         public async Task<decimal> GetTotalTransactionAmountWithTypeAsync(
-            TransactionType type, DateTime createdAt)
+        public async Task<decimal> GetTotalTransactionAmountWithTypeAsync(
+           TransactionType type, DateTime createdAt)
         {
             var startDate = new DateTime(createdAt.Year, createdAt.Month, 1);
             var endDate = startDate.AddMonths(1);

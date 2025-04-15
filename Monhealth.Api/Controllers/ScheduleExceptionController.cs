@@ -4,11 +4,11 @@ using Monhealth.Application.Features.ScheduleException.Commands.CreateScheduleEx
 using Monhealth.Application.Features.ScheduleException.Commands.DeleteScheduleException;
 using Monhealth.Application.Features.ScheduleException.Commands.UpdateScheduleException;
 using Monhealth.Application.Features.ScheduleException.Queries.GetAllScheduleException;
+using Monhealth.Application.Features.ScheduleException.Queries.GetScheduleExceptionByConsultantId;
 using Monhealth.Application.Features.ScheduleException.Queries.GetScheduleExceptionById;
 using Monhealth.Application.Models;
-using System.Net;
 using Swashbuckle.AspNetCore.Annotations;
-using Monhealth.Application.Features.ScheduleException.Queries.GetScheduleExceptionByConsultantId;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {

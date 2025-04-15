@@ -4,8 +4,9 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.CreateSchedu
 {
     public class CreateScheduleExceptionCommand : IRequest<Unit>
     {
-        public Guid? ScheduleId { get; set; }
+        public Guid? ConsultantId { get; set; }
         public DateOnly Date { get; set; }
         public string? Reason { get; set; }
+
     }
 }
