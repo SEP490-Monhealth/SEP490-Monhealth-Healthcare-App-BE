@@ -1,9 +1,7 @@
 ﻿using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
-using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
 namespace Monhealth.Domain
 {
@@ -23,8 +21,8 @@ namespace Monhealth.Domain
         public float? Amount { get; set; }
         public StatusTransaction? Status { get; set; }
 
-        [ForeignKey(nameof(UserId))]
-        public AppUser User { get; set; }
+        //[ForeignKey(nameof(UserId))]
+        //public AppUser User { get; set; }
 
         [ForeignKey(nameof(BookingId))]
         public Booking? Booking { get; set; }

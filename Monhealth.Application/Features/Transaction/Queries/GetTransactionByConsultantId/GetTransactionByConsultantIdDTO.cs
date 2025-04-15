@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId
 {

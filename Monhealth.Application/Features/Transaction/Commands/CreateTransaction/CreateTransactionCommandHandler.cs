@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
@@ -22,33 +23,21 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
         public async Task<Unit> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
         {
             var wallet = await _walletRepository.GetWalletByConsultantId(request.CreateTransactionDTO.ConsultantId);
+            if (wallet == null) throw new BadRequestException("Không tìm thấy ví tư vấn viên");
 
-            var checkBooking = await _bookingRepository.GetByIdAsync(request.CreateTransactionDTO.BookingId);
-            if (checkBooking == null)
+            var newTransaction = new Domain.Transaction
             {
-                throw new Exception("Không tìm thấy booking");
-            }
-            var newTransaction = _mapper.Map<Domain.Transaction>(request.CreateTransactionDTO);
-            newTransaction.TransactionId = Guid.NewGuid();
-            newTransaction.WalletId = wallet.WalletId;
-            newTransaction.Status = StatusTransaction.Pending;
-            newTransaction.CreatedAt = DateTime.Now;
-            newTransaction.UpdatedAt = DateTime.Now;
-            if (wallet.Balance != null && wallet.Balance >= newTransaction.Amount)
-            {
-                if (newTransaction.TransactionType.Equals("Earning") && newTransaction.Status.Equals("Completed"))
-                {
-                    wallet.Balance += newTransaction.Amount;
-                }
-                else if (newTransaction.TransactionType.Equals("Withdrawal") && newTransaction.Status.Equals("Completed"))
-                {
-                    if (wallet.Balance < newTransaction.Amount)
-                    {
-                        throw new Exception("Không đủ số dư trong ví để thực hiện giao dịch rút tiền.");
-                    }
-                    wallet.Balance -= newTransaction.Amount;
-                }
-            }
+                TransactionId = Guid.NewGuid(),
+                UserId = request.CreateTransactionDTO.ConsultantId,
+                WalletId = wallet.WalletId,
+                TransactionType = request.CreateTransactionDTO.TransactionType,
+                Description = request.CreateTransactionDTO.Description,
+                Amount = request.CreateTransactionDTO.Amount,
+                Status = StatusTransaction.Pending,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+            };
+
             _transactionRepository.Add(newTransaction);
             await _transactionRepository.SaveChangeAsync();
             return Unit.Value;
