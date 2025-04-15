@@ -14,11 +14,15 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<UserSubscription> GetUserSubScriptionByUserIdAndSubscriptionId(Guid subscriptionId, Guid userId);
         Task<UserSubscription> GetUserSubscriptionActiveOfUser(Guid userId);
         Task<PaginatedResult<UserSubscription>> GetPagedUserSubscriptionAsync(int page, int limit, string? name, string? search, string? sort, string? order, UserSubscriptionStatus? Status);
-        Task<List<UserSubscription>>GetUserSubscriptionsByUserIdAsync(Guid userId);
+        Task<List<UserSubscription>> GetUserSubscriptionsByUserIdAsync(Guid userId);
         Task<List<UserSubscription>> GetTotalUserSubscriptionBySixMonth();
         Task<int> GetTotalSubscriptionUsersAsync(DateTime cutoff, CancellationToken cancellationToken);
         Task<int> GetNewSubscriptionUsersAsync(DateTime start, DateTime end, CancellationToken cancellationToken);
-        Task<List<UserSubscription>>GetAllUserSubscriptionAsync();
+        Task<List<UserSubscription>> GetAllUserSubscriptionAsync();
+        Task<int> GetUserSubscriptionCountByNamesAsync(
+            Guid[] subscriptionIds);
+        Task<int> GetUserSubscriptionCountByNamesAsync(
+             Guid[] subscriptionIds, DateTime createdAt);
 
     }
 }

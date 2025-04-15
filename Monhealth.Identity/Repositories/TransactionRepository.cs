@@ -197,5 +197,25 @@ namespace Monhealth.Identity.Repositories
                 .Where(t => t.SubscriptionId == subscriptionId)
                 .ToListAsync();
         }
+
+       public async Task<decimal> GetTotalTransactionAmountWithTypeAsync(
+            TransactionType type)
+        {
+            return (decimal)await _context.Transactions
+                .Where(t => t.TransactionType == TransactionType.Fee)
+                .SumAsync(t => t.Amount);
+        }
+
+         public async Task<decimal> GetTotalTransactionAmountWithTypeAsync(
+            TransactionType type, DateTime createdAt)
+        {
+            var startDate = new DateTime(createdAt.Year, createdAt.Month, 1);
+            var endDate = startDate.AddMonths(1);
+
+            return (decimal)await _context.Transactions
+                .Where(t => t.TransactionType == TransactionType.Fee &&
+                            t.CreatedAt >= startDate && t.CreatedAt < endDate)
+                .SumAsync(t => t.Amount);
+        }
     }
 }

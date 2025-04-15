@@ -17,5 +17,9 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<Transaction> GetTransactionByOrderCode(long orderCode);
         Task<List<Transaction>> GetTransactionBySubscriptionId(Guid subscriptionId);
         Task<int> SaveChangeAsync();
+        Task<decimal> GetTotalTransactionAmountWithTypeAsync(
+                   TransactionType type);
+        Task<decimal> GetTotalTransactionAmountWithTypeAsync(
+        TransactionType type, DateTime createdAt);
     }
 }

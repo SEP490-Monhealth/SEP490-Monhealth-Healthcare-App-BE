@@ -158,5 +158,26 @@ namespace Monhealth.Identity.Repositories
             return await _context.UserSubscriptions.Include(c => c.Subscription).ToListAsync();
 
         }
+
+         public async Task<int> GetUserSubscriptionCountByNamesAsync(
+            Guid[] subscriptionIds)
+        {
+            return await _context.UserSubscriptions
+                .Where(us => subscriptionIds.Contains(us.Subscription.SubscriptionId))
+                .CountAsync();
+        }
+
+        public async Task<int> GetUserSubscriptionCountByNamesAsync(
+            Guid[] subscriptionIds, DateTime createdAt)
+        {
+            // Giả sử createdAt được dùng để lọc theo tháng (từ đầu tháng hiện tại đến đầu tháng sau)
+            var startDate = new DateTime(createdAt.Year, createdAt.Month, 1);
+            var endDate = startDate.AddMonths(1);
+
+            return await _context.UserSubscriptions
+                .Where(us => subscriptionIds.Contains(us.Subscription.SubscriptionId) &&
+                             us.CreatedAt >= startDate && us.CreatedAt < endDate)
+                .CountAsync();
+        }
     }
 }
