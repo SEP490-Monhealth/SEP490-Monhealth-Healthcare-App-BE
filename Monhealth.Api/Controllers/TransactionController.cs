@@ -77,7 +77,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("monthly/consultants/{consultant:guid}")]
+        [HttpGet("monthly/consultants/{consultantId:guid}")]
         public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy(Guid consultant, int page = 1, int limit = 10, string? month = null)
         {
             var transaction = await mediator.Send(new GetTransactionByConsultantQuery(page, limit, month, consultant));

@@ -30,5 +30,6 @@ namespace Monhealth.Domain
         public ICollection<WithdrawalRequest> WithdrawalRequests { get; set; } = [];
         public ICollection<ConsultantBank> ConsultantBanks { get; set; } = [];
         public ICollection<Schedule> Schedules { get; set; } = [];
+        public ICollection<Consultant> Consultants { get; set; } = [];
     }
 }

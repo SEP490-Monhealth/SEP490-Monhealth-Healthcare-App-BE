@@ -19,7 +19,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<ScheduleException>> GetAllScheduleExceptionsAsync(int page, int limit)
         {
-            IQueryable<ScheduleException> query = _context.ScheduleExceptions.AsQueryable();
+            IQueryable<ScheduleException> query = _context.ScheduleExceptions;
             int totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)
@@ -35,8 +35,10 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<ScheduleException>> GetScheduleExceptionByConsultantIdAsync(int page, int limit, Guid consultantId)
         {
-            IQueryable<ScheduleException> query = _context.ScheduleExceptions.Include(s => s.Schedule).ThenInclude(c => c.Consultant).AsQueryable();
-            query = query.Where(c => c.Schedule.ConsultantId == consultantId);
+            IQueryable<ScheduleException> query = _context.ScheduleExceptions
+                .Include(s => s.Consultant)
+                .Where(s => s.Consultant.ConsultantId == consultantId);
+
             int totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)

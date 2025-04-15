@@ -10,10 +10,7 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.UpdateSchedu
         {
             var scheduleException = await scheduleExceptionRepository.GetByIdAsync(request.ScheduleExceptionId);
             if (scheduleException == null) throw new BadRequestException("Không tìm thấy lịch bận");
-            if (scheduleException.ScheduleId != request.UpdateScheduleExceptionDto.ScheduleId)
-            {
-                scheduleException.ScheduleId = request.UpdateScheduleExceptionDto.ScheduleId;
-            }
+
             if (scheduleException.Date != request.UpdateScheduleExceptionDto.Date)
             {
                 scheduleException.Date = request.UpdateScheduleExceptionDto.Date;
