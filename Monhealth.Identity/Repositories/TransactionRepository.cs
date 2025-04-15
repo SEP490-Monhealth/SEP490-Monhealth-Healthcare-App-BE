@@ -22,7 +22,9 @@ namespace Monhealth.Identity.Repositories
             search = search?.Trim();
             IQueryable<Transaction> query = _context.Transactions
             .Include(c => c.Wallet).ThenInclude(c => c.Consultant)
-            .ThenInclude(u => u.AppUser).AsNoTracking().AsQueryable();
+            .ThenInclude(u => u.AppUser)
+            .Include(c => c.UserSubscription).ThenInclude(us => us.User)
+            .AsNoTracking().AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
                 search = search.Trim().ToLower();
@@ -61,7 +63,8 @@ namespace Monhealth.Identity.Repositories
 
             var monday = date.Date.AddDays(-dayOfweek + 1);
             var sunday = monday.AddDays(6).AddDays(1);
-            return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant)
+            return await _context.Transactions
+                .Include(w => w.Wallet).ThenInclude(c => c.Consultant)
                 .Where(c => c.Wallet.Consultant.ConsultantId == consultantId && c.CreatedAt >= monday && c.CreatedAt < sunday)
                 .ToListAsync();
         }

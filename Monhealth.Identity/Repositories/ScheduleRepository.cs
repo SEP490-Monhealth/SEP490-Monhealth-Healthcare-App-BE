@@ -15,11 +15,12 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Schedule>> GetAllScheduleAsync(int page, int limit)
         {
-            IQueryable<Schedule> query = _context.Schedules.AsQueryable();
-
+            var query = _context.Schedules.AsQueryable();
 
             query = query.Include(s => s.ScheduleTimeSlots)
-             .ThenInclude(st => st.TimeSlot);
+                             .ThenInclude(st => st.TimeSlot)
+                          .OrderBy(s => s.RecurringDay);
+
             int totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)
@@ -44,7 +45,8 @@ namespace Monhealth.Identity.Repositories
             IQueryable<Schedule> query = _context.Schedules
                 .Include(s => s.ScheduleTimeSlots)
                 .ThenInclude(st => st.TimeSlot)
-                .Where(s => s.ConsultantId == consultantId && s.ScheduleType == scheduleType);
+                .Where(s => s.ConsultantId == consultantId && s.ScheduleType == scheduleType)
+                .OrderBy(s => s.RecurringDay);
 
             if (recurringDay.HasValue)
             {
@@ -80,7 +82,8 @@ namespace Monhealth.Identity.Repositories
             }
 
             query = query.Include(s => s.ScheduleTimeSlots)
-                .ThenInclude(st => st.TimeSlot);
+                .ThenInclude(st => st.TimeSlot)
+                .OrderBy(s => s.RecurringDay);
             return await query.ToListAsync();
         }
 
