@@ -30,8 +30,8 @@ namespace Monhealth.Api.Controllers
                 Success = true
             });
         }
+
         [HttpGet("users/user-subscription-six-months")]
-        [SwaggerOperation(Summary = "Lấy tổng số gói đăng ký theo 6 tháng")]
         public async Task<ActionResult<ResultModel>> GetUserSixMonthUsers()
         {
             List<GetAllUserSubscriptionBySixMonthsDTO> result = await _mediator.Send(new GetAllUserSubscriptionBySixMonthQuery());
@@ -43,8 +43,8 @@ namespace Monhealth.Api.Controllers
                 Success = true
             });
         }
+
         [HttpGet("users/user-six-months")]
-        [SwaggerOperation(Summary = "Lấy cumulative số lượng member theo 6 tháng")]
         public async Task<ActionResult<ResultModel>> GetSixMonthUsersAnalysis()
         {
             List<GetAllMemberBySixMonthsDTO> result = await _mediator.Send(new GetAllMemberBySixMonthsQuery());
@@ -56,8 +56,8 @@ namespace Monhealth.Api.Controllers
                 Success = true
             });
         }
+
         [HttpGet("users/total-accounts")]
-        [SwaggerOperation(Summary = "Lấy tổng số account của user")]
         public async Task<ActionResult<ResultModel>> GetTotalAccountOfUsersAnalysis()
         {
             List<TotalAmountDTO> result = await _mediator.Send(new TotalAccountAmountQuery());
@@ -69,8 +69,8 @@ namespace Monhealth.Api.Controllers
                 Success = true
             });
         }
+
         [HttpGet("dashboard/overview")]
-        [SwaggerOperation(Summary = "Lấy độ tăng trưởng")]
         public async Task<ActionResult<ResultModel>> GetTotalAnalysis()
         {
             TotalAmountAnalysisDTO result = await _mediator.Send(new TotalAmountAnalysisQuery());

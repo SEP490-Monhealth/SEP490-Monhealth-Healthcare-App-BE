@@ -12,9 +12,9 @@ namespace Monhealth.Application.Features.Consultant.Queries.GetAllConsultants
         public string PhoneNumber { get; set; }
         [JsonPropertyName("avatarUrl")]
         public string? Avatar { get; set; }
-        public string MeetUrl { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int? Experience { get; set; }
+        public string MeetUrl { get; set; }
         [JsonPropertyName("expertise")]
         public string? ExpertiseName { get; set; }
         public int BookingCount { get; set; }
