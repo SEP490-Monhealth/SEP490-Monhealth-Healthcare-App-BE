@@ -11,7 +11,7 @@ namespace Monhealth.Application
         public int Count { get; set; }
     }
 
-    public class TotalAccountAmountQuery : IRequest<List<TotalAmountDTO>>;
+    public class TotalAccountAmountQuery : IRequest<List<TotalAmountDTO>> { }
 
     public class TotalAccountAmountHandler : IRequestHandler<TotalAccountAmountQuery, List<TotalAmountDTO>>
     {
@@ -24,17 +24,18 @@ namespace Monhealth.Application
             _userManager = userManager;
         }
 
-        public async Task<List<TotalAmountDTO>> Handle(TotalAccountAmountQuery request, CancellationToken cancellationToken)
+        public async Task<List<TotalAmountDTO>> Handle(
+            TotalAccountAmountQuery request,
+            CancellationToken cancellationToken)
         {
             var currentYear = DateTime.Now.Year;
             var currentMonth = DateTime.Now.Month;
 
-            // Get all users and their roles
+            // Lấy tất cả user
             var allUsers = await _userRepository.GetAllAsync();
 
-            // Get the users that don't have the 'admin' role
+            // Lọc ra các non-admin user
             var nonAdminUsers = new List<AppUser>();
-
             foreach (var user in allUsers)
             {
                 var roles = await _userManager.GetRolesAsync(user);
@@ -44,35 +45,43 @@ namespace Monhealth.Application
                 }
             }
 
-            // List to hold the result for each month
+            // Danh sách kết quả cho tất cả các tháng (1 -> 12) của năm hiện tại
             var monthlyCounts = new List<TotalAmountDTO>();
+            int cumulativeCount = 0;
 
-            int cumulativeCount = 0;  // Variable to store cumulative count
-
-            // Loop through each month from January to the current month
-            for (int month = 1; month <= currentMonth; month++)
+            // Duyệt từ tháng 1 đến tháng 12
+            for (int month = 1; month <= 12; month++)
             {
-                var monthStart = new DateTime(currentYear, month, 1);
-                var monthEnd = monthStart.AddMonths(1).AddDays(-1); // Last day of the month
-
-                int count;
-
-                // Count the users created in this month (excluding admins)
-                count = nonAdminUsers.Count(u => u.CreatedAt >= monthStart && u.CreatedAt <= monthEnd);
-
-                // Add the count to the cumulative total
-                cumulativeCount += count;
-
-                // Add the result to the monthlyCounts list
-                monthlyCounts.Add(new TotalAmountDTO
+                if (month <= currentMonth)
                 {
-                    Month = $"{currentYear}-{month:D2}", // Format as "YYYY-MM"
-                    Count = cumulativeCount
-                });
+                    // Tính số user mới được tạo trong tháng đó (trong khoảng từ ngày đầu tháng đến ngày cuối tháng)
+                    var monthStart = new DateTime(currentYear, month, 1);
+                    var monthEnd = monthStart.AddMonths(1).AddDays(-1);
+                    int count = nonAdminUsers.Count(u =>
+                        u.CreatedAt >= monthStart &&
+                        u.CreatedAt <= monthEnd);
+
+                    // Cộng dồn số user (cumulative)
+                    cumulativeCount += count;
+
+                    monthlyCounts.Add(new TotalAmountDTO
+                    {
+                        Month = $"{currentYear}-{month:D2}",
+                        Count = cumulativeCount
+                    });
+                }
+                else
+                {
+                    // Với các tháng chưa đến, trả về giá trị 0
+                    monthlyCounts.Add(new TotalAmountDTO
+                    {
+                        Month = $"{currentYear}-{month:D2}",
+                        Count = 0
+                    });
+                }
             }
 
             return monthlyCounts;
         }
-
     }
 }
