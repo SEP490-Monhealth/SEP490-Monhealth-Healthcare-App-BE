@@ -52,6 +52,7 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByCon
                 targetCertificate.ImageUrls = request.UpdateDto.ImageUrls;
                 targetCertificate.UpdatedAt = DateTime.Now;
                 targetCertificate.CertificateNumber = request.UpdateDto.CertificateNumber;
+                targetCertificate.IsVerified = false;
                 _certificateRepository.Update(targetCertificate);
             }
             else
@@ -62,6 +63,8 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByCon
             }
 
             consultant.ExpertiseId = expertise.ExpertiseId;
+            consultant.VerificationStatus = Domain.Enum.VerificationStatus.Pending;
+            _consultantRepository.Update(consultant);
             expertise.ExpertiseName = request.UpdateDto.Expertise;
 
             await _consultantRepository.SaveChangeAsync();

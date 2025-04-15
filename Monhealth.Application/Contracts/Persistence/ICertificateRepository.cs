@@ -13,6 +13,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Certificate>>GetCertificateByConsultant(Guid consultantId);
         Task<List<Certificate>>GetAllCertificatesAsync();
         Task<Certificate>GetByCertificateIdAsync(Guid certificateId);
+        Task<List<Certificate>>GetCertificateByConsultantId(Guid consultantId);
         Task<int> SaveChangeAsync();
     }
 }

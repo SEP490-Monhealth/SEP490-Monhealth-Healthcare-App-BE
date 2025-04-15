@@ -96,5 +96,11 @@ namespace Monhealth.Identity.Repositories
             return await _context.Certificates.Include(c => c.Consultant)
             .ThenInclude(c => c.Expertise).ToListAsync();
         }
+
+        public Task<List<Certificate>> GetCertificateByConsultantId(Guid consultantId)
+        {
+            return _context.Certificates.Include(c => c.Consultant).ThenInclude(c => c.Expertise)
+            .Where(c => c.ConsultantId == consultantId).ToListAsync();
+        }
     }
 }

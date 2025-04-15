@@ -14,25 +14,29 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
         private readonly UserManager<AppUser> _userManager;
         private readonly IUserRoleRepository _userRoleRepository;
         private readonly IUserRepository _userRepository;
+        private readonly ICertificateRepository _certificateRepository;
         public VeryfiedConsultantCommandHandler(IConsultantRepository consultantRepository,
          IWalletRepository walletRepository, UserManager<AppUser> userManager,
          IUserRoleRepository userRoleRepository,
-         IUserRepository userRepository)
+         IUserRepository userRepository,
+         ICertificateRepository certificateRepository)
         {
             _consultantRepository = consultantRepository;
             _walletRepository = walletRepository;
             _userManager = userManager;
             _userRoleRepository = userRoleRepository;
             _userRepository = userRepository;
+            _certificateRepository = certificateRepository;
         }
         public async Task<bool> Handle(VeryfiedConsultantCommand request, CancellationToken cancellationToken)
         {
+
             var consultant = await _consultantRepository.GetByIdAsync(request.ConsultantId);
+            var certificate = await _certificateRepository.GetCertificateByConsultantId(request.ConsultantId);
+            var checkCertificate = certificate.FirstOrDefault();
             if (consultant == null)
                 throw new BadRequestException("Không tìm thấy chuyên viên");
-
-
-
+ 
             switch (consultant.VerificationStatus)
             {
                 case VerificationStatus.Verified:
@@ -41,7 +45,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
                 case VerificationStatus.Pending:
                     consultant.VerificationStatus = VerificationStatus.Verified;
                     consultant.Status = true;
-
+                    checkCertificate.IsVerified = true;
                     var wallet = await _walletRepository.GetWalletByConsultantId(request.ConsultantId);
                     if (wallet == null)
                         throw new BadRequestException("Không tìm thấy ví của chuyên viên");
