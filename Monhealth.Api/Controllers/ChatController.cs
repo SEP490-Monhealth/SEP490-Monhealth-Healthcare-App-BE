@@ -18,9 +18,9 @@ namespace Monhealth.Api.Controllers
     {
         [HttpGet("user/{userId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện theo ID người dùng")]
-        public async Task<ActionResult<ResultModel>> GetAllChat([FromRoute] Guid userId, int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllChat([FromRoute] Guid userId, int page = 1, int limit = 10, string? search = null)
         {
-            var chats = await mediator.Send(new GetUserChatQuery { Page = page, Limit = limit, UserId = userId });
+            var chats = await mediator.Send(new GetUserChatQuery { Page = page, Limit = limit, UserId = userId, Search = search });
             return new ResultModel
             {
                 Data = chats,
@@ -31,9 +31,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("consultant/{consultantId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện theo ID chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetChatByConsultantId([FromRoute] Guid consultantId, int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetChatByConsultantId([FromRoute] Guid consultantId, int page = 1, int limit = 10, string? search = null)
         {
-            var messages = await mediator.Send(new GetChatByConsultantIdQuery { ConsultantId = consultantId, Page = page, Limit = limit });
+            var messages = await mediator.Send(new GetChatByConsultantIdQuery { ConsultantId = consultantId, Page = page, Limit = limit, Search = search });
 
             return new ResultModel
             {

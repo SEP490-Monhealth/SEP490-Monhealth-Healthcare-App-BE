@@ -13,15 +13,22 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-        public async Task<PaginatedResult<Chat>> GetChatByConsultantIdAsync(int page, int limit, Guid consultantId)
+        public async Task<PaginatedResult<Chat>> GetChatByConsultantIdAsync(int page, int limit, Guid consultantId, string? search)
         {
             var query = _context.Chats
-                .Include(c => c.Consultant)
                 .Include(c => c.AppUser)
+                .Include(c => c.Consultant).ThenInclude(c => c.AppUser)
                 .Where(c => c.ConsultantId == consultantId)
                 .OrderByDescending(c => c.UpdatedAt)
                 .AsQueryable();
-
+            // filter search
+            if (!string.IsNullOrEmpty(search))
+            {
+                // cho phep search khong dau
+                query = query.Where(s => s.AppUser.PhoneNumber.ToLower().Contains(search.ToLower()) ||
+                                         s.AppUser.Email.ToLower().Contains(search.ToLower()) ||
+                                         EF.Functions.Collate(s.Consultant.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+            }
             var totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
@@ -65,7 +72,7 @@ namespace Monhealth.Identity.Repositories
             return infoChat;
         }
 
-        public async Task<PaginatedResult<Chat>> GetUserChatAsync(int page, int limit, Guid userId)
+        public async Task<PaginatedResult<Chat>> GetUserChatAsync(int page, int limit, Guid userId, string? search)
         {
             IQueryable<Chat> query = _context.Chats
                 .Include(c => c.AppUser)
@@ -73,6 +80,14 @@ namespace Monhealth.Identity.Repositories
                 .Where(c => c.UserId == userId)
                 .OrderByDescending(c => c.UpdatedAt)
                 .AsQueryable();
+            // filter search
+            if (!string.IsNullOrEmpty(search))
+            {
+                // cho phep search khong dau
+                query = query.Where(s => s.Consultant.AppUser.PhoneNumber.ToLower().Contains(search.ToLower()) ||
+                                         s.Consultant.AppUser.Email.ToLower().Contains(search.ToLower()) ||
+                                         EF.Functions.Collate(s.Consultant.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+            }
             var totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)
