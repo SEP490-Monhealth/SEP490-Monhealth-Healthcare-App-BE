@@ -8,7 +8,7 @@ namespace Monhealth.Application.Features.Chat.Queries.GetChatByConsultantId
     {
         public async Task<PageResult<ChatConsultantDto>> Handle(GetChatByConsultantIdQuery request, CancellationToken cancellationToken)
         {
-            var chatPaging = await chatRepository.GetChatByConsultantIdAsync(request.Page, request.Limit, request.ConsultantId);
+            var chatPaging = await chatRepository.GetChatByConsultantIdAsync(request.Page, request.Limit, request.ConsultantId, request.Search);
 
             var chatDtos = chatPaging.Items.Select(c => new ChatConsultantDto
             {
