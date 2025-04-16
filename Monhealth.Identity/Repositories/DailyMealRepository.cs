@@ -100,13 +100,13 @@ namespace Monhealth.Identity.Repositories
         public async Task<DailyMeal> GetDailyMealByUserAndDate(DateTime createAt, Guid userID)
         {
             return await _context.DailyMeals.FirstOrDefaultAsync
-            (d => d.CreatedAt == createAt && d.UserId == userID);
+            (d => d.DailyMealDate == createAt && d.UserId == userID);
         }
 
         public async Task<IEnumerable<DailyMeal>> GetDailyMealsAfterDate(Guid userId, DateTime date)
         {
             return await _context.DailyMeals.Include(dl => dl.Meals)
-                                   .Where(dm => dm.UserId == userId && dm.CreatedAt > date)
+                                   .Where(dm => dm.UserId == userId && dm.DailyMealDate > date)
                                    .ToListAsync();
         }
 

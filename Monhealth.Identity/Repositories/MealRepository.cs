@@ -60,11 +60,11 @@ namespace Monhealth.Identity.Repositories
         }
 
 
-        public async Task<Meal> GetByUserIdAndMealType(Guid userId, MealType mealType, int date)
+        public async Task<Meal> GetByUserIdAndMealType(Guid userId, MealType mealType, DateTime date)
         {
             return await _context.Meals.FirstOrDefaultAsync
             (m => m.UserId == userId && m.MealType == mealType
-            && m.CreatedAt.Value.Date.Day == date);
+            && m.MealDate == date);
         }
 
 
@@ -102,7 +102,7 @@ namespace Monhealth.Identity.Repositories
             return _context.Meals
                 .Where(m => m.UserId == userId)
                 .AsEnumerable() // Chuyển sang xử lý phía client
-                .Where(m => m.CreatedAt.HasValue && m.CreatedAt.Value.Date == targetDate)
+                .Where(m => m.MealDate == targetDate)
                 .ToList();
         }
 
