@@ -154,6 +154,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                     TotalFats = 0,
                     TotalFibers = 0,
                     TotalSugars = 0,
+                     
                     Meals = new List<Domain.Meal>()
                 };
 

@@ -136,7 +136,10 @@ namespace Monhealth.Identity.Repositories
                         .ThenInclude(mf => mf.Food)
                             .ThenInclude(f => f.Nutrition)
                 .Include(m => m.Goal)
-                .FirstOrDefaultAsync(dl => dl.UserId == userId && dl.CreatedAt == createAt.Date);
+                .Where(dl => dl.DailyMealDate.Date == createAt.Date)
+                // .Where(dl => dl.DailyMealDate.Month == createAt.Month)
+                // .Where(dl => dl.DailyMealDate.Year == createAt.Year)
+                .FirstOrDefaultAsync(dl => dl.UserId == userId);
 
             // Kiểm tra nếu DailyMeal tồn tại và sắp xếp Meals
             if (dailyMeal != null && dailyMeal.Meals != null)

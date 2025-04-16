@@ -144,9 +144,9 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             }
 
             var currentDate1 = DateTime.Now.Date;
-            var mealsForDay = await _mealRepository.GetMealByUserAndDate(currentDate1, userId);
+            var mealsForDay = await _mealRepository.GetMealByUserAndDate(request.CreateMeal.MealDate, userId);
 
-            var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(currentDate1, userId);
+            var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(request.CreateMeal.MealDate, userId);
             var goal = await _goalRepository.GetByUserIdAsync(userId);
 
             if (goal == null)
