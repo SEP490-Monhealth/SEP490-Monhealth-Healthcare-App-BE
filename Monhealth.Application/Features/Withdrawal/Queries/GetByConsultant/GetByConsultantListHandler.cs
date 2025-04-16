@@ -11,29 +11,30 @@ namespace Monhealth.Application
     {
         public async Task<PageResult<GetByConsultantDTO>> Handle(GetByConsultantRequest request, CancellationToken cancellationToken)
         {
-            var queries = await withdrawalRepository
+            PaginatedResult<Domain.WithdrawalRequest> queries = await withdrawalRepository
             .GetWithdrawRequestByConsultant(request.ConsultantId, request.Page, request.Limit);
-            var withDrawByConsultant = new List<GetByConsultantDTO>();
-            foreach (var wd in queries.Items)
+            Domain.Consultant? consultant = await consultantRepository.GetConsultantById(request.ConsultantId);
+            if (consultant is null)
             {
-                var consultant = await consultantRepository.GetConsultantById(request.ConsultantId);
-                GetByConsultantDTO withDrawConsultantDTO = new GetByConsultantDTO(
+                throw new Exception("");
+            }
+            List<GetByConsultantDTO> withDrawByConsultant = [..queries.Items.Select(wd => new GetByConsultantDTO(
                     wd.WithdrawalRequestId,
                     wd.ConsultantId,
+                    wd.ConsultantBankId,
                     new ConsultantDTO1
                     {
-                        AvatarUrl = consultant.AppUser.Avatar,
-                        Email = consultant.AppUser.Email,
-                        FullName = consultant.AppUser.FullName,
-                        PhoneNumber = consultant.AppUser.PhoneNumber
+                        AvatarUrl = consultant?.AppUser?.Avatar ?? "",
+                        Email = consultant?.AppUser?.Email??"",
+                        FullName = consultant?.AppUser?.FullName??"",
+                        PhoneNumber = consultant?.AppUser?.PhoneNumber??""
                     },
                     wd.Description,
                     wd.Amount,
                     wd.Status,
                     wd.CreatedAt,
-                    wd.UpdatedAt);
-                withDrawByConsultant.Add(withDrawConsultantDTO);
-            }
+                    wd.UpdatedAt
+            ))];
             return new PageResult<GetByConsultantDTO>
             {
                 CurrentPage = request.Page,

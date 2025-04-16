@@ -107,6 +107,13 @@ namespace Monhealth.Identity.Repositories
                 .Select(c => new Consultant
                 {
                     ConsultantId = c.ConsultantId,
+                    ConsultantBanks = c.ConsultantBanks
+                   .Select(cb => new ConsultantBank
+                   {
+                       ConsultantBankId = cb.ConsultantBankId
+                   })
+                   .Take(1) // Lấy 1 cái đầu tiên nếu cần
+                   .ToList(),
                     UserId = c.UserId,
                     Status = c.Status,
                     Bio = c.Bio,

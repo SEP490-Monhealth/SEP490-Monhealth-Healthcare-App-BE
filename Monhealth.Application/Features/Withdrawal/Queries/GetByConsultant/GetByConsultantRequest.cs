@@ -3,10 +3,12 @@ using Monhealth.Application.Models.Paging;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application
+
 {
-    public record GetByConsultantDTO(Guid WithDrawalRequestId,
-    Guid ConsultantId, ConsultantDTO1 Consultant, string Description,
+    public record GetByConsultantDTO(Guid withdrawalRequestId,
+    Guid ConsultantId, Guid ConsultantBankId, ConsultantDTO1 Consultant, string Description,
     float Amount, WithdrawalStatus Status, DateTime? CreatedAt, DateTime? UpdatedAt);
+
     public class GetByConsultantRequest : IRequest<PageResult<GetByConsultantDTO>>
     {
         public Guid ConsultantId { get; set; }
