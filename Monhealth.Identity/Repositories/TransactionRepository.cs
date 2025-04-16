@@ -110,7 +110,7 @@ namespace Monhealth.Identity.Repositories
 
             return new PaginatedResult<Transaction>
             {
-                Items = await query.ToListAsync(),
+                Items = await query.OrderByDescending(c => c.CreatedAt).ToListAsync(),
                 TotalCount = totalItems
             };
         }
@@ -133,7 +133,7 @@ namespace Monhealth.Identity.Repositories
 
             return new PaginatedResult<Transaction>
             {
-                Items = await query.ToListAsync(),
+                Items = await query.OrderByDescending(c => c.CreatedAt).ToListAsync(),
                 TotalCount = totalItems
             };
         }

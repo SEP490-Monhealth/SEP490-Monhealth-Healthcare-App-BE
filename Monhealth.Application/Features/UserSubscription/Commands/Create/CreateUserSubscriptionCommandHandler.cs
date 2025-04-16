@@ -145,8 +145,8 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                     GoalId = goal?.GoalId ?? Guid.Empty,
                     DailyMealId = dailyMealId,
                     UserId = user,
-                    CreatedAt = targetDate,
-                    UpdatedAt = targetDate,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
                     TotalCalories = 0,
                     TotalProteins = 0,
                     TotalCarbs = 0,
@@ -324,8 +324,10 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 MealType = mealType,
                 UserId = user.Id,
                 DailyMealId = dailyMealId,
-                CreatedAt = targetDate,
+                CreatedAt = DateTime.Now,
+                MealDate = targetDate,
                 UpdatedAt = DateTime.Now,
+                
                 MealFoods = mealFoods
             };
 
