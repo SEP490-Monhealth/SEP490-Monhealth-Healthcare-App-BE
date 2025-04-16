@@ -39,13 +39,11 @@ namespace Monhealth.Identity.Repositories
             return await _context.Devices.Where(u => u.UserId == userId).ToListAsync();
         }
 
-        public async Task<Device> GetExpoPushToken(string expoPushToken)
+        public async Task<Device> GetExpoPushToken(Guid UserId, string expoPushToken)
         {
-            var checkExpoPushToken = await _context.Devices.FirstOrDefaultAsync(e => e.ExpoPushToken == expoPushToken);
-            if (checkExpoPushToken != null)
-            {
-                await _context.Database.ExecuteSqlRawAsync("UPDATE Devices SET UpdatedAt = GETDATE() WHERE DeviceId = {0}", checkExpoPushToken.DeviceId);
-            }
+            var checkExpoPushToken = await _context.Devices
+                .FirstOrDefaultAsync(e => e.ExpoPushToken == expoPushToken
+                 && e.UserId == UserId);
             return checkExpoPushToken;
         }
 

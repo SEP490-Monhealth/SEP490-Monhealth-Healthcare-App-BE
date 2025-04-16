@@ -13,15 +13,32 @@ namespace Monhealth.Application
         public async Task<bool> Handle(CreateWithdrawalRequestDTO request, CancellationToken cancellationToken)
         {
             var wallet = await walletRepository.GetWalletByConsultantId(request.ConsultantId);
+
             if (wallet == null)
             {
                 throw new BadRequestException("Không tìm thấy ví của chuyên viên tư vấn");
+            }
+
+            //check permission request with a pendingRequest
+            var pendingWithdrawalRequests = await withdrawalRepository.GetAllWithdrawalRequestWithPendingStatus(request.ConsultantId);
+            if (pendingWithdrawalRequests.Count() > 0)
+            {
+                throw new BadRequestException("Bạn chỉ có thể tạo một yêu cầu rút tiền trong một thời điểm");
+
             }
 
             if (wallet.Balance < request.Amount)
             {
                 throw new BadRequestException("Số dư không để để tạo yêu cầu rút tiền");
             };
+
+            float waitingMoney = 0;
+            var withdrawalRequests = await withdrawalRepository.GetAllWithdrawalRequestWithPendingStatus(request.ConsultantId);
+            waitingMoney = withdrawalRequests.Sum(x => x.Amount);
+            if ((wallet.Balance - waitingMoney) < request.Amount)
+            {
+                throw new BadRequestException("Số dư không để để tạo yêu cầu rút tiền");
+            }
 
             var consultantBank = await consultantBankRepository.GetConsultantBankById(request.ConsultantBankId);
             if (consultantBank == null) throw new BadRequestException("Không tìm thấy tài khoản ngân hàng của chuyên viên tư vấn");

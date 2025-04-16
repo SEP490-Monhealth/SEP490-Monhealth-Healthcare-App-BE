@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Notification.Queries.GetNotificationByConsultantId
@@ -10,7 +11,9 @@ namespace Monhealth.Application.Features.Notification.Queries.GetNotificationByC
     {
         public async Task<PageResult<GetNotificationByConsultantIdDTO>> Handle(GetNotificationByConsultantIdQuery request, CancellationToken cancellationToken)
         {
-            var listNotification = await notificationRepository.GetNotificationByConsultantId(request.Page, request.Limit, request.ConsultantId);
+            var consultant = await consultantRepository.GetConsultantById(request.ConsultantId);
+            if (consultant == null) throw new BadRequestException($"{request.ConsultantId} Không phải là ID của tư vấn viên");
+            var listNotification = await notificationRepository.GetNotificationByConsultantId(request.Page, request.Limit, consultant.UserId);
 
             var notificationsDto = listNotification.Items.Select(n => new GetNotificationByConsultantIdDTO
             {

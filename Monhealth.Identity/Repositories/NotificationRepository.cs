@@ -2,7 +2,6 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
-using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 
 namespace Monhealth.Identity.Repositories
@@ -38,9 +37,9 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Notification>> GetNotificationByConsultantId(int page, int limit, Guid? consultantId)
         {
             var query = _context.UserNotifications
-                .Where(un => un.AppUser.Consultant.ConsultantId == consultantId) 
-                .Include(un => un.Notification) 
-                .Include(un => un.AppUser); 
+                .Where(un => un.UserId == consultantId)
+                .Include(un => un.Notification)
+                .Include(un => un.AppUser);
 
             int totalItems = await query.CountAsync();
 

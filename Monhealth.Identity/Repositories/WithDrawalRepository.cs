@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
@@ -12,6 +11,13 @@ namespace Monhealth.Application
     {
         public WithdrawalRepository(MonhealthDbcontext context) : base(context)
         {
+        }
+
+        public async Task<List<WithdrawalRequest>> GetAllWithdrawalRequestWithPendingStatus(Guid consultantId)
+        {
+            return await _context.WithdrawalRequests
+                .Where(w => w.Status == WithdrawalStatus.Pending)
+                .ToListAsync();
         }
 
         public async Task<PaginatedResult<WithdrawalRequest>> GetAllWithdrawalRequestAsync(int page, int limit,
@@ -38,12 +44,13 @@ namespace Monhealth.Application
             {
                 query = query.Where(wd => wd.Status == status);
             }
+            var totalItems = await query.CountAsync();
+
             if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
             }
 
-            var totalItems = await query.CountAsync();
             return new PaginatedResult<WithdrawalRequest>
             {
                 Items = await query.ToListAsync(),
@@ -71,7 +78,7 @@ namespace Monhealth.Application
             .Include(c => c.Consultant).ThenInclude(cs => cs.Wallet)
             .ThenInclude(cs => cs.Transactions).AsQueryable()
             .Where(cs => cs.ConsultantId == consultant)
-              .OrderByDescending(cs => cs.CreatedAt);;
+              .OrderByDescending(cs => cs.CreatedAt); ;
 
             if (page > 0 && limit > 0)
             {
