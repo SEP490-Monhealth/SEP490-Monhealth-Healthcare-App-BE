@@ -64,6 +64,7 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealByUser
                 {
                     MealId = meal.MealId,
                     MealType = meal.MealType,
+                    MealDate = meal.MealDate,
                     Nutrition = new MealFoodNutritionDTO2
                     {
                         Calories = totalCalories,

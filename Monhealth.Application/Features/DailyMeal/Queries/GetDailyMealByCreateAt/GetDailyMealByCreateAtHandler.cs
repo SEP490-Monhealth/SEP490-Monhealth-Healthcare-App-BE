@@ -66,6 +66,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealByCreateA
             var dailyMealDTO = new DailyMealByCreateAtDTO
             {
                 DailyMealId = query.DailyMealId,
+                DailyMealDate = query.DailyMealDate,
                 UserId = query.UserId,
                 Nutrition = nutrition, // Gán nutrition
                 Items = meals, // Gán danh sách Meals

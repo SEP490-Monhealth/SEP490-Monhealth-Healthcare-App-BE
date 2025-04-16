@@ -39,6 +39,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                     GoalType = goal.GoalType,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
+                    DailyMealDate = query.DailyMealDate
+
                 };
             }
 

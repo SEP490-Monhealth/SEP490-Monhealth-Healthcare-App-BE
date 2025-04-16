@@ -43,7 +43,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             }
 
             var mealTypeString = request.CreateMeal.MealType.ToString();
-            
+
             if (!Enum.TryParse(mealTypeString, out MealType mealTypeEnum) ||
                           !Enum.IsDefined(typeof(MealType), mealTypeEnum))
             {
@@ -69,9 +69,9 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 {
                     UserId = userId,
                     MealType = mealTypeEnum,
+                    MealDate = request.CreateMeal.MealDate,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
-                    MealDate = DateTime.Now,
                 };
 
                 _mealRepository.Add(model);
@@ -85,14 +85,14 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 if (item.Quantity <= 0) throw new Exception("Quantity phải lớn hơn hoặc bằng 0");
 
                 var existingPortion = await _portionRepository.GetPortionAsync(item.MeasurementUnit, item.PortionSize, item.PortionWeight);
-                    Portion portion = existingPortion ?? new Portion
-                    {
-                        MeasurementUnit = item.MeasurementUnit,
-                        PortionSize = item.PortionSize,
-                        PortionWeight = item.PortionWeight,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now
-                    };
+                Portion portion = existingPortion ?? new Portion
+                {
+                    MeasurementUnit = item.MeasurementUnit,
+                    PortionSize = item.PortionSize,
+                    PortionWeight = item.PortionWeight,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                };
 
                 Guid portionId;
                 if (existingPortion == null)
@@ -162,6 +162,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     UserId = userId,
                     CreatedAt = currentDate1,
                     UpdatedAt = DateTime.Now,
+                    DailyMealDate = request.CreateMeal.MealDate,
                     TotalCalories = 0,
                     TotalProteins = 0,
                     TotalCarbs = 0,

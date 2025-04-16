@@ -143,6 +143,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 var newDailyMeal = new Domain.DailyMeal
                 {
                     GoalId = goal?.GoalId ?? Guid.Empty,
+                    DailyMealDate = targetDate,
                     DailyMealId = dailyMealId,
                     UserId = user,
                     CreatedAt = DateTime.Now,

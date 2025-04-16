@@ -10,6 +10,7 @@ namespace Monhealth.Application.Features.Meal.Queries.GetMealByUser
 
         [JsonPropertyName("type")]
         public MealType MealType { get; set; }
+        public DateTime MealDate { get; set; } 
         public MealFoodNutritionDTO2 Nutrition { get; set; }
     }
 
