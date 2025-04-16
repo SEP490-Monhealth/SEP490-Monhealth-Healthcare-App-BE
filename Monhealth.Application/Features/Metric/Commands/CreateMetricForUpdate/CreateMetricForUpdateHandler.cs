@@ -71,6 +71,7 @@ namespace Monhealth.Application
 
             var newMetric = _mapper.Map<Monhealth.Domain.Metric>(
                 request.createMetricForUpdateDTO);
+
             var age = DateTime.Now.Year - request.createMetricForUpdateDTO.DateOfBirth.Year;
             if (DateTime.Now.DayOfYear < request.createMetricForUpdateDTO.DateOfBirth.DayOfYear)
             {
@@ -105,6 +106,7 @@ namespace Monhealth.Application
                 request.createMetricForUpdateDTO,
                 newMetric.Tdee);
             newGoal.GoalId = Guid.NewGuid();
+
             var checkStatus =
                 await _goalRepository.CheckStatusGoal(request.createMetricForUpdateDTO.UserId);
             if (checkStatus != null)
@@ -121,16 +123,19 @@ namespace Monhealth.Application
             #endregion
 
             // ----- Update DailyMeal -----
-            // --- Cập nhật DailyMeal: Xóa và tạo lại các DailyMeal (và các Meal liên quan) sau ngày hiện tại ---
+            // --- Cập nhật DailyMeal (và các Meal liên quan) cho các ngày sau hôm nay ---
+            // Lưu ý: logic "trừ ngày hôm nay" được giữ nguyên (chỉ cập nhật DailyMeal từ ngày mai trở đi)
             var today = DateTime.Today;
 
-            // Lấy danh sách các DailyMeal của user có CreatedAt sau ngày hiện tại
-            var dailyMealsToRecreate = await _dailyMealRepository.GetDailyMealsAfterDate(newMetric.UserId, today);
-
+            // Lấy danh sách các DailyMeal của user có DailyMealDate sau hôm nay
+            var dailyMealsToRecreate =
+                await _dailyMealRepository.GetDailyMealsAfterDate(newMetric.UserId, today);
             if (dailyMealsToRecreate != null && dailyMealsToRecreate.Any())
             {
-                // Lưu lại danh sách các ngày cần tạo lại (lấy phần Date để đảm bảo khớp)
-                var datesToRecreate = dailyMealsToRecreate.Select(dm => dm.CreatedAt.HasValue ? dm.CreatedAt.Value.Date : DateTime.MinValue).ToList();
+                // Lấy các ngày cần tạo lại dựa trên DailyMealDate của từng DailyMeal
+                var datesToRecreate = dailyMealsToRecreate
+                    .Select(dm => dm.DailyMealDate.Date)
+                    .ToList();
 
                 // Xóa các DailyMeal và các Meal liên quan
                 foreach (var dailyMeal in dailyMealsToRecreate)
@@ -148,7 +153,7 @@ namespace Monhealth.Application
                     await _dailyMealRepository.SaveChangeAsync();
                 }
 
-                // Lấy lại thông tin user để đảm bảo mục tiêu mới nhất được lấy ra
+                // Lấy lại thông tin user để đảm bảo cập nhật theo mục tiêu mới nhất
                 var user = await _userRepository.GetUserByIdAsync(newMetric.UserId);
                 if (user == null)
                 {
@@ -159,15 +164,16 @@ namespace Monhealth.Application
                 foreach (var targetDate in datesToRecreate)
                 {
                     var dailyMealId = Guid.NewGuid();
+                    // Sử dụng mục tiêu mới nhất của người dùng
                     var userGoal = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
-
                     var newDailyMeal = new Domain.DailyMeal
                     {
                         GoalId = userGoal?.GoalId ?? Guid.Empty,
                         DailyMealId = dailyMealId,
                         UserId = user.Id,
-                        CreatedAt = targetDate,  // Giữ đúng ngày cũ
-                        UpdatedAt = targetDate,
+                        DailyMealDate = targetDate, // Ngày của DailyMeal (theo ngày gốc)
+                        CreatedAt = DateTime.Now,   // Thời điểm tạo record
+                        UpdatedAt = DateTime.Now,
                         TotalCalories = 0,
                         TotalProteins = 0,
                         TotalCarbs = 0,
@@ -177,10 +183,13 @@ namespace Monhealth.Application
                         Meals = new List<Domain.Meal>()
                     };
 
-                    // Tạo lại các bữa ăn theo logic của CreateUserSubscription
-                    var breakfast = await CreateMealForType(MealType.Breakfast, user, dailyMealId, targetDate);
-                    var lunch = await CreateMealForType(MealType.Lunch, user, dailyMealId, targetDate);
-                    var dinner = await CreateMealForType(MealType.Dinner, user, dailyMealId, targetDate);
+                    // Tạo lại các bữa ăn cho DailyMeal - trường MealDate được gán bằng targetDate
+                    var breakfast = await CreateMealForType(
+                        MealType.Breakfast, user, dailyMealId, targetDate);
+                    var lunch = await CreateMealForType(
+                        MealType.Lunch, user, dailyMealId, targetDate);
+                    var dinner = await CreateMealForType(
+                        MealType.Dinner, user, dailyMealId, targetDate);
 
                     newDailyMeal.Meals.Add(breakfast);
                     newDailyMeal.Meals.Add(lunch);
@@ -197,13 +206,17 @@ namespace Monhealth.Application
 
         /// <summary>
         /// Phương thức tạo Meal theo logic tương tự như CreateUserSubscription.
+        /// Chú ý: 
+        /// - Trường MealDate được set bằng targetDate (ngày của bữa ăn)
+        /// - CreatedAt/UpdatedAt ghi nhận thời điểm thao tác (DateTime.Now)
         /// </summary>
-        private async Task<Domain.Meal> CreateMealForType(MealType mealType, AppUser user, Guid dailyMealId, DateTime targetDate)
+        private async Task<Domain.Meal> CreateMealForType(
+            MealType mealType, AppUser user, Guid dailyMealId, DateTime targetDate)
         {
-            // Lấy các thực phẩm ngẫu nhiên theo logic của bạn
-            var (proteinFood, carbFood, balanceFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood(new List<Guid>());
+            // Lấy các thực phẩm ngẫu nhiên theo logic hiện có
+            var (proteinFood, carbFood, balanceFood, vegetableFood) =
+                await _foodRepository.GetRandomProteinAndCarbFood(new List<Guid>());
 
-            // Lấy mục tiêu gần nhất của người dùng
             var userGoal = user.Goals.OrderByDescending(g => g.CreatedAt).FirstOrDefault();
             if (userGoal == null)
             {
@@ -272,8 +285,10 @@ namespace Monhealth.Application
             }
 
             // Tính trọng lượng khẩu phần cho rau dựa trên lượng calo và giá trị dinh dưỡng
-            var vegetableWeight = 100 * vegetableCalories / vegetableFood!.Nutrition.Calories;
-            vegetableWeight = RoundPortionWeight((float)vegetableWeight, userGoal.GoalType);
+            var vegetableWeight = 100 * vegetableCalories /
+                                  vegetableFood!.Nutrition.Calories;
+            vegetableWeight = RoundPortionWeight(
+                (float)vegetableWeight, userGoal.GoalType);
 
             Guid proteinPortionId = Guid.NewGuid();
             Guid carbPortionId = Guid.NewGuid();
@@ -308,7 +323,6 @@ namespace Monhealth.Application
             }
             else if (proteinFood != null && carbFood != null && vegetableFood != null)
             {
-                // Nếu không có balanceFood, sử dụng proteinFood, carbFood và vegetableFood
                 mealFoods.Add(new Domain.MealFood
                 {
                     FoodId = proteinFood.FoodId,
@@ -345,13 +359,16 @@ namespace Monhealth.Application
                 _logger.LogError("Không tìm thấy thức ăn phù hợp.");
             }
 
-            // Tạo Meal mới, liên kết với DailyMealId và targetDate (ngày của DailyMeal)
+            // Tạo Meal mới:
+            // - Trường MealDate được set bằng targetDate (ngày áp dụng cho bữa ăn)
+            // - CreatedAt/UpdatedAt được gán với thời điểm hiện tại
             Domain.Meal meal = new Domain.Meal
             {
                 MealType = mealType,
                 UserId = user.Id,
                 DailyMealId = dailyMealId,
-                CreatedAt = targetDate,
+                MealDate = targetDate,
+                CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 MealFoods = mealFoods,
             };
@@ -359,8 +376,10 @@ namespace Monhealth.Application
             // Thêm các Portion tương ứng cho các món ăn
             if (balanceFood != null)
             {
-                var balanceWeight = 100 * balanceCalories / balanceFood.Nutrition.Calories;
-                balanceWeight = RoundPortionWeight((float)balanceWeight, userGoal.GoalType);
+                var balanceWeight = 100 * balanceCalories /
+                                    balanceFood.Nutrition.Calories;
+                balanceWeight = RoundPortionWeight(
+                    (float)balanceWeight, userGoal.GoalType);
 
                 _portionRepository.Add(new Domain.Portion
                 {
@@ -387,10 +406,14 @@ namespace Monhealth.Application
             }
             else
             {
-                var proteinWeight = 100 * proteinCalories / proteinFood.Nutrition.Calories;
-                var carbWeight = 100 * carbsCalories / carbFood.Nutrition.Calories;
-                proteinWeight = RoundPortionWeight((float)proteinWeight, userGoal.GoalType);
-                carbWeight = RoundPortionWeight((float)carbWeight, userGoal.GoalType);
+                var proteinWeight = 100 * proteinCalories /
+                                    proteinFood.Nutrition.Calories;
+                var carbWeight = 100 * carbsCalories /
+                                 carbFood.Nutrition.Calories;
+                proteinWeight = RoundPortionWeight(
+                    (float)proteinWeight, userGoal.GoalType);
+                carbWeight = RoundPortionWeight(
+                    (float)carbWeight, userGoal.GoalType);
 
                 _portionRepository.Add(new Domain.Portion
                 {
