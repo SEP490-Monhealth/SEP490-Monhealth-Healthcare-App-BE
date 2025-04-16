@@ -232,7 +232,7 @@ namespace Monhealth.Application
                 });
             }
             var currentDate = DateTime.Now.Date.Day;
-            var existingMeal = await _mealRepository.GetByUserIdAndMealType(user.Id, mealType, currentDate);
+            var existingMeal = await _mealRepository.GetByUserIdAndMealType(user.Id, mealType, meal.MealDate);
             if (existingMeal != null)
             {
 
