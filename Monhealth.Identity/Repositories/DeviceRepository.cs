@@ -27,6 +27,13 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<List<Device>> GetAllDevicesByUserId(Guid UserId)
+        {
+            return await _context.Devices
+                .Where(d => d.UserId == UserId && !string.IsNullOrEmpty(d.ExpoPushToken))
+                .ToListAsync();
+        }
+
         public async Task<List<Device>> GetDevicesByUserId(Guid userId)
         {
             return await _context.Devices.Where(u => u.UserId == userId).ToListAsync();

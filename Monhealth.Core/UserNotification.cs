@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using Monhealth.Identity.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {

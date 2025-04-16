@@ -1,12 +1,11 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Notification.Queries.GetNotificationByConsultantId
 {
     public class GetNotificationByConsultantIdQueryHandler
-        (INotificationRepository notificationRepository, IConsultantRepository consultantRepository) : 
+        (INotificationRepository notificationRepository, IConsultantRepository consultantRepository) :
         IRequestHandler<GetNotificationByConsultantIdQuery, PageResult<GetNotificationByConsultantIdDTO>>
     {
         public async Task<PageResult<GetNotificationByConsultantIdDTO>> Handle(GetNotificationByConsultantIdQuery request, CancellationToken cancellationToken)
@@ -16,7 +15,7 @@ namespace Monhealth.Application.Features.Notification.Queries.GetNotificationByC
             var notificationsDto = listNotification.Items.Select(n => new GetNotificationByConsultantIdDTO
             {
                 NotificationId = n.NotificationId,
-                ReferenceId = n.ReferenceId,
+                ReferenceId = (Guid)n.ReferenceId,
                 Title = n.Title,
                 Content = n.Content,
                 ActionUrl = n.ActionUrl,
