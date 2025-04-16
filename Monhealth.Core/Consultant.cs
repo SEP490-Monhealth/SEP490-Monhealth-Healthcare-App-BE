@@ -13,14 +13,15 @@ namespace Monhealth.Domain
         public Guid? UserId { get; set; }
         public Guid? ExpertiseId { get; set; }
         public string Bio { get; set; } = string.Empty;
-        public int Views { get; set; }
         public int Experience { get; set; }
         public string MeetUrl { get; set; } = string.Empty;
+        public int Views { get; set; }
         public int BookingCount { get; set; }
         public double RatingCount { get; set; }
         public double AverageRating { get; set; }
         public VerificationStatus VerificationStatus { get; set; }
         public bool Status { get; set; } = false;
+
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         [ForeignKey(nameof(ExpertiseId))]
