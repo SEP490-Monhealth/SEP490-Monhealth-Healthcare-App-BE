@@ -70,7 +70,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     UserId = userId,
                     MealType = mealTypeEnum,
                     CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    UpdatedAt = DateTime.Now,
+                    MealDate = DateTime.Now,
                 };
 
                 _mealRepository.Add(model);
@@ -84,14 +85,14 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 if (item.Quantity <= 0) throw new Exception("Quantity phải lớn hơn hoặc bằng 0");
 
                 var existingPortion = await _portionRepository.GetPortionAsync(item.MeasurementUnit, item.PortionSize, item.PortionWeight);
-                Portion portion = existingPortion ?? new Portion
-                {
-                    MeasurementUnit = item.MeasurementUnit,
-                    PortionSize = item.PortionSize,
-                    PortionWeight = item.PortionWeight,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
-                };
+                    Portion portion = existingPortion ?? new Portion
+                    {
+                        MeasurementUnit = item.MeasurementUnit,
+                        PortionSize = item.PortionSize,
+                        PortionWeight = item.PortionWeight,
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now
+                    };
 
                 Guid portionId;
                 if (existingPortion == null)

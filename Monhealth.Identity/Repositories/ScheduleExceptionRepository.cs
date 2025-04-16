@@ -47,7 +47,7 @@ namespace Monhealth.Identity.Repositories
             }
             return new PaginatedResult<ScheduleException>
             {
-                Items = await query.ToListAsync(),
+                Items = await query.OrderByDescending(c => c.CreatedAt).ToListAsync(),
                 TotalCount = totalItems
             };
         }
