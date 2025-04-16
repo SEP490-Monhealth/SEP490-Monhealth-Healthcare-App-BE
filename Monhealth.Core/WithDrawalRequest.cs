@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class WithdrawalRequest : BaseEntity
+    public class WithdrawalRequest : TimeEntity
     {
         public Guid WithdrawalRequestId { get; set; }
         public Guid ConsultantId { get; set; }

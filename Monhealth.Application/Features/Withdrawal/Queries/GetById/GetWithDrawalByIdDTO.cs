@@ -3,7 +3,7 @@ using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application
 {
-    public class GetWithdrawalByIdDTO : BaseEntity
+    public class GetWithdrawalByIdDTO : TimeEntity
     {
         public Guid WithdrawalRequestId { get; set; }
         public Guid ConsultantId { get; set; }
