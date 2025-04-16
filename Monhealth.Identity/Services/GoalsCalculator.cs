@@ -55,8 +55,8 @@ namespace Monhealth.Identity.Services
             float targetWeight, float activityLevel)
         {
             // Kiểm tra hợp lệ Calories Ratio
-            if (caloriesRatio < 0.7f || caloriesRatio > 1.3f)
-                throw new Exception("Calories Ratio không hợp lệ (phải từ 0.7 đến 1.3)");
+            // if (caloriesRatio < 1.2f || caloriesRatio > 1.9f)
+            //     throw new Exception("Calories Ratio không hợp lệ (phải từ 1.2 đến 1.9)");
 
             // Kiểm tra hợp lệ mục tiêu giảm cân/tăng cân
             if ((goalType == "WeightLoss" && targetWeight >= currentWeight) ||

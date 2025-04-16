@@ -72,7 +72,7 @@ namespace Monhealth.Identity.Repositories
                 }
                 else
                 {
-                    query = query.Where(s => s.VerificationStatus == VerificationStatus.Pending || s.VerificationStatus == VerificationStatus.Reject);
+                    query = query.Where(s => s.VerificationStatus == VerificationStatus.Pending || s.VerificationStatus == VerificationStatus.Rejected);
                 }
             }
             if (popular.HasValue && popular.Value)
