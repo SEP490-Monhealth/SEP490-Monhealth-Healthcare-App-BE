@@ -61,7 +61,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealReportByU
 
             foreach (var dm in dailyMeals)
             {
-                var date = DateOnly.FromDateTime(dm.CreatedAt!.Value.Date);
+                var date = DateOnly.FromDateTime(dm.DailyMealDate.Date);
                 float calories = 0;
                 foreach (var meal in dm.Meals)
                 {
