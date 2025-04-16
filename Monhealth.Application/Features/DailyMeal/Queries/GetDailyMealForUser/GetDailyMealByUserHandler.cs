@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
         {
             var query = await _dailyMealRepository.GetDailyMealsByUser(request.UseId, request.date);
             var goal = await goalRepository.GetGoalByUser(request.UseId);
-            if (goal == null) throw new BadRequestException("Không tìm thấy mục tiêu của người dùng");
+            // if (goal == null) throw new BadRequestException("Không tìm thấy mục tiêu của người dùng");
             if (query == null)
             {
                 return new GetDailyMealByUserDTO
@@ -39,6 +39,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                     GoalType = goal.GoalType,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
+                    DailyMealDate = DateTime.Now,
+
                 };
             }
 
@@ -130,7 +132,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                 GoalType = query.Goal.GoalType,
                 Items = sortedMeals,
                 CreatedAt = query.CreatedAt,
-                UpdatedAt = query.UpdatedAt
+                UpdatedAt = query.UpdatedAt,
+                DailyMealDate = query.DailyMealDate,
             };
 
             return dailyMealDTO;

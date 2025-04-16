@@ -143,6 +143,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 var newDailyMeal = new Domain.DailyMeal
                 {
                     GoalId = goal?.GoalId ?? Guid.Empty,
+                    DailyMealDate = targetDate,
                     DailyMealId = dailyMealId,
                     UserId = user,
                     CreatedAt = DateTime.Now,
@@ -153,6 +154,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                     TotalFats = 0,
                     TotalFibers = 0,
                     TotalSugars = 0,
+                     
                     Meals = new List<Domain.Meal>()
                 };
 

@@ -8,6 +8,8 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealByCreateA
     {
         public Guid DailyMealId { get; set; }
         public Guid UserId { get; set; }
+        [JsonPropertyName("date")]
+        public DateTime DailyMealDate { get; set; }
         public NutritionOfDailyMeal1 Nutrition { get; set; }
         public IEnumerable<MealForDailyMeal1> Items { get; set; }
     }

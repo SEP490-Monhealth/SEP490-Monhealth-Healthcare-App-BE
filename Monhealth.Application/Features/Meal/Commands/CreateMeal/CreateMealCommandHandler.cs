@@ -43,7 +43,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             }
 
             var mealTypeString = request.CreateMeal.MealType.ToString();
-            
+
             if (!Enum.TryParse(mealTypeString, out MealType mealTypeEnum) ||
                           !Enum.IsDefined(typeof(MealType), mealTypeEnum))
             {
@@ -69,9 +69,9 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 {
                     UserId = userId,
                     MealType = mealTypeEnum,
+                    MealDate = request.CreateMeal.MealDate,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
-                    MealDate = DateTime.Now,
                 };
 
                 _mealRepository.Add(model);
@@ -85,14 +85,14 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 if (item.Quantity <= 0) throw new Exception("Quantity phải lớn hơn hoặc bằng 0");
 
                 var existingPortion = await _portionRepository.GetPortionAsync(item.MeasurementUnit, item.PortionSize, item.PortionWeight);
-                    Portion portion = existingPortion ?? new Portion
-                    {
-                        MeasurementUnit = item.MeasurementUnit,
-                        PortionSize = item.PortionSize,
-                        PortionWeight = item.PortionWeight,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now
-                    };
+                Portion portion = existingPortion ?? new Portion
+                {
+                    MeasurementUnit = item.MeasurementUnit,
+                    PortionSize = item.PortionSize,
+                    PortionWeight = item.PortionWeight,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                };
 
                 Guid portionId;
                 if (existingPortion == null)
@@ -144,9 +144,9 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             }
 
             var currentDate1 = DateTime.Now.Date;
-            var mealsForDay = await _mealRepository.GetMealByUserAndDate(currentDate1, userId);
+            var mealsForDay = await _mealRepository.GetMealByUserAndDate(request.CreateMeal.MealDate, userId);
 
-            var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(currentDate1, userId);
+            var dailyMeal = await _dailyMealRepository.GetDailyMealByUserAndDate(request.CreateMeal.MealDate, userId);
             var goal = await _goalRepository.GetByUserIdAsync(userId);
 
             if (goal == null)
@@ -162,6 +162,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     UserId = userId,
                     CreatedAt = currentDate1,
                     UpdatedAt = DateTime.Now,
+                    DailyMealDate = request.CreateMeal.MealDate,
                     TotalCalories = 0,
                     TotalProteins = 0,
                     TotalCarbs = 0,
