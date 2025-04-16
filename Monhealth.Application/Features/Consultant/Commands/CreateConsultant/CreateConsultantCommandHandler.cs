@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 
@@ -14,13 +15,15 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         private readonly IWalletRepository _walletRepository;
         private readonly IMapper _mapper;
         private readonly IUserRoleRepository userRoleRepository;
+        private readonly ISystemNotificationService systemNotificationService;
 
         public CreateConsultantCommandHandler(IConsultantRepository consultantRepository,
                                                 IExpertiseRepository expertiseRepository,
                                                 ICertificateRepository certificateRepository,
                                                 IWalletRepository walletRepository,
                                                 IMapper mapper,
-                                                IUserRoleRepository userRoleRepository
+                                                IUserRoleRepository userRoleRepository,
+                                                ISystemNotificationService systemNotificationService
                                                 )
         {
             _consultantRepository = consultantRepository;
@@ -29,6 +32,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             _walletRepository = walletRepository;
             _mapper = mapper;
             this.userRoleRepository = userRoleRepository;
+            this.systemNotificationService = systemNotificationService;
         }
         public async Task<Unit> Handle(CreateConsultantCommand request, CancellationToken cancellationToken)
         {
@@ -96,6 +100,9 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
                 };
                 userRoleRepository.Add(newUserRole);
             }
+
+            //Send notification create new Consultant
+            await systemNotificationService.NotifyNewConsultantRegistrationAsync(newConsultant, cancellationToken);
 
             await _certificateRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;

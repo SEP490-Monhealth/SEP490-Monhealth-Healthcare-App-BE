@@ -21,7 +21,7 @@ namespace Monhealth.Infrastructure
             services.AddScoped<IOtpService, OtpService>();
             services.AddHttpClient();
             services.AddScoped<INotificationService, NotificationService>();
-
+            services.AddScoped<ISystemNotificationService, SystemNotificationService>();
             return services;
         }
     }

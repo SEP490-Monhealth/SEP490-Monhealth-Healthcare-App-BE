@@ -8,6 +8,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Device>> GetAllDevices(int page, int limit);
         Task<List<Device>> GetDevicesByUserId(Guid userId);
         Task<Device> GetExpoPushToken(string expoPushToken);
+        Task<List<Device>> GetAllDevicesByUserId(Guid UserId);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
     }
 }
