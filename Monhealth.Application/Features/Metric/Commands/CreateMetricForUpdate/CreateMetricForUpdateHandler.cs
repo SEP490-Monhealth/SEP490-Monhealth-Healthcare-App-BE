@@ -33,6 +33,7 @@ namespace Monhealth.Application
         private readonly IFoodRepository _foodRepository;
         private readonly IPortionRepository _portionRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IUserRoleRepository _userRoleRepository;  // Added repository for role check
         private readonly ILogger<CreateMetricForUpdateHandler> _logger;
 
         public CreateMetricForUpdateHandler(
@@ -47,6 +48,7 @@ namespace Monhealth.Application
             IFoodRepository foodRepository,
             IPortionRepository portionRepository,
             IUserRepository userRepository,
+            IUserRoleRepository userRoleRepository,
             ILogger<CreateMetricForUpdateHandler> logger)
         {
             _mapper = mapper;
@@ -60,6 +62,7 @@ namespace Monhealth.Application
             _foodRepository = foodRepository;
             _portionRepository = portionRepository;
             _userRepository = userRepository;
+            _userRoleRepository = userRoleRepository;
             _logger = logger;
         }
 
@@ -123,8 +126,22 @@ namespace Monhealth.Application
             #endregion
 
             // ----- Update DailyMeal -----
-            // --- Cập nhật DailyMeal (và các Meal liên quan) cho các ngày sau hôm nay ---
-            // Lưu ý: logic "trừ ngày hôm nay" được giữ nguyên (chỉ cập nhật DailyMeal từ ngày mai trở đi)
+            // Chỉ update Recommend Meal nếu người dùng có role "Subscription Member"
+            var userRoleEntry = await _userRoleRepository.GetUserRoleByUserIdAsync(newMetric.UserId);
+            if (userRoleEntry == null)
+            {
+                _logger.LogInformation($"User {newMetric.UserId} không có role. Bỏ qua cập nhật DailyMeal.");
+                return Unit.Value;
+            }
+            // Giả sử có thêm 1 phương thức GetRoleByIdAsync để lấy thông tin role theo RoleId
+            var role = await _userRoleRepository.GetRoleByIdAsync(userRoleEntry.RoleId);
+            if (role == null || !role.Name.Equals("Subscription Member", StringComparison.OrdinalIgnoreCase))
+            {
+                _logger.LogInformation($"User {newMetric.UserId} không phải là Subscription Member. Bỏ qua cập nhật DailyMeal.");
+                return Unit.Value;
+            }
+
+            // Lưu ý: logic "trừ ngày hôm nay" được giữ nguyên (chỉ cập nhật DailyMeal từ ngày hôm nay trở đi)
             var today = DateTime.Today;
 
             // Lấy danh sách các DailyMeal của user có DailyMealDate sau hôm nay
@@ -207,7 +224,7 @@ namespace Monhealth.Application
         /// <summary>
         /// Phương thức tạo Meal theo logic tương tự như CreateUserSubscription.
         /// Chú ý: 
-        /// - Trường MealDate được set bằng targetDate (ngày của bữa ăn)
+        /// - Trường MealDate được set bằng targetDate (ngày áp dụng cho bữa ăn)
         /// - CreatedAt/UpdatedAt ghi nhận thời điểm thao tác (DateTime.Now)
         /// </summary>
         private async Task<Domain.Meal> CreateMealForType(
