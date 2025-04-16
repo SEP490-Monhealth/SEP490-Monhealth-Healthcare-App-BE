@@ -23,9 +23,9 @@ namespace Monhealth.Identity.Services
         {
             try
             {
-                string title = "Chào mừng bạn tham gia làm Consultant";
-                string content = $"Xin chào {consultant.AppUser.FullName}, cảm ơn bạn đã đăng ký làm consultant trên hệ thống của chúng tôi. Tài khoản của bạn đã được tạo thành công.";
-                string actionUrl = "/consultant/dashboard";
+                string title = "Chào mừng";
+                string content = $"Chào {consultant.AppUser.FullName}, tài khoản của bạn đã được tạo thành công.";
+                string actionUrl = "";
 
                 await notificationService.SendUserNotificationAsync(
                     (Guid)consultant.UserId,
