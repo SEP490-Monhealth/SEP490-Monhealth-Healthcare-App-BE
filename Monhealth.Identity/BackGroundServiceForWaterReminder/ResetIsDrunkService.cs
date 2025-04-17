@@ -20,7 +20,7 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("ResetIsDrunkService started.");
+            // _logger.LogInformation("ResetIsDrunkService started.");
 
             while (!stoppingToken.IsCancellationRequested)
             {

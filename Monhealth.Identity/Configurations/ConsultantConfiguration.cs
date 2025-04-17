@@ -143,7 +143,7 @@ namespace Monhealth.Identity.Configurations
                 Experience = 2,
                 Views = 27,
                 VerificationStatus = VerificationStatus.Verified,
-                Status = true,
+                Status = false,
                 UpdatedAt = today,
                 CreatedAt = today,
             }

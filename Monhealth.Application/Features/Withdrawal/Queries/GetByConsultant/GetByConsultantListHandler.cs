@@ -42,7 +42,6 @@ namespace Monhealth.Application
                 TotalItems = queries.TotalCount,
                 Items = withDrawByConsultant
             };
-
         }
     }
 }
