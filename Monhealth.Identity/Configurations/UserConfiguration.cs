@@ -313,14 +313,14 @@ namespace Monhealth.Identity.Configurations
             new AppUser
             {
                 Id = Guid.Parse("20041d5b-01e4-443f-9652-e39beb9748e5"),
-                FullName = "Nguyễn Gia Hân",
+                FullName = "Van Huu Toan Con",
                 Status = true,
-                Email = "giahan@gmail.com",
-                NormalizedEmail = "giahan@GMAIL.COM",
-                UserName = "giahan",
+                Email = "consultant@gmail.com",
+                NormalizedEmail = "CONSULTANT@GMAIL.COM",
+                UserName = "toanconsultant",
                 NormalizedUserName = "0987654321",
                 PhoneNumber = "0987654321",
-                Avatar = "",
+                Avatar = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fusers%2F92077987-c716-4efc-b039-12268e8cb97d.jpg?alt=media&token=903adb9c-41c4-4482-a439-3c758b3c050d",
                 LockoutEnabled = false,
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "123As@"),
@@ -329,8 +329,7 @@ namespace Monhealth.Identity.Configurations
                 CreatedAt = today,
                 CreatedBy = userId,
                 UpdatedBy = userId,
-            }
-            );
+            });
         }
     }
 }
