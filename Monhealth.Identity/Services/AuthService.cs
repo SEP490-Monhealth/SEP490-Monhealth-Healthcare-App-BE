@@ -54,25 +54,18 @@ namespace Monhealth.Identity.Services
 
         public async Task<AuthResponse> Login(AuthenRequest request)
         {
-            AppUser user = null;
 
-
-            //if (IsEmail(request.Email))
-            //{
-            //    user = await _userManager.FindByEmailAsync(request.Email);
-            //}
-
-            user = await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == request.PhoneNumber);
+            AppUser user = await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == request.PhoneNumber);
             if (user == null)
             {
                 throw new BadRequestException("Số điện thoại không tồn tại");
             }
 
 
-            if (user == null || !user.Status || user.LockoutEnabled)
+            if (!user.Status || user.LockoutEnabled)
             {
 
-                throw new BadRequestException("Email không tồn tại hoặc chưa được kích hoạt");
+                throw new BadRequestException("Tài khoản chưa được kích hoạt");
             }
 
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, true);
@@ -101,6 +94,46 @@ namespace Monhealth.Identity.Services
             user.RefreshTokenExpiryTime = DateTime.Now.AddDays(30);
             await _userManager.UpdateAsync(user);
             return new AuthResponse()
+            {
+                AccessToken = accessToken,
+                RefreshToken = refreshToken,
+                ExpiredAt = user.RefreshTokenExpiryTime
+            };
+        }
+
+        public async Task<AuthAdminResponse> LoginForAdmin(AuthAdminRequest request)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
+            if (user == null)
+            {
+                throw new BadRequestException("Email không tồn tại");
+            }
+            var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, true);
+            if (!result.Succeeded)
+            {
+                throw new BadRequestException("Mật khẩu không đúng");
+            }
+
+            // Authorization
+            var roles = await _userManager.GetRolesAsync(user);
+            var claims = new[]
+            {
+                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                 new Claim(ClaimTypes.NameIdentifier, user.UserName),
+                 new Claim(ClaimTypes.MobilePhone, user.PhoneNumber),
+                 new Claim(ClaimTypes.Name, user.UserName),
+                 new Claim(UserClaims.UserId, user.Id.ToString()),
+                 new Claim(UserClaims.FullName, user.FullName),
+                 new Claim(UserClaims.Role, string.Join(";", roles)),
+                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+            var accessToken = _tokenService.GenerateAccessToken(claims);
+            var refreshToken = _tokenService.GenerateRefreshToken();
+
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(30);
+            await _userManager.UpdateAsync(user);
+            return new AuthAdminResponse()
             {
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,

@@ -38,6 +38,21 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+        [HttpPost]
+        [Route("login/admin")]
+        [SwaggerOperation(Summary = "Đăng nhập cho admin")]
+        public async Task<ActionResult<ResultModel>> LoginForAdmin([FromBody] AuthAdminRequest request)
+        {
+            var result = await _authService.LoginForAdmin(request);
+
+            return new ResultModel
+            {
+                Data = result,
+                Message = "Đăng nhập thành công",
+                Status = (int)HttpStatusCode.OK,
+                Success = true
+            };
+        }
 
         [HttpPost]
         [Route("register")]
