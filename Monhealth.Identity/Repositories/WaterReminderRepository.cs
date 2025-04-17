@@ -130,6 +130,13 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
+        public async Task<WaterReminder> GetWaterReminderByUser(Guid userId, DateTime date)
+        {
+            return await _context.WaterReminders
+                .Where(r => r.UserId == userId && r.CreatedAt.Value.Date == date.Date)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<List<WaterReminder>> GetWaterRemindersByUser(Guid userId)
         {
             return await _context.WaterReminders.
