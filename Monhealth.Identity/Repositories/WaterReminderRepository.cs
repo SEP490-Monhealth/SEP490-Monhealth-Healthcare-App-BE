@@ -122,12 +122,18 @@ namespace Monhealth.Identity.Repositories
             return await _context.WaterReminders.FirstOrDefaultAsync(r => r.WaterReminderId == waterReminderId);
         }
 
-        public async Task<List<WaterReminder>> GetReminderByUser(Guid userId)
+        public async Task<List<WaterReminder>> GetReminderByUser(Guid userId , bool? Status)
         {
-            return await _context.WaterReminders
+            var queries = await _context.WaterReminders
                 .Where(r => r.UserId == userId)
                 .OrderBy(t => t.Time)
                 .ToListAsync();
+                if (Status.HasValue)
+                {
+                    queries = queries.Where(r => r.Status == Status.Value).ToList();
+                }
+                return queries;
+             
         }
 
         public async Task<WaterReminder> GetWaterReminderByUser(Guid userId, DateTime date)
@@ -137,7 +143,7 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<List<WaterReminder>> GetWaterRemindersByUser(Guid userId)
+        public async Task<List<WaterReminder>> GetWaterRemindersByUser(Guid userId )
         {
             return await _context.WaterReminders.
             Where(water => water.UserId == userId).ToListAsync();

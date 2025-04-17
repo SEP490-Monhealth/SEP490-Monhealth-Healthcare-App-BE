@@ -8,7 +8,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<int> SaveChangeAsync();
         Task<PaginatedResult<WaterReminder>> GetAllReminderAsync(int page, int limit, string? search, bool? recurring, bool? status);
         Task<WaterReminder> GetReminderById(Guid reminderId);
-        Task<List<WaterReminder>> GetReminderByUser(Guid userId);
+        Task<List<WaterReminder>> GetReminderByUser(Guid userId , bool? Status);
         Task<List<WaterReminder>> GetActiveRemindersAsync(string currentTime);
         Task<List<WaterReminder>> CreateReminders(float WaterIntakesGoal, Guid? userId);
         Task<List<WaterReminder>> GetAllActiveWaterRemindersAsync();

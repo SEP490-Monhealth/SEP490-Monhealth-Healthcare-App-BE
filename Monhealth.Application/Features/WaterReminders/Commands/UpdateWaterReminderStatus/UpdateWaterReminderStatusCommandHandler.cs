@@ -25,12 +25,16 @@ namespace Monhealth.Application.Features.Reminders.Commands.UpdateReminderStatus
             {
                 throw new Exception("UserId is null");
             }
-            var existingWater = await _dailyWaterIntakesRepository.GetDailyWaterIntakeByUserAndDate(today, id.UserId.Value);
             _reminderRepository.Update(id);
-            if (id.Status == false)
+            var existingWater = await _dailyWaterIntakesRepository.GetDailyWaterIntakeByUserAndDate(today, id.UserId.Value);
+            if (existingWater != null)
             {
-                _dailyWaterIntakesRepository.Remove(existingWater);
+                if (id.Status == false)
+                {
+                    _dailyWaterIntakesRepository.Remove(existingWater);
+                }
             }
+
             await _reminderRepository.SaveChangeAsync();
             return true;
         }
