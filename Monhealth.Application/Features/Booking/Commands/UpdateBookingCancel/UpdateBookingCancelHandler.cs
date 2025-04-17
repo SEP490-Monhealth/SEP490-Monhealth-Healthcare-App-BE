@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Domain.Enum;
@@ -7,12 +8,13 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
 {
     public class UpdateBookingCancelHandler(IBookingRepository bookingRepository,
         IConsultantRepository consultantRepository,
-        IUserSubscriptionRepository userSubscriptionRepository
+        IUserSubscriptionRepository userSubscriptionRepository,
+        ISystemNotificationService systemNotificationService
         ) : IRequestHandler<UpdateBookingCancelCommand, bool>
     {
         public async Task<bool> Handle(UpdateBookingCancelCommand request, CancellationToken cancellationToken)
         {
-            var booking = await bookingRepository.GetByIdAsync(request.BookingId);
+            var booking = await bookingRepository.GetBookingByBookingIdAsync(request.BookingId);
             if (booking == null) throw new BadRequestException("Không tìm thấy lịch hẹn");
             if (booking.Status == BookingStatus.Cancelled) throw new BadRequestException("Không thể hủy lịch hẹn đã bị hủy");
             if (booking.Status == BookingStatus.Confirmed) throw new BadRequestException("Không thể hủy lịch hẹn chuyên viên tư vấn đã chấp nhận");
@@ -36,6 +38,9 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
 
             userSubscription.RemainingBookings += 1;
             userSubscription.UpdatedAt = DateTime.Now;
+
+            //Notify success update for user and consultant
+            await systemNotificationService.NotifyBookingUpdateAsync(booking, cancellationToken);
 
             await bookingRepository.SaveChangeAsync(cancellationToken);
             return true;

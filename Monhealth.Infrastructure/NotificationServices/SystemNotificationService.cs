@@ -11,10 +11,43 @@ namespace Monhealth.Infrastructure.NotificationServices
         IUserRepository userRepository
         ) : ISystemNotificationService
     {
-        public Task NotifyBookingUpdateAsync(Booking booking, string changeDescription)
+        public async Task NotifyBookingUpdateAsync(Booking booking, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            // Thông báo cho consultant
+            var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
+            DateOnly scheduledDate = booking.Day;
+            TimeOnly scheduledTime = booking.StartTime;
+            DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
+            string consultantTitle = "Lịch hẹn đã được hủy";
+            string consultantContent = $"Lịch hẹn với {booking.User.FullName} vào lúc " +
+                $"{scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}" +
+                $" đã bị hủy với lí do: {booking?.CancellationReason ?? string.Empty}";
+            //string consultantActionUrl = $"/consultant/bookings/{booking.BookingId}";
+
+            await notificationService.SendUserNotificationAsync(
+                (Guid)consultant.UserId,
+                consultantTitle,
+                consultantContent,
+                cancellationToken
+            );
+
+            // Thông báo cho member
+            string memberTitle = "Bạn đã hủy lịch hẹn thành công";
+            string memberContent = $"Lịch hẹn của bạn với consultant {consultant.AppUser.FullName}" +
+                $" vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")} " +
+                $"đã bị hủy với lí do: {booking?.CancellationReason ?? string.Empty}";
+            string memberActionUrl = $"/member/bookings/{booking.BookingId}";
+
+            await notificationService.SendUserNotificationAsync(
+                (Guid)booking.UserId,
+                memberTitle,
+                memberContent,
+                cancellationToken
+            );
+
+            logger.LogInformation($"Sent booking update notifications for booking: {booking.BookingId}");
         }
+
 
         public async Task NotifyNewBookingAsync(Booking booking, CancellationToken cancellationToken)
         {
