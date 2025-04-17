@@ -19,7 +19,7 @@ namespace Monhealth.Application
                 throw new BadRequestException("Không tìm thấy ví của chuyên viên tư vấn");
             }
 
-            //check permission request with a pendingRequest
+            //check permission request with pendingRequest at a time
             var pendingWithdrawalRequests = await withdrawalRepository.GetAllWithdrawalRequestWithPendingStatus(request.ConsultantId);
             if (pendingWithdrawalRequests.Count() > 0)
             {

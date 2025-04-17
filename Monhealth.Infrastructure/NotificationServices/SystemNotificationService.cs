@@ -1,11 +1,14 @@
 ﻿using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Notification;
+using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
 
 namespace Monhealth.Infrastructure.NotificationServices
 {
     public class SystemNotificationService(INotificationService notificationService,
-        ILogger<SystemNotificationService> logger
+        ILogger<SystemNotificationService> logger,
+        IConsultantRepository consultantRepository,
+        IUserRepository userRepository
         ) : ISystemNotificationService
     {
         public Task NotifyBookingUpdateAsync(Booking booking, string changeDescription)
@@ -13,9 +16,50 @@ namespace Monhealth.Infrastructure.NotificationServices
             throw new NotImplementedException();
         }
 
-        public Task NotifyNewBookingAsync(Booking booking)
+        public async Task NotifyNewBookingAsync(Booking booking, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
+
+                var member = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
+
+                if (consultant != null && member != null)
+                {
+                    // Thông báo cho consultant
+                    DateOnly scheduledDate = booking.Day;
+                    TimeOnly scheduledTime = booking.StartTime;
+                    DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
+                    string consultantTitle = "Bạn có một lịch hẹn mới";
+                    string consultantContent = $"Bạn có một lịch hẹn mới từ {member.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
+                    //string consultantActionUrl = $"/consultant/bookings/{booking.BookingId}";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        consultantTitle,
+                        consultantContent,
+                        cancellationToken
+                    );
+
+                    // Thông báo cho member
+                    string memberTitle = "Đặt lịch hẹn thành công";
+                    string memberContent = $"Bạn đã đặt lịch hẹn thành công với tư vấn viên {consultant.AppUser.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
+                    // string memberActionUrl = $"/member/bookings/{booking.BookingId}";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)booking.UserId,
+                        memberTitle,
+                        memberContent,
+                        cancellationToken
+                    );
+
+                    logger.LogInformation($"Sent booking notifications for booking: {booking.BookingId}");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send notifications for new booking: {booking.BookingId}");
+            }
         }
 
         public async Task NotifyNewConsultantRegistrationAsync(Consultant consultant, CancellationToken cancellationToken)

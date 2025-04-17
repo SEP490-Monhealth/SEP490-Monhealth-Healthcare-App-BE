@@ -100,6 +100,13 @@ namespace Monhealth.Identity.Repositories
                 .ToDictionaryAsync(c => c.ConsultantId, c => c.Avatar);
         }
 
+        public async Task<Consultant> GetConsultantByConsultantId(Guid consultantId)
+        {
+            return await _context.Consultants
+                .Include(c => c.AppUser)
+                .FirstOrDefaultAsync(c => c.ConsultantId == consultantId);
+        }
+
         public async Task<Consultant> GetConsultantById(Guid consultantId)
         {
             var consultant = await _context.Consultants

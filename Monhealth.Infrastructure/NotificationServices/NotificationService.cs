@@ -69,7 +69,6 @@ namespace Monhealth.Infrastructure.NotificationServices
                 };
 
                 notificationRepository.Add(notification);
-                notificationRepository.SaveChangeAsync(cancellationToken);
 
                 // 2. Tạo liên kết giữa người dùng và thông báo
                 var userNotification = new UserNotification
@@ -82,7 +81,6 @@ namespace Monhealth.Infrastructure.NotificationServices
                 };
 
                 userNotificationRepository.Add(userNotification);
-                userNotificationRepository.SaveChangeAsync(cancellationToken);
 
                 // 3. Lấy thông tin tất cả thiết bị của người dùng
                 var userDevices = await deviceRepository.GetAllDevicesByUserId(userId);
@@ -129,7 +127,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                         logger.LogError(ex, $"Error sending push notification to device {device.DeviceId}");
                     }
                 }
-
+                await notificationRepository.SaveChangeAsync(cancellationToken);
                 logger.LogInformation($"Sent push notifications to {successCount}/{userDevices.Count} devices for user {userId}");
             }
             catch (Exception ex)
