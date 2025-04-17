@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.DaiLyWater.Queries.GetAllDaiLyWater
             var query = await _dailyWaterIntakesRepository.GetDailyWaterIntakesByUser(request.userId, request.date);
             var waterReminder = await _waterReminderRepository.GetWaterReminderByUser(request.userId, request.date);
             var goal = await goalRepository.GetGoalByUser(request.userId);
-            if (query == null && waterReminder.Status == false)
+            if (query == null )
             {
                 return new DailyWaterDTO
                 {
