@@ -38,9 +38,9 @@ namespace Monhealth.Api.Controllers
                 Success = true
             };
         }
+
         [HttpPost]
-        [Route("login/admin")]
-        [SwaggerOperation(Summary = "Đăng nhập cho admin")]
+        [Route("admin/login")]
         public async Task<ActionResult<ResultModel>> LoginForAdmin([FromBody] AuthAdminRequest request)
         {
             var result = await _authService.LoginForAdmin(request);
