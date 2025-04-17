@@ -45,9 +45,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("user/{userId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách nhắc nhở theo ID người dùng")]
-        public async Task<ActionResult<ResultModel>> GetReminderByUser(Guid userId)
+        public async Task<ActionResult<ResultModel>> GetReminderByUser(Guid userId , bool? status = null)
         {
-            var portion = await _mediator.Send(new GetAllReminderByUserQuery() { UserId = userId });
+            var portion = await _mediator.Send(new GetAllReminderByUserQuery() { UserId = userId, Status = status });
             if (portion == null)
             {
                 return new ResultModel

@@ -99,7 +99,7 @@ namespace Monhealth.Identity.Repositories
                 .Include(b => b.User)
                 .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
                 .AsQueryable();
-            query = query.Where(c => c.ConsultantId == consultantId && 
+            query = query.Where(c => c.ConsultantId == consultantId &&
                                (c.Day >= DateOnly.FromDateTime(from) && c.Day < DateOnly.FromDateTime(to)));
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)

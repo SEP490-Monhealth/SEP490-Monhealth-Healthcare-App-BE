@@ -9,7 +9,9 @@ namespace Monhealth.Application
         public Guid ConsultantId { get; set; }
         public Guid ConsultantBankId { get; set; }
         public ConsultantDTOForId Consultant { get; set; } = null!;
-        public string Description { get; set; } = string.Empty;
+        public ConsultantBankDto ConsultantBank { get; set; } = null!;
+        public string Description
+        { get; set; } = string.Empty;
         public float Amount { get; set; }
         public WithdrawalStatus Status { get; set; }
     }
@@ -19,5 +21,10 @@ namespace Monhealth.Application
         public string Email { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string AvatarUrl { get; set; } = string.Empty;
+    }
+    public class ConsultantBankDto
+    {
+        public string AccountNumber { get; set; }
+        public string AccountName { get; set; }
     }
 }

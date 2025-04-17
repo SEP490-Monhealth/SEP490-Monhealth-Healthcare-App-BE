@@ -11,6 +11,7 @@ namespace Monhealth.Application
             {
                 throw new Exception($"Không tìm thấy id:{id}");
             }
+            id.ConsultantBankId = request.WithdrawalRequestId;
             id.Amount = request.Request.Amount;
             id.Description = request.Request.Description;
             id.UpdatedAt = DateTime.Now;

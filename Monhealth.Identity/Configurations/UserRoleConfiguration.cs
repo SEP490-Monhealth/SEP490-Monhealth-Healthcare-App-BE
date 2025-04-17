@@ -106,14 +106,14 @@ namespace Monhealth.Identity.Configurations
             {
                 RoleId = Guid.Parse("322488F9-7AA9-49B0-B2B8-FD98B7B260FC"),
                 UserId = Guid.Parse("06114384-3057-49ea-b106-e03c0e0e8f20"),
-            }
+            },
 
-            // van huu toan con consultant
-            // new IdentityUserRole<Guid>
-            // {
-            //     RoleId = Guid.Parse("c0278115-8549-4fad-890a-44f8E8fcc022"),
-            //     UserId = Guid.Parse("20041d5b-01e4-443f-9652-e39beb9748e5")
-            // }
+            // người iu nguyễn quốc đợi consultant
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("c0278115-8549-4fad-890a-44f8E8fcc022"),
+                UserId = Guid.Parse("20041d5b-01e4-443f-9652-e39beb9748e5")
+            }
             );
         }
     }

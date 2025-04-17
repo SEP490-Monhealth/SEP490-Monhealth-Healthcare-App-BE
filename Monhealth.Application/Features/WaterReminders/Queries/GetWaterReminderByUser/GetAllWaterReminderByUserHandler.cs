@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Reminders.Queries.GetReminderByUser
 
         public async Task<List<GetAllReminderByUserDTO>> Handle(GetAllReminderByUserQuery request, CancellationToken cancellationToken)
         {
-            var userId = await _reminderRepository.GetReminderByUser(request.UserId);
+            var userId = await _reminderRepository.GetReminderByUser(request.UserId , request.Status);
             return _mapper.Map<List<GetAllReminderByUserDTO>>(userId);
         }
     }
