@@ -19,9 +19,7 @@ namespace Monhealth.Identity.Configurations
                 ConsultantId = Guid.Parse("122DC7DF-16DE-49A3-AB83-5299686F6203"),
                 LastMessage = "Tôi cần tư vấn về chế độ ăn cho người tiểu đường.",
                 CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87"),
-                UpdatedBy = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87")
+                UpdatedAt = today
             },
             #endregion
 
@@ -33,9 +31,7 @@ namespace Monhealth.Identity.Configurations
                 ConsultantId = Guid.Parse("122DC7DF-16DE-49A3-AB83-5299686F6203"),
                 LastMessage = "Bạn vui lòng cung cấp thêm thông tin sức khỏe để tôi hỗ trợ tốt hơn.",
                 CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
-                UpdatedBy = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B")
+                UpdatedAt = today
             },
             #endregion
 
@@ -47,9 +43,7 @@ namespace Monhealth.Identity.Configurations
                 ConsultantId = Guid.Parse("122DC7DF-16DE-49A3-AB83-5299686F6203"),
                 LastMessage = "Tôi muốn hẹn lịch tư vấn vào tuần sau.",
                 CreatedAt = today,
-                UpdatedAt = today,
-                CreatedBy = Guid.Parse("0075BA2C-F60D-4F75-B9F1-F71579BC4FD2"),
-                UpdatedBy = Guid.Parse("0075BA2C-F60D-4F75-B9F1-F71579BC4FD2")
+                UpdatedAt = today
             }
             #endregion
             );

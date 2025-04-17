@@ -21,9 +21,7 @@ namespace Monhealth.Application.Features.Chat.Queries.GetUserChatByUserId
                 },
                 LastMessage = c.LastMessage,
                 CreatedAt = c.CreatedAt,
-                UpdatedAt = c.UpdatedAt,
-                CreatedBy = c.CreatedBy,
-                UpdatedBy = c.UpdatedBy,
+                UpdatedAt = c.UpdatedAt
             }).ToList();
             return new PageResult<ChatDto>()
             {

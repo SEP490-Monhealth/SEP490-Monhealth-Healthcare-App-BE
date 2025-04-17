@@ -18,9 +18,7 @@ namespace Monhealth.Application.Features.Chat.Commands.CreateChat
                     LastMessage = string.Empty,
                     Messages = new List<Domain.Message>(),
                     CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    CreatedBy = request.UserId,
-                    UpdatedBy = request.UserId
+                    UpdatedAt = DateTime.Now
                 };
                 chatRepository.Add(newChat);
                 await chatRepository.SaveChangeAsync(cancellationToken);

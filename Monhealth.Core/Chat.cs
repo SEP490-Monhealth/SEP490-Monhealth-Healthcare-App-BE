@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monhealth.Domain
 {
-    public class Chat : BaseEntity
+    public class Chat : TimeEntity
     {
         [Key]
         public Guid ChatId { get; set; }

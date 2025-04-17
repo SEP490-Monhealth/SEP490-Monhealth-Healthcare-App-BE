@@ -9,7 +9,7 @@ namespace Monhealth.Application.Features.Chat.Queries.GetInfoChatById
         public async Task<GetInfoChatByIdDTO> Handle(GetInfoChatByIdQuery request, CancellationToken cancellationToken)
         {
             var chat = await chatRepository.GetChatInfoUserAndConsultantByChatId(request.ChatId);
-            if(chat == null)
+            if (chat == null)
             {
                 throw new Exception("Cuộc trò chuyện không tồn tại.");
             }

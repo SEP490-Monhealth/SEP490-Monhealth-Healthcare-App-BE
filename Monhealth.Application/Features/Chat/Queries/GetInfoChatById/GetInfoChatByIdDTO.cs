@@ -3,7 +3,7 @@ using Monhealth.Domain.Common;
 
 namespace Monhealth.Application.Features.Chat.Queries.GetInfoChatById
 {
-    public class GetInfoChatByIdDTO : BaseEntity
+    public class GetInfoChatByIdDTO : TimeEntity
     {
         public Guid ChatId { get; set; }
         public Guid UserId { get; set; }
