@@ -6,16 +6,17 @@ namespace Monhealth.Application
     {
         public async Task<bool> Handle(UpdateWithdrawalRequest request, CancellationToken cancellationToken)
         {
-            var id = await withdrawalRepository.GetByIdAsync(request.WithdrawalRequestId);
-            if (id == null)
+            var withdrawalRequest = await withdrawalRepository.GetByIdAsync(request.WithdrawalRequestId);
+            if (withdrawalRequest == null)
             {
-                throw new Exception($"Không tìm thấy id:{id}");
+                throw new Exception($"Không tìm thấy yêu cầu rút tiền");
             }
-            id.ConsultantBankId = request.WithdrawalRequestId;
-            id.Amount = request.Request.Amount;
-            id.Description = request.Request.Description;
-            id.UpdatedAt = DateTime.Now;
-            withdrawalRepository.Update(id);
+
+            withdrawalRequest.ConsultantBankId = request.Request.ConsultantBankId;
+            withdrawalRequest.Amount = request.Request.Amount;
+            withdrawalRequest.Description = request.Request.Description;
+            withdrawalRequest.UpdatedAt = DateTime.Now;
+            withdrawalRepository.Update(withdrawalRequest);
             await withdrawalRepository.SaveChangeASync();
             return true;
         }
