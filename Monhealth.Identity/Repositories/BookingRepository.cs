@@ -82,15 +82,11 @@ namespace Monhealth.Identity.Repositories
             if (date.HasValue)
             {
                 var dateOnly = DateOnly.FromDateTime(date.Value);
-                query = query.Where(b => b.Day == dateOnly)
-                .OrderBy(b => b.StartTime); // Sắp xếp theo StartTime nếu có date
-            }
-            else
-            {
-                query = query.OrderByDescending(b => b.CreatedAt); // Sắp xếp theo CreatedAt nếu không có date
+                query = query.Where(b => b.Day == dateOnly);
             }
 
-            return query.ToList();
+
+            return query.OrderByDescending(b => b.Day).ThenBy(b => b.StartTime).ToList();
         }
 
         public async Task<PaginatedResult<Booking>> GetBookingByConsultantIdMonthly(int page, int limit, Guid consultantId, DateTime from, DateTime to)

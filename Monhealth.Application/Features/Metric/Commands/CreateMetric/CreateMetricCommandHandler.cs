@@ -108,18 +108,25 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             //create UserScription with basic subscription
             var basicSubscriptionId = Guid.Parse("9dba3bb9-d153-4490-b39e-7c889cf01759");
             var now = DateTime.Now;
-            var newUserSubscription = new Domain.UserSubscription
+
+            //check exist 
+            var userSubscription = await userSubscriptionRepository.GetUserSubScriptionByUserIdAndSubscriptionId(basicSubscriptionId, request.CreateMetricDTO.UserId);
+            if (userSubscription == null)
             {
-                UserId = request.CreateMetricDTO.UserId,
-                SubscriptionId = basicSubscriptionId,
-                StartedAt = now,
-                ExpiresAt = now.AddYears(100),
-                RemainingBookings = 0,
-                Status = Core.Enum.UserSubscriptionStatus.Active,
-                CreatedAt = now,
-                UpdatedAt = now,
-            };
-            userSubscriptionRepository.Add(newUserSubscription);
+                var newUserSubscription = new Domain.UserSubscription
+                {
+                    UserId = request.CreateMetricDTO.UserId,
+                    SubscriptionId = basicSubscriptionId,
+                    StartedAt = now,
+                    ExpiresAt = now.AddYears(100),
+                    RemainingBookings = 0,
+                    Status = Core.Enum.UserSubscriptionStatus.Active,
+                    CreatedAt = now,
+                    UpdatedAt = now,
+                };
+                userSubscriptionRepository.Add(newUserSubscription);
+
+            }
 
             // #endregion
             await _reminderRepository.SaveChangeAsync();

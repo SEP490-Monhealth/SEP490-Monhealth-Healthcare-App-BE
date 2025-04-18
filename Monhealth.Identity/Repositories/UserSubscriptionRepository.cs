@@ -84,8 +84,7 @@ namespace Monhealth.Identity.Repositories
         {
             return _context.UserSubscriptions
                 .Where(us => us.UserId == userId &&
-                        us.Status == UserSubscriptionStatus.Active &&
-                        us.RemainingBookings > 0
+                        us.Status == UserSubscriptionStatus.Active
                 ).OrderByDescending(us => us.CreatedAt)
                 .FirstOrDefaultAsync();
         }
@@ -159,8 +158,8 @@ namespace Monhealth.Identity.Repositories
 
         }
 
-         public async Task<int> GetUserSubscriptionCountByNamesAsync(
-            Guid[] subscriptionIds)
+        public async Task<int> GetUserSubscriptionCountByNamesAsync(
+           Guid[] subscriptionIds)
         {
             return await _context.UserSubscriptions
                 .Where(us => subscriptionIds.Contains(us.Subscription.SubscriptionId))
