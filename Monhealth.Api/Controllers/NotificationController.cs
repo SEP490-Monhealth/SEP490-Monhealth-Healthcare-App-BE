@@ -144,6 +144,7 @@ namespace Monhealth.Api.Controllers
                 Message = "Xóa thông báo thành công"
             };
         }
+
         [HttpPost("send")]
         public async Task<ActionResult<ResultModel>> SendNotification([FromBody] ExpoNotificationRequest notificationRequest)
         {

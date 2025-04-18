@@ -16,7 +16,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
         public async Task<bool> Handle(UpdateBookingStatusCommand request, CancellationToken cancellationToken)
         {
             var booking = await bookingRepository.GetByIdAsync(request.BookingId);
-            if (booking == null) throw new BadRequestException("Không tìm thấy lịch đã đặt");
+            if (booking == null) throw new BadRequestException("Không tìm thấy lịch hẹn");
             if (booking.Status == BookingStatus.Completed) throw new BadRequestException("Không thể cập nhập lịch đã hoàn thành");
 
             if (booking.Status == BookingStatus.Cancelled) throw new BadRequestException("Không thể cập nhập lịch đã hủy");
@@ -37,7 +37,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
                     WalletId = wallet.WalletId,
                     BookingId = booking.BookingId,
                     TransactionType = TransactionType.Earning,
-                    Description = "Tiền kiếm được sau một lịch hẹn",
+                    Description = "Thanh toán cho lịch hẹn đã hoàn thành",
                     Amount = earnMoney,
                     Status = StatusTransaction.Pending,
                     CreatedAt = DateTime.Now,

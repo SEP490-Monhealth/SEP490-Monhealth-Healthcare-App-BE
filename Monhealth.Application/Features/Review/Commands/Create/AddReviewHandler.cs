@@ -16,8 +16,6 @@ namespace Monhealth.Application.Features.Review.Commands.Create
             this.bookingRepository = bookingRepository;
         }
 
-
-
         public async Task<Unit> Handle(AddReviewRequest request, CancellationToken cancellationToken)
         {
             var model = new Monhealth.Domain.Review
@@ -34,6 +32,7 @@ namespace Monhealth.Application.Features.Review.Commands.Create
             var booking = await bookingRepository.GetByIdAsync(request.BookingId);
             if (booking != null)
                 booking.IsReviewed = true;
+
             var consultantId = booking.ConsultantId;
             if (consultantId.HasValue)
             {
@@ -41,9 +40,15 @@ namespace Monhealth.Application.Features.Review.Commands.Create
                 if (consultant != null)
                 {
                     consultant.RatingCount += 1;
-                    consultant.AverageRating = Math.Round(((consultant.AverageRating * consultant.RatingCount) + request.Rating) / (consultant.RatingCount + 1), 1, MidpointRounding.AwayFromZero);
+
+                    consultant.AverageRating = Math.Round(
+                        ((consultant.AverageRating * (consultant.RatingCount - 1)) + request.Rating) / consultant.RatingCount,
+                        1,
+                        MidpointRounding.AwayFromZero
+                    );
                 }
             }
+
             await _reviewRepository.SaveChangeAsync();
             return Unit.Value;
         }
