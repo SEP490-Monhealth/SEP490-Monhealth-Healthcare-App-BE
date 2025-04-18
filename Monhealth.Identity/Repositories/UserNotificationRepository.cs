@@ -53,6 +53,12 @@ namespace Monhealth.Identity.Repositories
             return await _context.UserNotifications.Where(n => n.UserId == userId).ToListAsync();
         }
 
+        public async Task<UserNotification> IsReadNotification(Guid userId, Guid notificationId)
+        {
+            return await _context.UserNotifications
+            .FirstOrDefaultAsync(un => un.UserId == userId && un.NotificationId == notificationId);
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);
