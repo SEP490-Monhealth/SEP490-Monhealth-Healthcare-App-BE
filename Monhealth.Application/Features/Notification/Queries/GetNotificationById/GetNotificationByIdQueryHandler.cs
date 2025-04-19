@@ -8,7 +8,7 @@ namespace Monhealth.Application.Features.Notification.Queries.GetNotificationByI
     {
         public async Task<GetNotificationByIdDTO> Handle(GetNotificationByIdQuery request, CancellationToken cancellationToken)
         {
-            var notification = await notificationRepository.GetByIdAsync(request.NotificationId);
+            var notification = await notificationRepository.GetNotificationByNotificationId(request.NotificationId);
             return mapper.Map<GetNotificationByIdDTO>(notification);
         }
     }

@@ -12,9 +12,12 @@ namespace Monhealth.Application.Automapper
     {
         public NotificationProfile()
         {
-            CreateMap<Notification, GetAllNotificationsDTO>().ReverseMap();
-            CreateMap<Notification, GetNotificationByIdDTO>().ReverseMap();
-            CreateMap<Notification, GetNotificationByUserIdDTO>().ReverseMap();
+            CreateMap<Notification, GetAllNotificationsDTO>()
+                .ForMember(dest => dest.IsRead, opt => opt.MapFrom(src => src.UserNotifications.FirstOrDefault().IsRead));
+            CreateMap<Notification, GetNotificationByIdDTO>()
+                .ForMember(dest => dest.IsRead, opt => opt.MapFrom(src => src.UserNotifications.FirstOrDefault().IsRead));
+            CreateMap<Notification, GetNotificationByUserIdDTO>()
+                .ForMember(dest => dest.IsRead, opt => opt.MapFrom(src => src.UserNotifications.FirstOrDefault().IsRead));
 
             CreateMap<Notification, CreateNotificationDTO>().ReverseMap();
             CreateMap<Notification, UpdateNotificationDTO>().ReverseMap();

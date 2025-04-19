@@ -18,10 +18,11 @@ namespace Monhealth.Application.Features.Notification.Queries.GetNotificationByC
             var notificationsDto = listNotification.Items.Select(n => new GetNotificationByConsultantIdDTO
             {
                 NotificationId = n.NotificationId,
-                ReferenceId = (Guid)n.ReferenceId,
+                ReferenceId = n.ReferenceId,
                 Title = n.Title,
                 Content = n.Content,
                 ActionUrl = n.ActionUrl,
+                IsRead = n.UserNotifications.FirstOrDefault()?.IsRead ?? false,
                 CreatedAt = n.CreatedAt,
                 UpdatedAt = n.UpdatedAt
             }).ToList();

@@ -9,5 +9,6 @@ namespace Monhealth.Application.Features.Notification.Queries.GetAllNotification
         public string Title { get; set; }
         public string Content { get; set; }
         public string? ActionUrl { get; set; }
+        public bool IsRead { get; set; }
     }
 }

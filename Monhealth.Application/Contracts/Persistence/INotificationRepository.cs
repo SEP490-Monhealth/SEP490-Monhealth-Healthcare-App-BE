@@ -8,6 +8,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<Domain.Notification>> GetAllNotificationsAsync(int page, int limit, string? search);
         Task<PaginatedResult<Domain.Notification>> GetNotificationByUserId(int page, int limit, Guid userId);
         Task<PaginatedResult<Domain.Notification>> GetNotificationByConsultantId(int page, int limit, Guid? consultantId);
+        Task<Domain.Notification> GetNotificationByNotificationId(Guid notificationId);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
     }
 }
