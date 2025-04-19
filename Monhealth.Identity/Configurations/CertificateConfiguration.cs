@@ -27,6 +27,7 @@ namespace Monhealth.Identity.Configurations
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
                 CreatedAt = today,
                 UpdatedAt = today,
+                IsVerified = true,
             },
             #endregion
 
@@ -45,6 +46,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
                 CreatedAt = today,
                 UpdatedAt = today,
+                IsVerified = true,
+
             },
             #endregion
 
@@ -63,6 +66,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
                 CreatedAt = today,
                 UpdatedAt = today,
+                IsVerified = true,
+
             },
             #endregion
 
@@ -81,6 +86,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
                 CreatedAt = today,
                 UpdatedAt = today,
+                IsVerified = true,
+
             },
             #endregion
 
@@ -99,6 +106,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
                 CreatedAt = today,
                 UpdatedAt = today,
+                IsVerified = true,
+
             },
             #endregion
 
@@ -117,6 +126,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
                 CreatedAt = today,
                 UpdatedAt = today,
+                IsVerified = true,
+
             },
             #endregion
 
@@ -135,6 +146,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
                 CreatedAt = today,
                 UpdatedAt = today,
+                IsVerified = true,
+
             },
             #endregion
 
@@ -152,6 +165,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_2.jpg?alt=media&token=25015de2-7cdc-4a9f-9355-0c7b4b99fd85" },
                 CreatedAt = today,
                 UpdatedAt = today,
+                IsVerified = true,
+
             }
             #endregion
             );
