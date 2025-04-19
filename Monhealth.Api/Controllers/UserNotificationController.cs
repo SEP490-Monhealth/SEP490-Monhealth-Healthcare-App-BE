@@ -6,12 +6,16 @@ using Monhealth.Application.Features.UserNotification.Queries.GetAllUserNotifica
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationById;
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationByNotificationId;
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationByUserId;
+using Monhealth.Application.Features.Notification.Commands.IsReadNotificaiton;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using Monhealth.Application.Models.Identity;
 
 namespace Monhealth.Api.Controllers
 {
     [Route("api/v1/user-notifications")]
     [ApiController]
-    public class UserNotificationController(IMediator mediator) : ControllerBase
+    public class UserNotificationController(IMediator mediator, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<ResultModel>> GetAllUserNotifications(int page = 1, int limit = 10, Guid? userId = null, string? search = null)
@@ -69,6 +73,33 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = userNotification
             });
+        }
+        [HttpPatch("notification/{notificationId}")]
+        public async Task<ActionResult<ResultModel>> MarkAsRead(Guid notificationId)
+        {
+            // Lấy UserId từ JWT token hoặc từ context người dùng
+            var userId = httpContextAccessor.HttpContext.User.FindFirst(UserClaims.UserId)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.Unauthorized,
+                    Message = "Người dùng chưa được xác thực."
+                };
+            }
+
+            var parsedUserId = Guid.Parse(userId); 
+
+            var command = new IsReadNotificaitonCommand(parsedUserId, notificationId);
+            await mediator.Send(command);
+
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+            };
         }
     }
 }

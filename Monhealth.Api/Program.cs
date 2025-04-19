@@ -33,6 +33,7 @@ builder.Services.AddPayOSService(builder.Configuration);
 builder.Services.AddChatNotification(); //extension method
 
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 
 builder.Services.AddSwaggerGen(options =>
