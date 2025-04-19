@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Domain;
@@ -23,6 +24,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IFoodRepository _foodRepository;
         private readonly IUserSubscriptionRepository userSubscriptionRepository;
+        private readonly ISystemNotificationService systemNotificationService;
 
         public CreateMetricCommandHandler(
             IMetricRepository metricRepository,
@@ -38,7 +40,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             IFoodPortionRepository foodPortionRepository,
             IDailyMealRepository dailyMealRepository,
             IFoodRepository foodRepository,
-            IUserSubscriptionRepository userSubscriptionRepository
+            IUserSubscriptionRepository userSubscriptionRepository,
+            ISystemNotificationService systemNotificationService
             )
         {
             _metricCalculator = metricCalculator;
@@ -55,6 +58,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             _dailyMealRepository = dailyMealRepository;
             _foodRepository = foodRepository;
             this.userSubscriptionRepository = userSubscriptionRepository;
+            this.systemNotificationService = systemNotificationService;
         }
 
         public async Task<Unit> Handle(CreateMetricCommand request, CancellationToken cancellationToken)
@@ -127,6 +131,10 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 userSubscriptionRepository.Add(newUserSubscription);
 
             }
+
+            //Notify user create metric successfully
+            await systemNotificationService.NotifyCreateMetricSuccessfully
+                (request.CreateMetricDTO.UserId, cancellationToken);
 
             // #endregion
             await _reminderRepository.SaveChangeAsync();

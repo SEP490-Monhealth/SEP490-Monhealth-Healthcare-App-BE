@@ -99,7 +99,9 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<UserSubscription> GetUserSubScriptionByUserIdAndSubscriptionId(Guid subscriptionId, Guid userId)
         {
-            return await _context.UserSubscriptions.FirstOrDefaultAsync(us => us.UserId == userId && us.SubscriptionId == subscriptionId);
+            return await _context.UserSubscriptions
+                .FirstOrDefaultAsync(us => us.UserId == userId
+                && us.SubscriptionId == subscriptionId);
         }
 
         public async Task<int> SaveChangeAsync()

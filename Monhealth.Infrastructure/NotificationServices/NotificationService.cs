@@ -136,5 +136,64 @@ namespace Monhealth.Infrastructure.NotificationServices
                 throw;
             }
         }
+
+        public async Task SendUserNotificationWithoutSaveAsync(Guid userId, string title, string content, string actionUrl = null, Guid? referenceId = null)
+        {
+            try
+            {
+
+                // 3. Lấy thông tin tất cả thiết bị của người dùng
+                var userDevices = await deviceRepository.GetAllDevicesByUserId(userId);
+
+                if (!userDevices.Any())
+                {
+                    logger.LogInformation($"User {userId} has no registered devices for push notifications");
+                    return;
+                }
+
+                // 4. Gửi push notification đến từng thiết bị
+                int successCount = 0;
+                foreach (var device in userDevices)
+                {
+                    try
+                    {
+                        // Gửi thông báo đến thiết bị
+                        bool success = await SendExpoNotificationAsync(
+                            device.ExpoPushToken ?? string.Empty,
+                            title,
+                            content
+                        );
+
+                        if (success)
+                        {
+                            successCount++;
+                        }
+                        else
+                        {
+                            logger.LogWarning($"Failed to send push notification to device {device.DeviceId} for user {userId}");
+
+                            //// Nếu token không hợp lệ, đánh dấu để cập nhật sau
+                            //if (await IsTokenInvalid(device.ExpoPushToken))
+                            //{
+                            //    device.ExpoPushToken = null;
+                            //    device.UpdatedAt = DateTime.UtcNow;
+                            //    _context.Devices.Update(device);
+                            //    await _context.SaveChangesAsync();
+                            //}
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.LogError(ex, $"Error sending push notification to device {device.DeviceId}");
+                    }
+                }
+                logger.LogInformation($"Sent push notifications to {successCount}/{userDevices.Count} devices for user {userId}");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send notification to user {userId}");
+                throw;
+            }
+        }
     }
 }

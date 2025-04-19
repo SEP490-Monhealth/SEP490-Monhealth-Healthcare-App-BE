@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Identity;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Application.Models.Identity;
@@ -21,7 +22,13 @@ namespace Monhealth.Identity.Services
         private readonly ITokenService _tokenService;
         private readonly MonhealthDbcontext _context;
         private readonly IUserRepository _userRepository;
-        public AuthService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, ITokenService tokenService, MonhealthDbcontext context, IUserRepository userRepository)
+        private readonly ISystemNotificationService systemNotificationService;
+
+        public AuthService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
+            RoleManager<AppRole> roleManager, ITokenService tokenService,
+            MonhealthDbcontext context, IUserRepository userRepository,
+            ISystemNotificationService systemNotificationService
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -29,6 +36,7 @@ namespace Monhealth.Identity.Services
             _tokenService = tokenService;
             _context = context;
             _userRepository = userRepository;
+            this.systemNotificationService = systemNotificationService;
         }
 
         public async Task<MeResponse> GetInformationCurrentUser(string phoneNumber)
@@ -93,6 +101,9 @@ namespace Monhealth.Identity.Services
             user.RefreshToken = refreshToken;
             user.RefreshTokenExpiryTime = DateTime.Now.AddDays(30);
             await _userManager.UpdateAsync(user);
+
+            //notify user 
+            await systemNotificationService.NotifyNewUserSessionAsync(user);
             return new AuthResponse()
             {
                 AccessToken = accessToken,

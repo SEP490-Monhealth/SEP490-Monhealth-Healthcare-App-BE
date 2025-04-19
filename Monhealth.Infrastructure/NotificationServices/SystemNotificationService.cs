@@ -12,6 +12,52 @@ namespace Monhealth.Infrastructure.NotificationServices
         IUserRepository userRepository
         ) : ISystemNotificationService
     {
+        public async Task NotifyBookingCompleteForBoth(Booking booking, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
+
+                var member = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
+
+                if (consultant != null && member != null)
+                {
+                    // Thông báo cho consultant
+                    DateOnly scheduledDate = booking.Day;
+                    TimeOnly scheduledTime = booking.StartTime;
+                    DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
+                    string consultantTitle = "Hoàn thành cuộc hẹn tư vấn";
+                    string consultantContent = $"Bạn đã hoàn thành tư vấn cho {member.FullName}";
+                    //string consultantActionUrl = $"/consultant/bookings/{booking.BookingId}";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        consultantTitle,
+                        consultantContent,
+                        cancellationToken
+                    );
+
+                    // Thông báo cho member
+                    string memberTitle = "Hoàn thành cuộc hẹn tư vấn";
+                    string memberContent = $"Bạn đã hoàn thành cuộc hẹn tư vấn với chuyên viên: {consultant.AppUser.FullName}";
+                    // string memberActionUrl = $"/member/bookings/{booking.BookingId}";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)booking.UserId,
+                        memberTitle,
+                        memberContent,
+                        cancellationToken
+                    );
+
+                    logger.LogInformation($"Sent booking notifications for booking: {booking.BookingId}");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send notifications for new booking: {booking.BookingId}");
+            }
+        }
+
         public async Task NotifyBookingUpdateAsync(Booking booking, CancellationToken cancellationToken)
         {
             // Thông báo cho consultant
@@ -49,6 +95,30 @@ namespace Monhealth.Infrastructure.NotificationServices
             logger.LogInformation($"Sent booking update notifications for booking: {booking.BookingId}");
         }
 
+        public async Task NotifyCreateMetricSuccessfully(Guid userId, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var user = await userRepository.GetUserByIdAsync(userId);
+                if (user != null)
+                {
+                    string title = "Chào mừng";
+                    string content = $"Chào {user?.FullName} đã đến với hệ thống";
+
+                    await notificationService.SendUserNotificationAsync(
+                        user.Id,
+                        title,
+                        content,
+                        cancellationToken
+                    );
+                }
+                logger.LogInformation($"Sent welcome notification to new user: {userId}");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send notification to new user: {userId}");
+            }
+        }
 
         public async Task NotifyNewBookingAsync(Booking booking, CancellationToken cancellationToken)
         {
@@ -101,7 +171,7 @@ namespace Monhealth.Infrastructure.NotificationServices
             try
             {
                 string title = "Chào mừng";
-                string content = $"Chào {consultant.AppUser.FullName}, tài khoản của bạn đã được tạo thành công.";
+                string content = $"Chào {consultant?.AppUser?.FullName}, tài khoản của bạn đã được tạo thành công.";
 
                 await notificationService.SendUserNotificationAsync(
                     (Guid)consultant.UserId,
@@ -118,18 +188,17 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
         }
 
-        public async Task NotifyNewUserSessionAsync(AppUser user, CancellationToken cancellationToken)
+        public async Task NotifyNewUserSessionAsync(AppUser user)
         {
             try
             {
                 string title = "Chào mừng";
                 string content = $"Chào {user.FullName}, hôm nay bạn thế nào? Chúng tôi rất vui khi bạn quay lại.";
 
-                await notificationService.SendUserNotificationAsync(
-                    (Guid)user.Id,
+                await notificationService.SendUserNotificationWithoutSaveAsync(
+                    user.Id,
                     title,
-                    content,
-                    cancellationToken
+                    content
                 );
 
                 logger.LogInformation($"Sent welcome notification to new user: {user.Id}");
@@ -140,9 +209,54 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
         }
 
-        public Task NotifySubscriptionPurchaseAsync(Transaction transaction, Subscription subscription)
+        public async Task NotifySubscriptionBuySingleBooking(Transaction transaction, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string title = "Chào mừng mua lượt đặt lịch thành công";
+                string content = $"Chúc mừng: {transaction?.UserSubscription?.User?.FullName}, " +
+                    $"Bạn đã mua một lượt đặt lịch thành công";
+                await notificationService.SendUserNotificationAsync(
+                    (Guid)transaction.UserId,
+                    title,
+                    content,
+                    cancellationToken
+                    );
+                logger.LogInformation($"Sent welcome notification to new user: {transaction.UserId}");
+
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send notification to new user: {transaction.UserId}");
+
+            }
         }
+
+        public async Task NotifySubscriptionPurchaseAsync(Transaction transaction, UserSubscription userSubscription, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var user = await userRepository.GetUserByIdAsync((Guid)transaction.UserId);
+                string title = "Chào mừng nâng cấp gói thành công";
+                string content = $"Chúc mừng: {user?.FullName}, " +
+                    $"Bạn đã nâng cấp gói thành công gói: {userSubscription?.Subscription?.SubscriptionName}";
+
+                await notificationService.SendUserNotificationAsync(
+                    (Guid)transaction.UserId,
+                    title,
+                    content,
+                    cancellationToken
+                    );
+                logger.LogInformation($"Sent welcome notification to new user: {transaction.UserId}");
+
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send notification to new user: {transaction.UserId}");
+
+            }
+        }
+
+
     }
 }

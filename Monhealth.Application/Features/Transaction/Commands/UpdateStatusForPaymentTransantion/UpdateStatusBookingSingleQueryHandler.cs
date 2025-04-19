@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Application.Features.UserSubscription.Commands.Create;
@@ -7,7 +8,8 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBoo
 {
     public class UpdateStatusBookingSingleQueryHandler(ITransactionRepository transactionRepository,
         IUserSubscriptionRepository userSubscriptionRepository,
-        IMediator mediator
+        IMediator mediator,
+        ISystemNotificationService systemNotificationService
         ) : IRequestHandler<UpdateStatusBookingSingleQuery, bool>
     {
         public async Task<bool> Handle(UpdateStatusBookingSingleQuery request, CancellationToken cancellationToken)
@@ -23,6 +25,9 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBoo
                 if (userSubscription == null) throw new BadRequestException("Không tìm thấy gói cơ bản của người dùng");
 
                 userSubscription.RemainingBookings += 1;
+
+                //notify user
+                await systemNotificationService.NotifySubscriptionBuySingleBooking(transaction, cancellationToken);
             }
             else //xử lí update cho thanh toán nâng cấp gói 
             {
@@ -38,6 +43,9 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBoo
                 //assign UserSubscriptionId for payment
                 var userSubscription = await userSubscriptionRepository.GetUserSubScriptionByUserIdAndSubscriptionId((Guid)transaction.SubscriptionId, (Guid)transaction.UserId);
                 transaction.UserSubscriptionId = userSubscription.UserSubscriptionId;
+
+                //notify user
+                await systemNotificationService.NotifySubscriptionPurchaseAsync(transaction, userSubscription, cancellationToken);
             }
 
             transaction.Status = Domain.Enum.StatusTransaction.Completed;

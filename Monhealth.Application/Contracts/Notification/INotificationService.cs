@@ -6,6 +6,8 @@
         Task SendUserNotificationAsync(Guid userId, string title, string content,
             CancellationToken cancellationToken,
             string actionUrl = null, Guid? referenceId = null);
-
+        Task SendUserNotificationWithoutSaveAsync(Guid userId, string title, string content,
+             string actionUrl = null, Guid? referenceId = null
+            );
     }
 }
