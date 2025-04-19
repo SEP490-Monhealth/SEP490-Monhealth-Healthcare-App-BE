@@ -33,20 +33,21 @@ builder.Services.AddPayOSService(builder.Configuration);
 builder.Services.AddChatNotification(); //extension method
 
 
-builder.Services.AddHttpContextAccessor();
+//builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 
 builder.Services.AddSwaggerGen(options =>
 {
     options.EnableAnnotations();
 
-    options.AddSecurityDefinition("ApiKey", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
-        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,  // Use HTTP scheme for Bearer token
+        Scheme = "bearer", // The scheme to use for authorization
+        BearerFormat = "JWT",  // Indicating that it's a JWT token
         Name = "Authorization",
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Description = "Enter your token here without the Bearer prefix. Example: 'your_token'",
-        Scheme = "ApiKey"
+        Description = "Enter your JWT token here without the Bearer prefix. Example: 'your_token_here'"
     });
 
     options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
@@ -57,7 +58,7 @@ builder.Services.AddSwaggerGen(options =>
                 Reference = new Microsoft.OpenApi.Models.OpenApiReference
                 {
                     Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                    Id = "ApiKey"
+                    Id = "Bearer"
                 }
             },
             new List<string>()
