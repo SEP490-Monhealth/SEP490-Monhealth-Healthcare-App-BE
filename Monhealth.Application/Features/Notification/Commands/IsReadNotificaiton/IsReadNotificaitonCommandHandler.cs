@@ -19,7 +19,8 @@ namespace Monhealth.Application.Features.Notification.Commands.IsReadNotificaito
                 userNotification.IsRead = true;
                 userNotification.UpdatedAt = DateTime.UtcNow;
                 userNotificationRepository.Update(userNotification);
-            } else
+            }
+            else
             {
                 throw new NotFoundException("Thông báo này đã đọc.");
             }

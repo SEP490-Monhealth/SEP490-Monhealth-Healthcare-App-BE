@@ -52,12 +52,17 @@ namespace Monhealth.Identity.Repositories
 
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(c => c.ConsultantId.ToString().ToLower().Contains(search.ToLower().Trim())
-                                      || c.UserId.ToString().ToLower().Contains(search.ToLower().Trim())
-                                      || c.ExpertiseId.ToString().ToLower().Contains(search.ToLower().Trim())
-                                      || c.AppUser.PhoneNumber.Contains(search.ToLower().Trim())
-                                      || c.AppUser.Email.Contains(search.ToLower().Trim())
-                                      || EF.Functions.Collate(c.AppUser.FullName.ToLower(), "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()));
+                search = search.ToLower().Trim();
+
+                Guid? searchGuid = Guid.TryParse(search, out var parsedGuid) ? parsedGuid : (Guid?)null;
+                query = query.Where(c =>
+                    (searchGuid != null && (
+                        c.ConsultantId == searchGuid.Value
+                        || c.UserId == searchGuid.Value
+                        || c.ExpertiseId == searchGuid.Value))
+                    || EF.Functions.Collate(c.AppUser.PhoneNumber, "SQL_Latin1_General_CP1_CI_AI").Contains(search)
+                    || EF.Functions.Collate(c.AppUser.Email, "SQL_Latin1_General_CP1_CI_AI").Contains(search)
+                    || EF.Functions.Collate(c.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search));
             }
 
             if (status.HasValue)

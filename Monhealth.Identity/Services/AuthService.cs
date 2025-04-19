@@ -185,11 +185,16 @@ namespace Monhealth.Identity.Services
         public async Task Register(RegistrationRequest request)
         {
             var checkUser = await _userRepository.GetByPhoneNumberAsync(request.PhoneNumber);
-            var getUser = await _userRepository.GetUSerByNameAsync(request.FullName);
+            var existEmail = await _userManager.FindByEmailAsync(request.Email);
+
             if (checkUser != null)
             {
                 throw new BadRequestException("Số điện thoại đã tồn tại");
             }
+
+            if (existEmail != null)
+                throw new BadRequestException("Email đã được đăng ký");
+
             var newUserId = Guid.NewGuid();
             var user = new AppUser
             {
@@ -216,6 +221,7 @@ namespace Monhealth.Identity.Services
 
                 return;
             }
+
             // If the registration fails, return the errors
             var errors = result.Errors.Select(e => e.Description).ToList();
             throw new Exception(string.Join(", ", errors));

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
 {
@@ -9,7 +10,7 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
         public async Task<Unit> Handle(CertificateCommand request, CancellationToken cancellationToken)
         {
             var checkExpertiseExisted = await expertiseRepository.GetExpertiseByNameAsync(request.ExpertiseName);
-
+            if (checkExpertiseExisted == null) throw new BadRequestException("Không tìm thấy chuyên môn");
             var certificate = mapper.Map<Domain.Certificate>(request);
             if (request.ImageUrls != null)
             {

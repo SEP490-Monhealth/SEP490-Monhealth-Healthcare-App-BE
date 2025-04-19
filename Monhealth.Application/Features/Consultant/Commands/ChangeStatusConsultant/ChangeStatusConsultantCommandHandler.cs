@@ -11,13 +11,13 @@ namespace Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsult
         private readonly IUserRepository _userRepository;
         private readonly IUserRoleRepository _userRoleRepository;
         public ChangeStatusConsultantCommandHandler(IConsultantRepository consultantRepository, IWalletRepository walletRepository,
-        IUserRoleRepository userRoleRepository , IUserRepository userRepository)
+        IUserRoleRepository userRoleRepository, IUserRepository userRepository)
         {
             _consultantRepository = consultantRepository;
             _walletRepository = walletRepository;
             _userRepository = userRepository;
             _userRoleRepository = userRoleRepository;
-            
+
         }
         public async Task<bool> Handle(ChangeStatusConsultantCommand request, CancellationToken cancellationToken)
         {
@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsult
             }
             var consultantRole = await _userRoleRepository.GetRoleConsultant("Consultant");
             // xoa role
-            var userRole = await _userRoleRepository.GetUserRoleByUserIdAsync(request.ConsultantId);
+            var userRole = await _userRoleRepository.GetUserRoleByUserIdAsync(consultant.UserId);
             if (userRole != null)
             {
                 // Nếu người dùng đã có role, xóa bản ghi cũ trước khi thêm role mới
