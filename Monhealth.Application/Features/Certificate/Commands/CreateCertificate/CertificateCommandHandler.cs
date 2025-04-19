@@ -21,6 +21,7 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
             certificate.CreatedAt = DateTime.Now;
             certificate.UpdatedAt = DateTime.Now;
             certificateRepository.Add(certificate);
+
             await certificateRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
         }

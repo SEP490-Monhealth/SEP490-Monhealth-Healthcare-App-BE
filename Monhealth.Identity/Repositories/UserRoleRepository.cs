@@ -25,14 +25,19 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<IdentityRole<Guid>> GetRoleConsultant(string name)
         {
-               var subscriptionRole = await _context.Roles
-                                         .FirstOrDefaultAsync(r => r.Name == "Consultant");
+            var subscriptionRole = await _context.Roles
+                                      .FirstOrDefaultAsync(r => r.Name == "Consultant");
             return subscriptionRole;
         }
 
         public async Task<IdentityRole<Guid>> GetRoleByIdAsync(Guid roleId)
         {
             return await _context.Roles.FirstOrDefaultAsync(r => r.Id == roleId);
+        }
+
+        public async Task<IdentityRole<Guid>> GetRoleMember(string memberName)
+        {
+            return await _context.Roles.FirstOrDefaultAsync(r => r.Name == "Member");
         }
     }
 

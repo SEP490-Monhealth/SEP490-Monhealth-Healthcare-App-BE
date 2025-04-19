@@ -8,5 +8,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<IdentityRole<Guid>> GetRoleByNameAsync(string roleName);
         Task<IdentityRole<Guid>> GetRoleConsultant(string name);
         Task<IdentityRole<Guid>> GetRoleByIdAsync(Guid roleId);
+        Task<IdentityRole<Guid>> GetRoleMember(string memberName);
     }
 }

@@ -26,23 +26,22 @@ namespace Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsult
             {
                 throw new Exception("Không tìm thấy tư vấn viên");
             }
-            var consultantRole = await _userRoleRepository.GetRoleConsultant("Consultant");
+            var memberRole = await _userRoleRepository.GetRoleMember("Member");
+
             // xoa role
             var userRole = await _userRoleRepository.GetUserRoleByUserIdAsync((Guid)consultant.UserId);
             if (userRole != null)
             {
                 // Nếu người dùng đã có role, xóa bản ghi cũ trước khi thêm role mới
                 _userRoleRepository.Remove(userRole);
-                await _userRepository.SaveChangesAsync();
             }
             // Tạo bản ghi mới cho UserRole với RoleId mới
             var newUserRole = new IdentityUserRole<Guid>
             {
-                UserId = request.ConsultantId,
-                RoleId = consultantRole.Id
+                UserId = (Guid)consultant.UserId,
+                RoleId = memberRole.Id
             };
             _userRoleRepository.Add(newUserRole);
-            await _userRepository.SaveChangesAsync();
 
             consultant.Status = !consultant.Status;
             _consultantRepository.Update(consultant);
@@ -55,6 +54,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsult
             }
             wallet.Status = !wallet.Status;
             _walletRepository.Update(wallet);
+
             await _consultantRepository.SaveChangeAsync();
             return true;
         }
