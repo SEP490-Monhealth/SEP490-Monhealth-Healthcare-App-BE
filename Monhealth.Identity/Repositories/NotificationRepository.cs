@@ -14,7 +14,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Notification>> GetAllNotificationsAsync(int page, int limit, string? search)
         {
-            IQueryable<Notification> query = _context.Notifications.AsQueryable();
+            IQueryable<Notification> query = _context.Notifications.Include(un => un.UserNotifications).AsQueryable();
             // filter search
             if (!string.IsNullOrEmpty(search))
             {
@@ -55,12 +55,16 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<Notification> GetNotificationByNotificationId(Guid notificationId)
+        {
+            return await _context.Notifications.Include(un => un.UserNotifications).FirstOrDefaultAsync(n => n.NotificationId == notificationId);
+        }
+
         public async Task<PaginatedResult<Notification>> GetNotificationByUserId(int page, int limit, Guid userId)
         {
             var notificationsQuery = _context.UserNotifications
             .Where(un => un.UserId == userId)
-            .Include(un => un.Notification)
-            .Select(un => un.Notification);
+            .Include(un => un.Notification);
 
             int totalItems = await notificationsQuery.CountAsync();
             var notifications = await notificationsQuery
@@ -69,7 +73,7 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
             return new PaginatedResult<Notification>
             {
-                Items = notifications,
+                Items = notifications.Select(un => un.Notification).ToList(),
                 TotalCount = totalItems
             };
         }

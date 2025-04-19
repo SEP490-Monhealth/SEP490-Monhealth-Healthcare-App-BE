@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsult
             }
             var consultantRole = await _userRoleRepository.GetRoleConsultant("Consultant");
             // xoa role
-            var userRole = await _userRoleRepository.GetUserRoleByUserIdAsync(consultant.UserId);
+            var userRole = await _userRoleRepository.GetUserRoleByUserIdAsync((Guid)consultant.UserId);
             if (userRole != null)
             {
                 // Nếu người dùng đã có role, xóa bản ghi cũ trước khi thêm role mới
