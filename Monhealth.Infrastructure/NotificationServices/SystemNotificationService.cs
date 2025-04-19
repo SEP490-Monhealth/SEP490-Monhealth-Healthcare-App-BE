@@ -17,7 +17,6 @@ namespace Monhealth.Infrastructure.NotificationServices
             try
             {
                 var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
-
                 var member = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
 
                 if (consultant != null && member != null)
@@ -27,8 +26,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     TimeOnly scheduledTime = booking.StartTime;
                     DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
                     string consultantTitle = "Hoàn thành cuộc hẹn tư vấn";
-                    string consultantContent = $"Bạn đã hoàn thành tư vấn cho {member.FullName}";
-                    //string consultantActionUrl = $"/consultant/bookings/{booking.BookingId}";
+                    string consultantContent = $"Bạn đã hoàn thành tư vấn cho khách hàng {member.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
 
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
@@ -39,8 +37,7 @@ namespace Monhealth.Infrastructure.NotificationServices
 
                     // Thông báo cho member
                     string memberTitle = "Hoàn thành cuộc hẹn tư vấn";
-                    string memberContent = $"Bạn đã hoàn thành cuộc hẹn tư vấn với chuyên viên: {consultant.AppUser.FullName}";
-                    // string memberActionUrl = $"/member/bookings/{booking.BookingId}";
+                    string memberContent = $"Bạn đã hoàn thành cuộc hẹn tư vấn với chuyên viên {consultant.AppUser.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
 
                     await notificationService.SendUserNotificationAsync(
                         (Guid)booking.UserId,
@@ -49,50 +46,55 @@ namespace Monhealth.Infrastructure.NotificationServices
                         cancellationToken
                     );
 
-                    logger.LogInformation($"Sent booking notifications for booking: {booking.BookingId}");
+                    logger.LogInformation($"Sent booking completion notifications for booking: {booking.BookingId}");
                 }
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, $"Failed to send notifications for new booking: {booking.BookingId}");
+                logger.LogError(ex, $"Failed to send completion notifications for booking: {booking.BookingId}");
             }
         }
 
         public async Task NotifyBookingUpdateAsync(Booking booking, CancellationToken cancellationToken)
         {
-            // Thông báo cho consultant
-            var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
-            DateOnly scheduledDate = booking.Day;
-            TimeOnly scheduledTime = booking.StartTime;
-            DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
-            string consultantTitle = "Lịch hẹn đã được hủy";
-            string consultantContent = $"Lịch hẹn với {booking.User.FullName} vào lúc " +
-                $"{scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}" +
-                $" đã bị hủy với lí do: {booking?.CancellationReason ?? string.Empty}";
-            //string consultantActionUrl = $"/consultant/bookings/{booking.BookingId}";
+            try
+            {
+                // Thông báo cho consultant
+                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
+                DateOnly scheduledDate = booking.Day;
+                TimeOnly scheduledTime = booking.StartTime;
+                DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
+                string consultantTitle = "Thông báo hủy lịch hẹn";
+                string consultantContent = $"Lịch hẹn với khách hàng {booking.User.FullName} vào lúc " +
+                    $"{scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}" +
+                    $" đã bị hủy với lý do: {booking?.CancellationReason ?? "Không có lý do"}";
 
-            await notificationService.SendUserNotificationAsync(
-                (Guid)consultant.UserId,
-                consultantTitle,
-                consultantContent,
-                cancellationToken
-            );
+                await notificationService.SendUserNotificationAsync(
+                    (Guid)consultant.UserId,
+                    consultantTitle,
+                    consultantContent,
+                    cancellationToken
+                );
 
-            // Thông báo cho member
-            string memberTitle = "Bạn đã hủy lịch hẹn thành công";
-            string memberContent = $"Lịch hẹn của bạn với consultant {consultant.AppUser.FullName}" +
-                $" " +
-                $"đã bị hủy với lí do: {booking?.CancellationReason ?? string.Empty}";
-            string memberActionUrl = $"/member/bookings/{booking.BookingId}";
+                // Thông báo cho member
+                string memberTitle = "Thông báo hủy lịch hẹn";
+                string memberContent = $"Lịch hẹn của bạn với chuyên viên {consultant.AppUser.FullName} vào lúc " +
+                    $"{scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}" +
+                    $" đã bị hủy với lý do: {booking?.CancellationReason ?? "Không có lý do"}";
 
-            await notificationService.SendUserNotificationAsync(
-                (Guid)booking.UserId,
-                memberTitle,
-                memberContent,
-                cancellationToken
-            );
+                await notificationService.SendUserNotificationAsync(
+                    (Guid)booking.UserId,
+                    memberTitle,
+                    memberContent,
+                    cancellationToken
+                );
 
-            logger.LogInformation($"Sent booking update notifications for booking: {booking.BookingId}");
+                logger.LogInformation($"Sent booking cancellation notifications for booking: {booking.BookingId}");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send cancellation notifications for booking: {booking.BookingId}");
+            }
         }
 
         public async Task NotifyCreateMetricSuccessfully(Guid userId, CancellationToken cancellationToken)
@@ -102,8 +104,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                 var user = await userRepository.GetUserByIdAsync(userId);
                 if (user != null)
                 {
-                    string title = "Chào mừng";
-                    string content = $"Chào {user?.FullName} đã đến với hệ thống";
+                    string title = "Chào mừng đến với Monhealth";
+                    string content = $"Chào {user.FullName}, chúc mừng bạn đã tạo tài khoản thành công!";
 
                     await notificationService.SendUserNotificationAsync(
                         user.Id,
@@ -116,7 +118,7 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, $"Failed to send notification to new user: {userId}");
+                logger.LogError(ex, $"Failed to send welcome notification to new user: {userId}");
             }
         }
 
@@ -125,7 +127,6 @@ namespace Monhealth.Infrastructure.NotificationServices
             try
             {
                 var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
-
                 var member = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
 
                 if (consultant != null && member != null)
@@ -134,9 +135,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                     DateOnly scheduledDate = booking.Day;
                     TimeOnly scheduledTime = booking.StartTime;
                     DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
-                    string consultantTitle = "Thông báo";
-                    string consultantContent = $"Bạn có một lịch hẹn mới từ {member.FullName}";
-                    //string consultantActionUrl = $"/consultant/bookings/{booking.BookingId}";
+                    string consultantTitle = "Thông báo lịch hẹn mới";
+                    string consultantContent = $"Bạn có một lịch hẹn mới từ khách hàng {member.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
 
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
@@ -146,9 +146,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                     );
 
                     // Thông báo cho member
-                    string memberTitle = "Thông báo";
-                    string memberContent = $"Bạn đã đặt lịch hẹn thành công với chuyên viên {consultant.AppUser.FullName}";
-                    // string memberActionUrl = $"/member/bookings/{booking.BookingId}";
+                    string memberTitle = "Thông báo đặt lịch thành công";
+                    string memberContent = $"Bạn đã đặt lịch hẹn thành công với chuyên viên {consultant.AppUser.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
 
                     await notificationService.SendUserNotificationAsync(
                         (Guid)booking.UserId,
@@ -157,7 +156,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                         cancellationToken
                     );
 
-                    logger.LogInformation($"Sent booking notifications for booking: {booking.BookingId}");
+                    logger.LogInformation($"Sent new booking notifications for booking: {booking.BookingId}");
                 }
             }
             catch (Exception ex)
@@ -170,8 +169,8 @@ namespace Monhealth.Infrastructure.NotificationServices
         {
             try
             {
-                string title = "Chào mừng";
-                string content = $"Chào {consultant?.AppUser?.FullName}, tài khoản của bạn đã được tạo thành công.";
+                string title = "Chào mừng đến với Monhealth";
+                string content = $"Chào {consultant?.AppUser?.FullName}, tài khoản chuyên viên tư vấn của bạn đã được tạo thành công!";
 
                 await notificationService.SendUserNotificationAsync(
                     (Guid)consultant.UserId,
@@ -184,7 +183,7 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, $"Failed to send notification to new consultant: {consultant.ConsultantId}");
+                logger.LogError(ex, $"Failed to send welcome notification to new consultant: {consultant.ConsultantId}");
             }
         }
 
@@ -192,8 +191,8 @@ namespace Monhealth.Infrastructure.NotificationServices
         {
             try
             {
-                string title = "Chào mừng";
-                string content = $"Chào {user.FullName}, hôm nay bạn thế nào? Chúng tôi rất vui khi bạn quay lại.";
+                string title = "Chào mừng quay trở lại";
+                string content = $"Chào {user.FullName}, hôm nay bạn thế nào? Chúng tôi rất vui khi thấy bạn quay lại với Monhealth.";
 
                 await notificationService.SendUserNotificationWithoutSaveAsync(
                     user.Id,
@@ -201,11 +200,11 @@ namespace Monhealth.Infrastructure.NotificationServices
                     content
                 );
 
-                logger.LogInformation($"Sent welcome notification to new user: {user.Id}");
+                logger.LogInformation($"Sent welcome back notification to user: {user.Id}");
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, $"Failed to send notification to new user: {user.Id}");
+                logger.LogError(ex, $"Failed to send welcome back notification to user: {user.Id}");
             }
         }
 
@@ -213,22 +212,21 @@ namespace Monhealth.Infrastructure.NotificationServices
         {
             try
             {
-                string title = "Chào mừng mua lượt đặt lịch thành công";
-                string content = $"Chúc mừng: {transaction?.UserSubscription?.User?.FullName}, " +
-                    $"Bạn đã mua một lượt đặt lịch thành công";
+                string title = "Mua lượt đặt lịch thành công";
+                string content = $"Chúc mừng {transaction?.UserSubscription?.User?.FullName}! Bạn đã mua thành công một lượt đặt lịch tư vấn.";
+
                 await notificationService.SendUserNotificationAsync(
                     (Guid)transaction.UserId,
                     title,
                     content,
                     cancellationToken
-                    );
-                logger.LogInformation($"Sent welcome notification to new user: {transaction.UserId}");
+                );
 
+                logger.LogInformation($"Sent single booking purchase notification to user: {transaction.UserId}");
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, $"Failed to send notification to new user: {transaction.UserId}");
-
+                logger.LogError(ex, $"Failed to send single booking purchase notification to user: {transaction.UserId}");
             }
         }
 
@@ -237,26 +235,22 @@ namespace Monhealth.Infrastructure.NotificationServices
             try
             {
                 var user = await userRepository.GetUserByIdAsync((Guid)transaction.UserId);
-                string title = "Chào mừng nâng cấp gói thành công";
-                string content = $"Chúc mừng: {user?.FullName}, " +
-                    $"Bạn đã nâng cấp gói thành công gói: {userSubscription?.Subscription?.SubscriptionName}";
+                string title = "Nâng cấp gói dịch vụ thành công";
+                string content = $"Chúc mừng {user?.FullName}! Bạn đã nâng cấp thành công lên gói dịch vụ {userSubscription?.Subscription?.SubscriptionName}.";
 
                 await notificationService.SendUserNotificationAsync(
                     (Guid)transaction.UserId,
                     title,
                     content,
                     cancellationToken
-                    );
-                logger.LogInformation($"Sent welcome notification to new user: {transaction.UserId}");
+                );
 
+                logger.LogInformation($"Sent subscription upgrade notification to user: {transaction.UserId}");
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, $"Failed to send notification to new user: {transaction.UserId}");
-
+                logger.LogError(ex, $"Failed to send subscription upgrade notification to user: {transaction.UserId}");
             }
         }
-
-
     }
 }
