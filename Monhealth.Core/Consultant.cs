@@ -31,5 +31,6 @@ namespace Monhealth.Domain
         public ICollection<ConsultantBank> ConsultantBanks { get; set; } = [];
         public ICollection<Schedule> Schedules { get; set; } = [];
         public ICollection<ScheduleException> ScheduleExceptions { get; set; } = [];
+        public ICollection<Booking> Bookings { get; set; } = [];
     }
 }

@@ -114,6 +114,7 @@ namespace Monhealth.Identity
             services.AddScoped<INotificationRepository, NotificationRepository>();
             services.AddScoped<IUserNotificationRepository, UserNotificationRepository>();
             services.AddScoped<IDeviceRepository, DeviceRepository>();
+            services.AddScoped<IReportRepository, ReportRepository>();
             // Đăng ký Background Service
             services.AddHostedService<UserSubscriptionBackgroundService>();
 
