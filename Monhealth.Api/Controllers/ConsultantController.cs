@@ -9,7 +9,6 @@ using Monhealth.Application.Features.Consultant.Commands.UpdateConsultant;
 using Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant;
 using Monhealth.Application.Features.Consultant.Queries.GetAllConsultants;
 using Monhealth.Application.Features.Consultant.Queries.GetConsultantById;
-using Monhealth.Application.Features.Consultant.Queries.GetUrlMeetByConsultantId;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
@@ -63,17 +62,6 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("{consultantId:guid}/meeting-url")]
-        public async Task<ActionResult<ResultModel>> GetUrlMeetByConsultantId(Guid consultantId)
-        {
-            var consultant = await _mediator.Send(new GetUrlMeetByConsultantIdQuery { ConsultantId = consultantId });
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = consultant
-            });
-        }
 
         [HttpGet("user/{userId:guid}")]
         [SwaggerOperation(Summary = "Lấy chuyên viên theo ID người dùng")]

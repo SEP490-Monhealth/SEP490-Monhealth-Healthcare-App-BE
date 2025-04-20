@@ -14,7 +14,6 @@ namespace Monhealth.Domain
         public Guid? ExpertiseId { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int Experience { get; set; }
-        public string MeetUrl { get; set; } = string.Empty;
         public int Views { get; set; }
         public int BookingCount { get; set; }
         public double RatingCount { get; set; }

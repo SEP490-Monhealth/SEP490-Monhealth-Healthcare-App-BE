@@ -18,6 +18,8 @@ namespace Monhealth.Domain
         public bool IsReviewed { get; set; } = false;
         public TimeOnly StartTime { get; set; }
         public TimeOnly EndTime { get; set; }
+        public string MeetingUrl { get; set; } = string.Empty;
+        public List<string> EvidenceUrls { get; set; } = new();
         public BookingStatus Status { get; set; }
         public DateTime? CompletedAt { get; set; }
 
@@ -26,5 +28,6 @@ namespace Monhealth.Domain
         [ForeignKey(nameof(ConsultantId)), Column(Order = 1)]
         public Consultant? Consultant { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
+        public ICollection<Report> Reports { get; set; }
     }
 }
