@@ -73,8 +73,7 @@ namespace Monhealth.Identity.Repositories
             if (Date.HasValue)
             {
                 var targetDayOfWeek = (int)Date.Value.DayOfWeek;
-                var adjustedDayOfWeek = (targetDayOfWeek + 6) % 7; // This shifts Sunday to 6, Monday to 0, etc. to match with enum Recurring
-                query = query.Where(s => s.RecurringDay != null ? (int)s.RecurringDay == adjustedDayOfWeek : s.SpecificDate == Date);
+                query = query.Where(s => s.RecurringDay != null ? (int)s.RecurringDay == targetDayOfWeek : s.SpecificDate == Date);
             }
             if (scheduleType.HasValue)
             {

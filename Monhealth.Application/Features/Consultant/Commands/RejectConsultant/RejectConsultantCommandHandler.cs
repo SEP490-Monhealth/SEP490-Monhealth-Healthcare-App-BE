@@ -22,6 +22,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.RejectConsultant
             consultant.VerificationStatus = VerificationStatus.Rejected;
             consultant.Status = false;
 
+            consultant.UpdatedAt = DateTime.Now;
             consultantRepository.Update(consultant);
             await consultantRepository.SaveChangeAsync();
             return true;
