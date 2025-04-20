@@ -298,7 +298,7 @@ namespace Monhealth.Identity.Configurations
                 NormalizedEmail = "VANHUUTOAN27@GMAIL.COM",
                 UserName = "toandevtrai",
                 NormalizedUserName = "TOANDEVTRAI",
-                PhoneNumber = "",
+                PhoneNumber = "0329055024",
                 Avatar = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fusers%2Fz6092344870918_1ddc20ef2ae3cb256497bcfae9abc600.jpg?alt=media&token=fb76c360-aaea-428e-b0b2-73bd22714098",
                 LockoutEnabled = false,
                 EmailConfirmed = true,
