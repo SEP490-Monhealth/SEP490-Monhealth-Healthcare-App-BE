@@ -4,6 +4,5 @@
     {
         public Guid ConsultantId { get; set; }
         public string MeetUrl { get; set; } = string.Empty;
-
     }
 }

@@ -63,8 +63,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("{consultantId:guid}/meet-url")]
-        [SwaggerOperation(Summary = "Lấy Url cuộc họp")]
+        [HttpGet("{consultantId:guid}/meeting-url")]
         public async Task<ActionResult<ResultModel>> GetUrlMeetByConsultantId(Guid consultantId)
         {
             var consultant = await _mediator.Send(new GetUrlMeetByConsultantIdQuery { ConsultantId = consultantId });

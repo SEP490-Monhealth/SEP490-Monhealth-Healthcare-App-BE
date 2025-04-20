@@ -12,6 +12,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         public string ExpertiseName { get; set; } = string.Empty;
         [JsonPropertyName("certificate")]
         public string CertificateName { get; set; } = string.Empty;
+        [JsonPropertyName("number")]
         public string CertificateNumber { get; set; } = string.Empty;
         public string IssuedBy { get; set; } = null!;
         public DateTime? IssueDate { get; set; }
