@@ -116,7 +116,7 @@ namespace Monhealth.Api.Controllers
         [SwaggerOperation(Summary = "Lấy danh sách báo cáo")]
         public async Task<ActionResult<ResultModel>> GetAllConsultantBanks(int page = 1, int limit = 10, string? search = null, StatusReport? status = null)
         {
-            var reportList = await _mediator.Send(new GetAllReportsQuery{ Page = page, Limit = limit, Search = search, Status = status });
+            var reportList = await _mediator.Send(new GetAllReportsQuery { Page = page, Limit = limit, Search = search, Status = status });
 
             return new ResultModel
             {
@@ -163,9 +163,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("consultant/{consultantId:guid}")]
         [SwaggerOperation(Summary = "Lấy thông tin báo cáo theo consultant")]
-        public async Task<ActionResult<ResultModel>> GetReportByConsultantId(Guid consultantId)
+        public async Task<ActionResult<ResultModel>> GetReportByConsultantId(Guid consultantId, int page = 1, int limit = 10)
         {
-            var report = await _mediator.Send(new GetReportByConsultantIdQuery { ConsultantId = consultantId });
+            var report = await _mediator.Send(new GetReportByConsultantIdQuery(consultantId, page, limit));
             return Ok(new ResultModel
             {
                 Success = true,
@@ -176,9 +176,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("user/{userId:guid}")]
         [SwaggerOperation(Summary = "Lấy thông tin báo cáo theo user")]
-        public async Task<ActionResult<ResultModel>> GetReportByUserId(Guid userId)
+        public async Task<ActionResult<ResultModel>> GetReportByUserId(Guid userId, int page = 1, int limit = 10)
         {
-            var report = await _mediator.Send(new GetReportByUserIdQuery { UserId = userId });
+            var report = await _mediator.Send(new GetReportByUserIdQuery(userId, page, limit));
             return Ok(new ResultModel
             {
                 Success = true,

@@ -60,13 +60,24 @@ namespace Monhealth.Identity.Repositories
                 .Where(r => r.BookingId == bookingId).ToListAsync();
         }
 
-        public async Task<List<Report>> GetReportByConsultantId(Guid consultantId)
+        public async Task<PaginatedResult<Report>> GetReportByConsultantId(Guid consultantId, int page, int limit)
         {
-            return await _context.Reports
+            var query = _context.Reports
                 .Include(b => b.Booking)
                 .Include(b => b.Booking).ThenInclude(u => u.User)
                 .Include(b => b.Booking).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser)
-                .Where(r => r.Booking.ConsultantId == consultantId).ToListAsync();
+                .Where(r => r.Booking.ConsultantId == consultantId);
+            var totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            } 
+            return new PaginatedResult<Report>
+            {
+                Items = await query.OrderByDescending(r => r.CreatedAt).ToListAsync(),
+                TotalCount = totalItems
+            };
+
         }
 
         public async Task<Report> GetReportById(Guid reportId)
@@ -78,13 +89,25 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(r => r.ReportId == reportId);
         }
 
-        public async Task<List<Report>> GetReportByUserId(Guid userId)
+        public async Task<PaginatedResult<Report>> GetReportByUserId(Guid userId, int page, int limit)
         {
-            return await _context.Reports
+            var query = _context.Reports
                 .Include(b => b.Booking)
                 .Include(b => b.Booking).ThenInclude(u => u.User)
-                .Include(b => b.Booking).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser)
-                .Where(r => r.Booking.UserId == userId).ToListAsync();
+                .Include(b => b.Booking).ThenInclude(c => c.Consultant)
+                .ThenInclude(u => u.AppUser)
+                .Where(r => r.Booking.UserId == userId).AsQueryable();
+            var totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((int)((page - 1) * limit)).Take((int)limit);
+            }
+            return new PaginatedResult<Report>
+            {
+                Items = await query.OrderByDescending(r => r.CreatedAt).ToListAsync(),
+                TotalCount = totalItems
+            };
+
         }
 
         public async Task<int> SaveChangeAsync()
