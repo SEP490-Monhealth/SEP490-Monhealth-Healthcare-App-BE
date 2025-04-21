@@ -49,7 +49,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("user/{userId:Guid}/meal/weekly")]
+        [HttpGet("user/{userId:Guid}/meals/weekly")]
         [SwaggerOperation(Summary = "Lấy báo cáo bữa ăn hằng tuần theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetDailyMealReport(
             [FromRoute] Guid userId,

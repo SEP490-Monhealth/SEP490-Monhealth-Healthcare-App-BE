@@ -39,6 +39,7 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public string PhoneNumber { get; set; } = string.Empty;
         public string AvatarUrl { get; set; } = string.Empty;
     }
+
     public class Review
     {
         public int Rating { get; set; }
