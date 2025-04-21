@@ -252,5 +252,79 @@ namespace Monhealth.Infrastructure.NotificationServices
                 logger.LogError(ex, $"Failed to send subscription upgrade notification to user: {transaction.UserId}");
             }
         }
+
+        public async Task SendBookingCancellationNotificationAsync(Booking booking, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
+                var member = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
+                DateOnly scheduledDate = booking.Day;
+                TimeOnly scheduledTime = booking.StartTime;
+                DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
+                string cancellationReason = "Do một sự cố bất ngờ, lịch hẹn của bạn với chuyên viên không thể tiếp tục như dự định." +
+                    " Chúng tôi xin lỗi về sự bất tiện này và sẽ sắp xếp lại lịch mới.";
+                if (consultant != null && member != null)
+                {
+                    // Thông báo cho consultant
+
+                    string consultantTitle = "Thông báo hủy lịch hẹn";
+                    string consultantContent = $"Lịch hẹn của bạn với khách hàng {member.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")} đã bị hủy. Lý do: {cancellationReason}.";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        consultantTitle,
+                        consultantContent,
+                        cancellationToken
+                    );
+
+                    // Thông báo cho member
+                    string memberTitle = "Thông báo lịch hẹn bị hủy";
+                    string memberContent = $"Lịch hẹn của bạn với chuyên viên {consultant.AppUser.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")} đã bị hủy. Lý do: {cancellationReason}.";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)booking.UserId,
+                        memberTitle,
+                        memberContent,
+                        cancellationToken
+                    );
+
+                    logger.LogInformation($"Sent cancellation notifications for booking: {booking.BookingId}");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send notifications for cancelled booking: {booking.BookingId}");
+            }
+        }
+
+        public async Task SendRejectedScheduleExceptionForConsultant(Consultant consultant, CancellationToken cancellationToken)
+        {
+            try
+            {
+                if (consultant != null)
+                {
+                    // Thông báo cho consultant rằng yêu cầu nghỉ của họ bị từ chối
+                    string consultantTitle = "Thông báo về yêu cầu nghỉ phép";
+                    string consultantContent = $"Yêu cầu nghỉ phép của bạn đã bị từ chối. " +
+                        "Chúng tôi rất tiếc phải thông báo rằng bạn không thể nghỉ vào thời điểm này vì lịch làm việc cần có bạn. " +
+                        "Vui lòng liên hệ với quản lý nếu cần giải thích thêm.";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        consultantTitle,
+                        consultantContent,
+                        cancellationToken
+                    );
+
+
+                    logger.LogInformation($"Sent leave request denial notification for consultant: {consultant.ConsultantId}");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send leave request denial notification for consultant: {consultant.ConsultantId}");
+            }
+        }
     }
 }

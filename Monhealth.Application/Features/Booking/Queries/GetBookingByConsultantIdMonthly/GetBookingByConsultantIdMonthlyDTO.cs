@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantIdMonthly
 {
@@ -17,6 +17,8 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
         public TimeOnly EndTime { get; set; }
         public string? Notes { get; set; } = string.Empty;
         public string CancellationReason { get; set; } = null!;
+        public List<string>? EvidenceUrls { get; set; } = new();
+        public string MeetingUrl { get; set; } = string.Empty;
         public bool IsReviewed { get; set; }
         public BookingStatus Status { get; set; }
     }

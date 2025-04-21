@@ -17,7 +17,7 @@ namespace Monhealth.Domain
         public TimeOnly StartTime { get; set; }
         public TimeOnly EndTime { get; set; }
         public string MeetingUrl { get; set; } = string.Empty;
-        public List<string> EvidenceUrls { get; set; } = new();
+        public List<string>? EvidenceUrls { get; set; } = new();
         public string? CancellationReason { get; set; }
         public bool IsReviewed { get; set; } = false;
         public BookingStatus Status { get; set; }

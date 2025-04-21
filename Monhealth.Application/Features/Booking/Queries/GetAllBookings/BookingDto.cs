@@ -17,6 +17,8 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public TimeOnly StartTime { get; set; }
         public TimeOnly EndTime { get; set; }
         public string? Notes { get; set; } = string.Empty;
+        public List<string>? EvidenceUrls { get; set; } = new();
+        public string MeetingUrl { get; set; } = string.Empty;
         public string CancellationReason { get; set; } = null!;
         public bool IsReviewed { get; set; }
         public BookingStatus Status { get; set; }
