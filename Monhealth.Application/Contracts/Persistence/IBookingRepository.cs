@@ -8,7 +8,7 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
         Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit, string? search, BookingStatus? statis);
-        Task<List<Booking>> GetBookingByUserId(Guid userId);
+       Task<PaginatedResult<Booking>> GetBookingByUserId(Guid userId, int page, int limit);
         Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId, DateTime? date);
         Task<Booking> GetBookingByBookingIdAsync(Guid bookingId);
         Task<List<Booking>> GetBookingByConsultantIds(List<Guid> consultantIds);
