@@ -1,9 +1,10 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Models.Paging;
 
 namespace Monhealth.Application.Features.Review.Queries.GetReviewByUser
 {
-    public class GetReviewByUserQueryHandler : IRequestHandler<GetReviewByUserQuery, List<ReviewByUserDTO>>
+    public class GetReviewByUserQueryHandler : IRequestHandler<GetReviewByUserQuery, PageResult<ReviewByUserDTO>>
     {
         private readonly IReviewRepository _reviewRepository;
         private readonly IUserRepository _userRepository;
@@ -14,28 +15,39 @@ namespace Monhealth.Application.Features.Review.Queries.GetReviewByUser
             _userRepository = userRepository;
         }
 
-        public async Task<List<ReviewByUserDTO>> Handle(GetReviewByUserQuery request, CancellationToken cancellationToken)
+        public async Task<PageResult<ReviewByUserDTO>> Handle(GetReviewByUserQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(request.userId);
-            var queries = await _reviewRepository.GetReviewsByUser(request.userId);
-            return queries.Select(r => new ReviewByUserDTO
+            var user = await _userRepository.GetByIdAsync(request.UserId);
+            var queries = await _reviewRepository.GetReviewsByUser(request.UserId, request.Page, request.Limit);
+            var reviewList = new List<ReviewByUserDTO>();
+            foreach (var r in queries.Items)
             {
-                ReviewId = r.ReviewId,
-                BookingId = r.BookingId,
-                Comment = r.Comment,
-                CreatedAt = r.CreatedAt,
-                UpdatedAt = r.UpdatedAt,
-                Rating = r.Rating,
-                UserId = r.UserId,
-                Member = new Member
+                var reviewDTO = new ReviewByUserDTO
+                {
+                    BookingId = r.BookingId,
+                    Comment = r.Comment,
+                    CreatedAt = r.CreatedAt,
+                    Rating = r.Rating,
+                    ReviewId = r.ReviewId,
+                    UpdatedAt = r.UpdatedAt,
+                    UserId = r.UserId,
+                };
+                reviewDTO.Member = new Member
                 {
                     AvatarUrl = user.Avatar,
                     Email = user.Email,
                     FullName = user.FullName,
                     PhoneNumber = user.PhoneNumber
-                }
-
-            }).ToList();
+                };
+                reviewList.Add(reviewDTO);
+            }
+            return new PageResult<ReviewByUserDTO>
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(queries.TotalCount / (double)request.Limit),
+                TotalItems = queries.TotalCount,
+                Items = reviewList
+            };
         }
     }
 }

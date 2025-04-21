@@ -48,10 +48,10 @@ namespace Monhealth.Api.Controllers
         [HttpGet]
         [Route("user/{userId:Guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách đánh giá theo ID người dùng")]
-        public async Task<ActionResult<ResultModel>> GetReviewByUser(Guid userId)
+        public async Task<ActionResult<ResultModel>> GetReviewByUser(Guid userId, int page = 1, int limit = 10)
         {
             var queries = await _mediator.
-            Send(new GetReviewByUserQuery { userId = userId });
+            Send(new GetReviewByUserQuery(userId, page, limit));
 
             if (queries == null)
             {
