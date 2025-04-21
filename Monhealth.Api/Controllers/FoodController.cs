@@ -7,6 +7,7 @@ using Monhealth.Application.Features.Food.DeleteFood;
 using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId;
 using Monhealth.Application.Features.Food.Queries.GetFoodById;
+using Monhealth.Application.Features.Food.Queries.GetRelatedFoods;
 using Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin;
 using Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForUser;
 using Monhealth.Application.Models;
@@ -45,6 +46,20 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetFoodsByUserId(Guid userId, int page = 1, int limit = 10)
         {
             var foods = await _mediator.Send(new GetFoodListByUserIdQuery(userId, page, limit));
+
+            return new ResultModel
+            {
+                Data = foods,
+                Status = 200,
+                Success = true,
+            };
+        }
+        [HttpGet]
+        [Route("related/{foodId:Guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách món ăn liên quan")]
+        public async Task<ActionResult<ResultModel>> GetFoodsRelateByFoodId(Guid foodId,int page = 1, int limit = 10, string? search = null, bool? status = null )
+        {
+            var foods = await _mediator.Send(new GetRelatedFoodsQuery(foodId, page, limit, search, status));
 
             return new ResultModel
             {

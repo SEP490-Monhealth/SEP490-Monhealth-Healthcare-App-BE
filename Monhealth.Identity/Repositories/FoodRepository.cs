@@ -1,11 +1,9 @@
 ﻿using System.Linq.Dynamic.Core;
-using System.Security.Policy;
 using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
-using System.Linq.Dynamic.Core;
 
 
 namespace Monhealth.Identity.Repositories
@@ -287,7 +285,7 @@ namespace Monhealth.Identity.Repositories
                                      // f.DishType != null &&
                                      f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
                                                                                                                                                        // f.DishType.Select(dt => dt.ToString()).Any(dt => new[] { "MainDish", "SideDish" }.Contains(dt.Trim())) && // Filter by DishType
-                                        f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "MainDish") &&   // Filter by DishType
+                                        f.DishTypeFoods.Any(dt => dt.DishType != null && dt.DishType.DishTypeName == "MainDish") &&   // Filter by DishType
                             f.Nutrition != null &&  // Ensure Nutrition is not null
                             f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.2 &&
                             f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.5 && // Protein criteria
@@ -303,7 +301,7 @@ namespace Monhealth.Identity.Repositories
                                 f.MealType != null &&
                           //             f.DishType != null &&
                           f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
-                           f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "MainDish") &&   // Filter by DishType
+                        f.DishTypeFoods.Any(dt => dt.DishType != null && dt.DishType.DishTypeName == "MainDish") &&   // Filter by DishType
                                 f.Nutrition != null &&
                                 f.Nutrition.Carbs * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) > 0.5 &&
                                 f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) < 0.2 &&
@@ -323,7 +321,7 @@ namespace Monhealth.Identity.Repositories
                                 f.MealType != null &&
              // f.DishType != null &&
              f.MealType.Select(mt => mt.ToString()).Any(mt => new[] { "Breakfast", "Lunch", "Dinner" }.Contains(mt.Trim())) && // Filter by MealType
-            f.DishTypeFoods.Any(dt => (dt.DishType?.DishTypeName ?? "") == "MainDish") &&   // Filter by DishType
+            f.DishTypeFoods.Any(dt => (dt.DishType == null ? "" : dt.DishType.DishTypeName) == "MainDish") &&   // Filter by DishType
                                 f.Nutrition != null &&
                              f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) >= 0.15 &&
                              f.Nutrition.Protein * 4 / (f.Nutrition.Protein * 4 + f.Nutrition.Carbs * 4 + f.Nutrition.Fat * 9) <= 0.2 && // Protein from 20% to 30%
@@ -356,6 +354,139 @@ namespace Monhealth.Identity.Repositories
 
             return (proteinFood, carbFood, balanceFood, vegetableFood);
         }
+
+        public async Task<PaginatedResult<Food>> GetRelatedFoodBasedOnType(Guid foodId, string? search, bool? status, int? page, int? limit)
+        {
+            // Lấy thông tin món ăn mục tiêu
+            var food = await _context.Foods
+                .Include(f => f.CategoryFoods).ThenInclude(f => f.Category)
+                .Include(f => f.FoodPortions).ThenInclude(f => f.Portion)
+                .Include(f => f.Nutrition)
+                .Include(f => f.DishTypeFoods).ThenInclude(f => f.DishType)
+                .AsNoTracking()
+                .AsSplitQuery()
+                .FirstOrDefaultAsync(f => f.FoodId == foodId);
+
+            if (food == null)
+            {
+                return new PaginatedResult<Food>
+                {
+                    Items = new List<Food>(),
+                    TotalCount = 0
+                };
+            }
+
+
+            // Xác định loại dinh dưỡng
+            var foodType = GetFoodType(food);
+            if (foodType == "Unknown")
+            {
+                return new PaginatedResult<Food>
+                {
+                    Items = new List<Food>(),
+                    TotalCount = 0
+                };
+            }
+
+            // Xây dựng truy vấn cơ bản
+            var query = _context.Foods
+                .Include(f => f.CategoryFoods).ThenInclude(f => f.Category)
+                .Include(f => f.FoodPortions).ThenInclude(f => f.Portion)
+                .Include(f => f.Nutrition)
+                .Include(f => f.DishTypeFoods).ThenInclude(f => f.DishType)
+                .AsNoTracking()
+                .AsSplitQuery()
+                .Where(f =>
+                    f.FoodId != foodId && // Loại trừ món ăn hiện tại
+                    f.MealType != null &&
+                    f.DishTypeFoods.Any(dt => dt.DishType.DishTypeName == "MainDish") &&
+                    f.Nutrition != null);
+
+            // Lọc theo loại dinh dưỡng ngay trong truy vấn
+            query = foodType switch
+            {
+                "Protein" => query.Where(f =>
+                    (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) != 0 &&
+                    (f.Nutrition.Protein * 4.0) / (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) > 0.2 &&
+                    (f.Nutrition.Protein * 4.0) / (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) < 0.5),
+
+                "Carbs" => query.Where(f =>
+                    (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) != 0 &&
+                    (f.Nutrition.Carbs * 4.0) / (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) > 0.5),
+
+                "Balanced" => query.Where(f =>
+                    (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) != 0 &&
+                    (f.Nutrition.Protein * 4.0) / (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) >= 0.15 &&
+                    (f.Nutrition.Protein * 4.0) / (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) <= 0.2 &&
+                    (f.Nutrition.Carbs * 4.0) / (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) >= 0.4 &&
+                    (f.Nutrition.Carbs * 4.0) / (f.Nutrition.Protein * 4.0 + f.Nutrition.Carbs * 4.0 + f.Nutrition.Fat * 9.0) <= 0.6),
+
+                _ => query.Where(f => false) // Trường hợp không xác định
+            };
+            if (!string.IsNullOrEmpty(search))
+            {
+                // cho phep search khong dau
+                query = query.Where(s => EF.Functions.Collate(s.FoodName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()) ||
+                    s.FoodId.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.UserId.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.AppUser.PhoneNumber.ToString().ToLower().Contains(search.ToLower()) ||
+                    s.AppUser.Email.ToString().ToLower().Contains(search.ToLower()) ||
+                    EF.Functions.Collate(s.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower()));
+            }
+            if (status.HasValue)
+            {
+                query = query.Where(s => s.Status == status.Value);
+            }
+            // Thực hiện phân trang
+            var totalItems = await query.CountAsync();
+
+            if (page.HasValue && limit.HasValue && page.Value > 0 && limit.Value > 0)
+            {
+                query = query.OrderBy(f => f.FoodName).Skip((page.Value - 1) * limit.Value).Take(limit.Value);
+            }
+
+            var items = await query.ToListAsync();
+
+            return new PaginatedResult<Food>
+            {
+                Items = items,
+                TotalCount = totalItems
+            };
+        }
+
+        private string GetFoodType(Food food)
+        {
+            if (food.Nutrition == null) return "Unknown";
+
+            double protein = food.Nutrition.Protein;
+            double carbs = food.Nutrition.Carbs;
+            double fat = food.Nutrition.Fat;
+
+            double totalCalories = protein * 4 + carbs * 4 + fat * 9;
+            if (totalCalories == 0) return "Unknown";
+
+            double proteinPercentage = protein * 4 / totalCalories;
+            double carbPercentage = carbs * 4 / totalCalories;
+
+            if (proteinPercentage > 0.2 && proteinPercentage < 0.5)
+            {
+                return "Protein";
+            }
+            else if (carbPercentage > 0.5)
+            {
+                return "Carbs";
+            }
+            else if (proteinPercentage >= 0.15 && proteinPercentage <= 0.2 &&
+                     carbPercentage >= 0.4 && carbPercentage <= 0.6)
+            {
+                return "Balanced";
+            }
+            else
+            {
+                return "Unknown";
+            }
+        }
+
 
         public Task<int> GetTotalFoodCountAsync()
         {
