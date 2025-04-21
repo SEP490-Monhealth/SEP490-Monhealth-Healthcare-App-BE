@@ -14,10 +14,7 @@ namespace Monhealth.Application.Features.Report.Queries.GetAllReports
         public Consultant Consultant { get; set; }
         public string Reason { get; set; }
         public List<string> ImageUrls { get; set; } = new();
-        [JsonPropertyName("date")]
-        public DateOnly Day { get; set; }
-        public TimeOnly StartTime { get; set; }
-        public TimeOnly EndTime { get; set; }
+        public Booking Booking { get; set; }
         public StatusReport Status { get; set; }
     }
     public class Member
@@ -35,5 +32,12 @@ namespace Monhealth.Application.Features.Report.Queries.GetAllReports
         public string? PhoneNumber { get; set; }
         [JsonPropertyName("avatarUrl")]
         public string? Avatar { get; set; }
+    }
+    public class Booking
+    {
+        [JsonPropertyName("date")]
+        public DateOnly Day { get; set; }
+        public TimeOnly StartTime { get; set; }
+        public TimeOnly EndTime { get; set; }
     }
 }
