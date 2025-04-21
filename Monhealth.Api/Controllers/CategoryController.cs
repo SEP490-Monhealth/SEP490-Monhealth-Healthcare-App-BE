@@ -67,7 +67,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{categoryId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin danh mục theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin danh mục")]
         public async Task<ActionResult<ResultModel>> GetCategoryDetail(Guid categoryId)
         {
             var categories = await _mediator.Send(new GetCategoryDetailQuery { CategoryId = categoryId });
@@ -123,14 +123,14 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật danh mục thất bại",
+                    Message = "Cập nhật thông tin danh mục thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(
                 new ResultModel
                 {
-                    Message = "Cập nhật danh mục thành công",
+                    Message = "Cập nhật thông tin danh mục thành công",
                     Success = true,
                     Status = 204,
                 }

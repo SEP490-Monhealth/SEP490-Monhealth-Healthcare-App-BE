@@ -42,7 +42,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy chuyên viên theo ID")]
+        [SwaggerOperation(Summary = "Lấy chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetConsultantById(Guid consultantId)
         {
             var consultant = await _mediator.Send(new GetConsultantByIdCommand { ConsultantId = consultantId });
@@ -51,7 +51,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "chuyên viên không tồn tại",
+                    Message = "Không tìm thấy chuyên viên",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -64,9 +64,8 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Lấy chuyên viên theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy chuyên viên theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetConsultantByUserId(Guid userId)
         {
             var consultant = await _mediator.Send(new GetConsultantByUserQuery { UserId = userId });
@@ -75,7 +74,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Chuyên viên không tồn tại",
+                    Message = "Không tìm thấy chuyên viên",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -112,7 +111,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{consultantId}")]
-        [SwaggerOperation(Summary = "Cập nhật chuyên viên")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin chuyên viên")]
         public async Task<ActionResult<ResultModel>> UpdateConsultant(Guid consultantId, [FromBody] UpdateConsultantDTO updateConsultantDTO)
         {
             var command = new UpdateConsultantCommand(consultantId, updateConsultantDTO);
@@ -123,14 +122,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật chuyên viên thất bại"
+                    Message = "Cập nhật thông tin chuyên viên thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật chuyên viên thành công"
+                Message = "Cập nhật thông tin chuyên viên thành công"
             };
         }
 
@@ -168,7 +167,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Chuyên viên không tồn tại",
+                    Message = "Không tìm thấy chuyên viên",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -192,7 +191,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Chuyên viên không tồn tại",
+                    Message = "Không tìm thấy chuyên viên",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -216,7 +215,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Cập nhập thất bại",
+                    Message = "Từ chối chuyên viên thất bại",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -229,6 +228,4 @@ namespace Monhealth.Api.Controllers
             });
         }
     }
-
-
 }

@@ -8,6 +8,7 @@ using Monhealth.Application.Features.UserDevice.Queries.GetAllUserDevices;
 using Monhealth.Application.Features.UserDevice.Queries.GetUserDeviceById;
 using Monhealth.Application.Features.UserDevice.Queries.GetUserDeviceByUserId;
 using Monhealth.Application.Models;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -18,6 +19,7 @@ namespace Monhealth.Api.Controllers
     public class DeviceController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách thiết bị")]
         public async Task<ActionResult<ResultModel>> GetAllUserDevices(int page = 1, int limit = 10)
         {
             var userDeviceList = await mediator.Send(new GetAllDevicesQuery(page, limit));
@@ -31,6 +33,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{deviceId:guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin thiết bị")]
         public async Task<ActionResult<ResultModel>> GetUserDeviceById(Guid deviceId)
         {
             var userDevice = await mediator.Send(new GetDeviceByIdQuery { DeviceId = deviceId });
@@ -39,7 +42,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Thiết bị người dùng không tồn tại",
+                    Message = "Không tìm thấy thiết bị",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -53,6 +56,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách thiết bị người dùng")]
         public async Task<ActionResult<ResultModel>> GetUserDeviceByUserId(Guid userId)
         {
             var consultantBank = await mediator.Send(new GetDeviceByUserIdQuery { UserId = userId });
@@ -65,6 +69,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo thiết bị người dùng")]
         public async Task<ActionResult<ResultModel>> CreateUserDevice([FromBody] CreateDeviceDTO createUserDeviceDTO)
         {
             var command = new CreateDeviceCommand(createUserDeviceDTO);
@@ -87,6 +92,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{deviceId}")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin thiết bị")]
         public async Task<ActionResult<ResultModel>> UpdateUserDevice(Guid deviceId, [FromBody] UpdateDeviceDTO updateUserDeviceDTO)
         {
             var command = new UpdateDeviceCommand(deviceId, updateUserDeviceDTO);
@@ -97,18 +103,19 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật thiết bị người dùng thất bại"
+                    Message = "Cập nhật thông tin thiết bị thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật thiết bị người dùng thành công"
+                Message = "Cập nhật thông tin thiết bị thành công"
             };
         }
 
         [HttpDelete("{deviceId}")]
+        [SwaggerOperation(Summary = "Xóa thiết bị")]
         public async Task<ActionResult<ResultModel>> DeleteUserDevice(Guid deviceId)
         {
             var command = new DeleteDeviceCommand { DeviceId = deviceId };
@@ -119,14 +126,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Xóa thiết bị người dùng thất bại"
+                    Message = "Xóa thiết bị thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Xóa thiết bị người dùng thành công"
+                Message = "Xóa thiết bị thành công"
             };
         }
     }

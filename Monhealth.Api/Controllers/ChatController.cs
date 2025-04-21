@@ -19,7 +19,7 @@ namespace Monhealth.Api.Controllers
     public class ChatController(IMediator mediator, IHubContext<SignalRHub> _hubContext) : ControllerBase
     {
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetAllChat([FromRoute] Guid userId, int page = 1, int limit = 10, string? search = null)
         {
             var chats = await mediator.Send(new GetUserChatQuery { Page = page, Limit = limit, UserId = userId, Search = search });
@@ -32,7 +32,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện theo ID chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách cuộc trò chuyện theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetChatByConsultantId([FromRoute] Guid consultantId, int page = 1, int limit = 10, string? search = null)
         {
             var messages = await mediator.Send(new GetChatByConsultantIdQuery { ConsultantId = consultantId, Page = page, Limit = limit, Search = search });
@@ -60,7 +60,7 @@ namespace Monhealth.Api.Controllers
         //}
 
         [HttpGet("{chatId:guid}")]
-        [SwaggerOperation(Summary = "Lấy cuộc trò chuyện theo ID")]
+        [SwaggerOperation(Summary = "Lấy cuộc trò chuyện")]
         public async Task<ActionResult<ResultModel>> GetMessageByChatId(Guid chatId)
         {
             var messages = await mediator.Send(new GetInfoChatByIdQuery { ChatId = chatId });

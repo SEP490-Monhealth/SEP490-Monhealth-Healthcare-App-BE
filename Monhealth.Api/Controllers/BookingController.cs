@@ -38,7 +38,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{bookingId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin lịch hẹn theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin lịch hẹn")]
         public async Task<ActionResult<ResultModel>> GetBookingById([FromRoute] Guid bookingId)
         {
             var booking = await mediator.Send(new GetBookingByIdQueries { BookingId = bookingId });
@@ -51,7 +51,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetBookingByUserId([FromRoute] Guid userId, int page = 1, int limit = 10)
         {
             var booking = await mediator.Send(new GetBookingByUserIdQueries(userId, page, limit));
@@ -64,7 +64,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId, DateTime? date = null)
         {
             var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId, Date = date });
@@ -114,13 +114,13 @@ namespace Monhealth.Api.Controllers
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Cập nhập lịch hẹn thành công",
+                Message = "Cập nhập thông tin lịch hẹn thành công",
                 Status = 201,
             });
         }
 
         [HttpPut("{bookingId:guid}/cancel")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái hủy lịch hẹn")]
+        [SwaggerOperation(Summary = "Hủy lịch hẹn")]
         public async Task<ActionResult<ResultModel>> UpdateBookingCancelStatus([FromRoute] Guid bookingId, [FromBody] UpdateBookingCancelDTO request)
         {
             var command = new UpdateBookingCancelCommand(bookingId, request);
@@ -130,14 +130,37 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = false,
-                    Message = "Cập nhập trạng thái thất bại",
+                    Message = "Hủy lịch hẹn thất bại",
                     Status = 500,
                 };
             }
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Cập nhập trạng thái thành công",
+                Message = "Hủy lịch hẹn thành công",
+                Status = 200,
+            });
+        }
+
+        [HttpPut("{bookingId:guid}/complete")]
+        [SwaggerOperation(Summary = "Hoàn thành lịch hẹn")]
+        public async Task<ActionResult<ResultModel>> UpdateBookingEvidens([FromRoute] Guid bookingId, [FromBody] UpdateEvidensDto command)
+        {
+            var result = await mediator.Send(new UpdateEvidensForConsultantCommand(bookingId, command));
+
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Message = "Hoàn thành lịch hẹn thất bại",
+                    Status = 500,
+                };
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Hoàn thành lịch hẹn thành công",
                 Status = 200,
             });
         }
@@ -152,51 +175,6 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Message = "Xóa lịch hẹn thành công",
                 Status = 204,
-            });
-        }
-
-        [HttpPut("{bookingId:guid}/status")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái lịch hẹn")]
-        public async Task<ActionResult<ResultModel>> UpdateBookingStatus([FromRoute] Guid bookingId)
-        {
-            var result = await mediator.Send(new UpdateBookingStatusCommand { BookingId = bookingId });
-            if (!result)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Message = "Cập nhập trạng thái lịch hẹn thất bại",
-                    Status = 500,
-                };
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Cập nhập trạng thái lịch hẹn thành công",
-                Status = 200,
-            });
-        }
-
-        [HttpPut("{bookingId:guid}/complete")]
-        [SwaggerOperation(Summary = "Cập nhật bằng chứng url cho tư vấn viên")]
-        public async Task<ActionResult<ResultModel>> UpdateBookingEvidens([FromRoute] Guid bookingId, [FromBody] UpdateEvidensDto command)
-        {
-            var result = await mediator.Send(new UpdateEvidensForConsultantCommand(bookingId, command));
-
-            if (!result)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Message = "Cập nhập lịch hẹn thất bại",
-                    Status = 500,
-                };
-            }
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Cập nhập lịch hẹn thành công",
-                Status = 200,
             });
         }
     }

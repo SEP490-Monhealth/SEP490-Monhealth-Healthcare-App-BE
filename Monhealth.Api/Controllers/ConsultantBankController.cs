@@ -34,7 +34,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{consultantBankId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin tài khoản ngân hàng theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin tài khoản ngân hàng")]
         public async Task<ActionResult<ResultModel>> GetConsultantBankById(Guid consultantBankId)
         {
             var consultantBank = await mediator.Send(new GetConsultantBankByIdQuery { ConsultantBankId = consultantBankId });
@@ -57,7 +57,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách tài khoản ngân hàng theo ID chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách tài khoản ngân hàng theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetConsultantBankByConsultantId(Guid consultantId)
         {
             var consultantBank = await mediator.Send(new GetConsultantBankByConsultantIdQuery { ConsultantId = consultantId });
@@ -104,14 +104,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật tài khoản ngân hàng chuyên viên thất bại"
+                    Message = "Cập nhật thông tin tài khoản ngân hàng thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật tài khoản ngân hàng chuyên viên thành công"
+                Message = "Cập nhật thông tin tài khoản ngân hàng thành công"
             };
         }
 

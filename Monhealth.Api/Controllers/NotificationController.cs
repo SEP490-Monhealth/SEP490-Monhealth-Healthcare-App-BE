@@ -68,17 +68,17 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("consultant/{consultantId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetNotificationByConsultantId(Guid consultantId, int page = 1, int limit = 10)
-        {
-            var notification = await mediator.Send(new GetNotificationByConsultantIdQuery { Page = page, Limit = limit, ConsultantId = consultantId });
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = notification
-            });
-        }
+        // [HttpGet("consultant/{consultantId:guid}")]
+        // public async Task<ActionResult<ResultModel>> GetNotificationByConsultantId(Guid consultantId, int page = 1, int limit = 10)
+        // {
+        //     var notification = await mediator.Send(new GetNotificationByConsultantIdQuery { Page = page, Limit = limit, ConsultantId = consultantId });
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = 200,
+        //         Data = notification
+        //     });
+        // }
 
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateNotification([FromBody] CreateNotificationDTO createNotificationDTO)

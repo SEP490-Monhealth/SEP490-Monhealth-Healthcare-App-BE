@@ -51,7 +51,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy dữ liệu dị ứng ăn cho người dùng."
+                    Message = "Không tìm thấy dị ứng người dùng."
                 };
             }
 
@@ -65,7 +65,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{allergyId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin dị ứng theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin dị ứng")]
         public async Task<ActionResult<ResultModel>> GetAllergyIdDetail(Guid allergyId)
         {
             var categories = await _mediator.
@@ -171,20 +171,20 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật dị ứng thất bại",
+                    Message = "Cập nhật thông tin dị ứng thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật dị ứng thành công",
+                Message = "Cập nhật thông tin dị ứng thành công",
                 Success = true,
                 Status = 204,
             });
         }
 
         [HttpPut("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Cập nhật dị ứng người dùng")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin dị ứng người dùng")]
         public async Task<ActionResult<ResultModel>> Update([FromRoute] Guid userId, [FromBody] UserAllergyDTO dto)
         {
             var updateRequest = new UpdateUserAllergyRequest(dto)
@@ -199,7 +199,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Cập nhật dị ứng người dùng thành công",
+                    Message = "Cập nhật thông tin dị ứng người dùng thành công",
                     Status = 200
                 });
             }
@@ -207,7 +207,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Cập nhật dị ứng người dùng thất bại",
+                Message = "Cập nhật thông tin dị ứng người dùng thất bại",
                 Status = 400
             });
         }
