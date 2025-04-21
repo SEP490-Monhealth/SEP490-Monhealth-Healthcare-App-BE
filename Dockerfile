@@ -1,7 +1,7 @@
 # Use the official Microsoft ASP.NET Core runtime as a base image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 8081
+EXPOSE 8080
 
 # Use the official Microsoft .NET SDK as a build image
 FROM mcr.microsoft.com/dotnet/sdk:8.0.401-1-alpine3.20-amd64 AS build
