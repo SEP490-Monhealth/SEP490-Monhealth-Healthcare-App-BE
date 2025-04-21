@@ -11,6 +11,7 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public Guid? ConsultantId { get; set; }
         public Member Member { get; set; }
         public Consultant Consultant { get; set; }
+        public Review Review { get; set; }
         [JsonPropertyName("date")]
         public DateOnly Day { get; set; }
         public TimeOnly StartTime { get; set; }
@@ -35,5 +36,10 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public string Email { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string AvatarUrl { get; set; } = string.Empty;
+    }
+    public class Review
+    {
+        public int Rating { get; set; }
+        public string Comment { get; set; } = string.Empty;
     }
 }

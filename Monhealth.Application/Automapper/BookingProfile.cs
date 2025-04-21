@@ -26,7 +26,9 @@ namespace Monhealth.Application.Automapper
                 .ForPath(dest => dest.Member.FullName, opt => opt.MapFrom(opt => opt.User.FullName))
                 .ForPath(dest => dest.Member.Email, opt => opt.MapFrom(opt => opt.User.Email))
                 .ForPath(dest => dest.Member.PhoneNumber, opt => opt.MapFrom(opt => opt.User.PhoneNumber))
-                .ForPath(dest => dest.Member.AvatarUrl, opt => opt.MapFrom(opt => opt.User.Avatar));
+                .ForPath(dest => dest.Member.PhoneNumber, opt => opt.MapFrom(opt => opt.User.PhoneNumber))
+                .ForPath(dest => dest.Review.Rating, opt => opt.MapFrom(opt => opt.Reviews.FirstOrDefault().Rating))
+                .ForPath(dest => dest.Review.Comment, opt => opt.MapFrom(opt => opt.Reviews.FirstOrDefault().Comment));
 
             CreateMap<Booking, GetBookingByConsultantIdMonthlyDTO>()
                 .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(opt => opt.Consultant.AppUser.FullName))

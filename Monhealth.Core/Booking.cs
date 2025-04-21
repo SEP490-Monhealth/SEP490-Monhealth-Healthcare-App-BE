@@ -29,5 +29,6 @@ namespace Monhealth.Domain
         public Consultant? Consultant { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
         public ICollection<Report> Reports { get; set; }
+        public ICollection<Review> Reviews { get; set; }
     }
 }
