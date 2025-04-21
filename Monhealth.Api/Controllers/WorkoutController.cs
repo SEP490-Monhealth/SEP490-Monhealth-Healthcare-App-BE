@@ -1,5 +1,5 @@
-﻿using System.Net;
-using MediatR;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Workout.Commands.ChangeStatusWorkout;
@@ -10,9 +10,11 @@ using Monhealth.Application.Features.Workout.Queries.GetWorkoutByIdQueries;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/workouts")]
     [ApiController]
     public class WorkoutController(IMediator mediator) : ControllerBase

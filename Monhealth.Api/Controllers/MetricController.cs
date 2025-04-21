@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
@@ -13,6 +14,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/metrics")]
     [ApiController]
     public class MetricController : ControllerBase

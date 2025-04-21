@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Certificate.Commands.CreateCertificate;
@@ -8,10 +9,10 @@ using Monhealth.Application.Features.Certificate.Queries.GetAllCertificate;
 using Monhealth.Application.Features.Certificate.Queries.GetCertificateById;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/certificates")]
     [ApiController]
     public class CertificateController(IMediator mediator) : ControllerBase

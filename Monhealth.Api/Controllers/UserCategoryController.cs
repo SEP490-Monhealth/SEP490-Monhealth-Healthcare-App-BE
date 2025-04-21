@@ -1,11 +1,12 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/user-categories")]
     [ApiController]
     public class UserCategoryController : ControllerBase

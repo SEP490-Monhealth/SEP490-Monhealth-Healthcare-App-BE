@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Features.Notification.Commands.CreateNotification;
@@ -13,6 +14,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/notifications")]
     [ApiController]
     public class NotificationController(IMediator mediator,

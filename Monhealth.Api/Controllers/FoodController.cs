@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Food.AddFood;
 using Monhealth.Application.Features.Food.AddFoodUser;
@@ -16,6 +17,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/foods")]
     [ApiController]
     public class FoodController : ControllerBase
@@ -57,7 +59,7 @@ namespace Monhealth.Api.Controllers
         [HttpGet]
         [Route("related/{foodId:Guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách món ăn liên quan")]
-        public async Task<ActionResult<ResultModel>> GetFoodsRelateByFoodId(Guid foodId,int page = 1, int limit = 10, string? search = null, bool? status = null )
+        public async Task<ActionResult<ResultModel>> GetFoodsRelateByFoodId(Guid foodId, int page = 1, int limit = 10, string? search = null, bool? status = null)
         {
             var foods = await _mediator.Send(new GetRelatedFoodsQuery(foodId, page, limit, search, status));
 

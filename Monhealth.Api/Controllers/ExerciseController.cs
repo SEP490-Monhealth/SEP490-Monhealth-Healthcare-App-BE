@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Exercise.Commands.ChangeStatusExercise;
 using Monhealth.Application.Features.Exercise.Commands.CreateExercise;
@@ -14,6 +15,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/exercises")]
     [ApiController]
     public class ExerciseController : ControllerBase

@@ -1,14 +1,16 @@
-using System.Net;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Meal.Commands.CreateMeal;
 using Monhealth.Application.Features.Meal.Queries.GetMealById;
 using Monhealth.Application.Features.Meal.Queries.GetMealByUser;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/meals")]
     [ApiController]
     public class MealController : ControllerBase

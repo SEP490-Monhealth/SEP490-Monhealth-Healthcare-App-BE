@@ -1,16 +1,18 @@
 ﻿using MediatR;
-using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Models;
+using Monhealth.Application.Features.UserDevice.Commands.CreateUserDevice;
+using Monhealth.Application.Features.UserDevice.Commands.DeleteUserDevice;
+using Monhealth.Application.Features.UserDevice.Commands.UpdateUserDevice;
 using Monhealth.Application.Features.UserDevice.Queries.GetAllUserDevices;
 using Monhealth.Application.Features.UserDevice.Queries.GetUserDeviceById;
 using Monhealth.Application.Features.UserDevice.Queries.GetUserDeviceByUserId;
-using Monhealth.Application.Features.UserDevice.Commands.CreateUserDevice;
-using Monhealth.Application.Features.UserDevice.Commands.UpdateUserDevice;
-using Monhealth.Application.Features.UserDevice.Commands.DeleteUserDevice;
+using Monhealth.Application.Models;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/devices")]
     [ApiController]
     public class DeviceController(IMediator mediator) : ControllerBase

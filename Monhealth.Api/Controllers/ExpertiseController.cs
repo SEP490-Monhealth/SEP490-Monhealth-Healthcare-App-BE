@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Expertise.Commands.CreateExpertise;
 using Monhealth.Application.Features.Expertise.Commands.DeleteExpertise;
@@ -12,6 +13,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/expertise")]
     [ApiController]
     public class ExpertiseController : ControllerBase

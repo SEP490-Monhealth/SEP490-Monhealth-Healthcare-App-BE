@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.TimeSlots.Commands.CreateTimeSlots;
 using Monhealth.Application.Features.TimeSlots.Commands.DeleteTimSlots;
@@ -6,11 +7,12 @@ using Monhealth.Application.Features.TimeSlots.Commands.UpdateTimeSlots;
 using Monhealth.Application.Features.TimeSlots.Queries.GetAllTimSlots;
 using Monhealth.Application.Features.TimeSlots.Queries.GetTimeSlotById;
 using Monhealth.Application.Models;
-using System.Net;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/time-slots")]
     [ApiController]
     public class TimeSlotController(IMediator mediator) : ControllerBase

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Portions.Commands.CreateFoodPortion;
 using Monhealth.Application.Features.Portions.Commands.DeletePortion;
@@ -13,6 +14,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/portions")]
     [ApiController]
     public class PortionController : Controller

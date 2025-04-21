@@ -1,8 +1,10 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/six-month-users")]
     [ApiController]
     public class SixMonthUserApi : ControllerBase

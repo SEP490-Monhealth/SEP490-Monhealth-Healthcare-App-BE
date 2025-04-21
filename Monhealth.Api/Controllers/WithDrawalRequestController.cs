@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Withdrawal.Commands.CancelWithDrawalStatus;
@@ -10,6 +11,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/withdrawal-requests")]
     [ApiController]
     public class WithdrawalRequestController(IMediator mediator) : ControllerBase

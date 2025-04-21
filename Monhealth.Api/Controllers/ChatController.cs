@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Monhealth.Application;
@@ -12,6 +13,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/chats")]
     [ApiController]
     public class ChatController(IMediator mediator, IHubContext<SignalRHub> _hubContext) : ControllerBase

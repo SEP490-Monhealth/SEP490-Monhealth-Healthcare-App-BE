@@ -1,5 +1,5 @@
-using System.ComponentModel.DataAnnotations;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantIdMonthly;
@@ -10,9 +10,11 @@ using Monhealth.Application.Features.Report.ReportBookingMonthly;
 using Monhealth.Application.Features.Report.ReportTransactionMonthly;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/trackers")]
     [ApiController]
     public class TrackerController : ControllerBase

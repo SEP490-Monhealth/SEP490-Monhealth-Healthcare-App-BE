@@ -1,17 +1,15 @@
-using System.Net;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Nutrition.AddNutrition;
-using Monhealth.Application.Features.Nutrition.DeleteNutrition;
-using Monhealth.Application.Features.Nutrition.Queries.GetAllNutrition;
 using Monhealth.Application.Features.Nutrition.Queries.GetAllNutritionByfoodId;
-using Monhealth.Application.Features.Nutrition.Queries.GetNutritionDetail;
 using Monhealth.Application.Features.Nutrition.UpdateNutrition;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/nutrition")]
     [ApiController]
     public class NutritionController : ControllerBase

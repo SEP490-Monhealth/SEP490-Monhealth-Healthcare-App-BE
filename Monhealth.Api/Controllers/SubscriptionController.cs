@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Subscription.Commands.ChangeStatus;
 using Monhealth.Application.Features.Subscription.Commands.Create;
@@ -13,6 +14,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/subscriptions")]
     [ApiController]
     public class SubscriptionController : ControllerBase

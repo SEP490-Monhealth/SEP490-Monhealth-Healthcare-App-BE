@@ -1,11 +1,12 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Models;
 
 namespace Monhealth.Api.Controllers
 {
-
+    [Authorize]
     [Route("api/v1/analytics")]
     [ApiController]
     public class AnalyticController : ControllerBase

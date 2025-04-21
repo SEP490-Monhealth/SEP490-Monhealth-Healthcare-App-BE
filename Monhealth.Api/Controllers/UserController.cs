@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.User.Commands.ChangeStatus;
 using Monhealth.Application.Features.User.Commands.CreateUser;
@@ -12,6 +13,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/users")]
     [ApiController]
 

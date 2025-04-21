@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Notification.Commands.IsReadNotificaiton;
 using Monhealth.Application.Features.UserNotification.Queries.GetAllUserNotifications;
@@ -11,6 +12,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/user-notifications")]
     [ApiController]
     public class UserNotificationController(IMediator mediator, IHttpContextAccessor httpContextAccessor) : ControllerBase

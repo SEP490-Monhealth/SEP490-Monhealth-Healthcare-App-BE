@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.ScheduleException.Commands.CreateScheduleException;
 using Monhealth.Application.Features.ScheduleException.Commands.DeleteScheduleException;
@@ -14,6 +15,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/schedule-exceptions")]
     [ApiController]
     public class ScheduleExceptionController(IMediator mediator) : ControllerBase

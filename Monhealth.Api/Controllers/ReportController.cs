@@ -1,5 +1,5 @@
-using System.Net;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Report.Commands.ChangeStatusReportToApproved;
 using Monhealth.Application.Features.Report.Commands.ChangeStatusReportToRejected;
@@ -13,9 +13,11 @@ using Monhealth.Application.Features.Report.Queries.GetReportById;
 using Monhealth.Application.Features.Report.Queries.GetReportByUserId;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/reports")]
     [ApiController]
     public class ReportController : ControllerBase

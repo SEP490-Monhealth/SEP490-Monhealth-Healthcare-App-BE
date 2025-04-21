@@ -1,6 +1,6 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCommand;
 using Monhealth.Application.Features.Goals.Commands.ChangeStatusCompletedCommand;
 using Monhealth.Application.Features.Goals.Commands.UpdateCommand;
@@ -17,6 +17,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/goals")]
     [ApiController]
     public class GoalController : ControllerBase

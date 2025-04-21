@@ -1,12 +1,13 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/user-subscriptions")]
     [ApiController]
     public class UserSubscriptionController : ControllerBase

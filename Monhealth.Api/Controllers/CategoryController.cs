@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Category.AddCategory;
 using Monhealth.Application.Features.Category.DeleteCategory;
@@ -13,6 +14,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/categories")]
     [ApiController]
     public class CategoryController : ControllerBase

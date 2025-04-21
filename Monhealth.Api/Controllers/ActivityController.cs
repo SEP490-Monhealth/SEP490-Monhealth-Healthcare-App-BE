@@ -1,5 +1,5 @@
-﻿using System.Net;
-using MediatR;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Activity.Commands.ChangeIsCompletedActivity;
@@ -9,9 +9,11 @@ using Monhealth.Application.Features.Activity.Queries.GetActivityByUserId;
 using Monhealth.Application.Features.Activity.Queries.GetAllActivities;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/activities")]
     [ApiController]
     public class ActivityController : ControllerBase

@@ -1,5 +1,5 @@
-using System.Net;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Allergy.Commands.CreateAllergy;
@@ -9,9 +9,11 @@ using Monhealth.Application.Features.Allergy.Queries.GetAll;
 using Monhealth.Application.Features.Allergy.Queries.GetDetail;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/allergies")]
     [ApiController]
     public class AllergyController : ControllerBase

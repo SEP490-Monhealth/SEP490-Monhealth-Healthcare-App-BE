@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Booking.Commands.CreateBooking;
@@ -17,6 +18,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/bookings")]
     [ApiController]
     public class BookingController(IMediator mediator) : ControllerBase
@@ -50,7 +52,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("user/{userId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID người dùng")]
-        public async Task<ActionResult<ResultModel>> GetBookingByUserId([FromRoute] Guid userId , int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetBookingByUserId([FromRoute] Guid userId, int page = 1, int limit = 10)
         {
             var booking = await mediator.Send(new GetBookingByUserIdQueries(userId, page, limit));
             return new ResultModel

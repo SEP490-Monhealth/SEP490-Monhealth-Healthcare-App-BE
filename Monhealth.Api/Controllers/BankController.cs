@@ -1,5 +1,5 @@
-﻿using System.Net;
-using MediatR;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Bank.Commands.ChangeStatusBank;
 using Monhealth.Application.Features.Bank.Commands.CreateBank;
@@ -8,11 +8,12 @@ using Monhealth.Application.Features.Bank.Commands.UpdateBank;
 using Monhealth.Application.Features.Bank.Queries.GetAllBanks;
 using Monhealth.Application.Features.Bank.Queries.GetBankById;
 using Monhealth.Application.Models;
-using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/banks")]
     [ApiController]
     public class BankController(IMediator mediator) : ControllerBase

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Features.Transaction.Commands.CreateBookingSingle;
@@ -17,6 +18,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/transactions")]
     [ApiController]
     public class TransactionController(IMediator mediator) : ControllerBase

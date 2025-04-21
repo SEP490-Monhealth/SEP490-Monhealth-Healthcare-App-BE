@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Wallet.Commands.ChangeStatusWallet;
 using Monhealth.Application.Features.Wallet.Commands.DeleteWallet;
@@ -10,6 +11,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/wallets")]
     [ApiController]
     public class WalletController(IMediator mediator) : ControllerBase

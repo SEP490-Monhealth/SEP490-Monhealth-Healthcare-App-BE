@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Reminder.Commands.CreateReminder;
 using Monhealth.Application.Features.Reminders.Commands.DeleteReminder;
@@ -15,6 +16,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/water-reminders")]
     [ApiController]
     public class WaterReminderController : ControllerBase
@@ -45,7 +47,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("user/{userId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách nhắc nhở theo ID người dùng")]
-        public async Task<ActionResult<ResultModel>> GetReminderByUser(Guid userId , bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetReminderByUser(Guid userId, bool? status = null)
         {
             var portion = await _mediator.Send(new GetAllReminderByUserQuery() { UserId = userId, Status = status });
             if (portion == null)

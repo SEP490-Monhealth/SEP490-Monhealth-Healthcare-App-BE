@@ -1,5 +1,5 @@
-﻿using System.Net;
-using MediatR;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.ConsultantBank.Commands.ChangeIsDefaultConsultantBank;
 using Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultantBank;
@@ -10,9 +10,11 @@ using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankByC
 using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankById;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/consultant-banks")]
     [ApiController]
     public class ConsultantBankController(IMediator mediator) : ControllerBase

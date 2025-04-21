@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.Schedule.Commands.Create;
 using Monhealth.Application.Features.Schedule.Commands.Delete;
@@ -14,6 +15,7 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
+    [Authorize]
     [Route("api/v1/schedules")]
     [ApiController]
     public class ScheduleController : ControllerBase
