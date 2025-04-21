@@ -129,16 +129,25 @@ namespace Monhealth.Identity.Repositories
             .ToListAsync();
         }
 
-        public async Task<List<Booking>> GetBookingByUserId(Guid userId)
+        public async Task<PaginatedResult<Booking>> GetBookingByUserId(Guid userId, int page, int limit)
         {
-            return await _context.Bookings
+            var query = _context.Bookings
                    .AsNoTracking()
                    .AsSplitQuery()
                    .Include(b => b.User)
                    .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
                    .OrderBy(c => c.StartTime)
-                   .Where(b => b.UserId == userId)
-                   .ToListAsync();
+                   .Where(b => b.UserId == userId);
+            int totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return new PaginatedResult<Booking>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<List<Booking>> GetBookingsByConsultantAndDateRange(Guid consultantId, DateTime from, DateTime to)
