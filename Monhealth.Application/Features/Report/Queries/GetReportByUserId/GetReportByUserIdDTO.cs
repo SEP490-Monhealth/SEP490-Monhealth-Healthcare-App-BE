@@ -8,6 +8,7 @@ namespace Monhealth.Application.Features.Report.Queries.GetReportByUserId
     {
         public Guid ReportId { get; set; }
         public Guid BookingId { get; set; }
+        public string? Notes { get; set; }
         public Guid UserId { get; set; }
         public Guid ConsultantId { get; set; }
         public Member Member { get; set; }
