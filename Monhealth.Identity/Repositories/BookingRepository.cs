@@ -84,11 +84,11 @@ namespace Monhealth.Identity.Repositories
             if (date.HasValue)
             {
                 var dateOnly = DateOnly.FromDateTime(date.Value);
-                query = query.Where(b => b.Day == dateOnly);
+                query =  query.Where(b => b.Day == dateOnly);
             }
 
 
-            return query.OrderByDescending(b => b.Day).ThenBy(b => b.StartTime).ToList();
+            return await query.OrderByDescending(b => b.Day).ThenBy(b => b.StartTime).ToListAsync();
         }
 
         public async Task<PaginatedResult<Booking>> GetBookingByConsultantIdMonthly(int page, int limit, Guid consultantId, DateTime from, DateTime to)
@@ -149,9 +149,10 @@ namespace Monhealth.Identity.Repositories
             }
             return new PaginatedResult<Booking>
             {
-                Items = await query.ToListAsync(),
+                Items = await query.OrderByDescending(b => b.Day).ThenBy(b => b.StartTime).ToListAsync(),
                 TotalCount = totalItems
             };
+
         }
 
         public async Task<List<Booking>> GetBookingsByConsultantAndDateRange(Guid consultantId, DateTime from, DateTime to)
