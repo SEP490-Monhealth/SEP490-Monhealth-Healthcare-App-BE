@@ -7,7 +7,7 @@ namespace Monhealth.Application
     (Guid UserSubscriptionId, Guid UserId, Guid SubscriptionId,
     Member Member, string subscription
     , DateTime StartedAt, DateTime ExpiresAt, int RemainingBookings,
-    UserSubscriptionStatus status, DateTime? CreateAt, DateTime? UpdateAt
+    UserSubscriptionStatus status, DateTime? CreatedAt, DateTime? UpdatedAt
     );
     public class GetUserSubscriptionRequest : IRequest<GetUserSubscriptionDTO>
     {
