@@ -9,12 +9,12 @@ namespace Monhealth.Application.Features.Activity.Commands.ChangeIsCompletedActi
         public async Task<bool> Handle(ChangeIsCompletedActivityCommand request, CancellationToken cancellationToken)
         {
             var today = DateTime.Today;
-            var activity = await activityRepository.GetByIdAsync(request.ActivityId);
+            var activity = await activityRepository.GetActivitiesById(request.ActivityId);
             if (activity == null)
             {
                 return false;
             }
-            activity.IsCompleted = true;
+            activity.IsCompleted = !activity.IsCompleted;
             activityRepository.Update(activity);
             var userOfActivity = activity.UserId;
            
@@ -29,6 +29,8 @@ namespace Monhealth.Application.Features.Activity.Commands.ChangeIsCompletedActi
                 dailyActivity.TotalCaloriesBurned -= activity.Workout?.CaloriesBurned ?? 0;
                 dailyActivity.TotalDurationMinutes -= activity.Workout?.DurationMinutes ?? 0;
             }
+            dailyActivity.UpdatedAt = DateTime.Now;
+            dailyActivityRepository.Update(dailyActivity);
             await activityRepository.SaveChangeAsync(cancellationToken);
             return true;
         }

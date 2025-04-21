@@ -190,17 +190,17 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     TotalSugars = 0
                 };
                 _dailyMealRepository.Add(dailyMeal);
-                var newDailyActivity = new Domain.DailyActivity
-                {
-                    UserId = userId,
-                    GoalId = goal.GoalId,
-                    CreatedAt = dailyMeal.DailyMealDate,
-                    UpdatedAt = DateTime.Now,
-                    TotalCaloriesBurned = 0,
-                    TotalDurationMinutes = 0
-                };
-                newDailyActivity.DailyActivityId = Guid.NewGuid();
-                _dailyActivityRepository.Add(newDailyActivity);
+                // var newDailyActivity = new Domain.DailyActivity
+                // {
+                //     UserId = userId,
+                //     GoalId = goal.GoalId,
+                //     CreatedAt = dailyMeal.DailyMealDate,
+                //     UpdatedAt = DateTime.Now,
+                //     TotalCaloriesBurned = 0,
+                //     TotalDurationMinutes = 0
+                // };
+                // newDailyActivity.DailyActivityId = Guid.NewGuid();
+                // _dailyActivityRepository.Add(newDailyActivity);
                 // Lưu DailyMeal để lấy DailyMealID
                 await _dailyMealRepository.SaveChangeAsync();
             }

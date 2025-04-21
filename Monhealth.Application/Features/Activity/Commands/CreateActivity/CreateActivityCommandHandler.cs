@@ -30,7 +30,7 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
 
         public async Task<Unit> Handle(CreateActivityCommand request, CancellationToken cancellationToken)
         {
-            var createdAt = request.CreateActivityDTO.CreatedAt;
+            var createdAt = DateTime.Now;
             var getGoal = await _goalRepository.GetGoalByUserIdAndStatusActive(request.CreateActivityDTO.UserId);
             if (getGoal == null)
             {
@@ -47,7 +47,7 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
                 // dailyActivity.TotalDurationMinutes += workout.DurationMinutes;
                 // dailyActivity.TotalCaloriesBurned += workout.CaloriesBurned;
                 // dailyActivity.UpdatedAt = DateTime.Now;
-                // Cap nhat lai DailyActivity
+                // // Cap nhat lai DailyActivity
                 // _dailyActivityRepository.Update(dailyActivity);
 
                 var newActivity = _mapper.Map<Domain.Activity>(request.CreateActivityDTO);
@@ -65,8 +65,8 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
                 newDailyActivity.GoalId = getGoal.GoalId;
 
                 var getWorkouts = await _workoutRepository.GetByIdAsync(request.CreateActivityDTO.WorkoutId);
-                newDailyActivity.TotalDurationMinutes = getWorkouts.DurationMinutes;
-                newDailyActivity.TotalCaloriesBurned = getWorkouts.CaloriesBurned;
+                newDailyActivity.TotalDurationMinutes = 0;
+                newDailyActivity.TotalCaloriesBurned = 0;
                 newDailyActivity.CreatedAt = DateTime.Now;
                 newDailyActivity.UpdatedAt = DateTime.Now;
                 _dailyActivityRepository.Add(newDailyActivity);

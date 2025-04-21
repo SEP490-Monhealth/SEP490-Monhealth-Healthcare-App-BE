@@ -13,7 +13,9 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<DailyActivity> GetDailyActivityByUserIdAndCreateAt(Guid userId)
         {
-            return await _context.DailyActivities.Where(u => u.UserId == userId).FirstOrDefaultAsync();
+            return await _context.DailyActivities.Include(d => d.Activities)
+            .ThenInclude(da => da.Workout)
+            .Where(u => u.UserId == userId).FirstOrDefaultAsync();
         }
 
         public async Task<DailyActivity> GetDailyActivityByUserIdAndCreateAt(Guid userId, DateTime today)

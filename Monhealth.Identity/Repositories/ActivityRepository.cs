@@ -24,7 +24,8 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Activity> GetActivitiesById(Guid activityId)
         {
-            return await _context.Activities.Include(w => w.Workout).FirstOrDefaultAsync(u => u.ActivityId == activityId);
+            return await _context.Activities.Include(w => w.Workout)
+            .FirstOrDefaultAsync(u => u.ActivityId == activityId);
         }
 
         public async Task<List<Activity>> GetActivitiesByUserId(Guid userId)
