@@ -52,6 +52,11 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<ScheduleException> GetScheduleExceptionByIdAsync(Guid scheduleExceptionId)
+        {
+            return await _context.ScheduleExceptions.FirstOrDefaultAsync(s => s.ScheduleExceptionId == scheduleExceptionId);
+        }
+
         public Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return _context.SaveChangesAsync(cancellationToken);

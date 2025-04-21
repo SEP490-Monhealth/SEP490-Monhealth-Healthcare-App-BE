@@ -14,5 +14,6 @@ namespace Monhealth.Application.Contracts.Notification
         Task NotifyBookingCompleteForBoth(Booking booking, CancellationToken cancellationToken);
         Task NotifyCreateMetricSuccessfully(Guid userId, CancellationToken cancellationToken);
 
+        Task SendBookingCancellationNotificationAsync(Booking booking, CancellationToken cancellationToken);
     }
 }

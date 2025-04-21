@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.Report.Commands.ChangeStatusReportToRejected;
 using Monhealth.Application.Features.ScheduleException.Commands.CreateScheduleException;
 using Monhealth.Application.Features.ScheduleException.Commands.DeleteScheduleException;
+using Monhealth.Application.Features.ScheduleException.Commands.UpdateApprovedStatus;
 using Monhealth.Application.Features.ScheduleException.Commands.UpdateScheduleException;
 using Monhealth.Application.Features.ScheduleException.Queries.GetAllScheduleException;
 using Monhealth.Application.Features.ScheduleException.Queries.GetScheduleExceptionByConsultantId;
@@ -105,5 +107,49 @@ namespace Monhealth.Api.Controllers
                 Data = queries
             });
         }
+
+        [HttpPatch("{scheduleExceptionId:guid}/approved")]
+        public async Task<ActionResult<ResultModel>> ChangeScheduleExceptionApproved([FromRoute] Guid scheduleExceptionId)
+        {
+            var result = await mediator.Send(new UpdateApprovedStatusCommand { ScheduleExceptionId = scheduleExceptionId });
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập trạng thái lịch bận thất bại",
+                    Status = 500,
+                };
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập trạng thái lịch bận thành công",
+                Status = 200,
+            });
+        }
+
+        [HttpPatch("{reportId:guid}/rejected")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusReportRejected([FromRoute] Guid reportId)
+        {
+            var result = await mediator.Send(new ChangeStatusReportToRejectedCommand { ReportId = reportId });
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập trạng thái báo cáo thất bại",
+                    Status = 500,
+                };
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập trạng thái báo cáo thành công",
+                Status = 200,
+            });
+        }
+
+
     }
 }

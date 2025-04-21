@@ -150,6 +150,15 @@ namespace Monhealth.Identity.Repositories
             .ToListAsync();
         }
 
+        public async Task<List<Booking>> GetBookingsByConsultantIdAndDate(Guid consultantId, DateOnly date)
+        {
+            return await _context.Bookings
+                .Where(b => b.ConsultantId == consultantId &&
+                b.Day == date
+                )
+                .ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);

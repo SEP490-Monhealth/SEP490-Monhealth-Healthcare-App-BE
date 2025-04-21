@@ -152,7 +152,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{bookingId:guid}/status")]
+        [HttpPut("{bookingId:guid}/status")]
         [SwaggerOperation(Summary = "Cập nhật trạng thái lịch hẹn")]
         public async Task<ActionResult<ResultModel>> UpdateBookingStatus([FromRoute] Guid bookingId)
         {
