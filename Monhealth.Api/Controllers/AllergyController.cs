@@ -1,6 +1,7 @@
 using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Allergy.Commands.CreateAllergy;
 using Monhealth.Application.Features.Allergy.Commands.DeleteAllergy;
 using Monhealth.Application.Features.Allergy.Commands.UpdateAllergy;
@@ -32,6 +33,31 @@ namespace Monhealth.Api.Controllers
                 Data = categories,
                 Status = 200,
                 Success = true
+            };
+        }
+
+        [HttpGet]
+        [Route("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách dị ứng theo người dùng")]
+        public async Task<ActionResult<ResultModel>> GetAllergyByUser(Guid userId)
+        {
+            var allergies = await _mediator.Send(new GetUserAllergyQuery { UserId = userId });
+
+            if (allergies == null)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy dữ liệu dị ứng ăn cho người dùng."
+                };
+            }
+
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Data = allergies
             };
         }
 
@@ -109,6 +135,30 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+        [HttpPost]
+        [Route("user")]
+        [SwaggerOperation(Summary = "Tạo dị ứng người dùng")]
+        public async Task<ActionResult<ResultModel>> Add([FromBody] CreateUserAllergyRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (result != null)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Tạo dị ứng người dùng thành công",
+                    Status = 201,
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Tạo dị ứng người dùng thất bại",
+                Status = 400,
+            });
+        }
+
         [HttpPut]
         [Route("{allergyId:Guid}")]
         [SwaggerOperation(Summary = "Cập nhật thông tin dị ứng")]
@@ -128,6 +178,35 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật dị ứng thành công",
                 Success = true,
                 Status = 204,
+            });
+        }
+
+        [HttpPut("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Cập nhật dị ứng người dùng")]
+        public async Task<ActionResult<ResultModel>> Update([FromRoute] Guid userId, [FromBody] UserAllergyDTO dto)
+        {
+            var updateRequest = new UpdateUserAllergyRequest(dto)
+            {
+                UserId = userId
+            };
+
+            var result = await _mediator.Send(updateRequest);
+
+            if (result)
+            {
+                return Ok(new ResultModel
+                {
+                    Success = true,
+                    Message = "Cập nhật dị ứng người dùng thành công",
+                    Status = 200
+                });
+            }
+
+            return BadRequest(new ResultModel
+            {
+                Success = false,
+                Message = "Cập nhật dị ứng người dùng thất bại",
+                Status = 400
             });
         }
 

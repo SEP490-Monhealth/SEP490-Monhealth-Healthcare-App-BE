@@ -91,19 +91,6 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet("monthly/consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo ID chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetBookingByConsultantIdMonthly([FromRoute] Guid consultantId, int page = 1, int limit = 10, DateTime? month = null)
-        {
-            var booking = await mediator.Send(new GetBookingByConsultantIdMonthlyQuery { Page = page, Limit = limit, ConsultantId = consultantId, Month = month });
-            return new ResultModel
-            {
-                Data = booking,
-                Status = 200,
-                Success = true,
-            };
-        }
-
         [HttpPost]
         [SwaggerOperation(Summary = "Tạo lịch hẹn")]
         public async Task<ActionResult<ResultModel>> CreateBooking([FromBody] CreateBookingCommand command)

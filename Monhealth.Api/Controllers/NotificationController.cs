@@ -145,25 +145,25 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPost("send")]
-        public async Task<ActionResult<ResultModel>> SendNotification([FromBody] ExpoNotificationRequest notificationRequest)
-        {
-            bool result = await notificationService.SendExpoNotificationAsync(notificationRequest.To, notificationRequest.Title, notificationRequest.Body);
-            if (result)
-            {
-                return new ResultModel
-                {
-                    Message = "Tạo thông báo thành công",
-                    Status = 201,
-                    Success = true
-                };
-            }
-            return new ResultModel
-            {
-                Message = "Tạo thông báo thất bại",
-                Status = (int)HttpStatusCode.BadRequest,
-                Success = false
-            };
-        }
+        // [HttpPost("send")]
+        // public async Task<ActionResult<ResultModel>> SendNotification([FromBody] ExpoNotificationRequest notificationRequest)
+        // {
+        //     bool result = await notificationService.SendExpoNotificationAsync(notificationRequest.To, notificationRequest.Title, notificationRequest.Body);
+        //     if (result)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Message = "Tạo thông báo thành công",
+        //             Status = 201,
+        //             Success = true
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Message = "Tạo thông báo thất bại",
+        //         Status = (int)HttpStatusCode.BadRequest,
+        //         Success = false
+        //     };
+        // }
     }
 }

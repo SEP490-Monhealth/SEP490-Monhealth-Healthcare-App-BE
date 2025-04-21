@@ -2,23 +2,22 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Models;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
 
-    [Route("api/v1/analysis")]
+    [Route("api/v1/analytics")]
     [ApiController]
-    public class AnalysisController : ControllerBase
+    public class AnalyticController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public AnalysisController(IMediator mediator)
+        public AnalyticController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
-        [HttpGet("users")]
+        [HttpGet("users/summary")]
         public async Task<ActionResult<ResultModel>> GetSixMonthUsers()
         {
             AnalysisUserDTO result = await _mediator.Send(new AnalysisUserQuery());
@@ -31,7 +30,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("users/user-subscription-six-months")]
+        [HttpGet("users/subscriptions")]
         public async Task<ActionResult<ResultModel>> GetUserSixMonthUsers()
         {
             List<GetAllUserSubscriptionBySixMonthsDTO> result = await _mediator.Send(new GetAllUserSubscriptionBySixMonthQuery());
@@ -44,7 +43,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("users/user-six-months")]
+        [HttpGet("users/registrations")]
         public async Task<ActionResult<ResultModel>> GetSixMonthUsersAnalysis()
         {
             List<GetAllMemberBySixMonthsDTO> result = await _mediator.Send(new GetAllMemberBySixMonthsQuery());
@@ -70,7 +69,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("dashboard/overview")]
+        [HttpGet("overview")]
         public async Task<ActionResult<ResultModel>> GetTotalAnalysis()
         {
             TotalAmountAnalysisDTO result = await _mediator.Send(new TotalAmountAnalysisQuery());
