@@ -6,10 +6,10 @@ namespace Monhealth.Application.Contracts.Persistence
     public interface IReviewRepository : IGenericRepository<Review, Guid>
     {
         Task<int> SaveChangeAsync();
-        Task<List<Review>> GetReviewsByUser(Guid userId);
+        Task<PaginatedResult<Review>> GetReviewsByUser(Guid userId, int page, int limit);
         Task<PaginatedResult<Review>> GetAllReviewAsync(int page, int limit, int rating);
         Task<List<Review>> GetReviewsByBookingId(Guid bookingId);
-        Task<PaginatedResult<Review>>GetReviewsByConsultant(Guid consultantId, int page, int limit);
+        Task<PaginatedResult<Review>> GetReviewsByConsultant(Guid consultantId, int page, int limit);
 
     }
 }
