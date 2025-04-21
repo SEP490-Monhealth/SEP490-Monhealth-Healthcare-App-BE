@@ -1,6 +1,5 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Features;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;

@@ -9,7 +9,6 @@ using Monhealth.Application.Features.Notification.Queries.GetNotificationByConsu
 using Monhealth.Application.Features.Notification.Queries.GetNotificationById;
 using Monhealth.Application.Features.Notification.Queries.GetNotificationByUserId;
 using Monhealth.Application.Models;
-using Monhealth.Application.Models.Notifications;
 using System.Net;
 
 namespace Monhealth.Api.Controllers

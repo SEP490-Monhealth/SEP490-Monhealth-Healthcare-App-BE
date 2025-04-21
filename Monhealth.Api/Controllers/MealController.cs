@@ -1,10 +1,7 @@
 using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application;
 using Monhealth.Application.Features.Meal.Commands.CreateMeal;
-using Monhealth.Application.Features.Meal.Commands.DeleteMeal;
-using Monhealth.Application.Features.Meal.Queries.GetAllMeals;
 using Monhealth.Application.Features.Meal.Queries.GetMealById;
 using Monhealth.Application.Features.Meal.Queries.GetMealByUser;
 using Monhealth.Application.Models;

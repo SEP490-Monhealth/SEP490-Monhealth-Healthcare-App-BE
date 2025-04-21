@@ -2,7 +2,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Features.ConsultantBank.Commands.ChangeIsDefaultConsultantBank;
-using Monhealth.Application.Features.ConsultantBank.Commands.ChangeStatusConsultantBank;
 using Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultantBank;
 using Monhealth.Application.Features.ConsultantBank.Commands.DeleteConsultantBank;
 using Monhealth.Application.Features.ConsultantBank.Commands.UpdateConsultantBank;

@@ -6,7 +6,6 @@ using Monhealth.Application.Features.Exercise.Commands.DeleteExercise;
 using Monhealth.Application.Features.Exercise.Commands.UpdateExercise;
 using Monhealth.Application.Features.Exercise.Queries.GetAllExercises;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseById;
-using Monhealth.Application.Features.Exercise.Queries.GetExerciseByUserId;
 using Monhealth.Application.Features.Exercise.Queries.GetExerciseByWorkoutId;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;

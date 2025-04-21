@@ -1,12 +1,6 @@
 ﻿using MediatR;
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.ConsultantBank.Commands.CreateConsultantBank;
-using Monhealth.Application.Features.ConsultantBank.Commands.DeleteConsultantBank;
-using Monhealth.Application.Features.ConsultantBank.Commands.UpdateConsultantBank;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetAllConsultantBanks;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankByConsultantId;
-using Monhealth.Application.Features.ConsultantBank.Queries.GetConsultantBankById;
 using Monhealth.Application.Models;
 using Monhealth.Application.Features.UserDevice.Queries.GetAllUserDevices;
 using Monhealth.Application.Features.UserDevice.Queries.GetUserDeviceById;

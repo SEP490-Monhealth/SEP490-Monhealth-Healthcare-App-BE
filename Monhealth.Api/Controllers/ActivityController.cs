@@ -7,7 +7,6 @@ using Monhealth.Application.Features.Activity.Commands.CreateActivity;
 using Monhealth.Application.Features.Activity.Commands.DeleteActivity;
 using Monhealth.Application.Features.Activity.Queries.GetActivityByUserId;
 using Monhealth.Application.Features.Activity.Queries.GetAllActivities;
-using Monhealth.Application.Features.Exercise.Commands.ChangeStatusExercise;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
 

@@ -8,7 +8,6 @@ using Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel;
 using Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus;
 using Monhealth.Application.Features.Booking.Queries.GetAllBookings;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId;
-using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantIdMonthly;
 using Monhealth.Application.Features.Booking.Queries.GetBookingById;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByUserId;
 using Monhealth.Application.Models;
