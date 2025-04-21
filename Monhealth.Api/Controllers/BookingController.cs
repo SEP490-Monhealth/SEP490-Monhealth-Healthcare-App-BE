@@ -6,6 +6,7 @@ using Monhealth.Application.Features.Booking.Commands.DeleteBooking;
 using Monhealth.Application.Features.Booking.Commands.UpdateBooking;
 using Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel;
 using Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus;
+using Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsultant;
 using Monhealth.Application.Features.Booking.Queries.GetAllBookings;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId;
 using Monhealth.Application.Features.Booking.Queries.GetBookingById;
@@ -170,6 +171,29 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Message = "Cập nhập trạng thái lịch hẹn thành công",
+                Status = 200,
+            });
+        }
+
+        [HttpPut("{bookingId:guid}/complete")]
+        [SwaggerOperation(Summary = "Cập nhật bằng chứng url cho tư vấn viên")]
+        public async Task<ActionResult<ResultModel>> UpdateBookingEvidens([FromRoute] Guid bookingId, [FromBody] UpdateEvidensDto command)
+        {
+            var result = await mediator.Send(new UpdateEvidensForConsultantCommand(bookingId, command));
+
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập lịch hẹn thất bại",
+                    Status = 500,
+                };
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập lịch hẹn thành công",
                 Status = 200,
             });
         }

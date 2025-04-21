@@ -13,7 +13,7 @@ namespace Monhealth.Application
     }
 
     public class GetAllBookingByConsultantAndUserQueryHandler(IBookingRepository bookingRepository
-    , IMapper mapper , ILogger<GetAllBookingByConsultantAndUserQueryHandler> _logger)
+    , IMapper mapper, ILogger<GetAllBookingByConsultantAndUserQueryHandler> _logger)
      : IRequestHandler<GetAllBookingByConsultantAndUser, List<BookingDto>>
     {
         public async Task<List<BookingDto>> Handle(GetAllBookingByConsultantAndUser request, CancellationToken cancellationToken)

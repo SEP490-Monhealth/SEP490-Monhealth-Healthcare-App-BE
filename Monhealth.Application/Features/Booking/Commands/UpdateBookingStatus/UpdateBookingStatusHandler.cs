@@ -20,11 +20,6 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus
             if (booking.Status == BookingStatus.Completed) throw new BadRequestException("Không thể cập nhập lịch đã hoàn thành");
 
             if (booking.Status == BookingStatus.Cancelled) throw new BadRequestException("Không thể cập nhập lịch đã hủy");
-
-            if (booking.Status == BookingStatus.Pending)
-            {
-                booking.Status = BookingStatus.Confirmed;
-            }
             else if (booking.Status == BookingStatus.Confirmed)
             {
                 var earnMoney = 200000;
