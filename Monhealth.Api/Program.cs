@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 // Cấu hình SignalR
-builder.Services.AddSignalR();  // Thêm SignalR vào dịch vụ
+builder.Services.AddSignalR(); // Thêm SignalR vào dịch vụ
 
 var twilioSettings = builder.Configuration.GetSection("Twilio").Get<TwilioSettings>();
 builder.Services.AddSingleton(twilioSettings);
@@ -86,7 +86,7 @@ app.UseRouting(); // Thêm UseRouting
 
 
 // Kiểm tra môi trường và cấu hình Swagger
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
