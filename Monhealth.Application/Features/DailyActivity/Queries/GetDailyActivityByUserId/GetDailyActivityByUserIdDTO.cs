@@ -16,6 +16,9 @@ namespace Monhealth.Application.Features.DailyActivity.Queries.GetDailyActivityB
     public class ActivityDTO
     {
         public Guid ActivityId { get; set; }
+        [JsonPropertyName("name")]
+        public string WorkoutName { get; set; } = string.Empty;
+        public bool IsCompleted { get; set; }
         public Guid UserId { get; set; }
         public Guid DailyActivityId { get; set; }
         public Guid WorkoutId { get; set; }
