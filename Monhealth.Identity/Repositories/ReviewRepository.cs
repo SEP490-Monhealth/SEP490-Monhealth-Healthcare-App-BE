@@ -60,9 +60,9 @@ namespace Monhealth.Identity.Repositories
         //    return query;
         //}
 
-        public async Task<PaginatedResult<Review>> GetReviewsByUser(Guid userId , int page , int limit)
+        public async Task<PaginatedResult<Review>> GetReviewsByUser(Guid userId, int page, int limit)
         {
-            var query =  _context.Reviews.
+            var query = _context.Reviews.
             Where(review => review.UserId == userId);
             var totalItems = await query.CountAsync();
 

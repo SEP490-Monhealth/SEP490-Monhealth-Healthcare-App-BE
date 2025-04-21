@@ -10,7 +10,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<PaginatedResult<ScheduleException>> GetScheduleExceptionByConsultantIdAsync(int page, int limit, Guid consultantId);
         Task<bool> CheckScheduleIsExceptionAsync(DateOnly date);
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
-        Task<ScheduleException>GetScheduleExceptionByIdAsync(Guid scheduleExceptionId);
 
     }
 }
