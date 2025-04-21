@@ -21,7 +21,6 @@ using Monhealth.Application.Features.Report.Queries.GetReportByConsultantId;
 using Monhealth.Application.Features.Report.Queries.GetReportById;
 using Monhealth.Application.Features.Report.Queries.GetReportByUserId;
 using Monhealth.Application.Features.Report.ReportBookingMonthly;
-using Monhealth.Application.Features.Report.ReportTransaction;
 using Monhealth.Application.Features.Report.ReportTransactionMonthly;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
@@ -113,7 +112,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
-        [SwaggerOperation(Summary = "Lấy danh sách báo cáo")]
         public async Task<ActionResult<ResultModel>> GetAllConsultantBanks(int page = 1, int limit = 10, string? search = null, StatusReport? status = null)
         {
             var reportList = await _mediator.Send(new GetAllReportsQuery { Page = page, Limit = limit, Search = search, Status = status });
@@ -127,7 +125,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{reportId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin báo cáo theo ID")]
         public async Task<ActionResult<ResultModel>> GetReportById(Guid reportId)
         {
             var report = await _mediator.Send(new GetReportByIdQuery { ReportId = reportId });
@@ -149,7 +146,6 @@ namespace Monhealth.Api.Controllers
             });
         }
         [HttpGet("booking/{bookingId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin báo cáo theo booking ID")]
         public async Task<ActionResult<ResultModel>> GetReportByBookingId(Guid bookingId)
         {
             var report = await _mediator.Send(new GetReportByBookingIdQuery { BookingId = bookingId });
@@ -162,7 +158,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin báo cáo theo consultant")]
         public async Task<ActionResult<ResultModel>> GetReportByConsultantId(Guid consultantId, int page = 1, int limit = 10)
         {
             var report = await _mediator.Send(new GetReportByConsultantIdQuery(consultantId, page, limit));
@@ -175,7 +170,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin báo cáo theo user")]
         public async Task<ActionResult<ResultModel>> GetReportByUserId(Guid userId, int page = 1, int limit = 10)
         {
             var report = await _mediator.Send(new GetReportByUserIdQuery(userId, page, limit));
@@ -188,7 +182,6 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Tạo báo cáo")]
         public async Task<ActionResult<ResultModel>> CreateReport([FromBody] CreateReportDTO createReportDTO)
         {
             var command = new CreateReportCommand(createReportDTO);
@@ -209,8 +202,8 @@ namespace Monhealth.Api.Controllers
                 Success = false
             };
         }
+
         [HttpPut("{reportId}")]
-        [SwaggerOperation(Summary = "Cập nhật báo cáo")]
         public async Task<ActionResult<ResultModel>> UpdateConsultantBank(Guid reportId, [FromBody] UpdateReportDTO updateReportDTO)
         {
             var command = new UpdateReportCommand(reportId, updateReportDTO);
@@ -231,8 +224,8 @@ namespace Monhealth.Api.Controllers
                 Message = "Cập nhật báo cáo thành công"
             };
         }
+
         [HttpDelete("{reportId}")]
-        [SwaggerOperation(Summary = "Xóa báo cáo")]
         public async Task<ActionResult<ResultModel>> DeleteReport(Guid reportId)
         {
             var command = new DeleteReportCommand { ReportId = reportId };
@@ -253,8 +246,8 @@ namespace Monhealth.Api.Controllers
                 Message = "Xóa báo cáo thành công"
             };
         }
+
         [HttpPatch("{reportId:guid}/approved")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái lịch hẹn")]
         public async Task<ActionResult<ResultModel>> ChangeStatusReportApproved([FromRoute] Guid reportId)
         {
             var result = await _mediator.Send(new ChangeStatusReportToApprovedCommand { ReportId = reportId });
@@ -274,8 +267,8 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
             });
         }
+
         [HttpPatch("{reportId:guid}/rejected")]
-        [SwaggerOperation(Summary = "Cập nhật trạng thái lịch hẹn")]
         public async Task<ActionResult<ResultModel>> ChangeStatusReportRejected([FromRoute] Guid reportId)
         {
             var result = await _mediator.Send(new ChangeStatusReportToRejectedCommand { ReportId = reportId });
