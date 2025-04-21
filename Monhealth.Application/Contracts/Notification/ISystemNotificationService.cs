@@ -13,7 +13,7 @@ namespace Monhealth.Application.Contracts.Notification
         Task NotifyNewUserSessionAsync(AppUser user);
         Task NotifyBookingCompleteForBoth(Booking booking, CancellationToken cancellationToken);
         Task NotifyCreateMetricSuccessfully(Guid userId, CancellationToken cancellationToken);
-
+        Task SendRejectedScheduleExceptionForConsultant(Consultant consultant, CancellationToken cancellationToken);
         Task SendBookingCancellationNotificationAsync(Booking booking, CancellationToken cancellationToken);
     }
 }
