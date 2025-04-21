@@ -18,6 +18,7 @@ namespace Monhealth.Identity.Repositories
         {
             search = search?.Trim();
             IQueryable<Booking> query = _context.Bookings.AsNoTracking()
+                .Include(r => r.Reviews)
                 .Include(b => b.User)
                 .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
                 .AsQueryable();
@@ -61,7 +62,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<Booking> GetBookingByBookingIdAsync(Guid bookingId)
         {
-            return await _context.Bookings.Include(b => b.User)
+            return await _context.Bookings.Include(b => b.User).Include(r => r.Reviews)
             .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
             .FirstOrDefaultAsync(b => b.BookingId == bookingId);
         }
@@ -69,10 +70,11 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId, DateTime? date)
         {
             var query = _context.Bookings.AsNoTracking()
-            .Include(b => b.User)
-            .Include(b => b.Consultant)
-            .ThenInclude(c => c.AppUser)
-            .AsQueryable();
+                .Include(r => r.Reviews)
+                .Include(b => b.User)
+                .Include(b => b.Consultant)
+                .ThenInclude(c => c.AppUser)
+                .AsQueryable();
 
             if (consultantId != Guid.Empty)
             {
@@ -111,7 +113,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Booking>> GetBookingByConsultantIds(List<Guid> consultantIds)
         {
-            return await _context.Bookings
+            return await _context.Bookings.Include(r => r.Reviews)
                 .Where(b => consultantIds.Contains(b.ConsultantId ?? Guid.Empty))
                 .ToListAsync();
 
@@ -122,6 +124,7 @@ namespace Monhealth.Identity.Repositories
 
             return await _context.Bookings
             .AsNoTracking()
+            .Include(r => r.Reviews)
             .Include(b => b.User)
             .Include(b => b.Consultant)
             .ThenInclude(c => c.AppUser)
@@ -134,6 +137,7 @@ namespace Monhealth.Identity.Repositories
             return await _context.Bookings
                    .AsNoTracking()
                    .AsSplitQuery()
+                   .Include(r => r.Reviews)
                    .Include(b => b.User)
                    .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
                    .OrderBy(c => c.StartTime)
