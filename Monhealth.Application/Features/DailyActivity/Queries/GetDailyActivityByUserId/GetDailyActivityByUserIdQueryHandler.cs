@@ -41,7 +41,8 @@ namespace Monhealth.Application.Features.DailyActivity.Queries.GetDailyActivityB
                     GoalType = goal.GoalType
                 };
             }
-            var dailyMeal = await _dailyMealRepository.GetDailyMealsByCreateAt(request.Date);
+            var dailyMeal = await _dailyMealRepository.GetDailyMealByDailyMealDate(request.Date);
+
             if (dailyMeal == null)
             {
                 return new GetDailyActivityByUserIdDTO();

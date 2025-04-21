@@ -10,42 +10,45 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
         private readonly IDailyActivityRepository _dailyActivityRepository;
         private readonly IGoalRepository _goalRepository;
         private readonly IWorkoutRepository _workoutRepository;
+        private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IMapper _mapper;
 
         public CreateActivityCommandHandler(IActivityRepository activityRepository,
                                             IDailyActivityRepository dailyActivityRepository,
                                             IGoalRepository goalRepository,
                                             IWorkoutRepository workoutRepository,
+                                            IDailyMealRepository dailyMealRepository,
                                             IMapper mapper)
         {
             _activityRepository = activityRepository;
             _dailyActivityRepository = dailyActivityRepository;
             _goalRepository = goalRepository;
             _workoutRepository = workoutRepository;
+            _dailyMealRepository= dailyMealRepository;
             _mapper = mapper;
         }
 
         public async Task<Unit> Handle(CreateActivityCommand request, CancellationToken cancellationToken)
         {
-            var today = DateTime.Today;
+            var createdAt = request.CreateActivityDTO.CreatedAt;
             var getGoal = await _goalRepository.GetGoalByUserIdAndStatusActive(request.CreateActivityDTO.UserId);
             if (getGoal == null)
             {
                 throw new Exception("Mục tiêu không tồn tại");
             }
             // kiem tra xem hom nay co DailyActivity chua
-            var dailyActivity = await _dailyActivityRepository.GetDailyActivityByUserIdAndCreateAt(request.CreateActivityDTO.UserId, today);
+            var dailyActivity = await _dailyActivityRepository.GetDailyActivityByUserIdAndCreateAt(request.CreateActivityDTO.UserId, createdAt);
             // Neu da co Activity cho ngay hom nay
             if (dailyActivity != null)
             {
                 // Lay tat ca cac Workout cua UserId
-                var workout = await _workoutRepository.GetByIdAsync(request.CreateActivityDTO.WorkoutId);
+                // var workout = await _workoutRepository.GetByIdAsync(request.CreateActivityDTO.WorkoutId);
                 // Cong don TotalDuration va TotalCaloriesBurned
-                dailyActivity.TotalDurationMinutes += workout.DurationMinutes;
-                dailyActivity.TotalCaloriesBurned += workout.CaloriesBurned;
-                dailyActivity.UpdatedAt = DateTime.Now;
+                // dailyActivity.TotalDurationMinutes += workout.DurationMinutes;
+                // dailyActivity.TotalCaloriesBurned += workout.CaloriesBurned;
+                // dailyActivity.UpdatedAt = DateTime.Now;
                 // Cap nhat lai DailyActivity
-                _dailyActivityRepository.Update(dailyActivity);
+                // _dailyActivityRepository.Update(dailyActivity);
 
                 var newActivity = _mapper.Map<Domain.Activity>(request.CreateActivityDTO);
                 newActivity.ActivityId = Guid.NewGuid();
