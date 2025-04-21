@@ -7,7 +7,6 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         public Guid? UserId { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int? Experience { get; set; }
-        public string MeetUrl { get; set; } = string.Empty;
         [JsonPropertyName("expertise")]
         public string ExpertiseName { get; set; } = string.Empty;
         [JsonPropertyName("certificate")]

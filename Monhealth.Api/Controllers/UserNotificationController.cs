@@ -1,13 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Monhealth.Application.Features.Notification.Commands.IsReadNotificaiton;
 using Monhealth.Application.Features.UserNotification.Queries.GetAllUserNotifications;
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationById;
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationByNotificationId;
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationByUserId;
 using Monhealth.Application.Models;
-using Monhealth.Application.Models.Identity;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -74,31 +72,6 @@ namespace Monhealth.Api.Controllers
                 Data = userNotification
             });
         }
-        [HttpPatch("notification/{notificationId}")]
-        public async Task<ActionResult<ResultModel>> MarkAsRead(Guid notificationId)
-        {
-            // Lấy UserId từ JWT token hoặc từ context người dùng
-            //var userId = httpContextAccessor.HttpContext.User.FindFirst(UserClaims.UserId)?.Value;
-            var userId = User.FindFirst(UserClaims.UserId)?.Value;
 
-            if (string.IsNullOrEmpty(userId))
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.Unauthorized,
-                    Message = "Người dùng chưa được xác thực."
-                };
-            }
-
-            var command = new IsReadNotificaitonCommand(Guid.Parse(userId), notificationId);
-            await mediator.Send(command);
-
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-            };
-        }
     }
 }

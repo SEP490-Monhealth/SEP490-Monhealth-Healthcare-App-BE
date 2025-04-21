@@ -4,12 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Features.Notification.Commands.CreateNotification;
 using Monhealth.Application.Features.Notification.Commands.DeleteNotification;
+using Monhealth.Application.Features.Notification.Commands.IsReadNotificaiton;
 using Monhealth.Application.Features.Notification.Commands.UpdateNotification;
 using Monhealth.Application.Features.Notification.Queries.GetAllNotifications;
 using Monhealth.Application.Features.Notification.Queries.GetNotificationByConsultantId;
 using Monhealth.Application.Features.Notification.Queries.GetNotificationById;
 using Monhealth.Application.Features.Notification.Queries.GetNotificationByUserId;
 using Monhealth.Application.Models;
+using Monhealth.Application.Models.Identity;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -146,25 +148,33 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        // [HttpPost("send")]
-        // public async Task<ActionResult<ResultModel>> SendNotification([FromBody] ExpoNotificationRequest notificationRequest)
-        // {
-        //     bool result = await notificationService.SendExpoNotificationAsync(notificationRequest.To, notificationRequest.Title, notificationRequest.Body);
-        //     if (result)
-        //     {
-        //         return new ResultModel
-        //         {
-        //             Message = "Tạo thông báo thành công",
-        //             Status = 201,
-        //             Success = true
-        //         };
-        //     }
-        //     return new ResultModel
-        //     {
-        //         Message = "Tạo thông báo thất bại",
-        //         Status = (int)HttpStatusCode.BadRequest,
-        //         Success = false
-        //     };
-        // }
+        [HttpPatch("{notificationId:guid}/read")]
+        public async Task<ActionResult<ResultModel>> MarkAsRead([FromRoute] Guid notificationId)
+        {
+            // Lấy UserId từ JWT token hoặc từ context người dùng
+            //var userId = httpContextAccessor.HttpContext.User.FindFirst(UserClaims.UserId)?.Value;
+            var userId = User.FindFirst(UserClaims.UserId)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.Unauthorized,
+                    Message = "Người dùng chưa được xác thực."
+                };
+            }
+
+            var command = new IsReadNotificaitonCommand(Guid.Parse(userId), notificationId);
+            await mediator.Send(command);
+
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+            };
+        }
+
+
     }
 }

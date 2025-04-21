@@ -29,7 +29,7 @@ namespace Monhealth.Identity.Repositories
             }
             return new PaginatedResult<Notification>
             {
-                Items = await query.ToListAsync(),
+                Items = await query.OrderByDescending(n => n.CreatedAt).ToListAsync(),
                 TotalCount = totalItems
             };
         }
@@ -50,30 +50,35 @@ namespace Monhealth.Identity.Repositories
 
             return new PaginatedResult<Notification>
             {
-                Items = notifications.Select(un => un.Notification).ToList(),
+                Items = notifications.OrderByDescending(n => n.CreatedAt).Select(un => un.Notification).ToList(),
                 TotalCount = totalItems,
             };
         }
 
         public async Task<Notification> GetNotificationByNotificationId(Guid notificationId)
         {
-            return await _context.Notifications.Include(un => un.UserNotifications).FirstOrDefaultAsync(n => n.NotificationId == notificationId);
+            return await _context.Notifications
+                .Include(un => un.UserNotifications)
+                .FirstOrDefaultAsync(n => n.NotificationId == notificationId);
         }
 
         public async Task<PaginatedResult<Notification>> GetNotificationByUserId(int page, int limit, Guid userId)
         {
             var notificationsQuery = _context.UserNotifications
             .Where(un => un.UserId == userId)
-            .Include(un => un.Notification);
+            .Include(un => un.Notification).AsQueryable();
 
             int totalItems = await notificationsQuery.CountAsync();
-            var notifications = await notificationsQuery
-                .Skip((page - 1) * limit)
-                .Take(limit)
-                .ToListAsync();
+
+            if (page > 0 && limit > 0)
+            {
+                notificationsQuery = notificationsQuery.Skip((page - 1) * limit).Take(limit);
+            }
+
             return new PaginatedResult<Notification>
             {
-                Items = notifications.Select(un => un.Notification).ToList(),
+                Items = await notificationsQuery.OrderByDescending(un => un.CreatedAt)
+                .Select(un => un.Notification).ToListAsync(),
                 TotalCount = totalItems
             };
         }

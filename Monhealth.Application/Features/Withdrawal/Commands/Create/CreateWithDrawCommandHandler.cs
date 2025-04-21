@@ -29,7 +29,7 @@ namespace Monhealth.Application
 
             if (wallet.Balance < request.Amount)
             {
-                throw new BadRequestException("Số dư không để để tạo yêu cầu rút tiền");
+                throw new BadRequestException("Số dư không đủ để tạo yêu cầu rút tiền");
             };
 
             float waitingMoney = 0;
