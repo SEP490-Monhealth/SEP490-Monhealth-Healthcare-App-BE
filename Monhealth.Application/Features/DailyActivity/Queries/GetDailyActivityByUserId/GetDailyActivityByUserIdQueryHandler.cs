@@ -41,12 +41,24 @@ namespace Monhealth.Application.Features.DailyActivity.Queries.GetDailyActivityB
                     GoalType = goal.GoalType
                 };
             }
-            var dailyMeal = await _dailyMealRepository.GetDailyMealsByCreateAt(request.Date);
+            var dailyMeal = await _dailyMealRepository.GetDailyMealByDailyMealDate(request.Date);
+
+            var activities = await _activityRepository.GetActivitiesByDailyActivityId(dailyActivity.DailyActivityId);
             if (dailyMeal == null)
             {
-                return new GetDailyActivityByUserIdDTO();
+                return new GetDailyActivityByUserIdDTO
+                {
+                    DailyActivityId = dailyActivity.DailyActivityId,
+                    GoalType = goal.GoalType,
+                    TotalCaloriesIntake = 0,
+                    TotalCaloriesBurned = dailyActivity.TotalCaloriesBurned,
+                    TotalDurationMinutes = dailyActivity.TotalDurationMinutes,
+                    Items = _mapper.Map<List<ActivityDTO>>(activities),
+                    CreatedAt = dailyActivity.CreatedAt,
+                    UpdatedAt = dailyActivity.UpdatedAt
+
+                };
             }
-            var activities = await _activityRepository.GetActivitiesByDailyActivityId(dailyActivity.DailyActivityId);
 
             return new GetDailyActivityByUserIdDTO
             {

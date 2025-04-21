@@ -14,7 +14,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IGoalRepository _goalRepository;
         private readonly IFoodRepository _foodRepository;
-
+        private readonly IWorkoutRepository _workoutRepository;
+        private readonly IDailyActivityRepository _dailyActivityRepository;
         public CreateMealCommandHandler(
             IMealRepository mealRepository,
             IMealFoodRepository mealFoodRepository,
@@ -22,7 +23,9 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             IFoodPortionRepository foodPortionRepository,
             IDailyMealRepository dailyMealRepository,
             IGoalRepository goalRepository,
-            IFoodRepository foodRepository)
+            IFoodRepository foodRepository,
+            IWorkoutRepository workoutRepository,
+            IDailyActivityRepository dailyActivityRepository)
         {
             _mealRepository = mealRepository;
             _mealFoodRepository = mealFoodRepository;
@@ -31,15 +34,17 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             _dailyMealRepository = dailyMealRepository;
             _goalRepository = goalRepository;
             _foodRepository = foodRepository;
+            _workoutRepository = workoutRepository;
+            _dailyActivityRepository = dailyActivityRepository;
         }
 
-        public async Task<Guid> Handle(CreateMealCommand request, 
+        public async Task<Guid> Handle(CreateMealCommand request,
                                        CancellationToken cancellationToken)
         {
             var userId = request.CreateMeal.UserId;
             // Lấy MealDate từ request và chuyển về dạng Date (loại bỏ phần thời gian nếu cần)
             var mealDate = request.CreateMeal.MealDate.Date;
-            
+
             if (request.CreateMeal.MealType == null)
             {
                 throw new ArgumentException("MealType không được để trống.");
@@ -47,7 +52,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 
             var mealTypeString = request.CreateMeal.MealType.ToString();
 
-            if (!Enum.TryParse(mealTypeString, 
+            if (!Enum.TryParse(mealTypeString,
                                out MealType mealTypeEnum) ||
                 !Enum.IsDefined(typeof(MealType), mealTypeEnum))
             {
@@ -57,7 +62,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             // Kiểm tra bữa ăn đã tồn tại theo userId, mealType và mealDate
             var existingMeal = await _mealRepository
                 .GetByUserIdAndMealType(userId, mealTypeEnum, mealDate);
-            Console.WriteLine(existingMeal != null ? 
+            Console.WriteLine(existingMeal != null ?
                 $"Meal exists: {existingMeal.MealId}" : "Meal not found");
 
             Domain.Meal model;
@@ -91,8 +96,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     throw new Exception("Quantity phải lớn hơn hoặc bằng 0");
 
                 var existingPortion = await _portionRepository
-                    .GetPortionAsync(item.MeasurementUnit, 
-                                     item.PortionSize, 
+                    .GetPortionAsync(item.MeasurementUnit,
+                                     item.PortionSize,
                                      item.PortionWeight);
                 Portion portion = existingPortion ?? new Portion
                 {
@@ -149,7 +154,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 if (food != null)
                 {
                     food.Views += 1;
-                    
+
                     await _foodRepository.SaveChangesAsync();
                 }
             }
@@ -174,7 +179,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 {
                     GoalId = goal.GoalId,
                     UserId = userId,
-                    CreatedAt = DateTime.Now, // Hoặc bạn có thể sử dụng mealDate tùy yêu cầu
+                    CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                     DailyMealDate = mealDate,
                     TotalCalories = 0,
@@ -185,7 +190,17 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     TotalSugars = 0
                 };
                 _dailyMealRepository.Add(dailyMeal);
-
+                // var newDailyActivity = new Domain.DailyActivity
+                // {
+                //     UserId = userId,
+                //     GoalId = goal.GoalId,
+                //     CreatedAt = dailyMeal.DailyMealDate,
+                //     UpdatedAt = DateTime.Now,
+                //     TotalCaloriesBurned = 0,
+                //     TotalDurationMinutes = 0
+                // };
+                // newDailyActivity.DailyActivityId = Guid.NewGuid();
+                // _dailyActivityRepository.Add(newDailyActivity);
                 // Lưu DailyMeal để lấy DailyMealID
                 await _dailyMealRepository.SaveChangeAsync();
             }
