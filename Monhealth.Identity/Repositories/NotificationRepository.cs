@@ -77,7 +77,8 @@ namespace Monhealth.Identity.Repositories
 
             return new PaginatedResult<Notification>
             {
-                Items = await notificationsQuery.OrderByDescending(un => un.CreatedAt)
+                Items = await notificationsQuery
+                .OrderByDescending(un => un.CreatedAt)
                 .Select(un => un.Notification).ToListAsync(),
                 TotalCount = totalItems
             };

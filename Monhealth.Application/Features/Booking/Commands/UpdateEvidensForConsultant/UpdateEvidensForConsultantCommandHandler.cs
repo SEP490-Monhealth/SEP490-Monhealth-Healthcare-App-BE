@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsultant
 {
@@ -27,6 +28,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             booking.EvidenceUrls = request.UpdateEvidensDto.EvidenceUrls;
 
             booking.UpdatedAt = DateTime.Now;
+            booking.Status = BookingStatus.Completed;
             bookingRepository.SaveChangeAsync(cancellationToken);
             return true;
         }
