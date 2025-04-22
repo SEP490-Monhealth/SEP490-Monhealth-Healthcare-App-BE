@@ -4,7 +4,6 @@ using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
-using System.Linq;
 
 namespace Monhealth.Identity.Repositories
 {
@@ -78,7 +77,8 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId, DateTime? date)
         {
-            var query = _context.Bookings.AsNoTracking()
+            var query = _context.Bookings
+                .AsNoTracking()
                 .Include(r => r.Reviews)
                 .Include(b => b.User)
                 .Include(b => b.Consultant)

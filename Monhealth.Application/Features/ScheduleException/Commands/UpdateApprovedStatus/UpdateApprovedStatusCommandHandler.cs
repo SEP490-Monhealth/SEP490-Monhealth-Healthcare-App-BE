@@ -36,7 +36,7 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.UpdateApprov
             }
 
             scheduleException.Status = ScheduleExceptionStatus.Approved;
-            scheduleExceptionRepository.SaveChangeAsync(cancellationToken);
+            await scheduleExceptionRepository.SaveChangeAsync(cancellationToken);
             return true;
         }
     }

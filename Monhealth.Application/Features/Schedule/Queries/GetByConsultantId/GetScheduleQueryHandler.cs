@@ -28,18 +28,22 @@ namespace Monhealth.Application.Features.Schedule.Queries.GetByUser
 
         public async Task<List<ScheduleDTO>> Handle(GetScheduleByConsultantIdQuery request, CancellationToken cancellationToken)
         {
-            var schedules = await _scheduleRepository.GetSchedulesByUser(request.ConsultantId, request.Date.HasValue ? DateOnly.FromDateTime(request.Date.Value) : null, request.ScheduleType);
+            var schedules = await _scheduleRepository
+                .GetSchedulesByUser(request.ConsultantId, request.Date.HasValue
+                ? DateOnly.FromDateTime(request.Date.Value) : null, request.ScheduleType);
             if (schedules == null) throw new BadRequestException("Không tìm thấy lịch");
             List<TimeOnly> bookedTimes = new();
             bool IsScheduleException = false;
             if (request.Date.HasValue)
             {
-                bookedTimes = await bookingRepository.GetBookedTimeAsync(request.ConsultantId, DateOnly.FromDateTime(request.Date.Value)); //lay gio da duoc book trong Booking table
+                bookedTimes = await bookingRepository
+                    .GetBookedTimeAsync(request.ConsultantId, DateOnly.FromDateTime(request.Date.Value)); //lay gio da duoc book trong Booking table
             }
 
             if (request.Date.HasValue)
             {
-                IsScheduleException = await scheduleExceptionRepository.CheckScheduleIsExceptionAsync(DateOnly.FromDateTime(request.Date.Value));
+                IsScheduleException = await scheduleExceptionRepository
+                    .CheckScheduleIsExceptionAsync(request.ConsultantId, DateOnly.FromDateTime(request.Date.Value));
             }
 
             var result = schedules.Select(s => new ScheduleDTO
