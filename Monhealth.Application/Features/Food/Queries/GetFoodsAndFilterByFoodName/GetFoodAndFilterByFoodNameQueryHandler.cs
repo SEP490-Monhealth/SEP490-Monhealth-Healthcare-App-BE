@@ -1,0 +1,77 @@
+using MediatR;
+using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Features.Food.Queries.GetAllFoods;
+using Monhealth.Application.Models.Paging;
+using Monhealth.Core.Enum;
+
+namespace Monhealth.Application
+{
+    public class GetFoodAndFilterByFoodNameQuery : IRequest<PageResult<FoodDTO>>
+    {
+        public int Page { get; set; }
+        public int Limit { get; set; }
+        public string Search { get; set; } 
+        public bool? Status { get; set; }
+        public bool? IsPublic { get; set; } = true;
+        public GetFoodAndFilterByFoodNameQuery(int page, int limit, string search , bool? status = null, bool? isPublic = null)
+        {
+            Page = page;
+            Limit = limit;
+            Search = search;
+            Status = status;
+            IsPublic = isPublic;
+        }
+    }
+    public class GetFoodAndFilterByFoodNameQueryHandler(IFoodRepository _foodRepository) : IRequestHandler<GetFoodAndFilterByFoodNameQuery, PageResult<FoodDTO>>
+    {
+        public async Task<PageResult<FoodDTO>> Handle(GetFoodAndFilterByFoodNameQuery request, CancellationToken cancellationToken)
+        {
+            var paginatedFood = await _foodRepository.GetAllFoodsAndFilterByFoodNameAsync
+            (request.Page, request.Limit, request.Search , request.Status, request.IsPublic);
+            var foodDtoList = paginatedFood.Items.Select(food => new FoodDTO
+            {
+                FoodId = food.FoodId,
+                UserId = food.UserId,
+                FoodName = food.FoodName,
+                MealType = food.MealType, // Chuyển từ chuỗi sang danh sách
+                FoodDescription = food.FoodDescription,
+                ReferenceUrl = food.ReferenceUrl,
+                Allergies = food.FoodAllergies?
+               .Where(f => f.Allergy != null)
+               .Select(f => f.Allergy.AllergyName).ToList() ?? [],
+
+                DishType = [..
+                    food.DishTypeFoods?.Select(dtf => dtf.DishType.DishTypeName).ToList()
+                    .Select(n=>(DishTypeEnum)Enum.Parse(typeof(DishTypeEnum),n)) ??[]
+                    ],
+                Category = food.CategoryFoods.Select(x => x.Category.CategoryName).FirstOrDefault() ?? "", // Nếu có quan hệ với Category
+                Portion = food.FoodPortions.Select(fp => new GetPortionForGetAllFoodDTO
+                {
+                    PortionSize = fp.Portion.PortionSize,
+                    PortionWeight = fp.Portion.PortionWeight,
+                    MeasurementUnit = fp.Portion.MeasurementUnit
+                }).FirstOrDefault() ?? null!,
+                Nutrition = food.Nutrition != null
+         ? new GetNutritionForGetAllFoodDTO
+         {
+             Calories = food.Nutrition.Calories
+         }
+         : null!,
+                Status = food.Status,
+                IsPublic = food.IsPublic,
+                CreatedAt = food.CreatedAt,
+                UpdatedAt = food.UpdatedAt,
+                UpdatedBy = food.UpdatedBy,
+                CreatedBy = food.CreatedBy
+            }).ToList();
+
+            return new PageResult<FoodDTO>()
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(paginatedFood.TotalCount / (double)request.Limit),
+                TotalItems = paginatedFood.TotalCount,
+                Items = foodDtoList
+            };
+        }
+    }
+}

@@ -17,6 +17,13 @@ namespace Monhealth.Application.Contracts.Persistence
             List<Guid> allergiesIds
         );
         Task<List<Food>> GetFoodByUserHasNoAllergiesAsync(Guid userId);
-       Task<PaginatedResult<Food>> GetRelatedFoodBasedOnType(Guid foodId, string? search, bool? status, int? page, int? limit);
+        Task<PaginatedResult<Food>> GetRelatedFoodBasedOnType(Guid foodId, string? search, bool? status, int? page, int? limit);
+        Task<PaginatedResult<Food>> GetAllFoodsAndFilterByFoodNameAsync(
+            int page,
+            int limit,
+            string search,
+            bool? status,
+            bool? isPublic);
+
     }
 }

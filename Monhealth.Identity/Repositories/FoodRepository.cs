@@ -497,5 +497,66 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<PaginatedResult<Food>> GetAllFoodsAndFilterByFoodNameAsync(
+    int page,
+    int limit,
+    string search,
+    bool? status,
+    bool? isPublic)
+        {
+            // 1. Tách chuỗi thành List<string>
+            var terms = new List<string>();
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                terms = search
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => s.Trim())
+                    .Where(s => !string.IsNullOrEmpty(s))
+                    .ToList();
+            }
+
+
+            // 2. Xây dựng query gốc
+            var query = _context.Foods
+                        .Include(f => f.DishTypeFoods).ThenInclude(fd => fd.DishType)
+                            .Include(f => f.CategoryFoods).ThenInclude(cf => cf.Category)
+                            .Include(f => f.Nutrition)
+                            .Include(f => f.FoodPortions).ThenInclude(fp => fp.Portion)
+                            .AsQueryable();
+            if (isPublic.HasValue)
+            {
+                query = query.Where(s => s.IsPublic == isPublic.Value);
+            }
+            if (status.HasValue)
+            {
+                query = query.Where(s => s.Status == status.Value);
+            }
+            // 3. Áp dụng filter nếu có terms
+            if (terms.Any())
+            {
+                query = query.Where(f =>
+                    terms.Any(term =>
+                    EF.Functions.Like(f.FoodName, "%" + term + "%")
+
+                    )
+                );
+            }
+
+            // 4. Lấy tổng và phân trang (nếu cần)
+            var totalCount = await query.CountAsync();
+            var items = await query
+                .Skip((page - 1) * limit)
+                .Take(limit)
+                .ToListAsync();
+
+            // 5. Trả kết quả
+            return new PaginatedResult<Food>
+            {
+                Items = items,
+                TotalCount = totalCount
+            };
+        }
+
     }
 }

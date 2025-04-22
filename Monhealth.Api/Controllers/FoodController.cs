@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Food.AddFood;
 using Monhealth.Application.Features.Food.AddFoodUser;
 using Monhealth.Application.Features.Food.ChangeStatus;
@@ -41,7 +42,26 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
+        [HttpGet("filter")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<ResultModel>> GetAllFoodsAndFilterByFoodName(
+                  [FromQuery] int page = 1,
+                  [FromQuery] int limit = 10,
+                  [FromQuery(Name = "search")] string? search = null,
+                  [FromQuery(Name = "status")] bool? status = null,
+                  [FromQuery(Name = "isPublic")] bool? isPublic = null)
+        {
 
+
+            var result = await _mediator.Send(new GetFoodAndFilterByFoodNameQuery(page, limit, search, status, isPublic));
+
+            return new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true,
+            };
+        }
         [HttpGet]
         [Route("user/{userId:Guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách món ăn theo ID người dùng")]
