@@ -28,8 +28,9 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             booking.EvidenceUrls = request.UpdateEvidensDto.EvidenceUrls;
 
             booking.UpdatedAt = DateTime.Now;
+            booking.CompletedAt = DateTime.Now;
             booking.Status = BookingStatus.Completed;
-            bookingRepository.SaveChangeAsync(cancellationToken);
+            await bookingRepository.SaveChangeAsync(cancellationToken);
             return true;
         }
 

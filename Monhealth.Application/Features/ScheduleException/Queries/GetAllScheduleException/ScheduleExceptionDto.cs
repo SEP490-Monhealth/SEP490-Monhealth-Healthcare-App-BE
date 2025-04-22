@@ -1,5 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Monhealth.Domain.Common;
+﻿using Monhealth.Domain.Common;
+using Monhealth.Domain.Enum;
+using System.Text.Json.Serialization;
 
 namespace Monhealth.Application.Features.ScheduleException.Queries.GetAllScheduleException
 {
@@ -10,6 +11,7 @@ namespace Monhealth.Application.Features.ScheduleException.Queries.GetAllSchedul
         public DateOnly Date { get; set; }
         public string? Reason { get; set; }
         public ConsultantForGetAllScheduleExceptionDTO? Consultant { get; set; }
+        public ScheduleExceptionStatus Status { get; set; }
     }
     public class ConsultantForGetAllScheduleExceptionDTO
     {
