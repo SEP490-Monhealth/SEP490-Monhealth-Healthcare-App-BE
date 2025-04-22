@@ -21,7 +21,6 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
 
             booking.Status = BookingStatus.Cancelled;
             booking.CancellationReason = request.CancellationReason;
-            booking.UpdatedBy = booking.UserId;
             bookingRepository.Update(booking);
 
             //subtract amout booking for consultant
