@@ -163,27 +163,29 @@ namespace Monhealth.Infrastructure.NotificationServices
             {
                 logger.LogError(ex, $"Failed to send notifications for new booking: {booking.BookingId}");
             }
+
         }
 
-        public async Task NotifyNewConsultantRegistrationAsync(Consultant consultant, CancellationToken cancellationToken)
+        public async Task NotifyNewConsultantRegistrationAsync(Guid userId, CancellationToken cancellationToken)
         {
             try
             {
+                var user = await userRepository.GetByIdAsync(userId);
                 string title = "Chào mừng đến với Monhealth";
-                string content = $"Chào {consultant?.AppUser?.FullName}, tài khoản chuyên viên tư vấn của bạn đã được tạo thành công!";
+                string content = $"Chào {user?.FullName}, tài khoản chuyên viên tư vấn của bạn đã được tạo thành công!";
 
                 await notificationService.SendUserNotificationAsync(
-                    (Guid)consultant.UserId,
+                    userId,
                     title,
                     content,
                     cancellationToken
                 );
 
-                logger.LogInformation($"Sent welcome notification to new consultant: {consultant.ConsultantId}");
+                logger.LogInformation($"Sent welcome notification to new consultant: {user.FullName}");
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, $"Failed to send welcome notification to new consultant: {consultant.ConsultantId}");
+                logger.LogError(ex, $"Failed to send welcome notification to new consultant: {userId}");
             }
         }
 

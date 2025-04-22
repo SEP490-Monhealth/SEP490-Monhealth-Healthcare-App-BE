@@ -102,7 +102,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
             }
 
             //Send notification create new Consultant
-            await systemNotificationService.NotifyNewConsultantRegistrationAsync(newConsultant, cancellationToken);
+            await systemNotificationService.NotifyNewConsultantRegistrationAsync((Guid)userId, cancellationToken);
 
             await _certificateRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;

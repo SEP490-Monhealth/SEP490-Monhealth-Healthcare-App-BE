@@ -123,8 +123,7 @@ namespace Monhealth.Identity
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(cfg =>
+            }).AddJwtBearer(cfg =>
             {
                 cfg.Events = new JwtBearerEvents
                 {
