@@ -1,7 +1,12 @@
+using System;
+using System.Linq;
 using System.Transactions;
+using System.Threading;
+using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
 {
@@ -29,46 +34,38 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
 
         public async Task<bool> Handle(MealFoodCommand request, CancellationToken cancellationToken)
         {
-            // Sử dụng TransactionScope để đảm bảo atomic cho mọi thay đổi
             using var tx = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
-            // 1. Lấy MealFood
-            var mealFood = await _mealFoodRepository.GetByIdAsync(request.MealFoodId);
-            if (mealFood == null)
-                throw new ArgumentException("MealFood không tồn tại.");
+            // Lấy MealFood
+            var mealFood = await _mealFoodRepository.GetByMealFoodIdAsync(request.MealFoodId)
+                ?? throw new ArgumentException("MealFood không tồn tại.");
 
-            // 2. Lấy Meal liên quan
-            var meal = await _mealRepository.GetByIdAsync(mealFood.MealId);
-            if (meal == null)
-                throw new ArgumentException("Meal không tồn tại.");
+            // Lấy Meal
+            var meal = await _mealRepository.GetByIdAsync(mealFood.MealId)
+                ?? throw new ArgumentException("Meal không tồn tại.");
 
-            // 3. Lấy DailyMeal nếu có
+            // Lấy DailyMeal nếu có
             Domain.DailyMeal dailyMeal = null;
             if (meal.DailyMealId.HasValue)
-            {
                 dailyMeal = await _dailyMealRepository.GetByIdAsync(meal.DailyMealId.Value);
-            }
 
-            // Xử lý xoá hoặc cập nhật
+            // Xử lý xoá
             if (request.Quantity == 0)
             {
-                // 4. Xóa MealFood
                 _mealFoodRepository.Remove(mealFood);
                 await _mealFoodRepository.SaveChangeAsync();
 
-                // 5. Xử lý Meal nếu không còn food nào
-                var remainingMealFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
-                if (!remainingMealFoods.Any())
+                var remFoods = await _mealFoodRepository.GetMealFoodByMealId(meal.MealId);
+                if (!remFoods.Any())
                 {
                     _mealRepository.Remove(meal);
                     await _mealRepository.SaveChangeAsync();
                 }
 
-                // 6. Tính lại DailyMeal hoặc xóa nếu không còn meal nào
                 if (dailyMeal != null)
                 {
-                    var remainingMeals = await _mealRepository.GetMealsByDailyMealId(dailyMeal.DailyMealId);
-                    if (!remainingMeals.Any())
+                    var remMeals = await _mealRepository.GetMealsByDailyMealId(dailyMeal.DailyMealId);
+                    if (!remMeals.Any())
                     {
                         _dailyMealRepository.Remove(dailyMeal);
                         await _dailyMealRepository.SaveChangeAsync();
@@ -81,16 +78,30 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
             }
             else
             {
-                // 7. Cập nhật Quantity của MealFood
+                // Tính delta Calories
+                var oldQuantity = mealFood.Quantity;
+                var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId)
+                              ?? throw new ArgumentException($"Portion {mealFood.PortionId} không tồn tại.");
+                var nut = mealFood.Food?.Nutrition
+                          ?? throw new ArgumentException($"Nutrition cho FoodId {mealFood.FoodId} không đầy đủ.");
+
+                var oldCalories = oldQuantity * portion.PortionWeight * nut.Calories / 100f;
+                var newCalories = request.Quantity * portion.PortionWeight * nut.Calories / 100f;
+                var deltaCalories = newCalories - oldCalories;
+
+                // Cập nhật MealFood
                 mealFood.Quantity = request.Quantity;
                 mealFood.UpdatedAt = DateTime.Now;
                 _mealFoodRepository.Update(mealFood);
                 await _mealFoodRepository.SaveChangeAsync();
 
-                // 8. Tính lại DailyMeal nếu có
+                // Cập nhật TotalCalories
                 if (dailyMeal != null)
                 {
-                    await RecalculateDailyMealNutrition(dailyMeal);
+                    dailyMeal.TotalCalories += deltaCalories;
+                    dailyMeal.UpdatedAt = DateTime.Now;
+                    _dailyMealRepository.Update(dailyMeal);
+                    await _dailyMealRepository.SaveChangeAsync();
                 }
             }
 
@@ -98,14 +109,10 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
             return true;
         }
 
-        /// <summary>
-        /// Tính toán lại tổng dinh dưỡng cho DailyMeal và lưu
-        /// </summary>
         private async Task RecalculateDailyMealNutrition(Domain.DailyMeal dailyMeal)
         {
             if (dailyMeal == null) return;
 
-            // Reset các giá trị
             dailyMeal.TotalCalories = 0;
             dailyMeal.TotalProteins = 0;
             dailyMeal.TotalCarbs = 0;
@@ -122,6 +129,7 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
                     try
                     {
                         if (foodItem.Quantity <= 0) continue;
+
                         var portion = await _portionRepository.GetByIdAsync(foodItem.PortionId);
                         if (portion == null)
                         {
