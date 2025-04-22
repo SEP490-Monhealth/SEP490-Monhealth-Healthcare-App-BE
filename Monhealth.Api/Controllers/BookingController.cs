@@ -6,7 +6,6 @@ using Monhealth.Application.Features.Booking.Commands.CreateBooking;
 using Monhealth.Application.Features.Booking.Commands.DeleteBooking;
 using Monhealth.Application.Features.Booking.Commands.UpdateBooking;
 using Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel;
-using Monhealth.Application.Features.Booking.Commands.UpdateBookingStatus;
 using Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsultant;
 using Monhealth.Application.Features.Booking.Queries.GetAllBookings;
 using Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId;

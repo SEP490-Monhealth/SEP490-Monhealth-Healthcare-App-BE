@@ -23,10 +23,8 @@ namespace Monhealth.Application.Features.Report.ReportBookingMonthly
                 toDate
             );
 
-            // tinh tong booking khi BookingStatus = Completed
-            var bookingCompleted = bookings.Where(s => s.Status == BookingStatus.Completed).ToList();
             // Gom nhom theo thang
-            var bookingGrouped = bookingCompleted
+            var bookingGrouped = bookings
                 .GroupBy(b => new { b.Day.Year, b.Day.Month })
                 .ToDictionary(
                     g => $"{g.Key.Year}-{g.Key.Month:D2}",

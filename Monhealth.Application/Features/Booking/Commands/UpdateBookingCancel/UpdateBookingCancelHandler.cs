@@ -17,7 +17,6 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
             var booking = await bookingRepository.GetBookingByBookingIdAsync(request.BookingId);
             if (booking == null) throw new BadRequestException("Không tìm thấy lịch hẹn");
             if (booking.Status == BookingStatus.Cancelled) throw new BadRequestException("Không thể hủy lịch hẹn đã bị hủy");
-            if (booking.Status == BookingStatus.Confirmed) throw new BadRequestException("Không thể hủy lịch hẹn chuyên viên tư vấn đã chấp nhận");
             if (booking.Status == BookingStatus.Completed) throw new BadRequestException("Không thể hủy lịch hẹn đã hoàn thành");
 
             booking.Status = BookingStatus.Cancelled;
