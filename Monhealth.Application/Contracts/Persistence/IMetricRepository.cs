@@ -7,6 +7,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Metric>> GetAllMetricAsync();
         Task<List<Metric>> GetMetricByUserIdAsync(Guid userId);
         Task<Metric> GetMetricByMetricIdUserIdAsync(Guid metricId, Guid userId);
+        Task<Metric> GetMetricByUserAsync(Guid metricId);
         Task<int> SaveChangeAsync();
         Task<Metric>GetByUserIdAsync(Guid userId);
     }
