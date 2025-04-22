@@ -53,12 +53,11 @@ namespace Monhealth.Identity
                 options.User.RequireUniqueEmail = true;
                 options.SignIn.RequireConfirmedEmail = false;
             });
-            services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
-            services.AddScoped<IMetricRepository, MetricRepository>();
-
-            services.Configure<JwtTokenSettings>(configuration.GetSection(nameof(JwtTokenSettings)));
-
             services.AddScoped<SignInManager<AppUser>, SignInManager<AppUser>>();
+
+            services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+            services.Configure<JwtTokenSettings>(configuration.GetSection(nameof(JwtTokenSettings)));
+            services.AddScoped<IMetricRepository, MetricRepository>();
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
@@ -90,6 +89,7 @@ namespace Monhealth.Identity
             services.AddScoped<ITransactionRepository, TransactionRepository>();
             services.AddScoped<IBankRepository, BankRepository>();
             services.AddScoped<IConsultantBankRepository, ConsultantBankRepository>();
+
             // Đăng ký MediatR
             services.AddScoped<WaterReminderResetService>();
             services.AddScoped<IDailyWaterIntakesRepository, DailyWaterIntakesRepository>();
@@ -157,11 +157,21 @@ namespace Monhealth.Identity
                 };
             });
 
+            // Thêm Authorization service
+            services.AddAuthorization(options =>
+            {
+                // Định nghĩa các policy
+                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("RequireConsultantRole", policy => policy.RequireRole("Consultant"));
+                options.AddPolicy("RequireMemberRole", policy => policy.RequireRole("Member"));
+
+                options.AddPolicy("ConsultantOrAdmin", policy =>
+                    policy.RequireRole("Consultant", "Admin"));
+            });
+
             // Other service configurations...
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<INutritionRepository, NutritionRepository>();
-
-
 
             return services;
         }

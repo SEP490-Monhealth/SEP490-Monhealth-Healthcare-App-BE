@@ -78,7 +78,10 @@ builder.Services.AddCors(options =>
 });
 builder.Services.AddScoped<GoalService>();
 
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient("n8n", client =>
+{
+    client.BaseAddress = new Uri("https://n8n.persiehomeserver.com/");
+});
 
 var app = builder.Build();
 
