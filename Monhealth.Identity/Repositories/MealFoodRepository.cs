@@ -11,11 +11,19 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
+        public Task<MealFood> GetByMealFoodIdAsync(Guid id)
+        {
+            return _context.MealFoods.Include(mf => mf.Food).ThenInclude(mf => mf.Nutrition)
+            .Include(mf => mf.Food).ThenInclude(mf => mf.FoodPortions).ThenInclude(mf => mf.Portion)
+            .FirstOrDefaultAsync(mf => mf.MealFoodId == id);
+        }
+
         public async Task<MealFood> GetByMealIdAndFoodId(Guid mealId, Guid FoodId)
         {
             return await _context.MealFoods.FirstOrDefaultAsync(mf => mf.MealId == mealId
             && mf.FoodId == FoodId);
         }
+
 
         public async Task<List<MealFood>> GetMealFoodByFoodId(Guid foodId)
         {
