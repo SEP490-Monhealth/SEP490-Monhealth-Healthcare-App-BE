@@ -9,6 +9,7 @@ using Monhealth.Application.Features.ScheduleException.Queries.GetAllScheduleExc
 using Monhealth.Application.Features.ScheduleException.Queries.GetScheduleExceptionByConsultantId;
 using Monhealth.Application.Features.ScheduleException.Queries.GetScheduleExceptionById;
 using Monhealth.Application.Models;
+using Monhealth.Domain.Enum;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
@@ -20,9 +21,9 @@ namespace Monhealth.Api.Controllers
     {
         [HttpGet]
         [SwaggerOperation(Summary = "Lấy danh sách lịch nghỉ")]
-        public async Task<ActionResult<ResultModel>> GetAllScheduleException(int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllScheduleException(int page = 1, int limit = 10, string? search = null, ScheduleExceptionStatus? status = null)
         {
-            var scheduleList = await mediator.Send(new GetAllScheduleExceptionQueries(page, limit));
+            var scheduleList = await mediator.Send(new GetAllScheduleExceptionQueries(page, limit, search, status));
 
             return new ResultModel
             {

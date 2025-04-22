@@ -2,6 +2,7 @@
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 using Monhealth.Identity.Dbcontexts;
 namespace Monhealth.Identity.Repositories
 {
@@ -17,10 +18,25 @@ namespace Monhealth.Identity.Repositories
             return await _context.ScheduleExceptions.AnyAsync(sk => sk.Date == date);
         }
 
-        public async Task<PaginatedResult<ScheduleException>> GetAllScheduleExceptionsAsync(int page, int limit)
+        public async Task<PaginatedResult<ScheduleException>> GetAllScheduleExceptionsAsync(int page, int limit, string? search, ScheduleExceptionStatus? status)
         {
             IQueryable<ScheduleException> query = _context.ScheduleExceptions
             .Include(s => s.Consultant).ThenInclude(us => us.AppUser);
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.ToLower().Trim();
+                query = query.Where(se => se.ScheduleExceptionId.ToString() == search ||
+                    se.ConsultantId.ToString() == search ||
+                    EF.Functions.Collate(se.Reason, "SQL_Latin1_General_CP1_CI_AI").Contains(search)
+                );
+            }
+
+            if (status.HasValue)
+            {
+                query = query.Where(se => se.Status == status.Value);
+            }
+
             int totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)

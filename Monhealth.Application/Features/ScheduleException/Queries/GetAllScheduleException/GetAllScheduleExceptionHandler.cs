@@ -9,7 +9,7 @@ namespace Monhealth.Application.Features.ScheduleException.Queries.GetAllSchedul
     {
         public async Task<PageResult<ScheduleExceptionDto>> Handle(GetAllScheduleExceptionQueries request, CancellationToken cancellationToken)
         {
-            var scheduleExceptions = await scheduleExceptionRepository.GetAllScheduleExceptionsAsync(request.Page, request.Limit);
+            var scheduleExceptions = await scheduleExceptionRepository.GetAllScheduleExceptionsAsync(request.Page, request.Limit, request.Search, request.Status);
             return new PageResult<ScheduleExceptionDto>
             {
                 CurrentPage = request.Page,
