@@ -110,6 +110,15 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<List<Guid>> GetReportedBookingIdsAsync(List<Guid> bookingId)
+        {
+            return await _context.Reports
+            .Where(r => bookingId.Contains(r.BookingId))
+            .Select(r => r.BookingId)
+            .Distinct()
+            .ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();
