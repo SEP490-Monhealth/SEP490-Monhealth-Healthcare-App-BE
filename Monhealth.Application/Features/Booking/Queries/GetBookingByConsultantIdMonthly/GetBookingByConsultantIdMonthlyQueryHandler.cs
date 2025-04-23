@@ -6,7 +6,7 @@ using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantIdMonthly
 {
-    public class GetBookingByConsultantIdMonthlyQueryHandler(IBookingRepository bookingRepository, IMapper mapper) : IRequestHandler<GetBookingByConsultantIdMonthlyQuery, PageResult<GetBookingByConsultantIdMonthlyDTO>>
+    public class GetBookingByConsultantIdMonthlyQueryHandler(IBookingRepository bookingRepository, IReportRepository reportRepository, IMapper mapper) : IRequestHandler<GetBookingByConsultantIdMonthlyQuery, PageResult<GetBookingByConsultantIdMonthlyDTO>>
     {
         public async Task<PageResult<GetBookingByConsultantIdMonthlyDTO>> Handle(GetBookingByConsultantIdMonthlyQuery request, CancellationToken cancellationToken)
         {
@@ -24,11 +24,19 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
                 endDate
             );
 
+            //var bookingDtos = mapper.Map<List<GetBookingByConsultantIdMonthlyDTO>>(bookings.Items);
             var bookingDtos = mapper.Map<List<GetBookingByConsultantIdMonthlyDTO>>(bookings.Items);
+
+            var bookingId = bookingDtos.Select(b => b.BookingId).ToList();
+
+            var reportedBookingIds = await reportRepository.GetReportedBookingIdsAsync(bookingId);
+
+            bookingDtos.ForEach(dto => dto.IsReported = reportedBookingIds.Contains(dto.BookingId));
+
 
             return new PageResult<GetBookingByConsultantIdMonthlyDTO>()
             {
-                Items = mapper.Map<List<GetBookingByConsultantIdMonthlyDTO>>(bookings.Items),
+                Items = bookingDtos,
                 CurrentPage = request.Page,
                 TotalPages = (int)Math.Ceiling(bookings.TotalCount / (double)request.Limit),
                 TotalItems = bookings.TotalCount,

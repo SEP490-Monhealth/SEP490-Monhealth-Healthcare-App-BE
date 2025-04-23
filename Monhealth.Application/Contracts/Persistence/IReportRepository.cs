@@ -11,6 +11,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Report>> GetReportByBookingId(Guid bookingId);
         Task<PaginatedResult<Report>> GetReportByConsultantId(Guid consultantId , int page , int limit);
         Task<PaginatedResult<Report>> GetReportByUserId(Guid userId , int page , int limit);
+        Task<List<Guid>> GetReportedBookingIdsAsync(List<Guid> bookingId);
         Task<int> SaveChangeAsync();
     }
 }
