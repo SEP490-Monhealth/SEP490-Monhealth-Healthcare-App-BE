@@ -172,6 +172,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật trạng thái thông báo thành công."
             };
         }
 
