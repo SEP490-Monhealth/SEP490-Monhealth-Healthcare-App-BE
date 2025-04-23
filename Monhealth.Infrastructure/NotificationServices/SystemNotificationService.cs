@@ -237,8 +237,8 @@ namespace Monhealth.Infrastructure.NotificationServices
             try
             {
                 var user = await userRepository.GetUserByIdAsync((Guid)transaction.UserId);
-                string title = "Nâng cấp gói dịch vụ thành công";
-                string content = $"Chúc mừng {user?.FullName}! Bạn đã nâng cấp thành công lên gói dịch vụ {userSubscription?.Subscription?.SubscriptionName}.";
+                string title = "Nâng cấp gói thành công";
+                string content = $"Chúc mừng {user?.FullName}! Bạn đã nâng cấp thành công lên gói {userSubscription?.Subscription?.SubscriptionName}.";
 
                 await notificationService.SendUserNotificationAsync(
                     (Guid)transaction.UserId,
@@ -269,7 +269,6 @@ namespace Monhealth.Infrastructure.NotificationServices
                 if (consultant != null && member != null)
                 {
                     // Thông báo cho consultant
-
                     string consultantTitle = "Thông báo hủy lịch hẹn";
                     string consultantContent = $"Lịch hẹn của bạn với khách hàng {member.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")} đã bị hủy. Lý do: {cancellationReason}.";
 

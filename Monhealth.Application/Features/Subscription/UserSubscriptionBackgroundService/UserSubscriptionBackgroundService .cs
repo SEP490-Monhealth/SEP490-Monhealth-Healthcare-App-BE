@@ -29,24 +29,15 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 try
                 {
                     using var scope = _serviceScopeFactory.CreateScope();
-                    var userSubscriptionRepository = 
-                        scope.ServiceProvider.GetRequiredService<IUserSubscriptionRepository>();
-                    var dailyMealRepository = 
-                        scope.ServiceProvider.GetRequiredService<IDailyMealRepository>();
-                    var mealRepository = 
-                        scope.ServiceProvider.GetRequiredService<IMealRepository>();
-                    var mealFoodRepository = 
-                        scope.ServiceProvider.GetRequiredService<IMealFoodRepository>();
-                    var foodRepository = 
-                        scope.ServiceProvider.GetRequiredService<IFoodRepository>();
-                    var portionRepository = 
-                        scope.ServiceProvider.GetRequiredService<IPortionRepository>();
-                    var userRepository = 
-                        scope.ServiceProvider.GetRequiredService<IUserRepository>();
-                    var userRoleRepository = 
-                        scope.ServiceProvider.GetRequiredService<IUserRoleRepository>();
-                    var metricRepository = 
-                        scope.ServiceProvider.GetRequiredService<IMetricRepository>();
+                    var userSubscriptionRepository = scope.ServiceProvider.GetRequiredService<IUserSubscriptionRepository>();
+                    var dailyMealRepository = scope.ServiceProvider.GetRequiredService<IDailyMealRepository>();
+                    var mealRepository = scope.ServiceProvider.GetRequiredService<IMealRepository>();
+                    var mealFoodRepository = scope.ServiceProvider.GetRequiredService<IMealFoodRepository>();
+                    var foodRepository = scope.ServiceProvider.GetRequiredService<IFoodRepository>();
+                    var portionRepository = scope.ServiceProvider.GetRequiredService<IPortionRepository>();
+                    var userRepository = scope.ServiceProvider.GetRequiredService<IUserRepository>();
+                    var userRoleRepository = scope.ServiceProvider.GetRequiredService<IUserRoleRepository>();
+                    var metricRepository = scope.ServiceProvider.GetRequiredService<IMetricRepository>();
 
                     var userSubscriptions = await userSubscriptionRepository.GetAllAsync();
 
@@ -99,8 +90,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                         DateTime generationStartDate = subscription.StartedAt.AddDays(7).Date;
                         if (today < generationStartDate)
                         {
-                            _logger.LogInformation(
-                                $"[{DateTime.Now:HH:mm:ss}] Daily meal generation postponed for User {subscription.UserId} until {generationStartDate:yyyy-MM-dd}.");
+                            // _logger.LogInformation(
+                            //     $"[{DateTime.Now:HH:mm:ss}] Daily meal generation postponed for User {subscription.UserId} until {generationStartDate:yyyy-MM-dd}.");
                             continue;
                         }
 
@@ -296,7 +287,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
 
             // Tính trọng lượng khẩu phần cho rau (chăm sóc trường hợp chia cho 0)
             var vegetableWeight = 100 * vegetableCalories /
-                                  (vegetableFood!.Nutrition.Calories != 0 ? 
+                                  (vegetableFood!.Nutrition.Calories != 0 ?
                                    vegetableFood.Nutrition.Calories : 1);
             vegetableWeight = RoundPortionWeight((float)vegetableWeight, userGoal.GoalType);
 
@@ -386,7 +377,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             if (balanceFood != null)
             {
                 var balanceWeight = 100 * balanceCalories /
-                                    (balanceFood.Nutrition.Calories != 0 ? 
+                                    (balanceFood.Nutrition.Calories != 0 ?
                                      balanceFood.Nutrition.Calories : 1);
                 balanceWeight = RoundPortionWeight((float)balanceWeight, userGoal.GoalType);
 

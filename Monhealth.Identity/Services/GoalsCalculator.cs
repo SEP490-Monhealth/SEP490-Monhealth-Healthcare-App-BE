@@ -33,9 +33,11 @@ namespace Monhealth.Identity.Services
 
             // Tính toán lượng nước cần uống
             goal.WaterIntakesGoal = (int)(createMetricDto.Weight * (createMetricDto.ActivityLevel < 1.725f ? 35 : 40));
+
             goal.WorkoutDurationGoal = CalculateWorkoutDurationGoal(createMetricDto.GoalType);
-            goal.CaloriesBurnedGoal = goal.CaloriesGoal - tdee;
+            goal.CaloriesBurnedGoal = EstimateCaloriesBurned(goal.WorkoutDurationGoal, createMetricDto.Weight, createMetricDto.ActivityLevel);
         }
+
         public float CalculateWorkoutDurationGoal(GoalType goalType)
         {
             switch (goalType)
@@ -50,6 +52,30 @@ namespace Monhealth.Identity.Services
                     return 30f;
             }
         }
+
+        private float EstimateCaloriesBurned(float workoutDurationMinutes, float weightKg, float activityLevel)
+        {
+            // MET (Metabolic Equivalent of Task) trung bình:
+            // - Cường độ nhẹ: ~4
+            // - Trung bình: ~6
+            // - Cao: ~8
+
+            float met;
+
+            if (activityLevel < 1.55f)         // Ít vận động
+                met = 4f;
+            else if (activityLevel < 1.9f)     // Vận động vừa
+                met = 6f;
+            else                               // Vận động nhiều
+                met = 8f;
+
+            // Công thức tính Calories đốt cháy:
+            // Calories = MET * weight(kg) * thời gian (giờ)
+            float caloriesBurned = met * weightKg * (workoutDurationMinutes / 60f);
+
+            return caloriesBurned;
+        }
+
         private (float calories, float protein, float carbs, float fats) CreateCalculateMacros(
             float tdee, string goalType, float caloriesRatio, float currentWeight,
             float targetWeight, float activityLevel)
