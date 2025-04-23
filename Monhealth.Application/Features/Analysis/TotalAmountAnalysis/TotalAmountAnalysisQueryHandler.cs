@@ -81,7 +81,6 @@ namespace Monhealth.Application
 
             // -------------------------------------------
             // TotalRevenue: tổng amount của transaction có Status là Complete
-            // (giả sử TransactionStatus.Complete được định nghĩa trong enum)
             decimal currentRevenueAmount =
                 await _transactionRepository.GetTotalTransactionAmountWithTypeAsync(
                     Domain.Enum.TransactionType.Fee);
@@ -124,37 +123,37 @@ namespace Monhealth.Application
             return ((float)(currentValue - previousValue) / previousValue) * 100;
         }
 
-        // Nếu previousValue == 0 mà currentValue > 0 -> trả về 100%
         private float CalculateGrowthRate(decimal currentValue, decimal previousValue)
         {
+            if (currentValue == 0 && previousValue == 0)
+                return 100; // Không có dữ liệu, trả về GrowthRate = 100 theo yêu cầu
             if (previousValue == 0)
                 return currentValue > 0 ? 100 : 0;
             return ((float)(currentValue - previousValue) / (float)previousValue) * 100;
         }
     }
-}
 
-public class TotalUserAnalysisDTO1
-{
-    public int Count { get; set; }
-    public float GrowthRate { get; set; }
-}
+    public class TotalUserAnalysisDTO1
+    {
+        public int Count { get; set; }
+        public float GrowthRate { get; set; }
+    }
 
-public class TotalSubscriptionAnalysisDTO
-{
-    public int Count { get; set; }
-    public float GrowthRate { get; set; }
-}
+    public class TotalSubscriptionAnalysisDTO
+    {
+        public int Count { get; set; }
+        public float GrowthRate { get; set; }
+    }
 
-public class TotalRevenueDTO
-{
-    // Đã đổi sang kiểu decimal để lưu tổng amount
-    public decimal Count { get; set; }
-    public float GrowthRate { get; set; }
-}
+    public class TotalRevenueDTO
+    {
+        public decimal Count { get; set; }
+        public float GrowthRate { get; set; }
+    }
 
-public class TotalConsultantDTO
-{
-    public int Count { get; set; }
-    public float GrowthRate { get; set; }
+    public class TotalConsultantDTO
+    {
+        public int Count { get; set; }
+        public float GrowthRate { get; set; }
+    }
 }
