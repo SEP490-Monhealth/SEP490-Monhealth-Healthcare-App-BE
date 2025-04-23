@@ -50,7 +50,7 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
                         + $"&member={Uri.EscapeDataString(member.Email ?? string.Empty)}";
 
             var resp = await client.GetAsync(qs, cancellationToken);
-            resp.EnsureSuccessStatusCode();
+            //resp.EnsureSuccessStatusCode();
 
             var json = await resp.Content.ReadAsStringAsync(cancellationToken);
             var webhookResult = JsonSerializer.Deserialize<WebhookResponse>(json,

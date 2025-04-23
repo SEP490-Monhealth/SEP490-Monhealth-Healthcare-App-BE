@@ -5,7 +5,10 @@ using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsultant
 {
-    public class UpdateEvidensForConsultantCommandHandler(IBookingRepository bookingRepository) : IRequestHandler<UpdateEvidensForConsultantCommand, bool>
+    public class UpdateEvidensForConsultantCommandHandler(IBookingRepository bookingRepository,
+        ITransactionRepository transactionRepository
+        )
+        : IRequestHandler<UpdateEvidensForConsultantCommand, bool>
     {
         public async Task<bool> Handle(UpdateEvidensForConsultantCommand request, CancellationToken cancellationToken)
         {
@@ -26,6 +29,20 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             }
 
             booking.EvidenceUrls = request.UpdateEvidensDto.EvidenceUrls;
+
+            //create transaction
+            var newTransaction = new Domain.Transaction
+            {
+                TransactionId = Guid.NewGuid(),
+                UserId = booking.UserId,
+                BookingId = booking.BookingId,
+                TransactionType = TransactionType.Earning,
+                Description = "Giao dịch booking",
+                Status = StatusTransaction.Pending,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+            };
+            transactionRepository.Add(newTransaction);
 
             booking.UpdatedAt = DateTime.Now;
             booking.CompletedAt = DateTime.Now;
