@@ -37,7 +37,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
                 UserId = booking.UserId,
                 BookingId = booking.BookingId,
                 TransactionType = TransactionType.Earning,
-                Description = "Giao dịch booking",
+                Description = "Thanh toán hoàn thành lịch hẹn",
                 Status = StatusTransaction.Pending,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,

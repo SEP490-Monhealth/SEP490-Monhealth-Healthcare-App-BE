@@ -42,17 +42,16 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
-        [HttpGet("filter")]
+
+        [HttpGet("suggestions")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<ResultModel>> GetAllFoodsAndFilterByFoodName(
                   [FromQuery] int page = 1,
                   [FromQuery] int limit = 10,
                   [FromQuery(Name = "search")] string? search = null,
-                  [FromQuery(Name = "status")] bool? status = null,
-                  [FromQuery(Name = "isPublic")] bool? isPublic = null)
+                  [FromQuery(Name = "isPublic")] bool? isPublic = null,
+                  [FromQuery(Name = "status")] bool? status = null)
         {
-
-
             var result = await _mediator.Send(new GetFoodAndFilterByFoodNameQuery(page, limit, search, status, isPublic));
 
             return new ResultModel
@@ -62,26 +61,13 @@ namespace Monhealth.Api.Controllers
                 Success = true,
             };
         }
+
         [HttpGet]
         [Route("user/{userId:Guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách món ăn theo ID người dùng")]
         public async Task<ActionResult<ResultModel>> GetFoodsByUserId(Guid userId, int page = 1, int limit = 10)
         {
             var foods = await _mediator.Send(new GetFoodListByUserIdQuery(userId, page, limit));
-
-            return new ResultModel
-            {
-                Data = foods,
-                Status = 200,
-                Success = true,
-            };
-        }
-        [HttpGet]
-        [Route("related/{foodId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách món ăn liên quan")]
-        public async Task<ActionResult<ResultModel>> GetFoodsRelateByFoodId(Guid foodId, int page = 1, int limit = 10, string? search = null, bool? status = null)
-        {
-            var foods = await _mediator.Send(new GetRelatedFoodsQuery(foodId, page, limit, search, status));
 
             return new ResultModel
             {
@@ -115,6 +101,21 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = food
             });
+        }
+
+        [HttpGet]
+        [Route("{foodId:Guid}/related")]
+        [SwaggerOperation(Summary = "Lấy danh sách món ăn liên quan")]
+        public async Task<ActionResult<ResultModel>> GetFoodsRelateByFoodId(Guid foodId, int page = 1, int limit = 10, string? search = null, bool? status = null)
+        {
+            var foods = await _mediator.Send(new GetRelatedFoodsQuery(foodId, page, limit, search, status));
+
+            return new ResultModel
+            {
+                Data = foods,
+                Status = 200,
+                Success = true,
+            };
         }
 
         // [HttpGet("categories")]

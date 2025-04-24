@@ -10,16 +10,16 @@ namespace Monhealth.Application
     {
         public int Page { get; set; }
         public int Limit { get; set; }
-        public string Search { get; set; } 
-        public bool? Status { get; set; }
+        public string Search { get; set; }
         public bool? IsPublic { get; set; } = true;
-        public GetFoodAndFilterByFoodNameQuery(int page, int limit, string search , bool? status = null, bool? isPublic = null)
+        public bool? Status { get; set; }
+        public GetFoodAndFilterByFoodNameQuery(int page, int limit, string search, bool? isPublic = null, bool? status = null)
         {
             Page = page;
             Limit = limit;
             Search = search;
-            Status = status;
             IsPublic = isPublic;
+            Status = status;
         }
     }
     public class GetFoodAndFilterByFoodNameQueryHandler(IFoodRepository _foodRepository) : IRequestHandler<GetFoodAndFilterByFoodNameQuery, PageResult<FoodDTO>>
@@ -27,7 +27,7 @@ namespace Monhealth.Application
         public async Task<PageResult<FoodDTO>> Handle(GetFoodAndFilterByFoodNameQuery request, CancellationToken cancellationToken)
         {
             var paginatedFood = await _foodRepository.GetAllFoodsAndFilterByFoodNameAsync
-            (request.Page, request.Limit, request.Search , request.Status, request.IsPublic);
+            (request.Page, request.Limit, request.Search, request.Status, request.IsPublic);
             var foodDtoList = paginatedFood.Items.Select(food => new FoodDTO
             {
                 FoodId = food.FoodId,

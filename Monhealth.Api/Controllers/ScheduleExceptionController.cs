@@ -70,7 +70,7 @@ namespace Monhealth.Api.Controllers
 
             return new ResultModel
             {
-                Message = "Tạo lịch bận thành công",
+                Message = "Tạo lịch nghỉ thành công",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
             };
@@ -87,7 +87,7 @@ namespace Monhealth.Api.Controllers
             return Ok(
                 new ResultModel
                 {
-                    Message = "Cập nhật lịch bận thành công",
+                    Message = "Cập nhật thông tin lịch nghỉ thành công",
                     Success = true,
                     Status = 204,
                 }
@@ -105,7 +105,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 204,
-                Data = queries
+                Message = "Xóa lịch nghỉ thành công",
             });
         }
 
@@ -118,14 +118,14 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = false,
-                    Message = "Cập nhập trạng thái lịch bận thất bại",
+                    Message = "Cập nhập trạng thái lịch nghỉ thất bại",
                     Status = 500,
                 };
             }
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Cập nhập trạng thái lịch bận thành công",
+                Message = "Cập nhập trạng thái lịch nghỉ thành công",
                 Status = 200,
             });
         }
@@ -139,18 +139,16 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = false,
-                    Message = "Cập nhập trạng thái lịch bận thất bại",
+                    Message = "Cập nhập trạng thái lịch nghỉ thất bại",
                     Status = 500,
                 };
             }
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Cập nhập trạng thái lịch bận thành công",
+                Message = "Cập nhập trạng thái lịch nghỉ thành công",
                 Status = 200,
             });
         }
-
-
     }
 }
