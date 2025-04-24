@@ -40,7 +40,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Review>> GetReviewsByConsultant(Guid consultantId, int page, int limit)
         {
             IQueryable<Review> query = _context.Reviews
-            .Where(r => r.User.Consultant.ConsultantId == consultantId).AsQueryable();
+            .Where(r => r.Booking.Consultant.ConsultantId == consultantId).AsQueryable();
             var totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
