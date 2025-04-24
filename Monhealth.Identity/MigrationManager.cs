@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Monhealth.Identity.Dbcontexts;
 
@@ -13,9 +12,9 @@ namespace Monhealth.Identity
             {
                 using (var context = scope.ServiceProvider.GetRequiredService<MonhealthDbcontext>())
                 {
-                    context.Database.Migrate();
-                    new DataSeeder().SeedAsync(context).Wait();
-
+                    context.Database.EnsureCreated();
+                    if (!context.Users.Any())
+                        new DataSeeder().SeedAsync(context).Wait();
                 }
             }
             return app;

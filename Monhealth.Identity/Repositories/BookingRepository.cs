@@ -207,6 +207,21 @@ namespace Monhealth.Identity.Repositories
             return await query.ToListAsync();
         }
 
+        public async Task<List<Booking>> GetBookingsForRemindersAsync(DateTime startTimeMin, DateTime endTimeMax, CancellationToken cancellationToken)
+        {
+            return await _context.Bookings
+                .Include(b => b.User)
+                .Include(b => b.Consultant)
+                    .ThenInclude(b => b.AppUser)
+                .Where(b =>
+                    b.Status == BookingStatus.Booked &&
+                    !b.NotificationSent30Min &&
+                    b.Day == DateOnly.FromDateTime(startTimeMin.Date) &&
+                    b.StartTime >= TimeOnly.FromDateTime(startTimeMin) &&
+                    b.EndTime <= TimeOnly.FromDateTime(endTimeMax))
+                .ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);

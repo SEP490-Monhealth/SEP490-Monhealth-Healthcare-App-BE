@@ -8,7 +8,7 @@ namespace Monhealth.Application.Contracts.Persistence
     {
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
         Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit, string? search, BookingStatus? statis);
-       Task<PaginatedResult<Booking>> GetBookingByUserId(Guid userId, int page, int limit);
+        Task<PaginatedResult<Booking>> GetBookingByUserId(Guid userId, int page, int limit);
         Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId, DateTime? date);
         Task<List<Booking>> GetBookingsByConsultantIdAndDate(Guid consultantId, DateOnly date);
         Task<Booking> GetBookingByBookingIdAsync(Guid bookingId);
@@ -17,5 +17,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Booking>> GetBookingsByConsultantAndDateRange(Guid consultantId, DateTime from, DateTime to);
         Task<List<Booking>> GetBookingByUserAndConsultant(Guid userId, Guid consultantId);
         Task<PaginatedResult<Booking>> GetBookingByConsultantIdMonthly(int page, int limit, Guid consultantId, DateTime from, DateTime to);
+        Task<List<Booking>> GetBookingsForRemindersAsync(DateTime startTimeMin, DateTime endTimeMax, CancellationToken cancellationToken);
     }
 }

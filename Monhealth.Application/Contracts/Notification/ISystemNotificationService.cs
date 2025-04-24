@@ -15,6 +15,6 @@ namespace Monhealth.Application.Contracts.Notification
         Task NotifyCreateMetricSuccessfully(Guid userId, CancellationToken cancellationToken);
         Task SendRejectedScheduleExceptionForConsultant(Consultant consultant, CancellationToken cancellationToken);
         Task SendBookingCancellationNotificationAsync(Booking booking, CancellationToken cancellationToken);
-
+        Task NotifyUpComingBookingReminderAsync(Booking booking, CancellationToken cancellationToken);
     }
 }

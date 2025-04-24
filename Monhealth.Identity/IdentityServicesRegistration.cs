@@ -12,6 +12,7 @@ using Monhealth.Application.Features.Metric.Commands.UpdateMetric;
 using Monhealth.Application.Features.Subscription.UserSubscriptionBackgroundService;
 using Monhealth.Application.Models.Identity;
 using Monhealth.Identity.BackGroundServiceForWaterReminder;
+using Monhealth.Identity.BackGroundServices;
 using Monhealth.Identity.Dbcontexts;
 using Monhealth.Identity.Models;
 using Monhealth.Identity.Repositories;
@@ -115,8 +116,10 @@ namespace Monhealth.Identity
             services.AddScoped<IUserNotificationRepository, UserNotificationRepository>();
             services.AddScoped<IDeviceRepository, DeviceRepository>();
             services.AddScoped<IReportRepository, ReportRepository>();
+
             // Đăng ký Background Service
             services.AddHostedService<UserSubscriptionBackgroundService>();
+            services.AddHostedService<BookingReminderService>();
 
             // Add Authentication
             services.AddAuthentication(options =>

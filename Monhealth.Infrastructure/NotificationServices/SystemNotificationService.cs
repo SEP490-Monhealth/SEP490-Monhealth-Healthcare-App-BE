@@ -255,6 +255,52 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
         }
 
+        public async Task NotifyUpComingBookingReminderAsync(Booking booking, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
+                var member = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
+
+                if (consultant != null && member != null)
+                {
+                    // Get the scheduled date and time
+                    DateOnly scheduledDate = booking.Day;
+                    TimeOnly scheduledTime = booking.StartTime;
+                    DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
+
+                    // Notification for consultant
+                    string consultantTitle = "Sắp đến lịch hẹn tư vấn";
+                    string consultantContent = $"Nhắc nhở: Bạn có một lịch hẹn tư vấn với khách hàng {member.FullName}" +
+                        $" vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")} (trong 30 phút nữa)";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        consultantTitle,
+                        consultantContent,
+                        cancellationToken
+                    );
+
+                    // Notification for member/user
+                    string memberTitle = "Sắp đến lịch hẹn tư vấn";
+                    string memberContent = $"Nhắc nhở: Bạn có một lịch hẹn tư vấn với chuyên viên {consultant.AppUser.FullName} vào lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")} (trong 30 phút nữa)";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)booking.UserId,
+                        memberTitle,
+                        memberContent,
+                        cancellationToken
+                    );
+
+                    logger.LogInformation($"Sent 30-minute reminder notifications for booking: {booking.BookingId}");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send 30-minute reminder notifications for booking: {booking.BookingId}");
+            }
+        }
+
         public async Task SendBookingCancellationNotificationAsync(Booking booking, CancellationToken cancellationToken)
         {
             try
@@ -308,8 +354,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                     // Thông báo cho consultant rằng yêu cầu nghỉ của họ bị từ chối
                     string consultantTitle = "Thông báo về yêu cầu nghỉ phép";
                     string consultantContent = $"Yêu cầu nghỉ phép của bạn đã bị từ chối. " +
-                        "Chúng tôi rất tiếc phải thông báo rằng bạn không thể nghỉ vào thời điểm này vì lịch làm việc cần có bạn. " +
-                        "Vui lòng liên hệ với quản lý nếu cần giải thích thêm.";
+                        "Chúng tôi rất tiếc phải thông báo rằng bạn không thể nghỉ vào thời điểm này vì lịch làm việc cần có bạn. ";
+
 
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
