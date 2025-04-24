@@ -13,7 +13,12 @@ namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
 
         public async Task<Unit> Handle(CreateWaterReminderCommand request, CancellationToken cancellationToken)
         {
-            var model = new Monhealth.Domain.WaterReminder
+            var existingReminder = await _reminderRepository.GetByUserIdAndTimeAsync(request.UserId, request.Time);
+            if (existingReminder != null)
+            {
+                throw new InvalidOperationException("Đã tồn tại một nhắc nhở uống nước với cùng thời gian cho người dùng này.");
+            }
+            var model = new Domain.WaterReminder
             {
                 UserId = request.UserId,
                 WaterReminderName = request.WaterReminderName,

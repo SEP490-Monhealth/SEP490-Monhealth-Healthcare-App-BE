@@ -87,7 +87,7 @@ namespace Monhealth.Identity.Repositories
             if (!string.IsNullOrEmpty(search))
             {
                 // cho phep search khong dau
-                query = query.Where(s => EF.Functions.Collate(s.WaterReminderName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) || 
+                query = query.Where(s => EF.Functions.Collate(s.WaterReminderName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) ||
                                          s.WaterReminderId.ToString().ToLower().Contains(search) ||
                                          s.UserId.ToString().ToLower().Contains(search) ||
                                          EF.Functions.Collate(s.AppUser.FullName, "SQL_Latin1_General_CP1_CI_AI").Contains(search) ||
@@ -117,23 +117,29 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<WaterReminder> GetByUserIdAndTimeAsync(Guid userId, string time)
+        {
+            return await _context.WaterReminders
+                   .FirstOrDefaultAsync(r => r.UserId == userId && r.Time == time);
+        }
+
         public async Task<WaterReminder> GetReminderById(Guid waterReminderId)
         {
             return await _context.WaterReminders.FirstOrDefaultAsync(r => r.WaterReminderId == waterReminderId);
         }
 
-        public async Task<List<WaterReminder>> GetReminderByUser(Guid userId , bool? Status)
+        public async Task<List<WaterReminder>> GetReminderByUser(Guid userId, bool? Status)
         {
             var queries = await _context.WaterReminders
                 .Where(r => r.UserId == userId)
                 .OrderBy(t => t.Time)
                 .ToListAsync();
-                if (Status.HasValue)
-                {
-                    queries = queries.Where(r => r.Status == Status.Value).ToList();
-                }
-                return queries;
-             
+            if (Status.HasValue)
+            {
+                queries = queries.Where(r => r.Status == Status.Value).ToList();
+            }
+            return queries;
+
         }
 
         public async Task<WaterReminder> GetWaterReminderByUser(Guid userId, DateTime date)
@@ -143,7 +149,7 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<List<WaterReminder>> GetWaterRemindersByUser(Guid userId )
+        public async Task<List<WaterReminder>> GetWaterRemindersByUser(Guid userId)
         {
             return await _context.WaterReminders.
             Where(water => water.UserId == userId).ToListAsync();
