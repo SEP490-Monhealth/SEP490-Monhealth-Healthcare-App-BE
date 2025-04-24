@@ -99,7 +99,7 @@ namespace Monhealth.Identity.Repositories
         public Task<DailyMeal> GetDaiLyMealByUser(Guid UserId, DateTime DateTime)
         {
             return _context.DailyMeals.Include(dl => dl.Meals).ThenInclude(m => m.MealFoods)
-            .FirstOrDefaultAsync(dl => dl.UserId == UserId && dl.CreatedAt == DateTime);
+            .FirstOrDefaultAsync(dl => dl.UserId == UserId && dl.DailyMealDate == DateTime);
         }
 
         public async Task<DailyMeal> GetDailyMealByUserAndDate(DateTime createAt, Guid userID)

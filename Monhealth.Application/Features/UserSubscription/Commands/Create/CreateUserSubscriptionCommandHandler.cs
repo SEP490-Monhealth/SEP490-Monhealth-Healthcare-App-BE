@@ -154,7 +154,7 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                     TotalFats = 0,
                     TotalFibers = 0,
                     TotalSugars = 0,
-                     
+
                     Meals = new List<Domain.Meal>()
                 };
 
@@ -180,6 +180,14 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
         /// </summary>
         private async Task<Domain.Meal> CreateMealForType(MealType mealType, AppUser user, Guid dailyMealId, DateTime targetDate)
         {
+            // Kiểm tra xem đã có Meal nào với cùng UserId, MealType và MealDate chưa
+            var existingMeal = await _mealRepository.GetMealByUserAndDateAsync(user.Id, mealType, targetDate);
+            if (existingMeal != null)
+            {
+                _logger.LogWarning($"Meal {mealType} already exists for UserId {user.Id} on {targetDate:yyyy-MM-dd}. Skipping creation.");
+                return existingMeal; // Hoặc ném ngoại lệ tùy theo yêu cầu
+            }
+
             // Lấy các thực phẩm ngẫu nhiên theo logic của bạn
             var (proteinFood, carbFood, balanceFood, vegetableFood) = await _foodRepository.GetRandomProteinAndCarbFood(new List<Guid>());
 
@@ -329,7 +337,6 @@ namespace Monhealth.Application.Features.UserSubscription.Commands.Create
                 CreatedAt = DateTime.Now,
                 MealDate = targetDate,
                 UpdatedAt = DateTime.Now,
-                
                 MealFoods = mealFoods
             };
 

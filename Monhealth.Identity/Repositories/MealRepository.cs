@@ -119,5 +119,11 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<Meal> GetMealByUserAndDateAsync(Guid userId, MealType mealType, DateTime mealDate)
+        {
+            return await _context.Meals
+                .FirstOrDefaultAsync(m => m.UserId == userId && m.MealType == mealType && m.MealDate.Date == mealDate.Date);
+        }
     }
 }
