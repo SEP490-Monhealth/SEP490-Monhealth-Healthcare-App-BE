@@ -2,16 +2,17 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Features.Booking.Queries.GetAllBookings;
+using Monhealth.Application.Models;
 
 namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantId
 {
-    public class GetByConsultantIdQueriesHandler(IMapper mapper, IBookingRepository bookingRepository, IReportRepository reportRepository) : IRequestHandler<GetByConsultantIdQueries, List<BookingDto>>
+    public class GetByConsultantIdQueriesHandler(IMapper mapper, IBookingRepository bookingRepository, IReportRepository reportRepository) : IRequestHandler<GetByConsultantIdQueries, PageResult<BookingDto>>
     {
-        public async Task<List<BookingDto>> Handle(GetByConsultantIdQueries request, CancellationToken cancellationToken)
+        public async Task<PageResult<BookingDto>> Handle(GetByConsultantIdQueries request, CancellationToken cancellationToken)
         {
-            var booking = await bookingRepository.GetBookingByConsultantId(request.ConsultantId, request.Date);
+            var bookings = await bookingRepository.GetBookingByConsultantId(request.ConsultantId, request.Page, request.Limit, request.Date);
 
-            var bookingDtos = mapper.Map<List<BookingDto>>(booking);
+            var bookingDtos = mapper.Map<List<BookingDto>>(bookings);
 
             var bookingId = bookingDtos.Select(b => b.BookingId).ToList();
 
@@ -19,7 +20,13 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
 
             bookingDtos.ForEach(dto => dto.IsReported = reportedBookingIds.Contains(dto.BookingId));
 
-            return bookingDtos;
+            return new PageResult<BookingDto>
+            {
+                CurrentPage = request.Page,
+                TotalPages = (int)Math.Ceiling(bookings.TotalCount / (double)request.Limit),
+                TotalItems = bookings.TotalCount,
+                Items = bookingDtos
+            };
         }
     }
 }

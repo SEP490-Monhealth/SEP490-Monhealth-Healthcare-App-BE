@@ -64,9 +64,9 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet("consultant/{consultantId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo chuyên viên")]
-        public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId, DateTime? date = null)
+        public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId, int page = 1, int limit = 10, DateTime? date = null)
         {
-            var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId, Date = date });
+            var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId, Page = page, Limit = limit, Date = date });
             return new ResultModel
             {
                 Data = booking,

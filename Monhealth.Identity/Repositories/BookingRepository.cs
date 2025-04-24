@@ -75,7 +75,7 @@ namespace Monhealth.Identity.Repositories
                 .FirstOrDefaultAsync(b => b.BookingId == bookingId);
         }
 
-        public async Task<List<Booking?>> GetBookingByConsultantId(Guid consultantId, DateTime? date)
+        public async Task<PaginatedResult<Booking?>> GetBookingByConsultantId(Guid consultantId, int page, int limit, DateTime? date)
         {
             var query = _context.Bookings
                 .AsNoTracking()
@@ -96,10 +96,24 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(b => b.Day == dateOnly);
             }
 
+
             // Sắp xếp theo thời gian tạo mới nhất
+            //query = ApplyCreatedAtSorting(query);
+
+            //return await query.ToListAsync();
             query = ApplyCreatedAtSorting(query);
 
-            return await query.ToListAsync();
+            int totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            return new PaginatedResult<Booking>
+            {
+                Items = await query.ToListAsync(),
+                TotalCount = totalItems
+            };
         }
 
         public async Task<PaginatedResult<Booking>> GetBookingByConsultantIdMonthly(int page, int limit, Guid consultantId, DateTime from, DateTime to)
