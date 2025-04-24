@@ -15,6 +15,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<MealType>> GetAllMealTypesAsync();
         Task<List<Meal>> GetAllMealFoodForMeal(Guid MealId);
         Task<List<Meal>> GetMealsByDailyMealIdAsync(Guid dailyMealId);
+        Task<Meal> GetMealByUserAndDateAsync(Guid userId, MealType mealType, DateTime mealDate);
         Task<Meal>AddAsync();
     }
 }
