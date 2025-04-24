@@ -10,6 +10,12 @@ namespace Monhealth.Application.Features.Chat.Commands.CreateChat
             var chat = await chatRepository.GetChatByParticipantAsync(request.UserId, request.ConsultantId);
             if (chat == null)
             {
+                var currentUtcTime = DateTime.UtcNow; // Get UTC time
+
+                // Convert UTC time to Vietnam Time (GMT+7)
+                TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+                DateTime vietnamTime = TimeZoneInfo.ConvertTimeFromUtc(currentUtcTime, vietnamTimeZone);
+
                 var newChat = new Domain.Chat
                 {
                     ChatId = Guid.NewGuid(),
@@ -17,13 +23,13 @@ namespace Monhealth.Application.Features.Chat.Commands.CreateChat
                     ConsultantId = request.ConsultantId,
                     LastMessage = string.Empty,
                     Messages = new List<Domain.Message>(),
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = vietnamTime, // Store Vietnam time
+                    UpdatedAt = vietnamTime
                 };
+
                 chatRepository.Add(newChat);
                 await chatRepository.SaveChangeAsync(cancellationToken);
                 chat = newChat;
-
             }
 
             return new CreateChatDto
