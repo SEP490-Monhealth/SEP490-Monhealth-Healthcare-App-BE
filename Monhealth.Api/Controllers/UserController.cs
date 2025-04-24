@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application.Features.User;
 using Monhealth.Application.Features.User.Commands.ChangeStatus;
 using Monhealth.Application.Features.User.Commands.CreateUser;
 using Monhealth.Application.Features.User.Commands.UpdateAvatarForUser;
@@ -8,8 +10,11 @@ using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Features.User.Queries.GetAllUser;
 using Monhealth.Application.Features.User.Queries.GetUserDetail;
 using Monhealth.Application.Models;
+using Monhealth.Application.Models.Identity;
+using Monhealth.Identity.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
+using System.Security.Claims;
 
 namespace Monhealth.Api.Controllers
 {
@@ -20,10 +25,12 @@ namespace Monhealth.Api.Controllers
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly UserManager<AppUser> _userManager;
 
-        public UserController(IMediator mediator)
+        public UserController(IMediator mediator, UserManager<AppUser> userManager)
         {
             _mediator = mediator;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -117,6 +124,35 @@ namespace Monhealth.Api.Controllers
             return new ResultModel
             {
                 Message = "Cập nhập avatar thành công",
+                Status = 200,
+                Success = true
+            };
+        }
+
+        [HttpPut("password")]
+        [Authorize]
+        public async Task<ActionResult<ResultModel>> ChangeMyPassword([FromBody] ChangePasswordRequest request)
+        {
+            if (request.OldPassword.ToLower().Equals(request.NewPassword.ToLower()))
+            {
+                return new ResultModel
+                {
+                    Success = false,                   
+                    Status = (int) HttpStatusCode.BadRequest,
+                    Message = "Mật khẩu mới không được giống với mật khẩu cũ."
+                };
+            }
+            var userId = ((ClaimsIdentity)User.Identity).FindFirst(UserClaims.UserId).Value;
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return NotFound();
+            var result = await _userManager.ChangePasswordAsync(user, request.OldPassword, request.NewPassword);
+            if (!result.Succeeded)
+            {
+                return BadRequest(string.Join("<br>", result.Errors.Select(x => x.Description)));
+            }
+            return new ResultModel
+            {
+                Message = "Thay đổi mật khẩu thành công",
                 Status = 200,
                 Success = true
             };
