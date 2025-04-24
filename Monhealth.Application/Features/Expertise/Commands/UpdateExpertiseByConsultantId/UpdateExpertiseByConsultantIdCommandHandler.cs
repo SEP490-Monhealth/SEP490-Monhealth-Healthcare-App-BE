@@ -5,18 +5,18 @@ using Microsoft.Extensions.Logging;
 
 namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByConsultantId
 {
-    public class UpdateExpertiseByConsultantIdHandler : IRequestHandler<UpdateExpertiseByConsultantIdQueries, bool>
+    public class UpdateExpertiseByConsultantIdCommandHandler : IRequestHandler<UpdateExpertiseByConsultantIdCommand, bool>
     {
         private readonly IConsultantRepository _consultantRepository;
         private readonly IExpertiseRepository _expertiseRepository;
         private readonly ICertificateRepository _certificateRepository;
-        private readonly ILogger<UpdateExpertiseByConsultantIdHandler> _logger;
+        private readonly ILogger<UpdateExpertiseByConsultantIdCommandHandler> _logger;
 
-        public UpdateExpertiseByConsultantIdHandler(
+        public UpdateExpertiseByConsultantIdCommandHandler(
             IConsultantRepository consultantRepository,
             IExpertiseRepository expertiseRepository,
             ICertificateRepository certificateRepository,
-            ILogger<UpdateExpertiseByConsultantIdHandler> logger)
+            ILogger<UpdateExpertiseByConsultantIdCommandHandler> logger)
         {
             _consultantRepository = consultantRepository;
             _expertiseRepository = expertiseRepository;
@@ -24,7 +24,7 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByCon
             _logger = logger;
         }
 
-        public async Task<bool> Handle(UpdateExpertiseByConsultantIdQueries request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateExpertiseByConsultantIdCommand request, CancellationToken cancellationToken)
         {
             // Lấy consultant theo Id
             var consultant = await _consultantRepository.GetByIdAsync(request.ConsultantId);
@@ -36,7 +36,7 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByCon
             if (expertise == null)
                 throw new BadRequestException("Tên chuyên môn không đúng");
 
-            var certificates = await _certificateRepository.GetCertificateByConsultant(consultant.ConsultantId);
+            var certificates = await _certificateRepository.GetCertificateByConsultant(consultant.ConsultantId);            
             if (certificates == null || certificates.Count == 0)
             {
                 _logger.LogWarning("Không tìm thấy certificate cho consultant với Id {ConsultantId}", consultant.ConsultantId);
@@ -46,10 +46,12 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByCon
 
             if (targetCertificate != null)
             {
+                targetCertificate.ExpertiseId = expertise.ExpertiseId;
                 targetCertificate.CertificateName = request.UpdateDto.CertificateName;
                 targetCertificate.IssueDate = request.UpdateDto.IssueDate;
                 targetCertificate.ExpiryDate = request.UpdateDto.ExpiryDate;
                 targetCertificate.ImageUrls = request.UpdateDto.ImageUrls;
+                targetCertificate.IssuedBy = request.UpdateDto.IssuedBy;
                 targetCertificate.UpdatedAt = DateTime.Now;
                 targetCertificate.CertificateNumber = request.UpdateDto.CertificateNumber;
                 targetCertificate.IsVerified = false;

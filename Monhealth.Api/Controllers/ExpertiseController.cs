@@ -111,7 +111,7 @@ namespace Monhealth.Api.Controllers
         [SwaggerOperation(Summary = "Cập nhật chuyên môn theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> UpdateExpertiseByConsultantId(Guid consultantId, [FromBody] UpdateExpertiseByConsultantIdDto updateExpertiseDto)
         {
-            var result = await _mediator.Send(new UpdateExpertiseByConsultantIdQueries(consultantId, updateExpertiseDto));
+            var result = await _mediator.Send(new UpdateExpertiseByConsultantIdCommand(consultantId, updateExpertiseDto));
             if (!result)
             {
                 return new ResultModel
