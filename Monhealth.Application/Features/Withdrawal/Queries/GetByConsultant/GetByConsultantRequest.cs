@@ -7,7 +7,7 @@ namespace Monhealth.Application
 {
     public record GetByConsultantDTO(Guid withdrawalRequestId,
     Guid ConsultantId, Guid ConsultantBankId, ConsultantDTO1 Consultant, string Description,
-    float Amount, WithdrawalStatus Status, DateTime? CreatedAt, DateTime? UpdatedAt);
+    float Amount, ConsultantBankInfo ConsultantBank, string Reason, WithdrawalStatus Status, DateTime? CreatedAt, DateTime? UpdatedAt);
 
     public class GetByConsultantRequest : IRequest<PageResult<GetByConsultantDTO>>
     {
@@ -29,4 +29,10 @@ public class ConsultantDTO1
     public string Email { get; set; } = string.Empty;
     public string PhoneNumber { get; set; } = string.Empty;
     public string AvatarUrl { get; set; } = string.Empty;
+}
+public class ConsultantBankInfo
+{
+    public string BankName { get; set; } = string.Empty;
+    public string ShortName { get; set; } = string.Empty;
+    public string LogoUrl { get; set; } = string.Empty;
 }

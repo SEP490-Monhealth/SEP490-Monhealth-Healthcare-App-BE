@@ -1,6 +1,7 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models.Paging;
+using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
@@ -31,6 +32,15 @@ namespace Monhealth.Application
                     },
                     wd.Description,
                     wd.Amount,
+                    wd.Consultant.ConsultantBanks
+                    .Select(cb => new ConsultantBankInfo
+                    {
+                        BankName = cb.Bank.BankName,
+                        ShortName = cb.Bank.ShortName,
+                        LogoUrl = cb.Bank.LogoUrl
+                    })
+                    .FirstOrDefault() ?? new ConsultantBankInfo(),
+                    wd.Reason,
                     wd.Status,
                     wd.CreatedAt,
                     wd.UpdatedAt

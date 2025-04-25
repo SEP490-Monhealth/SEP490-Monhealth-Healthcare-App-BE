@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
 
@@ -12,6 +13,9 @@ namespace Monhealth.Application
         public ConsultantBankDto ConsultantBank { get; set; } = null!;
         public string Description { get; set; } = string.Empty;
         public float Amount { get; set; }
+        [JsonPropertyName("bank")]
+        public ConsultantBankInformation ConsultantBankInformation { get; set; }
+        public string Reason { get; set; } = string.Empty;
         public WithdrawalStatus Status { get; set; }
     }
     public class ConsultantDTOForId
@@ -25,5 +29,11 @@ namespace Monhealth.Application
     {
         public string AccountNumber { get; set; }
         public string AccountName { get; set; }
+    }
+    public class ConsultantBankInformation
+    {
+        public string BankName { get; set; } = string.Empty;
+        public string ShortName { get; set; } = string.Empty;
+        public string LogoUrl { get; set; } = string.Empty;
     }
 }

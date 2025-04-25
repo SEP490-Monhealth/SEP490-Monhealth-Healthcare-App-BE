@@ -35,6 +35,12 @@ namespace Monhealth.Application
                 {
                     AccountName = consultantBank?.AccountName ?? "",
                     AccountNumber = consultantBank?.AccountNumber ?? "",
+                },
+                ConsultantBankInformation = new ConsultantBankInformation
+                {
+                    BankName = consultantBank?.Bank?.BankName ?? "",
+                    ShortName = consultantBank?.Bank?.ShortName ?? "",
+                    LogoUrl = consultantBank?.Bank?.LogoUrl ?? ""
                 }
             };
         }

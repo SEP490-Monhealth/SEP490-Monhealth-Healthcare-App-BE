@@ -10,6 +10,8 @@ namespace Monhealth.Application
         public ConsultantDTO12 Consultant { get; set; } = null!;
         public string Description { get; set; } = string.Empty;
         public float Amount { get; set; }
+        public string Reason { get; set; } = string.Empty;
+        public ConsultantBankInfo ConsultantBank { get; set; }
         public WithdrawalStatus Status { get; set; }
     }
     public class ConsultantDTO12
@@ -18,5 +20,11 @@ namespace Monhealth.Application
         public string Email { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string AvatarUrl { get; set; } = string.Empty;
+    }
+    public class ConsultantBankInfo
+    {
+        public string BankName { get; set; } = string.Empty;
+        public string ShortName { get; set; } = string.Empty;
+        public string LogoUrl { get; set; } = string.Empty;
     }
 }

@@ -22,6 +22,13 @@ namespace Monhealth.Application
                     ConsultantId = wd.ConsultantId,
                     Description = wd.Description,
                     Amount = wd.Amount,
+                    Reason = wd.Reason,
+                    ConsultantBank = wd.Consultant.ConsultantBanks.Select(cb => new ConsultantBankInfo
+                    {
+                        BankName = cb.Bank.BankName,
+                        ShortName = cb.Bank.ShortName,
+                        LogoUrl = cb.Bank.LogoUrl
+                    }).FirstOrDefault(),
                     Status = wd.Status,
                     CreatedAt = wd.CreatedAt,
                     UpdatedAt = wd.UpdatedAt,
