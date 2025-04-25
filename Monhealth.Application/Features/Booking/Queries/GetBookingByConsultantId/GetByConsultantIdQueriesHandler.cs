@@ -12,7 +12,7 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
         {
             var bookings = await bookingRepository.GetBookingByConsultantId(request.ConsultantId, request.Page, request.Limit, request.Date);
 
-            var bookingDtos = mapper.Map<List<BookingDto>>(bookings);
+            var bookingDtos = mapper.Map<List<BookingDto>>(bookings.Items);
 
             var bookingId = bookingDtos.Select(b => b.BookingId).ToList();
 
