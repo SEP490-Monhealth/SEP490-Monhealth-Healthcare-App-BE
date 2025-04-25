@@ -90,6 +90,25 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
+        public async Task<string> GetAvatarBySenderIdAsync(Guid senderId)
+        {
+            // build two queries
+            var userQ = _context.Users
+                .Where(u => u.Id == senderId)
+                .Select(u => u.Avatar);
+
+            var consultantQ = _context.Consultants
+                .Include(c => c.AppUser)
+                .Where(c => c.ConsultantId == senderId)
+                .Select(c => c.AppUser.Avatar);
+
+            var avatarUrl = await userQ
+                .Union(consultantQ)
+                .FirstOrDefaultAsync();
+
+            return avatarUrl;
+        }
+
         public async Task<Dictionary<Guid, string>> GetAvatarsByUserIds(List<Guid> userIds)
         {
             return await _context.Users

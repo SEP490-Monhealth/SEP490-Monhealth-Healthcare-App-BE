@@ -25,7 +25,7 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<int> GetUserCountByRoleAsync(string role);
         Task<int> GetUserCountByRoleAsync(string role, DateTime targetDate);
         Task<List<AppUser>> GetUsersByIdsAsync(List<Guid> userIds);
-
+        Task<string> GetAvatarBySenderIdAsync(Guid senderId);
 
     }
 }

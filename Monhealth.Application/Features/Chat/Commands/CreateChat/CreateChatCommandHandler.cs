@@ -11,7 +11,6 @@ namespace Monhealth.Application.Features.Chat.Commands.CreateChat
             if (chat == null)
             {
                 var currentUtcTime = DateTime.UtcNow; // Get UTC time
-
                 // Convert UTC time to Vietnam Time (GMT+7)
                 TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
                 DateTime vietnamTime = TimeZoneInfo.ConvertTimeFromUtc(currentUtcTime, vietnamTimeZone);

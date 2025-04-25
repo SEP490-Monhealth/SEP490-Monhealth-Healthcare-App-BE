@@ -14,10 +14,16 @@ namespace Monhealth.Application.Features.Notification.Commands.UpdateNotificatio
                 return false;
             }
             var updateNotification = mapper.Map(request.UpdateNotificationDTO, notification);
-            updateNotification.UpdatedAt = DateTime.Now;
+            updateNotification.UpdatedAt = GetCurrentVietnamTime();
             notificationRepository.Update(updateNotification);
             await notificationRepository.SaveChangeAsync(cancellationToken);
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

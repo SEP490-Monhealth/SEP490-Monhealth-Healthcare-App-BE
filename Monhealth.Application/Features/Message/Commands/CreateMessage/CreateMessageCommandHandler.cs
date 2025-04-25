@@ -29,28 +29,38 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 ChatId = chat.ChatId,
                 SenderId = request.SenderId,
                 Content = request.Content,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+
+                CreatedAt = GetCurrentVietnamTime(),
+                UpdatedAt = GetCurrentVietnamTime(),
 
             };
             messageRepository.Add(newMessage);
 
             //udpate last message
-            chat.UpdatedAt = DateTime.Now;
+            chat.UpdatedAt = GetCurrentVietnamTime();
             chat.LastMessage = request.Content;
             await messageRepository.SaveChangeAsync(cancellationToken);
 
+            //get avatarUrl for return
+            string avatarUrl = await userRepository.GetAvatarBySenderIdAsync(request.SenderId);
             var messageDto = new MessageDto
             {
                 MessageId = newMessage.MessageId,
                 ChatId = newMessage.ChatId,
                 SenderId = newMessage.SenderId,
                 Content = newMessage.Content,
+                AvatarUrl = avatarUrl ?? string.Empty,
                 CreatedAt = newMessage.CreatedAt,
                 UpdatedAt = newMessage.UpdatedAt,
             };
 
             return messageDto;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

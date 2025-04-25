@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Notification.Commands.IsReadNotificaito
             if (!userNotification.IsRead)
             {
                 userNotification.IsRead = true;
-                userNotification.UpdatedAt = DateTime.UtcNow;
+                userNotification.UpdatedAt = GetCurrentVietnamTime();
                 userNotificationRepository.Update(userNotification);
             }
             else
@@ -26,6 +26,12 @@ namespace Monhealth.Application.Features.Notification.Commands.IsReadNotificaito
             }
             await userNotificationRepository.SaveChangeAsync(cancellationToken);
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

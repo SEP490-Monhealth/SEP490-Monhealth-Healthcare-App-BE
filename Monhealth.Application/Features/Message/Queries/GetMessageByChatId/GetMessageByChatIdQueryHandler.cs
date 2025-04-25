@@ -23,7 +23,6 @@ namespace Monhealth.Application.Features.Message.Queries.GetMessageByChatId
             var avatarLookup = userAvatars
                 .Concat(consultantAvatars)
                   .ToDictionary(x => x.Key, x => x.Value);
-
             var messageDtos = messages.Select(m =>
             {
                 avatarLookup.TryGetValue(m.SenderId, out var avatarUrl);

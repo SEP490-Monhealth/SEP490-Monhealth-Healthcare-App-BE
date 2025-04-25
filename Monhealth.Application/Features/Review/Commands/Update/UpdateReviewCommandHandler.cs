@@ -16,10 +16,18 @@ namespace Monhealth.Application.Features.Review.Commands.Update
             var update = await _reviewRepository.GetByIdAsync(request.ReviewId);
             update.Comment = request.Request?.Comment;
             update.Rating = request.Request.Rating;
-            update.UpdatedAt = DateTime.Now;
+
+            var vietNameTimeNow = GetCurrentVietnamTime();
+            update.UpdatedAt = vietNameTimeNow;
             _reviewRepository.Update(update);
             await _reviewRepository.SaveChangeAsync();
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

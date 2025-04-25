@@ -31,14 +31,16 @@ namespace Monhealth.Application.Features.Review.Commands.Create
             if (booking.IsReviewed) throw new BadRequestException($"Lịch hẹn này đã được đánh giá rồi");
             booking.IsReviewed = true;
 
+
+            var vietNamTimeNow = GetCurrentVietnamTime();
             var review = new Domain.Review
             {
                 BookingId = request.BookingId,
                 UserId = request.UserId,
                 Rating = request.Rating,
                 Comment = request.Comment,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = vietNamTimeNow,
+                UpdatedAt = vietNamTimeNow
             };
 
             _reviewRepository.Add(review);
@@ -64,6 +66,12 @@ namespace Monhealth.Application.Features.Review.Commands.Create
 
             await _reviewRepository.SaveChangeAsync();
             return Unit.Value;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }
