@@ -99,7 +99,7 @@ namespace Monhealth.Identity.Services
             var refreshToken = _tokenService.GenerateRefreshToken();
 
             user.RefreshToken = refreshToken;
-            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(30);
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(30);
             await _userManager.UpdateAsync(user);
 
             //notify user 
@@ -142,7 +142,7 @@ namespace Monhealth.Identity.Services
             var refreshToken = _tokenService.GenerateRefreshToken();
 
             user.RefreshToken = refreshToken;
-            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(30);
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(30);
             await _userManager.UpdateAsync(user);
             return new AuthAdminResponse()
             {
@@ -161,7 +161,7 @@ namespace Monhealth.Identity.Services
         {
             var principal = _tokenService.GetPrincipalFromExpiredToken(tokenDto.AccessToken);
             var user = await _userManager.FindByNameAsync(principal.Identity.Name);
-            if (user is null || user.RefreshToken != tokenDto.RefreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
+            if (user is null || user.RefreshToken != tokenDto.RefreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
             {
 
                 throw new BadRequestException("Token không hợp lệ");
@@ -206,8 +206,8 @@ namespace Monhealth.Identity.Services
                 PhoneNumber = request.PhoneNumber,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 LockoutEnabled = false,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
                 CreatedBy = newUserId,
                 UpdatedBy = newUserId
             };

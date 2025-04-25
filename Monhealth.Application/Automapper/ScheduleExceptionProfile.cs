@@ -11,8 +11,8 @@ namespace Monhealth.Application.Automapper
         public ScheduleExceptionProfile()
         {
             CreateMap<CreateScheduleExceptionCommand, ScheduleException>()
-                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.Now))
-                .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => DateTime.Now));
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.UtcNow))
+                .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => DateTime.UtcNow));
 
 
             CreateMap<Consultant, ConsultantForGetAllScheduleExceptionDTO>()

@@ -41,8 +41,8 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                         ScheduleType = request.ScheduleType,
                         RecurringDay = scheduleDto.RecurringDay,
                         SpecificDate = scheduleDto.SpecificDate,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now,
+                        CreatedAt = DateTime.UtcNow,
+                        UpdatedAt = DateTime.UtcNow,
                     };
                     schedules.Add(scheduleToUse);
                 }
@@ -70,8 +70,8 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                     TimeSlotId = Guid.NewGuid(),
                     StartTime = ts.StartTime,
                     EndTime = ts.EndTime,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 })
                 .ToList();
 
@@ -91,8 +91,8 @@ namespace Monhealth.Application.Features.Schedule.Commands.Create
                         ScheduleId = scheduleToUse.ScheduleId,
                         TimeSlotId = ts.TimeSlotId,
                         Status = ScheduleTimeSlotStatus.Available,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now,
+                        CreatedAt = DateTime.UtcNow,
+                        UpdatedAt = DateTime.UtcNow,
                     }
                 ).ToList();
 

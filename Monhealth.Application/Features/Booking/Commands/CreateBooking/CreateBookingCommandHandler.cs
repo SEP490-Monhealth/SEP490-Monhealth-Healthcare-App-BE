@@ -30,13 +30,13 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
             var member = await userRepository.GetUserByIdAsync(booking.UserId.Value)
                             ?? throw new BadRequestException("Không tìm thấy người dùng");
             consultant.BookingCount++;
-            consultant.UpdatedAt = DateTime.Now;
+            consultant.UpdatedAt = DateTime.UtcNow;
 
             //subtract amout remaining booking
             var sub = await userSubscriptionRepository.GetUserSubscriptionActiveOfUser(booking.UserId.Value)
               ?? throw new BadRequestException("Bạn đã hết số lượt có thể đặt lịch");
             sub.RemainingBookings--;
-            sub.UpdatedAt = DateTime.Now;
+            sub.UpdatedAt = DateTime.UtcNow;
 
             // 2. Gọi n8n webhook để tạo Google Meet link
             var client = httpFactory.CreateClient("n8n");

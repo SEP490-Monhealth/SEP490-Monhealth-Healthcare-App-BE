@@ -26,7 +26,7 @@ namespace Monhealth.Identity.Services
                 issuer: _jwtTokenSettings.Issuer,
                 audience: _jwtTokenSettings.Issuer,
                 claims: claims,
-                expires: DateTime.Now.AddDays(_jwtTokenSettings.ExpireInDays),
+                expires: DateTime.UtcNow.AddDays(_jwtTokenSettings.ExpireInDays),
                 signingCredentials: signinCredentials
             );
 

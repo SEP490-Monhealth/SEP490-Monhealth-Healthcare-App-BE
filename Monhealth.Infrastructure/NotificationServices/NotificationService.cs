@@ -64,8 +64,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                     Content = content,
                     ActionUrl = actionUrl,
                     ReferenceId = referenceId,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                 };
 
                 notificationRepository.Add(notification);
@@ -76,8 +76,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                     UserId = userId,
                     NotificationId = notification.NotificationId,
                     IsRead = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                 };
 
                 userNotificationRepository.Add(userNotification);

@@ -91,7 +91,7 @@ namespace Monhealth.Identity.Repositories
                 consultantBanks.ForEach(cb =>
                 {
                     cb.IsDefault = false;
-                    cb.UpdatedAt = DateTime.Now;
+                    cb.UpdatedAt = DateTime.UtcNow;
                 });
             }
             await _context.SaveChangesAsync();

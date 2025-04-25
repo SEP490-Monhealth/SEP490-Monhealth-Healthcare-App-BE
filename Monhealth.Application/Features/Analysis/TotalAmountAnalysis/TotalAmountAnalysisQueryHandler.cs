@@ -36,7 +36,7 @@ namespace Monhealth.Application
             CancellationToken cancellationToken)
         {
             // Lấy ngày đầu tháng hiện tại và đầu tháng trước đó dựa trên CreatedAt
-            DateTime currentDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            DateTime currentDate = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
             DateTime previousDate = currentDate.AddMonths(-1);
 
             // -------------------------------------------

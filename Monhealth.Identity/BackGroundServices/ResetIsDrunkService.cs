@@ -29,7 +29,7 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
                     using (var scope = _serviceScopeFactory.CreateScope())
                     {
                         var repository = scope.ServiceProvider.GetRequiredService<IWaterReminderRepository>();
-                        var now = DateTime.Now; // Lấy thời gian hiện tại
+                        var now = DateTime.UtcNow; // Lấy thời gian hiện tại
 
                         _logger.LogInformation($"Checking reminders at {now}.");
 
@@ -78,7 +78,7 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
             using (var scope = _serviceScopeFactory.CreateScope())
             {
                 var repository = scope.ServiceProvider.GetRequiredService<IWaterReminderRepository>();
-                var now = DateTime.Now;
+                var now = DateTime.UtcNow;
 
                 _logger.LogInformation($"Manually checking reminders at {now}.");
 

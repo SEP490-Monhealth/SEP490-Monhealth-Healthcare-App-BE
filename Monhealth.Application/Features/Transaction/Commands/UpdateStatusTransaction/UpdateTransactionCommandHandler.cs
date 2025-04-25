@@ -55,7 +55,7 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateTransaction
             }
 
             transaction.Status = StatusTransaction.Completed;
-            transaction.UpdatedAt = DateTime.Now;
+            transaction.UpdatedAt = DateTime.UtcNow;
 
             _transactionRepository.Update(transaction);
             await _transactionRepository.SaveChangeAsync();

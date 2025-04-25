@@ -22,8 +22,8 @@ namespace Monhealth.Application.Features.Expertise.Commands.CreateExpertise
             }
             var newExpertise = _mapper.Map<Domain.Expertise>(request.CreateExpertiseDTO);
             newExpertise.ExpertiseId = Guid.NewGuid();
-            newExpertise.CreatedAt = DateTime.Now;
-            newExpertise.UpdatedAt = DateTime.Now;
+            newExpertise.CreatedAt = DateTime.UtcNow;
+            newExpertise.UpdatedAt = DateTime.UtcNow;
             _expertiseRepository.Add(newExpertise);
             await _expertiseRepository.SaveChangeAsync();
             return Unit.Value;

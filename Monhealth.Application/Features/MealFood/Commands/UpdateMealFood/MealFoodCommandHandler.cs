@@ -94,7 +94,7 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
                         dailyMeal.TotalFibers -= removedFibers;
                         dailyMeal.TotalSugars -= removedSugars;
 
-                        dailyMeal.UpdatedAt = DateTime.Now;
+                        dailyMeal.UpdatedAt = DateTime.UtcNow;
                         _dailyMealRepository.Update(dailyMeal);
                         await _dailyMealRepository.SaveChangeAsync();
                     }
@@ -136,7 +136,7 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
 
                 // Cập nhật MealFood
                 mealFood.Quantity = request.Quantity;
-                mealFood.UpdatedAt = DateTime.Now;
+                mealFood.UpdatedAt = DateTime.UtcNow;
                 _mealFoodRepository.Update(mealFood);
                 await _mealFoodRepository.SaveChangeAsync();
 
@@ -150,7 +150,7 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateMealFood
                     dailyMeal.TotalFibers += deltaFibers;
                     dailyMeal.TotalSugars += deltaSugars;
 
-                    dailyMeal.UpdatedAt = DateTime.Now;
+                    dailyMeal.UpdatedAt = DateTime.UtcNow;
                     _dailyMealRepository.Update(dailyMeal);
                     await _dailyMealRepository.SaveChangeAsync();
                 }

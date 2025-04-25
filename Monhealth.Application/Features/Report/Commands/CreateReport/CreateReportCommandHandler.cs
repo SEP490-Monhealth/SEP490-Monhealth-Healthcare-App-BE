@@ -12,8 +12,8 @@ namespace Monhealth.Application.Features.Report.Commands.CreateReport
             var newReport = mapper.Map<Domain.Report>(request.CreateReportDTO);
             newReport.ReportId = Guid.NewGuid();
             newReport.Status = Domain.Enum.StatusReport.Pending;
-            newReport.CreatedAt = DateTime.Now;
-            newReport.UpdatedAt = DateTime.Now;
+            newReport.CreatedAt = DateTime.UtcNow;
+            newReport.UpdatedAt = DateTime.UtcNow;
             reportRepository.Add(newReport);
             await reportRepository.SaveChangeAsync();
             return Unit.Value;

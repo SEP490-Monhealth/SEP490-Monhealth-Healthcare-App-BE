@@ -27,7 +27,7 @@ namespace Monhealth.Application.Features.Certificate.Commands.UpdateCertificate
             var updateCertificate = _mapper.Map(request.UpdateCertificateDTO, certificate);
             updateCertificate.ExpertiseId = checkExpertiseExisted.ExpertiseId;
             updateCertificate.IsVerified = false;
-            updateCertificate.UpdatedAt = DateTime.Now;
+            updateCertificate.UpdatedAt = DateTime.UtcNow;
             _certificateRepository.Update(updateCertificate);
 
             await _certificateRepository.SaveChangeAsync();

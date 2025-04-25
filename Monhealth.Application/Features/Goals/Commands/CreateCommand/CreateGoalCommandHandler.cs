@@ -89,8 +89,8 @@ namespace Monhealth.Application.Features.Goals.Commands.CreateCommand
 
             newGoal.GoalId = Guid.NewGuid();
             newGoal.Status = GoalStatus.Active;
-            newGoal.CreatedAt = DateTime.Now;
-            newGoal.UpdatedAt = DateTime.Now;
+            newGoal.CreatedAt = DateTime.UtcNow;
+            newGoal.UpdatedAt = DateTime.UtcNow;
             _goalRepository.Add(newGoal);
             await _goalRepository.SaveChangeAsync();
             return Unit.Value;

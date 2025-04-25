@@ -15,8 +15,8 @@ namespace Monhealth.Application.Features.Subscription.Commands.Create
         {
             var model = new Domain.Subscription
             {
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
                 SubscriptionName = request.SubscriptionName,
                 SubscriptionDescription = request.SubscriptionDescription,
                 Price = request.Price,

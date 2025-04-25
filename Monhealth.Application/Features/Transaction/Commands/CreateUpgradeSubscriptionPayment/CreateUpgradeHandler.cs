@@ -23,8 +23,8 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateUpgradeSubsc
                 Status = Domain.Enum.StatusTransaction.Pending,
                 Description = request.Description,
                 SubscriptionId = request.SubscriptionId,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
             };
 
             var paymentResult = await payOSService.CreatePaymentLinkAsync(

@@ -46,7 +46,7 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForAdmin
             food.FoodName = request.RequestData.FoodName;
             food.FoodDescription = request.RequestData.FoodDescription;
             food.ReferenceUrl = request.RequestData.ReferenceUrl;
-            food.UpdatedAt = DateTime.Now;
+            food.UpdatedAt = DateTime.UtcNow;
             food.MealType = request.RequestData.MealType;
             var categoryName = request.RequestData.Category;
             if (categoryName != null)

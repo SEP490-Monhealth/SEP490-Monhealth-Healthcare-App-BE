@@ -29,7 +29,7 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertise
             }
             // Update Expertise
             var updateExpertise = _mapper.Map(request.UpdateExpertiseDTO, existingExpertise);
-            updateExpertise.UpdatedAt = DateTime.Now;
+            updateExpertise.UpdatedAt = DateTime.UtcNow;
             _expertiseRepository.Update(updateExpertise);
 
             // Update Certificate
@@ -40,7 +40,7 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertise
             //    certificate.IssueDate = request.UpdateExpertiseDTO.IssueDate;
             //    certificate.ExpiryDate = request.UpdateExpertiseDTO.ExpiryDate;
             //    certificate.Images = request.UpdateExpertiseDTO.Images;
-            //    certificate.UpdatedAt = DateTime.Now;
+            //    certificate.UpdatedAt = DateTime.UtcNow;
             //    _certificateRepository.Update(certificate);
             //}
 

@@ -48,7 +48,7 @@ namespace Monhealth.Identity.BackGroundServices
         )
         {
             // Current time
-            var now = DateTime.Now;
+            var now = DateTime.UtcNow;
 
             // Time window for notifications (30 minutes from now)
             var targetTime = now.AddMinutes(30);
@@ -93,7 +93,7 @@ namespace Monhealth.Identity.BackGroundServices
             CancellationToken stoppingToken
         )
         {
-            var now = DateTime.Now;
+            var now = DateTime.UtcNow;
 
             // Find completed bookings that are older than 24 hours but not yet reminded
             var completedBookings = await bookingRepository.GetCompletedBookingsOlderThan24HoursAsync(now.AddHours(-24), stoppingToken);

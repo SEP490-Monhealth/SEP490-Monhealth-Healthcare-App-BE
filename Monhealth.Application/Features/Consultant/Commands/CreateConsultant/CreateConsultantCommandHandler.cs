@@ -36,7 +36,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.CreateConsultant
         }
         public async Task<Unit> Handle(CreateConsultantCommand request, CancellationToken cancellationToken)
         {
-            var today = DateTime.Now;
+            var today = DateTime.UtcNow;
             // Create Expertise                
             var expertise = await _expertiseRepository.GetExpertiseByNameAsync(request.CreateConsultantDTO.ExpertiseName);
             if (expertise == null)

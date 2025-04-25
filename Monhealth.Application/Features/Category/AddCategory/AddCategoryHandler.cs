@@ -30,8 +30,8 @@ namespace Monhealth.Application.Features.Category.AddCategory
                 CategoryName = request.CategoryName,
                 CategoryDescription = request.CategoryDescription,
                 ImageUrl = request.CategoryImage,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             };
 
             _categoryRepository.Add(model);

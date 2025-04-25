@@ -11,7 +11,7 @@ namespace Monhealth.Application.Features.Message.Commands.MarkMessageIsRead
             var message = await messageRepository.GetByIdAsync(request.MessageId);
             if (message == null) throw new BadRequestException("Không tìm thấy tin nhắn");
             message.IsRead = true;
-            message.UpdatedAt = DateTime.Now;
+            message.UpdatedAt = DateTime.UtcNow;
             await messageRepository.SaveChangeAsync(cancellationToken);
             return true;
         }

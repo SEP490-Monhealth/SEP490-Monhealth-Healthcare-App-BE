@@ -16,7 +16,7 @@ namespace Monhealth.Application
 
         public async Task<AnalysisUserDTO> Handle(AnalysisUserQuery request, CancellationToken cancellationToken)
         {
-            DateTime currentMonthStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            DateTime currentMonthStart = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
             DateTime nextMonthStart = currentMonthStart.AddMonths(1);
             // Tháng trước: [previousMonthStart, currentMonthStart)
             DateTime previousMonthStart = currentMonthStart.AddMonths(-1);

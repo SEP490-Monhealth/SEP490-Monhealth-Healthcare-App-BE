@@ -46,8 +46,8 @@ namespace Monhealth.Identity.Repositories
                     Volume = (float)Math.Round(volume), // Lượng nước cần uống
                     Status = true, // Trạng thái mặc định
                     IsRecurring = true,
-                    CreatedAt = DateTime.Now, // Thời gian tạo
-                    UpdatedAt = DateTime.Now // Thời gian cập nhật
+                    CreatedAt = DateTime.UtcNow, // Thời gian tạo
+                    UpdatedAt = DateTime.UtcNow // Thời gian cập nhật
                 });
 
                 index++;

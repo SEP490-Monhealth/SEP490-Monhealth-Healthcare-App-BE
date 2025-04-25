@@ -71,7 +71,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             {
                 Console.WriteLine("Updating existing meal...");
                 model = existingMeal;
-                model.UpdatedAt = DateTime.Now;
+                model.UpdatedAt = DateTime.UtcNow;
             }
             else
             {
@@ -81,8 +81,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     UserId = userId,
                     MealType = mealTypeEnum,
                     MealDate = mealDate,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                 };
 
                 _mealRepository.Add(model);
@@ -104,8 +104,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                     MeasurementUnit = item.MeasurementUnit,
                     PortionSize = item.PortionSize,
                     PortionWeight = item.PortionWeight,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 };
 
                 Guid portionId;
@@ -131,7 +131,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 if (existingMealItem != null && existingMealItem.PortionId == portionId)
                 {
                     existingMealItem.Quantity += item.Quantity;
-                    existingMealItem.UpdatedAt = DateTime.Now;
+                    existingMealItem.UpdatedAt = DateTime.UtcNow;
                 }
                 else
                 {
@@ -140,8 +140,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                         MealId = model.MealId,
                         FoodId = item.FoodId,
                         Quantity = item.Quantity,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now,
+                        CreatedAt = DateTime.UtcNow,
+                        UpdatedAt = DateTime.UtcNow,
                         PortionId = portionId,
                         IsRecommended = false,
                         IsCompleted = false,
@@ -179,8 +179,8 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 {
                     GoalId = goal.GoalId,
                     UserId = userId,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     DailyMealDate = mealDate,
                     TotalCalories = 0,
                     TotalProteins = 0,
@@ -195,7 +195,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 //     UserId = userId,
                 //     GoalId = goal.GoalId,
                 //     CreatedAt = dailyMeal.DailyMealDate,
-                //     UpdatedAt = DateTime.Now,
+                //     UpdatedAt = DateTime.UtcNow,
                 //     TotalCaloriesBurned = 0,
                 //     TotalDurationMinutes = 0
                 // };
@@ -254,7 +254,7 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
                 }
             }
 
-            dailyMeal.UpdatedAt = DateTime.Now;
+            dailyMeal.UpdatedAt = DateTime.UtcNow;
             await _dailyMealRepository.SaveChangeAsync();
 
             return model.MealId;

@@ -20,8 +20,8 @@ namespace Monhealth.Application.Features.Allergy.Commands.CreateAllergy
             {
                 AllergyName = request.Name,
                 AllergyDescription = request.Description,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
             };
             _allergyRepository.Add(model);
             await _allergyRepository.SaveChangeAsync();

@@ -75,8 +75,8 @@ namespace Monhealth.Application
             var newMetric = _mapper.Map<Monhealth.Domain.Metric>(
                 request.createMetricForUpdateDTO);
 
-            var age = DateTime.Now.Year - request.createMetricForUpdateDTO.DateOfBirth.Year;
-            if (DateTime.Now.DayOfYear < request.createMetricForUpdateDTO.DateOfBirth.DayOfYear)
+            var age = DateTime.UtcNow.Year - request.createMetricForUpdateDTO.DateOfBirth.Year;
+            if (DateTime.UtcNow.DayOfYear < request.createMetricForUpdateDTO.DateOfBirth.DayOfYear)
             {
                 age--;
             }
@@ -95,8 +95,8 @@ namespace Monhealth.Application
                 request.createMetricForUpdateDTO.Height,
                 request.createMetricForUpdateDTO.Gender.ToString());
             newMetric.MetricId = Guid.NewGuid();
-            newMetric.CreatedAt = DateTime.Now;
-            newMetric.UpdatedAt = DateTime.Now;
+            newMetric.CreatedAt = DateTime.UtcNow;
+            newMetric.UpdatedAt = DateTime.UtcNow;
             _metricRepository.Add(newMetric);
             await _metricRepository.SaveChangeAsync();
 
@@ -118,8 +118,8 @@ namespace Monhealth.Application
                 _goalRepository.Update(checkStatus);
             }
             newGoal.Status = GoalStatus.Active;
-            newGoal.CreatedAt = DateTime.Now;
-            newGoal.UpdatedAt = DateTime.Now;
+            newGoal.CreatedAt = DateTime.UtcNow;
+            newGoal.UpdatedAt = DateTime.UtcNow;
             _goalRepository.Add(newGoal);
             await _goalRepository.SaveChangeAsync();
 
@@ -189,8 +189,8 @@ namespace Monhealth.Application
                         DailyMealId = dailyMealId,
                         UserId = user.Id,
                         DailyMealDate = targetDate, // Ngày của DailyMeal (theo ngày gốc)
-                        CreatedAt = DateTime.Now,   // Thời điểm tạo record
-                        UpdatedAt = DateTime.Now,
+                        CreatedAt = DateTime.UtcNow,   // Thời điểm tạo record
+                        UpdatedAt = DateTime.UtcNow,
                         TotalCalories = 0,
                         TotalProteins = 0,
                         TotalCarbs = 0,
@@ -225,7 +225,7 @@ namespace Monhealth.Application
         /// Phương thức tạo Meal theo logic tương tự như CreateUserSubscription.
         /// Chú ý: 
         /// - Trường MealDate được set bằng targetDate (ngày áp dụng cho bữa ăn)
-        /// - CreatedAt/UpdatedAt ghi nhận thời điểm thao tác (DateTime.Now)
+        /// - CreatedAt/UpdatedAt ghi nhận thời điểm thao tác (DateTime.UtcNow)
         /// </summary>
         private async Task<Domain.Meal> CreateMealForType(
             MealType mealType, AppUser user, Guid dailyMealId, DateTime targetDate)
@@ -324,8 +324,8 @@ namespace Monhealth.Application
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
                 mealFoods.Add(new Domain.MealFood
                 {
@@ -334,8 +334,8 @@ namespace Monhealth.Application
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
             }
             else if (proteinFood != null && carbFood != null && vegetableFood != null)
@@ -347,8 +347,8 @@ namespace Monhealth.Application
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
                 mealFoods.Add(new Domain.MealFood
                 {
@@ -357,8 +357,8 @@ namespace Monhealth.Application
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
                 mealFoods.Add(new Domain.MealFood
                 {
@@ -367,8 +367,8 @@ namespace Monhealth.Application
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
             }
             else
@@ -385,8 +385,8 @@ namespace Monhealth.Application
                 UserId = user.Id,
                 DailyMealId = dailyMealId,
                 MealDate = targetDate,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
                 MealFoods = mealFoods,
             };
 
@@ -404,8 +404,8 @@ namespace Monhealth.Application
                     PortionSize = "phần",
                     PortionWeight = (float)balanceWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -415,8 +415,8 @@ namespace Monhealth.Application
                     PortionSize = "phần",
                     PortionWeight = (float)vegetableWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -438,8 +438,8 @@ namespace Monhealth.Application
                     PortionSize = "phần",
                     PortionWeight = (float)proteinWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -449,8 +449,8 @@ namespace Monhealth.Application
                     PortionSize = "phần",
                     PortionWeight = (float)carbWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -460,8 +460,8 @@ namespace Monhealth.Application
                     PortionSize = "phần",
                     PortionWeight = (float)vegetableWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });

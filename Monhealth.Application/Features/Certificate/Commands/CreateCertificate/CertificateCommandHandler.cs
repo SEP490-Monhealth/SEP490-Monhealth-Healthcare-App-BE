@@ -18,8 +18,8 @@ namespace Monhealth.Application.Features.Certificate.Commands.CreateCertificate
             }
             certificate.ExpertiseId = checkExpertiseExisted.ExpertiseId;
             certificate.IsVerified = false;
-            certificate.CreatedAt = DateTime.Now;
-            certificate.UpdatedAt = DateTime.Now;
+            certificate.CreatedAt = DateTime.UtcNow;
+            certificate.UpdatedAt = DateTime.UtcNow;
             certificateRepository.Add(certificate);
 
             await certificateRepository.SaveChangeAsync(cancellationToken);

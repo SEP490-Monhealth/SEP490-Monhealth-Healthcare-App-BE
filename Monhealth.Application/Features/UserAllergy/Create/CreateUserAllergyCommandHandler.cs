@@ -27,8 +27,8 @@ namespace Monhealth.Application.Features
                      UserAllergyId = Guid.NewGuid(),
                      UserId = request.UserId,
                      AllergyId = a.AllergyId,
-                     CreatedAt = DateTime.Now,
-                     UpdatedAt = DateTime.Now
+                     CreatedAt = DateTime.UtcNow,
+                     UpdatedAt = DateTime.UtcNow
             }));
             await _userAllergyRepository.SaveChangeAsync();
             return true;

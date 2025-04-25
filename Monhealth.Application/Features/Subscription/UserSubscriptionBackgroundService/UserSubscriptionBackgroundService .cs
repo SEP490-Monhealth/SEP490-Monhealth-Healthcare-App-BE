@@ -47,18 +47,18 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                         if (user == null)
                         {
                             _logger.LogWarning(
-                                $"[{DateTime.Now:HH:mm:ss}] User {subscription.UserId} not found. Skipping...");
+                                $"[{DateTime.UtcNow:HH:mm:ss}] User {subscription.UserId} not found. Skipping...");
                             continue;
                         }
 
                         // Nếu gói đăng ký đã hết hạn
-                        if (subscription.ExpiresAt <= DateTime.Now)
+                        if (subscription.ExpiresAt <= DateTime.UtcNow)
                         {
                             if (subscription.Status != UserSubscriptionStatus.Expired)
                             {
                                 subscription.Status = UserSubscriptionStatus.Expired;
                                 _logger.LogInformation(
-                                    $"[{DateTime.Now:HH:mm:ss}] ⚠️ Subscription expired for User {subscription.UserId}");
+                                    $"[{DateTime.UtcNow:HH:mm:ss}] ⚠️ Subscription expired for User {subscription.UserId}");
 
                                 // Update vai trò của user về "Member"
                                 var userRole = await userRoleRepository.GetUserRoleByUserIdAsync(subscription.UserId);
@@ -66,7 +66,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                                 {
                                     userRoleRepository.Remove(userRole);
                                     _logger.LogInformation(
-                                        $"[{DateTime.Now:HH:mm:ss}] Removed old role for UserId {subscription.UserId}");
+                                        $"[{DateTime.UtcNow:HH:mm:ss}] Removed old role for UserId {subscription.UserId}");
                                 }
 
                                 var memberRole = await userRoleRepository.GetRoleByNameAsync("Member");
@@ -79,7 +79,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                                     };
                                     userRoleRepository.Add(newUserRole);
                                     _logger.LogInformation(
-                                        $"[{DateTime.Now:HH:mm:ss}] Added 'Member' role for UserId {subscription.UserId}");
+                                        $"[{DateTime.UtcNow:HH:mm:ss}] Added 'Member' role for UserId {subscription.UserId}");
                                 }
                             }
                             continue; // Bỏ qua user hết hạn
@@ -91,7 +91,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                         if (today < generationStartDate)
                         {
                             // _logger.LogInformation(
-                            //     $"[{DateTime.Now:HH:mm:ss}] Daily meal generation postponed for User {subscription.UserId} until {generationStartDate:yyyy-MM-dd}.");
+                            //     $"[{DateTime.UtcNow:HH:mm:ss}] Daily meal generation postponed for User {subscription.UserId} until {generationStartDate:yyyy-MM-dd}.");
                             continue;
                         }
 
@@ -103,7 +103,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                             if (existingDailyMeal != null)
                             {
                                 _logger.LogInformation(
-                                    $"[{DateTime.Now:HH:mm:ss}] DailyMeal already exists for User {user.Id} on {targetDate:yyyy-MM-dd}.");
+                                    $"[{DateTime.UtcNow:HH:mm:ss}] DailyMeal already exists for User {user.Id} on {targetDate:yyyy-MM-dd}.");
                                 continue;
                             }
 
@@ -123,7 +123,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 catch (Exception ex)
                 {
                     _logger.LogError(
-                        $"[{DateTime.Now:HH:mm:ss}] ❌ Error in background service: {ex.Message}");
+                        $"[{DateTime.UtcNow:HH:mm:ss}] ❌ Error in background service: {ex.Message}");
                 }
 
                 await Task.Delay(_interval, stoppingToken);
@@ -149,7 +149,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             if (existingDailyMeal != null)
             {
                 _logger.LogInformation(
-                    $"[{DateTime.Now:HH:mm:ss}] DailyMeal already exists for user {user.Id} on {targetDate:yyyy-MM-dd}. Skipping creation.");
+                    $"[{DateTime.UtcNow:HH:mm:ss}] DailyMeal already exists for user {user.Id} on {targetDate:yyyy-MM-dd}. Skipping creation.");
                 return;
             }
 
@@ -167,8 +167,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 DailyMealId = dailyMealId,
                 UserId = user.Id,
                 DailyMealDate = targetDate, // Ngày áp dụng cho DailyMeal
-                CreatedAt = DateTime.Now,   // Thời điểm tạo record
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,   // Thời điểm tạo record
+                UpdatedAt = DateTime.UtcNow,
                 TotalCalories = 0,
                 TotalProteins = 0,
                 TotalCarbs = 0,
@@ -197,7 +197,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             await dailyMealRepository.SaveChangeAsync();
 
             _logger.LogInformation(
-                $"[{DateTime.Now:HH:mm:ss}] DailyMeal created for User {user.Id} on {targetDate:yyyy-MM-dd}.");
+                $"[{DateTime.UtcNow:HH:mm:ss}] DailyMeal created for User {user.Id} on {targetDate:yyyy-MM-dd}.");
         }
 
         /// <summary>
@@ -307,8 +307,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                 });
                 mealFoods.Add(new Domain.MealFood
                 {
@@ -317,8 +317,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                 });
             }
             else if (proteinFood != null && carbFood != null && vegetableFood != null)
@@ -330,8 +330,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                 });
                 mealFoods.Add(new Domain.MealFood
                 {
@@ -340,8 +340,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                 });
                 mealFoods.Add(new Domain.MealFood
                 {
@@ -350,8 +350,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     Quantity = 1,
                     IsRecommended = true,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                 });
             }
             else
@@ -368,8 +368,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                 UserId = user.Id,
                 DailyMealId = dailyMealId,
                 MealDate = targetDate,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
                 MealFoods = mealFoods,
             };
 
@@ -387,8 +387,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     PortionSize = "phần",
                     PortionWeight = (float)balanceWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -398,8 +398,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     PortionSize = "phần",
                     PortionWeight = (float)vegetableWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -421,8 +421,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     PortionSize = "phần",
                     PortionWeight = (float)proteinWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -432,8 +432,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     PortionSize = "phần",
                     PortionWeight = (float)carbWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -443,8 +443,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                     PortionSize = "phần",
                     PortionWeight = (float)vegetableWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });

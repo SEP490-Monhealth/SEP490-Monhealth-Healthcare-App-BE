@@ -8,7 +8,7 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<Chat> builder)
         {
-            var today = DateTime.Now;
+            var today = DateTime.UtcNow;
 
             builder.HasData(
             #region Chat 1

@@ -57,7 +57,7 @@ namespace Monhealth.Application
             // Thêm DailyMeal cho mỗi ngày và gán currentDate vào Meal
             for (int i = 0; i < days; i++)
             {
-                var currentDate = DateTime.Now.Date.AddDays(i);
+                var currentDate = DateTime.UtcNow.Date.AddDays(i);
                 storedCurrentDate = currentDate;  // Lưu giá trị currentDate vào biến
                 var dailyMealId = Guid.NewGuid();
                 _dailyMealRepository.Add(new DailyMeal
@@ -173,7 +173,7 @@ namespace Monhealth.Application
                 if (existingMealItem != null)
                 {
                     existingMealItem.Quantity += item.Quantity;
-                    existingMealItem.UpdatedAt = DateTime.Now;
+                    existingMealItem.UpdatedAt = DateTime.UtcNow;
                 }
             }
             if (balanceFood != null)
@@ -184,8 +184,8 @@ namespace Monhealth.Application
                     Quantity = 1,
                     IsCompleted = false,
                     PortionId = balancePortionFoodId,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
 
                 mealFoods.Add(new MealFood
@@ -194,8 +194,8 @@ namespace Monhealth.Application
                     PortionId = vegetablePortionId,
                     Quantity = 1,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
             }
             else
@@ -207,8 +207,8 @@ namespace Monhealth.Application
                     PortionId = proteinPortionId,
                     Quantity = 1,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
 
                 mealFoods.Add(new MealFood
@@ -217,8 +217,8 @@ namespace Monhealth.Application
                     PortionId = carbPortionId,
                     Quantity = 1,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
 
                 mealFoods.Add(new MealFood
@@ -227,18 +227,18 @@ namespace Monhealth.Application
                     PortionId = vegetablePortionId,
                     Quantity = 1,
                     IsCompleted = false,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
             }
-            var currentDate = DateTime.Now.Date.Day;
+            var currentDate = DateTime.UtcNow.Date.Day;
             var existingMeal = await _mealRepository.GetByUserIdAndMealType(user.Id, mealType, meal.MealDate);
             if (existingMeal != null)
             {
 
                 Console.WriteLine("Updating existing meal...");
                 meal = existingMeal;
-                meal.UpdatedAt = DateTime.Now;
+                meal.UpdatedAt = DateTime.UtcNow;
             }
             else
             {
@@ -248,8 +248,8 @@ namespace Monhealth.Application
                     MealType = mealType,
                     UserId = user.Id,
                     DailyMealId = dailyMealId,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     MealFoods = mealFoods,
                 };
 
@@ -266,8 +266,8 @@ namespace Monhealth.Application
                     PortionSize = "phần",
                     PortionWeight = (float)balanceWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -280,8 +280,8 @@ namespace Monhealth.Application
                     MeasurementUnit = "g",
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                 });
             }
             else
@@ -295,8 +295,8 @@ namespace Monhealth.Application
                     PortionSize = "phần",
                     PortionWeight = (float)proteinWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -307,8 +307,8 @@ namespace Monhealth.Application
                     PortionSize = "phần",
                     PortionWeight = (float)carbWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });
@@ -320,8 +320,8 @@ namespace Monhealth.Application
                     PortionSize = "phần",
                     PortionWeight = (float)vegetableWeight,
                     MeasurementUnit = "g",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
                     CreatedBy = user.Id,
                     UpdatedBy = user.Id,
                 });

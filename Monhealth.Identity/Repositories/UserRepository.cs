@@ -24,7 +24,7 @@ namespace Monhealth.Identity.Repositories
             {
                 return new List<AppUser>();
             }
-            DateTime earliestMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-5);
+            DateTime earliestMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1).AddMonths(-5);
             var users = await _context.Users
                             .Where(u => u.CreatedAt.HasValue &&
                                         u.CreatedAt.Value >= earliestMonth &&

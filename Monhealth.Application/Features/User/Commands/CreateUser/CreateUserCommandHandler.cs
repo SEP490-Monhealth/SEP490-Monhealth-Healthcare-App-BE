@@ -38,8 +38,8 @@ namespace Monhealth.Application.Features.User.Commands.CreateUser
                 Avatar = request.AvatarUrl,
                 LockoutEnabled = false,
                 EmailConfirmed = true,
-                UpdatedAt = DateTime.Now,
-                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.UtcNow,
             };
             var password = "User@123";
 

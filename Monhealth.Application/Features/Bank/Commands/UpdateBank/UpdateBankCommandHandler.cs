@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Bank.Commands.UpdateBank
                 return false;
             }
             var bankToUpdate = mapper.Map(request.UpdateBankDTO, bank);
-            bankToUpdate.UpdatedAt = DateTime.Now;
+            bankToUpdate.UpdatedAt = DateTime.UtcNow;
             bankRepository.Update(bankToUpdate);
             await bankRepository.SaveChangeAsync(cancellationToken);
             return true;

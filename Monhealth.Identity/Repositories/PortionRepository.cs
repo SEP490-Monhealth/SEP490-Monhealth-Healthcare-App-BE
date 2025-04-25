@@ -71,8 +71,8 @@ namespace Monhealth.Identity.Repositories
                     MeasurementUnit = measurementUnit,
                     PortionSize = portionSize,
                     PortionWeight = portionWeight,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 };
 
                 _context.Portions.Add(portion);

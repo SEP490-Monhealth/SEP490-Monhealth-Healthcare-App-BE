@@ -32,8 +32,8 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
                 ReferenceUrl = request.ReferenceUrl,
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
                 IsPublic = request.IsPublic
             };
 
@@ -61,8 +61,8 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
                 VitaminC = request.Nutrition.VitaminC,
                 VitaminD = request.Nutrition.VitaminD,
                 VitaminE = request.Nutrition.VitaminE,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             };
             _nutritionRepository.Add(nutrition);
             // Kiểm tra xem Portion đã tồn tại chưa
@@ -87,8 +87,8 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
                     MeasurementUnit = request.Portion.MeasurementUnit,
                     PortionSize = request.Portion.PortionSize,
                     PortionWeight = request.Portion.PortionWeight,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 };
                 _portionRepository.Add(portion);
             }

@@ -51,8 +51,8 @@ namespace Monhealth.Application
                 ConsultantBankId = request.ConsultantBankId,
                 Description = request.Description,
                 Status = Domain.Enum.WithdrawalStatus.Pending,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             };
             withdrawalRepository.Add(model);
             await withdrawalRepository.SaveChangeASync();

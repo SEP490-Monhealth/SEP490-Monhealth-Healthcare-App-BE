@@ -31,7 +31,7 @@ namespace Monhealth.Application.Features.Portions.Commands.UpdateFoodPortion
             portionToUpdate.PortionSize = request.PortionSize;
             portionToUpdate.PortionWeight = request.PortionWeight;
             portionToUpdate.MeasurementUnit = request.MeasurementUnit;
-            portionToUpdate.UpdatedAt = DateTime.Now;
+            portionToUpdate.UpdatedAt = DateTime.UtcNow;
 
             _portionRepository.Update(portionToUpdate);
             await _portionRepository.SaveChangesAsync();

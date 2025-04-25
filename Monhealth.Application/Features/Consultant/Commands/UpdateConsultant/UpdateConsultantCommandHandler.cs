@@ -23,7 +23,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.UpdateConsultant
                 return false;
             }
             var updateConsultant = _mapper.Map(request.UpdateConsultantDTO, consultant);
-            updateConsultant.UpdatedAt = DateTime.Now;
+            updateConsultant.UpdatedAt = DateTime.UtcNow;
             _consultantRepository.Update(updateConsultant);
 
             await _consultantRepository.SaveChangeAsync();

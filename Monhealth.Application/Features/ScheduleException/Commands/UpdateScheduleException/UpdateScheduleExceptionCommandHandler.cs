@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.UpdateSchedu
             {
                 scheduleException.Reason = request.UpdateScheduleExceptionDto.Reason;
             }
-            scheduleException.UpdatedAt = DateTime.Now;
+            scheduleException.UpdatedAt = DateTime.UtcNow;
             await scheduleExceptionRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
         }

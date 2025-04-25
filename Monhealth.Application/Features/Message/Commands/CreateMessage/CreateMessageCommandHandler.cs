@@ -29,14 +29,14 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
                 ChatId = chat.ChatId,
                 SenderId = request.SenderId,
                 Content = request.Content,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
 
             };
             messageRepository.Add(newMessage);
 
             //udpate last message
-            chat.UpdatedAt = DateTime.Now;
+            chat.UpdatedAt = DateTime.UtcNow;
             chat.LastMessage = request.Content;
             await messageRepository.SaveChangeAsync(cancellationToken);
 

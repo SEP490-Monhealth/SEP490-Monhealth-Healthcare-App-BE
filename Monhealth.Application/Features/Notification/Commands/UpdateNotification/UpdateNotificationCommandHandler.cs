@@ -14,7 +14,7 @@ namespace Monhealth.Application.Features.Notification.Commands.UpdateNotificatio
                 return false;
             }
             var updateNotification = mapper.Map(request.UpdateNotificationDTO, notification);
-            updateNotification.UpdatedAt = DateTime.Now;
+            updateNotification.UpdatedAt = DateTime.UtcNow;
             notificationRepository.Update(updateNotification);
             await notificationRepository.SaveChangeAsync(cancellationToken);
             return true;

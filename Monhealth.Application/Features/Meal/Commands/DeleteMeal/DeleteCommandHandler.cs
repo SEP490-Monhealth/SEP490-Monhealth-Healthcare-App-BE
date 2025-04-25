@@ -65,7 +65,7 @@ namespace Monhealth.Application.Features.Meal.Commands.DeleteMeal
             else
             {
                 // Cập nhật DailyMeal
-                dailyMeal.UpdatedAt = DateTime.Now;
+                dailyMeal.UpdatedAt = DateTime.UtcNow;
                 _dailyMealRepository.Update(dailyMeal);
             }
 
