@@ -12,8 +12,15 @@ namespace Monhealth.Application.Features.Message.Commands.UpdateMessageById
             if (string.IsNullOrEmpty(content)) throw new BadRequestException("Nội dung không hợp lệ");
             var message = await messageRepository.GetByIdAsync(request.MessageId);
             message.Content = content;
+            message.UpdatedAt = GetCurrentVietnamTime();
             await messageRepository.SaveChangeAsync(cancellationToken);
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

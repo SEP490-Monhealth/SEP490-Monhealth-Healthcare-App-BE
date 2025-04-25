@@ -11,11 +11,19 @@ namespace Monhealth.Application.Features.Notification.Commands.CreateNotificatio
             var today = DateTime.Now;
             var newNotification = mapper.Map<Domain.Notification>(request.CreateNotificationDTO);
             newNotification.NotificationId = Guid.NewGuid();
-            newNotification.CreatedAt = today;
-            newNotification.UpdatedAt = today;
+
+            var vietNameTimeNow = GetCurrentVietnamTime();
+            newNotification.CreatedAt = vietNameTimeNow;
+            newNotification.UpdatedAt = vietNameTimeNow;
             notificationRepository.Add(newNotification);
             await notificationRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

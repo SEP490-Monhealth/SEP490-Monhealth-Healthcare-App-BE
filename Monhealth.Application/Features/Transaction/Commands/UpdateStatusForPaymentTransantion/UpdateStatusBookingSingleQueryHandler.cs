@@ -1,20 +1,30 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Application.Features.UserSubscription.Commands.Create;
+using Net.payOS.Types;
 
 namespace Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBookingSingle
 {
     public class UpdateStatusBookingSingleQueryHandler(ITransactionRepository transactionRepository,
         IUserSubscriptionRepository userSubscriptionRepository,
         IMediator mediator,
-        ISystemNotificationService systemNotificationService
+        ISystemNotificationService systemNotificationService,
+        ILogger<UpdateStatusBookingSingleQueryHandler> logger
         ) : IRequestHandler<UpdateStatusBookingSingleQuery, bool>
     {
         public async Task<bool> Handle(UpdateStatusBookingSingleQuery request, CancellationToken cancellationToken)
         {
-            var transaction = await transactionRepository.GetTransactionByOrderCode(request.OrderCode);
+            WebhookData webhookData = request.WebhookType.data;
+            if (webhookData == null)
+            {
+                logger.LogWarning("Invalid webhook data received");
+                throw new BadRequestException("Dữ liệu webhook không hợp lệ");
+            }
+
+            var transaction = await transactionRepository.GetTransactionByOrderCode(webhookData.orderCode);
             if (transaction == null) throw new BadRequestException("Không tìm thấy giao dịch ");
 
             if (transaction.SubscriptionId == null) //xử lí update cho thanh toán mua lẻ lượt book
