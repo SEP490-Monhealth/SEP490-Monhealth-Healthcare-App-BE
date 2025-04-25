@@ -19,7 +19,6 @@ using System.Net;
 
 namespace Monhealth.Api.Controllers
 {
-    [Authorize]
     [Route("api/v1/transactions")]
     [ApiController]
     public class TransactionController(IMediator mediator) : ControllerBase
