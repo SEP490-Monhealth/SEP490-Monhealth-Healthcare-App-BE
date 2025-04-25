@@ -25,5 +25,10 @@ namespace Monhealth.Identity.Repositories
                 .Select(st => st.TimeSlotId ?? Guid.Empty)
                 .ToListAsync();
         }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
     }
 }
