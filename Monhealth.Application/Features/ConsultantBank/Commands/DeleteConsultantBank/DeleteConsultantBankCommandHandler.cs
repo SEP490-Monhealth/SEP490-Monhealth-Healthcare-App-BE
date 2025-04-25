@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.DeleteConsultan
 
             if (consultantBanks.Count() <= 1)
             {
-                throw new Exception("Không thể xóa, bạn phải liên kết ít nhất 1 ngân hàng");
+                throw new Exception("Không thể xóa ngân hàng khi chỉ có một ngân hàng.");
             }
             consultantBankRepository.Remove(consultantBank);
             await consultantBankRepository.SaveChangeAsync(cancellationToken);

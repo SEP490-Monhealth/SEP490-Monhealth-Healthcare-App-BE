@@ -1,7 +1,6 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Models;
-using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
@@ -20,15 +19,15 @@ namespace Monhealth.Application
                 {
                     WithdrawalRequestId = wd.WithdrawalRequestId,
                     ConsultantId = wd.ConsultantId,
-                    Description = wd.Description,
-                    Amount = wd.Amount,
-                    Reason = wd.Reason,
                     ConsultantBank = wd.Consultant.ConsultantBanks.Select(cb => new ConsultantBankInfo
                     {
                         BankName = cb.Bank.BankName,
                         ShortName = cb.Bank.ShortName,
                         LogoUrl = cb.Bank.LogoUrl
                     }).FirstOrDefault(),
+                    Description = wd.Description,
+                    Amount = wd.Amount,
+                    Reason = wd.Reason,
                     Status = wd.Status,
                     CreatedAt = wd.CreatedAt,
                     UpdatedAt = wd.UpdatedAt,
@@ -43,8 +42,8 @@ namespace Monhealth.Application
                 };
                 withDrawDTO.Consultant = consultantDTO;
                 withdDrawList.Add(withDrawDTO);
-
             }
+
             return new PageResult<GetWithdrawalRequestDTO>
             {
                 CurrentPage = request.Page,

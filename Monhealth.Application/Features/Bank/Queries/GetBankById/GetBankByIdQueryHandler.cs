@@ -11,7 +11,7 @@ namespace Monhealth.Application.Features.Bank.Queries.GetBankById
             var bank = await bankRepository.GetByIdAsync(request.BankId);
             if (bank == null)
             {
-                throw new Exception("Ngân hàng không tồn tại");
+                throw new Exception("Không tìm thấy ngân hàng.");
             }
             return mapper.Map<GetBankByIdDTO>(bank);
         }

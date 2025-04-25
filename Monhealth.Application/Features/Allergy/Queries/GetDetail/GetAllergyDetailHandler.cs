@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Allergy.Queries.GetDetail
         public async Task<AllergyDetailDTO> Handle(GetAllergyDetailQuery request, CancellationToken cancellationToken)
         {
             var query = await _allergyRepository.GetByIdAsync(request.AllergyId);
-            if (query == null) { throw new Exception("Không tìm thấy triệu chứng"); }
+            if (query == null) { throw new Exception("Không tìm thấy dị ứng."); }
             return _mapper.Map<AllergyDetailDTO>(query);
         }
     }

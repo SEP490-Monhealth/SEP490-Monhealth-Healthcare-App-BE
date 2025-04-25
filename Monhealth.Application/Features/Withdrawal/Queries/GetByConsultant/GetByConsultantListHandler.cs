@@ -26,12 +26,10 @@ namespace Monhealth.Application
                     new ConsultantDTO1
                     {
                         AvatarUrl = consultant?.AppUser?.Avatar ?? "",
-                        Email = consultant?.AppUser?.Email??"",
-                        FullName = consultant?.AppUser?.FullName??"",
-                        PhoneNumber = consultant?.AppUser?.PhoneNumber??""
+                        Email = consultant?.AppUser?.Email ?? "",
+                        FullName = consultant?.AppUser?.FullName ?? "",
+                        PhoneNumber = consultant?.AppUser?.PhoneNumber ?? ""
                     },
-                    wd.Description,
-                    wd.Amount,
                     wd.Consultant.ConsultantBanks
                     .Select(cb => new ConsultantBankInfo
                     {
@@ -40,6 +38,8 @@ namespace Monhealth.Application
                         LogoUrl = cb.Bank.LogoUrl
                     })
                     .FirstOrDefault() ?? new ConsultantBankInfo(),
+                    wd.Description,
+                    wd.Amount,
                     wd.Reason,
                     wd.Status,
                     wd.CreatedAt,

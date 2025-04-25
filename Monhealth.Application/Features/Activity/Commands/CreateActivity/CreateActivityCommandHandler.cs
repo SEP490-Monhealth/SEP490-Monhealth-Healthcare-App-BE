@@ -24,7 +24,7 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
             _dailyActivityRepository = dailyActivityRepository;
             _goalRepository = goalRepository;
             _workoutRepository = workoutRepository;
-            _dailyMealRepository= dailyMealRepository;
+            _dailyMealRepository = dailyMealRepository;
             _mapper = mapper;
         }
 
@@ -34,7 +34,7 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
             var getGoal = await _goalRepository.GetGoalByUserIdAndStatusActive(request.CreateActivityDTO.UserId);
             if (getGoal == null)
             {
-                throw new Exception("Mục tiêu không tồn tại");
+                throw new Exception("Không tìm thấy mục tiêu nào cho người dùng này.");
             }
             // kiem tra xem hom nay co DailyActivity chua
             var dailyActivity = await _dailyActivityRepository.GetDailyActivityByUserIdAndCreateAt(request.CreateActivityDTO.UserId, createdAt);

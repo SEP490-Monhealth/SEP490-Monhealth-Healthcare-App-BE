@@ -1,6 +1,5 @@
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Domain;
 
 namespace Monhealth.Application
 {
@@ -20,7 +19,6 @@ namespace Monhealth.Application
                 DurationMinutes = query.Workout.DurationMinutes,
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt,
-
             };
         }
     }

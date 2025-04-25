@@ -16,13 +16,13 @@ namespace Monhealth.Application.Features.Allergy.Commands.UpdateAllergy
             var allergy = await _allergyRepository.GetByIdAsync(request.AllergyId);
             if (allergy == null)
             {
-                throw new KeyNotFoundException("Không tìm thấy dị ứng với ID đã cung cấp.");
+                throw new KeyNotFoundException("Không tìm thấy dị ứng.");
             }
 
             var duplicateAllergy = await _allergyRepository.GetByNameAsync(request.Request.Name);
             if (duplicateAllergy != null && duplicateAllergy.AllergyId != request.AllergyId)
             {
-                throw new InvalidOperationException("Tên dị ứng đã tồn tại. Vui lòng chọn tên khác.");
+                throw new InvalidOperationException("Tên dị ứng đã tồn tại.");
             }
 
             allergy.AllergyName = request.Request.Name;

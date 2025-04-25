@@ -19,11 +19,6 @@ namespace Monhealth.Application
                 WithdrawalRequestId = query.WithdrawalRequestId,
                 ConsultantId = query.ConsultantId,
                 ConsultantBankId = query.ConsultantBankId,
-                Description = query.Description,
-                Amount = query.Amount,
-                Status = query.Status,
-                CreatedAt = query.CreatedAt,
-                UpdatedAt = query.UpdatedAt,
                 Consultant = new ConsultantDTOForId
                 {
                     AvatarUrl = consultant?.AppUser?.Avatar ?? "",
@@ -41,7 +36,12 @@ namespace Monhealth.Application
                     BankName = consultantBank?.Bank?.BankName ?? "",
                     ShortName = consultantBank?.Bank?.ShortName ?? "",
                     LogoUrl = consultantBank?.Bank?.LogoUrl ?? ""
-                }
+                },
+                Description = query.Description,
+                Amount = query.Amount,
+                Status = query.Status,
+                CreatedAt = query.CreatedAt,
+                UpdatedAt = query.UpdatedAt,
             };
         }
     }

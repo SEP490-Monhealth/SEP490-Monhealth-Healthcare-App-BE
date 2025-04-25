@@ -5,9 +5,9 @@ using Monhealth.Domain.Enum;
 namespace Monhealth.Application
 
 {
-    public record GetByConsultantDTO(Guid withdrawalRequestId,
-    Guid ConsultantId, Guid ConsultantBankId, ConsultantDTO1 Consultant, string Description,
-    float Amount, ConsultantBankInfo ConsultantBank, string Reason, WithdrawalStatus Status, DateTime? CreatedAt, DateTime? UpdatedAt);
+    public record GetByConsultantDTO(Guid WithdrawalRequestId,
+    Guid ConsultantId, Guid ConsultantBankId, ConsultantDTO1 Consultant, ConsultantBankInfo ConsultantBank, string Description,
+    float Amount, string Reason, WithdrawalStatus Status, DateTime? CreatedAt, DateTime? UpdatedAt);
 
     public class GetByConsultantRequest : IRequest<PageResult<GetByConsultantDTO>>
     {
@@ -30,6 +30,7 @@ public class ConsultantDTO1
     public string PhoneNumber { get; set; } = string.Empty;
     public string AvatarUrl { get; set; } = string.Empty;
 }
+
 public class ConsultantBankInfo
 {
     public string BankName { get; set; } = string.Empty;
