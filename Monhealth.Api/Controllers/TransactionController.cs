@@ -5,6 +5,7 @@ using Monhealth.Application;
 using Monhealth.Application.Features.Transaction.Commands.CreateBookingSingle;
 using Monhealth.Application.Features.Transaction.Commands.CreateTransaction;
 using Monhealth.Application.Features.Transaction.Commands.CreateUpgradeSubscriptionPayment;
+using Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBookingSingle;
 using Monhealth.Application.Features.Transaction.Commands.UpdateTransaction;
 using Monhealth.Application.Features.Transaction.Queries.GetAllTransactions;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionByConsultantId;
@@ -13,6 +14,7 @@ using Monhealth.Application.Features.Transaction.Queries.GetTransactionById;
 using Monhealth.Application.Features.Transaction.Queries.GetTransactionBySubscriptionId;
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
+using Net.payOS.Types;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -230,30 +232,30 @@ namespace Monhealth.Api.Controllers
         //     };
         // }
 
-        //[HttpPost("{orderCode:long}/completed")]
-        //public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromRoute] long orderCode)
-        //{
-        //    var result = await mediator.Send(new UpdateStatusBookingSingleQuery { OrderCode = orderCode });
-        //    if (!result)
-        //    {
-        //        return BadRequest(new ResultModel
-        //        {
-        //            Success = false,
-        //            Message = "Cập nhập trạng thái thanh toán thất bại",
-        //            Status = (int)HttpStatusCode.NotFound,
-        //            Data = null
-        //        });
-        //    }
+        [HttpPost("webhook")]
+        public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromBody] WebhookType webhookType)
+        {
+            var result = await mediator.Send(new UpdateStatusBookingSingleQuery { WebhookType = webhookType });
+            if (!result)
+            {
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Message = "Cập nhập trạng thái thanh toán thất bại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
 
-        //    // Trả về kết quả thành công
-        //    return Ok(new ResultModel
-        //    {
-        //        Success = true,
-        //        Message = "Cập nhập trạng thái thanh toán thành công",
-        //        Status = 204,
-        //        Data = null
-        //    });
-        //}
+            // Trả về kết quả thành công
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Message = "Cập nhập trạng thái thanh toán thành công",
+                Status = 204,
+                Data = null
+            });
+        }
 
         //[HttpPatch("subscription/{orderCode:long}/completed")]
         //public async Task<ActionResult<ResultModel>> ChangePaymentStatus([FromRoute] long orderCode)
