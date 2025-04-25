@@ -23,6 +23,7 @@ namespace Monhealth.Domain
         public BookingStatus Status { get; set; }
         public DateTime? CompletedAt { get; set; }
         public bool NotificationSent30Min { get; set; } = false;
+        public bool ConsultantReminderSent { get; set; } = false;
         [ForeignKey(nameof(UserId)), Column(Order = 0)]
         public AppUser? User { get; set; }
         [ForeignKey(nameof(ConsultantId)), Column(Order = 1)]

@@ -18,5 +18,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Booking>> GetBookingByUserAndConsultant(Guid userId, Guid consultantId);
         Task<PaginatedResult<Booking>> GetBookingByConsultantIdMonthly(int page, int limit, Guid consultantId, DateTime from, DateTime to);
         Task<List<Booking>> GetBookingsForRemindersAsync(DateTime startTimeMin, DateTime endTimeMax, CancellationToken cancellationToken);
+        Task<List<Booking>> GetCompletedBookingsOlderThan24HoursAsync(DateTime thresholdTime, CancellationToken cancellationToken);
     }
 }

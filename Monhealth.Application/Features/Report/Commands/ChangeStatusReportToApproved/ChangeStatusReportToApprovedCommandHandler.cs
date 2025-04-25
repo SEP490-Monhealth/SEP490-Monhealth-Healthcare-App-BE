@@ -13,10 +13,11 @@ namespace Monhealth.Application.Features.Report.Commands.ChangeStatusReportToApp
             {
                 return false;
             }
-            if(report.Status == StatusReport.Pending)
+            if (report.Status == StatusReport.Pending)
             {
                 report.Status = StatusReport.Approved;
-            } else
+            }
+            else
             {
                 throw new Exception($"Không thể chấp nhận, trạng thái đang là {report.Status}.");
             }

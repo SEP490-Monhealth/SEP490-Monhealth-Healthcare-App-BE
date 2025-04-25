@@ -236,6 +236,13 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
+        public async Task<List<Booking>> GetCompletedBookingsOlderThan24HoursAsync(DateTime thresholdTime, CancellationToken cancellationToken)
+        {
+            return await _context.Bookings
+                .Where(b => b.Status == BookingStatus.Completed && b.CompletedAt < thresholdTime && !b.ConsultantReminderSent)
+                .ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);

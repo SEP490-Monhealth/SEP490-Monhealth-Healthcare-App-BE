@@ -1,5 +1,7 @@
-using MediatR;
+﻿using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Exceptions;
 
 namespace Monhealth.Application.Features.Review.Commands.Create
 {
@@ -8,17 +10,28 @@ namespace Monhealth.Application.Features.Review.Commands.Create
         private readonly IReviewRepository _reviewRepository;
         private readonly IConsultantRepository _consultantRepository;
         private readonly IBookingRepository bookingRepository;
+        private readonly ISystemNotificationService systemNotificationService;
 
-        public AddReviewHandler(IReviewRepository reviewRepository, IConsultantRepository consultantRepository, IBookingRepository bookingRepository)
+        public AddReviewHandler(IReviewRepository reviewRepository,
+            IConsultantRepository consultantRepository,
+            IBookingRepository bookingRepository,
+            ISystemNotificationService systemNotificationService
+            )
         {
             _reviewRepository = reviewRepository;
             _consultantRepository = consultantRepository;
             this.bookingRepository = bookingRepository;
+            this.systemNotificationService = systemNotificationService;
         }
 
         public async Task<Unit> Handle(AddReviewRequest request, CancellationToken cancellationToken)
         {
-            var model = new Monhealth.Domain.Review
+            var booking = await bookingRepository.GetByIdAsync(request.BookingId)
+            ?? throw new BadRequestException($"Không tìm thấy lịch hẹn {request.BookingId}");
+            if (booking.IsReviewed) throw new BadRequestException($"Lịch hẹn này đã được đánh giá rồi");
+            booking.IsReviewed = true;
+
+            var review = new Domain.Review
             {
                 BookingId = request.BookingId,
                 UserId = request.UserId,
@@ -28,10 +41,7 @@ namespace Monhealth.Application.Features.Review.Commands.Create
                 UpdatedAt = DateTime.Now
             };
 
-            _reviewRepository.Add(model);
-            var booking = await bookingRepository.GetByIdAsync(request.BookingId);
-            if (booking != null)
-                booking.IsReviewed = true;
+            _reviewRepository.Add(review);
 
             var consultantId = booking.ConsultantId;
             if (consultantId.HasValue)
@@ -48,6 +58,9 @@ namespace Monhealth.Application.Features.Review.Commands.Create
                     );
                 }
             }
+
+            //notify consultant for new review
+            await systemNotificationService.NotifyConsultantAboutNewReviewAsync(review, booking, cancellationToken);
 
             await _reviewRepository.SaveChangeAsync();
             return Unit.Value;
