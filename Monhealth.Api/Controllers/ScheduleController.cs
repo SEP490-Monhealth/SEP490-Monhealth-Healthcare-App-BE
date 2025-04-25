@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Monhealth.Application;
 using Monhealth.Application.Features.Schedule.Commands.Create;
 using Monhealth.Application.Features.Schedule.Commands.Delete;
 using Monhealth.Application.Features.Schedule.Commands.Update;
@@ -164,7 +165,33 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 204,
-                Data = queries
+                Message = "Xóa lịch trình thành công",
+            });
+        }
+
+        [HttpDelete]
+        [Route("schedule/{scheduleTimeSlotId:Guid}")]
+        [SwaggerOperation(Summary = "Xóa Schedule time slot")]
+        public async Task<ActionResult<ResultModel>> RemoveScheduleTimeSlot(Guid scheduleTimeSlotId)
+        {
+            var queries = await _mediator.
+            Send(new RemoveScheduleTimeSlot(scheduleTimeSlotId));
+
+            if (queries == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Message = "Schedule time slot không tồn tại",
+                    Status = (int)HttpStatusCode.NotFound,
+                    Data = null
+                });
+            }
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 204,
+                Message = "Xóa Schedule time slot thành công",
             });
         }
 
