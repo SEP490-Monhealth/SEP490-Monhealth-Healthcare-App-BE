@@ -52,7 +52,7 @@ namespace Monhealth.Application.Features.Expertise.Commands.UpdateExpertiseByCon
                 targetCertificate.ExpiryDate = request.UpdateDto.ExpiryDate;
                 targetCertificate.ImageUrls = request.UpdateDto.ImageUrls;
                 targetCertificate.IssuedBy = request.UpdateDto.IssuedBy;
-                targetCertificate.UpdatedAt = DateTime.UtcNow;
+                targetCertificate.UpdatedAt = DateTime.Now;
                 targetCertificate.CertificateNumber = request.UpdateDto.CertificateNumber;
                 targetCertificate.IsVerified = false;
                 _certificateRepository.Update(targetCertificate);

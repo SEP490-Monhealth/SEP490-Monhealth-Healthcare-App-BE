@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.UserDevice.Commands.UpdateUserDevice
         {
             var userDevice = await deviceRepository.GetByIdAsync(request.DeviceId);
             var userDeviceToUpdate = mapper.Map(request.UpdateDeviceDTO, userDevice);
-            userDeviceToUpdate.UpdatedAt = DateTime.UtcNow;
+            userDeviceToUpdate.UpdatedAt = DateTime.Now;
             deviceRepository.Update(userDeviceToUpdate);
             await deviceRepository.SaveChangeAsync(cancellationToken);
             return true;

@@ -88,7 +88,7 @@ namespace Monhealth.Application.Features.MealFood.Commands.UpdateStatusMealFood
             }
 
             // Cập nhật lại thời gian và lưu thay đổi
-            dailyMeal.UpdatedAt = DateTime.UtcNow;
+            dailyMeal.UpdatedAt = DateTime.Now;
             _dailyMealRepository.Update(dailyMeal);
             await _dailyMealRepository.SaveChangeAsync();
         }

@@ -35,8 +35,8 @@ namespace Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStat
                 Amount = withdrawalRequest.Amount,
                 Description = withdrawalRequest?.Description ?? "Rút tiền từ ví",
                 Status = StatusTransaction.Pending,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
                 WithdrawalRequestId = withdrawalRequest.WithdrawalRequestId,
             };
             transactionRepository.Add(newTransaction);

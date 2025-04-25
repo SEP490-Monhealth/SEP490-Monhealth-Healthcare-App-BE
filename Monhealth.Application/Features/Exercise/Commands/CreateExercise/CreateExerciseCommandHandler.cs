@@ -32,8 +32,8 @@ namespace Monhealth.Application.Features.Exercise.Commands.CreateExercise
             var newExercise = _mapper.Map<Domain.Exercise>(request.CreateExerciseDTO);
             newExercise.ExerciseId = Guid.NewGuid();
             newExercise.Status = false;
-            newExercise.CreatedAt = DateTime.UtcNow;
-            newExercise.UpdatedAt = DateTime.UtcNow;
+            newExercise.CreatedAt = DateTime.Now;
+            newExercise.UpdatedAt = DateTime.Now;
             _exerciseRepository.Add(newExercise);
             await _exerciseRepository.SaveChangeAsync();
             return Unit.Value;

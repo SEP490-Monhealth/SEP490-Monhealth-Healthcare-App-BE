@@ -24,8 +24,8 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateBookingSingl
                 Description = request.Description,
                 Amount = request.Amount,
                 Status = StatusTransaction.Pending,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
             };
 
             var paymentResult = await payOSService.CreatePaymentLinkAsync(

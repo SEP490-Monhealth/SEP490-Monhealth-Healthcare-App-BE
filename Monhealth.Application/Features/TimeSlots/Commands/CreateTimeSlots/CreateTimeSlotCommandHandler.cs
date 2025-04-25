@@ -28,8 +28,8 @@ namespace Monhealth.Application.Features.TimeSlots.Commands.CreateTimeSlots
                     TimeSlotId = Guid.NewGuid(),
                     StartTime = request.CreateTimeSlotDTO.StartTime,
                     EndTime = request.CreateTimeSlotDTO.EndTime,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
                 };
                 timeSlotRepository.Add(timeSlotToUse);
             };
@@ -48,8 +48,8 @@ namespace Monhealth.Application.Features.TimeSlots.Commands.CreateTimeSlots
                 ScheduleId = schedule.ScheduleId,
                 TimeSlotId = timeSlotToUse.TimeSlotId,
                 Status = ScheduleTimeSlotStatus.Available,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
             scheduleTimeSlotRepository.Add(newScheduleTimeSlot);
 

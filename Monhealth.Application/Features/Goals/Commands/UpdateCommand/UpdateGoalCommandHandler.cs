@@ -34,7 +34,7 @@ namespace Monhealth.Application.Features.Goals.Commands.UpdateCommand
 
             existingGoal.GoalType = request.UpdateGoalDTO.GoalType;
             existingGoal.WeightGoal = (int)request.UpdateGoalDTO.WeightGoal;
-            existingGoal.UpdatedAt = DateTime.UtcNow;
+            existingGoal.UpdatedAt = DateTime.Now;
 
             // Tính CaloriesGoal dựa trên GoalType
             switch (request.UpdateGoalDTO.GoalType)

@@ -15,7 +15,7 @@ namespace Monhealth.Application
             withdrawalRequest.ConsultantBankId = request.Request.ConsultantBankId;
             withdrawalRequest.Amount = request.Request.Amount;
             withdrawalRequest.Description = request.Request.Description;
-            withdrawalRequest.UpdatedAt = DateTime.UtcNow;
+            withdrawalRequest.UpdatedAt = DateTime.Now;
             withdrawalRepository.Update(withdrawalRequest);
             await withdrawalRepository.SaveChangeASync();
             return true;

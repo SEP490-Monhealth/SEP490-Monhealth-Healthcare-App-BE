@@ -16,7 +16,7 @@ namespace Monhealth.Application.Features.Review.Commands.Update
             var update = await _reviewRepository.GetByIdAsync(request.ReviewId);
             update.Comment = request.Request?.Comment;
             update.Rating = request.Request.Rating;
-            update.UpdatedAt = DateTime.UtcNow;
+            update.UpdatedAt = DateTime.Now;
             _reviewRepository.Update(update);
             await _reviewRepository.SaveChangeAsync();
             return true;

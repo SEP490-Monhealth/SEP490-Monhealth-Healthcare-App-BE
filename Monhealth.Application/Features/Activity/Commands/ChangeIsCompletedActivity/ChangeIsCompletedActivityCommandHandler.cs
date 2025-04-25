@@ -29,7 +29,7 @@ namespace Monhealth.Application.Features.Activity.Commands.ChangeIsCompletedActi
                 dailyActivity.TotalCaloriesBurned -= activity.Workout?.CaloriesBurned ?? 0;
                 dailyActivity.TotalDurationMinutes -= activity.Workout?.DurationMinutes ?? 0;
             }
-            dailyActivity.UpdatedAt = DateTime.UtcNow;
+            dailyActivity.UpdatedAt = DateTime.Now;
             dailyActivityRepository.Update(dailyActivity);
             await activityRepository.SaveChangeAsync(cancellationToken);
             return true;

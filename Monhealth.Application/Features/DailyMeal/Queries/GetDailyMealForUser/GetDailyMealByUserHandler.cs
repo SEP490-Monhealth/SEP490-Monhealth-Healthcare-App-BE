@@ -37,9 +37,9 @@ namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser
                     Nutrition = null,
                     Items = null,
                     GoalType = goal.GoalType,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow,
-                    DailyMealDate = DateTime.UtcNow,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    DailyMealDate = DateTime.Now,
 
                 };
             }

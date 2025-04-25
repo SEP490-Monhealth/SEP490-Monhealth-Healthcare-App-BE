@@ -53,16 +53,16 @@ namespace Monhealth.Application.Features.Food.AddFood
                 ReferenceUrl = request.ReferenceUrl,    
                 FoodPortions = new List<FoodPortion>(),
                 Status = false,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
                 IsPublic = true,
                 DishTypeFoods =
                     [.. dishTypes.Select(dt=>new DishTypeFood()
                     {
                         FoodId = foodId,
                         DishTypeFoodId = Guid.NewGuid(),
-                        CreatedAt = DateTime.UtcNow,
-                        UpdatedAt = DateTime.UtcNow,
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
                         DishTypeId = dt.DishTypeId,
                     })],
             };
@@ -96,8 +96,8 @@ namespace Monhealth.Application.Features.Food.AddFood
                 VitaminC = request.Nutrition.VitaminC,
                 VitaminD = request.Nutrition.VitaminD,
                 VitaminE = request.Nutrition.VitaminE,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
             _nutritionRepository.Add(nutrition);
             // Kiểm tra xem Portion đã tồn tại chưa
@@ -120,8 +120,8 @@ namespace Monhealth.Application.Features.Food.AddFood
                     MeasurementUnit = request.Portion.MeasurementUnit,
                     PortionSize = request.Portion.PortionSize,
                     PortionWeight = request.Portion.PortionWeight,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
                 };
                 _portionRepository.Add(portion);
             }

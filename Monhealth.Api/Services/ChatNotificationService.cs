@@ -15,6 +15,7 @@ namespace Monhealth.Api.Services
                 Content = content,
                 Timestamp = DateTime.UtcNow
             });
+
         }
     }
 }

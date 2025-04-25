@@ -34,8 +34,8 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
                 Description = request.CreateTransactionDTO.Description,
                 Amount = request.CreateTransactionDTO.Amount,
                 Status = StatusTransaction.Pending,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
             };
 
             _transactionRepository.Add(newTransaction);

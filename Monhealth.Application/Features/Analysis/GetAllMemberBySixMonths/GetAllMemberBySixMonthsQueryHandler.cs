@@ -17,7 +17,7 @@ namespace Monhealth.Application
         public async Task<List<GetAllMemberBySixMonthsDTO>> Handle(GetAllMemberBySixMonthsQuery request, CancellationToken cancellationToken)
         {
        
-            DateTime currentDate = DateTime.UtcNow; // hoặc DateTime.UtcNow nếu ứng dụng dùng UTC
+            DateTime currentDate = DateTime.Now; // hoặc DateTime.UtcNow nếu ứng dụng dùng UTC
             DateTime earliestMonth = new DateTime(currentDate.Year, currentDate.Month, 1).AddMonths(-5);
 
             var users = await _userRepository.GetAllMemberBySixMonths();

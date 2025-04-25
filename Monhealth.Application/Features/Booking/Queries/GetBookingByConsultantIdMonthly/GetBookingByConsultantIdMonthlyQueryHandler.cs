@@ -10,7 +10,7 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
     {
         public async Task<PageResult<GetBookingByConsultantIdMonthlyDTO>> Handle(GetBookingByConsultantIdMonthlyQuery request, CancellationToken cancellationToken)
         {
-            var monthValue = request.Month ?? DateTime.UtcNow;
+            var monthValue = request.Month ?? DateTime.Now;
             // xac dinh ngay dau tien va ngay cuoi cung cua thang
             var startDate = new DateTime(monthValue.Year, monthValue.Month, 1); 
             var endDate = startDate.AddMonths(1).AddTicks(-1); 

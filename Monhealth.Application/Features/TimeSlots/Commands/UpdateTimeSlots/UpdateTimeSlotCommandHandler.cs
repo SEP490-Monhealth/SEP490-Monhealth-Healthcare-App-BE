@@ -14,7 +14,7 @@ namespace Monhealth.Application.Features.TimeSlots.Commands.UpdateTimeSlots
             {
                 timeslot.StartTime = request.TimeSlotDto.StartTime;
                 timeslot.EndTime = request.TimeSlotDto.EndTime;
-                timeslot.UpdatedAt = DateTime.UtcNow;
+                timeslot.UpdatedAt = DateTime.Now;
             }
             await timeSlotRepository.SaveChangeAsync(cancellationToken);
             return true;

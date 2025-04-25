@@ -8,7 +8,7 @@ namespace Monhealth.Application.Features.Notification.Commands.CreateNotificatio
     {
         public async Task<Unit> Handle(CreateNotificationCommand request, CancellationToken cancellationToken)
         {
-            var today = DateTime.UtcNow;
+            var today = DateTime.Now;
             var newNotification = mapper.Map<Domain.Notification>(request.CreateNotificationDTO);
             newNotification.NotificationId = Guid.NewGuid();
             newNotification.CreatedAt = today;

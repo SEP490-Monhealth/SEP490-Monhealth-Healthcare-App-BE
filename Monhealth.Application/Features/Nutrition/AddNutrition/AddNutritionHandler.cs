@@ -18,8 +18,8 @@ namespace Monhealth.Application.Features.Nutrition.AddNutrition
                 FoodId = request.FoodId,
                 Calories = request.Calories,
                 Carbs = request.Carbs,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
                 Fat = request.Fat,
                 Fiber = request.Fiber,
                 Sugar = request.Sugar

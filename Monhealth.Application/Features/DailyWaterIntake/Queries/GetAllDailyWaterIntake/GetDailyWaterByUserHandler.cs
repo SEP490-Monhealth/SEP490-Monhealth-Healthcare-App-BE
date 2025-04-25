@@ -35,8 +35,8 @@ namespace Monhealth.Application.Features.DaiLyWater.Queries.GetAllDaiLyWater
                     DailyWaterIntakeId = Guid.Empty,
                     GoalType = goal.GoalType,
                     TotalVolume = 0,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
                 };
             }
 

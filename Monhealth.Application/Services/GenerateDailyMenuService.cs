@@ -82,8 +82,8 @@
 //                 TotalSugars = (float)totalSugars,
 
 //                 Meals = new List<Meal> { breakfast.Meal, lunch.Meal, dinner.Meal },
-//                 CreatedAt = DateTime.UtcNow,
-//                 UpdatedAt = DateTime.UtcNow
+//                 CreatedAt = DateTime.Now,
+//                 UpdatedAt = DateTime.Now
 //             };
 //         }
 //         private double CalculatePortionMultiplier(double requiredValue, double nutritionValue)
@@ -128,8 +128,8 @@
 //                     MealId = mealId,
 //                     FoodId = proteinFood.FoodId,
 //                     Quantity = 1,
-//                     CreatedAt = DateTime.UtcNow,
-//                     UpdatedAt = DateTime.UtcNow,
+//                     CreatedAt = DateTime.Now,
+//                     UpdatedAt = DateTime.Now,
 //                 };
 
 //                 _mealFoodRepository.Add(mealFood);
@@ -142,8 +142,8 @@
 //                         MeasurementUnit = "g",
 //                         PortionSize = "",
 //                         PortionWeight = (float)foodAmount,
-//                         CreatedAt = DateTime.UtcNow,
-//                         UpdatedAt = DateTime.UtcNow
+//                         CreatedAt = DateTime.Now,
+//                         UpdatedAt = DateTime.Now
 //                     };
 //                     _portionRepository.Add(newPortion);
 //                     portion = newPortion;
@@ -191,8 +191,8 @@
 //                     MealId = mealId,
 //                     FoodId = carbsFood.FoodId,
 //                     Quantity = 1,
-//                     CreatedAt = DateTime.UtcNow,
-//                     UpdatedAt = DateTime.UtcNow,
+//                     CreatedAt = DateTime.Now,
+//                     UpdatedAt = DateTime.Now,
 //                 };
 
 //                 _mealFoodRepository.Add(mealFood);
@@ -205,8 +205,8 @@
 //                         MeasurementUnit = "g",
 //                         PortionSize = "",
 //                         PortionWeight = (float)foodAmount,
-//                         CreatedAt = DateTime.UtcNow,
-//                         UpdatedAt = DateTime.UtcNow
+//                         CreatedAt = DateTime.Now,
+//                         UpdatedAt = DateTime.Now
 //                     };
 //                     _portionRepository.Add(newPortion);
 //                     portion = newPortion;
@@ -256,8 +256,8 @@
 //                     MealId = mealId,
 //                     FoodId = fatFood.FoodId,
 //                     Quantity = 1,
-//                     CreatedAt = DateTime.UtcNow,
-//                     UpdatedAt = DateTime.UtcNow,
+//                     CreatedAt = DateTime.Now,
+//                     UpdatedAt = DateTime.Now,
 //                 };
 
 //                 _mealFoodRepository.Add(mealFood);
@@ -270,8 +270,8 @@
 //                         MeasurementUnit = "g",
 //                         PortionSize = "",
 //                         PortionWeight = (float)foodAmount,
-//                         CreatedAt = DateTime.UtcNow,
-//                         UpdatedAt = DateTime.UtcNow
+//                         CreatedAt = DateTime.Now,
+//                         UpdatedAt = DateTime.Now
 //                     };
 //                     _portionRepository.Add(newPortion);
 //                     portion = newPortion;
@@ -299,8 +299,8 @@
 //                 DailyMealId = dailyMealId,
 //                 UserId = userId,
 //                 MealType = mealType,
-//                 CreatedAt = DateTime.UtcNow,
-//                 UpdatedAt = DateTime.UtcNow,
+//                 CreatedAt = DateTime.Now,
+//                 UpdatedAt = DateTime.Now,
 //             };
 
 //             return new MealWithNutrition

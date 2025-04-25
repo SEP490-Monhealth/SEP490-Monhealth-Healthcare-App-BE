@@ -12,14 +12,14 @@ namespace Monhealth.Application.Features.UserDevice.Commands.CreateUserDevice
                 request.CreateDeviceDTO.ExpoPushToken);
             if (checkExpoPushToken != null)
             {
-                checkExpoPushToken.UpdatedAt = DateTime.UtcNow;
+                checkExpoPushToken.UpdatedAt = DateTime.Now;
             }
             else
             {
                 var newUserDevice = mapper.Map<Domain.Device>(request.CreateDeviceDTO);
                 newUserDevice.DeviceId = Guid.NewGuid();
-                newUserDevice.CreatedAt = DateTime.UtcNow;
-                newUserDevice.UpdatedAt = DateTime.UtcNow;
+                newUserDevice.CreatedAt = DateTime.Now;
+                newUserDevice.UpdatedAt = DateTime.Now;
                 deviceRepository.Add(newUserDevice);
             }
             await deviceRepository.SaveChangeAsync(cancellationToken);

@@ -66,8 +66,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             // Tính toán Metric
             #region Metric Calculation
             var newMetric = _mapper.Map<Monhealth.Domain.Metric>(request.CreateMetricDTO);
-            var age = DateTime.UtcNow.Year - request.CreateMetricDTO.DateOfBirth.Year;
-            if (DateTime.UtcNow.DayOfYear < request.CreateMetricDTO.DateOfBirth.DayOfYear)
+            var age = DateTime.Now.Year - request.CreateMetricDTO.DateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < request.CreateMetricDTO.DateOfBirth.DayOfYear)
             {
                 age--;
             }
@@ -77,8 +77,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             newMetric.Ibw = _metricCalculator.CalculateIBW(request.CreateMetricDTO.Height, request.CreateMetricDTO.Gender.ToString());
 
             newMetric.MetricId = Guid.NewGuid();
-            newMetric.CreatedAt = DateTime.UtcNow;
-            newMetric.UpdatedAt = DateTime.UtcNow;
+            newMetric.CreatedAt = DateTime.Now;
+            newMetric.UpdatedAt = DateTime.Now;
             _metricRepository.Add(newMetric);
             #endregion
 
@@ -94,8 +94,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
                 _goalRepository.Update(newGoal);
             }
             newGoal.Status = GoalStatus.Active;
-            newGoal.CreatedAt = DateTime.UtcNow;
-            newGoal.UpdatedAt = DateTime.UtcNow;
+            newGoal.CreatedAt = DateTime.Now;
+            newGoal.UpdatedAt = DateTime.Now;
             _goalRepository.Add(newGoal);
             #endregion
 
@@ -111,7 +111,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
 
             //create UserScription with basic subscription
             var basicSubscriptionId = Guid.Parse("9dba3bb9-d153-4490-b39e-7c889cf01759");
-            var now = DateTime.UtcNow;
+            var now = DateTime.Now;
 
             //check exist 
             var userSubscription = await userSubscriptionRepository.GetUserSubScriptionByUserIdAndSubscriptionId(basicSubscriptionId, request.CreateMetricDTO.UserId);
@@ -153,7 +153,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //     if (existingMeal != null)
         //     {
         //         model = existingMeal;
-        //         model.UpdatedAt = DateTime.UtcNow;
+        //         model.UpdatedAt = DateTime.Now;
         //     }
         //     else
         //     {
@@ -162,7 +162,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //             UserId = userId,
         //             MealType = mealType,
         //             CreatedAt = date,
-        //             UpdatedAt = DateTime.UtcNow
+        //             UpdatedAt = DateTime.Now
         //         };
         //         _mealRepository.Add(model);
         //         await _mealRepository.SaveChangeAsync();
@@ -231,8 +231,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //                 MeasurementUnit = "g",
         //                 PortionSize = "default",
         //                 PortionWeight = portionWeight,
-        //                 CreatedAt = DateTime.UtcNow,
-        //                 UpdatedAt = DateTime.UtcNow
+        //                 CreatedAt = DateTime.Now,
+        //                 UpdatedAt = DateTime.Now
         //             };
         //             _portionRepository.Add(portion);
         //             await _portionRepository.SaveChangesAsync();
@@ -245,7 +245,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //         {
         //             Console.WriteLine($"🔍 MealFood đã tồn tại! MealFoodId: {existingMealFood.MealFoodId}");
         //             existingMealFood.Quantity += 1;
-        //             existingMealFood.UpdatedAt = DateTime.UtcNow;
+        //             existingMealFood.UpdatedAt = DateTime.Now;
         //             _mealFoodRepository.Update(existingMealFood);
         //         }
         //         else
@@ -259,8 +259,8 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //                 FoodId = dish.Food.FoodId,
         //                 PortionId = portion.PortionId,
         //                 Quantity = 1,
-        //                 CreatedAt = DateTime.UtcNow,
-        //                 UpdatedAt = DateTime.UtcNow,
+        //                 CreatedAt = DateTime.Now,
+        //                 UpdatedAt = DateTime.Now,
         //                 IsRecommended = true,
         //             };
 
@@ -300,7 +300,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //                 GoalId = goal.GoalId,
         //                 UserId = userId,
         //                 CreatedAt = date,
-        //                 UpdatedAt = DateTime.UtcNow,
+        //                 UpdatedAt = DateTime.Now,
         //                 TotalCalories = 0,
         //                 TotalProteins = 0,
         //                 TotalCarbs = 0,
@@ -369,7 +369,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //             }
         //         }
 
-        //         dailyMeal.UpdatedAt = DateTime.UtcNow;
+        //         dailyMeal.UpdatedAt = DateTime.Now;
 
         //         // 🔹 Cập nhật `DailyMeal` vào DB
         //         _dailyMealRepository.Update(dailyMeal);

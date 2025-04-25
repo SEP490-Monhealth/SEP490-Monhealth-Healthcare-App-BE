@@ -27,8 +27,8 @@ namespace Monhealth.Application.Features.Reminder.Commands.CreateReminder
                 IsRecurring = request.IsRecurring,
                 IsDrunk = false,
                 Status = true,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
             };
             _reminderRepository.Add(model);
             await _reminderRepository.SaveChangeAsync();

@@ -44,13 +44,13 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
                 Description = "Thanh toán hoàn thành lịch hẹn",
                 Amount = bookingMoney,
                 Status = StatusTransaction.Pending,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
             };
             transactionRepository.Add(newTransaction);
 
-            booking.UpdatedAt = DateTime.UtcNow;
-            booking.CompletedAt = DateTime.UtcNow;
+            booking.UpdatedAt = DateTime.Now;
+            booking.CompletedAt = DateTime.Now;
             booking.Status = BookingStatus.Completed;
 
             //notify for both user and consultant done booking

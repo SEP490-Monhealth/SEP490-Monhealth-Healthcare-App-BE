@@ -35,7 +35,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
             if (userSubscription == null) throw new Exception("Không tìm thấy gói người dùng đã đăng kí");
 
             userSubscription.RemainingBookings += 1;
-            userSubscription.UpdatedAt = DateTime.UtcNow;
+            userSubscription.UpdatedAt = DateTime.Now;
 
             //Notify success update for user and consultant
             await systemNotificationService.NotifyBookingUpdateAsync(booking, cancellationToken);

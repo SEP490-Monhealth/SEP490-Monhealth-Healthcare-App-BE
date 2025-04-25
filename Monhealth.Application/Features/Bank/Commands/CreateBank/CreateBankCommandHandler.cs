@@ -25,8 +25,8 @@ namespace Monhealth.Application.Features.Bank.Commands.CreateBank
             var newBank = mapper.Map<Domain.Bank>(request.CreateBankDTO);
             newBank.BankId = Guid.NewGuid();
             newBank.Status = false;
-            newBank.CreatedAt = DateTime.UtcNow;
-            newBank.UpdatedAt = DateTime.UtcNow;
+            newBank.CreatedAt = DateTime.Now;
+            newBank.UpdatedAt = DateTime.Now;
             bankRepository.Add(newBank);
             await bankRepository.SaveChangeAsync(cancellationToken);
             return Unit.Value;

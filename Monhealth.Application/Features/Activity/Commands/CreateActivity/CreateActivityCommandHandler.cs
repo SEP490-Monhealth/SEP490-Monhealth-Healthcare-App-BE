@@ -30,7 +30,7 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
 
         public async Task<Unit> Handle(CreateActivityCommand request, CancellationToken cancellationToken)
         {
-            var createdAt = DateTime.UtcNow;
+            var createdAt = DateTime.Now;
             var getGoal = await _goalRepository.GetGoalByUserIdAndStatusActive(request.CreateActivityDTO.UserId);
             if (getGoal == null)
             {
@@ -46,15 +46,15 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
                 // Cong don TotalDuration va TotalCaloriesBurned
                 // dailyActivity.TotalDurationMinutes += workout.DurationMinutes;
                 // dailyActivity.TotalCaloriesBurned += workout.CaloriesBurned;
-                // dailyActivity.UpdatedAt = DateTime.UtcNow;
+                // dailyActivity.UpdatedAt = DateTime.Now;
                 // // Cap nhat lai DailyActivity
                 // _dailyActivityRepository.Update(dailyActivity);
 
                 var newActivity = _mapper.Map<Domain.Activity>(request.CreateActivityDTO);
                 newActivity.ActivityId = Guid.NewGuid();
                 newActivity.DailyActivityId = dailyActivity.DailyActivityId;
-                newActivity.CreatedAt = DateTime.UtcNow;
-                newActivity.UpdatedAt = DateTime.UtcNow;
+                newActivity.CreatedAt = DateTime.Now;
+                newActivity.UpdatedAt = DateTime.Now;
                 _activityRepository.Add(newActivity);
             }
             else
@@ -67,15 +67,15 @@ namespace Monhealth.Application.Features.Activity.Commands.CreateActivity
                 var getWorkouts = await _workoutRepository.GetByIdAsync(request.CreateActivityDTO.WorkoutId);
                 newDailyActivity.TotalDurationMinutes = 0;
                 newDailyActivity.TotalCaloriesBurned = 0;
-                newDailyActivity.CreatedAt = DateTime.UtcNow;
-                newDailyActivity.UpdatedAt = DateTime.UtcNow;
+                newDailyActivity.CreatedAt = DateTime.Now;
+                newDailyActivity.UpdatedAt = DateTime.Now;
                 _dailyActivityRepository.Add(newDailyActivity);
 
                 var newActivity = _mapper.Map<Domain.Activity>(request.CreateActivityDTO);
                 newActivity.ActivityId = Guid.NewGuid();
                 newActivity.DailyActivityId = newDailyActivity.DailyActivityId;
-                newActivity.CreatedAt = DateTime.UtcNow;
-                newActivity.UpdatedAt = DateTime.UtcNow;
+                newActivity.CreatedAt = DateTime.Now;
+                newActivity.UpdatedAt = DateTime.Now;
                 _activityRepository.Add(newActivity);
             }
 

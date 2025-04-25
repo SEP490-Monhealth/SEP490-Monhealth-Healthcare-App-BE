@@ -26,8 +26,8 @@ namespace Monhealth.Application.Features
                 CategoryId = c.CategoryId,
                 UserCategoryId = Guid.NewGuid(),
                 UserId = request.UserId,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             }));
             await _userCategoryRepository.SaveChangeAsync();
             return Unit.Value;

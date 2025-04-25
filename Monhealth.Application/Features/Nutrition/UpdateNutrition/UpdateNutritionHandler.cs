@@ -17,7 +17,7 @@ namespace Monhealth.Application.Features.Nutrition.UpdateNutrition
             if (nutrition == null) return false;
             nutrition.Calories = request.Calories;
             nutrition.Carbs = request.Carbs;
-            nutrition.UpdatedAt = DateTime.UtcNow;
+            nutrition.UpdatedAt = DateTime.Now;
             nutrition.Fat = request.Fat;
             nutrition.Fiber = request.Fiber;
             nutrition.Sugar = request.Sugar;

@@ -11,9 +11,9 @@ namespace Monhealth.Application.Automapper
         public WorkoutProfile()
         {
             CreateMap<CreateWorkoutCommand, Workout>()
-                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow));
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(_ => DateTime.Now));
             CreateMap<CreateExcerciseDto, WorkoutExercise>()
-                  .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow));
+                  .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(_ => DateTime.Now));
 
             //get
             CreateMap<Workout, WorkoutDto>()

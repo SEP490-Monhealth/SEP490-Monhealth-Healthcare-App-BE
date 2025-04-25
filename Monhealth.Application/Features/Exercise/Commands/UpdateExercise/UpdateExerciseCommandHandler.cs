@@ -28,7 +28,7 @@ namespace Monhealth.Application.Features.Exercise.Commands.UpdateExercise
                 throw new Exception("Bài tập không tồn tại.");
             }
             var updateExercise = _mapper.Map(request.UpdateExerciseDTO, existingExercise);
-            updateExercise.UpdatedAt = DateTime.UtcNow;
+            updateExercise.UpdatedAt = DateTime.Now;
             _exerciseRepository.Update(updateExercise);
             await _exerciseRepository.SaveChangeAsync();
             return true;

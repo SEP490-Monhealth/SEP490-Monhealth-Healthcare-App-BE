@@ -32,7 +32,7 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.UpdateApprov
                 if (userSubscription == null) throw new Exception("Không tìm thấy gói người dùng");
 
                 userSubscription.RemainingBookings += 1;
-                userSubscription.UpdatedAt = DateTime.UtcNow;
+                userSubscription.UpdatedAt = DateTime.Now;
             }
 
             scheduleException.Status = ScheduleExceptionStatus.Approved;

@@ -28,8 +28,8 @@ namespace Monhealth.Application
             TotalAccountAmountQuery request,
             CancellationToken cancellationToken)
         {
-            var currentYear = DateTime.UtcNow.Year;
-            var currentMonth = DateTime.UtcNow.Month;
+            var currentYear = DateTime.Now.Year;
+            var currentMonth = DateTime.Now.Month;
 
             // Lấy tất cả user
             var allUsers = await _userRepository.GetAllAsync();

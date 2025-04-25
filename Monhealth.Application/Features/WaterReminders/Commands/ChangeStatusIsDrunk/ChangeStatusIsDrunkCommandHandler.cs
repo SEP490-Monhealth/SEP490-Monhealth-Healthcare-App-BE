@@ -48,7 +48,7 @@ namespace Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsD
                 throw new NotFoundException("Goal không tồn tại.");
 
             // Lấy hoặc tạo bản ghi DailyWaterIntake
-            var today = DateTime.UtcNow.Date;
+            var today = DateTime.Now.Date;
             var existingWater = await _dailyWaterIntakesRepository.GetDailyWaterIntakeByUserAndDate(today, userId);
 
             if (existingWater == null)
@@ -56,8 +56,8 @@ namespace Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsD
                 existingWater = new Monhealth.Domain.DailyWaterIntake
                 {
                     GoalId = goal.GoalId,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
                     TotalVolume = 0,
                     UserId = userId
                 };
@@ -75,7 +75,7 @@ namespace Monhealth.Application.Features.WaterReminders.Commands.ChangeStatusIsD
                 existingWater.TotalVolume -= waterRemind.Volume;
             }
 
-            existingWater.UpdatedAt = DateTime.UtcNow;
+            existingWater.UpdatedAt = DateTime.Now;
 
             // Cập nhật bản ghi DailyWaterIntake
             _dailyWaterIntakesRepository.Update(existingWater);

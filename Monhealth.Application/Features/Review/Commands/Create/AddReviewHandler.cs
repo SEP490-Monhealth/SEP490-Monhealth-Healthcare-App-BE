@@ -37,8 +37,8 @@ namespace Monhealth.Application.Features.Review.Commands.Create
                 UserId = request.UserId,
                 Rating = request.Rating,
                 Comment = request.Comment,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
 
             _reviewRepository.Add(review);
