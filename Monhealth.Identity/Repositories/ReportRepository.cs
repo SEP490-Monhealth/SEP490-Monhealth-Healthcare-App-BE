@@ -60,6 +60,8 @@ namespace Monhealth.Identity.Repositories
                 .Where(r => r.BookingId == bookingId).ToListAsync();
         }
 
+        
+
         public async Task<PaginatedResult<Report>> GetReportByConsultantId(Guid consultantId, int page, int limit)
         {
             var query = _context.Reports

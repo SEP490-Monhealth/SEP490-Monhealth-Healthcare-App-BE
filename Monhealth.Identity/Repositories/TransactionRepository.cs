@@ -207,7 +207,7 @@ namespace Monhealth.Identity.Repositories
              TransactionType type)
         {
             return (decimal)await _context.Transactions
-                .Where(t => t.TransactionType == TransactionType.Fee && 
+                .Where(t => t.TransactionType == TransactionType.Fee &&
                             t.Status == StatusTransaction.Completed)
                 .SumAsync(t => t.Amount);
         }
@@ -222,6 +222,15 @@ namespace Monhealth.Identity.Repositories
                 .Where(t => t.TransactionType == TransactionType.Fee &&
                             t.CreatedAt >= startDate && t.CreatedAt < endDate && t.Status == StatusTransaction.Completed)
                 .SumAsync(t => t.Amount);
+        }
+
+        public async Task<Transaction> GetTransactionByBookingId(Guid bookingId)
+        {
+
+            return await _context.Transactions
+                .Include(t => t.UserSubscription).ThenInclude(us => us.User)
+                .Include(t => t.UserSubscription).ThenInclude(us => us.Subscription)
+                .FirstOrDefaultAsync(t => t.BookingId == bookingId);
         }
     }
 }
