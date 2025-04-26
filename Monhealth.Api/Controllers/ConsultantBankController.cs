@@ -115,29 +115,29 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-            [HttpDelete("{consultantBankId}")]
-            [SwaggerOperation(Summary = "Xóa tài khoản ngân hàng")]
-            public async Task<ActionResult<ResultModel>> DeleteConsultantBank(Guid consultantBankId)
+        [HttpDelete("{consultantBankId}")]
+        [SwaggerOperation(Summary = "Xóa tài khoản ngân hàng")]
+        public async Task<ActionResult<ResultModel>> DeleteConsultantBank(Guid consultantBankId)
+        {
+            var command = new DeleteConsultantBankCommand { ConsultantBankId = consultantBankId };
+
+            var delete = await mediator.Send(command);
+            if (!delete)
             {
-                var command = new DeleteConsultantBankCommand { ConsultantBankId = consultantBankId };
-                
-                var delete = await mediator.Send(command);
-                if (!delete)
-                {
-                    return new ResultModel
-                    {
-                        Success = false,
-                        Status = (int)HttpStatusCode.OK,
-                        Message =  "Yêu cầu phải có ít nhất một ngân hàng được lưu"
-                    };
-                }
                 return new ResultModel
                 {
-                    Success = true,
-                    Status = (int)HttpStatusCode.OK,
-                    Message = "Xóa tài khoản ngân hàng thành công"
+                    Success = false,
+                    Status = (int)HttpStatusCode.BadRequest,
+                    Message = "Xóa tài khoản ngân hàng thất bại"
                 };
             }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Xóa tài khoản ngân hàng thành công"
+            };
+        }
 
         [HttpPatch("{consultantBankId}/default")]
         [SwaggerOperation(Summary = "Cập nhật tài khoản ngân hàng mặc định")]

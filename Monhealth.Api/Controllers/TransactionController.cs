@@ -108,19 +108,6 @@ namespace Monhealth.Api.Controllers
                 Data = transaction
             });
         }
-        
-        [HttpGet("{transactionId:guid}/status")]
-        [SwaggerOperation(Summary = "Lấy thông tin giao dịch")]
-        public async Task<ActionResult<ResultModel>> GetTransactionStatusById(Guid transactionId)
-        {
-            var transaction = await mediator.Send(new GetTransactionStatusByTransactionQuery { TransactionId = transactionId });
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Data = transaction
-            });
-        }
 
         [HttpGet]
         [Route("{transactionId:Guid}/qr-code")]
@@ -138,6 +125,19 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = result
             };
+        }
+
+        [HttpGet("{transactionId:guid}/status")]
+        [SwaggerOperation(Summary = "Lấy trạng thái giao dịch")]
+        public async Task<ActionResult<ResultModel>> GetTransactionStatusById(Guid transactionId)
+        {
+            var transaction = await mediator.Send(new GetTransactionStatusByTransactionQuery { TransactionId = transactionId });
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = transaction
+            });
         }
 
         [HttpPost]
