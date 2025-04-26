@@ -129,33 +129,49 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPut("password")]
-        [SwaggerOperation(Summary = "Cập nhật mật khẩu người dùng")]
-        public async Task<ActionResult<ResultModel>> ChangeMyPassword([FromBody] ChangePasswordRequest request)
+        [HttpPut("{userId:guid}/password")]
+        [SwaggerOperation(Summary = "Cập nhật mật khẩu cho người dùng")]
+        public async Task<ActionResult<ResultModel>> ChangePassword(Guid userId, [FromBody] ChangePasswordRequest request)
         {
-            if (request.OldPassword.ToLower().Equals(request.NewPassword.ToLower()))
+            if (string.Equals(request.OldPassword, request.NewPassword, StringComparison.OrdinalIgnoreCase))
             {
-                return new ResultModel
+                return BadRequest(new ResultModel
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.BadRequest,
                     Message = "Mật khẩu mới không được trùng với mật khẩu cũ"
-                };
+                });
             }
-            var userId = ((ClaimsIdentity)User.Identity).FindFirst(UserClaims.UserId).Value;
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null) return NotFound();
+
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            if (user == null)
+            {
+                return NotFound(new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy người dùng"
+                });
+            }
+
             var result = await _userManager.ChangePasswordAsync(user, request.OldPassword, request.NewPassword);
             if (!result.Succeeded)
             {
-                return BadRequest(string.Join("<br>", result.Errors.Select(x => x.Description)));
+                var errors = string.Join("<br>", result.Errors.Select(e => e.Description));
+                return BadRequest(new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.BadRequest,
+                    Message = errors
+                });
             }
-            return new ResultModel
+
+            return Ok(new ResultModel
             {
-                Message = "Cập nhật mật khẩu thành công",
-                Status = 200,
-                Success = true
-            };
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật mật khẩu thành công"
+            });
         }
 
         // [HttpDelete("{userId}")]

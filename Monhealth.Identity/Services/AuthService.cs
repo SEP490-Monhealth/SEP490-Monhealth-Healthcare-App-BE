@@ -79,7 +79,7 @@ namespace Monhealth.Identity.Services
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, true);
             if (!result.Succeeded)
             {
-                throw new BadRequestException("Mật khẩu không đúng");
+                throw new BadRequestException("Tài khoản hoặc mật khẩu không đúng");
             }
 
             // Authorization
@@ -122,7 +122,7 @@ namespace Monhealth.Identity.Services
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, true);
             if (!result.Succeeded)
             {
-                throw new BadRequestException("Mật khẩu không đúng");
+                throw new BadRequestException("Tài khoản hoặc mật khẩu không đúng");
             }
 
             // Authorization
