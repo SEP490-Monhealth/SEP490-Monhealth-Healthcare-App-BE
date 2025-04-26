@@ -38,17 +38,21 @@ namespace Monhealth.Application.Automapper
 
             CreateMap<Transaction, GetTransactionByConsultantIdDTO>()
                  .ForMember(dest => dest.ConsultantId, opt => opt.MapFrom(src => src.Wallet.ConsultantId))
-                 .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.FullName))
-                 .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Email))
-                 .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.PhoneNumber))
-                 .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Avatar));
+                 //.ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.FullName))
+                 //.ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Email))
+                 //.ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.PhoneNumber))
+                 //.ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Avatar));
+
+                 .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(src => src.Booking.Consultant.AppUser.FullName))
+                 .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(src => src.Booking.Consultant.AppUser.Email))
+                 .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(src => src.Booking.Consultant.AppUser.PhoneNumber))
+                 .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(src => src.Booking.Consultant.AppUser.Avatar));
 
             CreateMap<Transaction, GetTransactionByCreatedByDTO>()
-                 .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.FullName))
-                 .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Email))
-                 .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.PhoneNumber))
-                 .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Avatar));
-
+                .ForPath(dest => dest.Consultant.FullName, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.FullName))
+                .ForPath(dest => dest.Consultant.Email, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Email))
+                .ForPath(dest => dest.Consultant.PhoneNumber, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.PhoneNumber))
+                .ForPath(dest => dest.Consultant.AvatarUrl, opt => opt.MapFrom(src => src.Wallet.Consultant.AppUser.Avatar));
             CreateMap<Transaction, CreateTransactionDTO>().ReverseMap();
         }
     }
