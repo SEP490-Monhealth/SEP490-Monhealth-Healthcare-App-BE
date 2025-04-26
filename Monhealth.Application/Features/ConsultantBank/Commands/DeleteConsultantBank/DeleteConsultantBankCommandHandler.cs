@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.ConsultantBank.Commands.DeleteConsultantBank
@@ -17,7 +16,7 @@ namespace Monhealth.Application.Features.ConsultantBank.Commands.DeleteConsultan
 
             if (consultantBanks.Count() <= 1)
             {
-                throw new Exception("Không thể xóa ngân hàng khi chỉ có một ngân hàng.");
+                return false;   
             }
             consultantBankRepository.Remove(consultantBank);
             await consultantBankRepository.SaveChangeAsync(cancellationToken);
