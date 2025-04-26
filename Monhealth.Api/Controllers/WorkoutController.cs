@@ -34,7 +34,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{workoutId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin bộ bài tập theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin bộ bài tập")]
         public async Task<ActionResult<ResultModel>> GetWorkoutById([FromRoute] Guid workoutId)
         {
             var workouts = await mediator.Send(new GetWorkoutByIdQuery(workoutId));
@@ -93,13 +93,13 @@ namespace Monhealth.Api.Controllers
             if (result == null)
                 return new ResultModel
                 {
-                    Message = "Cập nhật bộ bài tập thất bại",
+                    Message = "Cập nhật thông tin bộ bài tập thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật bộ bài tập thành công",
+                Message = "Cập nhật thông tin bộ bài tập thành công",
                 Success = true,
                 Status = 204,
             });
@@ -124,7 +124,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Xóa workout thành công"
+                Message = "Xóa bộ bài tập thành công"
             };
         }
 

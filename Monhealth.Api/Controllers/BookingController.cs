@@ -63,7 +63,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo chuyên viên tư vấn")]
         public async Task<ActionResult<ResultModel>> GetBookingByConsultantId([FromRoute] Guid consultantId, int page = 1, int limit = 10, DateTime? date = null)
         {
             var booking = await mediator.Send(new GetByConsultantIdQueries { ConsultantId = consultantId, Page = page, Limit = limit, Date = date });
@@ -76,6 +76,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/consultant/{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo người dùng và chuyên viên tư vấn")]
         public async Task<ActionResult<ResultModel>> GetBookingByUserIdAndConsultant(Guid userId, Guid consultantId)
         {
             var booking = await mediator.Send(new GetAllBookingByConsultantAndUser
@@ -164,17 +165,17 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpDelete("{bookingId:guid}")]
-        [SwaggerOperation(Summary = "Xóa lịch hẹn")]
-        public async Task<ActionResult<ResultModel>> DeleteBookingById([FromRoute] Guid bookingId)
-        {
-            await mediator.Send(new DeleteBookingCommand { BookingId = bookingId });
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Xóa lịch hẹn thành công",
-                Status = 204,
-            });
-        }
+        // [HttpDelete("{bookingId:guid}")]
+        // [SwaggerOperation(Summary = "Xóa lịch hẹn")]
+        // public async Task<ActionResult<ResultModel>> DeleteBookingById([FromRoute] Guid bookingId)
+        // {
+        //     await mediator.Send(new DeleteBookingCommand { BookingId = bookingId });
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Message = "Xóa lịch hẹn thành công",
+        //         Status = 204,
+        //     });
+        // }
     }
 }

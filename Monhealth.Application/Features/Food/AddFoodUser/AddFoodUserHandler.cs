@@ -22,7 +22,7 @@ namespace Monhealth.Application.Features.Food.AddFoodUser
         {
 
             var existingFood = await _foodRepository.GetFoodByNameAsync(request.FoodName);
-            if (existingFood != null) throw new Exception("món ăn đã tồn tại");
+            if (existingFood != null) throw new Exception("thức ăn đã tồn tại");
 
             var food = new Monhealth.Domain.Food
             {

@@ -40,7 +40,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{portionId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin khẩu phần ăn theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin khẩu phần ăn")]
         public async Task<ActionResult<ResultModel>> GetPortionById(Guid portionId)
         {
             var portion = await _mediator.Send(new GetPortionByIdQuery() { PortionId = portionId });
@@ -62,7 +62,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("food/{foodId}")]
-        [SwaggerOperation(Summary = "Lấy danh sách khẩu phần ăn theo ID thực phẩm")]
+        [SwaggerOperation(Summary = "Lấy danh sách khẩu phần ăn theo thực phẩm")]
         public async Task<ActionResult<ResultModel>> GetPortionsByFoodId(Guid foodId, int page = 1, int limit = 10, string? search = null, string? sort = null, string? order = null)
         {
             var portion = await _mediator.Send(new GetPortionsByFoodIdQuery(foodId, page, limit, search, sort, order));
@@ -117,14 +117,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật khẩu phần ăn thất bại"
+                    Message = "Cập nhật thông tin khẩu phần ăn thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật khẩu phần ăn thành công"
+                Message = "Cập nhật thông tin khẩu phần ăn thành công"
             };
         }
 

@@ -76,7 +76,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Dị ứng không tồn tại",
+                    Message = "Khong tìm thấy dị ứng",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -101,7 +101,7 @@ namespace Monhealth.Api.Controllers
         //         return NotFound(new ResultModel
         //         {
         //             Success = false,
-        //             Message = "Dị ứng không tồn tại",
+        //             Message = "Không tìm thấy dị ứng",
         //             Status = (int)HttpStatusCode.NotFound,
         //             Data = null
         //         });
@@ -225,7 +225,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Dị ứng không tồn tại",
+                    Message = "Không tìm thấy dị ứng",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });

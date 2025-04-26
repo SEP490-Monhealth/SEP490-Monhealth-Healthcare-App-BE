@@ -33,7 +33,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("chat/{chatId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách tin nhắn theo ID cuộc trò chuyện")]
+        [SwaggerOperation(Summary = "Lấy danh sách tin nhắn theo cuộc trò chuyện")]
         public async Task<ActionResult<ResultModel>> GetMessageByChatId(Guid chatId)
         {
             var messages = await mediator.Send(new GetMessageByChatIdQuery { ChatId = chatId });

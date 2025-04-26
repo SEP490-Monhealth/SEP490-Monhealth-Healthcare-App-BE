@@ -43,7 +43,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{goalId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin mục tiêu theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin mục tiêu")]
         public async Task<ActionResult<ResultModel>> GetById(Guid goalId)
         {
             var goal = await _mediator.Send(new GetGoalByIdQuery() { GoalId = goalId });
@@ -53,7 +53,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Mục tiêu không tồn tại"
+                    Message = "Không tìm thấy mục tiêu"
                 };
             }
             return new ResultModel
@@ -74,7 +74,7 @@ namespace Monhealth.Api.Controllers
         //         {
         //             Success = false,
         //             Status = (int)HttpStatusCode.NotFound,
-        //             Message = "Mục tiêu không tồn tại"
+        //             Message = "Không tìm thấy mục tiêu"
         //         };
         //     }
         //     return new ResultModel
@@ -95,7 +95,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Mục tiêu không tồn tại",
+                    Message = "Không tìm thấy mục tiêu",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -109,7 +109,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/weight")]
-        [SwaggerOperation(Summary = "Lấy mục tiêu cân nặng theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy mục tiêu cân nặng theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetWeightByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetWeightByGoalIdQuery() { UserId = userId });
@@ -118,7 +118,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Mục tiêu không tồn tại",
+                    Message = "Không tìm thấy mục tiêu",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -132,7 +132,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/nutrition")]
-        [SwaggerOperation(Summary = "Lấy mục tiêu dinh dưỡng theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy mục tiêu dinh dưỡng theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetNutrionByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetNutritionByGoalIdQuery() { UserId = userId });
@@ -141,7 +141,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Mục tiêu không tồn tại",
+                    Message = "Không tìm thấy mục tiêu",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -155,7 +155,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/water-intake")]
-        [SwaggerOperation(Summary = "Lấy mục tiêu nước theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy mục tiêu nước theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetWaterByGoalId([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetWaterByGoalIdQuery() { UserId = userId });
@@ -164,7 +164,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Mục tiêu không tồn tại",
+                    Message = "Không tìm thấy mục tiêu",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -178,7 +178,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}/workout")]
-        [SwaggerOperation(Summary = "Lấy mục tiêu tập luyện theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy mục tiêu tập luyện theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetExercise([FromRoute] Guid userId)
         {
             var queries = await _mediator.Send(new GetExerciseByGoalIdQuery() { UserId = userId });
@@ -187,7 +187,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Mục tiêu không tồn tại",
+                    Message = "Không tìm thấy mục tiêu",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -234,14 +234,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật mục tiêu thất bại"
+                    Message = "Cập nhật thông tin mục tiêu thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật mục tiêu thành công"
+                Message = "Cập nhật thông tin mục tiêu thành công"
             };
         }
 

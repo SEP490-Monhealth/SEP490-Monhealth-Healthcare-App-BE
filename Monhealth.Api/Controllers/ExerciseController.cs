@@ -143,14 +143,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật bài tập thất bại"
+                    Message = "Cập nhật thông tin bài tập thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật bài tập thành công"
+                Message = "Cập nhật thông tin bài tập thành công"
             };
         }
 

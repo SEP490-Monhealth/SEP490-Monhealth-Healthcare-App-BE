@@ -109,37 +109,37 @@ namespace Monhealth.Api.Controllers
             var result = await _mediator.Send(command);
             return new ResultModel
             {
-                Message = "Cập nhập người dùng thành công",
+                Message = "Cập nhập thông tin người dùng thành công",
                 Status = 200,
                 Success = true
             };
         }
 
         [HttpPut("{userId}/avatar")]
-        [SwaggerOperation(Summary = "Cập nhật avatar người dùng")]
+        [SwaggerOperation(Summary = "Cập nhật hình đại diện người dùng")]
         public async Task<ActionResult<ResultModel>> UpdateUserAvatar(Guid userId, [FromBody] UpdateAvatarRequest request)
         {
             var command = new UpdateAvatarCommand(userId, request);
             var result = await _mediator.Send(command);
             return new ResultModel
             {
-                Message = "Cập nhập avatar thành công",
+                Message = "Cập nhập hình đại diện thành công",
                 Status = 200,
                 Success = true
             };
         }
 
         [HttpPut("password")]
-        [Authorize]
+        [SwaggerOperation(Summary = "Cập nhật mật khẩu người dùng")]
         public async Task<ActionResult<ResultModel>> ChangeMyPassword([FromBody] ChangePasswordRequest request)
         {
             if (request.OldPassword.ToLower().Equals(request.NewPassword.ToLower()))
             {
                 return new ResultModel
                 {
-                    Success = false,                   
-                    Status = (int) HttpStatusCode.BadRequest,
-                    Message = "Mật khẩu mới không được giống với mật khẩu cũ."
+                    Success = false,
+                    Status = (int)HttpStatusCode.BadRequest,
+                    Message = "Mật khẩu mới không được trùng với mật khẩu cũ"
                 };
             }
             var userId = ((ClaimsIdentity)User.Identity).FindFirst(UserClaims.UserId).Value;
@@ -152,7 +152,7 @@ namespace Monhealth.Api.Controllers
             }
             return new ResultModel
             {
-                Message = "Thay đổi mật khẩu thành công",
+                Message = "Cập nhật mật khẩu thành công",
                 Status = 200,
                 Success = true
             };
@@ -184,7 +184,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Người dùng không tồn tại",
+                    Message = "Không tìm thấy người dùng",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });

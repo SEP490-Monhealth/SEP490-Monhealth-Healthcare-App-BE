@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.MealFood.Queries
         {
             var mealFood = await _mealFoodRepository.GetMealFoodByMealId(request.MealId);
             if (mealFood == null || !mealFood.Any())
-                throw new Exception("Bữa ăn không tồn tại hoặc không có món ăn nào trong bữa");
+                throw new Exception("Bữa ăn không tồn tại hoặc không có thức ăn nào trong bữa");
 
             var result = new List<GetMealFoodByMealIdDTO>();
 

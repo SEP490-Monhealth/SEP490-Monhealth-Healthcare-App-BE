@@ -42,7 +42,7 @@
 //         //         return NotFound(new ResultModel
 //         //         {
 //         //             Success = false,
-//         //             Message = "Ngày tạo không tồn tại",
+//         //             Message = "Không tìm thấy ngày nào",
 //         //             Status = (int)HttpStatusCode.NotFound,
 //         //             Data = null
 //         //         });

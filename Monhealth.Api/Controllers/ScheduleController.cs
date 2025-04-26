@@ -47,7 +47,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách lịch trình theo ID chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch trình theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetScheduleByUser(Guid consultantId, ScheduleType? type = null, [FromQuery] DateTime? date = null)
         {
             var queries = await _mediator.
@@ -58,7 +58,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Lịch trình không tồn tại",
+                    Message = "Không tìm thấy lịch trình",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -73,7 +73,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{scheduleId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin lịch trình theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin lịch trình")]
         public async Task<ActionResult<ResultModel>> GetScheduleDetail(Guid scheduleId)
         {
             var queries = await _mediator.
@@ -84,7 +84,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Lịch trình không tồn tại",
+                    Message = "Không tìm thấy lịch trình",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -95,6 +95,20 @@ namespace Monhealth.Api.Controllers
                 Status = 200,
                 Data = queries
             });
+        }
+
+        [HttpGet("time-slots")]
+        [SwaggerOperation(Summary = "Lấy danh sách khung giờ lịch trình")]
+        public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek()
+        {
+            var results = await _mediator.Send(new GetAllTimeSlotForDayOfWeekQueries());
+
+            return new ResultModel
+            {
+                Data = results,
+                Status = (int)HttpStatusCode.OK,
+                Success = true,
+            };
         }
 
         [HttpPost]
@@ -129,14 +143,14 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật lịch trình thất bại",
+                    Message = "Cập nhật thông tin lịch trình thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(
                 new ResultModel
                 {
-                    Message = "Cập nhật lịch trình thành công",
+                    Message = "Cập nhật thông tin lịch trình thành công",
                     Success = true,
                     Status = 204,
                 }
@@ -156,7 +170,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Lịch trình không tồn tại",
+                    Message = "Không tìm thấy lịch trình",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -171,7 +185,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpDelete]
         [Route("schedule/{scheduleTimeSlotId:Guid}")]
-        [SwaggerOperation(Summary = "Xóa Schedule time slot")]
+        [SwaggerOperation(Summary = "Xóa khung giờ lịch trình")]
         public async Task<ActionResult<ResultModel>> RemoveScheduleTimeSlot(Guid scheduleTimeSlotId)
         {
             var queries = await _mediator.
@@ -193,20 +207,6 @@ namespace Monhealth.Api.Controllers
                 Status = 204,
                 Message = "Xóa Schedule time slot thành công",
             });
-        }
-
-        [HttpGet("time-slots")]
-        [SwaggerOperation(Summary = "Lấy danh sách khung giờ")]
-        public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek()
-        {
-            var results = await _mediator.Send(new GetAllTimeSlotForDayOfWeekQueries());
-
-            return new ResultModel
-            {
-                Data = results,
-                Status = (int)HttpStatusCode.OK,
-                Success = true,
-            };
         }
     }
 }

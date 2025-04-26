@@ -31,7 +31,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách yêu cầu rút tiền theo ID chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách yêu cầu rút tiền theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetByConsultant(Guid consultantId, int page = 1, int limit = 10)
         {
             var queries = await mediator.
@@ -42,7 +42,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Yêu cầu rút tiền không tồn tại",
+                    Message = "Không tìm thấy yêu cầu rút tiền",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -57,7 +57,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{withdrawalRequestId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin yêu cầu rút tiền theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin yêu cầu rút tiền")]
         public async Task<ActionResult<ResultModel>> GetDetail(Guid withdrawalRequestId)
         {
             var queries = await mediator.
@@ -68,7 +68,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Yêu cầu rút tiền không tồn tại",
+                    Message = "Không tìm thấy yêu cầu rút tiền",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -133,13 +133,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật yêu cầu rút tiền không thành công",
+                    Message = "Cập nhật thông tin yêu cầu rút tiền không thành công",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật yêu cầu rút tiền thành công",
+                Message = "Cập nhật thông tin yêu cầu rút tiền thành công",
                 Success = true,
                 Status = 204,
             });
@@ -156,7 +156,7 @@ namespace Monhealth.Api.Controllers
             return Ok(
                 new ResultModel
                 {
-                    Message = "Từ chối trạng thái rút tiền thành công",
+                    Message = "Từ chối rút tiền thành công",
                     Success = true,
                     Status = 204
                 }
@@ -206,7 +206,7 @@ namespace Monhealth.Api.Controllers
             return Ok(
                 new ResultModel
                 {
-                    Message = "Chấp nhận trạng thái rút tiền thành công",
+                    Message = "Chấp nhận rút tiền thành công",
                     Success = true,
                     Status = 204
                 }

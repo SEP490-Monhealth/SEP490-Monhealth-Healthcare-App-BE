@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monhealth.Application;
 using Monhealth.Application.Models;
 using Monhealth.Core.Enum;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Monhealth.Api.Controllers
 {
@@ -19,6 +20,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách đăng ký gói")]
         public async Task<ActionResult<ResultModel>> GetAllUserSubscription(int page = 1, int limit = 10, string? subscription = null, string? search = null, string? sort = null, string? order = null, UserSubscriptionStatus? status = null)
         {
             var result = await _mediator.Send(new GetAllUserSubscriptionQuery(page, limit, subscription, search, sort, order, status));
@@ -31,6 +33,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách đăng ký gói theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetUserSubscription(Guid userId)
         {
             var result = await _mediator.Send(new GetUserSubscriptionQuery() { UserId = userId });
@@ -43,6 +46,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{userSubscriptionId:guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin đăng ký gói")]
         public async Task<ActionResult<ResultModel>> GetUserSubscriptionById(Guid userSubscriptionId)
         {
             var result = await _mediator.Send(new GetUserSubscriptionRequest() { UserSubscriptionId = userSubscriptionId });
@@ -55,6 +59,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{userId:guid}/remaining-bookings")]
+        [SwaggerOperation(Summary = "Lấy thông tin số lần đặt lịch còn lại của người dùng")]
         public async Task<ActionResult<ResultModel>> GetReminderBookingByUserId([FromRoute] Guid userId)
         {
             var booking = await _mediator.Send(new GetReminderBookingQuery { UserId = userId });

@@ -15,6 +15,7 @@ using Monhealth.Application.Features.Transaction.Queries.GetTransactionBySubscri
 using Monhealth.Application.Models;
 using Monhealth.Domain.Enum;
 using Net.payOS.Types;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Monhealth.Api.Controllers
@@ -24,6 +25,7 @@ namespace Monhealth.Api.Controllers
     public class TransactionController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [SwaggerOperation(Summary = "Lấy danh sách giao dịch")]
         public async Task<ActionResult<ResultModel>> GetAllTransactions(int page = 1, int limit = 10, TransactionType? type = null, string? search = null, StatusTransaction? status = null)
         {
             var transactionsList = await mediator.Send(new GetAllTransactionsQuery(page, limit, type, search, status));
@@ -37,6 +39,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy([FromRoute] Guid userId, int page = 1, int limit = 10)
         {
             var transaction = await mediator.Send(new GetTransactionByCreatedByQuery
@@ -54,6 +57,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetTransactionByConsultantId(Guid consultantId, int page = 1, int limit = 10, StatusTransaction? status = null)
         {
             var transaction = await mediator.Send(new GetTransactionByConsultantIdQuery(consultantId, page, limit, status));
@@ -65,8 +69,8 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-
         [HttpGet("subscription/{subscriptionId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo gói đăng ký")]
         public async Task<ActionResult<ResultModel>> GetTransactionBySubscriptionId([FromRoute] Guid subscriptionId)
         {
             var transaction = await mediator.Send(new GetTransactionBySubscriptionIdQuery { SubscriptionId = subscriptionId });
@@ -80,6 +84,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("monthly/consultants/{consultantId:guid}")]
+        [SwaggerOperation(Summary = "Lấy danh sách giao dịch theo tháng của chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetTransactionByCreatedBy(Guid consultant, int page = 1, int limit = 10, string? month = null)
         {
             var transaction = await mediator.Send(new GetTransactionByConsultantQuery(page, limit, month, consultant));
@@ -92,6 +97,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{transactionId:guid}")]
+        [SwaggerOperation(Summary = "Lấy thông tin giao dịch")]
         public async Task<ActionResult<ResultModel>> GetTransactionById(Guid transactionId)
         {
             var transaction = await mediator.Send(new GetTransactionByIdQuery { TransactionId = transactionId });
@@ -105,6 +111,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{transactionId:Guid}/qr-code")]
+        [SwaggerOperation(Summary = "Lấy mã QR giao dịch")]
         public async Task<ResultModel> CreateWithdrawalRequest(Guid transactionId)
         {
             var command = new GenerateTransactionQRCode(transactionId);
@@ -121,6 +128,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Tạo giao dịch")]
         public async Task<ActionResult<ResultModel>> CreateTransaction([FromBody] CreateTransactionDTO createTransactionDTO)
         {
             var command = new CreateTransactionCommand(createTransactionDTO);
@@ -143,6 +151,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost("subscription")]
+        [SwaggerOperation(Summary = "Tạo giao dịch nâng cấp gói đăng ký")]
         public async Task<ActionResult<ResultModel>> Create([FromBody] CreateUpgradeRequest request)
         {
             var result = await mediator.Send(request);
@@ -165,6 +174,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPost("booking")]
+        [SwaggerOperation(Summary = "Tạo giao dịch thanh toán lượt đặt lịch")]
         public async Task<ActionResult<ResultModel>> CreateBookingSingle([FromBody] BookingSingleRequest request)
         {
             var result = await mediator.Send(request);
@@ -183,6 +193,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = false,
                 Message = "Tạo thanh toán thất bại",
+                Status = 400,
             });
         }
 
@@ -232,6 +243,7 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost("webhook")]
+
         public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromBody] WebhookType webhookType)
         {
             var result = await mediator.Send(new UpdateStatusBookingSingleQuery { WebhookType = webhookType });
@@ -282,6 +294,8 @@ namespace Monhealth.Api.Controllers
         //}
 
         [HttpPatch("{transactionId}/completed")]
+        [SwaggerOperation(Summary = "Hoàn thành giao dịch")]
+
         public async Task<ActionResult<ResultModel>> ChangeStatusCompletedTransaction(Guid transactionId)
         {
             var command = new UpdateTransactionStatusQuery { TransactionId = transactionId };
@@ -292,14 +306,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhập trạng thái giao dịch thất bại"
+                    Message = "Hoàn thành trạng thái giao dịch thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật trạng thái giao dịch thành công"
+                Message = "Hoàn thành trạng thái giao dịch thành công"
             };
         }
     }

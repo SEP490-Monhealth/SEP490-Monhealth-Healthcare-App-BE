@@ -161,7 +161,7 @@
 //                 totalFats += foodFats;
 //                 totalFibers += foodFiber;
 //                 totalSugars += foodSugar;
-//                 // Loại bỏ món ăn này khỏi danh sách
+//                 // Loại bỏ thức ăn này khỏi danh sách
 //                 foodList.Remove(proteinFood);
 //             }
 
@@ -225,7 +225,7 @@
 //                 totalFats += foodFats;
 //                 totalFibers += foodFiber;
 //                 totalSugars += foodSugar;
-//                 // Loại bỏ món ăn này khỏi danh sách
+//                 // Loại bỏ thức ăn này khỏi danh sách
 //                 foodList.Remove(carbsFood);
 //             }
 
@@ -290,7 +290,7 @@
 //                 totalFats += foodFats;
 //                 totalFibers += foodFiber;
 //                 totalSugars += foodSugar;
-//                 // Loại bỏ món ăn này khỏi danh sách
+//                 // Loại bỏ thức ăn này khỏi danh sách
 //                 foodList.Remove(fatFood);
 //             }
 //             var meal = new Meal

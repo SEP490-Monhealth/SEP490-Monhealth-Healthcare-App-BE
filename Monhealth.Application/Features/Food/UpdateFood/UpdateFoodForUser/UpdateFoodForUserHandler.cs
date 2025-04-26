@@ -14,9 +14,9 @@ namespace Monhealth.Application.Features.Food.UpdateFood.UpdateFoodForUser
         public async Task<bool> Handle(UpdateFoodRequestUserHandler request, CancellationToken cancellationToken)
         {
             var food = await _foodRepository.GetFoodByIdAsync(request.FoodId);
-            if (food == null) throw new Exception("Món ăn không tồn tại");
+            if (food == null) throw new Exception("Thức ăn không tồn tại");
             var existingFood = await _foodRepository.GetFoodByNameAsync(request.RequestData.FoodName);
-            if (existingFood != null) throw new Exception("Món ăn đã tồn tại");
+            if (existingFood != null) throw new Exception("Thức ăn đã tồn tại");
             food.MealType = request.RequestData.MealType;
             food.FoodName = request.RequestData.FoodName;
             food.FoodDescription = request.RequestData.FoodDescription;

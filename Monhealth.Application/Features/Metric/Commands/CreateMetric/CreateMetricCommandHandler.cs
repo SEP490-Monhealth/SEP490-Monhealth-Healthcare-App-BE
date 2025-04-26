@@ -168,7 +168,7 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
         //         await _mealRepository.SaveChangeAsync();
         //     }
 
-        //     // 🔹 Thêm món ăn vào Meal
+        //     // 🔹 Thêm thức ăn vào Meal
         //     await AddDishToMealAsync(meal.MainDish, model.MealId, goal, mealType);
         //     if (meal.SideDish?.Food != null) await AddDishToMealAsync(meal.SideDish, model.MealId, goal, mealType);
         //     if (meal.Dessert?.Food != null) await AddDishToMealAsync(meal.Dessert, model.MealId, goal, mealType);

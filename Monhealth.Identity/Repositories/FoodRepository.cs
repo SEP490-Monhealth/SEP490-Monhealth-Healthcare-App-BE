@@ -127,7 +127,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Food>> GetFoodByUserHasNoAllergiesAsync(Guid userId)
         {
-            // Lấy danh sách tất cả các món ăn với các thông tin liên quan
+            // Lấy danh sách tất cả các thức ăn với các thông tin liên quan
             var foodList = await _context.Foods
                  .Include(fc => fc.CategoryFoods)
                     .ThenInclude(fc => fc.Category)
@@ -146,13 +146,13 @@ namespace Monhealth.Identity.Repositories
                 .Select(ua => ua.AllergyId)
                 .ToListAsync();
 
-            // Nếu người dùng không có dị ứng nào, trả về tất cả các món ăn
+            // Nếu người dùng không có dị ứng nào, trả về tất cả các thức ăn
             if (userAllergies.Count == 0)
             {
                 return foodList;
             }
 
-            // Lọc ra các món ăn mà người dùng không bị dị ứng
+            // Lọc ra các thức ăn mà người dùng không bị dị ứng
             var safeFoods = foodList
                 .Where(f => !f.FoodAllergies.Any(fa => userAllergies.Contains(fa.AllergyId)))
                 .ToList();
@@ -357,7 +357,7 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<PaginatedResult<Food>> GetRelatedFoodBasedOnType(Guid foodId, string? search, bool? status, int? page, int? limit)
         {
-            // Lấy thông tin món ăn mục tiêu
+            // Lấy thông tin thức ăn mục tiêu
             var food = await _context.Foods
                 .Include(f => f.CategoryFoods).ThenInclude(f => f.Category)
                 .Include(f => f.FoodPortions).ThenInclude(f => f.Portion)
@@ -397,7 +397,7 @@ namespace Monhealth.Identity.Repositories
                 .AsNoTracking()
                 .AsSplitQuery()
                 .Where(f =>
-                    f.FoodId != foodId && // Loại trừ món ăn hiện tại
+                    f.FoodId != foodId && // Loại trừ thức ăn hiện tại
                     f.MealType != null &&
                     f.DishTypeFoods.Any(dt => dt.DishType.DishTypeName == "MainDish") &&
                     f.Nutrition != null);

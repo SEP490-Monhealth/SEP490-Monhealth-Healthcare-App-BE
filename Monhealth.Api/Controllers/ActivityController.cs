@@ -24,19 +24,19 @@ namespace Monhealth.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        [SwaggerOperation(Summary = "Lấy danh sách hoạt động")]
-        public async Task<ActionResult<ResultModel>> GetAllActivities()
-        {
-            var activities = await _mediator.Send(new GetAllActivitiesQuery());
+        // [HttpGet]
+        // [SwaggerOperation(Summary = "Lấy danh sách hoạt động")]
+        // public async Task<ActionResult<ResultModel>> GetAllActivities()
+        // {
+        //     var activities = await _mediator.Send(new GetAllActivitiesQuery());
 
-            return new ResultModel
-            {
-                Data = activities,
-                Status = 200,
-                Success = true,
-            };
-        }
+        //     return new ResultModel
+        //     {
+        //         Data = activities,
+        //         Status = 200,
+        //         Success = true,
+        //     };
+        // }
 
         [HttpGet("user/{userId}")]
         [SwaggerOperation(Summary = "Lấy danh sách hoạt động theo người dùng")]
@@ -52,19 +52,19 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet("{activityId}")]
-        [SwaggerOperation(Summary = "Lấy thông tin hoạt động")]
-        public async Task<ActionResult<ResultModel>> GetById(Guid activityId)
-        {
-            var activities = await _mediator.Send(new GetActivityByIdQuery(activityId));
+        // [HttpGet("{activityId}")]
+        // [SwaggerOperation(Summary = "Lấy thông tin hoạt động")]
+        // public async Task<ActionResult<ResultModel>> GetById(Guid activityId)
+        // {
+        //     var activities = await _mediator.Send(new GetActivityByIdQuery(activityId));
 
-            return new ResultModel
-            {
-                Data = activities,
-                Status = 200,
-                Success = true,
-            };
-        }
+        //     return new ResultModel
+        //     {
+        //         Data = activities,
+        //         Status = 200,
+        //         Success = true,
+        //     };
+        // }
 
         [HttpPost]
         [SwaggerOperation(Summary = "Tạo hoạt động")]

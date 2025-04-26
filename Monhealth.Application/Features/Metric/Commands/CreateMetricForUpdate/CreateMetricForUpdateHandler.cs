@@ -390,7 +390,7 @@ namespace Monhealth.Application
                 MealFoods = mealFoods,
             };
 
-            // Thêm các Portion tương ứng cho các món ăn
+            // Thêm các Portion tương ứng cho các thức ăn
             if (balanceFood != null)
             {
                 var balanceWeight = 100 * balanceCalories /

@@ -32,7 +32,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{timeSlotId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin khung giờ theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin khung giờ")]
         public async Task<ActionResult<ResultModel>> GetTimeSlotByDayOfWeek([FromRoute] Guid timeSlotId)
         {
             var results = await mediator.Send(new GetTimeSlotByIdQueries { TimeSlotId = timeSlotId });
@@ -80,6 +80,7 @@ namespace Monhealth.Api.Controllers
                 Data = results,
                 Status = (int)HttpStatusCode.OK,
                 Success = true,
+                Message = "Cập nhật thông tin khung giờ thành công"
             };
         }
 
@@ -91,9 +92,9 @@ namespace Monhealth.Api.Controllers
 
             return new ResultModel
             {
-                Data = results,
                 Status = (int)HttpStatusCode.OK,
                 Success = true,
+                Message = "Xóa khung giờ thành công"
             };
         }
     }

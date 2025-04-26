@@ -40,7 +40,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{subscriptionId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin gói đăng ký theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin gói đăng ký")]
         public async Task<ActionResult<ResultModel>> GetReminderById(Guid subscriptionId)
         {
             var result = await _mediator.Send(new SubscriptionDetailQuery() { SubscriptionId = subscriptionId });
@@ -50,6 +50,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy gói đăng ký",
                 };
             }
             return new ResultModel
@@ -125,13 +126,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật gói đăng ký thất bại",
+                    Message = "Cập nhật thông tin gói đăng ký thất bại",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật gói đăng ký thành công",
+                Message = "Cập nhật thông tin gói đăng ký thành công",
                 Success = true,
                 Status = 204,
             });

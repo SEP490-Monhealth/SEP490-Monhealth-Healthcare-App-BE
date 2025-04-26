@@ -49,7 +49,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("user/{userId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách đánh giá theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy danh sách đánh giá theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetReviewByUser(Guid userId, int page = 1, int limit = 10)
         {
             var queries = await _mediator.
@@ -60,7 +60,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Đánh giá không tồn tại",
+                    Message = "Không tìm thấy đánh giá",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -75,7 +75,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("consultant/{consultantId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách đánh giá theo ID chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách đánh giá theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetReviewByConsultant(Guid consultantId, int page = 1, int limit = 10)
         {
             var queries = await _mediator.
@@ -86,7 +86,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Đánh giá không tồn tại",
+                    Message = "Không tìm thấy đánh giá",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -101,7 +101,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("booking/{bookingId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin đánh giá theo ID đặt lịch")]
+        [SwaggerOperation(Summary = "Lấy thông tin đánh giá theo đặt lịch")]
         public async Task<ActionResult<ResultModel>> GetReviewByBookingId(Guid bookingId)
         {
             var queries = await _mediator.
@@ -112,7 +112,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Đánh giá không tồn tại",
+                    Message = "Không tìm thấy đánh giá",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -127,7 +127,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{reviewId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin đánh giá theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin đánh giá")]
         public async Task<ActionResult<ResultModel>> GetReviewDetail(Guid reviewId)
         {
             var queries = await _mediator.
@@ -138,7 +138,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Đánh giá không tồn tại",
+                    Message = "Không tìm thấy đánh giá",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -183,13 +183,13 @@ namespace Monhealth.Api.Controllers
             if (!result)
                 return new ResultModel
                 {
-                    Message = "Cập nhật đánh giá không thành công",
+                    Message = "Cập nhật thông tin đánh giá không thành công",
                     Success = false,
                     Data = null
                 };
             return Ok(new ResultModel
             {
-                Message = "Cập nhật đánh giá thành công",
+                Message = "Cập nhật thông tin đánh giá thành công",
                 Success = true,
                 Status = 204,
             });

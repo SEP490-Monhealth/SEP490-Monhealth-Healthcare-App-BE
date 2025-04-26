@@ -45,7 +45,7 @@ namespace Monhealth.Application.Features.Portions.Commands.CreateFoodPortion
             var food = await _foodRepository.GetByIdAsync(request.FoodId);
             if (food == null)
             {
-                throw new Exception("Món ăn không tồn tại");
+                throw new Exception("Thức ăn không tồn tại");
             }
             // lien ket mon an voi khau phan an
             var foodPortion = new FoodPortion

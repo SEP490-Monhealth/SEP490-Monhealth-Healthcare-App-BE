@@ -108,7 +108,7 @@ namespace Monhealth.Identity.Configurations
             {
                 AllergyId = Guid.Parse("c87bd979-3dde-4a47-9f1c-7eef88c6c041"),
                 AllergyName = "Đậu nành",
-                AllergyDescription = "Dị ứng với đậu nành khá phổ biến và có thể gây phát ban, ngứa, hoặc khó thở. Đậu nành là thành phần chính trong nhiều món ăn và thực phẩm chế biến sẵn tại Việt Nam",
+                AllergyDescription = "Dị ứng với đậu nành khá phổ biến và có thể gây phát ban, ngứa, hoặc khó thở. Đậu nành là thành phần chính trong nhiều thức ăn và thực phẩm chế biến sẵn tại Việt Nam",
                 CreatedAt = today,
                 UpdatedAt = today,
                 CreatedBy = user,

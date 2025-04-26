@@ -39,7 +39,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{expertiseId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin chuyên môn theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin chuyên môn")]
         public async Task<ActionResult<ResultModel>> GetExpertiseById(Guid expertiseId)
         {
             var expertise = await _mediator.Send(new GetExpertiseByIdQuery { ExpertiseId = expertiseId });
@@ -96,14 +96,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật chuyên môn thất bại"
+                    Message = "Cập nhật thông tin chuyên môn thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật chuyên môn thành công"
+                Message = "Cập nhật thông tin chuyên môn thành công"
             };
         }
 

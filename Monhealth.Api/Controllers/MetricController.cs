@@ -40,7 +40,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách số liệu theo ID người dùng")]
+        [SwaggerOperation(Summary = "Lấy danh sách số liệu theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetMetricByUserId(Guid userId)
         {
             var metric = await _mediator.Send(new GetMetricByUserIdQuery() { UserId = userId });
@@ -53,7 +53,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{metricId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin số liệu theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin số liệu theo")]
         public async Task<ActionResult<ResultModel>> GetMetricById(Guid metricId)
         {
             var metric = await _mediator.Send(new GetMetricDetailQuery() { MetricId = metricId });
@@ -96,8 +96,9 @@ namespace Monhealth.Api.Controllers
                 Success = false
             };
         }
+
         [HttpPost("update")]
-        [SwaggerOperation(Summary = "Tạo số liệu để cập nhật thông số cơ thể")]
+        [SwaggerOperation(Summary = "Cập nhật thông tin số liệu")]
         public async Task<ActionResult<ResultModel>> CreateMetricForUpdate([FromBody] CreateMetricDTO metricRequest)
         {
             var command = new CreateMetricForUpdateRequest(metricRequest);
@@ -119,28 +120,28 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPut("{metricId}")]
-        [SwaggerOperation(Summary = "Cập nhật thông tin số liệu")]
-        public async Task<ActionResult<ResultModel>> Update(Guid metricId, [FromBody] UpdateMetricDTO metricDto)
-        {
-            var command = new UpdateMetricCommand(metricId, metricDto);
-            var result = await _mediator.Send(command);
-            if (!result)
-            {
-                return new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cập nhật số liệu thất bại"
-                };
-            }
-            return new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật số liệu thành công"
-            };
-        }
+        // [HttpPut("{metricId}")]
+        // [SwaggerOperation(Summary = "Cập nhật thông tin số liệu")]
+        // public async Task<ActionResult<ResultModel>> Update(Guid metricId, [FromBody] UpdateMetricDTO metricDto)
+        // {
+        //     var command = new UpdateMetricCommand(metricId, metricDto);
+        //     var result = await _mediator.Send(command);
+        //     if (!result)
+        //     {
+        //         return new ResultModel
+        //         {
+        //             Success = false,
+        //             Status = (int)HttpStatusCode.NotFound,
+        //             Message = "Cập nhật số liệu thất bại"
+        //         };
+        //     }
+        //     return new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = (int)HttpStatusCode.OK,
+        //         Message = "Cập nhật số liệu thành công"
+        //     };
+        // }
 
         [HttpDelete("{metricId}")]
         [SwaggerOperation(Summary = "Xóa số liệu")]

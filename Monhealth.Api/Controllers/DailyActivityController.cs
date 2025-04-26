@@ -24,7 +24,7 @@
 //                 return Ok(new ResultModel
 //                 {
 //                     Success = false,
-//                     Message = "Hoạt động hằng ngày không tồn tại",
+//                     Message = "Không tìm thấy hoạt động hằng ngày",
 //                     Status = 200,
 //                     Data = queries
 //                 });

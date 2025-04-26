@@ -355,7 +355,7 @@ namespace Monhealth.Application.Features.Metric.Commands.UpdateMetric
                 MealFoods = mealFoods,
             };
 
-            // Thêm các Portion tương ứng cho các món ăn
+            // Thêm các Portion tương ứng cho các thức ăn
             if (balanceFood != null)
             {
                 var balanceWeight = 100 * balanceCalories / balanceFood.Nutrition.Calories;

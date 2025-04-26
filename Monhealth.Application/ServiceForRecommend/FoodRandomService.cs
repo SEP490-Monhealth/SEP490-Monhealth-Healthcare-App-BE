@@ -104,7 +104,7 @@
 //             MealType mealType, DishType dishType, Guid userId,
 //             MealAllocationDTO allocation, float ratio, DishDTO? mainDish = null)
 //         {
-//             _logger.LogInformation($"🔍 Đang tìm món ăn {dishType} cho {mealType}...");
+//             _logger.LogInformation($"🔍 Đang tìm thức ăn {dishType} cho {mealType}...");
 
 //             var mealTypeList = new List<MealType> { MealType.Breakfast, MealType.Lunch  , MealType.Dinner , MealType.Snack};
 //             var dishTypeList = new List<DishType> { DishType.MainDish, DishType.SideDish , DishType.Soup , DishType.Dessert , DishType.Drink };
@@ -121,11 +121,11 @@
 
 //             if (filteredFoods == null || !filteredFoods.Items.Any())
 //             {
-//                 _logger.LogWarning($"⚠️ Không có món ăn nào phù hợp với {mealType} - {dishType}.");
+//                 _logger.LogWarning($"⚠️ Không có thức ăn nào phù hợp với {mealType} - {dishType}.");
 //                 return null;
 //             }
 
-//             _logger.LogInformation($"✅ Số món ăn phù hợp: {filteredFoods.Items.Count()}");
+//             _logger.LogInformation($"✅ Số thức ăn phù hợp: {filteredFoods.Items.Count()}");
 
 //             var foodList = filteredFoods.Items.Select(f => new FoodDTO123
 //             {

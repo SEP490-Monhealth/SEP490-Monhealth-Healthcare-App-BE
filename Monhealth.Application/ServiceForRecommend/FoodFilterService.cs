@@ -65,7 +65,7 @@
 //             //     };
 //             // }
 
-//             // 🟢 Lọc danh sách món ăn
+//             // 🟢 Lọc danh sách thức ăn
 //             var query = _foodRepository.GetAll()
 //                 .Where(f => !f.FoodAllergies.Any(fa => allergyIds.Contains(fa.AllergyId))); // Loại bỏ món có dị ứng
 

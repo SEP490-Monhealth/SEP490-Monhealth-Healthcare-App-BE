@@ -34,7 +34,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId}")]
-        [SwaggerOperation(Summary = "Lấy danh sách lịch nghỉ theo ID chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách lịch nghỉ theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetScheduleExceptionByConsultantId(Guid consultantId, int page = 1, int limit = 10)
         {
             var scheduleList = await mediator.Send(new GetScheduleExceptionByConsultantIdQuery(consultantId, page, limit));
@@ -49,7 +49,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [Route("{scheduleExceptionId:Guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin lịch nghỉ theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin lịch nghỉ")]
         public async Task<ActionResult<ResultModel>> GetScheduleException(Guid scheduleExceptionId)
         {
             var queries = await mediator.Send(new GetScheduleExceptionByIdQueries { ScheduleExceptionId = scheduleExceptionId });
@@ -110,6 +110,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{scheduleExceptionId:guid}/approved")]
+        [SwaggerOperation(Summary = "Chấp nhận lịch nghỉ")]
         public async Task<ActionResult<ResultModel>> ChangeScheduleExceptionApproved([FromRoute] Guid scheduleExceptionId)
         {
             var result = await mediator.Send(new UpdateApprovedStatusCommand { ScheduleExceptionId = scheduleExceptionId });
@@ -118,19 +119,20 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = false,
-                    Message = "Cập nhập trạng thái lịch nghỉ thất bại",
+                    Message = "Chấp nhận trạng thái lịch nghỉ thất bại",
                     Status = 500,
                 };
             }
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Cập nhập trạng thái lịch nghỉ thành công",
+                Message = "Chấp nhận trạng thái lịch nghỉ thành công",
                 Status = 200,
             });
         }
 
         [HttpPatch("{scheduleExceptionId:guid}/rejected")]
+        [SwaggerOperation(Summary = "Từ chối lịch nghỉ")]
         public async Task<ActionResult<ResultModel>> ChangeScheduleExceptionRejected([FromRoute] Guid scheduleExceptionId)
         {
             var result = await mediator.Send(new UpdateExceptionRejectedStatusCommand { ScheduleExceptionId = scheduleExceptionId });
@@ -139,14 +141,14 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = false,
-                    Message = "Cập nhập trạng thái lịch nghỉ thất bại",
+                    Message = "Từ chối trạng thái lịch nghỉ thất bại",
                     Status = 500,
                 };
             }
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Cập nhập trạng thái lịch nghỉ thành công",
+                Message = "Từ chối trạng thái lịch nghỉ thành công",
                 Status = 200,
             });
         }

@@ -31,7 +31,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("consultant/{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy danh sách ví theo ID chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy danh sách ví theo chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetWalletByConsultantId([FromRoute] Guid consultantId)
         {
             var wallet = await mediator.Send(new GetWalletByConsultantIdQuery { ConsultantId = consultantId });
@@ -44,7 +44,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{walletId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin ví theo ID")]
+        [SwaggerOperation(Summary = "Lấy thông tin ví")]
         public async Task<ActionResult<ResultModel>> GetWalletById([FromRoute] Guid walletId)
         {
             var wallet = await mediator.Send(new GetWalletByIdQuery { WalletId = walletId });
@@ -56,18 +56,18 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpDelete("{walletId:guid}")]
-        [SwaggerOperation(Summary = "Xóa ví theo ID")]
-        public async Task<ActionResult<ResultModel>> DeleteWallet([FromRoute] Guid walletId)
-        {
-            await mediator.Send(new DeleteWalletCommand { WalletId = walletId });
-            return Ok(new ResultModel
-            {
-                Success = true,
-                Message = "Xóa ví thành công",
-                Status = 204,
-            });
-        }
+        // [HttpDelete("{walletId:guid}")]
+        // [SwaggerOperation(Summary = "Xóa ví")]
+        // public async Task<ActionResult<ResultModel>> DeleteWallet([FromRoute] Guid walletId)
+        // {
+        //     await mediator.Send(new DeleteWalletCommand { WalletId = walletId });
+        //     return Ok(new ResultModel
+        //     {
+        //         Success = true,
+        //         Message = "Xóa ví thành công",
+        //         Status = 204,
+        //     });
+        // }
 
         [HttpPatch("{walletId:guid}/status")]
         [SwaggerOperation(Summary = "Cập nhật thông tin trạng thái ví")]

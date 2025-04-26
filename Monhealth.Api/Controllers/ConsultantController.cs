@@ -42,7 +42,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("{consultantId:guid}")]
-        [SwaggerOperation(Summary = "Lấy chuyên viên")]
+        [SwaggerOperation(Summary = "Lấy thông tin chuyên viên")]
         public async Task<ActionResult<ResultModel>> GetConsultantById(Guid consultantId)
         {
             var consultant = await _mediator.Send(new GetConsultantByIdCommand { ConsultantId = consultantId });
@@ -51,7 +51,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Không tìm thấy chuyên viên",
+                    Message = "Không tìm thấy thông tin chuyên viên",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -65,7 +65,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpGet("user/{userId:guid}")]
-        [SwaggerOperation(Summary = "Lấy chuyên viên theo người dùng")]
+        [SwaggerOperation(Summary = "Lấy thông tin chuyên viên theo người dùng")]
         public async Task<ActionResult<ResultModel>> GetConsultantByUserId(Guid userId)
         {
             var consultant = await _mediator.Send(new GetConsultantByUserQuery { UserId = userId });
@@ -74,7 +74,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Không tìm thấy chuyên viên",
+                    Message = "Không tìm thấy thông tin chuyên viên",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });

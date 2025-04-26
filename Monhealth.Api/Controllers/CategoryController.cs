@@ -77,7 +77,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Danh mục không tồn tại",
+                    Message = "Không tìm thấy danh mục",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -149,7 +149,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Danh mục không tồn tại",
+                    Message = "Không tìm thấy danh mục",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });

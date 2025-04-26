@@ -43,7 +43,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Tài khoản ngân hàng chuyên viên không tồn tại",
+                    Message = "Không tìm thấy tài khoản ngân hàng",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -127,14 +127,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Xóa tài khoản ngân hàng chuyên viên thất bại"
+                    Message = "Xóa tài khoản ngân hàng thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Xóa tài khoản ngân hàng chuyên viên thành công"
+                Message = "Xóa tài khoản ngân hàng thành công"
             };
         }
 
@@ -150,7 +150,7 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy tài khoản ngân hàng chuyên viên"
+                    Message = "Không tìm thấy tài khoản ngân hàng"
                 };
             }
             return new ResultModel
@@ -172,7 +172,7 @@ namespace Monhealth.Api.Controllers
         //        {
         //            Success = false,
         //            Status = (int)HttpStatusCode.NotFound,
-        //            Message = "Không tìm thấy tài khoản ngân hàng chuyên viên"
+        //            Message = "Không tìm thấy tài khoản ngân hàng"
         //        };
         //    }
         //    return new ResultModel
