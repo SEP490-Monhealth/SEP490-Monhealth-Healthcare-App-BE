@@ -22,7 +22,7 @@ namespace Monhealth.Application
         }
     }
     public class GetTransactionByConsultantQueryHandler(ITransactionRepository transactionRepository
-    , ILogger<GetTransactionByConsultantQueryHandler> _logger , IMapper _mapper)
+    , ILogger<GetTransactionByConsultantQueryHandler> _logger, IMapper _mapper)
       : IRequestHandler<GetTransactionByConsultantQuery, PageResult<GetAllTransactionsDTO>>
     {
         public async Task<PageResult<GetAllTransactionsDTO>> Handle(GetTransactionByConsultantQuery request, CancellationToken cancellationToken)
@@ -64,7 +64,7 @@ namespace Monhealth.Application
             //         };
 
             //         getTransactionByConsultantDTOs.Add(transactionDTO);
-               
+
             // }
 
 

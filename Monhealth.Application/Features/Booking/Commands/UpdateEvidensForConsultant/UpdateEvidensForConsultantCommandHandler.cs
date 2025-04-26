@@ -20,14 +20,14 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
 
             if (request.UpdateEvidensDto.EvidenceUrls == null || request.UpdateEvidensDto.EvidenceUrls.Count == 0)
             {
-                throw new BadRequestException("Danh sách EvidenceUrls không được để trống.");
+                throw new BadRequestException("Danh sách URL không được để trống");
             }
 
             foreach (var url in request.UpdateEvidensDto.EvidenceUrls)
             {
                 if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
                 {
-                    throw new BadRequestException($"URL '{url}' không hợp lệ.");
+                    throw new BadRequestException($"URL '{url}' không hợp lệ");
                 }
             }
 
