@@ -21,18 +21,18 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBoo
             if (webhookData == null)
             {
                 logger.LogWarning("Invalid webhook data received");
-                throw new BadRequestException("Dữ liệu webhook không hợp lệ");
+                return true;
             }
 
             var transaction = await transactionRepository.GetTransactionByOrderCode(webhookData.orderCode);
-            if (transaction == null) throw new BadRequestException("Không tìm thấy giao dịch ");
+            if (transaction == null) return true;
 
             if (transaction.SubscriptionId == null) //xử lí update cho thanh toán mua lẻ lượt book
             {
                 //get subscriptinon basic 
                 var userSubscriptions = await userSubscriptionRepository.GetUserSubscriptionsByUserIdAsync((Guid)transaction.UserId);
                 var userSubscription = userSubscriptions.Where(us => us.Status == Core.Enum.UserSubscriptionStatus.Active).FirstOrDefault();
-                if (userSubscription == null) throw new BadRequestException("Không tìm thấy gói cơ bản của người dùng");
+                if (userSubscription == null) return true;
 
                 userSubscription.RemainingBookings += 1;
 

@@ -243,7 +243,6 @@ namespace Monhealth.Api.Controllers
         // }
 
         [HttpPost("webhook")]
-
         public async Task<ActionResult<ResultModel>> ChangeTransactionStatusForBookingSingle([FromBody] WebhookType webhookType)
         {
             var result = await mediator.Send(new UpdateStatusBookingSingleQuery { WebhookType = webhookType });
