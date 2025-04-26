@@ -207,7 +207,8 @@ namespace Monhealth.Identity.Repositories
              TransactionType type)
         {
             return (decimal)await _context.Transactions
-                .Where(t => t.TransactionType == TransactionType.Fee)
+                .Where(t => t.TransactionType == TransactionType.Fee && 
+                            t.Status == StatusTransaction.Completed)
                 .SumAsync(t => t.Amount);
         }
 
@@ -219,7 +220,7 @@ namespace Monhealth.Identity.Repositories
 
             return (decimal)await _context.Transactions
                 .Where(t => t.TransactionType == TransactionType.Fee &&
-                            t.CreatedAt >= startDate && t.CreatedAt < endDate)
+                            t.CreatedAt >= startDate && t.CreatedAt < endDate && t.Status == StatusTransaction.Completed)
                 .SumAsync(t => t.Amount);
         }
     }
