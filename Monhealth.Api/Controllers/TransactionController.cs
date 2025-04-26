@@ -249,7 +249,7 @@ namespace Monhealth.Api.Controllers
             var result = await mediator.Send(new UpdateStatusBookingSingleQuery { WebhookType = webhookType });
             if (!result)
             {
-                return BadRequest(new ResultModel
+                return Ok(new ResultModel
                 {
                     Success = false,
                     Message = "Cập nhập trạng thái thanh toán thất bại",
