@@ -228,5 +228,14 @@ namespace Monhealth.Identity.Repositories
                             t.CreatedAt >= startDate && t.CreatedAt < endDate && t.Status == StatusTransaction.Completed)
                 .SumAsync(t => t.Amount);
         }
+
+        public async Task<Transaction> GetTransactionByBookingId(Guid bookingId)
+        {
+
+            return await _context.Transactions
+                .Include(t => t.UserSubscription).ThenInclude(us => us.User)
+                .Include(t => t.UserSubscription).ThenInclude(us => us.Subscription)
+                .FirstOrDefaultAsync(t => t.BookingId == bookingId);
+        }
     }
 }

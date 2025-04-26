@@ -21,5 +21,6 @@ namespace Monhealth.Application.Contracts.Persistence
                    TransactionType type);
         Task<decimal> GetTotalTransactionAmountWithTypeAsync(
         TransactionType type, DateTime createdAt);
+        Task<Transaction>GetTransactionByBookingId(Guid bookingId);
     }
 }

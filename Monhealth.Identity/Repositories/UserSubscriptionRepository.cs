@@ -180,5 +180,12 @@ namespace Monhealth.Identity.Repositories
                              us.CreatedAt >= startDate && us.CreatedAt < endDate)
                 .CountAsync();
         }
+
+        public async Task<UserSubscription> GetUserSubscriptionByUser(Guid userId)
+        {
+            return await _context.UserSubscriptions
+                .Include(us => us.Subscription)
+                .FirstOrDefaultAsync(us => us.UserId == userId && us.Status == UserSubscriptionStatus.Active);
+        }
     }
 }

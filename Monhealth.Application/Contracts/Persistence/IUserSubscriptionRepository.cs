@@ -23,6 +23,7 @@ namespace Monhealth.Application.Contracts.Persistence
             Guid[] subscriptionIds);
         Task<int> GetUserSubscriptionCountByNamesAsync(
              Guid[] subscriptionIds, DateTime createdAt);
+        Task<UserSubscription>GetUserSubscriptionByUser(Guid userId);
 
     }
 }
