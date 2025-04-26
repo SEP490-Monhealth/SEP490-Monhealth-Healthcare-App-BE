@@ -18,12 +18,12 @@ namespace Monhealth.Application.Features.Transaction.Queries.GetTransactionByCon
         }
         public async Task<PageResult<GetTransactionByConsultantIdDTO>> Handle(GetTransactionByConsultantIdQuery request, CancellationToken cancellationToken)
         {
-            var wallet = await _walletRepository.GetWalletByConsultantId(request.ConsultantId);
-            if (wallet == null)
-            {
-                throw new Exception("Không tìm thấy ví");
-            }
-            var getTransaction = await _transactionRepository.GetTransactionByWalletId(request.Page, request.Limit, wallet.WalletId, request.Status);
+            //var wallet = await _walletRepository.GetWalletByConsultantId(request.ConsultantId);
+            //if (wallet == null)
+            //{
+            //    throw new Exception("Không tìm thấy ví");
+            //}
+            var getTransaction = await _transactionRepository.GetTransactionByWalletId(request.Page, request.Limit, request.ConsultantId, request.Status);
             if (getTransaction == null)
             {
                 throw new Exception("Không tìm thấy giao dịch");
