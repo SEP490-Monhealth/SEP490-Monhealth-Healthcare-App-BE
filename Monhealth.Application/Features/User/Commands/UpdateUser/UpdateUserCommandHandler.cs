@@ -18,35 +18,30 @@ namespace Monhealth.Application.Features.User.Commands.UpdateUser
         {
             var user = await _userRepository.GetUserByUserId(request.UserId);
             if (user == null)
-            {
                 throw new NotFoundException("Không tìm thấy người dùng");
 
-            }
-            if (request.UserId == user.Id)
+            if (!string.Equals(request.Email, user.Email, StringComparison.OrdinalIgnoreCase))
             {
-                request.PhoneNumber = user.PhoneNumber!;
-                request.Email = user.Email!;
-                user.NormalizedEmail = request.Email.ToUpper();
-            }
-            else
-            {
-
-                if (await _userRepository.IsPhoneNumberDuplicateAsync(request.PhoneNumber))
-                {
-                    throw new BadRequestException("Số điện thoại đã được sử dụng");
-                }
                 if (await _userRepository.IsEmailDuplicatedAsync(request.Email))
-                {
                     throw new BadRequestException("Email đã được sử dụng");
-                }
-                request.PhoneNumber = user.PhoneNumber!;
-                request.Email = user.Email!;
-                user.NormalizedEmail = request.Email.ToUpper();
+
+                user.Email = request.Email;
+                user.NormalizedEmail = request.Email.ToUpperInvariant();
             }
+
+            if (!string.Equals(request.PhoneNumber, user.PhoneNumber, StringComparison.OrdinalIgnoreCase))
+            {
+                if (await _userRepository.IsPhoneNumberDuplicateAsync(request.PhoneNumber))
+                    throw new BadRequestException("Số điện thoại đã được sử dụng");
+
+                user.PhoneNumber = request.PhoneNumber;
+            }
+
             user.FullName = request.FullName;
 
             _userRepository.Update(user);
             await _userRepository.SaveChangesAsync();
+
             return Unit.Value;
         }
     }
