@@ -19,5 +19,6 @@ namespace Monhealth.Application.Contracts.Notification
         Task NotifyConsultantAboutNewReviewAsync(Review review, Booking booking, CancellationToken cancellationToken);
         Task NotifyUserReportApprovedAsync(Report report, CancellationToken cancellation);
         Task NotifyUserReportRejectedAsync(Report report, CancellationToken cancellation);
+        Task NotifyWaterReminderNotificationAsync(WaterReminder waterReminder, CancellationToken cancellationToken);
     }
 }

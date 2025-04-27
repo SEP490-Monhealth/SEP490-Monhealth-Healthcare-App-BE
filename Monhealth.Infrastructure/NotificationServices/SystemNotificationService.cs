@@ -408,6 +408,31 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
         }
 
+        public async Task NotifyWaterReminderNotificationAsync(WaterReminder waterReminder, CancellationToken cancellationToken)
+        {
+            try
+            {
+                if (waterReminder.UserId != null)
+                {
+                    string title = "Nhắc nhở uống nước";
+                    string content = $"Đã đến giờ uống nước! Hãy uống ít nhất {waterReminder.Volume}ml để đảm bảo sức khỏe của bạn.";
+
+                    await notificationService.SendUserNotificationAsync(
+                        waterReminder.UserId.Value,
+                        title,
+                        content,
+                        cancellationToken
+                    );
+
+                    logger.LogInformation($"Sent water reminder notification to user: {waterReminder.UserId}");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send water reminder notification to user: {waterReminder.UserId}");
+            }
+        }
+
         public async Task SendBookingCancellationNotificationAsync(Booking booking, CancellationToken cancellationToken)
         {
             try
@@ -479,5 +504,6 @@ namespace Monhealth.Infrastructure.NotificationServices
                 logger.LogError(ex, $"Failed to send leave request denial notification for consultant: {consultant.ConsultantId}");
             }
         }
+
     }
 }
