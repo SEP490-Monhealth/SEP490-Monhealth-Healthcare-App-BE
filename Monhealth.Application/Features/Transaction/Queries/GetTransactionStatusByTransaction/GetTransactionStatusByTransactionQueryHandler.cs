@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain.Enum;
@@ -6,6 +7,7 @@ namespace Monhealth.Application
 {
     public class TransactionStatusByTransactionDTO
     {
+        [JsonPropertyName("status")]
         public StatusTransaction statusTransaction { get; set; }
     }
     public class GetTransactionStatusByTransactionQuery : IRequest<TransactionStatusByTransactionDTO>

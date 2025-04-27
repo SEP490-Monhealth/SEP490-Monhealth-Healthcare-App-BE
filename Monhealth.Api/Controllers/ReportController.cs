@@ -94,8 +94,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("consultant/{consultantId:guid}/month")]
-        [SwaggerOperation(Summary = "Lấy thông tin báo cáo theo chuyên viên trong 1 tháng")]
+        [HttpGet("monthly/consultant/{consultantId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReportByConsultantId(Guid consultantId, string month)
         {
             var report = await _mediator.Send(new GetReportByConsultantIdAtMonthQuery { ConsultantId = consultantId, Month = month });
