@@ -121,6 +121,20 @@ namespace Monhealth.Identity.Repositories
             .ToListAsync();
         }
 
+        public async Task<List<Report>> GetReportedByConsultantIdAtMonth(Guid consultantId, string month)
+        {
+            var yearMonth = DateTime.ParseExact(month, "yyyy-MM", null);
+            var startDate = new DateTime(yearMonth.Year, yearMonth.Month, 1);
+            var endDate = startDate.AddMonths(1);
+
+            return await _context.Reports
+                .Include(r => r.Booking)
+                .Where(r => r.Booking.ConsultantId == consultantId
+                         && r.CreatedAt >= startDate
+                         && r.CreatedAt < endDate)
+                .ToListAsync();
+        }
+
         public async Task<int> SaveChangeAsync()
         {
             return await _context.SaveChangesAsync();

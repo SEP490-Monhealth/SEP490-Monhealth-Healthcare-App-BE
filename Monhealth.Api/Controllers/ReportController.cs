@@ -9,6 +9,7 @@ using Monhealth.Application.Features.Report.Commands.UpdateReport;
 using Monhealth.Application.Features.Report.Queries.GetAllReports;
 using Monhealth.Application.Features.Report.Queries.GetReportByBookingId;
 using Monhealth.Application.Features.Report.Queries.GetReportByConsultantId;
+using Monhealth.Application.Features.Report.Queries.GetReportByConsultantIdAtMonth;
 using Monhealth.Application.Features.Report.Queries.GetReportById;
 using Monhealth.Application.Features.Report.Queries.GetReportByUserId;
 using Monhealth.Application.Models;
@@ -85,6 +86,19 @@ namespace Monhealth.Api.Controllers
         public async Task<ActionResult<ResultModel>> GetReportByConsultantId(Guid consultantId, int page = 1, int limit = 10)
         {
             var report = await _mediator.Send(new GetReportByConsultantIdQuery(consultantId, page, limit));
+            return Ok(new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Data = report
+            });
+        }
+
+        [HttpGet("consultant/{consultantId:guid}/month")]
+        [SwaggerOperation(Summary = "Lấy thông tin báo cáo theo chuyên viên trong 1 tháng")]
+        public async Task<ActionResult<ResultModel>> GetReportByConsultantId(Guid consultantId, string month)
+        {
+            var report = await _mediator.Send(new GetReportByConsultantIdAtMonthQuery { ConsultantId = consultantId, Month = month });
             return Ok(new ResultModel
             {
                 Success = true,
