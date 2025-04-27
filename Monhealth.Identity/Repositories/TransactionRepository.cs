@@ -183,7 +183,8 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<Transaction>> GetTransactionsByConsultantAndDateRange(Guid consultantId, DateTime from, DateTime to)
         {
             return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant)
-            .Where(b => b.Wallet.Consultant.ConsultantId == consultantId && b.CreatedAt >= from && b.CreatedAt < to).ToListAsync();
+            //.Where(b => b.Wallet.Consultant.ConsultantId == consultantId && b.CreatedAt >= from && b.CreatedAt < to).ToListAsync();
+            .Where(b => b.Booking.Consultant.ConsultantId == consultantId && b.CreatedAt >= from && b.CreatedAt < to).ToListAsync();
         }
 
         public async Task<Transaction> GetTransactionWhenUpdated(TransactionType transactionType, float amount, StatusTransaction status)
