@@ -19,18 +19,18 @@ namespace Monhealth.Application
                 throw new BadRequestException("Không tìm thấy ví của chuyên viên tư vấn");
             }
 
+            if (wallet.Balance < request.Amount)
+            {
+                throw new BadRequestException("Số dư không đủ để tạo yêu cầu rút tiền");
+            };
+
             //check permission request with pendingRequest at a time
             var pendingWithdrawalRequests = await withdrawalRepository.GetAllWithdrawalRequestWithPendingStatus(request.ConsultantId);
             if (pendingWithdrawalRequests.Count() > 0)
             {
                 throw new BadRequestException("Bạn chỉ có thể tạo một yêu cầu rút tiền trong một thời điểm");
 
-            }
-
-            if (wallet.Balance < request.Amount)
-            {
-                throw new BadRequestException("Số dư không đủ để tạo yêu cầu rút tiền");
-            };
+            }            
 
             float waitingMoney = 0;
             var withdrawalRequests = await withdrawalRepository.GetAllWithdrawalRequestWithPendingStatus(request.ConsultantId);
