@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
     {
         public async Task<Unit> Handle(CreateBookingCommand request, CancellationToken cancellationToken)
         {
-            const string defaultGoogleMeetUrl = "https://meet.google.com/vyj-tbcq-snk";
+            const string defaultGoogleMeetUrl = "https://meet.google.com/phm-iunw-nij";
             string meetingUrl;
 
             var booking = mapper.Map<Domain.Booking>(request);
@@ -29,15 +29,15 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
 
             //plus amout booking for consultant
             var consultant = await consultantRepository.GetConsultantByConsultantId(booking.ConsultantId.Value)
-                      ?? throw new BadRequestException("Không thấy chuyên viên tư vấn.");
+                      ?? throw new BadRequestException("Không thấy chuyên viên tư vấn");
             var member = await userRepository.GetUserByIdAsync(booking.UserId.Value)
-                            ?? throw new BadRequestException("Không tìm thấy người dùng.");
+                            ?? throw new BadRequestException("Không tìm thấy người dùng");
             consultant.BookingCount++;
             consultant.UpdatedAt = DateTime.Now;
 
             //subtract amout remaining booking
             var sub = await userSubscriptionRepository.GetUserSubscriptionActiveOfUser(booking.UserId.Value)
-              ?? throw new BadRequestException("Bạn đã hết số lượt có thể đặt lịch.");
+              ?? throw new BadRequestException("Bạn đã hết số lượt có thể đặt lịch");
             sub.RemainingBookings--;
             sub.UpdatedAt = DateTime.Now;
 
@@ -81,7 +81,6 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
             //}
             //catch (Exception)
             //{
-
             //    meetingUrl = defaultGoogleMeetUrl;
             //}
 
