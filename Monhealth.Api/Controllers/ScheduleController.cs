@@ -196,7 +196,7 @@ namespace Monhealth.Api.Controllers
                 return NotFound(new ResultModel
                 {
                     Success = false,
-                    Message = "Schedule time slot không tồn tại",
+                    Message = "Không tìm thấy khung giờ lịch trình",
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null
                 });
@@ -205,7 +205,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = 204,
-                Message = "Xóa Schedule time slot thành công",
+                Message = "Xóa khung giờ lịch trình thành công",
             });
         }
     }
