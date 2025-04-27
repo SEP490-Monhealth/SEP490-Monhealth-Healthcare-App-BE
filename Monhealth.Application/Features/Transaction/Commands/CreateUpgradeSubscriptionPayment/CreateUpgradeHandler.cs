@@ -23,8 +23,8 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateUpgradeSubsc
                 Status = Domain.Enum.StatusTransaction.Pending,
                 Description = request.Description,
                 SubscriptionId = request.SubscriptionId,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = GetCurrentVietnamTime(),
+                UpdatedAt = GetCurrentVietnamTime(),
             };
 
             var paymentResult = await payOSService.CreatePaymentLinkAsync(
@@ -47,6 +47,12 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateUpgradeSubsc
                 PaymentUrl = paymentResult.CheckoutUrl,
                 QrCode = paymentResult.QrCode,
             };
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

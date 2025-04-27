@@ -44,13 +44,13 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
                 Description = "Thanh toán hoàn thành lịch hẹn",
                 Amount = bookingMoney,
                 Status = StatusTransaction.Pending,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = GetCurrentVietnamTime(),
+                UpdatedAt = GetCurrentVietnamTime(),
             };
             transactionRepository.Add(newTransaction);
 
-            booking.UpdatedAt = DateTime.Now;
-            booking.CompletedAt = DateTime.Now;
+            booking.UpdatedAt = GetCurrentVietnamTime();
+            booking.CompletedAt = GetCurrentVietnamTime();
             booking.Status = BookingStatus.Completed;
 
             //notify for both user and consultant done booking
@@ -58,6 +58,12 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
 
             await bookingRepository.SaveChangeAsync(cancellationToken);
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
 
     }

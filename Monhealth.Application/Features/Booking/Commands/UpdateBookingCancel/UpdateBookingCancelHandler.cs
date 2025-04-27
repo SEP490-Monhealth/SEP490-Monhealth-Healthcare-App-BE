@@ -21,6 +21,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
 
             booking.Status = BookingStatus.Cancelled;
             booking.CancellationReason = request.CancellationReason;
+            booking.UpdatedAt = GetCurrentVietnamTime();
             bookingRepository.Update(booking);
 
             //subtract amout booking for consultant
@@ -42,6 +43,13 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
 
             await bookingRepository.SaveChangeAsync(cancellationToken);
             return true;
+
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

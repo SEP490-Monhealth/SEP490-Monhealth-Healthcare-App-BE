@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Application.Exceptions;
 using Monhealth.Application.Features.UserSubscription.Commands.Create;
 using Net.payOS.Types;
 
@@ -59,8 +58,16 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateStatusForBoo
             }
 
             transaction.Status = Domain.Enum.StatusTransaction.Completed;
+            transaction.UpdatedAt = GetCurrentVietnamTime();
             await transactionRepository.SaveChangeAsync();
             return true;
         }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
+        }
+
     }
 }

@@ -34,13 +34,19 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateTransaction
                 Description = request.CreateTransactionDTO.Description,
                 Amount = request.CreateTransactionDTO.Amount,
                 Status = StatusTransaction.Pending,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = GetCurrentVietnamTime(),
+                UpdatedAt = GetCurrentVietnamTime(),
             };
 
             _transactionRepository.Add(newTransaction);
             await _transactionRepository.SaveChangeAsync();
             return Unit.Value;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

@@ -55,12 +55,18 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateTransaction
             }
 
             transaction.Status = StatusTransaction.Completed;
-            transaction.UpdatedAt = DateTime.Now;
+            transaction.UpdatedAt = GetCurrentVietnamTime();
 
             _transactionRepository.Update(transaction);
             await _transactionRepository.SaveChangeAsync();
 
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

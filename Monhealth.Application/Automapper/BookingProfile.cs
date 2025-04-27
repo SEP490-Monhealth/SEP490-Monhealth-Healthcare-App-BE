@@ -14,8 +14,6 @@ namespace Monhealth.Application.Automapper
         {
             CreateMap<CreateBookingCommand, Booking>()
                 .ForMember(dest => dest.BookingId, opt => opt.MapFrom(_ => Guid.NewGuid()))
-                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(_ => DateTime.Now))
-                .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(_ => DateTime.Now))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(_ => BookingStatus.Booked));
 
             CreateMap<Booking, BookingDto>()
