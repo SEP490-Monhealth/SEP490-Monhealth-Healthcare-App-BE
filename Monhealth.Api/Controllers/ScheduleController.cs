@@ -184,7 +184,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpDelete]
-        [Route("schedule/{scheduleTimeSlotId:Guid}")]
+        [Route("time-slots/{scheduleTimeSlotId:Guid}")]
         [SwaggerOperation(Summary = "Xóa khung giờ lịch trình")]
         public async Task<ActionResult<ResultModel>> RemoveScheduleTimeSlot(Guid scheduleTimeSlotId)
         {
