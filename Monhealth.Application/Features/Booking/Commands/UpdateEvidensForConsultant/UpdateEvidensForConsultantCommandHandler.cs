@@ -14,6 +14,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
     {
         public async Task<bool> Handle(UpdateEvidensForConsultantCommand request, CancellationToken cancellationToken)
         {
+            const float BOKING_MONEY = 200000;
 
             var booking = await bookingRepository.GetBookingByBookingIdAsync(request.BookingId)
             ?? throw new BadRequestException($"Không tìm thấy lịch hẹn {request.BookingId}");
@@ -34,15 +35,14 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             booking.EvidenceUrls = request.UpdateEvidensDto.EvidenceUrls;
 
             //create transaction
-            float bookingMoney = 200000;
             var newTransaction = new Domain.Transaction
             {
                 TransactionId = Guid.NewGuid(),
-                UserId = booking.ConsultantId,
+                ConsultantId = booking.ConsultantId,
                 BookingId = booking.BookingId,
                 TransactionType = TransactionType.Earning,
                 Description = "Thanh toán hoàn thành lịch hẹn",
-                Amount = bookingMoney,
+                Amount = BOKING_MONEY,
                 Status = StatusTransaction.Pending,
                 CreatedAt = GetCurrentVietnamTime(),
                 UpdatedAt = GetCurrentVietnamTime(),

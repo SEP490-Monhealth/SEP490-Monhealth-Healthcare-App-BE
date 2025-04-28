@@ -10,6 +10,7 @@ namespace Monhealth.Domain
         [Key]
         public Guid TransactionId { get; set; }
         public Guid? UserId { get; set; }
+        public Guid? ConsultantId { get; set; }
         public Guid? WalletId { get; set; }
         public Guid? BookingId { get; set; }
         public Guid? WithdrawalRequestId { get; set; }

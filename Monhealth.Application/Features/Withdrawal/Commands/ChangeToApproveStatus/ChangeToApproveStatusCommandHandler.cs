@@ -30,7 +30,7 @@ namespace Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStat
             {
                 TransactionId = Guid.NewGuid(),
                 WalletId = withdrawalRequest.Consultant?.Wallet?.WalletId ?? Guid.Empty,
-                UserId = withdrawalRequest.ConsultantId,
+                ConsultantId = withdrawalRequest.ConsultantId,
                 TransactionType = TransactionType.Withdrawal,
                 Amount = withdrawalRequest.Amount,
                 Description = withdrawalRequest?.Description ?? "Rút tiền từ ví",
