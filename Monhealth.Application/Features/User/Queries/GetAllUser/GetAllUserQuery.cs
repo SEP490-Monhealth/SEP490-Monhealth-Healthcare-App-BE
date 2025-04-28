@@ -12,5 +12,6 @@ namespace Monhealth.Application.Features.User.Queries.GetAllUser
         public string? Sort { get; set; }
         public string? Order { get; set; }
         public bool? Status { get; set; }
+        public bool Admin { get; set; }
     }
 }

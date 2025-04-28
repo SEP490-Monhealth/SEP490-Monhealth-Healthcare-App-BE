@@ -1,4 +1,5 @@
-﻿using Monhealth.Api.Extensions;
+﻿using Hangfire;
+using Monhealth.Api.Extensions;
 using Monhealth.Api.GlobalException;
 using Monhealth.Api.Hubs;
 using Monhealth.Api.Utils;
@@ -106,7 +107,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapHub<SignalRHub>("/chat/mon-ai");
 app.MapHub<ChatHub>("/chatbox");
-
+app.UseHangfireDashboard();
 // Map Controllers cho các API endpoints
 app.MapControllers();
 

@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain.Common;
+﻿
+using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
 using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;

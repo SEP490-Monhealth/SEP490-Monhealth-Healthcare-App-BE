@@ -10,11 +10,9 @@ using Monhealth.Application.Features.User.Commands.UpdateUser;
 using Monhealth.Application.Features.User.Queries.GetAllUser;
 using Monhealth.Application.Features.User.Queries.GetUserDetail;
 using Monhealth.Application.Models;
-using Monhealth.Application.Models.Identity;
 using Monhealth.Identity.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
-using System.Security.Claims;
 
 namespace Monhealth.Api.Controllers
 {
@@ -35,9 +33,10 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [SwaggerOperation(Summary = "Lấy danh sách người dùng")]
-        public async Task<ActionResult<ResultModel>> GetAllUser(int page = 1, int limit = 10, string? search = null, string? role = null, string? sort = null, string? order = null, bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAllUser(int page = 1, int limit = 10, string? search = null, string? role = null,
+            string? sort = null, string? order = null, bool? status = null, bool admin = false)
         {
-            var result = await _mediator.Send(new GetAllUserQuery { Page = page, Limit = limit, Search = search, Role = role, Sort = sort, Order = order, Status = status });
+            var result = await _mediator.Send(new GetAllUserQuery { Page = page, Limit = limit, Search = search, Role = role, Sort = sort, Order = order, Status = status, Admin = admin });
 
             return new ResultModel
             {

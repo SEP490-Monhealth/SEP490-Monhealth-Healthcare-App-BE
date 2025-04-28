@@ -248,6 +248,11 @@ namespace Monhealth.Identity.Repositories
             return await _context.SaveChangesAsync(cancellationToken);
         }
 
+        public async Task<int> SaveChangeAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
+
         /// <summary>
         /// Sắp xếp booking theo thời gian tạo mới nhất (createdAt giảm dần)
         /// </summary>

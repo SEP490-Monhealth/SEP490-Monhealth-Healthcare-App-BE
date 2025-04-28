@@ -34,13 +34,14 @@ namespace Monhealth.Identity.Repositories
             return users;
         }
 
-        public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, string? sort, string? order, bool? status)
+        public async Task<PaginatedResult<AppUser>> GetAllUserAsync(int page, int limit, string? search, string? role, string? sort, string? order, bool? status, bool admin)
         {
             search = search?.ToLower().Trim();
             IQueryable<AppUser> query = _context.Users
                 .Where(u => !_context.UserRoles
                 .Any(ur => ur.UserId == u.Id && _context.Roles
-                .Any(r => r.Id == ur.RoleId && r.Name == "Consultant"))).AsQueryable();
+                .Any(r => r.Id == ur.RoleId && r.Name == "Consultant")))
+                .AsNoTracking();
 
             // sap xep
             if (!string.IsNullOrEmpty(sort))
@@ -69,6 +70,16 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(s => s.Status == status.Value);
             }
+
+            if (admin)
+            {
+                var adminRoleId = await _context.Roles
+                    .Where(r => r.Name == "Admin")
+                    .Select(r => r.Id)
+                    .FirstOrDefaultAsync();
+                query = query.Where(u => _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == adminRoleId));
+            }
+
             int totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)

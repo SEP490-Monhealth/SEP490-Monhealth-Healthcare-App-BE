@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Hangfire;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +29,12 @@ namespace Monhealth.Identity
         {
             services.AddDbContext<MonhealthDbcontext>(options =>
              options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString")));
+
+            services.AddHangfire(config => config
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                  .UseSimpleAssemblyNameTypeSerializer()
+                 .UseRecommendedSerializerSettings()
+                 .UseSqlServerStorage(configuration.GetConnectionString("DefaultConnectionString")));
 
             services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<MonhealthDbcontext>().AddDefaultTokenProviders();
@@ -175,6 +182,7 @@ namespace Monhealth.Identity
             // Other service configurations...
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<INutritionRepository, NutritionRepository>();
+
 
             return services;
         }

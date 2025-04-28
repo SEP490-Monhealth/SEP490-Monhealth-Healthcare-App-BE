@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Hangfire;
+using MediatR;
 using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
@@ -54,9 +55,15 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             booking.Status = BookingStatus.Completed;
 
             //notify for both user and consultant done booking
-            await systemNotificationService.NotifyBookingCompleteForBoth(booking, cancellationToken);
+            //await systemNotificationService.NotifyBookingCompleteForBoth(booking, cancellationToken);
 
             await bookingRepository.SaveChangeAsync(cancellationToken);
+
+            //add 3 days to check is Review field
+            BackgroundJob.Schedule<UpdateEvidensForConsultantCommandHandler>(service =>
+                service.AutoUpdateReviewStatusAsync(booking.BookingId),
+                    TimeSpan.FromDays(3));
+
             return true;
         }
         private DateTime GetCurrentVietnamTime()
@@ -65,6 +72,18 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
             return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
+        public async Task AutoUpdateReviewStatusAsync(Guid bookingId)
+        {
+            var booking = await bookingRepository.GetByIdAsync(bookingId);
+
+            // Kiểm tra xem booking đã được review chưa
+            if (booking != null && !booking.IsReviewed && !booking.Reviews.Any())
+            {
+                booking.IsReviewed = true;
+                await bookingRepository.SaveChangeAsync();
+            }
+        }
 
     }
+
 }

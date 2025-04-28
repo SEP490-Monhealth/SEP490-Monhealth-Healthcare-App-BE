@@ -7,6 +7,7 @@ namespace Monhealth.Application.Contracts.Persistence
     public interface IBookingRepository : IGenericRepository<Booking, Guid>
     {
         Task<int> SaveChangeAsync(CancellationToken cancellationToken);
+        Task<int> SaveChangeAsync();
         Task<PaginatedResult<Booking>> GetAllBookingAsync(int page, int limit, string? search, BookingStatus? statis);
         Task<PaginatedResult<Booking>> GetBookingByUserId(Guid userId, int page, int limit);
         Task<PaginatedResult<Booking?>> GetBookingByConsultantId(Guid consultantId, int page, int limit, DateTime? date);
