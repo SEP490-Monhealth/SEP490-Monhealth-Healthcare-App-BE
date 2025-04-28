@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
-using Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId;
+using Monhealth.Application.Features.Food.Queries.GetAllFoods;
 using Monhealth.Domain;
 
-namespace Monhealth.Application.Automapper.CustomFoodMapper.CustomResolver
+
+namespace Monhealth.Application.Automapper.CustomMapper.CustomFoodMapper.CustomResolver
 {
-    public class GetAllFoodByUserIdCaloriesValueResolver : IValueResolver<Food, FoodsByUserIdDTO, GetNutritionForGetFoodByUserDTO>
+    public class GetAllFoodCaloriesValueResolver : IValueResolver<Food, FoodDTO, GetNutritionForGetAllFoodDTO>
     {
-        public GetNutritionForGetFoodByUserDTO Resolve(Food source, FoodsByUserIdDTO destination, GetNutritionForGetFoodByUserDTO destMember, ResolutionContext context)
+        public GetNutritionForGetAllFoodDTO Resolve(Food source, FoodDTO destination, GetNutritionForGetAllFoodDTO destMember, ResolutionContext context)
         {
             var portion = source.FoodPortions.FirstOrDefault()?.Portion;
             var portionWeight = portion?.PortionWeight ?? 100; // Default weight
@@ -14,7 +15,7 @@ namespace Monhealth.Application.Automapper.CustomFoodMapper.CustomResolver
 
             // Tính calories mới dựa trên PortionWeight
             var calculatedCalories = originalCalories / 100 * portionWeight;
-            return new GetNutritionForGetFoodByUserDTO
+            return new GetNutritionForGetAllFoodDTO
             {
                 Calories = (int)calculatedCalories
             };

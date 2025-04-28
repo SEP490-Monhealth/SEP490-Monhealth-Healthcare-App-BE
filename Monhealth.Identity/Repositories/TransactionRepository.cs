@@ -21,6 +21,8 @@ namespace Monhealth.Identity.Repositories
         {
             search = search?.Trim();
             IQueryable<Transaction> query = _context.Transactions
+            .Include(t => t.User)
+            .Include(t => t.Consultant).ThenInclude(c => c.AppUser)
             .Include(b => b.Booking).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser)
             .Include(b => b.Booking).ThenInclude(u => u.User)
             .AsNoTracking();
@@ -50,7 +52,7 @@ namespace Monhealth.Identity.Repositories
             }
             return new PaginatedResult<Transaction>
             {
-                Items = await query.ToListAsync(),
+                Items = await query.OrderByDescending(t => t.CreatedAt).ToListAsync(),
                 TotalCount = totalItems
             };
         }
@@ -74,7 +76,9 @@ namespace Monhealth.Identity.Repositories
              .Include(c => c.Wallet)
                  .ThenInclude(b => b.Consultant)
                     .ThenInclude(c => c.AppUser)
-              .Where(t => t.Wallet.Consultant.ConsultantId == Consultant)
+             .Include(c => c.Consultant)
+
+              .Where(t => t.ConsultantId == Consultant)
               .AsNoTracking();
 
 
@@ -117,6 +121,8 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Transaction>> GetTransactionByCreatedBy(Guid userId, int page, int limit)
         {
             var query = _context.Transactions
+                .Include(c => c.Consultant)
+                .Include(c => c.User)
                 .Include(b => b.Booking)
                 .Include(c => c.Wallet).ThenInclude(c => c.Consultant)
                 .Where(c => c.UserId == userId && c.TransactionType == TransactionType.Fee)
@@ -140,12 +146,8 @@ namespace Monhealth.Identity.Repositories
         public async Task<Transaction> GetTransactionById(Guid transactionId)
         {
             return await _context.Transactions
-                //.Include(w => w.Wallet).ThenInclude(c => c.Consultant)
-                //    .ThenInclude(u => u.AppUser)
-                //.Include(w => w.UserSubscription)
-                //    .ThenInclude(us => us.User)
-                .Include(b => b.Booking).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser)
-                .Include(b => b.Booking).ThenInclude(u => u.User)
+                .Include(t => t.Consultant).ThenInclude(c => c.AppUser)
+                .Include(t => t.User)
                 .FirstOrDefaultAsync(c => c.TransactionId == transactionId);
         }
 
@@ -158,9 +160,11 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Transaction>> GetTransactionByWalletId(int page, int limit, Guid walletId, StatusTransaction? status)
         {
             var query = _context.Transactions
-            //.Include(w => w.Wallet).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser)
-            .Include(w => w.Booking).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser)
-            .Where(c => c.UserId == walletId).AsQueryable();
+            .Include(c => c.Consultant)
+            .Include(w => w.Booking).ThenInclude(c => c.Consultant)
+                .ThenInclude(u => u.AppUser)
+            .Where(c => c.ConsultantId == walletId)
+            .AsQueryable();
             int totalItems = await query.CountAsync();
             if (status.HasValue)
             {

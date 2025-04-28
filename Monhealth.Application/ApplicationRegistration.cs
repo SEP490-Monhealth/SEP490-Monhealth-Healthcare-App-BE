@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Monhealth.Application.Automapper.CustomFoodMapper.CustomMapper;
+using Monhealth.Application.Automapper.CustomMapper.CustomFoodMapper.CustomMapper;
 using Monhealth.Application.Features.User;
 using System.Reflection;
 

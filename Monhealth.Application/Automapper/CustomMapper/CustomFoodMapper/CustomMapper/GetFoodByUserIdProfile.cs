@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Monhealth.Application.Automapper.CustomFoodMapper.CustomResolver;
+using Monhealth.Application.Automapper.CustomMapper.CustomFoodMapper.CustomResolver;
 using Monhealth.Application.Features.Food.Queries.GetAllFoodsByUserId;
 using Monhealth.Domain;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Monhealth.Application.Automapper.CustomFoodMapper.CustomMapper
+namespace Monhealth.Application.Automapper.CustomMapper.CustomFoodMapper.CustomMapper
 {
     public class GetFoodByUserIdProfile : Profile
     {

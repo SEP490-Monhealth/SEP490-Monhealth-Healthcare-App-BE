@@ -4,7 +4,7 @@ using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificatio
 using Monhealth.Application.Features.UserNotification.Queries.GetUserNotificationByNotificationId;
 using Monhealth.Domain;
 
-namespace Monhealth.Application.Automapper.CustomFoodMapper
+namespace Monhealth.Application.Automapper.CustomMapper.CustomFoodMapper
 {
     public class UserNotificationProfile : Profile
     {

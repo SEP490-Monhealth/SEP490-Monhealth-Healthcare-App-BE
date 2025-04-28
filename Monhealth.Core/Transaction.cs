@@ -1,5 +1,6 @@
 ﻿using Monhealth.Domain.Common;
 using Monhealth.Domain.Enum;
+using Monhealth.Identity.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -33,5 +34,11 @@ namespace Monhealth.Domain
 
         [ForeignKey(nameof(UserSubscriptionId))]
         public UserSubscription? UserSubscription { get; set; }
+
+        [ForeignKey(nameof(UserId))]
+        public AppUser? User { get; set; }
+
+        [ForeignKey(nameof(ConsultantId))]
+        public Consultant? Consultant { get; set; }
     }
 }

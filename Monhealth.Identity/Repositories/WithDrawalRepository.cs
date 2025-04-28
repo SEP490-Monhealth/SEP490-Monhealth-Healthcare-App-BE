@@ -53,7 +53,7 @@ namespace Monhealth.Application
 
             return new PaginatedResult<WithdrawalRequest>
             {
-                Items = await query.ToListAsync(),
+                Items = await query.OrderByDescending(t => t.CreatedAt).ToListAsync(),
                 TotalCount = totalItems
             };
 
