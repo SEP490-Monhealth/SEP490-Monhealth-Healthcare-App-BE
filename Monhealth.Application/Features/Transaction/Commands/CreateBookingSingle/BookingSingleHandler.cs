@@ -44,7 +44,7 @@ namespace Monhealth.Application.Features.Transaction.Commands.CreateBookingSingl
                 TransactionId = newTransaction.TransactionId,
                 UserId = user.Id,
                 Amount = (float)newTransaction.Amount,
-                Description = newTransaction.Description,
+                Description = newTransaction.Description ?? string.Empty,
                 OrderCode = newTransaction.OrderCode,
                 PaymentUrl = paymentResult.CheckoutUrl,
                 QrCode = paymentResult.QrCode,

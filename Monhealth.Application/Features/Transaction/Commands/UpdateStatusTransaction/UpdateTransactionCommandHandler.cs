@@ -30,7 +30,7 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateTransaction
             var transaction = await _transactionRepository.GetTransactionById(request.TransactionId)
                 ?? throw new BadRequestException("Không tìm thấy giao dịch");
 
-            var wallet = await _walletRepository.GetWalletByConsultantId((Guid)transaction.UserId)
+            var wallet = await _walletRepository.GetWalletByConsultantId((Guid)transaction.ConsultantId)
                 ?? throw new BadRequestException("Không tìm thấy ví của tư vấn viên");
 
             if (wallet.Balance is null || wallet.Balance < 0)

@@ -30,7 +30,7 @@ namespace Monhealth.Application
             {
                 throw new BadRequestException("Bạn chỉ có thể tạo một yêu cầu rút tiền trong một thời điểm");
 
-            }            
+            }
 
             float waitingMoney = 0;
             var withdrawalRequests = await withdrawalRepository.GetAllWithdrawalRequestWithPendingStatus(request.ConsultantId);
@@ -51,12 +51,18 @@ namespace Monhealth.Application
                 ConsultantBankId = request.ConsultantBankId,
                 Description = request.Description,
                 Status = Domain.Enum.WithdrawalStatus.Pending,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = GetCurrentVietnamTime(),
+                UpdatedAt = GetCurrentVietnamTime()
             };
             withdrawalRepository.Add(model);
             await withdrawalRepository.SaveChangeASync();
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

@@ -6,7 +6,8 @@ namespace Monhealth.Application
 {
     public class UpdateStatusWithdrawalCommandHandler(IWithdrawalRepository withdrawalRepository,
                                                       IWalletRepository walletRepository,
-                                                      ITransactionRepository transactionRepository) : IRequestHandler<UpdateStatusWithdrawalCommand, Unit>
+                                                      ITransactionRepository transactionRepository)
+        : IRequestHandler<UpdateStatusWithdrawalCommand, Unit>
     {
         public async Task<Unit> Handle(UpdateStatusWithdrawalCommand request, CancellationToken cancellationToken)
         {
@@ -25,7 +26,8 @@ namespace Monhealth.Application
                     wallet.Balance -= withdrawalRequest.Amount;
 
                     //update transaction 
-                    var transaction = await transactionRepository.GetTransactionWhenUpdated(TransactionType.Withdrawal, withdrawalRequest.Amount, StatusTransaction.Pending);
+                    var transaction = await transactionRepository
+                        .GetTransactionWhenUpdated(TransactionType.Withdrawal, withdrawalRequest.Amount, StatusTransaction.Pending);
                     if (transaction == null) throw new Exception("Không tìm thấy giao dịch");
 
                     transaction.Status = StatusTransaction.Completed;
@@ -35,11 +37,17 @@ namespace Monhealth.Application
                 default:
                     throw new Exception("Trạng thái yêu cầu không hợp lệ");
             }
+            withdrawalRequest.UpdatedAt = GetCurrentVietnamTime();
             withdrawalRepository.Update(withdrawalRequest);
             await withdrawalRepository.SaveChangeASync();
             return Unit.Value;
         }
-
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
+        }
     }
 
 

@@ -35,8 +35,8 @@ namespace Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStat
                 Amount = withdrawalRequest.Amount,
                 Description = withdrawalRequest?.Description ?? "Rút tiền từ ví",
                 Status = StatusTransaction.Pending,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = GetCurrentVietnamTime(),
+                UpdatedAt = GetCurrentVietnamTime(),
                 WithdrawalRequestId = withdrawalRequest.WithdrawalRequestId,
             };
             transactionRepository.Add(newTransaction);
@@ -44,6 +44,12 @@ namespace Monhealth.Application.Features.Withdrawal.Commands.ChangeToApproveStat
             withdrawalRepository.Update(withdrawalRequest);
             await withdrawalRepository.SaveChangeASync();
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

@@ -20,10 +20,17 @@ namespace Monhealth.Application
             }
             status.Reason = request.CancelWithdrawalStatusDTO.Reason;
             status.Status = WithdrawalStatus.Rejected;
+            status.UpdatedAt = GetCurrentVietnamTime();
             withdrawalRepository.Update(status);
             await withdrawalRepository.SaveChangeASync();
 
             return Unit.Value;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

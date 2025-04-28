@@ -21,9 +21,6 @@ namespace Monhealth.Identity.Repositories
         {
             search = search?.Trim();
             IQueryable<Transaction> query = _context.Transactions
-            //.Include(c => c.Wallet).ThenInclude(c => c.Consultant)
-            //.ThenInclude(u => u.AppUser)
-            //.Include(c => c.UserSubscription).ThenInclude(us => us.User)
             .Include(b => b.Booking).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser)
             .Include(b => b.Booking).ThenInclude(u => u.User)
             .AsNoTracking();

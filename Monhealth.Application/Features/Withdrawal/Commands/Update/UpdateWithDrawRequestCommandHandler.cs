@@ -15,10 +15,16 @@ namespace Monhealth.Application
             withdrawalRequest.ConsultantBankId = request.Request.ConsultantBankId;
             withdrawalRequest.Amount = request.Request.Amount;
             withdrawalRequest.Description = request.Request.Description;
-            withdrawalRequest.UpdatedAt = DateTime.Now;
+            withdrawalRequest.UpdatedAt = GetCurrentVietnamTime();
             withdrawalRepository.Update(withdrawalRequest);
             await withdrawalRepository.SaveChangeASync();
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }
