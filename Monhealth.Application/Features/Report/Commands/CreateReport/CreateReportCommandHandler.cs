@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
-using Monhealth.Domain;
 
 namespace Monhealth.Application.Features.Report.Commands.CreateReport
 {
@@ -12,11 +11,17 @@ namespace Monhealth.Application.Features.Report.Commands.CreateReport
             var newReport = mapper.Map<Domain.Report>(request.CreateReportDTO);
             newReport.ReportId = Guid.NewGuid();
             newReport.Status = Domain.Enum.StatusReport.Pending;
-            newReport.CreatedAt = DateTime.Now;
-            newReport.UpdatedAt = DateTime.Now;
+            newReport.CreatedAt = GetCurrentVietnamTime();
+            newReport.UpdatedAt = GetCurrentVietnamTime();
             reportRepository.Add(newReport);
             await reportRepository.SaveChangeAsync();
             return Unit.Value;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

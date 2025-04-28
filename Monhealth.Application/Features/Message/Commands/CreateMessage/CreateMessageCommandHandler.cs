@@ -62,5 +62,6 @@ namespace Monhealth.Application.Features.Message.Commands.CreateMessage
             TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
             return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
+
     }
 }

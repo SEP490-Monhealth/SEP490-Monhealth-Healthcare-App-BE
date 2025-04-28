@@ -21,9 +21,16 @@ namespace Monhealth.Application.Features.Report.Commands.ChangeStatusReportToRej
             {
                 throw new Exception($"Không thể từ chối, trạng thái đang là {report.Status}.");
             }
+            report.UpdatedAt = GetCurrentVietnamTime();
             reportRepository.Update(report);
             await reportRepository.SaveChangeAsync();
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

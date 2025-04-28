@@ -14,9 +14,16 @@ namespace Monhealth.Application.Features.Report.Commands.UpdateReport
                 return false;
             }
             var reportToUpdate = mapper.Map(request.UpdateReportDTO, report);
+            report.UpdatedAt = GetCurrentVietnamTime();
             reportRepository.Update(reportToUpdate);
             await reportRepository.SaveChangeAsync();
             return true;
+        }
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }

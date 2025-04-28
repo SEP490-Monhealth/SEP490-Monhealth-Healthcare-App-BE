@@ -4,6 +4,7 @@
     {
         Booked,
         Completed,
+        Reported,
         Cancelled
     }
 }

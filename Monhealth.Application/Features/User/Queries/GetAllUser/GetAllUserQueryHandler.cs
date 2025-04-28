@@ -13,8 +13,8 @@ namespace Monhealth.Application.Features.User.Queries.GetAllUser
         private readonly IUserRepository _userRepository;
         private readonly UserManager<AppUser> _userManager;
         public GetAllUserQueryHandler(IMapper mapper,
-IUserRepository userRepository,
-UserManager<AppUser> userManager)
+        IUserRepository userRepository,
+        UserManager<AppUser> userManager)
         {
 
             _mapper = mapper;
