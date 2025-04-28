@@ -184,7 +184,16 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.Transactions.Include(w => w.Wallet).ThenInclude(c => c.Consultant)
             //.Where(b => b.Wallet.Consultant.ConsultantId == consultantId && b.CreatedAt >= from && b.CreatedAt < to).ToListAsync();
-            .Where(b => b.Booking.Consultant.ConsultantId == consultantId && b.CreatedAt >= from && b.CreatedAt < to).ToListAsync();
+            //.Where(b => b.Booking.Consultant.ConsultantId == consultantId && b.CreatedAt >= from && b.CreatedAt < to).ToListAsync();
+            .Where(b =>
+            (
+                b.BookingId != null && b.Booking.Consultant.ConsultantId == consultantId
+            )
+            ||
+            (
+                b.BookingId == null && b.Wallet.Consultant.ConsultantId == consultantId
+            )
+        ).Where(b => b.CreatedAt >= from && b.CreatedAt < to).ToListAsync();
         }
 
         public async Task<Transaction> GetTransactionWhenUpdated(TransactionType transactionType, float amount, StatusTransaction status)
