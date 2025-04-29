@@ -245,7 +245,17 @@ namespace Monhealth.Identity.Repositories
 
         public async Task<List<Booking>> GetPendingReviewsAsync(DateTime threshold, CancellationToken cancellationToken)
         {
-            return await _context.Bookings.Where(b => !b.IsReviewed && (b.CreatedAt <= threshold)).ToListAsync(cancellationToken);
+            var thresholdDate = DateOnly.FromDateTime(threshold);
+            var thresholdTime = TimeOnly.FromDateTime(threshold);
+            return await _context.Bookings
+            .Where(b => !b.IsReviewed
+                        && (
+                            b.Day < thresholdDate
+                            || (b.Day == thresholdDate && b.EndTime <= thresholdTime)
+                           )
+                  )
+            .ToListAsync(cancellationToken);
+
         }
 
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
