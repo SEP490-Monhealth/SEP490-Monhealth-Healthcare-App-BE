@@ -19,7 +19,7 @@ namespace Monhealth.Application.Features.Review.Queries
         {
 
             var queries = await _reviewRepository
-               .GetAllReviewAsync(request.Page, request.Limit, request.Rating);
+               .GetAllReviewAsync(request.Page, request.Limit, request.Rating , request.Search);
 
             var reviewList = new List<ReviewDTO>();
 

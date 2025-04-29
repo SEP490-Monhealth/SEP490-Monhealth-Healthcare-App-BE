@@ -28,7 +28,7 @@ namespace Monhealth.Api.Controllers
 
         [HttpGet]
         [SwaggerOperation(Summary = "Lấy danh sách đánh giá")]
-        public async Task<ActionResult<ResultModel>> GetAllReviews(int page = 1, int limit = 10, int? rating = null)
+        public async Task<ActionResult<ResultModel>> GetAllReviews(int page = 1, int limit = 10, int? rating = null , string search = "")
         {
             if (rating.HasValue && (rating < 1 || rating > 5))
             {
@@ -36,7 +36,7 @@ namespace Monhealth.Api.Controllers
             }
 
             // Nếu không có rating thì gán giá trị mặc định cho rating
-            var queries = await _mediator.Send(new GetReviewListQuery(page, limit, rating ?? 0));
+            var queries = await _mediator.Send(new GetReviewListQuery(page, limit, rating ?? 0, search));
 
 
             return new ResultModel
