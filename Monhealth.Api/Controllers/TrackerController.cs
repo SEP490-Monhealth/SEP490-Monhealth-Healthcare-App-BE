@@ -52,27 +52,6 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpGet("user/{userId:Guid}/meals/weekly")]
-        [SwaggerOperation(Summary = "Lấy báo cáo bữa ăn hằng tuần theo người dùng")]
-        public async Task<ActionResult<ResultModel>> GetDailyMealReport(
-            [FromRoute] Guid userId,
-            [FromQuery] DateTime date)
-        {
-            var query = new GetDailyMealReportByUserQuery
-            {
-                UserId = userId,
-                date = date
-            };
-
-            var result = await _mediator.Send(query);
-            return Ok(new ResultModel
-            {
-                Data = result,
-                Status = 200,
-                Success = true
-            });
-        }
-
         [HttpGet]
         [Route("user/{userId:guid}/water-intakes/daily")]
         [SwaggerOperation(Summary = "Lấy báo cáo lượng nước hằng ngày theo người dùng")]
@@ -122,6 +101,27 @@ namespace Monhealth.Api.Controllers
                 Success = true,
                 Status = 200,
                 Data = queries
+            });
+        }
+
+        [HttpGet("user/{userId:Guid}/meals/weekly")]
+        [SwaggerOperation(Summary = "Lấy báo cáo bữa ăn hằng tuần theo người dùng")]
+        public async Task<ActionResult<ResultModel>> GetDailyMealReport(
+            [FromRoute] Guid userId,
+            [FromQuery] DateTime date)
+        {
+            var query = new GetDailyMealReportByUserQuery
+            {
+                UserId = userId,
+                date = date
+            };
+
+            var result = await _mediator.Send(query);
+            return Ok(new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true
             });
         }
 
