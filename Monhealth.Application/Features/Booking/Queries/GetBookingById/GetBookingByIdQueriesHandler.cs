@@ -18,9 +18,9 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingById
 
             var bookingDto = mapper.Map<BookingDto>(booking);
 
-            var isReported = await reportRepository.GetReportedBookingIdsAsync(new List<Guid> { request.BookingId });
+            //var isReported = await reportRepository.GetReportedBookingIdsAsync(new List<Guid> { request.BookingId });
 
-            bookingDto.IsReported = isReported.Contains(request.BookingId);
+            //bookingDto.IsReported = isReported.Contains(request.BookingId);
 
             return bookingDto;
 

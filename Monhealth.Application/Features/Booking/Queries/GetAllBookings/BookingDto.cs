@@ -21,7 +21,6 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
         public string MeetingUrl { get; set; } = string.Empty;
         public string CancellationReason { get; set; } = null!;
         public bool IsReviewed { get; set; }
-        public bool IsReported { get; set; } = false;
         public BookingStatus Status { get; set; }
     }
 

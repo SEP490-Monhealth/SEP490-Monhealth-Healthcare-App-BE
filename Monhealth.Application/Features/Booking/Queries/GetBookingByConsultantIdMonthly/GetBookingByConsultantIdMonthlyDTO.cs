@@ -20,7 +20,6 @@ namespace Monhealth.Application.Features.Booking.Queries.GetBookingByConsultantI
         public List<string>? EvidenceUrls { get; set; } = new();
         public string MeetingUrl { get; set; } = string.Empty;
         public bool IsReviewed { get; set; }
-        public bool IsReported { get; set; } = false;
         public BookingStatus Status { get; set; }
     }
 

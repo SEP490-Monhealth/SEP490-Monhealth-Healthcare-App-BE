@@ -22,20 +22,20 @@ namespace Monhealth.Application
 
             var bookingDtos = mapper.Map<List<BookingDto>>(queries);
 
-            var bookingId = bookingDtos.Select(b => b.BookingId).ToList();
+            //var bookingId = bookingDtos.Select(b => b.BookingId).ToList();
 
-            var reportedBookingIds = await reportRepository.GetReportedBookingIdsAsync(bookingId);
+            //var reportedBookingIds = await reportRepository.GetReportedBookingIdsAsync(bookingId);
 
-            bookingDtos.ForEach(dto => dto.IsReported = reportedBookingIds.Contains(dto.BookingId));
+            //bookingDtos.ForEach(dto => dto.IsReported = reportedBookingIds.Contains(dto.BookingId));
 
-            if (queries == null || !queries.Any())
-            {
-                _logger.LogWarning($"No bookings found for UserId: {request.UserId}, ConsultantId: {request.ConsultantId}");
-            }
-            else
-            {
-                _logger.LogInformation($"Found {queries.Count} bookings for UserId: {request.UserId}, ConsultantId: {request.ConsultantId}");
-            }
+            //if (queries == null || !queries.Any())
+            //{
+            //    _logger.LogWarning($"No bookings found for UserId: {request.UserId}, ConsultantId: {request.ConsultantId}");
+            //}
+            //else
+            //{
+            //    _logger.LogInformation($"Found {queries.Count} bookings for UserId: {request.UserId}, ConsultantId: {request.ConsultantId}");
+            //}
             return bookingDtos;
 
         }

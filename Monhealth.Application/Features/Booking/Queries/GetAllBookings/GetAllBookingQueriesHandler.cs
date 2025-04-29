@@ -14,11 +14,11 @@ namespace Monhealth.Application.Features.Booking.Queries.GetAllBookings
 
             var bookingDtos = mapper.Map<List<BookingDto>>(pagingBooking.Items);
 
-            var bookingId = bookingDtos.Select(b => b.BookingId).ToList();
+            //var bookingId = bookingDtos.Select(b => b.BookingId).ToList();
 
-            var reportedBookingIds = await reportRepository.GetReportedBookingIdsAsync(bookingId);
+            //var reportedBookingIds = await reportRepository.GetReportedBookingIdsAsync(bookingId);
 
-            bookingDtos.ForEach(dto => dto.IsReported = reportedBookingIds.Contains(dto.BookingId));
+            //bookingDtos.ForEach(dto => dto.IsReported = reportedBookingIds.Contains(dto.BookingId));
             return new PageResult<BookingDto>()
             {
                 Items = bookingDtos,
