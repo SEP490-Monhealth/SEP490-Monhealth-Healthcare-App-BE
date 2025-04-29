@@ -24,7 +24,6 @@ namespace Monhealth.Domain
         public float WorkoutDurationGoal { get; set; }
         public float CaloriesBurnedGoal { get; set; }
         public GoalStatus Status { get; set; }
-
         [ForeignKey(nameof(UserId))]
         public AppUser AppUser { get; set; }
         public ICollection<DailyMeal> DailyMeals { get; set; }

@@ -2,6 +2,7 @@ using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
+using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
 {
@@ -156,9 +157,14 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             var mealsForDay = await _mealRepository
                 .GetMealByUserAndDate(mealDate, userId);
 
+            var goal = await _goalRepository.GetByUserIdAsync(userId)
+            ?? throw new Exception($"Không tìm thấy Goal của user {userId}");
+            if (goal.Status != GoalStatus.Active)
+                throw new Exception("Goal hiện tại không active, không thể thêm Meal.");
+            // var dailyMeal = await _dailyMealRepository
+            //     .GetDailyMealByUserAndDate(mealDate, userId);
             var dailyMeal = await _dailyMealRepository
-                .GetDailyMealByUserAndDate(mealDate, userId);
-            var goal = await _goalRepository.GetByUserIdAsync(userId);
+                .GetByUserDateAndGoalAsync(userId, mealDate, goal.GoalId);
 
             if (goal == null)
             {
