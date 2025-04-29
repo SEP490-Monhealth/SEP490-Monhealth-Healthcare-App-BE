@@ -243,6 +243,11 @@ namespace Monhealth.Identity.Repositories
                 .ToListAsync();
         }
 
+        public async Task<List<Booking>> GetPendingReviewsAsync(DateTime threshold, CancellationToken cancellationToken)
+        {
+            return await _context.Bookings.Where(b => !b.IsReviewed && (b.CreatedAt <= threshold)).ToListAsync(cancellationToken);
+        }
+
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);
@@ -259,6 +264,11 @@ namespace Monhealth.Identity.Repositories
         private IQueryable<Booking> ApplyCreatedAtSorting(IQueryable<Booking> query)
         {
             return query.OrderByDescending(b => b.CreatedAt);
+        }
+        public async Task UpdateRangeAsync(IEnumerable<Booking> bookings, CancellationToken cancellationToken)
+        {
+            _context.Bookings.UpdateRange(bookings);
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

@@ -14,18 +14,13 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IGoalRepository _goalRepository;
         private readonly IFoodRepository _foodRepository;
-        private readonly IWorkoutRepository _workoutRepository;
-        private readonly IDailyActivityRepository _dailyActivityRepository;
-        public CreateMealCommandHandler(
-            IMealRepository mealRepository,
+        public CreateMealCommandHandler(IMealRepository mealRepository,
             IMealFoodRepository mealFoodRepository,
             IPortionRepository portionRepository,
             IFoodPortionRepository foodPortionRepository,
             IDailyMealRepository dailyMealRepository,
             IGoalRepository goalRepository,
-            IFoodRepository foodRepository,
-            IWorkoutRepository workoutRepository,
-            IDailyActivityRepository dailyActivityRepository)
+            IFoodRepository foodRepository)
         {
             _mealRepository = mealRepository;
             _mealFoodRepository = mealFoodRepository;
@@ -34,8 +29,6 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             _dailyMealRepository = dailyMealRepository;
             _goalRepository = goalRepository;
             _foodRepository = foodRepository;
-            _workoutRepository = workoutRepository;
-            _dailyActivityRepository = dailyActivityRepository;
         }
 
         public async Task<Guid> Handle(CreateMealCommand request,

@@ -127,7 +127,7 @@ namespace Monhealth.Identity
             // Đăng ký Background Service
             services.AddHostedService<UserSubscriptionBackgroundService>();
             services.AddHostedService<BookingReminderService>();
-
+            services.AddHostedService<BackGroundServiceBookingCommandHandler>();
             // Add Authentication
             services.AddAuthentication(options =>
             {
