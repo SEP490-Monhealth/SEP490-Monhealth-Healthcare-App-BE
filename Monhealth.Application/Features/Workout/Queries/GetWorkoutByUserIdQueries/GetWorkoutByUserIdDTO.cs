@@ -7,6 +7,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetWorkoutByUserIdQueri
     {
         public Guid WorkoutId { get; set; }
         public Guid UserId { get; set; }
+        [JsonPropertyName("category")]
         public string CategoryName { get; set; }
         [JsonPropertyName("type")]
         public WorkoutType WorkoutType { get; set; }
@@ -18,5 +19,7 @@ namespace Monhealth.Application.Features.Workout.Queries.GetWorkoutByUserIdQueri
         public int Exercises { get; set; }
         public int DurationMinutes { get; set; }
         public float CaloriesBurned { get; set; }
+        public bool IsPublic { get; set; }
+        public bool Status { get; set; }
     }
 }

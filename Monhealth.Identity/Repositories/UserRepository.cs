@@ -77,7 +77,7 @@ namespace Monhealth.Identity.Repositories
                     .Where(r => r.Name == "Admin")
                     .Select(r => r.Id)
                     .FirstOrDefaultAsync();
-                query = query.Where(u => _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == adminRoleId));
+                query = query.Where(u => !_context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == adminRoleId));
             }
 
             int totalItems = await query.CountAsync();
