@@ -13,6 +13,17 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.CreateSchedu
     {
         public async Task<Unit> Handle(CreateScheduleExceptionCommand request, CancellationToken cancellationToken)
         {
+            // check xem hom nay co lich nghi chua
+            var existingScheduleExceptionPending = await scheduleExceptionRepository.CheckScheduleIsExceptionPending(request.ConsultantId, request.Date);
+            if(existingScheduleExceptionPending != null)
+            {
+                throw new Exception($"Không thể tạo thêm, lịch nghỉ ngày {existingScheduleExceptionPending.Date.ToString("dd/MM/yyyy")} chưa được duyệt.");
+            }
+            var existingScheduleExceptionApproved = await scheduleExceptionRepository.CheckScheduleIsExceptionApproved(request.ConsultantId, request.Date);
+            if (existingScheduleExceptionApproved != null)
+            {
+                throw new Exception($"Không thể tạo thêm, ngày {existingScheduleExceptionApproved.Date.ToString("dd/MM/yyyy")} đã có lịch nghỉ.");
+            }
             var scheduleException = mapper.Map<Domain.ScheduleException>(request);
 
             var bookings = await bookingRepository.GetBookingsByConsultantIdAndDate((Guid)request.ConsultantId, request.Date);
