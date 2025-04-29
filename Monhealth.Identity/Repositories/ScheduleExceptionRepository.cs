@@ -13,14 +13,27 @@ namespace Monhealth.Identity.Repositories
 
         }
 
+        public async Task<ScheduleException> CheckScheduleIsExceptionApproved(Guid? consultantId, DateOnly date)
+        {
+            return await _context.ScheduleExceptions
+                .FirstOrDefaultAsync(se => se.ConsultantId == consultantId && se.Date == date &&
+                se.Status == ScheduleExceptionStatus.Approved);
+        }
+
         public async Task<bool> CheckScheduleIsExceptionAsync(Guid consultantId, DateOnly date)
         {
             return await _context.ScheduleExceptions
                 .AnyAsync(sk => sk.Date == date &&
                 sk.ConsultantId == consultantId &&
-                sk.Status == ScheduleExceptionStatus.Approved
-                 );
+                sk.Status == ScheduleExceptionStatus.Approved);
 
+        }
+
+        public async Task<ScheduleException> CheckScheduleIsExceptionPending(Guid? consultantId, DateOnly date)
+        {
+           return await _context.ScheduleExceptions
+                .FirstOrDefaultAsync(se => se.ConsultantId == consultantId && se.Date == date && 
+                se.Status == ScheduleExceptionStatus.Pending);
         }
 
         public async Task<PaginatedResult<ScheduleException>> GetAllScheduleExceptionsAsync(int page, int limit, string? search, ScheduleExceptionStatus? status)
