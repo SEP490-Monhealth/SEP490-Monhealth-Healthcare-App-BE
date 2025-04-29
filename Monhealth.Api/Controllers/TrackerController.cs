@@ -125,6 +125,23 @@ namespace Monhealth.Api.Controllers
             });
         }
 
+        [HttpGet("user/{userId}/weights/weekly")]
+        [SwaggerOperation(Summary = "Lấy báo cáo cân nặng và chiều cao của theo user")]
+        public async Task<IActionResult> ReportWeightAndHeightByUserId(Guid userId)
+        {
+            var result = await _mediator.Send(new ReportWeightAndHeightByUserIdQuery
+            {
+                UserId = userId,
+            });
+
+            return Ok(new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true
+            });
+        }
+
         [HttpGet("consultant/{consultantId:guid}/bookings/monthly")]
         [SwaggerOperation(Summary = "Lấy danh sách lịch hẹn theo tháng theo chuyên viên tư vấn")]
         public async Task<ActionResult<ResultModel>> GetBookingByConsultantIdMonthly([FromRoute] Guid consultantId, int page = 1, int limit = 10, DateTime? month = null)
@@ -164,23 +181,6 @@ namespace Monhealth.Api.Controllers
             {
                 ConsultantId = consultantId,
                 Date = date
-            });
-
-            return Ok(new ResultModel
-            {
-                Data = result,
-                Status = 200,
-                Success = true
-            });
-        }
-
-        [HttpGet("user/{userId}/weight/weekly")]
-        [SwaggerOperation(Summary = "Lấy báo cáo cân nặng và chiều cao của theo user")]
-        public async Task<IActionResult> ReportWeightAndHeightByUserId(Guid userId)
-        {
-            var result = await _mediator.Send(new ReportWeightAndHeightByUserIdQuery
-            {
-                UserId = userId,
             });
 
             return Ok(new ResultModel

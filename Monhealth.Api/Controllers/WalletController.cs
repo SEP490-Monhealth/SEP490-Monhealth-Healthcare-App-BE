@@ -16,19 +16,19 @@ namespace Monhealth.Api.Controllers
     [ApiController]
     public class WalletController(IMediator mediator) : ControllerBase
     {
-        [HttpGet]
-        [SwaggerOperation(Summary = "Lấy danh sách ví")]
-        public async Task<ActionResult<ResultModel>> GetAllWallets(int page = 1, int limit = 10, bool? status = null)
-        {
-            var wallets = await mediator.Send(new GetAllWalletsQuery { Page = page, Limit = limit, Status = status });
+        // [HttpGet]
+        // [SwaggerOperation(Summary = "Lấy danh sách ví")]
+        // public async Task<ActionResult<ResultModel>> GetAllWallets(int page = 1, int limit = 10, bool? status = null)
+        // {
+        //     var wallets = await mediator.Send(new GetAllWalletsQuery { Page = page, Limit = limit, Status = status });
 
-            return new ResultModel
-            {
-                Data = wallets,
-                Status = 200,
-                Success = true,
-            };
-        }
+        //     return new ResultModel
+        //     {
+        //         Data = wallets,
+        //         Status = 200,
+        //         Success = true,
+        //     };
+        // }
 
         [HttpGet("consultant/{consultantId:guid}")]
         [SwaggerOperation(Summary = "Lấy danh sách ví theo chuyên viên")]
@@ -43,18 +43,18 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpGet("{walletId:guid}")]
-        [SwaggerOperation(Summary = "Lấy thông tin ví")]
-        public async Task<ActionResult<ResultModel>> GetWalletById([FromRoute] Guid walletId)
-        {
-            var wallet = await mediator.Send(new GetWalletByIdQuery { WalletId = walletId });
-            return new ResultModel
-            {
-                Data = wallet,
-                Status = 200,
-                Success = true,
-            };
-        }
+        // [HttpGet("{walletId:guid}")]
+        // [SwaggerOperation(Summary = "Lấy thông tin ví")]
+        // public async Task<ActionResult<ResultModel>> GetWalletById([FromRoute] Guid walletId)
+        // {
+        //     var wallet = await mediator.Send(new GetWalletByIdQuery { WalletId = walletId });
+        //     return new ResultModel
+        //     {
+        //         Data = wallet,
+        //         Status = 200,
+        //         Success = true,
+        //     };
+        // }
 
         // [HttpDelete("{walletId:guid}")]
         // [SwaggerOperation(Summary = "Xóa ví")]
