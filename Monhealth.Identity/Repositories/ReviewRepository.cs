@@ -12,12 +12,21 @@ namespace Monhealth.Identity.Repositories
         {
         }
 
-        public async Task<PaginatedResult<Review>> GetAllReviewAsync(int page, int limit, int rating)
+        public async Task<PaginatedResult<Review>> GetAllReviewAsync(int page, int limit, int rating, string search)
         {
             IQueryable<Review> query = _context.Reviews.Include(r => r.User).AsQueryable();
             if (rating > 0)
             {
                 query = query.Where(review => review.Rating == rating);
+            }
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                var isGuidSearch = Guid.TryParse(search, out var reviewId);
+                query = query.Where(r =>
+                    (isGuidSearch && r.ReviewId == reviewId) ||
+                    (r.User != null && r.User.FullName != null && r.User.FullName.Contains(search)) ||
+                    (r.User != null && r.User.Email != null && r.User.Email.Contains(search))
+                );
             }
             var totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
