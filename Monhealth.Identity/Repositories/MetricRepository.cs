@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Monhealth.Application.Contracts.Persistence;
+using Monhealth.Application.Features.Report.ReportWeightAndHeightByUserId;
 using Monhealth.Domain;
 using Monhealth.Identity.Dbcontexts;
 
@@ -37,6 +38,14 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<Metric>> GetMetricByUserIdAsync(Guid userId)
         {
             return await _context.Metrics.Where(u => u.UserId == userId).OrderByDescending(u => u.CreatedAt).ToListAsync();
+        }
+
+        public async Task<List<Metric>> GetWeightsAndHeightsByUserIdAsync(Guid userId)
+        {
+            return await _context.Metrics
+            .Where(m => m.UserId == userId)
+            .OrderBy(m => m.CreatedAt)
+            .ToListAsync();
         }
 
         public async Task<int> SaveChangeAsync()

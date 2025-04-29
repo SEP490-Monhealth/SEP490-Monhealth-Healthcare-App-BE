@@ -8,6 +8,7 @@ using Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealForUser;
 using Monhealth.Application.Features.DaiLyWater.Queries.GetAllDaiLyWater;
 using Monhealth.Application.Features.Report.ReportBookingMonthly;
 using Monhealth.Application.Features.Report.ReportTransactionMonthly;
+using Monhealth.Application.Features.Report.ReportWeightAndHeightByUserId;
 using Monhealth.Application.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
@@ -163,6 +164,23 @@ namespace Monhealth.Api.Controllers
             {
                 ConsultantId = consultantId,
                 Date = date
+            });
+
+            return Ok(new ResultModel
+            {
+                Data = result,
+                Status = 200,
+                Success = true
+            });
+        }
+
+        [HttpGet("user/{userId}/weight/weekly")]
+        [SwaggerOperation(Summary = "Lấy báo cáo cân nặng và chiều cao của theo user")]
+        public async Task<IActionResult> ReportWeightAndHeightByUserId(Guid userId)
+        {
+            var result = await _mediator.Send(new ReportWeightAndHeightByUserIdQuery
+            {
+                UserId = userId,
             });
 
             return Ok(new ResultModel

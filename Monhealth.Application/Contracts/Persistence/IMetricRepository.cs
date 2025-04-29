@@ -1,4 +1,5 @@
-﻿using Monhealth.Domain;
+﻿using Monhealth.Application.Features.Report.ReportWeightAndHeightByUserId;
+using Monhealth.Domain;
 
 namespace Monhealth.Application.Contracts.Persistence
 {
@@ -10,5 +11,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<Metric> GetMetricByUserAsync(Guid metricId);
         Task<int> SaveChangeAsync();
         Task<Metric>GetByUserIdAsync(Guid userId);
+        Task<List<Metric>> GetWeightsAndHeightsByUserIdAsync(Guid userId);
     }
 }
