@@ -78,5 +78,14 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.Goals.FirstOrDefaultAsync(u => u.UserId == userId);
         }
+
+        public async Task<Goal?> GetMostRecentActiveGoalAsync(Guid userId)
+        {
+            return await _context.Goals
+                .Where(g => g.UserId == userId)
+                .OrderByDescending(g => g.CreatedAt)
+                .FirstOrDefaultAsync();
+        }
+
     }
 }

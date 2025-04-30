@@ -157,10 +157,9 @@ namespace Monhealth.Application.Features.Meal.Commands.CreateMeal
             var mealsForDay = await _mealRepository
                 .GetMealByUserAndDate(mealDate, userId);
 
-            var goal = await _goalRepository.GetByUserIdAsync(userId)
+            var goal = await _goalRepository.GetMostRecentActiveGoalAsync(userId)
             ?? throw new Exception($"Không tìm thấy Goal của user {userId}");
-            if (goal.Status != GoalStatus.Active)
-                throw new Exception("Goal hiện tại không active, không thể thêm Meal.");
+
             // var dailyMeal = await _dailyMealRepository
             //     .GetDailyMealByUserAndDate(mealDate, userId);
             var dailyMeal = await _dailyMealRepository
