@@ -109,7 +109,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{scheduleExceptionId:guid}/approved")]
+        [HttpPatch("{scheduleExceptionId:guid}/approve")]
         [SwaggerOperation(Summary = "Chấp nhận lịch nghỉ")]
         public async Task<ActionResult<ResultModel>> ChangeScheduleExceptionApproved([FromRoute] Guid scheduleExceptionId)
         {
@@ -131,7 +131,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{scheduleExceptionId:guid}/rejected")]
+        [HttpPatch("{scheduleExceptionId:guid}/reject")]
         [SwaggerOperation(Summary = "Từ chối lịch nghỉ")]
         public async Task<ActionResult<ResultModel>> ChangeScheduleExceptionRejected([FromRoute] Guid scheduleExceptionId)
         {
