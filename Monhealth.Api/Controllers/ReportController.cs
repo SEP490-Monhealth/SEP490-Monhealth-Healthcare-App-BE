@@ -188,7 +188,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPatch("{reportId:guid}/approved")]
+        [HttpPatch("{reportId:guid}/approve")]
         [SwaggerOperation(Summary = "Chấp nhận báo cáo")]
         public async Task<ActionResult<ResultModel>> ChangeStatusReportApproved([FromRoute] Guid reportId)
         {
@@ -210,7 +210,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{reportId:guid}/rejected")]
+        [HttpPatch("{reportId:guid}/reject")]
         [SwaggerOperation(Summary = "Từ chối báo cáo")]
         public async Task<ActionResult<ResultModel>> ChangeStatusReportRejected([FromRoute] Guid reportId)
         {

@@ -235,7 +235,7 @@ namespace Monhealth.Api.Controllers
             });
         }
 
-        [HttpPatch("{transactionId}/completed")]
+        [HttpPatch("{transactionId}/complete")]
         [SwaggerOperation(Summary = "Hoàn thành giao dịch")]
 
         public async Task<ActionResult<ResultModel>> ChangeStatusCompletedTransaction(Guid transactionId)

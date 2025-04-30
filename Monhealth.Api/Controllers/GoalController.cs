@@ -267,7 +267,7 @@ namespace Monhealth.Api.Controllers
         //     };
         // }
 
-        [HttpPatch("{goalId}/completed")]
+        [HttpPatch("{goalId}/complete")]
         [SwaggerOperation(Summary = "Cập nhật trạng thái hoàn thành")]
         public async Task<ActionResult<ResultModel>> ChangeStatusCompleted(Guid goalId)
         {
@@ -290,7 +290,7 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        [HttpPatch("{goalId}/abandoned")]
+        [HttpPatch("{goalId}/abandone")]
         [SwaggerOperation(Summary = "Cập nhật trạng thái bỏ qua")]
         public async Task<ActionResult<ResultModel>> ChangeStatusAbandoned(Guid goalId)
         {
