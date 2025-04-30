@@ -4,6 +4,7 @@ using Monhealth.Application.Contracts.Email;
 using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Phone;
 using Monhealth.Infrastructure.Email;
+using Monhealth.Infrastructure.JobServices;
 using Monhealth.Infrastructure.NotificationServices;
 using Monhealth.Infrastructure.Phone;
 
@@ -22,6 +23,9 @@ namespace Monhealth.Infrastructure
             services.AddHttpClient();
             services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<ISystemNotificationService, SystemNotificationService>();
+
+            //add hangfire job service
+            services.AddScoped<IHangFireJobServices, HangFireJobServices>();
             return services;
         }
     }

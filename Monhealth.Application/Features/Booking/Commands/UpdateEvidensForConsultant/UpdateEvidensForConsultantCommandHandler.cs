@@ -1,15 +1,19 @@
 ﻿using Hangfire;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Domain.Enum;
+using Monhealth.Infrastructure.JobServices;
 
 namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsultant
 {
     public class UpdateEvidensForConsultantCommandHandler(IBookingRepository bookingRepository,
         ITransactionRepository transactionRepository,
-        ISystemNotificationService systemNotificationService
+        ISystemNotificationService systemNotificationService,
+        ILogger<UpdateEvidensForConsultantCommandHandler> logger,
+        IHangFireJobServices hangFireJobServices
         )
         : IRequestHandler<UpdateEvidensForConsultantCommand, bool>
     {
@@ -60,9 +64,17 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             await bookingRepository.SaveChangeAsync(cancellationToken);
 
             //add 3 days to check is Review field
-            BackgroundJob.Schedule<UpdateEvidensForConsultantCommandHandler>(service =>
-                service.AutoUpdateReviewStatusAsync(booking.BookingId),
-                    TimeSpan.FromDays(3));
+            try
+            {
+                BackgroundJob.Schedule<IHangFireJobServices>(
+                           job => job.HandleAutoUpdateReviewStatusAsync(booking.BookingId),
+                                TimeSpan.FromDays(3));
+            }
+            catch (Exception ex)
+            {
+                // Log error for debugging
+                logger.LogError(ex, $"Failed to schedule background job, bookingId {booking.BookingId}");
+            }
 
             return true;
         }
@@ -72,17 +84,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
             return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
-        public async Task AutoUpdateReviewStatusAsync(Guid bookingId)
-        {
-            var booking = await bookingRepository.GetByIdAsync(bookingId);
 
-            // Kiểm tra xem booking đã được review chưa
-            if (booking != null && !booking.IsReviewed && !booking.Reviews.Any())
-            {
-                booking.IsReviewed = true;
-                await bookingRepository.SaveChangeAsync();
-            }
-        }
 
     }
 
