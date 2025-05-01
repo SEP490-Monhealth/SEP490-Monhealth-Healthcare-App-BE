@@ -176,30 +176,29 @@ namespace Monhealth.Identity.Dbcontexts
                     c => c.ToList()
                 ));
 
-
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());
 
-            builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new FoodConfiguration());
+            builder.ApplyConfiguration(new CategoryConfiguration());
+            builder.ApplyConfiguration(new CategoryFoodConfiguration());
             // builder.ApplyConfiguration(new FoodCategoryConfiguration());
-            builder.ApplyConfiguration(new PortionConfiguration());
             builder.ApplyConfiguration(new NutritionConfiguration());
+            builder.ApplyConfiguration(new PortionConfiguration());
             builder.ApplyConfiguration(new FoodPortionConfiguration());
             builder.ApplyConfiguration(new AllergyConfiguration());
-            builder.ApplyConfiguration(new ExerciseConfiguration());
             // builder.ApplyConfiguration(new FoodAllergyConfiguration());
+            builder.ApplyConfiguration(new FoodAllergyConfiguration());
+
+            builder.ApplyConfiguration(new ExerciseConfiguration());
             builder.ApplyConfiguration(new WorkoutConfiguration());
             builder.ApplyConfiguration(new WorkoutExerciseConfiguration());
-            builder.ApplyConfiguration(new SubscriptionConfiguration());
-            builder.ApplyConfiguration(new FoodAllergyConfiguration());
-            builder.ApplyConfiguration(new CategoryFoodConfiguration());
 
+            builder.ApplyConfiguration(new SubscriptionConfiguration());
             builder.ApplyConfiguration(new DishTypeConfiguration());
             builder.ApplyConfiguration(new DishTypeFoodConfiguration());
             builder.ApplyConfiguration(new CertificateConfiguration());
-
 
             builder.ApplyConfiguration(new ConsultantConfiguration());
             builder.ApplyConfiguration(new ExpertiseConfiguration());
@@ -212,11 +211,16 @@ namespace Monhealth.Identity.Dbcontexts
 
             builder.ApplyConfiguration(new BankConfiguration());
             builder.ApplyConfiguration(new ConsultantBankConfiguration());
-            //builder.ApplyConfiguration(new TransactionConfiguration());
 
             builder.ApplyConfiguration(new ChatConfiguration());
             builder.ApplyConfiguration(new MessageConfiguration());
 
+
+            builder.ApplyConfiguration(new MetricConfiguration());
+            builder.ApplyConfiguration(new GoalConfiguration());
+            builder.ApplyConfiguration(new UserSubscriptionConfiguration());
+            builder.ApplyConfiguration(new BookingConfiguration());
+            builder.ApplyConfiguration(new TransactionConfiguration());
         }
     }
 }

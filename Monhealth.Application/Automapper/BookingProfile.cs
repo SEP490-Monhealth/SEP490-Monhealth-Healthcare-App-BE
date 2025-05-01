@@ -24,7 +24,7 @@ namespace Monhealth.Application.Automapper
                 .ForPath(dest => dest.Member.FullName, opt => opt.MapFrom(opt => opt.User.FullName))
                 .ForPath(dest => dest.Member.Email, opt => opt.MapFrom(opt => opt.User.Email))
                 .ForPath(dest => dest.Member.PhoneNumber, opt => opt.MapFrom(opt => opt.User.PhoneNumber))
-                .ForPath(dest => dest.Member.PhoneNumber, opt => opt.MapFrom(opt => opt.User.PhoneNumber))
+                .ForPath(dest => dest.Member.AvatarUrl, opt => opt.MapFrom(opt => opt.User.Avatar))
                 .ForPath(dest => dest.Review.Rating, opt => opt.MapFrom(opt => opt.Reviews.FirstOrDefault().Rating))
                 .ForPath(dest => dest.Review.Comment, opt => opt.MapFrom(opt => opt.Reviews.FirstOrDefault().Comment));
             //.ForMember(dest => dest.IsReported, opt => opt.Ignore());
@@ -38,7 +38,7 @@ namespace Monhealth.Application.Automapper
                 .ForPath(dest => dest.Member.Email, opt => opt.MapFrom(opt => opt.User.Email))
                 .ForPath(dest => dest.Member.PhoneNumber, opt => opt.MapFrom(opt => opt.User.PhoneNumber))
                 .ForPath(dest => dest.Member.AvatarUrl, opt => opt.MapFrom(opt => opt.User.Avatar));
-                //.ForMember(dest => dest.IsReported, opt => opt.Ignore());
+            //.ForMember(dest => dest.IsReported, opt => opt.Ignore());
 
             CreateMap<UpdateBookingDto, Booking>()
             .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
