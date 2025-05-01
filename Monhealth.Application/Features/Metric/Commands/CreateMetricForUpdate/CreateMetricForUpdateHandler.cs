@@ -1,6 +1,7 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Contracts.Services;
 using Monhealth.Application.Features.Metric.Commands.CreateMetric;
@@ -35,6 +36,7 @@ namespace Monhealth.Application
         private readonly IUserRepository _userRepository;
         private readonly IUserRoleRepository _userRoleRepository;  // Added repository for role check
         private readonly ILogger<CreateMetricForUpdateHandler> _logger;
+        private readonly ISystemNotificationService systemNotificationService;
 
         public CreateMetricForUpdateHandler(
             IMapper mapper,
@@ -49,7 +51,9 @@ namespace Monhealth.Application
             IPortionRepository portionRepository,
             IUserRepository userRepository,
             IUserRoleRepository userRoleRepository,
-            ILogger<CreateMetricForUpdateHandler> logger)
+            ILogger<CreateMetricForUpdateHandler> logger,
+            ISystemNotificationService systemNotificationService
+            )
         {
             _mapper = mapper;
             _metricCalculator = metricCalculator;
@@ -64,6 +68,7 @@ namespace Monhealth.Application
             _userRepository = userRepository;
             _userRoleRepository = userRoleRepository;
             _logger = logger;
+            this.systemNotificationService = systemNotificationService;
         }
 
         public async Task<Unit> Handle(
@@ -217,6 +222,8 @@ namespace Monhealth.Application
                 }
             }
             // ------------------------
+            //Notify for user 
+            await systemNotificationService.NotifyUpdateMetricSuccessfully(newMetric.UserId, cancellationToken);
 
             return Unit.Value;
         }

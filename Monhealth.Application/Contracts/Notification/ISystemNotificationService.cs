@@ -20,5 +20,13 @@ namespace Monhealth.Application.Contracts.Notification
         Task NotifyUserReportApprovedAsync(Report report, CancellationToken cancellation);
         Task NotifyUserReportRejectedAsync(Report report, CancellationToken cancellation);
         Task NotifyWaterReminderNotificationAsync(WaterReminder waterReminder, CancellationToken cancellationToken);
+        Task NotifyConsultantStatusUpdateAsync(Consultant consultant, CancellationToken cancellationToken);
+        Task NotifyConsultantVerificationAsync(Consultant consultant, CancellationToken cancellationToken);
+        Task NotifyConsultantRejectionAsync(Consultant consultant, CancellationToken cancellationToken);
+        Task NotifyGoalCompletionAsync(Goal goal, CancellationToken cancellationToken);
+        Task NotifyGoalAbandonedAsync(Goal goal, CancellationToken cancellationToken);
+        Task NotifyUpdateMetricSuccessfully(Guid userId, CancellationToken cancellationToken);
+        Task NotifyUserCreateReportSuccessfully(Report report, Guid userId, CancellationToken cancellationToken);
+
     }
 }

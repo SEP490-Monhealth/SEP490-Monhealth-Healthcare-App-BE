@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Domain.Enum;
@@ -15,11 +16,15 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
         private readonly IUserRoleRepository _userRoleRepository;
         private readonly IUserRepository _userRepository;
         private readonly ICertificateRepository _certificateRepository;
+        private readonly ISystemNotificationService systemNotificationService;
+
         public VeryfiedConsultantCommandHandler(IConsultantRepository consultantRepository,
          IWalletRepository walletRepository, UserManager<AppUser> userManager,
          IUserRoleRepository userRoleRepository,
          IUserRepository userRepository,
-         ICertificateRepository certificateRepository)
+         ICertificateRepository certificateRepository,
+         ISystemNotificationService systemNotificationService
+         )
         {
             _consultantRepository = consultantRepository;
             _walletRepository = walletRepository;
@@ -27,6 +32,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
             _userRoleRepository = userRoleRepository;
             _userRepository = userRepository;
             _certificateRepository = certificateRepository;
+            this.systemNotificationService = systemNotificationService;
         }
         public async Task<bool> Handle(VeryfiedConsultantCommand request, CancellationToken cancellationToken)
         {
@@ -36,7 +42,7 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
             var checkCertificate = certificate.FirstOrDefault();
             if (consultant == null)
                 throw new BadRequestException("Không tìm thấy chuyên viên");
- 
+
             switch (consultant.VerificationStatus)
             {
                 case VerificationStatus.Verified:
@@ -52,6 +58,9 @@ namespace Monhealth.Application.Features.Consultant.Commands.VeryfiedConsultant
 
                     wallet.Status = true;
                     _walletRepository.Update(wallet);
+
+                    //Notify consultant
+                    await systemNotificationService.NotifyConsultantVerificationAsync(consultant, cancellationToken);
                     break;
 
                 default:

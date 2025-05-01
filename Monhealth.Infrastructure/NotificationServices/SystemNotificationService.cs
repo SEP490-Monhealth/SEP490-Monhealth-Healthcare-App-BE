@@ -124,6 +124,79 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
         }
 
+        public async Task NotifyConsultantRejectionAsync(Consultant consultant, CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Tạo nội dung thông báo
+                string consultantTitle = "Thông báo về đơn đăng ký chuyên viên tư vấn";
+                string consultantContent = "Đơn đăng ký trở thành chuyên viên tư vấn của bạn đã bị từ chối.";
+
+                // Gửi thông báo trong hệ thống
+                await notificationService.SendUserNotificationAsync(
+                    (Guid)consultant.UserId,
+                    consultantTitle,
+                    consultantContent,
+                    cancellationToken
+                );
+                logger.LogInformation($"Sent rejection notification to consultant applicant: {consultant.ConsultantId}");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send rejection notification to consultant applicant: {consultant.ConsultantId}");
+            }
+        }
+
+        public async Task NotifyConsultantStatusUpdateAsync(Consultant consultant, CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Thông báo cho consultant về việc trạng thái đã được cập nhật
+                string consultantTitle = "Cập nhật trạng thái";
+                string consultantContent = $"Trạng thái của bạn đã được thay đổi";
+
+                await notificationService.SendUserNotificationAsync(
+                    (Guid)consultant.UserId,
+                    consultantTitle,
+                    consultantContent,
+                    cancellationToken
+                );
+
+                // Thông báo cho admin nếu cần
+                // await NotifyAdminAboutConsultantStatusChangeAsync(consultant, oldStatus, newStatus, cancellationToken);
+
+                logger.LogInformation($"Sent status update notification to consultant");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send status update notification to consultant: {consultant.ConsultantId}");
+            }
+        }
+
+        public async Task NotifyConsultantVerificationAsync(Consultant consultant, CancellationToken cancellationToken)
+        {
+            try
+            {
+                string consultantTitle = "Thông báo xác minh tài khoản";
+                string consultantContent = "Chúc mừng! Tài khoản chuyên viên tư vấn của bạn đã được xác minh thành công. " +
+                    "Bây giờ bạn có thể bắt đầu nhận các lịch hẹn tư vấn.";
+
+                // Gửi thông báo cho consultant
+                await notificationService.SendUserNotificationAsync(
+                    (Guid)consultant.UserId,
+                    consultantTitle,
+                    consultantContent,
+                    cancellationToken
+                );
+
+                logger.LogInformation($"Sent verification notification to consultant: {consultant.ConsultantId}");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send verification notification to consultant: {consultant.ConsultantId}");
+            }
+        }
+
         public async Task NotifyCreateMetricSuccessfully(Guid userId, CancellationToken cancellationToken)
         {
             try
@@ -146,6 +219,56 @@ namespace Monhealth.Infrastructure.NotificationServices
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Failed to send welcome notification to new user: {userId}");
+            }
+        }
+
+        public async Task NotifyGoalAbandonedAsync(Goal goal, CancellationToken cancellationToken)
+        {
+            try
+            {
+
+                // Tạo nội dung thông báo
+                string title = "Thông báo về mục tiêu";
+                string content = $"Bạn đã từ bỏ mục tiêu. Đừng lo lắng, bạn có thể thiết lập mục tiêu mới phù hợp hơn.";
+
+                // Gửi thông báo trong hệ thống
+                await notificationService.SendUserNotificationAsync(
+                    goal.UserId,
+                    title,
+                    content,
+                    cancellationToken
+                );
+
+                logger.LogInformation($"Sent goal abandoned notification to user: {goal.UserId}");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send goal abandoned notification to user: {goal.UserId}");
+            }
+        }
+
+        public async Task NotifyGoalCompletionAsync(Goal goal, CancellationToken cancellationToken)
+        {
+            try
+            {
+
+                // Tạo nội dung thông báo
+                string title = "Chúc mừng! Bạn đã hoàn thành mục tiêu";
+                string content = $"Chúc mừng! Bạn đã hoàn thành mục tiêu, tiếp tục phát huy nhé!";
+
+                // Gửi thông báo trong hệ thống
+                await notificationService.SendUserNotificationAsync(
+                    goal.UserId,
+                    title,
+                    content,
+                    cancellationToken
+                );
+
+                logger.LogInformation($"Sent goal completion notification to user: {goal.UserId} for goal: {goal.GoalId}");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send goal completion notification to user: {goal.UserId} for goal: {goal.GoalId}");
             }
         }
 
@@ -327,45 +450,128 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
         }
 
-        public async Task NotifyUserReportApprovedAsync(Report report, CancellationToken cancellation)
+        public async Task NotifyUpdateMetricSuccessfully(Guid userId, CancellationToken cancellationToken)
         {
             try
             {
-                var booking = await bookingRepository.GetBookingByBookingIdAsync(report.BookingId);
-                var user = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
-                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
-
-                if (user == null || consultant == null)
+                // Lấy thông tin user
+                var user = await userRepository.GetUserByIdAsync(userId);
+                if (user != null)
                 {
-                    logger.LogWarning($"Cannot send report approval notification: User or Consultant not found");
-                    return;
+                    // Tiêu đề & nội dung notification
+                    string title = "Cập nhật thông số sức khỏe thành công";
+                    string content = $"Chào {user.FullName}, bạn đã cập nhật thành công thông số sức khỏe mới!";
+
+                    // Gửi notification
+                    await notificationService.SendUserNotificationAsync(
+                        user.Id,
+                        title,
+                        content,
+                        cancellationToken
+                    );
                 }
 
-                string title = "Thông báo";
-                string content = $"Báo cáo của bạn về chuyên viên {consultant.AppUser.FullName} đã được phê duyệt và xử lý";
-
-                await notificationService.SendUserNotificationAsync(
-                    user.Id,
-                    title,
-                    content,
-                    cancellation
-                );
-
-                //notify consultant 
-                string consultantTitle = "Cảnh báo";
-                string consultantContent = $"Chúng tôi đã nhận được báo cáo từ khách hàng về dịch vụ tư vấn của bạn";
-
-                await notificationService.SendUserNotificationAsync(
-                    (Guid)consultant.UserId,
-                    consultantTitle,
-                    consultantContent,
-                    cancellation
-                );
-                logger.LogInformation($"Sent report approval notification to report for booking {report.BookingId}");
+                logger.LogInformation("Sent metric-update notification to user: {UserId}", userId);
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, $"Failed to send report approval notification to report for booking {report.BookingId}");
+                logger.LogError(ex, "Failed to send metric-update notification to user: {UserId}", userId);
+            }
+        }
+
+
+        public async Task NotifyUserCreateReportSuccessfully(Report report, Guid userId, CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Lấy thông tin user
+                var user = await userRepository.GetUserByIdAsync(userId);
+                if (user != null)
+                {
+                    // Tiêu đề & nội dung notification
+                    string title = "Gửi báo cáo tố cáo thành công";
+                    string content = $"Chào {user.FullName}, báo cáo tố cáo của bạn đã được gửi thành công. Chúng tôi sẽ xử lý và phản hồi trong thời gian sớm nhất.";
+
+                    // Gửi notification
+                    await notificationService.SendUserNotificationAsync(
+                        user.Id,
+                        title,
+                        content,
+                        cancellationToken
+                    );
+                }
+
+                logger.LogInformation("Sent report-creation notification to user: {UserId}", userId);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Failed to send report-creation notification to user: {UserId}", userId);
+            }
+        }
+
+        public async Task NotifyUserReportApprovedAsync(Report report, CancellationToken cancellation)
+        {
+            // 1. Thông báo tới user: xin lỗi và xác nhận report hợp lệ
+            var booking = await bookingRepository.GetBookingByBookingIdAsync(report.BookingId);
+            try
+            {
+                var user = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
+                if (user != null)
+                {
+                    string userTitle = "Báo cáo của bạn đã được xác nhận";
+                    string userContent = $"Chào {user.FullName}, " +
+                                         $"chúng tôi xin lỗi về sự bất tiện vừa qua" +
+                                         "Chúng tôi sẽ xử lý ngay và phản hồi đến bạn sớm nhất.";
+
+                    await notificationService.SendUserNotificationAsync(
+                        user.Id,
+                        userTitle,
+                        userContent,
+                        cancellation
+                    );
+
+                    logger.LogInformation(
+                        "Sent report-approved apology notification to user {UserId} for report {ReportId}",
+                        booking.UserId, report.ReportId);
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(
+                    ex,
+                    "Failed to send approval notification to user {UserId} for report {ReportId}",
+                      booking.UserId, report.ReportId);
+            }
+
+            // 2. Nhắc nhở consultant: kiểm tra và xử lý report vừa được approve
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
+                if (consultant != null)
+                {
+                    string consTitle = "Có báo cáo mới cần xử lý";
+                    string consContent = $"Chào {consultant.AppUser.FullName}, " +
+                                         $"báo cáo tố cáo đã được admin xác nhận hợp lệ. " +
+                                         "Xin vui lòng kiểm tra và thực hiện các bước xử lý tiếp theo.";
+
+                    await notificationService.SendUserNotificationAsync(
+                        consultant.ConsultantId,
+                        consTitle,
+                         consContent,
+                        cancellation
+                    );
+
+                    logger.LogInformation(
+                        "Sent report-reminder notification to consultant {ConsultantId} for report {ReportId}",
+                        consultant.ConsultantId, report.ReportId);
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(
+                    ex,
+                    "Failed to send reminder notification to consultant {ConsultantId} for report {ReportId}",
+                      booking.ConsultantId, report.ReportId);
             }
         }
 

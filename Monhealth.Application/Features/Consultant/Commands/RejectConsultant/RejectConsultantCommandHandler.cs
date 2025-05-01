@@ -1,11 +1,14 @@
 ﻿using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Consultant.Commands.RejectConsultant
 {
-    public class RejectConsultantCommandHandler(IConsultantRepository consultantRepository) : IRequestHandler<RejectConsultantCommand, bool>
+    public class RejectConsultantCommandHandler(IConsultantRepository consultantRepository,
+        ISystemNotificationService systemNotificationService
+        ) : IRequestHandler<RejectConsultantCommand, bool>
     {
         public async Task<bool> Handle(RejectConsultantCommand request, CancellationToken cancellationToken)
         {
@@ -25,6 +28,9 @@ namespace Monhealth.Application.Features.Consultant.Commands.RejectConsultant
             consultant.UpdatedAt = DateTime.Now;
             consultantRepository.Update(consultant);
             await consultantRepository.SaveChangeAsync();
+
+            //Notify consultant
+            await systemNotificationService.NotifyConsultantRejectionAsync(consultant, cancellationToken);
             return true;
         }
     }

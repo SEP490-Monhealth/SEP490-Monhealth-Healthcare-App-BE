@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain.Enum;
 
@@ -6,7 +7,8 @@ namespace Monhealth.Application.Features.Report.Commands.ChangeStatusReportToApp
 {
     public class ChangeStatusReportToApprovedCommandHandler(IReportRepository reportRepository
     , IBookingRepository bookingRepository, IUserSubscriptionRepository userSubscriptionRepository,
-    ITransactionRepository transactionRepository)
+    ITransactionRepository transactionRepository,
+    ISystemNotificationService systemNotificationService)
     : IRequestHandler<ChangeStatusReportToApprovedCommand, bool>
     {
         public async Task<bool> Handle(ChangeStatusReportToApprovedCommand request, CancellationToken cancellationToken)
@@ -32,6 +34,9 @@ namespace Monhealth.Application.Features.Report.Commands.ChangeStatusReportToApp
             report.UpdatedAt = GetCurrentVietnamTime();
             reportRepository.Update(report);
             await reportRepository.SaveChangeAsync();
+
+            //Notify user and consultant
+            await systemNotificationService.NotifyUserReportApprovedAsync(report, cancellationToken);
             return true;
         }
         private DateTime GetCurrentVietnamTime()

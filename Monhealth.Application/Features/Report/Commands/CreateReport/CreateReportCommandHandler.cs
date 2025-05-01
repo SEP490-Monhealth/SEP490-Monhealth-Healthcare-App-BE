@@ -1,11 +1,15 @@
 ﻿using AutoMapper;
 using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Report.Commands.CreateReport
 {
-    public class CreateReportCommandHandler(IReportRepository reportRepository, IBookingRepository bookingRepository, IMapper mapper) : IRequestHandler<CreateReportCommand, Unit>
+    public class CreateReportCommandHandler(IReportRepository reportRepository,
+        IBookingRepository bookingRepository, IMapper mapper,
+        ISystemNotificationService systemNotificationService
+        ) : IRequestHandler<CreateReportCommand, Unit>
     {
         public async Task<Unit> Handle(CreateReportCommand request, CancellationToken cancellationToken)
         {
@@ -26,8 +30,11 @@ namespace Monhealth.Application.Features.Report.Commands.CreateReport
             newReport.CreatedAt = GetCurrentVietnamTime();
             newReport.UpdatedAt = GetCurrentVietnamTime();
             reportRepository.Add(newReport);
-            
+
             await reportRepository.SaveChangeAsync();
+
+            //Notify for user
+            await systemNotificationService.NotifyUserCreateReportSuccessfully(newReport, (Guid)bookingToReport.UserId, cancellationToken);
             return Unit.Value;
         }
         private DateTime GetCurrentVietnamTime()

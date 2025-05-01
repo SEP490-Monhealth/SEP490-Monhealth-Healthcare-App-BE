@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsultant
@@ -9,13 +10,17 @@ namespace Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsult
         private readonly IConsultantRepository _consultantRepository;
         private readonly IWalletRepository _walletRepository;
         private readonly IUserRepository _userRepository;
+        private readonly ISystemNotificationService systemNotificationService;
         private readonly IUserRoleRepository _userRoleRepository;
         public ChangeStatusConsultantCommandHandler(IConsultantRepository consultantRepository, IWalletRepository walletRepository,
-        IUserRoleRepository userRoleRepository, IUserRepository userRepository)
+        IUserRoleRepository userRoleRepository, IUserRepository userRepository,
+        ISystemNotificationService systemNotificationService
+        )
         {
             _consultantRepository = consultantRepository;
             _walletRepository = walletRepository;
             _userRepository = userRepository;
+            this.systemNotificationService = systemNotificationService;
             _userRoleRepository = userRoleRepository;
 
         }
@@ -56,6 +61,10 @@ namespace Monhealth.Application.Features.Consultant.Commands.ChangeStatusConsult
             _walletRepository.Update(wallet);
 
             await _consultantRepository.SaveChangeAsync();
+
+            //send notification 
+            await systemNotificationService.NotifyConsultantStatusUpdateAsync(consultant, cancellationToken);
+
             return true;
         }
     }

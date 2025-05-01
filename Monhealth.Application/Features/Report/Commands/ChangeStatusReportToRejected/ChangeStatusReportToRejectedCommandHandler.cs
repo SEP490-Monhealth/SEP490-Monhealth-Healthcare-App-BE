@@ -1,10 +1,13 @@
 ﻿using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Report.Commands.ChangeStatusReportToRejected
 {
-    public class ChangeStatusReportToRejectedCommandHandler(IReportRepository reportRepository) : IRequestHandler<ChangeStatusReportToRejectedCommand, bool>
+    public class ChangeStatusReportToRejectedCommandHandler(IReportRepository reportRepository,
+        ISystemNotificationService systemNotificationService
+        ) : IRequestHandler<ChangeStatusReportToRejectedCommand, bool>
     {
         public async Task<bool> Handle(ChangeStatusReportToRejectedCommand request, CancellationToken cancellationToken)
         {
@@ -24,6 +27,9 @@ namespace Monhealth.Application.Features.Report.Commands.ChangeStatusReportToRej
             report.UpdatedAt = GetCurrentVietnamTime();
             reportRepository.Update(report);
             await reportRepository.SaveChangeAsync();
+
+            //Notify user
+            await systemNotificationService.NotifyUserReportRejectedAsync(report, cancellationToken);
             return true;
         }
         private DateTime GetCurrentVietnamTime()
