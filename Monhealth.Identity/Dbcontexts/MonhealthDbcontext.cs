@@ -221,6 +221,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new UserSubscriptionConfiguration());
             builder.ApplyConfiguration(new BookingConfiguration());
             builder.ApplyConfiguration(new TransactionConfiguration());
+            builder.ApplyConfiguration(new WaterReminderConfiguration());
         }
     }
 }
