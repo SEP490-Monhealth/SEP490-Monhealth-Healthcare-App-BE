@@ -8,8 +8,7 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<WaterReminder> builder)
         {
-            var userId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
-            var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
+            var userId = Guid.Parse("9d7e87a9-b070-4607-a0b0-2d2322aece9b");
 
             builder.HasData(
 
@@ -24,8 +23,8 @@ namespace Monhealth.Identity.Configurations
                 IsRecurring = true,
                 IsDrunk = false,
                 Status = true,
-                UpdatedAt = today,
-                CreatedAt = today,
+                CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             },
             #endregion
 
@@ -40,8 +39,8 @@ namespace Monhealth.Identity.Configurations
                 IsRecurring = true,
                 IsDrunk = false,
                 Status = true,
-                UpdatedAt = today,
-                CreatedAt = today,
+                CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             },
             #endregion
 
@@ -56,8 +55,8 @@ namespace Monhealth.Identity.Configurations
                 IsRecurring = true,
                 IsDrunk = false,
                 Status = true,
-                UpdatedAt = today,
-                CreatedAt = today,
+                CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             },
             #endregion
 
@@ -72,8 +71,8 @@ namespace Monhealth.Identity.Configurations
                 IsRecurring = true,
                 IsDrunk = false,
                 Status = true,
-                UpdatedAt = today,
-                CreatedAt = today,
+                CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             },
             #endregion
 
@@ -88,8 +87,8 @@ namespace Monhealth.Identity.Configurations
                 IsRecurring = true,
                 IsDrunk = false,
                 Status = true,
-                UpdatedAt = today,
-                CreatedAt = today,
+                CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             },
             #endregion
 
@@ -104,8 +103,8 @@ namespace Monhealth.Identity.Configurations
                 IsRecurring = true,
                 IsDrunk = false,
                 Status = true,
-                UpdatedAt = today,
-                CreatedAt = today,
+                CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             },
             #endregion
 
@@ -120,8 +119,8 @@ namespace Monhealth.Identity.Configurations
                 IsRecurring = true,
                 IsDrunk = false,
                 Status = true,
-                UpdatedAt = today,
-                CreatedAt = today,
+                CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             },
             #endregion
 
@@ -136,8 +135,8 @@ namespace Monhealth.Identity.Configurations
                 IsRecurring = true,
                 IsDrunk = false,
                 Status = true,
-                UpdatedAt = today,
-                CreatedAt = today,
+                CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             }
             #endregion
             );
