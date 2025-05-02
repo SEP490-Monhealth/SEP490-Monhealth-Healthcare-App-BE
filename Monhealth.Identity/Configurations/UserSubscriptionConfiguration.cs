@@ -20,7 +20,7 @@ namespace Monhealth.Identity.Configurations
                 StartedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
                 ExpiresAt = DateTime.ParseExact("01-05-2125", "dd-MM-yyyy", null),
                 RemainingBookings = 0,
-                Status = UserSubscriptionStatus.Expired,
+                Status = UserSubscriptionStatus.Active,
                 CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
                 UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             },
@@ -35,7 +35,7 @@ namespace Monhealth.Identity.Configurations
                 StartedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
                 ExpiresAt = DateTime.ParseExact("01-05-2025", "dd-MM-yyyy", null),
                 RemainingBookings = 3,
-                Status = UserSubscriptionStatus.Active,
+                Status = UserSubscriptionStatus.Expired,
                 CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
                 UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null)
             }

@@ -87,13 +87,15 @@ builder.Services.AddHttpClient("n8n", client =>
 var app = builder.Build();
 
 app.UseRouting(); // Thêm UseRouting
-
+app.UseStaticFiles();
 
 // Kiểm tra môi trường và cấu hình Swagger
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c=>{
+        c.InjectStylesheet("/swagger-ui/SwaggerIndex.css"); // Đường dẫn đến tệp CSS tùy chỉnh
+    });
 }
 
 app.UseSerilogRequestLogging(); // Đăng nhập các yêu cầu
