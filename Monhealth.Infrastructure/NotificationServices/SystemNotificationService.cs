@@ -902,5 +902,38 @@ namespace Monhealth.Infrastructure.NotificationServices
                 logger.LogError(ex, $"Failed to send withdrawal rejection notification to consultant: {withdrawalRequest.ConsultantId}");
             }
         }
+
+        public async Task NotifyNewChatFromMemberAsync(Chat chat, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId(chat.ConsultantId);
+                if (consultant != null)
+                {
+                    var member = await userRepository.GetUserByIdAsync(chat.UserId);
+                    string memberName = member?.FullName ?? "Khách hàng";
+
+                    string title = "Tin nhắn mới từ khách hàng";
+                    string content = $"{memberName} đã gửi một tin nhắn";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        title,
+                        content,
+                        cancellationToken
+                    );
+
+                    logger.LogInformation($"Sent new message notification to consultant: {chat.ConsultantId} from member: {chat.UserId}");
+                }
+                else
+                {
+                    logger.LogWarning($"Consultant not found with ID: {chat.ConsultantId} when sending new message notification");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send new message notification to consultant: {chat.ConsultantId}");
+            }
+        }
     }
 }

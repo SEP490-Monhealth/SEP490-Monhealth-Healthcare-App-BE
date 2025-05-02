@@ -1,9 +1,12 @@
 ﻿using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.Chat.Commands.CreateChat
 {
-    public class CreateChatCommandHandler(IChatRepository chatRepository) : IRequestHandler<CreateChatCommand, CreateChatDto>
+    public class CreateChatCommandHandler(IChatRepository chatRepository,
+        ISystemNotificationService systemNotificationService
+        ) : IRequestHandler<CreateChatCommand, CreateChatDto>
     {
         public async Task<CreateChatDto> Handle(CreateChatCommand request, CancellationToken cancellationToken)
         {
@@ -29,6 +32,9 @@ namespace Monhealth.Application.Features.Chat.Commands.CreateChat
                 chatRepository.Add(newChat);
                 await chatRepository.SaveChangeAsync(cancellationToken);
                 chat = newChat;
+
+                //Notify to consultant 
+                await systemNotificationService.NotifyNewChatFromMemberAsync(chat, cancellationToken);
             }
 
             return new CreateChatDto
