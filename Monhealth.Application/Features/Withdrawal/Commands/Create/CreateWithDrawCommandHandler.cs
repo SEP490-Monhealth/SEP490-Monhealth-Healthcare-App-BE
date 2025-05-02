@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Domain;
@@ -7,7 +8,8 @@ namespace Monhealth.Application
 {
     public class CreateWithDrawCommandHandler(IWithdrawalRepository withdrawalRepository,
                                                 IWalletRepository walletRepository,
-                                                IConsultantBankRepository consultantBankRepository
+                                                IConsultantBankRepository consultantBankRepository,
+                                                ISystemNotificationService systemNotificationService
         ) : IRequestHandler<CreateWithdrawalRequestDTO, bool>
     {
         public async Task<bool> Handle(CreateWithdrawalRequestDTO request, CancellationToken cancellationToken)
@@ -56,6 +58,9 @@ namespace Monhealth.Application
             };
             withdrawalRepository.Add(model);
             await withdrawalRepository.SaveChangeASync();
+
+            //Notify consultant 
+            await systemNotificationService.NotifyWithdrawalRequestSubmittedAsync(model, cancellationToken);
             return true;
         }
         private DateTime GetCurrentVietnamTime()

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain.Enum;
 
@@ -7,7 +8,8 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.CreateSchedu
 {
     public class CreateScheduleExceptionCommandHandler(IMapper mapper,
         IScheduleExceptionRepository scheduleExceptionRepository,
-        IBookingRepository bookingRepository
+        IBookingRepository bookingRepository,
+        ISystemNotificationService systemNotificationService
         )
         : IRequestHandler<CreateScheduleExceptionCommand, Unit>
     {
@@ -15,7 +17,7 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.CreateSchedu
         {
             // check xem hom nay co lich nghi chua
             var existingScheduleExceptionPending = await scheduleExceptionRepository.CheckScheduleIsExceptionPending(request.ConsultantId, request.Date);
-            if(existingScheduleExceptionPending != null)
+            if (existingScheduleExceptionPending != null)
             {
                 throw new Exception($"Không thể tạo thêm, lịch nghỉ ngày {existingScheduleExceptionPending.Date.ToString("dd/MM/yyyy")} chưa được duyệt.");
             }
@@ -33,6 +35,10 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.CreateSchedu
             }
             scheduleExceptionRepository.Add(scheduleException);
             await scheduleExceptionRepository.SaveChangeAsync(cancellationToken);
+
+            //Send notification to consultant
+            await systemNotificationService.NotifyConsultantOnExceptionCreatedAsync((Guid)request.ConsultantId, scheduleException, cancellationToken);
+
             return Unit.Value;
         }
     }

@@ -98,16 +98,75 @@ namespace Monhealth.Infrastructure.NotificationServices
         {
             try
             {
-                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
-                var user = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
+                var consultant = await consultantRepository
+                    .GetConsultantByConsultantId((Guid)booking.ConsultantId);
+                var user = await userRepository
+                    .GetUserByIdAsync((Guid)booking.UserId);
 
-                DateOnly scheduledDate = booking.Day;
-                TimeOnly scheduledTime = booking.StartTime;
-                DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
+                var scheduledDateTime = booking.Day
+                    .ToDateTime(booking.StartTime);
 
-                string ratingStars = new string('★', review.Rating) + new string('☆', 5 - review.Rating);
-                string title = "Thông báo";
-                string content = $"{user.FullName} đã đánh giá buổi tư vấn vào {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")} - {review.Rating}/5 sao";
+                var ratingStars = new string('★', review.Rating)
+                                + new string('☆', 5 - review.Rating);
+
+                // --- 1) Thông báo cho Consultant ---
+                var consultantTitle = "Bạn có đánh giá mới";
+                var consultantContent = string.Format(
+                    "{0} đã đánh giá buổi tư vấn ngày {1} với {2} ({3}/5)",
+                    user.FullName,
+                    scheduledDateTime.ToString("HH:mm dd/MM/yyyy"),
+                    ratingStars,
+                    review.Rating
+                );
+                await notificationService.SendUserNotificationAsync(
+                    (Guid)consultant.UserId,
+                    consultantTitle,
+                    consultantContent,
+                    cancellationToken
+                );
+
+                // --- 2) Xác nhận cho Reviewer (user) ---
+                var reviewerTitle = "Cảm ơn bạn đã đánh giá";
+                var reviewerContent = string.Format(
+                    "Cảm ơn {0} đã đánh giá buổi tư vấn với {1} ngày {2} với {3} ({4}/5)",
+                    user.FullName,
+                    consultant.AppUser.FullName,
+                    scheduledDateTime.ToString("HH:mm dd/MM/yyyy"),
+                    ratingStars,
+                    review.Rating
+                );
+                await notificationService.SendUserNotificationAsync(
+                    user.Id,
+                    reviewerTitle,
+                    reviewerContent,
+                    cancellationToken
+                );
+
+                logger.LogInformation(
+                    "Sent review notifications: consultant={ConsultantId}, reviewer={UserId}",
+                    consultant.UserId, user.Id
+                );
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(
+                    ex,
+                    "Failed to send review notification for booking {BookingId}",
+                    booking?.BookingId
+                );
+            }
+        }
+
+        public async Task NotifyConsultantOnExceptionCreatedAsync(Guid consultantId, ScheduleException scheduleException, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var consultant = await consultantRepository
+                    .GetConsultantByConsultantId(consultantId);
+
+                string title = "Lịch bận đã được tạo";
+                string content = $"Bạn đã tạo lịch bận cho ngày " +
+                                 $"{scheduleException.Date:dd/MM/yyyy} thành công.";
 
                 await notificationService.SendUserNotificationAsync(
                     (Guid)consultant.UserId,
@@ -116,11 +175,16 @@ namespace Monhealth.Infrastructure.NotificationServices
                     cancellationToken
                 );
 
-                logger.LogInformation($"Sent notification to consultant for new reviews {consultant.UserId}");
+                logger.LogInformation(
+                    "Notified consultant {ConsultantId} of exception on {Date}",
+                    consultantId, scheduleException.Date);
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, $"Failed to send review notification for booking: {booking?.BookingId}");
+                logger.LogError(
+                    ex,
+                    "Failed to notify consultant {ConsultantId} for exception on {Date}",
+                    consultantId, scheduleException.Date);
             }
         }
 
@@ -632,7 +696,7 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
         }
 
-        public async Task SendBookingCancellationNotificationAsync(Booking booking, CancellationToken cancellationToken)
+        public async Task NotifyScheduleExceptionApprovedAsync(Booking booking, CancellationToken cancellationToken)
         {
             try
             {
@@ -698,6 +762,144 @@ namespace Monhealth.Infrastructure.NotificationServices
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Failed to send leave request denial notification for consultant: {consultant.ConsultantId}");
+            }
+        }
+
+        public async Task NotifyConsultantHasNewIncomeAsync(Transaction transaction, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)transaction.ConsultantId);
+
+                if (consultant != null)
+                {
+                    // Tạo thông báo chi tiết về nguồn thu nhập mới
+                    string title = "Thông báo nguồn thu nhập mới";
+                    string formattedAmount = transaction.Amount.HasValue
+                             ? transaction.Amount.Value.ToString("N0")
+                                            : "0";
+                    string content = $"Bạn vừa có nguồn thu nhập mới: {formattedAmount} VNĐ";
+
+                    // Gửi thông báo cho consultant
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        title,
+                        content,
+                        cancellationToken
+                    );
+
+                    logger.LogInformation($"Sent new income notification to consultant: {transaction.ConsultantId}");
+                }
+                else
+                {
+                    logger.LogWarning($"Consultant not found with ID: {transaction.ConsultantId} when sending income notification");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send new income notification to consultant: {transaction.ConsultantId}");
+            }
+        }
+
+        public async Task NotifyWithdrawalApprovedAsync(Transaction transaction, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)transaction.ConsultantId);
+                if (consultant != null)
+                {
+                    // Tạo thông báo chi tiết về yêu cầu rút tiền thành công
+                    string title = "Thông báo rút tiền thành công";
+                    string formattedAmount = transaction.Amount.HasValue
+                             ? transaction.Amount.Value.ToString("N0")
+                                            : "0";
+                    string content = $"Yêu cầu rút tiền của bạn đã được xử lý thành công: {formattedAmount} VNĐ";
+
+                    // Gửi thông báo cho consultant
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        title,
+                        content,
+                        cancellationToken
+                    );
+                    logger.LogInformation($"Sent withdrawal success notification to consultant: {transaction.ConsultantId}");
+                }
+                else
+                {
+                    logger.LogWarning($"Consultant not found with ID: {transaction.ConsultantId} when sending withdrawal notification");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send withdrawal success notification to consultant: {transaction.ConsultantId}");
+            }
+        }
+
+        public async Task NotifyWithdrawalRequestSubmittedAsync(WithdrawalRequest withdrawalRequest, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId(withdrawalRequest.ConsultantId);
+                if (consultant != null)
+                {
+                    // Tạo thông báo chi tiết về yêu cầu rút tiền đang chờ phê duyệt
+                    string title = "Yêu cầu rút tiền đã được tạo";
+                    string formattedAmount = withdrawalRequest.Amount > 0
+                             ? withdrawalRequest.Amount.ToString("N0")
+                             : "0";
+                    string content = $"Yêu cầu rút {formattedAmount} VNĐ của bạn đã được tạo thành công và đang chờ phê duyệt";
+
+                    // Gửi thông báo cho consultant
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        title,
+                        content,
+                        cancellationToken
+                    );
+                    logger.LogInformation($"Sent withdrawal request pending notification to consultant: {withdrawalRequest.ConsultantId}");
+                }
+                else
+                {
+                    logger.LogWarning($"Consultant not found with ID: {withdrawalRequest.ConsultantId} when sending withdrawal request notification");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send withdrawal request notification to consultant: {withdrawalRequest.ConsultantId}");
+            }
+        }
+
+        public async Task NotifyWithdrawalRequestRejectedAsync(WithdrawalRequest withdrawalRequest, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var consultant = await consultantRepository.GetConsultantByConsultantId(withdrawalRequest.ConsultantId);
+                if (consultant != null)
+                {
+                    // Tạo thông báo chi tiết về yêu cầu rút tiền bị từ chối
+                    string title = "Yêu cầu rút tiền bị từ chối";
+                    string formattedAmount = withdrawalRequest.Amount > 0
+                        ? withdrawalRequest.Amount.ToString("N0")
+                        : "0";
+                    string content = $"Yêu cầu rút {formattedAmount} VNĐ của bạn đã bị từ chối. Lý do: {withdrawalRequest.Reason}";
+
+                    // Gửi thông báo cho consultant
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        title,
+                        content,
+                        cancellationToken
+                    );
+                    logger.LogInformation($"Sent withdrawal request rejection notification to consultant: {withdrawalRequest.ConsultantId}");
+                }
+                else
+                {
+                    logger.LogWarning($"Consultant not found with ID: {withdrawalRequest.ConsultantId} when sending withdrawal rejection notification");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to send withdrawal rejection notification to consultant: {withdrawalRequest.ConsultantId}");
             }
         }
     }

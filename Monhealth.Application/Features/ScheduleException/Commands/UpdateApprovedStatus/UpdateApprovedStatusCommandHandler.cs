@@ -25,7 +25,7 @@ namespace Monhealth.Application.Features.ScheduleException.Commands.UpdateApprov
                 booking.Status = BookingStatus.Cancelled;
 
                 // Gửi thông báo cho người dùng
-                await systemNotificationService.SendBookingCancellationNotificationAsync(booking, cancellationToken);
+                await systemNotificationService.NotifyScheduleExceptionApprovedAsync(booking, cancellationToken);
 
                 //plus amout remaining booking
                 var userSubscription = await userSubscriptionRepository.GetUserSubscriptionActiveOfUser((Guid)booking.UserId);

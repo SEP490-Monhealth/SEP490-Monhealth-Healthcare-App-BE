@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Application.Exceptions;
 using Monhealth.Domain.Enum;
@@ -11,18 +12,22 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateTransaction
         private readonly ITransactionRepository _transactionRepository;
         private readonly IConsultantRepository _consultantRepository;
         private readonly IWalletRepository _walletRepository;
+        private readonly ISystemNotificationService systemNotificationService;
         private readonly IMapper _mapper;
 
         public UpdateTransactionCommandHandler(
             ITransactionRepository transactionRepository,
             IMapper mapper,
             IConsultantRepository consultantRepository,
-            IWalletRepository walletRepository)
+            IWalletRepository walletRepository,
+            ISystemNotificationService systemNotificationService
+            )
         {
             _transactionRepository = transactionRepository;
             _mapper = mapper;
             _consultantRepository = consultantRepository;
             _walletRepository = walletRepository;
+            this.systemNotificationService = systemNotificationService;
         }
 
         public async Task<bool> Handle(UpdateTransactionStatusQuery request, CancellationToken cancellationToken)
@@ -41,6 +46,8 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateTransaction
                 case TransactionType.Earning:
                 case TransactionType.Bonus:
                     wallet.Balance += transaction.Amount;
+                    //notify to consultant 
+                    await systemNotificationService.NotifyConsultantHasNewIncomeAsync(transaction, cancellationToken);
                     break;
 
                 case TransactionType.Fee:
@@ -48,6 +55,9 @@ namespace Monhealth.Application.Features.Transaction.Commands.UpdateTransaction
                     if (wallet.Balance < transaction.Amount)
                         throw new BadRequestException("Không đủ số dư trong ví để thực hiện giao dịch");
                     wallet.Balance -= transaction.Amount;
+
+                    //notify to consultant 
+                    await systemNotificationService.NotifyWithdrawalApprovedAsync(transaction, cancellationToken);
                     break;
 
                 default:

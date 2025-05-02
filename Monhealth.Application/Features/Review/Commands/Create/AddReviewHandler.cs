@@ -60,11 +60,11 @@ namespace Monhealth.Application.Features.Review.Commands.Create
                     );
                 }
             }
+            await _reviewRepository.SaveChangeAsync();
 
             //notify consultant for new review
             await systemNotificationService.NotifyConsultantAboutNewReviewAsync(review, booking, cancellationToken);
 
-            await _reviewRepository.SaveChangeAsync();
             return Unit.Value;
         }
         private DateTime GetCurrentVietnamTime()

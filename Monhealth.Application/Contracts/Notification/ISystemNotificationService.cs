@@ -14,7 +14,7 @@ namespace Monhealth.Application.Contracts.Notification
         Task NotifyBookingCompleteForBoth(Booking booking, CancellationToken cancellationToken);
         Task NotifyCreateMetricSuccessfully(Guid userId, CancellationToken cancellationToken);
         Task SendRejectedScheduleExceptionForConsultant(Consultant consultant, CancellationToken cancellationToken);
-        Task SendBookingCancellationNotificationAsync(Booking booking, CancellationToken cancellationToken);
+        Task NotifyScheduleExceptionApprovedAsync(Booking booking, CancellationToken cancellationToken);
         Task NotifyUpComingBookingReminderAsync(Booking booking, CancellationToken cancellationToken);
         Task NotifyConsultantAboutNewReviewAsync(Review review, Booking booking, CancellationToken cancellationToken);
         Task NotifyUserReportApprovedAsync(Report report, CancellationToken cancellation);
@@ -27,6 +27,10 @@ namespace Monhealth.Application.Contracts.Notification
         Task NotifyGoalAbandonedAsync(Goal goal, CancellationToken cancellationToken);
         Task NotifyUpdateMetricSuccessfully(Guid userId, CancellationToken cancellationToken);
         Task NotifyUserCreateReportSuccessfully(Report report, Guid userId, CancellationToken cancellationToken);
-
+        Task NotifyConsultantOnExceptionCreatedAsync(Guid consultantId, ScheduleException scheduleException, CancellationToken cancellationToken);
+        Task NotifyConsultantHasNewIncomeAsync(Transaction transaction, CancellationToken cancellationToken);
+        Task NotifyWithdrawalApprovedAsync(Transaction transaction, CancellationToken cancellationToken);
+        Task NotifyWithdrawalRequestSubmittedAsync(WithdrawalRequest withdrawalRequest, CancellationToken cancellationToken);
+        Task NotifyWithdrawalRequestRejectedAsync(WithdrawalRequest withdrawalRequest, CancellationToken cancellationToken);
     }
 }

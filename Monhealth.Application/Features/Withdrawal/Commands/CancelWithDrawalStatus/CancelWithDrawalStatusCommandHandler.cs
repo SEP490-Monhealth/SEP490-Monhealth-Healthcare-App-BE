@@ -1,9 +1,12 @@
 using MediatR;
+using Monhealth.Application.Contracts.Notification;
 using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application
 {
-    public class CancelWithdrawalStatusCommandHandler(IWithdrawalRepository withdrawalRepository) : IRequestHandler<CancelWithdrawalStatusCommand, Unit>
+    public class CancelWithdrawalStatusCommandHandler(IWithdrawalRepository withdrawalRepository,
+        ISystemNotificationService systemNotificationService
+        ) : IRequestHandler<CancelWithdrawalStatusCommand, Unit>
     {
         public async Task<Unit> Handle(CancelWithdrawalStatusCommand request, CancellationToken cancellationToken)
         {
@@ -24,6 +27,8 @@ namespace Monhealth.Application
             withdrawalRepository.Update(status);
             await withdrawalRepository.SaveChangeASync();
 
+            //notify consultant 
+            await systemNotificationService.NotifyWithdrawalRequestRejectedAsync(status, cancellationToken);
             return Unit.Value;
         }
         private DateTime GetCurrentVietnamTime()
