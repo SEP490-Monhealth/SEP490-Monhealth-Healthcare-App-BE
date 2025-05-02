@@ -127,20 +127,6 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region 3 Duy bank
-            new ConsultantBank
-            {
-                ConsultantBankId = Guid.NewGuid(),
-                ConsultantId = Guid.Parse("8d8827cc-904a-4de5-8261-65acdbcb168d"),
-                BankId = Guid.Parse("303659a9-5e6e-4c6a-8a87-7ff72435ef71"),
-                AccountNumber = "1625347809",
-                AccountName = "NGUYEN QUOC DUY",
-                IsDefault = false,
-                UpdatedAt = today,
-                CreatedAt = today,
-            },
-            #endregion
-
             // Đinh Thế Anh con4
             #region 1 Thế Anh bank
             new ConsultantBank
@@ -163,20 +149,6 @@ namespace Monhealth.Identity.Configurations
                 ConsultantId = Guid.Parse("96818b5d-41a2-436b-841a-4aff36116b95"),
                 BankId = Guid.Parse("023beea7-01d7-4e7b-8bdb-7fec21fc2474"),
                 AccountNumber = "5601928374",
-                AccountName = "DINH THE ANH",
-                IsDefault = false,
-                UpdatedAt = today,
-                CreatedAt = today,
-            },
-            #endregion
-
-            #region 3 Thế Anh bank
-            new ConsultantBank
-            {
-                ConsultantBankId = Guid.NewGuid(),
-                ConsultantId = Guid.Parse("96818b5d-41a2-436b-841a-4aff36116b95"),
-                BankId = Guid.Parse("56e5e154-fced-4790-8392-9ff36191a9be"),
-                AccountNumber = "7482910365",
                 AccountName = "DINH THE ANH",
                 IsDefault = false,
                 UpdatedAt = today,
@@ -213,20 +185,6 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region 3 Xuân Quang bank
-            new ConsultantBank
-            {
-                ConsultantBankId = Guid.NewGuid(),
-                ConsultantId = Guid.Parse("9a40351b-954a-4697-ac3c-c2e35e89702c"),
-                BankId = Guid.Parse("a821a170-7c24-4e9e-be7c-a0e411aeb382"),
-                AccountNumber = "8462019375",
-                AccountName = "TRAN XUAN QUANG",
-                IsDefault = false,
-                UpdatedAt = today,
-                CreatedAt = today,
-            },
-            #endregion
-
             // Nguyễn Tiến Phát con6
             #region 1 Phát bank
             new ConsultantBank
@@ -242,34 +200,6 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            #region 2 Phát bank
-            new ConsultantBank
-            {
-                ConsultantBankId = Guid.NewGuid(),
-                ConsultantId = Guid.Parse("77db6560-34ad-44b5-86ab-c74f9033d5f9"),
-                BankId = Guid.Parse("513d42d6-8853-4803-9da7-27545c8b097e"),
-                AccountNumber = "5102938476",
-                AccountName = "NGUYEN TIEN PHAT",
-                IsDefault = false,
-                UpdatedAt = today,
-                CreatedAt = today,
-            },
-            #endregion
-
-            #region 3 Phát bank
-            new ConsultantBank
-            {
-                ConsultantBankId = Guid.NewGuid(),
-                ConsultantId = Guid.Parse("77db6560-34ad-44b5-86ab-c74f9033d5f9"),
-                BankId = Guid.Parse("1b573f24-57f1-4568-b437-d4ce3710fd0a"),
-                AccountNumber = "2748591306",
-                AccountName = "NGUYEN TIEN PHAT",
-                IsDefault = false,
-                UpdatedAt = today,
-                CreatedAt = today,
-            },
-            #endregion
-
             // Nguyễn Văn Dũng con7
             #region 1 Dũng bank
             new ConsultantBank
@@ -280,34 +210,6 @@ namespace Monhealth.Identity.Configurations
                 AccountNumber = "6371829045",
                 AccountName = "NGUYEN VAN DUNG",
                 IsDefault = true,
-                UpdatedAt = today,
-                CreatedAt = today,
-            },
-            #endregion
-
-            #region 2 Dũng bank
-            new ConsultantBank
-            {
-                ConsultantBankId = Guid.NewGuid(),
-                ConsultantId = Guid.Parse("a0385565-b5f4-4ad3-915e-b95558c00f7d"),
-                BankId = Guid.Parse("3e8b0320-c397-4d33-b28c-bd097ee83827"),
-                AccountNumber = "4509283716",
-                AccountName = "NGUYEN VAN DUNG",
-                IsDefault = false,
-                UpdatedAt = today,
-                CreatedAt = today,
-            },
-            #endregion
-
-            #region 3 Dũng bank
-            new ConsultantBank
-            {
-                ConsultantBankId = Guid.NewGuid(),
-                ConsultantId = Guid.Parse("a0385565-b5f4-4ad3-915e-b95558c00f7d"),
-                BankId = Guid.Parse("ad58a74a-8c78-4cc8-bc53-c3e0880fe60c"),
-                AccountNumber = "7193846052",
-                AccountName = "NGUYEN VAN DUNG",
-                IsDefault = false,
                 UpdatedAt = today,
                 CreatedAt = today,
             },
