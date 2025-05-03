@@ -7,6 +7,7 @@ using Monhealth.Core;
 using Monhealth.Core.Enum;
 using Monhealth.Domain;
 using Monhealth.Identity.Configurations;
+using Monhealth.Identity.Interceptors;
 using Monhealth.Identity.Models;
 using System.Text.Json;
 using DishType = Monhealth.Domain.DishType;
@@ -15,9 +16,12 @@ namespace Monhealth.Identity.Dbcontexts
 {
     public class MonhealthDbcontext : IdentityDbContext<AppUser, AppRole, Guid>
     {
-        public MonhealthDbcontext(DbContextOptions<MonhealthDbcontext> options) : base(options)
-        {
+        private readonly AuditableEntitySaveChangesInterceptor _auditableEntitySaveChangesInterceptor;
 
+        public MonhealthDbcontext(DbContextOptions<MonhealthDbcontext> options
+, AuditableEntitySaveChangesInterceptor auditableEntitySaveChangesInterceptor) : base(options)
+        {
+            _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;
         }
         public DbSet<Metric> Metrics { get; set; }
         public DbSet<Goal> Goals { get; set; }
@@ -68,10 +72,16 @@ namespace Monhealth.Identity.Dbcontexts
         public DbSet<Device> Devices { get; set; }
         public DbSet<Report> Reports { get; set; }
 
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.AddInterceptors(_auditableEntitySaveChangesInterceptor);
+            base.OnConfiguring(optionsBuilder);
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
 
+            base.OnModelCreating(builder);
             // builder.ApplyConfigurationsFromAssembly(typeof(MonhealthDbcontext).Assembly);
             builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
               .HasKey(x => new { x.RoleId, x.UserId });

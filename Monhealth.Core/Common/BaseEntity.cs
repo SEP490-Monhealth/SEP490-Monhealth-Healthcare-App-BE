@@ -1,6 +1,6 @@
 ﻿namespace Monhealth.Domain.Common
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

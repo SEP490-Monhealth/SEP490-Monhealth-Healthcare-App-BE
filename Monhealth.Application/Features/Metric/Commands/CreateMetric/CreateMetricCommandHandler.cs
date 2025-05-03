@@ -77,8 +77,6 @@ namespace Monhealth.Application.Features.Metric.Commands.CreateMetric
             newMetric.Ibw = _metricCalculator.CalculateIBW(request.CreateMetricDTO.Height, request.CreateMetricDTO.Gender.ToString());
 
             newMetric.MetricId = Guid.NewGuid();
-            newMetric.CreatedAt = DateTime.Now;
-            newMetric.UpdatedAt = DateTime.Now;
             _metricRepository.Add(newMetric);
             #endregion
 

@@ -16,6 +16,7 @@ using Monhealth.Application.Services;
 using Monhealth.Identity.BackGroundServiceForWaterReminder;
 using Monhealth.Identity.BackGroundServices;
 using Monhealth.Identity.Dbcontexts;
+using Monhealth.Identity.Interceptors;
 using Monhealth.Identity.Models;
 using Monhealth.Identity.Repositories;
 using Monhealth.Identity.Services;
@@ -184,8 +185,10 @@ namespace Monhealth.Identity
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<INutritionRepository, NutritionRepository>();
 
-
-
+            //add Interceptors config
+            services.AddHttpContextAccessor();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddScoped<AuditableEntitySaveChangesInterceptor>();
 
             return services;
         }
