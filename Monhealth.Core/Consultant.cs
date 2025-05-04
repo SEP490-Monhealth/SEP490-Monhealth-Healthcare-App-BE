@@ -14,10 +14,10 @@ namespace Monhealth.Domain
         public Guid? ExpertiseId { get; set; }
         public string Bio { get; set; } = string.Empty;
         public int Experience { get; set; }
-        public int Views { get; set; }
         public int BookingCount { get; set; }
         public double RatingCount { get; set; }
         public double AverageRating { get; set; }
+        public int Views { get; set; }
         public VerificationStatus VerificationStatus { get; set; }
         public bool Status { get; set; } = false;
 
