@@ -19,5 +19,10 @@ namespace Monhealth.Application.Contracts.Persistence
         /// Lấy DailyMeal theo User, Date và Goal.
         /// </summary>
         Task<DailyMeal?> GetByUserDateAndGoalAsync(Guid userId, DateTime date, Guid goalId);
+        Task<List<DailyMeal>> GetDailyMealsByUserAndDateRangeAsync(
+              Guid userId,
+              DateTime startDate,
+              DateTime endDate);
+
     }
 }

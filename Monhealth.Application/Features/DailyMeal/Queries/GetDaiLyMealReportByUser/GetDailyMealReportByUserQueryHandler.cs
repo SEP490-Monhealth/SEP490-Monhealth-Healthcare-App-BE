@@ -1,97 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using MediatR;
 using Monhealth.Application.Contracts.Persistence;
 
 namespace Monhealth.Application.Features.DailyMeal.Queries.GetDailyMealReportByUser
 {
-    public class GetDailyMealReportByUserQueryHandler : IRequestHandler<GetDailyMealReportByUserQuery, List<GetDailyMealDataDTO>>
+    public class GetDailyMealReportByUserQueryHandler
+      : IRequestHandler<GetDailyMealReportByUserQuery, List<GetDailyMealDataDTO>>
     {
         private readonly IDailyMealRepository _dailyMealRepository;
         private readonly IMealRepository _mealRepository;
         private readonly IPortionRepository _portionRepository;
 
         public GetDailyMealReportByUserQueryHandler(
-            IDailyMealRepository dailyMealRepository,
-            IMealRepository mealRepository,
-            IPortionRepository portionRepository)
+          IDailyMealRepository dailyMealRepository,
+          IMealRepository mealRepository,
+          IPortionRepository portionRepository)
         {
             _dailyMealRepository = dailyMealRepository;
             _mealRepository = mealRepository;
             _portionRepository = portionRepository;
         }
 
-        public async Task<List<GetDailyMealDataDTO>> Handle(GetDailyMealReportByUserQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetDailyMealDataDTO>> Handle(
+             GetDailyMealReportByUserQuery request,
+             CancellationToken cancellationToken)
         {
-            var dailyMeals = await _dailyMealRepository.GetDailyMealsReportByUserAndDate(request.UserId, request.date);
-            if (dailyMeals == null || !dailyMeals.Any())
-            {
-                return new List<GetDailyMealDataDTO>();
-            }
+            // 1) Tính Thứ Hai tuần chứa request.Date
+            DateTime startOfWeek = GetStartOfWeek(request.date.Date);
+            DateTime endOfWeek = startOfWeek.AddDays(6).Date; // Chủ Nhật
 
+            // 2) Lấy DailyMeal trong tuần đó
+            var dailyMeals = await _dailyMealRepository
+                .GetDailyMealsByUserAndDateRangeAsync(
+                    request.UserId,
+                    startOfWeek,
+                    endOfWeek);
+
+            // 3) Tập all MealId để load calories
             var mealIds = dailyMeals
-                .SelectMany(dm => dm.Meals.Select(m => m.MealId))
+                .SelectMany(dm => dm.Meals)
+                .Select(m => m.MealId)
                 .Distinct()
                 .ToList();
 
             var allMeals = await _mealRepository.GetAllMeals();
-            var mealsForReport = allMeals.Where(m => mealIds.Contains(m.MealId)).ToList();
+            var mealsForReport = allMeals
+                .Where(m => mealIds.Contains(m.MealId))
+                .ToList();
 
+            // 4) Tính calories cho từng meal
             var mealCalories = new Dictionary<Guid, float>();
             foreach (var meal in mealsForReport)
             {
-                float totalCaloriesForMeal = 0;
-                foreach (var mealFood in meal.MealFoods)
+                float cSum = 0;
+                foreach (var mf in meal.MealFoods)
                 {
-                    if (mealFood.Food?.Nutrition == null || mealFood.PortionId == Guid.Empty || !mealFood.IsCompleted)
+                    if (mf.Food?.Nutrition == null ||
+                        mf.PortionId == Guid.Empty ||
+                        !mf.IsCompleted)
                         continue;
 
-                    var portion = await _portionRepository.GetByIdAsync(mealFood.PortionId);
-                    if (portion == null)
-                        continue;
+                    var portion = await _portionRepository
+                        .GetByIdAsync(mf.PortionId);
+                    if (portion == null) continue;
 
-                    float portionWeight = portion.PortionWeight;
-                    totalCaloriesForMeal += (mealFood.Food.Nutrition.Calories / 100) * (mealFood.Quantity * portionWeight);
+                    cSum += (mf.Food.Nutrition.Calories / 100f)
+                          * (mf.Quantity * portion.PortionWeight);
                 }
-                mealCalories[meal.MealId] = totalCaloriesForMeal;
+                mealCalories[meal.MealId] = cSum;
             }
 
-            var requestDate = request.date.Date;
-            var startOfWeek = requestDate.AddDays(-(int)requestDate.DayOfWeek + (requestDate.DayOfWeek == DayOfWeek.Sunday ? -6 : 1)); // Thứ 2
-
-            var reportDict = new Dictionary<DateOnly, float>();
-
-            foreach (var dm in dailyMeals)
-            {
-                var date = DateOnly.FromDateTime(dm.DailyMealDate.Date);
-                float calories = 0;
-                foreach (var meal in dm.Meals)
+            // 5) Sinh 7 ngày Thứ Hai→Chủ Nhật, map calories từng ngày
+            var report = Enumerable.Range(0, 7)
+                .Select(i =>
                 {
-                    if (mealCalories.TryGetValue(meal.MealId, out float cal))
-                    {
-                        calories += cal;
-                    }
-                }
+                    var day = startOfWeek.AddDays(i);
+                    float dayCals = dailyMeals
+                        .Where(dm => dm.DailyMealDate.Date == day)
+                        .SelectMany(dm => dm.Meals)
+                        .Where(m => mealCalories.ContainsKey(m.MealId))
+                        .Sum(m => mealCalories[m.MealId]);
 
-                if (reportDict.ContainsKey(date))
-                    reportDict[date] += calories;
-                else
-                    reportDict[date] = calories;
-            }
-
-            var reportData = Enumerable.Range(0, 7)
-                .Select(offset =>
-                {
-                    var date = DateOnly.FromDateTime(startOfWeek.AddDays(offset));
-                    reportDict.TryGetValue(date, out float calories);
                     return new GetDailyMealDataDTO
                     {
-                        date = date.ToDateTime(TimeOnly.MinValue),
-                        Calories = calories
+                        date = day,
+                        Calories = dayCals
                     };
                 })
-                .OrderBy(x => x.date)
                 .ToList();
 
-            return reportData;
+            return report;
         }
+
+        /// <summary>
+        /// Trả về Thứ Hai của tuần chứa date (tuần chạy Mon→Sun).
+        /// </summary>
+        private DateTime GetStartOfWeek(DateTime date)
+        {
+            // (date.DayOfWeek - Monday + 7) % 7 = số ngày cần lùi để về Monday
+            int diff = ((int)date.DayOfWeek - (int)DayOfWeek.Monday + 7) % 7;
+            return date.AddDays(-diff).Date;
+        }
+
     }
 }

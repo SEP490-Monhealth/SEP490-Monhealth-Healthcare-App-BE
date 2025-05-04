@@ -213,5 +213,22 @@ namespace Monhealth.Identity.Repositories
                 );
         }
 
+       public async Task<List<DailyMeal>> GetDailyMealsByUserAndDateRangeAsync(
+            Guid userId,
+            DateTime startDate,
+            DateTime endDate)
+        {
+            return await _context.DailyMeals
+                .Where(dm =>
+                    dm.UserId == userId &&
+                    dm.DailyMealDate.Date >= startDate.Date &&
+                    dm.DailyMealDate.Date <= endDate.Date)
+                .Include(dm => dm.Meals)
+                  .ThenInclude(m => m.MealFoods)
+                    .ThenInclude(mf => mf.Food)
+                      .ThenInclude(f => f.Nutrition)
+                .AsNoTracking()
+                .ToListAsync();
+        }
     }
 }
