@@ -258,6 +258,29 @@ namespace Monhealth.Api.Controllers
                 Message = "Hoàn thành trạng thái giao dịch thành công"
             };
         }
+        [HttpPatch("{transactionId}/failed")]
+        [SwaggerOperation(Summary = "Cập nhật giao dịch vê trạng thái thất bại")]
+
+        public async Task<ActionResult<ResultModel>> ChangeStatusFailedTransaction(Guid transactionId)
+        {
+            var command = new UpdateStatusFailedCommand { TransactionId = transactionId };
+            var changeStatus = await mediator.Send(command);
+            if (!changeStatus)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Hoàn thành trạng thái giao thất bại"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Hoàn thành trạng thái giao dịch thành công"
+            };
+        }
     }
 }
 
