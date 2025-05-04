@@ -9,7 +9,7 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<Exercise> builder)
         {
-            var userId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
+            var admin = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6");
             var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
 
             builder.HasData(
@@ -18,7 +18,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("6fe4dcc3-5262-470e-b043-0db293dda2fb"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Nhảy dang tay",
                 Instructions =
@@ -27,8 +27,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -36,7 +36,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("68018365-010c-4ab8-81f4-05a5cbfcc24b"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Leo núi",
                 Instructions =
@@ -45,8 +45,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -54,7 +54,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("546e3f6d-16be-4d13-8c15-3947bcf15b1f"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Chéo chân năng động",
                 Instructions =
@@ -63,8 +63,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -72,7 +72,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("3100278d-eee7-4b89-b726-4b76daefabde"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Lắc vòng",
                 Instructions =
@@ -81,8 +81,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -90,7 +90,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("92ddccfd-7076-4dbc-b96b-9197cd4cc308"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Squats",
                 Instructions =
@@ -99,8 +99,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -108,7 +108,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("ee5b2085-e5d2-4236-8afb-6d1c33f97d30"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Nâng cao gối",
                 Instructions =
@@ -117,8 +117,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -126,7 +126,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("44f8a6a5-04ab-447a-9361-b0e545d12f42"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Xoay vòng tay",
                 Instructions =
@@ -135,8 +135,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -144,7 +144,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("72206c5e-58f3-46f0-a8b1-031cbf599433"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Macarena",
                 Instructions =
@@ -153,8 +153,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -162,7 +162,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("d0dcad19-4c0c-447d-8e3c-092c6d4ad14c"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Đi bộ kiểu zombie",
                 Instructions =
@@ -171,8 +171,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -180,7 +180,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("bd80fdd3-c46c-4410-b126-51a11a8a2f5b"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Chuông lắc",
                 Instructions =
@@ -189,8 +189,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -198,7 +198,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("ae6eaaa1-c8c4-4f97-afa4-4ceeea19d4b3"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Lunge và xoay ngực",
                 Instructions =
@@ -207,8 +207,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -216,7 +216,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("e7a186ac-57ea-47c1-8656-7419571b8cb4"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Sâu đo",
                 Instructions =
@@ -225,8 +225,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -234,7 +234,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("4e76715f-6578-41d8-8315-cdb23340fb5a"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Bước tới",
                 Instructions =
@@ -243,8 +243,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -252,7 +252,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("5cbc396e-381a-4d9f-9ad6-42b764deee3e"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Đá mông",
                 Instructions =
@@ -261,8 +261,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -270,7 +270,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("1b2afb40-fb97-49ec-8fe3-81a17c6c9078"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Tư thế chiến binh",
                 Instructions =
@@ -279,8 +279,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -288,7 +288,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("23842121-4834-4483-bfe2-2c244f5ecf76"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Trượt băng",
                 Instructions =
@@ -297,8 +297,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -306,7 +306,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("faebde03-bab9-457b-9b45-a9fabd4760aa"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Burpee",
                 Instructions =
@@ -315,8 +315,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -324,7 +324,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("90ce2a9f-d0be-4ca0-b3ca-8b6947a6b266"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Siêu nhân",
                 Instructions =
@@ -333,8 +333,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -342,7 +342,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("c076c867-b379-4889-9428-5bc1ae76cbc7"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Squat kiểu sumo",
                 Instructions =
@@ -351,8 +351,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -360,7 +360,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("efbcb7f9-3585-4a1b-8700-871547b7e857"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Nhảy Squat",
                 Instructions =
@@ -369,8 +369,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -378,7 +378,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("9dac0527-8042-462b-8f23-7a6b503efc68"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Gập chân",
                 Instructions =
@@ -387,8 +387,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -396,7 +396,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("8fad349a-913c-42dd-8bba-c1bc267918e9"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Chào buổi sáng",
                 Instructions =
@@ -405,8 +405,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -414,7 +414,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("30be3b2d-bf46-4e90-8139-41411971cefc"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Squat tĩnh",
                 Instructions =
@@ -423,8 +423,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -432,7 +432,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("1ff0ef05-4387-4483-8de3-0ef6d7724afd"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Chống đẩy dốc",
                 Instructions =
@@ -441,8 +441,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -450,7 +450,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("0b702969-cd49-412a-94a1-4f0027ec77d7"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Nâng tay sang ngang",
                 Instructions =
@@ -459,8 +459,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -468,7 +468,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("7c38fc8f-8fd2-450e-8fa6-c4557f0e6e02"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Chặt gỗ bên phải",
                 Instructions =
@@ -477,8 +477,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -486,7 +486,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("58878826-775e-4d4c-8e1b-d5c95afc214d"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Chặt gỗ bên trái",
                 Instructions =
@@ -495,8 +495,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -504,7 +504,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("bd976f53-25f4-49ba-9943-4c92a2a7eb89"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Nhảy dây",
                 Instructions =
@@ -513,8 +513,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -522,7 +522,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("9ba29558-e51b-4a1a-a1c4-b747967e32fb"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Tư thế con thuyền",
                 Instructions =
@@ -531,8 +531,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -540,7 +540,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("407ff857-d218-44a8-8d0f-0bfa5d53bf03"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Gập bụng chéo",
                 Instructions =
@@ -549,8 +549,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -558,7 +558,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("0a9e1fb3-9abf-4775-a75e-2bb13009a29d"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Squat với tạ",
                 Instructions =
@@ -567,8 +567,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -576,7 +576,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("b2e62599-1f8c-4fc2-9ca7-8ab7aa571d4e"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Ép tạ qua đầu khi ngồi",
                 Instructions =
@@ -585,8 +585,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -594,7 +594,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("3409fd0e-659a-4ee4-8157-60e2ba94350c"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Cuốn tay với dây kháng lực",
                 Instructions =
@@ -603,8 +603,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -612,7 +612,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("07a4dbcd-635a-4a76-92d4-8127de619e6d"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Plank ngôi sao",
                 Instructions =
@@ -621,8 +621,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -630,7 +630,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("ca76bd88-8267-4e05-afce-8765546c20f5"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Xoay người kiểu Nga",
                 Instructions =
@@ -639,8 +639,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -648,7 +648,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("01dc4c46-e1ef-44bc-9f19-ecb283bf27ce"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Nâng chân sang ngang bên phải",
                 Instructions =
@@ -657,8 +657,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -666,7 +666,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("6badb5b5-ad99-4b89-80c6-e52d0f7cd7ba"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Nâng chân sang ngang bên trái",
                 Instructions =
@@ -675,8 +675,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -684,7 +684,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("2d7c513e-1dc6-46c8-82d6-9d39df8074e3"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Duỗi tay sau đầu bên phải",
                 Instructions =
@@ -693,8 +693,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -702,7 +702,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("bc06f6c3-3625-438b-9563-3406e50612ee"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Duỗi tay sau đầu bên trái",
                 Instructions =
@@ -711,8 +711,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -720,7 +720,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("93e22c77-001f-4825-8983-4ec5b643b7bb"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Nâng bắp chân",
                 Instructions =
@@ -729,8 +729,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -738,7 +738,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("439db970-c7c8-4b3b-9a35-127d31d920dc"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Plank nhảy",
                 Instructions =
@@ -747,8 +747,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -756,7 +756,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("0a280d32-de67-4a38-8f21-923243489eef"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Gập bụng và xoay người",
                 Instructions =
@@ -765,8 +765,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -774,7 +774,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("235f7494-3e7d-45a5-a31a-6d5449b1322d"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Bước lùi",
                 Instructions =
@@ -783,8 +783,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -792,7 +792,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("f51a195e-e5d3-4da9-9b6d-eba4f2856f14"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Đá chân sau với dây kháng lực bên phải",
                 Instructions =
@@ -801,8 +801,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -810,7 +810,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("1ecc8327-e3b6-4a76-906a-d64b3fa3a9be"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Đá chân sau với dây kháng lực bên trái",
                 Instructions =
@@ -819,8 +819,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -828,7 +828,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("9fb83332-a8fc-4fcc-a015-2e784e2ab33b"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Squat với tạ",
                 Instructions =
@@ -837,8 +837,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -846,7 +846,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("8b93dbb2-fc2b-4627-b79a-3ec45a7c6238"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Đá mông bên phải",
                 Instructions =
@@ -855,8 +855,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -864,7 +864,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("8619916d-a296-48a5-af89-f82a6a1cb26f"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Đá mông bên trái",
                 Instructions =
@@ -873,8 +873,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -882,7 +882,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("d4ebca3a-83ef-485b-9178-83d4eab9694c"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Cây cầu",
                 Instructions =
@@ -891,8 +891,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -900,7 +900,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("6749cbc6-0e28-4163-95e8-7fb2a27c54cf"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Chim bay",
                 Instructions =
@@ -909,8 +909,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -918,7 +918,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("e6bf67b0-8f4e-4585-9669-4f205d0aaf8e"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Chống đẩy trên đầu gối",
                 Instructions =
@@ -927,8 +927,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -936,7 +936,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("2da27966-24d6-4159-9a70-968e20c4036d"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Ép tạ qua đầu khi ngồi",
                 Instructions =
@@ -945,8 +945,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -954,7 +954,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("3f674891-2d75-42bf-af35-a89dff24ab22"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Deadlift với dây kháng lực",
                 Instructions =
@@ -963,8 +963,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -972,7 +972,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("a4c84cac-058f-472a-8b81-a00c025eace4"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Burpee dễ dàng",
                 Instructions =
@@ -981,8 +981,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -990,7 +990,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("0c011f92-425a-477c-84d4-3d6dc883119b"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Mở ngực",
                 Instructions =
@@ -999,8 +999,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1008,7 +1008,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("f06a6d9b-ed14-46cd-9e56-145cd1fd3d7c"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Chuyển động Arlaud",
                 Instructions =
@@ -1017,8 +1017,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1026,7 +1026,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("4d4ca701-48a4-4385-a9b7-511cf07ef775"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Deadlift với tạ",
                 Instructions =
@@ -1035,8 +1035,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1044,7 +1044,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("6ef8ed78-0d00-4271-bf9b-edf27a55ecab"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Đá tay sau với tạ bên phải",
                 Instructions =
@@ -1053,8 +1053,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1062,7 +1062,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("0d816828-8a94-4dcb-a87c-b70b295a39b6"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Đá tay sau với tạ bên trái",
                 Instructions =
@@ -1071,8 +1071,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1080,7 +1080,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("587228d2-b0a2-46d4-8f0b-e728a3726993"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Plank",
                 Instructions =
@@ -1089,8 +1089,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1098,7 +1098,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("256e23fa-03b1-4328-a325-512f0860d9b0"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Nâng chân",
                 Instructions =
@@ -1107,8 +1107,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1116,7 +1116,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("d9d1c0b6-1d8d-42cf-aeca-8d9359e67ac8"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Bước tới",
                 Instructions =
@@ -1125,8 +1125,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1134,7 +1134,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("1c5d2078-a923-4953-9677-ff890977ffcd"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Squat nhịp nhàng",
                 Instructions =
@@ -1143,8 +1143,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1152,7 +1152,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("01e6141a-930e-4126-a2c6-7c32a2ccdd43"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Kéo vai bằng dây đàn hồi",
                 Instructions =
@@ -1161,8 +1161,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1170,7 +1170,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("ac074f67-d4bf-4a7f-b7e3-d8d03bbb6704"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Cuốn tạ",
                 Instructions =
@@ -1179,8 +1179,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1188,7 +1188,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("4834f1ce-41dc-4161-ac51-e03ca78b62b8"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Siêu nhân tĩnh",
                 Instructions =
@@ -1197,8 +1197,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1206,7 +1206,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("3a5a57a3-3495-45ae-9ebe-708e4d513d0c"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Đi bộ gấu",
                 Instructions =
@@ -1215,8 +1215,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1224,7 +1224,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("d6b2c0d5-110f-4dff-9aa7-91da10a29dca"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Nâng hông với dây kháng lực",
                 Instructions =
@@ -1233,8 +1233,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1242,7 +1242,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("13ca014d-8b75-414f-afe3-3d378ef7fa97"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Bước lên",
                 Instructions =
@@ -1251,8 +1251,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1260,7 +1260,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("05c931df-c828-442e-aee1-56432cb772c7"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Plank ngược",
                 Instructions =
@@ -1269,8 +1269,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1278,7 +1278,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("a9629bb1-7d84-4e14-8898-c3bf6c932efb"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Gập bụng",
                 Instructions =
@@ -1287,8 +1287,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1296,7 +1296,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("22af0171-257b-43bc-9013-8985472a8c84"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Gập bụng chéo bên phải",
                 Instructions =
@@ -1305,8 +1305,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1314,7 +1314,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("6ffea500-ca35-4483-b049-d8593b2c8680"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Gập bụng chéo bên trái",
                 Instructions =
@@ -1323,8 +1323,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1332,7 +1332,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("6d6b06e1-5ade-4dae-b442-7aa200661760"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Plank bắt đầu",
                 Instructions =
@@ -1341,8 +1341,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1350,7 +1350,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("0d1e54fe-7a5f-4e0a-a59f-ee9f443718e0"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Chạm mũi chân khi đứng",
                 Instructions =
@@ -1359,8 +1359,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1368,7 +1368,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("d3d944c4-947d-4910-bb6e-636390e5b8d5"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Plank nghiêng bên trái",
                 Instructions =
@@ -1377,8 +1377,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1386,7 +1386,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("f93d73ba-d1d6-4037-b51b-1fd005accff3"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Plank nghiêng bên phải",
                 Instructions =
@@ -1395,8 +1395,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1404,7 +1404,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("385f13f7-79bf-437b-acac-745b50485b9f"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Nâng tay phía trước",
                 Instructions =
@@ -1413,8 +1413,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1422,7 +1422,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("2e787245-7612-41bc-9b75-7a4857282350"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Reps,
                 ExerciseName = "Gập người lên và nâng hông",
                 Instructions =
@@ -1431,8 +1431,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -1440,7 +1440,7 @@ namespace Monhealth.Identity.Configurations
             new Exercise
             {
                 ExerciseId = Guid.Parse("2696db05-e815-4c8b-870d-23c338479e95"),
-                UserId = userId,
+                UserId = admin,
                 ExerciseType = ExerciseType.Time,
                 ExerciseName = "Tựa lưng vào tường",
                 Instructions =
@@ -1449,8 +1449,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId
+                CreatedBy = admin,
+                UpdatedBy = admin
             }
             #endregion
             );

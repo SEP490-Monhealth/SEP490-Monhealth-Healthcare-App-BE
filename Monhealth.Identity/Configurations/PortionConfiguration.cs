@@ -8,7 +8,7 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<Portion> builder)
         {
-            var userId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
+            var admin = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
             var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
 
             builder.HasData(
@@ -22,8 +22,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -36,8 +36,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -50,8 +50,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -64,8 +64,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -78,8 +78,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -92,8 +92,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -106,8 +106,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -120,8 +120,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -134,8 +134,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -148,8 +148,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -162,8 +162,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -176,8 +176,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -190,8 +190,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -204,8 +204,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -218,8 +218,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -232,8 +232,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -246,8 +246,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -260,8 +260,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -274,8 +274,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -288,8 +288,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -302,8 +302,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -316,8 +316,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -330,8 +330,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -344,8 +344,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -358,8 +358,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -372,8 +372,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -386,8 +386,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -400,8 +400,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -414,8 +414,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -428,8 +428,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -442,8 +442,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -456,8 +456,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -470,8 +470,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -484,8 +484,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -498,8 +498,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -512,8 +512,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -526,8 +526,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -540,8 +540,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -554,8 +554,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -568,8 +568,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -582,8 +582,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -596,8 +596,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -610,8 +610,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -624,8 +624,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -638,8 +638,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -652,8 +652,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -666,8 +666,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             #endregion
@@ -682,8 +682,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -696,8 +696,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -710,8 +710,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -724,8 +724,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -738,8 +738,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -752,8 +752,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -766,8 +766,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -780,8 +780,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -794,8 +794,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -808,8 +808,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -822,8 +822,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -836,8 +836,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -850,8 +850,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -864,8 +864,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -878,8 +878,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -892,8 +892,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -906,8 +906,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -920,8 +920,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -934,8 +934,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -948,8 +948,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -962,8 +962,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -976,8 +976,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -990,8 +990,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1004,8 +1004,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1018,8 +1018,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1032,8 +1032,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "ml",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1046,8 +1046,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1060,8 +1060,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1074,8 +1074,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1088,8 +1088,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1102,8 +1102,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1116,8 +1116,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1130,8 +1130,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1144,8 +1144,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1158,8 +1158,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1172,8 +1172,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1186,8 +1186,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1200,8 +1200,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1214,8 +1214,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1228,8 +1228,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1242,8 +1242,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1256,8 +1256,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1270,8 +1270,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1284,8 +1284,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1298,8 +1298,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1312,8 +1312,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1326,8 +1326,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1340,8 +1340,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1354,8 +1354,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1368,8 +1368,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1382,8 +1382,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1396,8 +1396,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1410,8 +1410,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1424,8 +1424,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1438,8 +1438,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1452,8 +1452,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1466,8 +1466,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1480,8 +1480,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1494,8 +1494,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1508,8 +1508,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1522,8 +1522,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1536,8 +1536,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1550,8 +1550,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1564,8 +1564,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1578,8 +1578,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1592,8 +1592,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1606,8 +1606,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1620,8 +1620,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1634,8 +1634,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1648,8 +1648,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1662,8 +1662,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1676,8 +1676,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1690,8 +1690,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1704,8 +1704,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1718,8 +1718,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1732,8 +1732,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1746,8 +1746,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -1760,8 +1760,8 @@ namespace Monhealth.Identity.Configurations
                 MeasurementUnit = "g",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             }
             #endregion
             );

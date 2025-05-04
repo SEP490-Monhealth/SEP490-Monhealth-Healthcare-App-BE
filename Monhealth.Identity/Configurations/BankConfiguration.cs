@@ -8,8 +8,8 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<Bank> builder)
         {
+            var admin = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6");
             var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
-            var admin = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B");
 
             builder.HasData(
 

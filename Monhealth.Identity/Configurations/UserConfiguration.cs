@@ -11,7 +11,7 @@ namespace Monhealth.Identity.Configurations
         {
             var hasher = new PasswordHasher<AppUser>();
 
-            var userId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
+            var admin = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
             var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
 
             builder.HasData(
@@ -33,8 +33,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = today,
                 CreatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -54,8 +54,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = today,
                 CreatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -75,8 +75,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = today,
                 CreatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -96,8 +96,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = today,
                 CreatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -117,8 +117,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = today,
                 CreatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -138,8 +138,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = today,
                 CreatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -159,8 +159,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
                 CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -180,8 +180,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
                 CreatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -201,8 +201,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = DateTime.ParseExact("12-04-2025", "dd-MM-yyyy", null),
                 CreatedAt = DateTime.ParseExact("12-04-2025", "dd-MM-yyyy", null),
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -222,8 +222,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = DateTime.ParseExact("12-04-2025", "dd-MM-yyyy", null),
                 CreatedAt = DateTime.ParseExact("12-04-2025", "dd-MM-yyyy", null),
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -243,8 +243,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = DateTime.ParseExact("10-04-2025", "dd-MM-yyyy", null),
                 CreatedAt = DateTime.ParseExact("10-04-2025", "dd-MM-yyyy", null),
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -264,8 +264,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = DateTime.ParseExact("01-05-2025", "dd-MM-yyyy", null),
                 CreatedAt = DateTime.ParseExact("01-05-2025", "dd-MM-yyyy", null),
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -285,8 +285,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = DateTime.ParseExact("01-05-2025", "dd-MM-yyyy", null),
                 CreatedAt = DateTime.ParseExact("01-05-2025", "dd-MM-yyyy", null),
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -306,8 +306,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = DateTime.ParseExact("20-04-2025", "dd-MM-yyyy", null),
                 CreatedAt = DateTime.ParseExact("20-04-2025", "dd-MM-yyyy", null),
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
 
             new AppUser
@@ -327,8 +327,8 @@ namespace Monhealth.Identity.Configurations
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UpdatedAt = today,
                 CreatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             });
         }
     }

@@ -9,7 +9,7 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<Workout> builder)
         {
-            var userId = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
+            var admin = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
             var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
 
             var fullBody = Guid.Parse("fccb0ebd-ff54-401b-a1ec-0e9f63804bb9");
@@ -23,7 +23,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("027c771b-8dd4-4124-b651-111fda0b0dcf"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Khởi động toàn thân",
@@ -35,8 +35,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -44,7 +44,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("032322a9-a232-4030-bed3-0ccf952d5cff"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Chân dẻo dai",
@@ -56,8 +56,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -65,7 +65,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("580069d7-9025-4864-adf2-3037608e9a22"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = upperBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Tay uyển chuyển",
@@ -77,8 +77,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -86,7 +86,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("03741247-6b2d-49a9-a656-7fc8343747bd"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Vận động toàn thân",
@@ -98,8 +98,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -107,7 +107,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("298502cf-ebdf-4044-9350-a14606ebe099"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Chân săn chắc",
@@ -119,8 +119,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -128,7 +128,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("2b36b55e-d222-4cb9-9540-4ce82f7abe54"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = upperBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Tay linh hoạt",
@@ -140,8 +140,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -149,7 +149,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("60db3b47-a756-40d2-8d2a-47b5d02b10b3"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Tập luyện toàn thân",
@@ -161,8 +161,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -170,7 +170,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("ab9d8ae9-478c-450b-aecc-a86f3ce054b2"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Chân khỏe mạnh",
@@ -182,8 +182,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -191,7 +191,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("56bdef4d-ab20-46cd-b74b-fc22d25edc00"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = upperBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Tay rắn chắc",
@@ -203,8 +203,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -212,7 +212,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("5c81c79b-cb95-4dd6-9620-75484f04a559"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Thử thách thể lực",
@@ -224,8 +224,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -233,7 +233,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("d4425ce8-4652-4ea2-b26b-1ffd8835f97f"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Chân bền bỉ",
@@ -245,8 +245,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -254,7 +254,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("8aaffa80-a610-4eb3-adb2-bbb46d2487d0"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = upperBody,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Tay cường độ cao",
@@ -266,8 +266,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -275,7 +275,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("28de23bb-07b9-4ebc-8f72-ead4d54a4883"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = abs,
                 WorkoutType = WorkoutType.Warmup,
                 WorkoutName = "Bụng săn chắc",
@@ -287,8 +287,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -296,7 +296,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("092499c9-93fe-45f9-abd9-c0641b9d06d1"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Khởi động linh hoạt",
@@ -308,8 +308,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -317,7 +317,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("bcfb878c-4188-4e02-bdb8-6ff72e9c8fb0"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Toàn thân mạnh mẽ",
@@ -329,8 +329,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -338,7 +338,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("bbd7c538-33d2-4f57-ae74-3b96fbd59563"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = upperBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Nhịp điệu sôi động",
@@ -350,8 +350,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -359,7 +359,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("2308c57b-829b-4c6e-b362-5b4634af2877"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Năng lượng dồi dào",
@@ -371,8 +371,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -380,7 +380,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("d5487fbc-066f-4073-acf3-2d7c595012ee"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Vươn tầm sức mạnh",
@@ -392,8 +392,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -401,7 +401,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("b8fd1003-667c-417e-80b8-d1b32f0b6788"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Khỏe và linh hoạt",
@@ -413,8 +413,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -422,7 +422,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("d103ce77-a74a-4227-aba0-e0c5452790a1"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Dẻo dai và bền bỉ",
@@ -434,8 +434,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -443,7 +443,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("0812b9f4-73d9-4878-b99e-0b081f92ed13"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = abs,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Vũ điệu thể thao",
@@ -455,8 +455,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -464,7 +464,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("3ae73e0d-e6cc-4962-a17c-4e087d655e64"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Sức mạnh và cân bằng",
@@ -476,8 +476,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -485,7 +485,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("568e1c3d-c775-4597-86e1-cb65cfe0df6a"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Khỏe mạnh toàn diện",
@@ -497,8 +497,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -506,7 +506,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("a99efeb6-14a4-44f6-8d22-b293db1fedcc"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = upperBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Vũ điệu kết hợp",
@@ -518,8 +518,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -527,7 +527,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("da56e057-d5d4-4077-a7c4-111bf3470e08"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Thử thách cường độ cao",
@@ -539,8 +539,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -548,7 +548,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("cd738c01-05e8-4b4a-8d85-58544c6e95b5"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Toàn thân săn chắc",
@@ -560,8 +560,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -569,7 +569,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("906a8fa1-d0d6-477d-bc07-167098891ffb"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Khởi động cơ bản",
@@ -581,8 +581,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -590,7 +590,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("5d0a9ed1-c2e3-42f8-93b0-c6f2b9781ccc"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Luyện tập sức bền",
@@ -602,8 +602,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -611,7 +611,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("ab2503e2-4ecb-44a4-9e5c-6fc4ad697783"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Luyện tập nhanh và mạnh",
@@ -623,8 +623,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -632,7 +632,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("e628d9f7-d645-4f48-b84d-44d6cc38d8ea"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = upperBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Chuyển động linh hoạt",
@@ -644,8 +644,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -653,7 +653,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("536ac05d-37a7-41a9-80e0-b1651a24e1d7"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Sức mạnh toàn diện",
@@ -665,8 +665,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -674,7 +674,7 @@ namespace Monhealth.Identity.Configurations
             // new Workout
             // {
             //     WorkoutId = new Guid("7691ed30-fe88-4e75-97c6-f5f88d304efb"),
-            //     UserId = userId,
+            //     UserId = admin,
             //     CategoryId = fullBody,
             //     WorkoutType = WorkoutType.Workout,
             //     WorkoutName = "Sức mạnh toàn diện",
@@ -686,8 +686,8 @@ namespace Monhealth.Identity.Configurations
             // Status = true,
             //     CreatedAt = today,
             //     UpdatedAt = today,
-            //     CreatedBy = userId,
-            //     UpdatedBy = userId,
+            //     CreatedBy = admin,
+            //     UpdatedBy = admin,
             // },
             // #endregion
 
@@ -695,7 +695,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("425fc485-239f-479e-a4da-b1fe6aed6822"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Khỏe và dẻo dai",
@@ -707,8 +707,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -716,7 +716,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("8ac41353-c90d-478d-85b7-1c5ebdbb0da2"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Tập luyện toàn thân",
@@ -728,8 +728,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -737,7 +737,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("408aa31e-0ccf-45ec-bb86-d2c9135f8a38"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Dẻo dai và năng lượng",
@@ -749,8 +749,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -758,7 +758,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("c08197fe-5bf6-442c-ade3-6d41313267e7"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = abs,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Khởi động cơ thể",
@@ -770,8 +770,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -779,7 +779,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("b9329533-0f83-4c93-ac2b-6c6beba82c4f"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = abs,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Linh hoạt và khỏe mạnh",
@@ -791,8 +791,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -800,7 +800,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("22ccc19e-e649-4c46-b13f-b05bf60100d4"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = abs,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Săn chắc và khỏe mạnh",
@@ -812,8 +812,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -821,7 +821,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("d0a4a055-5a3a-485e-9c98-3e01ae0279d3"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Sức mạnh và bền bỉ",
@@ -833,8 +833,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -842,7 +842,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("227a4189-7704-4648-9d9d-1f2c772fd25a"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = upperBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Vũ điệu thể thao",
@@ -854,8 +854,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -863,7 +863,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("73689578-c13d-4f96-972d-6e52b4a2fd5b"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = abs,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Chuyển động nhịp nhàng",
@@ -875,8 +875,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -884,7 +884,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("eef6374e-4803-402b-bc2b-a48efa2e3270"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Đốt cháy năng lượng",
@@ -896,8 +896,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -905,7 +905,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("49deb148-c08a-4f58-980e-8e2f65a6d757"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = upperBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Toàn thân khỏe mạnh",
@@ -917,8 +917,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -926,7 +926,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("93114cad-bc0e-40ca-b465-4911b26ffbc0"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = fullBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Linh hoạt và mạnh mẽ",
@@ -938,8 +938,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             },
             #endregion
 
@@ -947,7 +947,7 @@ namespace Monhealth.Identity.Configurations
             new Workout
             {
                 WorkoutId = new Guid("f9a5b7be-bd78-4185-9e35-ad2c90a55c69"),
-                UserId = userId,
+                UserId = admin,
                 CategoryId = lowerBody,
                 WorkoutType = WorkoutType.Workout,
                 WorkoutName = "Luyện tập linh hoạt và bền bỉ",
@@ -959,8 +959,8 @@ namespace Monhealth.Identity.Configurations
                 Status = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = userId,
-                UpdatedBy = userId,
+                CreatedBy = admin,
+                UpdatedBy = admin,
             }
             #endregion
             );

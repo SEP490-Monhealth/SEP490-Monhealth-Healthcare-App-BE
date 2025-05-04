@@ -25,9 +25,9 @@ namespace Monhealth.Identity.Configurations
                 ExpiryDate = DateTime.ParseExact("01-01-2027", "dd-MM-yyyy", null),
                 IssuedBy = "NASM",
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
+                IsVerified = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                IsVerified = true,
             },
             #endregion
 
@@ -44,10 +44,9 @@ namespace Monhealth.Identity.Configurations
                 ExpiryDate = DateTime.ParseExact("01-01-2028", "dd-MM-yyyy", null),
                 IssuedBy = "Mindful Schools",
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
+                IsVerified = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                IsVerified = true,
-
             },
             #endregion
 
@@ -64,10 +63,9 @@ namespace Monhealth.Identity.Configurations
                 ExpiryDate = DateTime.ParseExact("01-01-2029", "dd-MM-yyyy", null),
                 IssuedBy = "Academy of Nutrition",
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
+                IsVerified = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                IsVerified = true,
-
             },
             #endregion
 
@@ -84,10 +82,9 @@ namespace Monhealth.Identity.Configurations
                 ExpiryDate = DateTime.ParseExact("01-01-2028", "dd-MM-yyyy", null),
                 IssuedBy = "National Strength and Conditioning",
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
+                IsVerified = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                IsVerified = true,
-
             },
             #endregion
 
@@ -104,10 +101,9 @@ namespace Monhealth.Identity.Configurations
                 ExpiryDate = DateTime.ParseExact("01-01-2029", "dd-MM-yyyy", null),
                 IssuedBy = "Yoga Alliance",
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
+                IsVerified = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                IsVerified = true,
-
             },
             #endregion
 
@@ -124,10 +120,9 @@ namespace Monhealth.Identity.Configurations
                 ExpiryDate = DateTime.ParseExact("01-01-2027", "dd-MM-yyyy", null),
                 IssuedBy = "ACSM",
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
+                IsVerified = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                IsVerified = true,
-
             },
             #endregion
 
@@ -144,10 +139,9 @@ namespace Monhealth.Identity.Configurations
                 ExpiryDate = DateTime.ParseExact("01-01-2029", "dd-MM-yyyy", null),
                 IssuedBy = "American Council on Exercise",
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb" },
+                IsVerified = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                IsVerified = true,
-
             },
             #endregion
 
@@ -163,10 +157,9 @@ namespace Monhealth.Identity.Configurations
                 ExpiryDate = DateTime.ParseExact("01-01-2026", "dd-MM-yyyy", null),
                 IssuedBy = "Monhealth Academy",
                 ImageUrls = new List<string> { "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_1.jpg?alt=media&token=331a36a4-82bb-4102-b224-da8cc1067efb", "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcertificates%2Fchung_chi_2.jpg?alt=media&token=25015de2-7cdc-4a9f-9355-0c7b4b99fd85" },
+                IsVerified = true,
                 CreatedAt = today,
                 UpdatedAt = today,
-                IsVerified = true,
-
             }
             #endregion
             );

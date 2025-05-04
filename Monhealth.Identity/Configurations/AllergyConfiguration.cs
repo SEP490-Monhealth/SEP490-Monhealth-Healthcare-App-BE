@@ -8,8 +8,8 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<Allergy> builder)
         {
+            var admin = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6");
             var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
-            var user = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B");
 
             builder.HasData(
 
@@ -21,8 +21,8 @@ namespace Monhealth.Identity.Configurations
                 AllergyDescription = "Dị ứng với đậu phộng khá phổ biến và có thể gây phản ứng nghiêm trọng như sưng tấy, phát ban, khó thở, hoặc sốc phản vệ",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -34,8 +34,8 @@ namespace Monhealth.Identity.Configurations
                 AllergyDescription = "Dị ứng với hải sản có vỏ như tôm, cua, sò, nghêu rất phổ biến ở Việt Nam và có thể gây phản ứng dị ứng nặng, từ phát ban đến khó thở",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
             #region Allergy 3
@@ -46,8 +46,8 @@ namespace Monhealth.Identity.Configurations
                 AllergyDescription = "Dị ứng sữa có thể gây ngứa, phát ban, hoặc tiêu chảy ở một số người, đặc biệt là trẻ em",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -59,8 +59,8 @@ namespace Monhealth.Identity.Configurations
                 AllergyDescription = "Dị ứng trứng là một trong những dị ứng thực phẩm phổ biến, đặc biệt là ở trẻ em. Triệu chứng có thể bao gồm phát ban, ngứa, hoặc khó thở",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -72,8 +72,8 @@ namespace Monhealth.Identity.Configurations
                 AllergyDescription = "Dị ứng với lúa mì, thường gặp ở những người không dung nạp gluten",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -85,8 +85,8 @@ namespace Monhealth.Identity.Configurations
                 AllergyDescription = "Dị ứng cá cũng khá phổ biến và có thể gây ra các phản ứng nghiêm trọng như phát ban, sưng, hoặc khó thở",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -98,8 +98,8 @@ namespace Monhealth.Identity.Configurations
                 AllergyDescription = "Dị ứng với các loại hạt như hạt điều, hạt hạnh nhân cũng có thể gây ra phản ứng mạnh, đặc biệt là đối với những người có cơ địa nhạy cảm",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -111,8 +111,8 @@ namespace Monhealth.Identity.Configurations
                 AllergyDescription = "Dị ứng với đậu nành khá phổ biến và có thể gây phát ban, ngứa, hoặc khó thở. Đậu nành là thành phần chính trong nhiều thức ăn và thực phẩm chế biến sẵn tại Việt Nam",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -124,8 +124,8 @@ namespace Monhealth.Identity.Configurations
                 AllergyDescription = "Dị ứng với hạt vừng (mè) có thể gây phát ban, ngứa, và có thể nghiêm trọng nếu không được kiểm soát",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             }
             #endregion
             );

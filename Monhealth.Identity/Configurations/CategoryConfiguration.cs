@@ -9,8 +9,8 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
+            var admin = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6");
             var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
-            var user = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B");
 
             builder.HasData(
 
@@ -24,8 +24,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcrab.png?alt=media&token=0cde2529-8e28-4b5e-80cf-660f27564de2",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -39,8 +39,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fsteak.png?alt=media&token=dfffb9c2-2964-40cc-8712-e83b4200e7af",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -54,8 +54,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fbroccoli.png?alt=media&token=6746e0eb-bcf0-44d1-830a-79821f735f84",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -69,8 +69,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Frice.png?alt=media&token=1ef6ca23-003f-4415-9ce4-3a3f5cd8e65e",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -84,8 +84,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fgrain.png?alt=media&token=e224b22a-925e-4aa4-ab50-d74309ba71f4",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
 
             #endregion
@@ -100,8 +100,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fradish.png?alt=media&token=c27e26f3-3f39-42ec-bf40-94c9abb074d5",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
 
             #endregion
@@ -116,8 +116,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcupcake.png?alt=media&token=8721bd49-186f-4ccf-a85a-64008e4c8e38",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
 
             #endregion
@@ -132,8 +132,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fcoffee-cup.png?alt=media&token=14155321-cd44-422b-a49f-3e34636d7f85",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
 
             #endregion
@@ -148,8 +148,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fpickles.png?alt=media&token=2a078ceb-40a9-403d-a68c-9682faf1b97f",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
 
             #endregion
@@ -164,8 +164,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fapple.png?alt=media&token=106a39ee-5c36-4c27-8bbe-c850ee19cb02",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
 
             #endregion
@@ -180,8 +180,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Monhealth%2Fcategories%2Fburger.png?alt=media&token=66dd457f-64d3-4b66-851c-10eba13fdc7d",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
 
             #endregion
@@ -196,8 +196,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -211,8 +211,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -226,8 +226,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             },
             #endregion
 
@@ -241,8 +241,8 @@ namespace Monhealth.Identity.Configurations
                 ImageUrl = "",
                 CreatedAt = today,
                 UpdatedAt = today,
-                CreatedBy = user,
-                UpdatedBy = user
+                CreatedBy = admin,
+                UpdatedBy = admin
             }
             #endregion
             );

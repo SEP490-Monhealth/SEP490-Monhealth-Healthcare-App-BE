@@ -2690,7 +2690,7 @@ namespace Monhealth.Identity.Configurations
                 Carbs = 40,
                 Fiber = 1.5f,
                 Sugar = 2,
-                Fat = 7,    
+                Fat = 7,
                 SaturatedFat = 4,
                 UnsaturatedFat = 6,
                 Cholesterol = 60,

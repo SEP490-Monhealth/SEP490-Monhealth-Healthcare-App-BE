@@ -8,7 +8,7 @@ namespace Monhealth.Identity.Configurations
     {
         public void Configure(EntityTypeBuilder<WaterReminder> builder)
         {
-            var userId = Guid.Parse("9d7e87a9-b070-4607-a0b0-2d2322aece9b");
+            var admin = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6");
 
             builder.HasData(
 
@@ -16,7 +16,7 @@ namespace Monhealth.Identity.Configurations
             new WaterReminder
             {
                 WaterReminderId = Guid.NewGuid(),
-                UserId = userId,
+                UserId = admin,
                 WaterReminderName = "Nhắc nhở 1",
                 Time = "07:00",
                 Volume = 273.0f,
@@ -32,7 +32,7 @@ namespace Monhealth.Identity.Configurations
             new WaterReminder
             {
                 WaterReminderId = Guid.NewGuid(),
-                UserId = userId,
+                UserId = admin,
                 WaterReminderName = "Nhắc nhở 2",
                 Time = "09:00",
                 Volume = 182.0f,
@@ -48,7 +48,7 @@ namespace Monhealth.Identity.Configurations
             new WaterReminder
             {
                 WaterReminderId = Guid.NewGuid(),
-                UserId = userId,
+                UserId = admin,
                 WaterReminderName = "Nhắc nhở 3",
                 Time = "11:00",
                 Volume = 182.0f,
@@ -64,7 +64,7 @@ namespace Monhealth.Identity.Configurations
             new WaterReminder
             {
                 WaterReminderId = Guid.NewGuid(),
-                UserId = userId,
+                UserId = admin,
                 WaterReminderName = "Nhắc nhở 4",
                 Time = "13:00",
                 Volume = 273.0f,
@@ -80,7 +80,7 @@ namespace Monhealth.Identity.Configurations
             new WaterReminder
             {
                 WaterReminderId = Guid.NewGuid(),
-                UserId = userId,
+                UserId = admin,
                 WaterReminderName = "Nhắc nhở 5",
                 Time = "15:30",
                 Volume = 273.0f,
@@ -96,7 +96,7 @@ namespace Monhealth.Identity.Configurations
             new WaterReminder
             {
                 WaterReminderId = Guid.NewGuid(),
-                UserId = userId,
+                UserId = admin,
                 WaterReminderName = "Nhắc nhở 6",
                 Time = "17:00",
                 Volume = 273.0f,
@@ -112,7 +112,7 @@ namespace Monhealth.Identity.Configurations
             new WaterReminder
             {
                 WaterReminderId = Guid.NewGuid(),
-                UserId = userId,
+                UserId = admin,
                 WaterReminderName = "Nhắc nhở 7",
                 Time = "19:30",
                 Volume = 182.0f,
@@ -128,7 +128,7 @@ namespace Monhealth.Identity.Configurations
             new WaterReminder
             {
                 WaterReminderId = Guid.NewGuid(),
-                UserId = userId,
+                UserId = admin,
                 WaterReminderName = "Nhắc nhở 8",
                 Time = "21:00",
                 Volume = 182.0f,
