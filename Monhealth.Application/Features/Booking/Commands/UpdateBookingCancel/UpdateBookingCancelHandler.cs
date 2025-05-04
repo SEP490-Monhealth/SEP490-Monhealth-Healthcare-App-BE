@@ -6,7 +6,7 @@ using Monhealth.Domain.Enum;
 
 namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
 {
-    public class UpdateBookingCancelHandler(IBookingRepository bookingRepository,
+    public class UpdateBookingCancelHandler(IBookingRepository bookingRepository,   
         IConsultantRepository consultantRepository,
         IUserSubscriptionRepository userSubscriptionRepository,
         ISystemNotificationService systemNotificationService
@@ -31,7 +31,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
                 consultant.BookingCount -= 1;
             }
 
-            //plus amout remaining booking
+            //plus amount remaining booking
             var userSubscription = await userSubscriptionRepository.GetUserSubscriptionActiveOfUser((Guid)booking.UserId);
             if (userSubscription == null) throw new Exception("Không tìm thấy gói người dùng đã đăng kí");
 
