@@ -161,7 +161,7 @@ namespace Monhealth.Api.Controllers
         //     });
         // }
 
-        [HttpPost("public")]
+        [HttpPost("admin")]
         [ActionName("AddFoodAdmin")]
         [SwaggerOperation(Summary = "Tạo thức ăn cho admin")]
         public async Task<ActionResult<ResultModel>> AddFoodForAdmin([FromBody] AddFoodRequest request)

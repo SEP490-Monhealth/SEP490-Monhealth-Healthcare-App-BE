@@ -861,7 +861,6 @@ namespace Monhealth.Infrastructure.NotificationServices
                     //          : "0";
                     // string content = $"Yêu cầu rút {formattedAmount} VNĐ của bạn đã được tạo thành công và đang chờ phê duyệt";
 
-
                     var amount = withdrawalRequest.Amount;
 
                     string title = "Thông báo";
