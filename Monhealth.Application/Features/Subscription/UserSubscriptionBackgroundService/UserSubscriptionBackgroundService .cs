@@ -196,8 +196,8 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
             dailyMealRepository.Add(dailyMeal);
             await dailyMealRepository.SaveChangeAsync();
 
-            _logger.LogInformation(
-                $"[{DateTime.Now:HH:mm:ss}] DailyMeal created for User {user.Id} on {targetDate:yyyy-MM-dd}.");
+            // _logger.LogInformation(
+            //     $"[{DateTime.Now:HH:mm:ss}] DailyMeal created for User {user.Id} on {targetDate:yyyy-MM-dd}.");
         }
 
         /// <summary>

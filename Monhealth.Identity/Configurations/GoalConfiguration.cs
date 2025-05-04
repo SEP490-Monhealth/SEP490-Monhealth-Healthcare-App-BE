@@ -97,7 +97,7 @@ namespace Monhealth.Identity.Configurations
                 WaterIntakesGoal = 1890.0f,
                 WorkoutDurationGoal = 35.0f,
                 CaloriesBurnedGoal = 125.99999f,
-                Status = GoalStatus.Active,
+                Status = GoalStatus.Abandoned,
                 CreatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
                 UpdatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
             },
@@ -143,7 +143,7 @@ namespace Monhealth.Identity.Configurations
                 WaterIntakesGoal = 1820.0f,
                 WorkoutDurationGoal = 35.0f,
                 CaloriesBurnedGoal = 121.33333f,
-                Status = GoalStatus.Abandoned,
+                Status = GoalStatus.Active,
                 CreatedAt = DateTime.ParseExact("03-05-2025", "dd-MM-yyyy", null),
                 UpdatedAt = DateTime.ParseExact("03-05-2025", "dd-MM-yyyy", null),
             }

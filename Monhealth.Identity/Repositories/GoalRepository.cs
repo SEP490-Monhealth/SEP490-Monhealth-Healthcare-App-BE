@@ -30,7 +30,6 @@ namespace Monhealth.Identity.Repositories
             return activityLevel > 0 ? activityLevel : 1.2f; // Mặc định nếu không có thì set mức thấp nhất (sedentary)
         }
 
-
         public async Task<Goal> GetByUserIdAsync(Guid userId)
         {
             return await _context.Goals.FirstOrDefaultAsync(u => u.UserId == userId && u.Status == GoalStatus.Active);

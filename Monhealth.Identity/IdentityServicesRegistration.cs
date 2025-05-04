@@ -130,6 +130,7 @@ namespace Monhealth.Identity
             services.AddHostedService<UserSubscriptionBackgroundService>();
             services.AddHostedService<BookingReminderService>();
             services.AddHostedService<BackGroundServiceBookingCommandHandler>();
+            services.AddHostedService<ExpireTransactionService>();
             // Add Authentication
             services.AddAuthentication(options =>
             {

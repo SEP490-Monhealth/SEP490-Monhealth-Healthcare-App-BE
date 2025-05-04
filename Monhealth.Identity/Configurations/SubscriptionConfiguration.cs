@@ -57,7 +57,7 @@ namespace Monhealth.Identity.Configurations
                 SubscriptionDescription = "Gói dịch vụ cao cấp bao gồm tư vấn cá nhân từ chuyên gia dinh dưỡng và thể hình",
                 Price = 899000,
                 DurationDays = 30,
-                Features = ["Tất cả tính năng của Gói Nâng Cao\nTruy cập danh sách chuyên viên tư vấn chọn lọc\nĐặt lịch tư vấn 1-1 với chuyên gia (3 buổi/tháng)\nNhắn tin trực tiếp với chuyên gia\nKế hoạch dinh dưỡng và tập luyện cá nhân hóa\nĐánh giá và phản hồi dịch vụ chi tiết"],
+                Features = ["Tất cả tính năng của Gói Nâng Cao\nĐặt lịch tư vấn 1-1 với chuyên gia (3 buổi/tháng)\nNhắn tin trực tiếp với chuyên gia\nKế hoạch dinh dưỡng và tập luyện cá nhân hóa\nĐánh giá và phản hồi lịch hẹn chi tiết"],
                 BookingAllowance = 3,
                 Status = true,
                 CreatedAt = today,
