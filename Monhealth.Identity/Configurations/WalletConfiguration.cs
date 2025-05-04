@@ -12,6 +12,7 @@ namespace Monhealth.Identity.Configurations
 
             builder.HasData(
 
+            // Trần Nhật Quang
             #region Wallet 1
             new Wallet
             {
@@ -24,6 +25,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
+            // Thịnh
             #region Wallet 2
             new Wallet
             {
@@ -36,6 +38,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
+            // Quốc Duy
             #region Wallet 3
             new Wallet
             {
@@ -48,6 +51,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
+            // Thế Anh 
             #region Wallet 4
             new Wallet
             {
@@ -60,6 +64,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
+            // Xuân Quang 
             #region Wallet 5
             new Wallet
             {
@@ -72,6 +77,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
+            // Tiến Phát 
             #region Wallet 6
             new Wallet
             {
@@ -84,6 +90,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
+            // Văn Dũng
             #region Wallet 7
             new Wallet
             {
@@ -96,6 +103,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
+            // Van Huu Toan Con
             #region Wallet 8
             new Wallet
             {

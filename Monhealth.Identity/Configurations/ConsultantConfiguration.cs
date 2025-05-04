@@ -113,7 +113,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // Tiến phát Thể thao
+            // Tiến Phát Thể thao
             #region Consultant 6
             new Consultant
             {
