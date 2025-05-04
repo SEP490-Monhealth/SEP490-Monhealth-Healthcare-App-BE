@@ -121,7 +121,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                 // );
 
                 var consultantTitle = "Thông báo";
-                string consultantContent = $"{user.FullName} đánh giá {review.Rating}/5 sao lúc {scheduledDateTime:HH:mm dd/MM/yyyy}";
+                string consultantContent = $"{user.FullName} đánh giá {review.Rating} sao cho lịch hẹn lúc {scheduledDateTime:HH:mm dd/MM/yyyy}";
 
                 await notificationService.SendUserNotificationAsync(
                     (Guid)consultant.UserId,
