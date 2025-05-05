@@ -233,6 +233,8 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new WithdrawalRequestConfiguration());
             builder.ApplyConfiguration(new TransactionConfiguration());
             builder.ApplyConfiguration(new WaterReminderConfiguration());
+            builder.ApplyConfiguration(new ReviewConfiguration());
+            builder.ApplyConfiguration(new ReportConfiguration());
         }
     }
 }
