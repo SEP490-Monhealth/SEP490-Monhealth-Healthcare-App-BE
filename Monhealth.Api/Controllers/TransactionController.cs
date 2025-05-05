@@ -115,7 +115,7 @@ namespace Monhealth.Api.Controllers
         {
             var command = new GenerateTransactionQRCode(transactionId);
 
-            var result = await mediator.Send(command); // result là Response chứa QR code
+            var result = await mediator.Send(command);
 
             return new ResultModel
             {
@@ -172,7 +172,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo thanh toán thành công",
+                    Message = "Tạo giao dịch thành công",
                     Status = 201,
                     Data = result
                 });
@@ -181,7 +181,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo thanh toán thất bại",
+                Message = "Tạo giao dịch thất bại",
             });
         }
 
@@ -195,7 +195,7 @@ namespace Monhealth.Api.Controllers
                 return Ok(new ResultModel
                 {
                     Success = true,
-                    Message = "Tạo thanh toán thành công",
+                    Message = "Tạo giao dịch thành công",
                     Status = 201,
                     Data = result
                 });
@@ -204,7 +204,7 @@ namespace Monhealth.Api.Controllers
             return BadRequest(new ResultModel
             {
                 Success = false,
-                Message = "Tạo thanh toán thất bại",
+                Message = "Tạo giao dịch thất bại",
                 Status = 400,
             });
         }
@@ -236,7 +236,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{transactionId}/complete")]
-        [SwaggerOperation(Summary = "Hoàn thành giao dịch")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái giao dịch thành công")]
 
         public async Task<ActionResult<ResultModel>> ChangeStatusCompletedTransaction(Guid transactionId)
         {
@@ -248,18 +248,19 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Hoàn thành trạng thái giao dịch thất bại"
+                    Message = "Cập nhật trạng thái giao dịch thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Hoàn thành trạng thái giao dịch thành công"
+                Message = "Cập nhật trạng thái giao dịch thành công"
             };
         }
-        [HttpPatch("{transactionId}/failed")]
-        [SwaggerOperation(Summary = "Cập nhật giao dịch vê trạng thái thất bại")]
+
+        [HttpPatch("{transactionId}/fail")]
+        [SwaggerOperation(Summary = "Cập nhật trạng thái giao dịch thất bại")]
 
         public async Task<ActionResult<ResultModel>> ChangeStatusFailedTransaction(Guid transactionId)
         {
@@ -271,14 +272,14 @@ namespace Monhealth.Api.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Hoàn thành trạng thái giao thất bại"
+                    Message = "Cập nhật trạng thái giao dịch thất bại"
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Hoàn thành trạng thái giao dịch thành công"
+                Message = "Cập nhật trạng thái giao dịch thành công"
             };
         }
     }
