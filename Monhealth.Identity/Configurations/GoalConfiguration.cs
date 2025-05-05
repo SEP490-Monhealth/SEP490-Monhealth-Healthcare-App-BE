@@ -11,6 +11,7 @@ namespace Monhealth.Identity.Configurations
         {
             builder.HasData(
 
+            // Toàn
             #region Goal 1
             new Goal
             {
@@ -146,8 +147,105 @@ namespace Monhealth.Identity.Configurations
                 Status = GoalStatus.Active,
                 CreatedAt = DateTime.ParseExact("03-05-2025", "dd-MM-yyyy", null),
                 UpdatedAt = DateTime.ParseExact("03-05-2025", "dd-MM-yyyy", null),
-            }
+            },
             #endregion
+
+            // Đại
+            #region Goal 7
+             new Goal
+             {
+                 GoalId = Guid.NewGuid(),
+                 UserId = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87"),
+                 GoalType = GoalType.WeightGain,
+                 CaloriesRatio = 1.2f,
+                 WeightGoal = 66,
+                 CaloriesGoal = 2479.125f,
+                 ProteinGoal = 154.94531f,
+                 CarbsGoal = 278.90155f,
+                 FatGoal = 82.637505f,
+                 FiberGoal = 22.312124f,
+                 SugarGoal = 83.67047f,
+                 WaterIntakesGoal = 1890.0f,
+                 WorkoutDurationGoal = 35.0f,
+                 CaloriesBurnedGoal = 125.99999f,
+                 Status = GoalStatus.Active,
+                 CreatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
+                 UpdatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
+             },
+            #endregion
+
+             // Khải
+            #region Goal 8
+             new Goal
+             {
+                 GoalId = Guid.NewGuid(),
+                 UserId = Guid.Parse("3B1A8845-765F-4D91-984A-4E8A9D7D376E"),
+                 GoalType = GoalType.WeightGain,
+                 CaloriesRatio = 1.2f,
+                 WeightGoal = 66,
+                 CaloriesGoal = 2479.125f,
+                 ProteinGoal = 154.94531f,
+                 CarbsGoal = 278.90155f,
+                 FatGoal = 82.637505f,
+                 FiberGoal = 22.312124f,
+                 SugarGoal = 83.67047f,
+                 WaterIntakesGoal = 1890.0f,
+                 WorkoutDurationGoal = 35.0f,
+                 CaloriesBurnedGoal = 125.99999f,
+                 Status = GoalStatus.Active,
+                 CreatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
+                 UpdatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
+             },
+            #endregion
+
+             // Duy
+            #region Goal 9
+             new Goal
+             {
+                 GoalId = Guid.NewGuid(),
+                 UserId = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
+                 GoalType = GoalType.WeightGain,
+                 CaloriesRatio = 1.2f,
+                 WeightGoal = 66,
+                 CaloriesGoal = 2479.125f,
+                 ProteinGoal = 154.94531f,
+                 CarbsGoal = 278.90155f,
+                 FatGoal = 82.637505f,
+                 FiberGoal = 22.312124f,
+                 SugarGoal = 83.67047f,
+                 WaterIntakesGoal = 1890.0f,
+                 WorkoutDurationGoal = 35.0f,
+                 CaloriesBurnedGoal = 125.99999f,
+                 Status = GoalStatus.Active,
+                 CreatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
+                 UpdatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
+             },
+            #endregion
+
+             // Khanh
+            #region Goal 10
+             new Goal
+             {
+                 GoalId = Guid.NewGuid(),
+                 UserId = Guid.Parse("0075BA2C-F60D-4F75-B9F1-F71579BC4FD2"),
+                 GoalType = GoalType.WeightGain,
+                 CaloriesRatio = 1.2f,
+                 WeightGoal = 66,
+                 CaloriesGoal = 2479.125f,
+                 ProteinGoal = 154.94531f,
+                 CarbsGoal = 278.90155f,
+                 FatGoal = 82.637505f,
+                 FiberGoal = 22.312124f,
+                 SugarGoal = 83.67047f,
+                 WaterIntakesGoal = 1890.0f,
+                 WorkoutDurationGoal = 35.0f,
+                 CaloriesBurnedGoal = 125.99999f,
+                 Status = GoalStatus.Active,
+                 CreatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
+                 UpdatedAt = DateTime.ParseExact("19-04-2025", "dd-MM-yyyy", null),
+             }
+             #endregion
+
             );
         }
     }

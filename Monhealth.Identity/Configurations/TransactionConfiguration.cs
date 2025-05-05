@@ -539,7 +539,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // Nâng cấp gói
+            // Nâng cấp gói Toàn
             #region Transaction 23
             new Transaction
             {
@@ -560,6 +560,54 @@ namespace Monhealth.Identity.Configurations
                 UpdatedAt = DateTime.ParseExact("01-04-2025", "dd-MM-yyyy", null),
                 CreatedBy = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B"),
                 UpdatedBy = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B"),
+            },
+            #endregion
+
+            // Nâng cấp gói Khải
+            #region Transaction 24
+            new Transaction
+            {
+                TransactionId = Guid.NewGuid(),
+                UserId = Guid.Parse("3B1A8845-765F-4D91-984A-4E8A9D7D376E"),
+                ConsultantId = null,
+                WalletId = null,
+                BookingId = null,
+                WithdrawalRequestId = null,
+                UserSubscriptionId = Guid.Parse("3978e53f-53e8-4650-9089-6e417858c27f"),
+                SubscriptionId = Guid.Parse("51789ABD-BBCC-42EF-9663-F2EA104302BD"),
+                TransactionType = TransactionType.Fee,
+                OrderCode = 5375042521751054,
+                Description = "Thanh toán Gói Cao Cấp",
+                Amount = 899000,
+                Status = StatusTransaction.Completed,
+                CreatedAt = DateTime.ParseExact("03-05-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("03-05-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("3B1A8845-765F-4D91-984A-4E8A9D7D376E"),
+                UpdatedBy = Guid.Parse("3B1A8845-765F-4D91-984A-4E8A9D7D376E"),
+            },
+            #endregion
+
+            // Nâng cấp gói Duy
+            #region Transaction 25
+            new Transaction
+            {
+                TransactionId = Guid.NewGuid(),
+                UserId = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
+                ConsultantId = null,
+                WalletId = null,
+                BookingId = null,
+                WithdrawalRequestId = null,
+                UserSubscriptionId = Guid.Parse("2ca216a2-6c36-480b-a312-5f1d8076dfcc"),
+                SubscriptionId = Guid.Parse("e62b480d-16a6-4565-87fa-262870d75f68"),
+                TransactionType = TransactionType.Fee,
+                OrderCode = 8242629713049229,
+                Description = "Thanh toán Gói Nâng Cao",
+                Amount = 249000,
+                Status = StatusTransaction.Completed,
+                CreatedAt = DateTime.ParseExact("04-05-2025", "dd-MM-yyyy", null),
+                UpdatedAt = DateTime.ParseExact("04-05-2025", "dd-MM-yyyy", null),
+                CreatedBy = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
+                UpdatedBy = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
             }
             #endregion
             );
