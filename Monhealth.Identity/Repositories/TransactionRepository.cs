@@ -45,14 +45,17 @@ namespace Monhealth.Identity.Repositories
       {
         query = query.Where(t => t.Status == status);
       }
+
+      query = query.OrderByDescending(t => t.CreatedAt);
       int totalItems = await query.CountAsync();
       if (page > 0 && limit > 0)
       {
         query = query.Skip((page - 1) * limit).Take(limit);
       }
+
       return new PaginatedResult<Transaction>
       {
-        Items = await query.OrderByDescending(t => t.CreatedAt).ToListAsync(),
+        Items = await query.ToListAsync(),
         TotalCount = totalItems
       };
     }
@@ -66,7 +69,8 @@ namespace Monhealth.Identity.Repositories
       var sunday = monday.AddDays(6).AddDays(1);
       return await _context.Transactions
           .Include(w => w.Wallet).ThenInclude(c => c.Consultant)
-          .Where(c => c.Wallet.Consultant.ConsultantId == consultantId && c.CreatedAt >= monday && c.CreatedAt < sunday)
+          .Where(c => c.Wallet.Consultant.ConsultantId == consultantId
+           && c.CreatedAt >= monday && c.CreatedAt < sunday)
           .ToListAsync();
     }
 
@@ -101,6 +105,7 @@ namespace Monhealth.Identity.Repositories
                                  && t.CreatedAt.Value.Year == yearToFilter);
       }
 
+      query = query.OrderByDescending(t => t.CreatedAt);
 
       // Lấy tổng số lượng giao dịch cho phân trang
       int totalItems = await query.CountAsync();
@@ -113,7 +118,7 @@ namespace Monhealth.Identity.Repositories
 
       return new PaginatedResult<Transaction>
       {
-        Items = await query.OrderByDescending(c => c.CreatedAt).ToListAsync(),
+        Items = await query.ToListAsync(),
         TotalCount = totalItems
       };
     }
@@ -128,6 +133,7 @@ namespace Monhealth.Identity.Repositories
           .Where(c => c.UserId == userId && c.TransactionType == TransactionType.Fee)
           .AsNoTracking();
 
+      query = query.OrderByDescending(t => t.CreatedAt);
       int totalItems = await query.CountAsync();
 
       // Áp dụng phân trang (skip và take)
@@ -138,7 +144,7 @@ namespace Monhealth.Identity.Repositories
 
       return new PaginatedResult<Transaction>
       {
-        Items = await query.OrderByDescending(c => c.CreatedAt).ToListAsync(),
+        Items = await query.ToListAsync(),
         TotalCount = totalItems
       };
     }

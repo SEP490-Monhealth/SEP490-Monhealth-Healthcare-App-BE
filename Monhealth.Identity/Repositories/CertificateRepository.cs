@@ -23,7 +23,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<PaginatedResult<Certificate>> GetAllCertificateAsync(int page, int limit, string? search, bool? isVerfied)
         {
             search = search?.Trim();
-            IQueryable<Certificate> query = 
+            IQueryable<Certificate> query =
             _context.Certificates.Include(c => c.Consultant).ThenInclude(c => c.Expertise)
             .Include(c => c.Consultant)
             .ThenInclude(u => u.AppUser).AsQueryable();
@@ -59,8 +59,8 @@ namespace Monhealth.Identity.Repositories
                 Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
-        }
 
+        }
         public async Task<int> SaveChangeAsync(CancellationToken cancellationToken)
         {
             return await _context.SaveChangesAsync(cancellationToken);
@@ -80,15 +80,15 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.Certificates.
             Include(c => c.Consultant).
-            ThenInclude(c => c.Expertise).
-            Where(c => c.ConsultantId == consultantId).ToListAsync();
+            ThenInclude(c => c.Expertise)
+            .Where(c => c.ConsultantId == consultantId).ToListAsync();
         }
 
         public async Task<Certificate> GetByCertificateIdAsync(Guid certificateId)
         {
 
-              return await _context.Certificates.Include(c => c.Consultant)
-              .ThenInclude(c => c.Expertise).FirstOrDefaultAsync(c => c.CertificateId == certificateId);
+            return await _context.Certificates.Include(c => c.Consultant)
+                .ThenInclude(c => c.Expertise).FirstOrDefaultAsync(c => c.CertificateId == certificateId);
         }
 
         public async Task<List<Certificate>> GetAllCertificatesAsync()

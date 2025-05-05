@@ -54,9 +54,9 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<FoodPortion>> GetFoodPortionsByFoodIdsAsync(List<Guid> foodPortions)
         {
             return await _context.FoodPortions
-      .Include(fp => fp.Portion) // Bao gồm Portion để lấy liên kết
-      .Where(fp => foodPortions.Contains(fp.FoodId))
-      .ToListAsync();
+                .Include(fp => fp.Portion) // Bao gồm Portion để lấy liên kết
+                .Where(fp => foodPortions.Contains(fp.FoodId))
+                .ToListAsync();
         }
 
         public async Task<Portion> GetOrCreatePortionAsync(string measurementUnit, string portionSize, float portionWeight)

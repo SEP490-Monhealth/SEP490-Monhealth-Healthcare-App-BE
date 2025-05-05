@@ -16,7 +16,7 @@ namespace Monhealth.Identity.Repositories
         public Task<List<WaterReminder>> CreateReminders(float WaterIntakesGoal, Guid? userId)
         {
             // Các khung giờ cố định và phần trăm tổng lượng nước
-            var timeSlots = new List<(TimeSpan Time, float Percentage)>
+            List<(TimeSpan Time, float Percentage)>? timeSlots = new List<(TimeSpan Time, float Percentage)>
             {
                 (TimeSpan.Parse("07:00"), 0.15f),
                 (TimeSpan.Parse("09:00"), 0.10f),

@@ -50,8 +50,8 @@ namespace Monhealth.Identity.Repositories
 
             return new PaginatedResult<Booking>
             {
+                TotalCount = totalItems,
                 Items = await query.ToListAsync(),
-                TotalCount = totalItems
             };
         }
 
@@ -70,7 +70,7 @@ namespace Monhealth.Identity.Repositories
         {
             return await _context.Bookings
                 .Include(b => b.User)
-                .Include(r => r.Reviews)
+                        .Include(r => r.Reviews)
                 .Include(b => b.Consultant).ThenInclude(c => c.AppUser)
                 .FirstOrDefaultAsync(b => b.BookingId == bookingId);
         }
@@ -80,8 +80,12 @@ namespace Monhealth.Identity.Repositories
             var query = _context.Bookings
                 .AsNoTracking()
                 .Include(r => r.Reviews)
-                .Include(b => b.User)
-                .Include(b => b.Consultant)
+
+
+
+
+                       .Include(b => b.User)
+                     .Include(b => b.Consultant)
                 .ThenInclude(c => c.AppUser)
                 .AsQueryable();
 

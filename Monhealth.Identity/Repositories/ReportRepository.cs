@@ -39,6 +39,7 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(b => b.Status == statusReport.Value);
             }
+            query = query.OrderByDescending(r => r.CreatedAt);
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
@@ -60,7 +61,7 @@ namespace Monhealth.Identity.Repositories
                 .Where(r => r.BookingId == bookingId).ToListAsync();
         }
 
-        
+
 
         public async Task<PaginatedResult<Report>> GetReportByConsultantId(Guid consultantId, int page, int limit)
         {
@@ -69,14 +70,15 @@ namespace Monhealth.Identity.Repositories
                 .Include(b => b.Booking).ThenInclude(u => u.User)
                 .Include(b => b.Booking).ThenInclude(c => c.Consultant).ThenInclude(u => u.AppUser)
                 .Where(r => r.Booking.ConsultantId == consultantId);
+            query = query.OrderByDescending(r => r.CreatedAt);
             var totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
-            } 
+            }
             return new PaginatedResult<Report>
             {
-                Items = await query.OrderByDescending(r => r.CreatedAt).ToListAsync(),
+                Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
 
@@ -99,6 +101,9 @@ namespace Monhealth.Identity.Repositories
                 .Include(b => b.Booking).ThenInclude(c => c.Consultant)
                 .ThenInclude(u => u.AppUser)
                 .Where(r => r.Booking.UserId == userId).AsQueryable();
+
+            query = query.OrderByDescending(r => r.CreatedAt);
+
             var totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
@@ -106,7 +111,7 @@ namespace Monhealth.Identity.Repositories
             }
             return new PaginatedResult<Report>
             {
-                Items = await query.OrderByDescending(r => r.CreatedAt).ToListAsync(),
+                Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
 

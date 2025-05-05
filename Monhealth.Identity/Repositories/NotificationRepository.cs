@@ -22,6 +22,7 @@ namespace Monhealth.Identity.Repositories
                 query = query.Where(s => EF.Functions.Collate(s.Title, "SQL_Latin1_General_CP1_CI_AI").Contains(search.ToLower().Trim()) ||
                     s.NotificationId.ToString().ToLower().Contains(search.ToLower().Trim()));
             }
+            query = query.OrderByDescending(n => n.CreatedAt);
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
@@ -29,7 +30,7 @@ namespace Monhealth.Identity.Repositories
             }
             return new PaginatedResult<Notification>
             {
-                Items = await query.OrderByDescending(n => n.CreatedAt).ToListAsync(),
+                Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
         }
@@ -46,11 +47,12 @@ namespace Monhealth.Identity.Repositories
             var notifications = await query
                 .Skip((page - 1) * limit)
                 .Take(limit)
+                .OrderByDescending(n => n.CreatedAt)
                 .ToListAsync();
 
             return new PaginatedResult<Notification>
             {
-                Items = notifications.OrderByDescending(n => n.CreatedAt).Select(un => un.Notification).ToList(),
+                Items = notifications.Select(un => un.Notification).ToList(),
                 TotalCount = totalItems,
             };
         }
@@ -82,7 +84,7 @@ namespace Monhealth.Identity.Repositories
             //    .Select(un => un.Notification).ToListAsync(),
             //    TotalCount = totalItems
             //};
-            
+
             var query = _context.UserNotifications
                 .Where(un => un.UserId == userId)
                 .Include(un => un.Notification)
