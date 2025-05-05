@@ -15,7 +15,7 @@ namespace Monhealth.Identity.Configurations
             #region Review 1 for Booking 1
             new Review
             {
-                ReviewId = Guid.Parse("F28C5D8A-2D1B-463C-B938-5D4C6B9F6851"),
+                ReviewId = Guid.Parse("ef587932-e689-4ced-afef-6067fc9be164"),
                 UserId = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B"),
                 BookingId = Guid.Parse("2816BE7A-00E3-4ACC-B7CB-28CA8F9FDD84"),
                 Rating = 5,
@@ -29,7 +29,7 @@ namespace Monhealth.Identity.Configurations
             #region Review 2 for Booking 3
             new Review
             {
-                ReviewId = Guid.Parse("C9D2F4E7-A5B3-4C81-89D6-F07E8A6509B2"),
+                ReviewId = Guid.Parse("20990e10-9830-40f1-8064-c97ccbd2b832"),
                 UserId = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B"),
                 BookingId = Guid.Parse("D203CDA3-84D8-4B38-A09B-15975005EA82"),
                 Rating = 1,
@@ -43,7 +43,7 @@ namespace Monhealth.Identity.Configurations
             #region Review 3 for Booking 4
             new Review
             {
-                ReviewId = Guid.Parse("A1B2C3D4-E5F6-47G8-H9I0-J1K2L3M4N5O6"),
+                ReviewId = Guid.Parse("2b041763-88e9-414c-8f0b-fa460c5d1e12"),
                 UserId = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
                 BookingId = Guid.Parse("fa8f2dd7-8f5e-4da1-aa9c-64d95feeb8ed"),
                 Rating = 5,
@@ -57,7 +57,7 @@ namespace Monhealth.Identity.Configurations
             #region Review 4 for Booking 5
             new Review
             {
-                ReviewId = Guid.Parse("B2C3D4E5-F6G7-48H9-I0J1-K2L3M4N5O6P7"),
+                ReviewId = Guid.Parse("5d2fc5d4-39c1-40e4-8761-54297732c10d"),
                 UserId = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
                 BookingId = Guid.Parse("fd79d35c-785e-4b43-a471-37272379bb1e"),
                 Rating = 4,
@@ -71,7 +71,7 @@ namespace Monhealth.Identity.Configurations
             #region Review 5 for Booking 6
             new Review
             {
-                ReviewId = Guid.Parse("C3D4E5F6-G7H8-49I0-J1K2-L3M4N5O6P7Q8"),
+                ReviewId = Guid.Parse("05871934-60ac-413c-9db2-548430b109fb"),
                 UserId = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
                 BookingId = Guid.Parse("a5586882-da12-4f03-8f9f-75b9bee2ae36"),
                 Rating = 5,
@@ -85,7 +85,7 @@ namespace Monhealth.Identity.Configurations
             #region Review 6 for Booking 7
             new Review
             {
-                ReviewId = Guid.Parse("D4E5F6G7-H8I9-4J0K-1L2M-3N4O5P6Q7R8"),
+                ReviewId = Guid.Parse("62cfe7ae-169d-4690-9081-d0cfad619bf3"),
                 UserId = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87"),
                 BookingId = Guid.Parse("8cffde44-a077-496e-8b56-b4f64a4c472f"),
                 Rating = 4,
@@ -99,7 +99,7 @@ namespace Monhealth.Identity.Configurations
             #region Review 7 for Booking 8
             new Review
             {
-                ReviewId = Guid.Parse("E5F6G7H8-I9J0-4K1L-2M3N-4O5P6Q7R8S9"),
+                ReviewId = Guid.Parse("115fb75e-332e-4748-b09e-5475c714aa20"),
                 UserId = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87"),
                 BookingId = Guid.Parse("4bbfc94b-1613-4950-8861-e087214a7a77"),
                 Rating = 5,
@@ -113,7 +113,7 @@ namespace Monhealth.Identity.Configurations
             #region Review 8 for Booking 9
             new Review
             {
-                ReviewId = Guid.Parse("F6G7H8I9-J0K1-4L2M-3N4O-5P6Q7R8S9T0"),
+                ReviewId = Guid.Parse("fc7edb73-9074-4359-b4cf-9aee23b5db13"),
                 UserId = Guid.Parse("0075BA2C-F60D-4F75-B9F1-F71579BC4FD2"),
                 BookingId = Guid.Parse("5f0f10f3-66d8-4c51-a895-8550a54ffeaf"),
                 Rating = 3,
@@ -127,7 +127,7 @@ namespace Monhealth.Identity.Configurations
             #region Review 9 for Booking 10
             new Review
             {
-                ReviewId = Guid.Parse("G7H8I9J0-K1L2-4M3N-4O5P-6Q7R8S9T0U1"),
+                ReviewId = Guid.Parse("dfbdc47f-fa5a-4e72-ad27-4bda1a672227"),
                 UserId = Guid.Parse("0075BA2C-F60D-4F75-B9F1-F71579BC4FD2"),
                 BookingId = Guid.Parse("ef4e1ca8-b700-45cc-a48e-0307f5e1fd99"),
                 Rating = 5,
