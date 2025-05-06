@@ -17,10 +17,10 @@ namespace Monhealth.Identity.Configurations
                 UserId = Guid.Parse("3026595F-1414-4B74-BE8F-11B7F6E7F4F6")
             },
 
-            // van huu toan member
+            // van huu toan subscription member
             new IdentityUserRole<Guid>
             {
-                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                RoleId = Guid.Parse("322488F9-7AA9-49B0-B2B8-FD98B7B260FC"),
                 UserId = Guid.Parse("9D7E87A9-B070-4607-A0B0-2D2322AECE9B")
             },
 
@@ -31,17 +31,17 @@ namespace Monhealth.Identity.Configurations
                 UserId = Guid.Parse("277EA066-D041-40FF-9DAE-6271DBD6FD87")
             },
 
-            // phan van khai member
+            // phan van khai subscription member
             new IdentityUserRole<Guid>
             {
-                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                RoleId = Guid.Parse("322488F9-7AA9-49B0-B2B8-FD98B7B260FC"),
                 UserId = Guid.Parse("3B1A8845-765F-4D91-984A-4E8A9D7D376E")
             },
 
-            // pham hoai duy member
+            // pham hoai duy subscription member
             new IdentityUserRole<Guid>
             {
-                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                RoleId = Guid.Parse("322488F9-7AA9-49B0-B2B8-FD98B7B260FC"),
                 UserId = Guid.Parse("1246B8E5-AF73-4AA3-BDEF-B8815E21A78B"),
             },
 
