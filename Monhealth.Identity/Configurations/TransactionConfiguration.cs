@@ -539,8 +539,153 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // Nâng cấp gói Toàn
+            // XXX
+            // Earning booking 11
             #region Transaction 23
+            new Transaction
+            {
+                TransactionId = Guid.NewGuid(),
+                UserId = null,
+                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+                WalletId = null,
+                BookingId = Guid.Parse("874e5430-3fbe-43c2-80a4-53d30bfb4e32"),
+                WithdrawalRequestId = null,
+                UserSubscriptionId = null,
+                SubscriptionId = null,
+                TransactionType = TransactionType.Earning,
+                OrderCode = null,
+                Description = "Thanh toán hoàn thành lịch hẹn",
+                Amount = 200000,
+                Status = StatusTransaction.Completed,
+                UpdatedAt = DateTime.ParseExact("23-12-2025", "dd-MM-yyyy", null),
+                CreatedAt = DateTime.ParseExact("23-12-2025", "dd-MM-yyyy", null),
+                CreatedBy = null,
+                UpdatedBy = null,
+            },
+            #endregion
+
+            // Earning booking 12
+            #region Transaction 24
+            new Transaction
+            {
+                TransactionId = Guid.NewGuid(),
+                UserId = null,
+                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+                WalletId = null,
+                BookingId = Guid.Parse("876dc22f-3df5-4188-a44b-943d6f7bd1b3"),
+                WithdrawalRequestId = null,
+                UserSubscriptionId = null,
+                SubscriptionId = null,
+                TransactionType = TransactionType.Earning,
+                OrderCode = null,
+                Description = "Thanh toán hoàn thành lịch hẹn",
+                Amount = 200000,
+                Status = StatusTransaction.Completed,
+                UpdatedAt = DateTime.ParseExact("23-01-2025", "dd-MM-yyyy", null),
+                CreatedAt = DateTime.ParseExact("23-01-2025", "dd-MM-yyyy", null),
+                CreatedBy = null,
+                UpdatedBy = null,
+            },
+            #endregion
+
+            // Earning booking 13
+            #region Transaction 25
+            new Transaction
+            {
+                TransactionId = Guid.NewGuid(),
+                UserId = null,
+                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+                WalletId = null,
+                BookingId = Guid.Parse("c10bba32-5eb5-4dee-a38a-cb9ae944b704"),
+                WithdrawalRequestId = null,
+                UserSubscriptionId = null,
+                SubscriptionId = null,
+                TransactionType = TransactionType.Earning,
+                OrderCode = null,
+                Description = "Thanh toán hoàn thành lịch hẹn",
+                Amount = 200000,
+                Status = StatusTransaction.Completed,
+                UpdatedAt = DateTime.ParseExact("19-02-2025", "dd-MM-yyyy", null),
+                CreatedAt = DateTime.ParseExact("19-02-2025", "dd-MM-yyyy", null),
+                CreatedBy = null,
+                UpdatedBy = null,
+            },
+            #endregion
+
+            // Earning booking 14
+            #region Transaction 26
+            new Transaction
+            {
+                TransactionId = Guid.NewGuid(),
+                UserId = null,
+                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+                WalletId = null,
+                BookingId = Guid.Parse("27a30bed-5e7d-4b85-b31e-ee94124946e3"),
+                WithdrawalRequestId = null,
+                UserSubscriptionId = null,
+                SubscriptionId = null,
+                TransactionType = TransactionType.Earning,
+                OrderCode = null,
+                Description = "Thanh toán hoàn thành lịch hẹn",
+                Amount = 200000,
+                Status = StatusTransaction.Completed,
+                UpdatedAt = DateTime.ParseExact("09-03-2025", "dd-MM-yyyy", null),
+                CreatedAt = DateTime.ParseExact("09-03-2025", "dd-MM-yyyy", null),
+                CreatedBy = null,
+                UpdatedBy = null,
+            },
+            #endregion
+
+            // Earning booking 15
+            #region Transaction 27
+            new Transaction
+            {
+                TransactionId = Guid.NewGuid(),
+                UserId = null,
+                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+                WalletId = null,
+                BookingId = Guid.Parse("4d34146b-4d0a-43e6-bf03-bf82f8aec772"),
+                WithdrawalRequestId = null,
+                UserSubscriptionId = null,
+                SubscriptionId = null,
+                TransactionType = TransactionType.Earning,
+                OrderCode = null,
+                Description = "Thanh toán hoàn thành lịch hẹn",
+                Amount = 200000,
+                Status = StatusTransaction.Completed,
+                UpdatedAt = DateTime.ParseExact("17-03-2025", "dd-MM-yyyy", null),
+                CreatedAt = DateTime.ParseExact("17-03-2025", "dd-MM-yyyy", null),
+                CreatedBy = null,
+                UpdatedBy = null,
+            },
+            #endregion
+
+            // Earning booking 16
+            #region Transaction 28
+            new Transaction
+            {
+                TransactionId = Guid.NewGuid(),
+                UserId = null,
+                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+                WalletId = null,
+                BookingId = Guid.Parse("c0e6a488-58bf-495a-86a1-362e4df03072"),
+                WithdrawalRequestId = null,
+                UserSubscriptionId = null,
+                SubscriptionId = null,
+                TransactionType = TransactionType.Earning,
+                OrderCode = null,
+                Description = "Thanh toán hoàn thành lịch hẹn",
+                Amount = 200000,
+                Status = StatusTransaction.Completed,
+                UpdatedAt = DateTime.ParseExact("16-04-2025", "dd-MM-yyyy", null),
+                CreatedAt = DateTime.ParseExact("16-04-2025", "dd-MM-yyyy", null),
+                CreatedBy = null,
+                UpdatedBy = null,
+            },
+            #endregion
+
+            // Nâng cấp gói Toàn
+            #region Transaction 29
             new Transaction
             {
                 TransactionId = Guid.NewGuid(),
@@ -564,7 +709,7 @@ namespace Monhealth.Identity.Configurations
             #endregion
 
             // Nâng cấp gói Khải
-            #region Transaction 24
+            #region Transaction 30
             new Transaction
             {
                 TransactionId = Guid.NewGuid(),
@@ -588,7 +733,7 @@ namespace Monhealth.Identity.Configurations
             #endregion
 
             // Nâng cấp gói Duy
-            #region Transaction 25
+            #region Transaction 31
             new Transaction
             {
                 TransactionId = Guid.NewGuid(),
