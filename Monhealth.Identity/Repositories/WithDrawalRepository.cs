@@ -16,7 +16,7 @@ namespace Monhealth.Application
         public async Task<List<WithdrawalRequest>> GetAllWithdrawalRequestWithPendingStatus(Guid consultantId)
         {
             return await _context.WithdrawalRequests
-                .Where(w => w.Status == WithdrawalStatus.Pending)
+                .Where(w => w.Status == WithdrawalStatus.Pending && w.ConsultantId == consultantId)
                 .ToListAsync();
         }
 

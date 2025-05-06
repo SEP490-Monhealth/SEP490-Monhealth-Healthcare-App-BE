@@ -24,6 +24,19 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             var booking = await bookingRepository.GetBookingByBookingIdAsync(request.BookingId)
             ?? throw new BadRequestException($"Không tìm thấy lịch hẹn {request.BookingId}");
 
+            // var now = GetCurrentVietnamTime();
+            // var nowDayOnly = DateOnly.FromDateTime(now);
+            // var currentTimeOnly = TimeOnly.FromDateTime(now);
+            // // 1. Chưa đến ngày hẹn
+            // if (nowDayOnly < booking.Day)
+            //      throw new BadRequestException("Chưa đến ngày hẹn, không thể hoàn thành lịch hẹn");
+            // //chưa qua giờ đã hoàn thành
+            // if(nowDayOnly == booking.Day){
+            //      if (currentTimeOnly < booking.EndTime){
+            //         throw new BadRequestException("Chưa đến giờ kết thúc lịch hẹn, không thể hoàn thành");
+            //         }   
+            // }
+           
             if (request.UpdateEvidensDto.EvidenceUrls == null || request.UpdateEvidensDto.EvidenceUrls.Count == 0)
             {
                 throw new BadRequestException("Danh sách URL không được để trống");

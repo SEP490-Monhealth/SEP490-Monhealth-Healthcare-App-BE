@@ -31,7 +31,6 @@ namespace Monhealth.Application
             if (pendingWithdrawalRequests.Count() > 0)
             {
                 throw new BadRequestException("Bạn chỉ có thể tạo một yêu cầu rút tiền trong một thời điểm");
-
             }
 
             float waitingMoney = 0;
