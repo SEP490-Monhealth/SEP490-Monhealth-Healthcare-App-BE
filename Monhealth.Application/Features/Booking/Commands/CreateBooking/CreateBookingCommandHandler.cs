@@ -34,7 +34,6 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
                       ?? throw new BadRequestException("Không thấy chuyên viên tư vấn");
             var member = await userRepository.GetUserByIdAsync(booking.UserId.Value)
                             ?? throw new BadRequestException("Không tìm thấy người dùng");
-            consultant.BookingCount++;
             consultant.UpdatedAt = DateTime.Now;
 
             //subtract amout remaining booking

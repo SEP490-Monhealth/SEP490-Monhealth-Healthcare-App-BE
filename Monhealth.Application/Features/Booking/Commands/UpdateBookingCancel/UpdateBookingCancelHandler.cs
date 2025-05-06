@@ -24,13 +24,6 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateBookingCancel
             booking.UpdatedAt = GetCurrentVietnamTime();
             bookingRepository.Update(booking);
 
-            //subtract amout booking for consultant
-            var consultant = await consultantRepository.GetByIdAsync((Guid)booking.ConsultantId);
-            if (consultant != null)
-            {
-                consultant.BookingCount -= 1;
-            }
-
             //plus amount remaining booking
             var userSubscription = await userSubscriptionRepository.GetUserSubscriptionActiveOfUser((Guid)booking.UserId);
             if (userSubscription == null) throw new Exception("Không tìm thấy gói người dùng đã đăng kí");

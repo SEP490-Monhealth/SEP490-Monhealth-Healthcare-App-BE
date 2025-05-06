@@ -13,7 +13,8 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
         ITransactionRepository transactionRepository,
         ISystemNotificationService systemNotificationService,
         ILogger<UpdateEvidensForConsultantCommandHandler> logger,
-        IHangFireJobServices hangFireJobServices
+        IHangFireJobServices hangFireJobServices,
+        IConsultantRepository consultantRepository
         )
         : IRequestHandler<UpdateEvidensForConsultantCommand, bool>
     {
@@ -71,9 +72,12 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             booking.CompletedAt = GetCurrentVietnamTime();
             booking.Status = BookingStatus.Completed;
 
-            //notify for both user and consultant done booking
-            //await systemNotificationService.NotifyBookingCompleteForBoth(booking, cancellationToken);
-
+            //plus booking count 
+            var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
+            if(consultant != null){
+                consultant.BookingCount += 1;
+            }
+            
             await bookingRepository.SaveChangeAsync(cancellationToken);
 
             //add 3 days to check is Review field
@@ -88,7 +92,8 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
                 // Log error for debugging
                 logger.LogError(ex, $"Failed to schedule background job, bookingId {booking.BookingId}");
             }
-
+             //notify for both user and consultant done booking
+            await systemNotificationService.NotifyBookingCompleteForBoth(booking, cancellationToken);
             return true;
         }
         private DateTime GetCurrentVietnamTime()
