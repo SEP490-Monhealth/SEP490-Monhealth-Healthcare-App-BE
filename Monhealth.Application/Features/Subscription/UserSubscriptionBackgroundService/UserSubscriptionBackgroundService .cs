@@ -14,7 +14,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
         private readonly ILogger<UserSubscriptionBackgroundService> _logger;
         private readonly IServiceScopeFactory _serviceScopeFactory;
         // Dùng khoảng thời gian 2 phút để test
-        private readonly TimeSpan _interval = TimeSpan.FromHours(2);
+        private readonly TimeSpan _interval = TimeSpan.FromMinutes(1);
 
         public UserSubscriptionBackgroundService(IServiceScopeFactory serviceScopeFactory, ILogger<UserSubscriptionBackgroundService> logger)
         {
@@ -50,6 +50,19 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                                 $"[{DateTime.Now:HH:mm:ss}] User {subscription.UserId} not found. Skipping...");
                             continue;
                         }
+                        var userRole = await userRoleRepository.GetUserRoleByUserIdAsync(subscription.UserId);
+                        if (userRole == null)
+                        {
+                            _logger.LogWarning($"[{DateTime.Now:HH:mm:ss}] User {subscription.UserId} has no role. Skipping...");
+                            continue;
+                        }
+
+                        var role = await userRoleRepository.GetRoleByIdAsync(userRole.RoleId);
+                        if (role == null || role.Name != "Subscription Member")
+                        {
+                            _logger.LogInformation($"[{DateTime.Now:HH:mm:ss}] User {subscription.UserId} does not have 'Subscription Member' role. Skipping...");
+                            continue;
+                        }
 
                         // Nếu gói đăng ký đã hết hạn
                         if (subscription.ExpiresAt <= DateTime.Now)
@@ -61,10 +74,10 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
                                     $"[{DateTime.Now:HH:mm:ss}] ⚠️ Subscription expired for User {subscription.UserId}");
 
                                 // Update vai trò của user về "Member"
-                                var userRole = await userRoleRepository.GetUserRoleByUserIdAsync(subscription.UserId);
-                                if (userRole != null)
+                                var currentUserRole = await userRoleRepository.GetUserRoleByUserIdAsync(subscription.UserId);
+                                if (currentUserRole != null)
                                 {
-                                    userRoleRepository.Remove(userRole);
+                                    userRoleRepository.Remove(currentUserRole);
                                     _logger.LogInformation(
                                         $"[{DateTime.Now:HH:mm:ss}] Removed old role for UserId {subscription.UserId}");
                                 }
