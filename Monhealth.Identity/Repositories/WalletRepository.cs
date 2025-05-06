@@ -24,6 +24,7 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(t => t.Status == status.Value);
             }
+            query = query.OrderBy(w => w.CreatedAt);
             int totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {

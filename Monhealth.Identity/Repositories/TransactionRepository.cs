@@ -171,6 +171,8 @@ namespace Monhealth.Identity.Repositories
           .ThenInclude(u => u.AppUser)
       .Where(c => c.ConsultantId == walletId)
       .AsQueryable();
+      query = query.OrderByDescending(r => r.CreatedAt);
+
       int totalItems = await query.CountAsync();
       if (status.HasValue)
       {

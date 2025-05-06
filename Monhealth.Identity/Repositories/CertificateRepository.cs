@@ -48,6 +48,7 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(c => c.IsVerified == isVerfied);
             }
+            query = query.OrderByDescending(c => c.CreatedAt);
             int totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)

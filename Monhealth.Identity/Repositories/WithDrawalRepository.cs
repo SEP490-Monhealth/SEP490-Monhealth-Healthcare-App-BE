@@ -44,6 +44,7 @@ namespace Monhealth.Application
             {
                 query = query.Where(wd => wd.Status == status);
             }
+            query = query.OrderByDescending(wd => wd.CreatedAt);
             var totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)
@@ -53,7 +54,7 @@ namespace Monhealth.Application
 
             return new PaginatedResult<WithdrawalRequest>
             {
-                Items = await query.OrderByDescending(t => t.CreatedAt).ToListAsync(),
+                Items = await query.ToListAsync(),
                 TotalCount = totalItems
             };
 

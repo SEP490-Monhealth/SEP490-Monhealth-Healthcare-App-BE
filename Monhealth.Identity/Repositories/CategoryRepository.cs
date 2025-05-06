@@ -32,6 +32,7 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(c => c.CategoryType == categoryType);
             }
+            
             var totalItems = await query.CountAsync();
 
             if (page > 0 && limit > 0)

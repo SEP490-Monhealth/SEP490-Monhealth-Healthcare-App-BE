@@ -28,6 +28,7 @@ namespace Monhealth.Identity.Repositories
                     (r.User != null && r.User.Email != null && r.User.Email.Contains(search))
                 );
             }
+            query = query.OrderByDescending(r => r.CreatedAt);
             var totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {
@@ -50,6 +51,7 @@ namespace Monhealth.Identity.Repositories
         {
             IQueryable<Review> query = _context.Reviews
             .Where(r => r.Booking.Consultant.ConsultantId == consultantId).AsQueryable();
+            query = query.OrderByDescending(r => r.CreatedAt);
             var totalItems = await query.CountAsync();
             if (page > 0 && limit > 0)
             {

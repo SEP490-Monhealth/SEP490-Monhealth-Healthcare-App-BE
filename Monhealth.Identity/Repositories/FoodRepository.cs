@@ -56,7 +56,10 @@ namespace Monhealth.Identity.Repositories
             {
                 query = query.Where(s => s.Status == status.Value);
             }
+
+            query = query.OrderByDescending(f => f.CreatedAt);         
             int totalItems = await query.CountAsync();
+
             if (popular.HasValue && popular.Value)
             {
                 query = query.OrderByDescending(s => s.Views);
