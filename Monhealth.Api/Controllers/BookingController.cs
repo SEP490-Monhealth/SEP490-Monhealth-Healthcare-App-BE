@@ -143,7 +143,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPut("{bookingId:guid}/complete")]
-        [SwaggerOperation(Summary = "Hoàn thành lịch hẹn")]
+        [SwaggerOperation(Summary = "Cập nhật lịch hẹn hoàn thành")]
         public async Task<ActionResult<ResultModel>> UpdateBookingEvidens([FromRoute] Guid bookingId, [FromBody] UpdateEvidensDto command)
         {
             var result = await mediator.Send(new UpdateEvidensForConsultantCommand(bookingId, command));
@@ -153,14 +153,14 @@ namespace Monhealth.Api.Controllers
                 return new ResultModel
                 {
                     Success = false,
-                    Message = "Hoàn thành lịch hẹn thất bại",
+                    Message = "Cập nhật lịch hẹn thất bại",
                     Status = 500,
                 };
             }
             return Ok(new ResultModel
             {
                 Success = true,
-                Message = "Hoàn thành lịch hẹn thành công",
+                Message = "Cập nhật lịch hẹn thành công",
                 Status = 200,
             });
         }

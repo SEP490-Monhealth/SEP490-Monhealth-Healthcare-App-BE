@@ -52,19 +52,19 @@ namespace Monhealth.Api.Controllers
             };
         }
 
-        // [HttpGet("{activityId}")]
-        // [SwaggerOperation(Summary = "Lấy thông tin hoạt động")]
-        // public async Task<ActionResult<ResultModel>> GetById(Guid activityId)
-        // {
-        //     var activities = await _mediator.Send(new GetActivityByIdQuery(activityId));
+        [HttpGet("{activityId}")]
+        [SwaggerOperation(Summary = "Lấy thông tin hoạt động")]
+        public async Task<ActionResult<ResultModel>> GetById(Guid activityId)
+        {
+            var activities = await _mediator.Send(new GetActivityByIdQuery(activityId));
 
-        //     return new ResultModel
-        //     {
-        //         Data = activities,
-        //         Status = 200,
-        //         Success = true,
-        //     };
-        // }
+            return new ResultModel
+            {
+                Data = activities,
+                Status = 200,
+                Success = true,
+            };
+        }
 
         [HttpPost]
         [SwaggerOperation(Summary = "Tạo hoạt động")]
@@ -113,7 +113,7 @@ namespace Monhealth.Api.Controllers
         }
 
         [HttpPatch("{activityId}/completed")]
-        [SwaggerOperation(Summary = "Hoàn thành hoạt động")]
+        [SwaggerOperation(Summary = "Cập nhật hoạt động hoàn thành")]
         public async Task<ActionResult<ResultModel>> ChangeIsCompleted(Guid activityId)
         {
             var command = new ChangeIsCompletedActivityCommand { ActivityId = activityId };
@@ -131,7 +131,7 @@ namespace Monhealth.Api.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Hoàn thành hoạt động thành công"
+                Message = "Cập nhật hoạt động thành công"
             };
         }
     }
