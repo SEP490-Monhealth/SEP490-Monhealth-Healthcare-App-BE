@@ -14,7 +14,7 @@ namespace Monhealth.Application.Features.Subscription.UserSubscriptionBackground
         private readonly ILogger<UserSubscriptionBackgroundService> _logger;
         private readonly IServiceScopeFactory _serviceScopeFactory;
         // Dùng khoảng thời gian 2 phút để test
-        private readonly TimeSpan _interval = TimeSpan.FromMinutes(2);
+        private readonly TimeSpan _interval = TimeSpan.FromHours(2);
 
         public UserSubscriptionBackgroundService(IServiceScopeFactory serviceScopeFactory, ILogger<UserSubscriptionBackgroundService> logger)
         {
