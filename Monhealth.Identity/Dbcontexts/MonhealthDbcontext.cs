@@ -225,7 +225,7 @@ namespace Monhealth.Identity.Dbcontexts
             builder.ApplyConfiguration(new ChatConfiguration());
             builder.ApplyConfiguration(new MessageConfiguration());
 
-
+            // Toan dev trai
             builder.ApplyConfiguration(new MetricConfiguration());
             builder.ApplyConfiguration(new GoalConfiguration());
             builder.ApplyConfiguration(new UserSubscriptionConfiguration());

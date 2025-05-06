@@ -25,7 +25,7 @@ namespace Monhealth.Identity.Configurations
             },
             #endregion
 
-            // Toàn - Quang (Reported status but IsReviewed = true)
+            // Toàn - Nhật Quang
             #region Review 2 for Booking 3
             new Review
             {
