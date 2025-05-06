@@ -13,10 +13,10 @@ namespace Monhealth.Application
             {
                 ActivityId = query.ActivityId,
                 UserId = query.UserId,
-                DailyActivityId = query.DailyActivityId,
                 WorkoutId = query.WorkoutId,
                 CaloriesBurned = query.Workout.CaloriesBurned,
                 DurationMinutes = query.Workout.DurationMinutes,
+                IsCompleted = query.IsCompleted,
                 CreatedAt = query.CreatedAt,
                 UpdatedAt = query.UpdatedAt,
             };
