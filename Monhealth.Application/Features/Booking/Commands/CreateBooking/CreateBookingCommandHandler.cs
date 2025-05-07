@@ -25,17 +25,26 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
             string meetingUrl;
 
             var booking = mapper.Map<Domain.Booking>(request);
-            booking.CreatedAt = GetCurrentVietnamTime();
-            booking.UpdatedAt = GetCurrentVietnamTime();
-            bookingRepository.Add(booking);
-
-            //plus amout booking for consultant
+            
             var consultant = await consultantRepository.GetConsultantByConsultantId(booking.ConsultantId.Value)
                       ?? throw new BadRequestException("Không thấy chuyên viên tư vấn");
             var member = await userRepository.GetUserByIdAsync(booking.UserId.Value)
                             ?? throw new BadRequestException("Không tìm thấy người dùng");
-            consultant.UpdatedAt = DateTime.Now;
 
+            var existingBooking = await bookingRepository.GetBookingByUserIdAndDateTime(
+                                booking.UserId.Value,
+                                booking.Day,
+                                booking.StartTime,
+                                booking.EndTime,
+                                cancellationToken
+                                );
+                                
+            if (existingBooking != null)
+            {
+                 throw new BadRequestException("Bạn đã có lịch hẹn với khung giờ này trong ngày.");
+            }
+
+            bookingRepository.Add(booking);
             //subtract amout remaining booking
             var sub = await userSubscriptionRepository.GetUserSubscriptionActiveOfUser(booking.UserId.Value)
               ?? throw new BadRequestException("Bạn đã hết số lượt có thể đặt lịch");

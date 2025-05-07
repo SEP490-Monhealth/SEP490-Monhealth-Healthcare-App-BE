@@ -39,4 +39,8 @@
     <ProjectReference Include="..\Monhealth.Application\Monhealth.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

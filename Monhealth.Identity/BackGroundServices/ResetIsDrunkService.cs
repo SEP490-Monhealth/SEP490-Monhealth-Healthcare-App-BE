@@ -12,7 +12,7 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
     {
         private readonly IServiceScopeFactory _serviceScopeFactory;
         private readonly ILogger<ResetIsDrunkService> _logger;
-        private readonly TimeSpan _interval = TimeSpan.FromMinutes(2); // Khoảng thời gian kiểm tra
+        private readonly TimeSpan _interval = TimeSpan.FromMinutes(1); // Khoảng thời gian kiểm tra
 
         public ResetIsDrunkService(IServiceScopeFactory serviceScopeFactory, ILogger<ResetIsDrunkService> logger)
         {
@@ -22,7 +22,7 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            // _logger.LogInformation("ResetIsDrunkService started.");
+             _logger.LogInformation("ResetIsDrunkService started.");
 
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -33,7 +33,7 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
                         var repository = scope.ServiceProvider.GetRequiredService<IWaterReminderRepository>();
                         var notificationService = scope.ServiceProvider.GetRequiredService<ISystemNotificationService>();
 
-                        var now = DateTime.Now; // Lấy thời gian hiện tại
+                        var now = GetCurrentVietnamTime(); // Lấy thời gian hiện tại
 
                         _logger.LogInformation($"Checking reminders at {now}.");
 
@@ -47,7 +47,6 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
                             // Kiểm tra nếu CreatedAt đã qua ngày mới
                             if (reminder.CreatedAt.HasValue && reminder.CreatedAt.Value.Date < now.Date)
                             {
-                                // Đặt IsDrunk về false
                                 reminder.IsDrunk = false;
                             }
                             // Phần 2: Kiểm tra và gửi thông báo
@@ -76,7 +75,6 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
                         }
                     }
 
-                    // Chờ đến lần kiểm tra tiếp theo (định kỳ theo _interval)
                     await Task.Delay(_interval, stoppingToken);
                 }
                 catch (TaskCanceledException)
@@ -155,6 +153,13 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
                     _logger.LogInformation("No reminders to reset.");
                 }
             }
+        }
+    
+        private DateTime GetCurrentVietnamTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"); // Vietnam Time Zone
+            return TimeZoneInfo.ConvertTimeFromUtc(utcNow, vietnamTimeZone);
         }
     }
 }
