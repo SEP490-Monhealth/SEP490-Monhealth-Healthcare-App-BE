@@ -146,8 +146,8 @@ namespace Monhealth.Identity.Configurations
                 BookingId = Guid.Parse("874e5430-3fbe-43c2-80a4-53d30bfb4e32"),
                 Rating = 5,
                 Comment = "Tư vấn rất hữu ích và giúp tôi cải thiện thói quen ăn uống. Tôi cảm thấy tự tin hơn khi áp dụng những lời khuyên này vào cuộc sống hàng ngày.",
-                CreatedAt = DateTime.ParseExact("23-12-2025 11:23:57", "dd-MM-yyyy HH:mm:ss", null),
-                UpdatedAt = DateTime.ParseExact("23-12-2025 11:23:57", "dd-MM-yyyy HH:mm:ss", null),
+                CreatedAt = DateTime.ParseExact("23-04-2025 11:23:57", "dd-MM-yyyy HH:mm:ss", null),
+                UpdatedAt = DateTime.ParseExact("23-04-2025 11:23:57", "dd-MM-yyyy HH:mm:ss", null),
             },
             #endregion
 

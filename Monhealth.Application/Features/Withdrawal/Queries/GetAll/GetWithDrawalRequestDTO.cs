@@ -10,7 +10,7 @@ namespace Monhealth.Application
         public Guid ConsultantId { get; set; }
         public ConsultantDTO12 Consultant { get; set; } = null!;
         [JsonPropertyName("bank")]
-        public ConsultantBankInfo ConsultantBank { get; set; }
+        public BankInfo ConsultantBank { get; set; }
         public string Description { get; set; } = string.Empty;
         public float Amount { get; set; }
         public string Reason { get; set; } = string.Empty;
@@ -25,7 +25,7 @@ namespace Monhealth.Application
         public string AvatarUrl { get; set; } = string.Empty;
     }
 
-    public class ConsultantBankInfo
+    public class BankInfo
     {
         [JsonPropertyName("name")]
         public string BankName { get; set; } = string.Empty;

@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using MediatR;
 using Monhealth.Application.Models.Paging;
 using Monhealth.Domain.Enum;
@@ -6,7 +7,7 @@ namespace Monhealth.Application
 
 {
     public record GetByConsultantDTO(Guid WithdrawalRequestId,
-    Guid ConsultantId, Guid ConsultantBankId, ConsultantDTO1 Consultant, ConsultantBankInfo ConsultantBank, string Description,
+    Guid ConsultantId, Guid ConsultantBankId, ConsultantDTO1 Consultant, ConsultantBankInfo Bank, string Description,
     float Amount, string Reason, WithdrawalStatus Status, DateTime? CreatedAt, DateTime? UpdatedAt);
 
     public class GetByConsultantRequest : IRequest<PageResult<GetByConsultantDTO>>
@@ -33,6 +34,7 @@ public class ConsultantDTO1
 
 public class ConsultantBankInfo
 {
+    [JsonPropertyName("name")]
     public string BankName { get; set; } = string.Empty;
     public string ShortName { get; set; } = string.Empty;
     public string LogoUrl { get; set; } = string.Empty;

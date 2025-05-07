@@ -29,7 +29,9 @@ namespace Monhealth.Application
 
     public class ConsultantBankDto
     {
+        [JsonPropertyName("number")]
         public string AccountNumber { get; set; }
+        [JsonPropertyName("name")]
         public string AccountName { get; set; }
     }
 

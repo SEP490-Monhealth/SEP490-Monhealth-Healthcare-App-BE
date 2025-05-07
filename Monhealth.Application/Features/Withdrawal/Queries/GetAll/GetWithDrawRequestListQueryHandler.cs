@@ -19,7 +19,7 @@ namespace Monhealth.Application
                 {
                     WithdrawalRequestId = wd.WithdrawalRequestId,
                     ConsultantId = wd.ConsultantId,
-                    ConsultantBank = wd.Consultant.ConsultantBanks.Select(cb => new ConsultantBankInfo
+                    ConsultantBank = wd.Consultant.ConsultantBanks.Select(cb => new BankInfo
                     {
                         BankName = cb.Bank.BankName,
                         ShortName = cb.Bank.ShortName,
