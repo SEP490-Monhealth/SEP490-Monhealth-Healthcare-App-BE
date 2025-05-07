@@ -108,76 +108,76 @@ namespace Monhealth.Identity.Configurations
             #endregion
 
             // WithdrawalRequest 5 Thịnh
-            #region Transaction 5
-            new Transaction
-            {
-                TransactionId = Guid.NewGuid(),
-                UserId = null,
-                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
-                WalletId = Guid.Parse("32cd37ec-1b39-4d25-babd-6c81ef867d2f"),
-                BookingId = null,
-                WithdrawalRequestId = Guid.Parse("1f6273e7-a96b-423d-843f-f00953f619a2"),
-                UserSubscriptionId = null,
-                SubscriptionId = null,
-                TransactionType = TransactionType.Withdrawal,
-                OrderCode = null,
-                Description = "Rút một phần tiền từ tài khoản để sử dụng",
-                Amount = 180000,
-                Status = StatusTransaction.Completed,
-                UpdatedAt = DateTime.ParseExact("03-03-2025 09:21:00", "dd-MM-yyyy HH:mm:ss", null),
-                CreatedAt = DateTime.ParseExact("03-03-2025 09:21:00", "dd-MM-yyyy HH:mm:ss", null),
-                CreatedBy = null,
-                UpdatedBy = null,
-            },
-            #endregion
+            // #region Transaction 5
+            // new Transaction
+            // {
+            //     TransactionId = Guid.NewGuid(),
+            //     UserId = null,
+            //     ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+            //     WalletId = Guid.Parse("32cd37ec-1b39-4d25-babd-6c81ef867d2f"),
+            //     BookingId = null,
+            //     WithdrawalRequestId = Guid.Parse("1f6273e7-a96b-423d-843f-f00953f619a2"),
+            //     UserSubscriptionId = null,
+            //     SubscriptionId = null,
+            //     TransactionType = TransactionType.Withdrawal,
+            //     OrderCode = null,
+            //     Description = "Rút một phần tiền từ tài khoản để sử dụng",
+            //     Amount = 180000,
+            //     Status = StatusTransaction.Completed,
+            //     UpdatedAt = DateTime.ParseExact("03-03-2025 09:21:00", "dd-MM-yyyy HH:mm:ss", null),
+            //     CreatedAt = DateTime.ParseExact("03-03-2025 09:21:00", "dd-MM-yyyy HH:mm:ss", null),
+            //     CreatedBy = null,
+            //     UpdatedBy = null,
+            // },
+            // #endregion
 
             // WithdrawalRequest 6 Thịnh
-            #region Transaction 6
-            new Transaction
-            {
-                TransactionId = Guid.NewGuid(),
-                UserId = null,
-                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
-                WalletId = Guid.Parse("32cd37ec-1b39-4d25-babd-6c81ef867d2f"),
-                BookingId = null,
-                WithdrawalRequestId = Guid.Parse("f5628eba-2df4-479b-91e3-0377d49d81a5"),
-                UserSubscriptionId = null,
-                SubscriptionId = null,
-                TransactionType = TransactionType.Withdrawal,
-                OrderCode = null,
-                Description = "Xin rút tiền để đáp ứng nhu cầu tài chính",
-                Amount = 150000,
-                Status = StatusTransaction.Completed,
-                UpdatedAt = DateTime.ParseExact("07-04-2025 16:19:00", "dd-MM-yyyy HH:mm:ss", null),
-                CreatedAt = DateTime.ParseExact("07-04-2025 16:19:00", "dd-MM-yyyy HH:mm:ss", null),
-                CreatedBy = null,
-                UpdatedBy = null,
-            },
-            #endregion
+            // #region Transaction 6
+            // new Transaction
+            // {
+            //     TransactionId = Guid.NewGuid(),
+            //     UserId = null,
+            //     ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+            //     WalletId = Guid.Parse("32cd37ec-1b39-4d25-babd-6c81ef867d2f"),
+            //     BookingId = null,
+            //     WithdrawalRequestId = Guid.Parse("f5628eba-2df4-479b-91e3-0377d49d81a5"),
+            //     UserSubscriptionId = null,
+            //     SubscriptionId = null,
+            //     TransactionType = TransactionType.Withdrawal,
+            //     OrderCode = null,
+            //     Description = "Xin rút tiền để đáp ứng nhu cầu tài chính",
+            //     Amount = 150000,
+            //     Status = StatusTransaction.Completed,
+            //     UpdatedAt = DateTime.ParseExact("07-04-2025 16:19:00", "dd-MM-yyyy HH:mm:ss", null),
+            //     CreatedAt = DateTime.ParseExact("07-04-2025 16:19:00", "dd-MM-yyyy HH:mm:ss", null),
+            //     CreatedBy = null,
+            //     UpdatedBy = null,
+            // },
+            // #endregion
 
             // WithdrawalRequest 7 Thịnh
-            #region Transaction 7
-            new Transaction
-            {
-                TransactionId = Guid.NewGuid(),
-                UserId = null,
-                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
-                WalletId = Guid.Parse("32cd37ec-1b39-4d25-babd-6c81ef867d2f"),
-                BookingId = null,
-                WithdrawalRequestId = Guid.Parse("86d7a91c-5c7e-4432-8fd1-b6c0cd001322"),
-                UserSubscriptionId = null,
-                SubscriptionId = null,
-                TransactionType = TransactionType.Withdrawal,
-                OrderCode = null,
-                Description = "Yêu cầu chuyển tiền về tài khoản cá nhân của tôi",
-                Amount = 300000,
-                Status = StatusTransaction.Completed,
-                UpdatedAt = DateTime.ParseExact("02-05-2025 10:26:00", "dd-MM-yyyy HH:mm:ss", null),
-                CreatedAt = DateTime.ParseExact("02-05-2025 10:26:00", "dd-MM-yyyy HH:mm:ss", null),
-                CreatedBy = null,
-                UpdatedBy = null,
-            },
-            #endregion
+            // #region Transaction 7
+            // new Transaction
+            // {
+            //     TransactionId = Guid.NewGuid(),
+            //     UserId = null,
+            //     ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+            //     WalletId = Guid.Parse("32cd37ec-1b39-4d25-babd-6c81ef867d2f"),
+            //     BookingId = null,
+            //     WithdrawalRequestId = Guid.Parse("86d7a91c-5c7e-4432-8fd1-b6c0cd001322"),
+            //     UserSubscriptionId = null,
+            //     SubscriptionId = null,
+            //     TransactionType = TransactionType.Withdrawal,
+            //     OrderCode = null,
+            //     Description = "Yêu cầu chuyển tiền về tài khoản cá nhân của tôi",
+            //     Amount = 300000,
+            //     Status = StatusTransaction.Completed,
+            //     UpdatedAt = DateTime.ParseExact("02-05-2025 10:26:00", "dd-MM-yyyy HH:mm:ss", null),
+            //     CreatedAt = DateTime.ParseExact("02-05-2025 10:26:00", "dd-MM-yyyy HH:mm:ss", null),
+            //     CreatedBy = null,
+            //     UpdatedBy = null,
+            // },
+            // #endregion
 
             // WithdrawalRequest 8 Quốc Duy
             #region Transaction 8
@@ -218,7 +218,7 @@ namespace Monhealth.Identity.Configurations
                 TransactionType = TransactionType.Withdrawal,
                 OrderCode = null,
                 Description = "Đề nghị rút số tiền cần thiết ngay bây giờ",
-                Amount = 243000,
+                Amount = 100000,
                 Status = StatusTransaction.Completed,
                 UpdatedAt = DateTime.ParseExact("10-12-2024 08:26:00", "dd-MM-yyyy HH:mm:ss", null),
                 CreatedAt = DateTime.ParseExact("10-12-2024 08:26:00", "dd-MM-yyyy HH:mm:ss", null),

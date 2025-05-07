@@ -12,7 +12,7 @@ namespace Monhealth.Identity.Configurations
 
             builder.HasData(
 
-            // Quang 
+            // Nhật Quang 
             #region WithdrawalRequest 1  
             new WithdrawalRequest
             {
@@ -77,52 +77,52 @@ namespace Monhealth.Identity.Configurations
             #endregion
 
             // Thịnh
-            #region WithdrawalRequest 5 
-            new WithdrawalRequest
-            {
-                WithdrawalRequestId = Guid.Parse("1f6273e7-a96b-423d-843f-f00953f619a2"),
-                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
-                ConsultantBankId = Guid.Parse("a25001e8-ebd3-476e-bea2-c816709236bc"),
-                Description = "Rút một phần tiền từ tài khoản để sử dụng",
-                Reason = "",
-                Amount = 180000,
-                Status = WithdrawalStatus.Approved,
-                UpdatedAt = DateTime.ParseExact("02-03-2025 07:10:00", "dd-MM-yyyy HH:mm:ss", null),
-                CreatedAt = DateTime.ParseExact("02-03-2025 07:10:00", "dd-MM-yyyy HH:mm:ss", null),
-            },
-            #endregion
+            // #region WithdrawalRequest 5 
+            // new WithdrawalRequest
+            // {
+            //     WithdrawalRequestId = Guid.Parse("1f6273e7-a96b-423d-843f-f00953f619a2"),
+            //     ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+            //     ConsultantBankId = Guid.Parse("a25001e8-ebd3-476e-bea2-c816709236bc"),
+            //     Description = "Rút một phần tiền từ tài khoản để sử dụng",
+            //     Reason = "",
+            //     Amount = 180000,
+            //     Status = WithdrawalStatus.Approved,
+            //     UpdatedAt = DateTime.ParseExact("02-03-2025 07:10:00", "dd-MM-yyyy HH:mm:ss", null),
+            //     CreatedAt = DateTime.ParseExact("02-03-2025 07:10:00", "dd-MM-yyyy HH:mm:ss", null),
+            // },
+            // #endregion
 
             // Thịnh
-            #region WithdrawalRequest 6
-            new WithdrawalRequest
-            {
-                WithdrawalRequestId = Guid.Parse("f5628eba-2df4-479b-91e3-0377d49d81a5"),
-                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
-                ConsultantBankId = Guid.Parse("a25001e8-ebd3-476e-bea2-c816709236bc"),
-                Description = "Xin rút tiền để đáp ứng nhu cầu tài chính",
-                Reason = "",
-                Amount = 150000,
-                Status = WithdrawalStatus.Approved,
-                UpdatedAt = DateTime.ParseExact("06-04-2025 15:22:00", "dd-MM-yyyy HH:mm:ss", null),
-                CreatedAt = DateTime.ParseExact("06-04-2025 15:22:00", "dd-MM-yyyy HH:mm:ss", null),
-            },
-            #endregion
+            // #region WithdrawalRequest 6
+            // new WithdrawalRequest
+            // {
+            //     WithdrawalRequestId = Guid.Parse("f5628eba-2df4-479b-91e3-0377d49d81a5"),
+            //     ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+            //     ConsultantBankId = Guid.Parse("a25001e8-ebd3-476e-bea2-c816709236bc"),
+            //     Description = "Xin rút tiền để đáp ứng nhu cầu tài chính",
+            //     Reason = "",
+            //     Amount = 150000,
+            //     Status = WithdrawalStatus.Approved,
+            //     UpdatedAt = DateTime.ParseExact("06-04-2025 15:22:00", "dd-MM-yyyy HH:mm:ss", null),
+            //     CreatedAt = DateTime.ParseExact("06-04-2025 15:22:00", "dd-MM-yyyy HH:mm:ss", null),
+            // },
+            // #endregion
 
             // Thịnh
-            #region WithdrawalRequest 7 
-            new WithdrawalRequest
-            {
-                WithdrawalRequestId = Guid.Parse("86d7a91c-5c7e-4432-8fd1-b6c0cd001322"),
-                ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
-                ConsultantBankId = Guid.Parse("a25001e8-ebd3-476e-bea2-c816709236bc"),
-                Description = "Yêu cầu chuyển tiền về tài khoản cá nhân của tôi",
-                Reason = "",
-                Amount = 300000,
-                Status = WithdrawalStatus.Approved,
-                UpdatedAt = DateTime.ParseExact("01-05-2025 09:37:00", "dd-MM-yyyy HH:mm:ss", null),
-                CreatedAt = DateTime.ParseExact("01-05-2025 09:37:00", "dd-MM-yyyy HH:mm:ss", null),
-            },
-            #endregion
+            // #region WithdrawalRequest 7 
+            // new WithdrawalRequest
+            // {
+            //     WithdrawalRequestId = Guid.Parse("86d7a91c-5c7e-4432-8fd1-b6c0cd001322"),
+            //     ConsultantId = Guid.Parse("0a9dad22-7b87-408b-a377-71dbbe004abc"),
+            //     ConsultantBankId = Guid.Parse("a25001e8-ebd3-476e-bea2-c816709236bc"),
+            //     Description = "Yêu cầu chuyển tiền về tài khoản cá nhân của tôi",
+            //     Reason = "",
+            //     Amount = 300000,
+            //     Status = WithdrawalStatus.Approved,
+            //     UpdatedAt = DateTime.ParseExact("01-05-2025 09:37:00", "dd-MM-yyyy HH:mm:ss", null),
+            //     CreatedAt = DateTime.ParseExact("01-05-2025 09:37:00", "dd-MM-yyyy HH:mm:ss", null),
+            // },
+            // #endregion
 
             // Quốc Duy
             #region WithdrawalRequest 8 
@@ -149,7 +149,7 @@ namespace Monhealth.Identity.Configurations
                 ConsultantBankId = Guid.Parse("69a0ff4b-b075-4bcd-8d32-e5d8319c622c"),
                 Description = "Đề nghị rút số tiền cần thiết ngay bây giờ",
                 Reason = "",
-                Amount = 243000,
+                Amount = 100000,
                 Status = WithdrawalStatus.Approved,
                 UpdatedAt = DateTime.ParseExact("09-12-2024 09:39:00", "dd-MM-yyyy HH:mm:ss", null),
                 CreatedAt = DateTime.ParseExact("09-12-2024 09:39:00", "dd-MM-yyyy HH:mm:ss", null),
