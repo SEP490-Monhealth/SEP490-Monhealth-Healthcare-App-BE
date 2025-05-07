@@ -630,7 +630,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     string consContent = $"Ghi nhận báo cáo liên quan đến cuộc hẹn. Hệ thống sẽ tiến hành xem xét và xử lý";
 
                     await notificationService.SendUserNotificationAsync(
-                        consultant.ConsultantId,
+                        (Guid)consultant.UserId,
                         consTitle,
                          consContent,
                         cancellation
@@ -955,6 +955,36 @@ namespace Monhealth.Infrastructure.NotificationServices
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Failed to send new message notification to consultant: {chat.ConsultantId}");
+            }
+        }
+
+        public async Task NotifyConsultantStatusChangedAsync(Consultant consultant, CancellationToken cancellationToken)
+        {
+            try
+            {
+                if (consultant != null)
+                {
+
+                    string title = "Thông báo";
+                    string content = $"Tài khoản của bạn đã bị ngừng hoạt động vì đã bị báo cáo 2 lần trong tháng";
+
+                    await notificationService.SendUserNotificationAsync(
+                        (Guid)consultant.UserId,
+                        title,
+                        content,
+                        cancellationToken
+                    );
+
+                    logger.LogInformation($"Sent ban report to consultant: {consultant.ConsultantId}");
+                }
+                else
+                {
+                    logger.LogWarning($"Consultant not found with ID: {consultant.ConsultantId}");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Failed to Sent ban report to consultant: {consultant.ConsultantId}");
             }
         }
     }

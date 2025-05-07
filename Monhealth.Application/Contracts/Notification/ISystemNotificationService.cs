@@ -33,5 +33,6 @@ namespace Monhealth.Application.Contracts.Notification
         Task NotifyWithdrawalRequestSubmittedAsync(WithdrawalRequest withdrawalRequest, CancellationToken cancellationToken);
         Task NotifyWithdrawalRequestRejectedAsync(WithdrawalRequest withdrawalRequest, CancellationToken cancellationToken);
         Task NotifyNewChatFromMemberAsync(Chat chat, CancellationToken cancellationToken);
+        Task NotifyConsultantStatusChangedAsync(Consultant consultant, CancellationToken cancellationToken);
     }
 }

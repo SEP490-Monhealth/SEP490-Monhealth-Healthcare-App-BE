@@ -52,6 +52,18 @@ namespace Monhealth.Identity.Repositories
             };
         }
 
+        public async Task<List<Report>> GetApprovedReportsByConsultantIdAndMonthAsync(Guid consultantId, int month, int year)
+        {
+             return await _context.Reports
+                        .Include(r => r.Booking)
+                        .Where(r => r.Booking.ConsultantId == consultantId &&
+                            r.Status == StatusReport.Approved &&
+                            r.CreatedBy.HasValue &&
+                            r.CreatedAt.Value.Month == month &&
+                            r.CreatedAt.Value.Year == year)
+                        .ToListAsync();
+        }
+
         public async Task<List<Report>> GetReportByBookingId(Guid bookingId)
         {
             return await _context.Reports
