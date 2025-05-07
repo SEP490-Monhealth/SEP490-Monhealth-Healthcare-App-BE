@@ -790,7 +790,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = transaction.Amount;
 
                     string title = "Thông báo";
-                    string content = $"Lịch hẹn đã được xác nhận, số dư tài khoản đã được cộng thêm {amount}";
+                    string content = $"Lịch hẹn đã được xác nhận, số dư tài khoản đã được cộng thêm {amount} VND";
 
                     // Gửi thông báo cho consultant
                     await notificationService.SendUserNotificationAsync(
@@ -864,7 +864,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = withdrawalRequest.Amount;
 
                     string title = "Thông báo";
-                    string content = $"Tạo thành công yêu cầu rút {amount}, đang chờ phê duyệt từ hệ thống";
+                    string content = $"Tạo thành công yêu cầu rút {amount} VND, đang chờ phê duyệt từ hệ thống";
 
                     // Gửi thông báo cho consultant
                     await notificationService.SendUserNotificationAsync(
@@ -903,7 +903,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = withdrawalRequest.Amount;
 
                     string title = "Thông báo";
-                    string content = $"Yêu cầu rút {amount} đã bị từ chối. Lý do: {withdrawalRequest.Reason}";
+                    string content = $"Yêu cầu rút {amount} VND đã bị từ chối. Lý do: {withdrawalRequest.Reason}";
 
                     // Gửi thông báo cho consultant
                     await notificationService.SendUserNotificationAsync(
