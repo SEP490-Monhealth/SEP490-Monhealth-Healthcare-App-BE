@@ -69,7 +69,7 @@ namespace Monhealth.Identity.Repositories
         public async Task<List<WaterReminder>> GetAllActiveWaterRemindersAsync()
         {
             return await _context.WaterReminders.
-            Where(water => water.IsDrunk == true).ToListAsync();
+            Where(water => water.Status == true).ToListAsync();
         }
 
         public async Task<List<WaterReminder>> GetAllReminderAsync()

@@ -19,10 +19,10 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
             _serviceScopeFactory = serviceScopeFactory;
             _logger = logger;
         }
-
+        DateTime lastCheckedDate = DateTime.MinValue;
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-             _logger.LogInformation("ResetIsDrunkService started.");
+            _logger.LogInformation("ResetIsDrunkService started.");
 
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -42,23 +42,32 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
 
                         string currentTimeString = now.ToString("HH:mm"); // Format giờ:phút
 
+                        if (now.Date != lastCheckedDate.Date)
+                        {
+                            // Cập nhật lại IsDrunk nếu đã qua ngày mới
+                            foreach (var reminder in activeReminders)
+                            {
+                                if (reminder.CreatedAt.HasValue && reminder.CreatedAt.Value.Date < now.Date)
+                                {
+                                    reminder.IsDrunk = false; // Đặt lại IsDrunk thành false nếu đã qua ngày mới
+                                }
+                            }
+                            lastCheckedDate = now; // Lưu lại ngày hiện tại để kiểm tra lần sau
+                        }
+
                         foreach (var reminder in activeReminders)
                         {
-                            // Kiểm tra nếu CreatedAt đã qua ngày mới
-                            if (reminder.CreatedAt.HasValue && reminder.CreatedAt.Value.Date < now.Date)
-                            {
-                                reminder.IsDrunk = false;
-                            }
+
                             // Phần 2: Kiểm tra và gửi thông báo
                             if (ShouldSendReminder(reminder, currentTimeString))
                             {
                                 await notificationService.NotifyWaterReminderNotificationAsync(reminder, stoppingToken);
 
-                                // Cập nhật trạng thái nếu cần
-                                if (!reminder.IsRecurring)
-                                {
-                                    reminder.IsDrunk = true;
-                                }
+                                //// Cập nhật trạng thái nếu cần
+                                //if (!reminder.IsRecurring)
+                                //{
+                                //    reminder.IsDrunk = true;
+                                //}
                             }
 
                         }
@@ -154,7 +163,7 @@ namespace Monhealth.Identity.BackGroundServiceForWaterReminder
                 }
             }
         }
-    
+
         private DateTime GetCurrentVietnamTime()
         {
             DateTime utcNow = DateTime.UtcNow;
