@@ -37,7 +37,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
             //         throw new BadRequestException("Chưa đến giờ kết thúc lịch hẹn, không thể hoàn thành");
             //         }   
             // }
-           
+
             if (request.UpdateEvidensDto.EvidenceUrls == null || request.UpdateEvidensDto.EvidenceUrls.Count == 0)
             {
                 throw new BadRequestException("Danh sách URL không được để trống");
@@ -74,10 +74,11 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
 
             //plus booking count 
             var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
-            if(consultant != null){
+            if (consultant != null)
+            {
                 consultant.BookingCount += 1;
             }
-            
+
             await bookingRepository.SaveChangeAsync(cancellationToken);
 
             //add 3 days to check is Review field
@@ -92,7 +93,7 @@ namespace Monhealth.Application.Features.Booking.Commands.UpdateEvidensForConsul
                 // Log error for debugging
                 logger.LogError(ex, $"Failed to schedule background job, bookingId {booking.BookingId}");
             }
-             //notify for both user and consultant done booking
+            //notify for both user and consultant done booking
             await systemNotificationService.NotifyBookingCompleteForBoth(booking, cancellationToken);
             return true;
         }
