@@ -28,12 +28,14 @@ namespace Monhealth.Infrastructure.NotificationServices
                     DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
                     string consultantTitle = "Thông báo";
                     string consultantContent = $"Hoàn thành tư vấn với {member.FullName} lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
+                    string actionUrl = $"/bookings/{booking.BookingId}";
 
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
                         consultantTitle,
                         consultantContent,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
 
                     // Thông báo cho member
@@ -44,7 +46,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                         (Guid)booking.UserId,
                         memberTitle,
                         memberContent,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
 
                     logger.LogInformation($"Sent booking completion notifications for booking: {booking.BookingId}");
@@ -67,12 +70,14 @@ namespace Monhealth.Infrastructure.NotificationServices
                 DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
                 string consultantTitle = "Thông báo";
                 string consultantContent = $"Hủy lịch hẹn với {booking.User.FullName} lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
+                string actionUrl = $"/bookings/{booking.BookingId}";
 
                 await notificationService.SendUserNotificationAsync(
                     (Guid)consultant.UserId,
                     consultantTitle,
                     consultantContent,
-                    cancellationToken
+                    cancellationToken,
+                    actionUrl
                 );
 
                 // Thông báo cho member
@@ -83,7 +88,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                     (Guid)booking.UserId,
                     memberTitle,
                     memberContent,
-                    cancellationToken
+                    cancellationToken,
+                    actionUrl
                 );
 
                 logger.LogInformation($"Sent booking cancellation notifications for booking: {booking.BookingId}");
@@ -492,7 +498,7 @@ namespace Monhealth.Infrastructure.NotificationServices
             {
                 var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
                 var member = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
-
+                
                 if (consultant != null && member != null)
                 {
                     // Get the scheduled date and time
@@ -503,12 +509,14 @@ namespace Monhealth.Infrastructure.NotificationServices
                     // Notification for consultant
                     string consultantTitle = "Nhắc nhở";
                     string consultantContent = $"Sắp đến lịch hẹn với {member.FullName} lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")} (trong 30 phút nữa)";
+                    string actionUrl = $"/bookings/{booking.BookingId}";
 
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
                         consultantTitle,
                         consultantContent,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
 
                     // Notification for member/user
@@ -519,7 +527,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                         (Guid)booking.UserId,
                         memberTitle,
                         memberContent,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
 
                     logger.LogInformation($"Sent 30-minute reminder notifications for booking: {booking.BookingId}");
@@ -567,18 +576,21 @@ namespace Monhealth.Infrastructure.NotificationServices
             {
                 // Lấy thông tin user
                 var user = await userRepository.GetUserByIdAsync(userId);
+                var booking = await bookingRepository.GetBookingByBookingIdAsync(report.BookingId);
                 if (user != null)
                 {
                     // Tiêu đề & nội dung notification
                     string title = "Thông báo";
                     string content = $"Gửi thành công báo cáo lịch hẹn. Hệ thống sẽ xử lý trong thời gian sớm nhất";
-
+                    string actionUrl = $"/bookings/{booking?.BookingId}/report";
+                    
                     // Gửi notification
                     await notificationService.SendUserNotificationAsync(
                         user.Id,
                         title,
                         content,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
                 }
 
@@ -591,9 +603,10 @@ namespace Monhealth.Infrastructure.NotificationServices
         }
 
         public async Task NotifyUserReportApprovedAsync(Report report, CancellationToken cancellation)
-        {
+        {       
             // 1. Thông báo tới user: xin lỗi và xác nhận report hợp lệ
             var booking = await bookingRepository.GetBookingByBookingIdAsync(report.BookingId);
+
             try
             {
                 var user = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
@@ -601,12 +614,14 @@ namespace Monhealth.Infrastructure.NotificationServices
                 {
                     string userTitle = "Thông báo";
                     string userContent = $"Ghi nhận báo cáo và hoàn trả 1 lượt đặt lịch hẹn. Rất tiếc về sự bất tiện vừa qua";
+                    string actionUrl = $"/bookings/{booking?.BookingId}/report";
 
                     await notificationService.SendUserNotificationAsync(
                         user.Id,
                         userTitle,
                         userContent,
-                        cancellation
+                        cancellation,
+                        actionUrl
                     );
 
                     logger.LogInformation(
@@ -630,12 +645,14 @@ namespace Monhealth.Infrastructure.NotificationServices
                 {
                     string consTitle = "Thông báo";
                     string consContent = $"Ghi nhận báo cáo liên quan đến cuộc hẹn. Hệ thống sẽ tiến hành xem xét và xử lý";
+                    string actionUrl = $"/bookings/{booking?.BookingId}/report";
 
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
                         consTitle,
                          consContent,
-                        cancellation
+                        cancellation,
+                        actionUrl
                     );
 
                     logger.LogInformation(
@@ -659,7 +676,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                 var booking = await bookingRepository.GetBookingByBookingIdAsync(report.BookingId);
                 var user = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
                 var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
-
+                
                 if (user == null || consultant == null)
                 {
                     logger.LogWarning($"Cannot send report rejection notification: User or Consultant not found");
@@ -668,12 +685,14 @@ namespace Monhealth.Infrastructure.NotificationServices
 
                 string title = "Thông báo";
                 string content = $"Ghi nhận báo cáo, nhưng chưa đủ căn cứ để xử lý theo quy định";
+                string actionUrl = $"/bookings/{booking.BookingId}/report";
 
                 await notificationService.SendUserNotificationAsync(
                     user.Id,
                     title,
                     content,
-                    cancellation
+                    cancellation,
+                    actionUrl
                 );
 
                 logger.LogInformation($"Sent report rejection notification to user for reportId {report.ReportId}");
@@ -724,12 +743,14 @@ namespace Monhealth.Infrastructure.NotificationServices
                     // Thông báo cho consultant
                     string consultantTitle = "Thông báo";
                     string consultantContent = $"Xác nhận thành công yêu cầu lịch nghỉ. Đã hủy các lịch hẹn lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
-
+                    string actionUrl = $"/bookings/{booking.BookingId}";
+ 
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
                         consultantTitle,
                         consultantContent,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
 
                     // Thông báo cho member
@@ -741,7 +762,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                         (Guid)booking.UserId,
                         memberTitle,
                         memberContent,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
 
                     logger.LogInformation($"Sent cancellation notifications for report id: {booking.BookingId}");
@@ -792,7 +814,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = transaction.Amount;
 
                     string title = "Thông báo";
-                    string content = $"Lịch hẹn đã được xác nhận, số dư tài khoản đã được cộng thêm {amount} VND";
+                    string content = $"Lịch hẹn đã được xác nhận, số dư tài khoản đã được cộng thêm {amount:NO} VND";
 
                     // Gửi thông báo cho consultant
                     await notificationService.SendUserNotificationAsync(
@@ -866,7 +888,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = withdrawalRequest.Amount;
 
                     string title = "Thông báo";
-                    string content = $"Tạo thành công yêu cầu rút {amount} VND, đang chờ phê duyệt từ hệ thống";
+                    string content = $"Tạo thành công yêu cầu rút {amount:NO} VND, đang chờ phê duyệt từ hệ thống";
 
                     // Gửi thông báo cho consultant
                     await notificationService.SendUserNotificationAsync(
@@ -905,7 +927,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = withdrawalRequest.Amount;
 
                     string title = "Thông báo";
-                    string content = $"Yêu cầu rút {amount} VND đã bị từ chối. Lý do: {withdrawalRequest.Reason}";
+                    string content = $"Yêu cầu rút {amount:NO} VND đã bị từ chối. Lý do: {withdrawalRequest.Reason}";
 
                     // Gửi thông báo cho consultant
                     await notificationService.SendUserNotificationAsync(
