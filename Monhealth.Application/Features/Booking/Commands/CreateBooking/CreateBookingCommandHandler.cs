@@ -36,6 +36,7 @@ namespace Monhealth.Application.Features.Booking.Commands.CreateBooking
                                 booking.Day,
                                 booking.StartTime,
                                 booking.EndTime,
+                                booking.Status,
                                 cancellationToken
                                 );
                                 

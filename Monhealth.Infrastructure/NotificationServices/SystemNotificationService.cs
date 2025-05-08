@@ -378,12 +378,13 @@ namespace Monhealth.Infrastructure.NotificationServices
                     // Thông báo cho member
                     string memberTitle = "Thông báo";
                     string memberContent = $"Đặt lịch hẹn thành công với {consultant.AppUser.FullName} lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
-
+                     
                     await notificationService.SendUserNotificationAsync(
                         (Guid)booking.UserId,
                         memberTitle,
                         memberContent,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
 
                     logger.LogInformation($"Sent new booking notifications for booking: {booking.BookingId}");

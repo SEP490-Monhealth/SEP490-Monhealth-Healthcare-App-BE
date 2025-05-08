@@ -285,15 +285,16 @@ namespace Monhealth.Identity.Repositories
             await _context.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<Booking?> GetBookingByUserIdAndDateTime(Guid userId, DateOnly day, TimeOnly startTime, TimeOnly endTime, CancellationToken cancellationToken)
+        public async Task<Booking?> GetBookingByUserIdAndDateTime(Guid userId, DateOnly day, TimeOnly startTime, TimeOnly endTime, BookingStatus bookingStatus, CancellationToken cancellationToken)
         {
              return await _context.Bookings
                           .Where(b => b.UserId == userId
+                            && b.Status == bookingStatus
                             && b.Day == day
                             && ((b.StartTime < endTime && b.EndTime > startTime) // Kiểm tra chồng lấp thời gian
-                             || (b.StartTime >= startTime && b.StartTime < endTime) // Booking mới bắt đầu trong thời gian cũ
+                            || (b.StartTime >= startTime && b.StartTime < endTime) // Booking mới bắt đầu trong thời gian cũ
                             || (b.EndTime > startTime && b.EndTime <= endTime))) // Booking mới kết thúc trong thời gian cũ
-                        .FirstOrDefaultAsync();
-        }
+                            .FirstOrDefaultAsync();
+        }   
     }
 }

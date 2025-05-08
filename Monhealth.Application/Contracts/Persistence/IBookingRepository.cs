@@ -22,6 +22,6 @@ namespace Monhealth.Application.Contracts.Persistence
         Task<List<Booking>> GetCompletedBookingsOlderThan24HoursAsync(DateTime thresholdTime, CancellationToken cancellationToken);
         Task<List<Booking>> GetPendingReviewsAsync(DateTime threshold, CancellationToken cancellationToken);
         Task UpdateRangeAsync(IEnumerable<Booking> bookings, CancellationToken cancellationToken);
-        Task<Booking?> GetBookingByUserIdAndDateTime(Guid userId, DateOnly day, TimeOnly startTime, TimeOnly endTime, CancellationToken cancellationToken);
+        Task<Booking?> GetBookingByUserIdAndDateTime(Guid userId, DateOnly day, TimeOnly startTime, TimeOnly endTime, BookingStatus status, CancellationToken cancellationToken);
     }
 }
