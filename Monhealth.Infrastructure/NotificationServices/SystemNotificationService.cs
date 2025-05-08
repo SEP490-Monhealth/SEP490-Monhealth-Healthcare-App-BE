@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Globalization;
+using Microsoft.Extensions.Logging;
 using Monhealth.Application.Contracts.Notification;
 using Monhealth.Application.Contracts.Persistence;
 using Monhealth.Domain;
@@ -814,8 +815,9 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = transaction.Amount;
 
                     string title = "Thông báo";
-                    string content = $"Lịch hẹn đã được xác nhận, số dư tài khoản đã được cộng thêm {amount:NO} VND";
-
+                    string content = amount.HasValue 
+                                ? $"Lịch hẹn đã được xác nhận, số dư tài khoản đã được cộng thêm {amount.Value.ToString("N0", CultureInfo.GetCultureInfo("vi-VN"))} VND"
+                            : "Số dư tài khoản không hợp lệ";
                     // Gửi thông báo cho consultant
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
@@ -823,7 +825,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                         content,
                         cancellationToken
                     );
-
+                    
                     logger.LogInformation($"Sent new income notification to consultant: {transaction.ConsultantId}");
                 }
                 else
@@ -888,7 +890,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = withdrawalRequest.Amount;
 
                     string title = "Thông báo";
-                    string content = $"Tạo thành công yêu cầu rút {amount:NO} VND, đang chờ phê duyệt từ hệ thống";
+                    string content = $"Tạo thành công yêu cầu rút {amount.ToString("#,0", new CultureInfo("vi-VN"))} VND, đang chờ phê duyệt từ hệ thống";
 
                     // Gửi thông báo cho consultant
                     await notificationService.SendUserNotificationAsync(
@@ -897,6 +899,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                         content,
                         cancellationToken
                     );
+                    logger.LogInformation(content);
                     logger.LogInformation($"Sent withdrawal request pending notification to consultant: {withdrawalRequest.ConsultantId}");
                 }
                 else
@@ -927,7 +930,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = withdrawalRequest.Amount;
 
                     string title = "Thông báo";
-                    string content = $"Yêu cầu rút {amount:NO} VND đã bị từ chối. Lý do: {withdrawalRequest.Reason}";
+                    string content = $"Yêu cầu rút {amount.ToString("N0", new CultureInfo("vi-VN"))} VND đã bị từ chối. Lý do: {withdrawalRequest.Reason}";
 
                     // Gửi thông báo cho consultant
                     await notificationService.SendUserNotificationAsync(
