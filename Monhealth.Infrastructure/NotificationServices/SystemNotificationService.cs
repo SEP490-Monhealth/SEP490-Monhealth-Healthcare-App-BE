@@ -385,7 +385,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     // Thông báo cho member
                     string memberTitle = "Thông báo";
                     string memberContent = $"Đặt lịch hẹn thành công với {consultant.AppUser.FullName} lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
-                     
+
                     await notificationService.SendUserNotificationAsync(
                         (Guid)booking.UserId,
                         memberTitle,
@@ -499,7 +499,7 @@ namespace Monhealth.Infrastructure.NotificationServices
             {
                 var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
                 var member = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
-                
+
                 if (consultant != null && member != null)
                 {
                     // Get the scheduled date and time
@@ -584,7 +584,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     string title = "Thông báo";
                     string content = $"Gửi thành công báo cáo lịch hẹn. Hệ thống sẽ xử lý trong thời gian sớm nhất";
                     string actionUrl = $"/bookings/{booking?.BookingId}/report";
-                    
+
                     // Gửi notification
                     await notificationService.SendUserNotificationAsync(
                         user.Id,
@@ -604,7 +604,7 @@ namespace Monhealth.Infrastructure.NotificationServices
         }
 
         public async Task NotifyUserReportApprovedAsync(Report report, CancellationToken cancellation)
-        {       
+        {
             // 1. Thông báo tới user: xin lỗi và xác nhận report hợp lệ
             var booking = await bookingRepository.GetBookingByBookingIdAsync(report.BookingId);
 
@@ -677,7 +677,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                 var booking = await bookingRepository.GetBookingByBookingIdAsync(report.BookingId);
                 var user = await userRepository.GetUserByIdAsync((Guid)booking.UserId);
                 var consultant = await consultantRepository.GetConsultantByConsultantId((Guid)booking.ConsultantId);
-                
+
                 if (user == null || consultant == null)
                 {
                     logger.LogWarning($"Cannot send report rejection notification: User or Consultant not found");
@@ -745,7 +745,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     string consultantTitle = "Thông báo";
                     string consultantContent = $"Xác nhận thành công yêu cầu lịch nghỉ. Đã hủy các lịch hẹn lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
                     string actionUrl = $"/bookings/{booking.BookingId}";
- 
+
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
                         consultantTitle,
@@ -815,7 +815,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                     var amount = transaction.Amount;
 
                     string title = "Thông báo";
-                    string content = amount.HasValue 
+                    string content = amount.HasValue
                                 ? $"Lịch hẹn đã được xác nhận, số dư tài khoản đã được cộng thêm {amount.Value.ToString("N0", CultureInfo.GetCultureInfo("vi-VN"))} VND"
                             : "Số dư tài khoản không hợp lệ";
                     // Gửi thông báo cho consultant
@@ -825,7 +825,7 @@ namespace Monhealth.Infrastructure.NotificationServices
                         content,
                         cancellationToken
                     );
-                    
+
                     logger.LogInformation($"Sent new income notification to consultant: {transaction.ConsultantId}");
                 }
                 else
@@ -969,7 +969,8 @@ namespace Monhealth.Infrastructure.NotificationServices
                         (Guid)consultant.UserId,
                         title,
                         content,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
 
                     logger.LogInformation($"Sent new message notification to consultant: {chat.ConsultantId} from member: {chat.UserId}");
