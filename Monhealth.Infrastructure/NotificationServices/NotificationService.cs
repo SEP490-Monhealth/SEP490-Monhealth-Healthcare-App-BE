@@ -15,7 +15,7 @@ namespace Monhealth.Infrastructure.NotificationServices
         IDeviceRepository deviceRepository
         ) : INotificationService
     {
-        public async Task<bool> SendExpoNotificationAsync(string expoPushToken, string title, string body)
+        public async Task<bool> SendExpoNotificationAsync(string expoPushToken, string title, string body, string sound = "default")
         {
             if (string.IsNullOrEmpty(expoPushToken))
             {
@@ -53,7 +53,7 @@ namespace Monhealth.Infrastructure.NotificationServices
 
         public async Task SendUserNotificationAsync(Guid userId, string title, string content,
             CancellationToken cancellationToken,
-            string actionUrl = null, Guid? referenceId = null)
+            string? actionUrl = null, Guid? referenceId = null)
         {
             try
             {
@@ -137,7 +137,7 @@ namespace Monhealth.Infrastructure.NotificationServices
             }
         }
 
-        public async Task SendUserNotificationWithoutSaveAsync(Guid userId, string title, string content, string actionUrl = null, Guid? referenceId = null)
+        public async Task SendUserNotificationWithoutSaveAsync(Guid userId, string title, string content, string? actionUrl = null, Guid? referenceId = null)
         {
             try
             {

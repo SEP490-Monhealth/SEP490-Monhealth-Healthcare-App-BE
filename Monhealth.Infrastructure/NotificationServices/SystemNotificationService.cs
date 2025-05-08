@@ -366,12 +366,13 @@ namespace Monhealth.Infrastructure.NotificationServices
                     DateTime scheduledDateTime = scheduledDate.ToDateTime(scheduledTime);
                     string consultantTitle = "Thông báo";
                     string consultantContent = $"Lịch hẹn mới từ {member.FullName} lúc {scheduledDateTime.ToString("HH:mm dd/MM/yyyy")}";
-
+                    string actionUrl = $"/bookings/{booking.BookingId}";
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
                         consultantTitle,
                         consultantContent,
-                        cancellationToken
+                        cancellationToken,
+                        actionUrl
                     );
 
                     // Thông báo cho member
