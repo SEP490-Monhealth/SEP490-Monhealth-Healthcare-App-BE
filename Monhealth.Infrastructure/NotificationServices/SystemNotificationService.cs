@@ -964,7 +964,7 @@ namespace Monhealth.Infrastructure.NotificationServices
 
                     string title = "Tin nhắn";
                     string content = $"{memberName} đã gửi một tin nhắn";
-                    string actionUrl = $"(tabs)/consultant/chat/${chat.ChatId}";
+                    string actionUrl = $"/chats/${chat.ChatId}";
                     await notificationService.SendUserNotificationAsync(
                         (Guid)consultant.UserId,
                         title,
