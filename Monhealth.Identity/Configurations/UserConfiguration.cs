@@ -12,7 +12,8 @@ namespace Monhealth.Identity.Configurations
             var hasher = new PasswordHasher<AppUser>();
 
             var admin = Guid.Parse("3026595f-1414-4b74-be8f-11b7f6e7f4f6");
-            var today = DateTime.ParseExact("06-01-2025", "dd-MM-yyyy", null);
+            var today = DateTime.ParseExact("02-05-2025 12:34:27", "dd-MM-yyyy HH:mm:ss", null);
+            var past = DateTime.ParseExact("16-04-2025 09:43:12", "dd-MM-yyyy HH:mm:ss", null);
 
             builder.HasData(
 
@@ -31,8 +32,8 @@ namespace Monhealth.Identity.Configurations
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "123As@"),
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UpdatedAt = today,
-                CreatedAt = today,
+                UpdatedAt = past,
+                CreatedAt = past,
                 CreatedBy = admin,
                 UpdatedBy = admin,
             },
@@ -52,8 +53,8 @@ namespace Monhealth.Identity.Configurations
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "123As@"),
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UpdatedAt = today,
-                CreatedAt = today,
+                UpdatedAt = past,
+                CreatedAt = past,
                 CreatedBy = admin,
                 UpdatedBy = admin,
             },
@@ -73,8 +74,8 @@ namespace Monhealth.Identity.Configurations
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "123As@"),
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UpdatedAt = today,
-                CreatedAt = today,
+                UpdatedAt = past,
+                CreatedAt = past,
                 CreatedBy = admin,
                 UpdatedBy = admin,
             },
@@ -94,8 +95,8 @@ namespace Monhealth.Identity.Configurations
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "123As@"),
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UpdatedAt = today,
-                CreatedAt = today,
+                UpdatedAt = past,
+                CreatedAt = past,
                 CreatedBy = admin,
                 UpdatedBy = admin,
             },
@@ -115,8 +116,8 @@ namespace Monhealth.Identity.Configurations
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "123As@"),
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UpdatedAt = today,
-                CreatedAt = today,
+                UpdatedAt = past,
+                CreatedAt = past,
                 CreatedBy = admin,
                 UpdatedBy = admin,
             },
@@ -136,12 +137,99 @@ namespace Monhealth.Identity.Configurations
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "123As@"),
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UpdatedAt = today,
-                CreatedAt = today,
+                UpdatedAt = past,
+                CreatedAt = past,
                 CreatedBy = admin,
                 UpdatedBy = admin,
             },
 
+
+            // NEW USER
+             new AppUser
+             {
+                 Id = Guid.Parse("9628e265-12f6-4b8d-8cd5-14f2b004969a"),
+                 FullName = "Nguyễn Thị Mai",
+                 Status = true,
+                 Email = "mainguyen@gmail.com",
+                 NormalizedEmail = "MAINGUYEN@GMAIL.COM",
+                 UserName = "mainguyen",
+                 NormalizedUserName = "MAINGUYEN",
+                 PhoneNumber = "0976113843",
+                 Avatar = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Moncati%2FUser%2Fbabibii4.jpg?alt=media&token=c95c7149-f905-4cec-b268-c58255681878",
+                 LockoutEnabled = false,
+                 EmailConfirmed = true,
+                 PasswordHash = hasher.HashPassword(null, "123As@"),
+                 SecurityStamp = Guid.NewGuid().ToString(),
+                 UpdatedAt = DateTime.ParseExact("01-05-2025 11:20:27", "dd-MM-yyyy HH:mm:ss", null),
+                 CreatedAt = DateTime.ParseExact("01-05-2025 11:20:27", "dd-MM-yyyy HH:mm:ss", null),
+                 CreatedBy = admin,
+                 UpdatedBy = admin,
+             },
+
+             new AppUser
+             {
+                 Id = Guid.Parse("a500c277-804b-47d7-b3cf-627addaeea7a"),
+                 FullName = "Trần Thảo Linh",
+                 Status = true,
+                 Email = "thaolinh@gmail.com",
+                 NormalizedEmail = "THAOLINH@GMAIL.COM",
+                 UserName = "thaolinh",
+                 NormalizedUserName = "THAOLINH",
+                 PhoneNumber = "0909545415",
+                 Avatar = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Moncati%2FUser%2Fbabibii.jpg?alt=media&token=2c2e3d73-7264-4387-bf00-d4c44f252f71",
+                 LockoutEnabled = false,
+                 EmailConfirmed = true,
+                 PasswordHash = hasher.HashPassword(null, "123As@"),
+                 SecurityStamp = Guid.NewGuid().ToString(),
+                 UpdatedAt = DateTime.ParseExact("02-05-2025 15:29:44", "dd-MM-yyyy HH:mm:ss", null),
+                 CreatedAt = DateTime.ParseExact("02-05-2025 15:29:44", "dd-MM-yyyy HH:mm:ss", null),
+                 CreatedBy = admin,
+                 UpdatedBy = admin,
+             },
+
+             new AppUser
+             {
+                 Id = Guid.Parse("627242c7-198b-4f11-8e34-d8f1f9dfebef"),
+                 FullName = "Bùi Hương Phương",
+                 Status = true,
+                 Email = "phuongbui@gmail.com",
+                 NormalizedEmail = "PHUONGBUI@GMAIL.COM",
+                 UserName = "PhuongBui",
+                 NormalizedUserName = "PHUONGBUI",
+                 PhoneNumber = "0908644629",
+                 Avatar = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Moncati%2FUser%2Fbabibii2.jpg?alt=media&token=6b22226c-96dc-407a-a490-25ee8e7f594d",
+                 LockoutEnabled = false,
+                 EmailConfirmed = true,
+                 PasswordHash = hasher.HashPassword(null, "123As@"),
+                 SecurityStamp = Guid.NewGuid().ToString(),
+                 UpdatedAt = DateTime.ParseExact("03-05-2025 17:32:47", "dd-MM-yyyy HH:mm:ss", null),
+                 CreatedAt = DateTime.ParseExact("03-05-2025 17:32:47", "dd-MM-yyyy HH:mm:ss", null),
+                 CreatedBy = admin,
+                 UpdatedBy = admin,
+             },
+
+             new AppUser
+             {
+                 Id = Guid.Parse("2a6314ae-42a0-4baa-a347-fa3eab0ea6db"),
+                 FullName = "Lý Minh Quân",
+                 Status = true,
+                 Email = "quanly@gmail.com",
+                 NormalizedEmail = "QUANLY@GMAIL.COM",
+                 UserName = "QuanLy",
+                 NormalizedUserName = "QUANLY",
+                 PhoneNumber = "0996977280",
+                 Avatar = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/Moncati%2FUser%2FheroHome.png?alt=media&token=385b2a6e-224e-46a2-96e0-546c5bee4646",
+                 LockoutEnabled = false,
+                 EmailConfirmed = true,
+                 PasswordHash = hasher.HashPassword(null, "123As@"),
+                 SecurityStamp = Guid.NewGuid().ToString(),
+                 UpdatedAt = DateTime.ParseExact("20-03-2025 09:41:56", "dd-MM-yyyy HH:mm:ss", null),
+                 CreatedAt = DateTime.ParseExact("20-03-2025 09:41:56", "dd-MM-yyyy HH:mm:ss", null),
+                 CreatedBy = admin,
+                 UpdatedBy = admin,
+             },
+
+            // XXX
             new AppUser
             {
                 Id = Guid.Parse("4565f47a-7239-4666-b9b4-0523b1d9ba3d"),

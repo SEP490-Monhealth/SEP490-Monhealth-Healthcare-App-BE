@@ -52,6 +52,35 @@ namespace Monhealth.Identity.Configurations
                 UserId = Guid.Parse("0075BA2C-F60D-4F75-B9F1-F71579BC4FD2")
             },
 
+            // NEW
+            // Nguyễn Thị Mai member
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                UserId = Guid.Parse("9628e265-12f6-4b8d-8cd5-14f2b004969a")
+            },
+
+            // Trần Thảo Linh member
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                UserId = Guid.Parse("a500c277-804b-47d7-b3cf-627addaeea7a")
+            },
+
+            // Bùi Hương Phương member
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                UserId = Guid.Parse("627242c7-198b-4f11-8e34-d8f1f9dfebef")
+            },
+
+            // Lý Minh Quân member
+            new IdentityUserRole<Guid>
+            {
+                RoleId = Guid.Parse("3F2504E0-4F89-11D3-9A0C-0305E82C3301"),
+                UserId = Guid.Parse("2a6314ae-42a0-4baa-a347-fa3eab0ea6db")
+            },
+
             // tran nhat quang consultant
             new IdentityUserRole<Guid>
             {
